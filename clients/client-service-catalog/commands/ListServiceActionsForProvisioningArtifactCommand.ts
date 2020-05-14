@@ -1,8 +1,4 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 import {
   ListServiceActionsForProvisioningArtifactInput,
   ListServiceActionsForProvisioningArtifactOutput
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: ListServiceActionsForProvisioningArtifactCommandInput
-  ) {
+  constructor(readonly input: ListServiceActionsForProvisioningArtifactCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     ListServiceActionsForProvisioningArtifactCommandInput,
     ListServiceActionsForProvisioningArtifactCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
     input: ListServiceActionsForProvisioningArtifactCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> {
-    return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand(output, context);
   }
 
   // Start section: command_body_extra

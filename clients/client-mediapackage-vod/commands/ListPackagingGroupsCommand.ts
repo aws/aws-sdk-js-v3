@@ -1,21 +1,11 @@
-import {
-  MediaPackageVodClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageVodClient";
-import {
-  ListPackagingGroupsRequest,
-  ListPackagingGroupsResponse
-} from "../models/index";
+import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
+import { ListPackagingGroupsRequest, ListPackagingGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPackagingGroupsCommand,
   serializeAws_restJson1_1ListPackagingGroupsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPackagingGroupsCommandInput = ListPackagingGroupsRequest;
-export type ListPackagingGroupsCommandOutput = ListPackagingGroupsResponse &
-  __MetadataBearer;
+export type ListPackagingGroupsCommandOutput = ListPackagingGroupsResponse & __MetadataBearer;
 
 export class ListPackagingGroupsCommand extends $Command<
   ListPackagingGroupsCommandInput,
@@ -49,13 +38,8 @@ export class ListPackagingGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPackagingGroupsCommandInput,
-    ListPackagingGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPackagingGroupsCommandInput, ListPackagingGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListPackagingGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPackagingGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPackagingGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListPackagingGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPackagingGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ListPackagingGroupsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPackagingGroupsCommandOutput> {
+    return deserializeAws_restJson1_1ListPackagingGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

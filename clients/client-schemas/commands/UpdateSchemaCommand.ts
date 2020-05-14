@@ -3,16 +3,9 @@ import {
   deserializeAws_restJson1_1UpdateSchemaCommand,
   serializeAws_restJson1_1UpdateSchemaCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient";
+import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class UpdateSchemaCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSchemaCommandInput, UpdateSchemaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class UpdateSchemaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateSchemaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateSchemaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateSchemaCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSchemaCommandOutput> {
     return deserializeAws_restJson1_1UpdateSchemaCommand(output, context);
   }
 

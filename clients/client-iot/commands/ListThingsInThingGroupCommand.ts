@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListThingsInThingGroupRequest,
-  ListThingsInThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListThingsInThingGroupRequest, ListThingsInThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThingsInThingGroupCommand,
   serializeAws_restJson1_1ListThingsInThingGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListThingsInThingGroupCommandInput = ListThingsInThingGroupRequest;
-export type ListThingsInThingGroupCommandOutput = ListThingsInThingGroupResponse &
-  __MetadataBearer;
+export type ListThingsInThingGroupCommandOutput = ListThingsInThingGroupResponse & __MetadataBearer;
 
 export class ListThingsInThingGroupCommand extends $Command<
   ListThingsInThingGroupCommandInput,
@@ -49,13 +38,8 @@ export class ListThingsInThingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListThingsInThingGroupCommandInput,
-    ListThingsInThingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListThingsInThingGroupCommandInput, ListThingsInThingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class ListThingsInThingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListThingsInThingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListThingsInThingGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: ListThingsInThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ListThingsInThingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListThingsInThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1ListThingsInThingGroupCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingsInThingGroupCommandOutput> {
+    return deserializeAws_restJson1_1ListThingsInThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

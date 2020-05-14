@@ -1,18 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { UpdateOpsItemRequest, UpdateOpsItemResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateOpsItemCommand,
   serializeAws_json1_1UpdateOpsItemCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateOpsItemCommandInput = UpdateOpsItemRequest;
-export type UpdateOpsItemCommandOutput = UpdateOpsItemResponse &
-  __MetadataBearer;
+export type UpdateOpsItemCommandOutput = UpdateOpsItemResponse & __MetadataBearer;
 
 export class UpdateOpsItemCommand extends $Command<
   UpdateOpsItemCommandInput,
@@ -47,9 +39,7 @@ export class UpdateOpsItemCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateOpsItemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateOpsItemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateOpsItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateOpsItemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateOpsItemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateOpsItemCommandOutput> {
     return deserializeAws_json1_1UpdateOpsItemCommand(output, context);
   }
 

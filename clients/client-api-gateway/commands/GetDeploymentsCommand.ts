@@ -1,18 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { Deployments, GetDeploymentsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDeploymentsCommand,
   serializeAws_restJson1_1GetDeploymentsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class GetDeploymentsCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDeploymentsCommandInput, GetDeploymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class GetDeploymentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDeploymentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDeploymentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDeploymentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentsCommandOutput> {
     return deserializeAws_restJson1_1GetDeploymentsCommand(output, context);
   }
 

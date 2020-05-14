@@ -1,11 +1,5 @@
 import { createRequest } from "./index";
-import {
-  fooClient,
-  operationCommand,
-  InputTypesUnion,
-  OperationInput,
-  httpRequest
-} from "./foo.fixture";
+import { fooClient, operationCommand, InputTypesUnion, OperationInput, httpRequest } from "./foo.fixture";
 import {
   MetadataBearer,
   SerializeHandlerArguments,

@@ -1,27 +1,9 @@
-import {
-  CreateDiscovererCommandInput,
-  CreateDiscovererCommandOutput
-} from "./commands/CreateDiscovererCommand";
-import {
-  CreateRegistryCommandInput,
-  CreateRegistryCommandOutput
-} from "./commands/CreateRegistryCommand";
-import {
-  CreateSchemaCommandInput,
-  CreateSchemaCommandOutput
-} from "./commands/CreateSchemaCommand";
-import {
-  DeleteDiscovererCommandInput,
-  DeleteDiscovererCommandOutput
-} from "./commands/DeleteDiscovererCommand";
-import {
-  DeleteRegistryCommandInput,
-  DeleteRegistryCommandOutput
-} from "./commands/DeleteRegistryCommand";
-import {
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput
-} from "./commands/DeleteSchemaCommand";
+import { CreateDiscovererCommandInput, CreateDiscovererCommandOutput } from "./commands/CreateDiscovererCommand";
+import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand";
+import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
+import { DeleteDiscovererCommandInput, DeleteDiscovererCommandOutput } from "./commands/DeleteDiscovererCommand";
+import { DeleteRegistryCommandInput, DeleteRegistryCommandOutput } from "./commands/DeleteRegistryCommand";
+import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
 import {
   DeleteSchemaVersionCommandInput,
   DeleteSchemaVersionCommandOutput
@@ -30,18 +12,9 @@ import {
   DescribeCodeBindingCommandInput,
   DescribeCodeBindingCommandOutput
 } from "./commands/DescribeCodeBindingCommand";
-import {
-  DescribeDiscovererCommandInput,
-  DescribeDiscovererCommandOutput
-} from "./commands/DescribeDiscovererCommand";
-import {
-  DescribeRegistryCommandInput,
-  DescribeRegistryCommandOutput
-} from "./commands/DescribeRegistryCommand";
-import {
-  DescribeSchemaCommandInput,
-  DescribeSchemaCommandOutput
-} from "./commands/DescribeSchemaCommand";
+import { DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput } from "./commands/DescribeDiscovererCommand";
+import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
+import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
 import {
   GetCodeBindingSourceCommandInput,
   GetCodeBindingSourceCommandOutput
@@ -50,22 +23,10 @@ import {
   GetDiscoveredSchemaCommandInput,
   GetDiscoveredSchemaCommandOutput
 } from "./commands/GetDiscoveredSchemaCommand";
-import {
-  ListDiscoverersCommandInput,
-  ListDiscoverersCommandOutput
-} from "./commands/ListDiscoverersCommand";
-import {
-  ListRegistriesCommandInput,
-  ListRegistriesCommandOutput
-} from "./commands/ListRegistriesCommand";
-import {
-  ListSchemaVersionsCommandInput,
-  ListSchemaVersionsCommandOutput
-} from "./commands/ListSchemaVersionsCommand";
-import {
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput
-} from "./commands/ListSchemasCommand";
+import { ListDiscoverersCommandInput, ListDiscoverersCommandOutput } from "./commands/ListDiscoverersCommand";
+import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand";
+import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -74,46 +35,19 @@ import {
   LockServiceLinkedRoleCommandInput,
   LockServiceLinkedRoleCommandOutput
 } from "./commands/LockServiceLinkedRoleCommand";
-import {
-  PutCodeBindingCommandInput,
-  PutCodeBindingCommandOutput
-} from "./commands/PutCodeBindingCommand";
-import {
-  SearchSchemasCommandInput,
-  SearchSchemasCommandOutput
-} from "./commands/SearchSchemasCommand";
-import {
-  StartDiscovererCommandInput,
-  StartDiscovererCommandOutput
-} from "./commands/StartDiscovererCommand";
-import {
-  StopDiscovererCommandInput,
-  StopDiscovererCommandOutput
-} from "./commands/StopDiscovererCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { PutCodeBindingCommandInput, PutCodeBindingCommandOutput } from "./commands/PutCodeBindingCommand";
+import { SearchSchemasCommandInput, SearchSchemasCommandOutput } from "./commands/SearchSchemasCommand";
+import { StartDiscovererCommandInput, StartDiscovererCommandOutput } from "./commands/StartDiscovererCommand";
+import { StopDiscovererCommandInput, StopDiscovererCommandOutput } from "./commands/StopDiscovererCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UnlockServiceLinkedRoleCommandInput,
   UnlockServiceLinkedRoleCommandOutput
 } from "./commands/UnlockServiceLinkedRoleCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateDiscovererCommandInput,
-  UpdateDiscovererCommandOutput
-} from "./commands/UpdateDiscovererCommand";
-import {
-  UpdateRegistryCommandInput,
-  UpdateRegistryCommandOutput
-} from "./commands/UpdateRegistryCommand";
-import {
-  UpdateSchemaCommandInput,
-  UpdateSchemaCommandOutput
-} from "./commands/UpdateSchemaCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDiscovererCommandInput, UpdateDiscovererCommandOutput } from "./commands/UpdateDiscovererCommand";
+import { UpdateRegistryCommandInput, UpdateRegistryCommandOutput } from "./commands/UpdateRegistryCommand";
+import { UpdateSchemaCommandInput, UpdateSchemaCommandOutput } from "./commands/UpdateSchemaCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -130,12 +64,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -228,8 +157,7 @@ export type ServiceOutputTypes =
   | UpdateRegistryCommandOutput
   | UpdateSchemaCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -313,9 +241,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type schemasClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type schemasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -324,9 +250,7 @@ export type schemasClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type schemasClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type schemasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -59,38 +59,23 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput>;
   public getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
-    cb: (
-      err: any,
-      data?: GetAutoScalingGroupRecommendationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void
   ): void;
   public getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetAutoScalingGroupRecommendationsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void
   ): void;
   public getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetAutoScalingGroupRecommendationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetAutoScalingGroupRecommendationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void),
+    cb?: (err: any, data?: GetAutoScalingGroupRecommendationsCommandOutput) => void
   ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> | void {
     const command = new GetAutoScalingGroupRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -118,17 +103,14 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): void;
   public getEC2InstanceRecommendations(
     args: GetEC2InstanceRecommendationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEC2InstanceRecommendationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEC2InstanceRecommendationsCommandOutput) => void),
     cb?: (err: any, data?: GetEC2InstanceRecommendationsCommandOutput) => void
   ): Promise<GetEC2InstanceRecommendationsCommandOutput> | void {
     const command = new GetEC2InstanceRecommendationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -144,38 +126,23 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput>;
   public getEC2RecommendationProjectedMetrics(
     args: GetEC2RecommendationProjectedMetricsCommandInput,
-    cb: (
-      err: any,
-      data?: GetEC2RecommendationProjectedMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void
   ): void;
   public getEC2RecommendationProjectedMetrics(
     args: GetEC2RecommendationProjectedMetricsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: GetEC2RecommendationProjectedMetricsCommandOutput
-    ) => void
+    cb: (err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void
   ): void;
   public getEC2RecommendationProjectedMetrics(
     args: GetEC2RecommendationProjectedMetricsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetEC2RecommendationProjectedMetricsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: GetEC2RecommendationProjectedMetricsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void),
+    cb?: (err: any, data?: GetEC2RecommendationProjectedMetricsCommandOutput) => void
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> | void {
     const command = new GetEC2RecommendationProjectedMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -203,17 +170,14 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): void;
   public getEnrollmentStatus(
     args: GetEnrollmentStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetEnrollmentStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnrollmentStatusCommandOutput) => void),
     cb?: (err: any, data?: GetEnrollmentStatusCommandOutput) => void
   ): Promise<GetEnrollmentStatusCommandOutput> | void {
     const command = new GetEnrollmentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -241,17 +205,14 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): void;
   public getRecommendationSummaries(
     args: GetRecommendationSummariesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRecommendationSummariesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRecommendationSummariesCommandOutput) => void),
     cb?: (err: any, data?: GetRecommendationSummariesCommandOutput) => void
   ): Promise<GetRecommendationSummariesCommandOutput> | void {
     const command = new GetRecommendationSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -279,17 +240,14 @@ export class ComputeOptimizer extends ComputeOptimizerClient {
   ): void;
   public updateEnrollmentStatus(
     args: UpdateEnrollmentStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateEnrollmentStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnrollmentStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateEnrollmentStatusCommandOutput) => void
   ): Promise<UpdateEnrollmentStatusCommandOutput> | void {
     const command = new UpdateEnrollmentStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

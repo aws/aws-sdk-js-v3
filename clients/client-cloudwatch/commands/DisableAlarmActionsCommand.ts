@@ -1,18 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { DisableAlarmActionsInput } from "../models/index";
 import {
   deserializeAws_queryDisableAlarmActionsCommand,
   serializeAws_queryDisableAlarmActionsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DisableAlarmActionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableAlarmActionsCommandInput,
-    DisableAlarmActionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableAlarmActionsCommandInput, DisableAlarmActionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class DisableAlarmActionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisableAlarmActionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisableAlarmActionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDisableAlarmActionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisableAlarmActionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableAlarmActionsCommandOutput> {
     return deserializeAws_queryDisableAlarmActionsCommand(output, context);
   }
 

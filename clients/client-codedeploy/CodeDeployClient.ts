@@ -30,18 +30,9 @@ import {
   BatchGetOnPremisesInstancesCommandInput,
   BatchGetOnPremisesInstancesCommandOutput
 } from "./commands/BatchGetOnPremisesInstancesCommand";
-import {
-  ContinueDeploymentCommandInput,
-  ContinueDeploymentCommandOutput
-} from "./commands/ContinueDeploymentCommand";
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
+import { ContinueDeploymentCommandInput, ContinueDeploymentCommandOutput } from "./commands/ContinueDeploymentCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import {
   CreateDeploymentConfigCommandInput,
   CreateDeploymentConfigCommandOutput
@@ -50,10 +41,7 @@ import {
   CreateDeploymentGroupCommandInput,
   CreateDeploymentGroupCommandOutput
 } from "./commands/CreateDeploymentGroupCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteDeploymentConfigCommandInput,
   DeleteDeploymentConfigCommandOutput
@@ -70,26 +58,17 @@ import {
   DeregisterOnPremisesInstanceCommandInput,
   DeregisterOnPremisesInstanceCommandOutput
 } from "./commands/DeregisterOnPremisesInstanceCommand";
-import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetApplicationRevisionCommandInput,
   GetApplicationRevisionCommandOutput
 } from "./commands/GetApplicationRevisionCommand";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
 import {
   GetDeploymentConfigCommandInput,
   GetDeploymentConfigCommandOutput
 } from "./commands/GetDeploymentConfigCommand";
-import {
-  GetDeploymentGroupCommandInput,
-  GetDeploymentGroupCommandOutput
-} from "./commands/GetDeploymentGroupCommand";
+import { GetDeploymentGroupCommandInput, GetDeploymentGroupCommandOutput } from "./commands/GetDeploymentGroupCommand";
 import {
   GetDeploymentInstanceCommandInput,
   GetDeploymentInstanceCommandOutput
@@ -106,10 +85,7 @@ import {
   ListApplicationRevisionsCommandInput,
   ListApplicationRevisionsCommandOutput
 } from "./commands/ListApplicationRevisionsCommand";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListDeploymentConfigsCommandInput,
   ListDeploymentConfigsCommandOutput
@@ -126,10 +102,7 @@ import {
   ListDeploymentTargetsCommandInput,
   ListDeploymentTargetsCommandOutput
 } from "./commands/ListDeploymentTargetsCommand";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListGitHubAccountTokenNamesCommandInput,
   ListGitHubAccountTokenNamesCommandOutput
@@ -162,22 +135,10 @@ import {
   SkipWaitTimeForInstanceTerminationCommandInput,
   SkipWaitTimeForInstanceTerminationCommandOutput
 } from "./commands/SkipWaitTimeForInstanceTerminationCommand";
-import {
-  StopDeploymentCommandInput,
-  StopDeploymentCommandOutput
-} from "./commands/StopDeploymentCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateDeploymentGroupCommandInput,
   UpdateDeploymentGroupCommandOutput
@@ -198,12 +159,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -330,8 +286,7 @@ export type ServiceOutputTypes =
   | UpdateApplicationCommandOutput
   | UpdateDeploymentGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -415,9 +370,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeDeployClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeDeployClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -426,9 +379,7 @@ export type CodeDeployClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeDeployClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

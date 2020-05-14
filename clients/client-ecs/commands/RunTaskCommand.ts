@@ -1,18 +1,8 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { RunTaskRequest, RunTaskResponse } from "../models/index";
-import {
-  deserializeAws_json1_1RunTaskCommand,
-  serializeAws_json1_1RunTaskCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1RunTaskCommand, serializeAws_json1_1RunTaskCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type RunTaskCommandInput = RunTaskRequest;
 export type RunTaskCommandOutput = RunTaskResponse & __MetadataBearer;
 
-export class RunTaskCommand extends $Command<
-  RunTaskCommandInput,
-  RunTaskCommandOutput,
-  ECSClientResolvedConfig
-> {
+export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class RunTaskCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RunTaskCommandInput, RunTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class RunTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RunTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RunTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RunTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RunTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunTaskCommandOutput> {
     return deserializeAws_json1_1RunTaskCommand(output, context);
   }
 

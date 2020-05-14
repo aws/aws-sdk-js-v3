@@ -1,18 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { DeleteItemInput, DeleteItemOutput } from "../models/index";
 import {
   deserializeAws_json1_0DeleteItemCommand,
   serializeAws_json1_0DeleteItemCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeleteItemCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteItemCommandInput, DeleteItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeleteItemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteItemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteItemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteItemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteItemCommandOutput> {
     return deserializeAws_json1_0DeleteItemCommand(output, context);
   }
 

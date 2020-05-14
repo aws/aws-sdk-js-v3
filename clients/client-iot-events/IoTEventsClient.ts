@@ -2,26 +2,17 @@ import {
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput
 } from "./commands/CreateDetectorModelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "./commands/CreateInputCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput
 } from "./commands/DeleteDetectorModelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "./commands/DeleteInputCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand";
 import {
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput
 } from "./commands/DescribeDetectorModelCommand";
-import {
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput
-} from "./commands/DescribeInputCommand";
+import { DescribeInputCommandInput, DescribeInputCommandOutput } from "./commands/DescribeInputCommand";
 import {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput
@@ -30,38 +21,20 @@ import {
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput
 } from "./commands/ListDetectorModelVersionsCommand";
-import {
-  ListDetectorModelsCommandInput,
-  ListDetectorModelsCommandOutput
-} from "./commands/ListDetectorModelsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "./commands/ListInputsCommand";
+import { ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput } from "./commands/ListDetectorModelsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
-} from "./commands/PutLoggingOptionsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput
 } from "./commands/UpdateDetectorModelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "./commands/UpdateInputCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,12 +51,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -150,8 +118,7 @@ export type ServiceOutputTypes =
   | UpdateDetectorModelCommandOutput
   | UpdateInputCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -235,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTEventsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTEventsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -246,9 +211,7 @@ export type IoTEventsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTEventsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

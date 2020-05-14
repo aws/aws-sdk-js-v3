@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  GenerateTemplateRequest,
-  GenerateTemplateResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { GenerateTemplateRequest, GenerateTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1GenerateTemplateCommand,
   serializeAws_json1_1GenerateTemplateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GenerateTemplateCommandInput = GenerateTemplateRequest;
-export type GenerateTemplateCommandOutput = GenerateTemplateResponse &
-  __MetadataBearer;
+export type GenerateTemplateCommandOutput = GenerateTemplateResponse & __MetadataBearer;
 
 export class GenerateTemplateCommand extends $Command<
   GenerateTemplateCommandInput,
@@ -50,9 +39,7 @@ export class GenerateTemplateCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateTemplateCommandInput, GenerateTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GenerateTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GenerateTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GenerateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GenerateTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GenerateTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateTemplateCommandOutput> {
     return deserializeAws_json1_1GenerateTemplateCommand(output, context);
   }
 

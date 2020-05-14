@@ -2,10 +2,7 @@ import {
   AssociateEntityToThingCommandInput,
   AssociateEntityToThingCommandOutput
 } from "./commands/AssociateEntityToThingCommand";
-import {
-  CreateFlowTemplateCommandInput,
-  CreateFlowTemplateCommandOutput
-} from "./commands/CreateFlowTemplateCommand";
+import { CreateFlowTemplateCommandInput, CreateFlowTemplateCommandOutput } from "./commands/CreateFlowTemplateCommand";
 import {
   CreateSystemInstanceCommandInput,
   CreateSystemInstanceCommandOutput
@@ -14,14 +11,8 @@ import {
   CreateSystemTemplateCommandInput,
   CreateSystemTemplateCommandOutput
 } from "./commands/CreateSystemTemplateCommand";
-import {
-  DeleteFlowTemplateCommandInput,
-  DeleteFlowTemplateCommandOutput
-} from "./commands/DeleteFlowTemplateCommand";
-import {
-  DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput
-} from "./commands/DeleteNamespaceCommand";
+import { DeleteFlowTemplateCommandInput, DeleteFlowTemplateCommandOutput } from "./commands/DeleteFlowTemplateCommand";
+import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteSystemInstanceCommandInput,
   DeleteSystemInstanceCommandOutput
@@ -42,22 +33,13 @@ import {
   DeprecateSystemTemplateCommandInput,
   DeprecateSystemTemplateCommandOutput
 } from "./commands/DeprecateSystemTemplateCommand";
-import {
-  DescribeNamespaceCommandInput,
-  DescribeNamespaceCommandOutput
-} from "./commands/DescribeNamespaceCommand";
+import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
 import {
   DissociateEntityFromThingCommandInput,
   DissociateEntityFromThingCommandOutput
 } from "./commands/DissociateEntityFromThingCommand";
-import {
-  GetEntitiesCommandInput,
-  GetEntitiesCommandOutput
-} from "./commands/GetEntitiesCommand";
-import {
-  GetFlowTemplateCommandInput,
-  GetFlowTemplateCommandOutput
-} from "./commands/GetFlowTemplateCommand";
+import { GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand";
+import { GetFlowTemplateCommandInput, GetFlowTemplateCommandOutput } from "./commands/GetFlowTemplateCommand";
 import {
   GetFlowTemplateRevisionsCommandInput,
   GetFlowTemplateRevisionsCommandOutput
@@ -66,22 +48,13 @@ import {
   GetNamespaceDeletionStatusCommandInput,
   GetNamespaceDeletionStatusCommandOutput
 } from "./commands/GetNamespaceDeletionStatusCommand";
-import {
-  GetSystemInstanceCommandInput,
-  GetSystemInstanceCommandOutput
-} from "./commands/GetSystemInstanceCommand";
-import {
-  GetSystemTemplateCommandInput,
-  GetSystemTemplateCommandOutput
-} from "./commands/GetSystemTemplateCommand";
+import { GetSystemInstanceCommandInput, GetSystemInstanceCommandOutput } from "./commands/GetSystemInstanceCommand";
+import { GetSystemTemplateCommandInput, GetSystemTemplateCommandOutput } from "./commands/GetSystemTemplateCommand";
 import {
   GetSystemTemplateRevisionsCommandInput,
   GetSystemTemplateRevisionsCommandOutput
 } from "./commands/GetSystemTemplateRevisionsCommand";
-import {
-  GetUploadStatusCommandInput,
-  GetUploadStatusCommandOutput
-} from "./commands/GetUploadStatusCommand";
+import { GetUploadStatusCommandInput, GetUploadStatusCommandOutput } from "./commands/GetUploadStatusCommand";
 import {
   ListFlowExecutionMessagesCommandInput,
   ListFlowExecutionMessagesCommandOutput
@@ -90,10 +63,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  SearchEntitiesCommandInput,
-  SearchEntitiesCommandOutput
-} from "./commands/SearchEntitiesCommand";
+import { SearchEntitiesCommandInput, SearchEntitiesCommandOutput } from "./commands/SearchEntitiesCommand";
 import {
   SearchFlowExecutionsCommandInput,
   SearchFlowExecutionsCommandOutput
@@ -110,26 +80,14 @@ import {
   SearchSystemTemplatesCommandInput,
   SearchSystemTemplatesCommandOutput
 } from "./commands/SearchSystemTemplatesCommand";
-import {
-  SearchThingsCommandInput,
-  SearchThingsCommandOutput
-} from "./commands/SearchThingsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { SearchThingsCommandInput, SearchThingsCommandOutput } from "./commands/SearchThingsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UndeploySystemInstanceCommandInput,
   UndeploySystemInstanceCommandOutput
 } from "./commands/UndeploySystemInstanceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateFlowTemplateCommandInput,
-  UpdateFlowTemplateCommandOutput
-} from "./commands/UpdateFlowTemplateCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateFlowTemplateCommandInput, UpdateFlowTemplateCommandOutput } from "./commands/UpdateFlowTemplateCommand";
 import {
   UpdateSystemTemplateCommandInput,
   UpdateSystemTemplateCommandOutput
@@ -154,12 +112,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -264,8 +217,7 @@ export type ServiceOutputTypes =
   | UpdateSystemTemplateCommandOutput
   | UploadEntityDefinitionsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -349,9 +301,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTThingsGraphClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTThingsGraphClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -360,9 +310,7 @@ export type IoTThingsGraphClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTThingsGraphClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTThingsGraphClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

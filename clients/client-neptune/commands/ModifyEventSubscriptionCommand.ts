@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
-import {
-  ModifyEventSubscriptionMessage,
-  ModifyEventSubscriptionResult
-} from "../models/index";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/index";
 import {
   deserializeAws_queryModifyEventSubscriptionCommand,
   serializeAws_queryModifyEventSubscriptionCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult &
-  __MetadataBearer;
+export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult & __MetadataBearer;
 
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,
@@ -49,13 +38,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyEventSubscriptionCommandInput,
-    ModifyEventSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyEventSubscriptionCommandInput, ModifyEventSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ModifyEventSubscriptionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyEventSubscriptionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyEventSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyEventSubscriptionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyEventSubscriptionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyEventSubscriptionCommandOutput> {
     return deserializeAws_queryModifyEventSubscriptionCommand(output, context);
   }
 

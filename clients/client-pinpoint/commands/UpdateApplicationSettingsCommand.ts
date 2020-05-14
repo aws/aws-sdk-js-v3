@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  UpdateApplicationSettingsRequest,
-  UpdateApplicationSettingsResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { UpdateApplicationSettingsRequest, UpdateApplicationSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateApplicationSettingsCommand,
   serializeAws_restJson1_1UpdateApplicationSettingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateApplicationSettingsCommandInput = UpdateApplicationSettingsRequest;
-export type UpdateApplicationSettingsCommandOutput = UpdateApplicationSettingsResponse &
-  __MetadataBearer;
+export type UpdateApplicationSettingsCommandOutput = UpdateApplicationSettingsResponse & __MetadataBearer;
 
 export class UpdateApplicationSettingsCommand extends $Command<
   UpdateApplicationSettingsCommandInput,
@@ -49,13 +38,8 @@ export class UpdateApplicationSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateApplicationSettingsCommandInput,
-    UpdateApplicationSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateApplicationSettingsCommandInput, UpdateApplicationSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class UpdateApplicationSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateApplicationSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateApplicationSettingsCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateApplicationSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateApplicationSettingsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateApplicationSettingsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateApplicationSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateApplicationSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

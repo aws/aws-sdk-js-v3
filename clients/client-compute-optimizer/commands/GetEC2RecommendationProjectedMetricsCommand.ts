@@ -1,8 +1,4 @@
-import {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComputeOptimizerClient";
+import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEC2RecommendationProjectedMetricsRequest,
   GetEC2RecommendationProjectedMetricsResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: GetEC2RecommendationProjectedMetricsCommandInput
-  ) {
+  constructor(readonly input: GetEC2RecommendationProjectedMetricsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEC2RecommendationProjectedMetricsCommandInput,
-    GetEC2RecommendationProjectedMetricsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEC2RecommendationProjectedMetricsCommandInput, GetEC2RecommendationProjectedMetricsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     input: GetEC2RecommendationProjectedMetricsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> {
-    return deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand(output, context);
   }
 
   // Start section: command_body_extra

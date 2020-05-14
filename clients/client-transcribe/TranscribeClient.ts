@@ -1,7 +1,4 @@
-import {
-  CreateVocabularyCommandInput,
-  CreateVocabularyCommandOutput
-} from "./commands/CreateVocabularyCommand";
+import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
 import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput
@@ -10,10 +7,7 @@ import {
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput
 } from "./commands/DeleteTranscriptionJobCommand";
-import {
-  DeleteVocabularyCommandInput,
-  DeleteVocabularyCommandOutput
-} from "./commands/DeleteVocabularyCommand";
+import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "./commands/DeleteVocabularyCommand";
 import {
   DeleteVocabularyFilterCommandInput,
   DeleteVocabularyFilterCommandOutput
@@ -22,10 +16,7 @@ import {
   GetTranscriptionJobCommandInput,
   GetTranscriptionJobCommandOutput
 } from "./commands/GetTranscriptionJobCommand";
-import {
-  GetVocabularyCommandInput,
-  GetVocabularyCommandOutput
-} from "./commands/GetVocabularyCommand";
+import { GetVocabularyCommandInput, GetVocabularyCommandOutput } from "./commands/GetVocabularyCommand";
 import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput
@@ -34,10 +25,7 @@ import {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput
 } from "./commands/ListTranscriptionJobsCommand";
-import {
-  ListVocabulariesCommandInput,
-  ListVocabulariesCommandOutput
-} from "./commands/ListVocabulariesCommand";
+import { ListVocabulariesCommandInput, ListVocabulariesCommandOutput } from "./commands/ListVocabulariesCommand";
 import {
   ListVocabularyFiltersCommandInput,
   ListVocabularyFiltersCommandOutput
@@ -46,10 +34,7 @@ import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput
 } from "./commands/StartTranscriptionJobCommand";
-import {
-  UpdateVocabularyCommandInput,
-  UpdateVocabularyCommandOutput
-} from "./commands/UpdateVocabularyCommand";
+import { UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput } from "./commands/UpdateVocabularyCommand";
 import {
   UpdateVocabularyFilterCommandInput,
   UpdateVocabularyFilterCommandOutput
@@ -70,12 +55,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -138,8 +118,7 @@ export type ServiceOutputTypes =
   | UpdateVocabularyCommandOutput
   | UpdateVocabularyFilterCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -223,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type TranscribeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type TranscribeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -234,9 +211,7 @@ export type TranscribeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type TranscribeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type TranscribeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetPersonalizedRankingRequest {
@@ -33,8 +30,7 @@ export interface GetPersonalizedRankingRequest {
 }
 
 export namespace GetPersonalizedRankingRequest {
-  export const isa = (o: any): o is GetPersonalizedRankingRequest =>
-    __isa(o, "GetPersonalizedRankingRequest");
+  export const isa = (o: any): o is GetPersonalizedRankingRequest => __isa(o, "GetPersonalizedRankingRequest");
 }
 
 export interface GetPersonalizedRankingResponse {
@@ -46,8 +42,7 @@ export interface GetPersonalizedRankingResponse {
 }
 
 export namespace GetPersonalizedRankingResponse {
-  export const isa = (o: any): o is GetPersonalizedRankingResponse =>
-    __isa(o, "GetPersonalizedRankingResponse");
+  export const isa = (o: any): o is GetPersonalizedRankingResponse => __isa(o, "GetPersonalizedRankingResponse");
 }
 
 export interface GetRecommendationsRequest {
@@ -84,8 +79,7 @@ export interface GetRecommendationsRequest {
 }
 
 export namespace GetRecommendationsRequest {
-  export const isa = (o: any): o is GetRecommendationsRequest =>
-    __isa(o, "GetRecommendationsRequest");
+  export const isa = (o: any): o is GetRecommendationsRequest => __isa(o, "GetRecommendationsRequest");
 }
 
 export interface GetRecommendationsResponse {
@@ -98,8 +92,7 @@ export interface GetRecommendationsResponse {
 }
 
 export namespace GetRecommendationsResponse {
-  export const isa = (o: any): o is GetRecommendationsResponse =>
-    __isa(o, "GetRecommendationsResponse");
+  export const isa = (o: any): o is GetRecommendationsResponse => __isa(o, "GetRecommendationsResponse");
 }
 
 /**
@@ -122,31 +115,25 @@ export namespace PredictedItem {
 /**
  * <p>Provide a valid value for the field or parameter.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

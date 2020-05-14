@@ -15,11 +15,7 @@ export async function bodyChecksumGenerator(
   const contentHash = new options.sha256();
   const treeHash = new TreeHash(options.sha256, options.utf8Decoder);
   const { body } = request;
-  if (
-    typeof body === "string" ||
-    ArrayBuffer.isView(body) ||
-    isArrayBuffer(body)
-  ) {
+  if (typeof body === "string" || ArrayBuffer.isView(body) || isArrayBuffer(body)) {
     contentHash?.update(body);
     treeHash?.update(body);
   } else {

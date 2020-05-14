@@ -1,21 +1,11 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AlexaForBusinessClient";
-import {
-  StartDeviceSyncRequest,
-  StartDeviceSyncResponse
-} from "../models/index";
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartDeviceSyncCommand,
   serializeAws_json1_1StartDeviceSyncCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDeviceSyncCommandInput = StartDeviceSyncRequest;
-export type StartDeviceSyncCommandOutput = StartDeviceSyncResponse &
-  __MetadataBearer;
+export type StartDeviceSyncCommandOutput = StartDeviceSyncResponse & __MetadataBearer;
 
 export class StartDeviceSyncCommand extends $Command<
   StartDeviceSyncCommandInput,
@@ -50,9 +39,7 @@ export class StartDeviceSyncCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDeviceSyncCommandInput, StartDeviceSyncCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class StartDeviceSyncCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDeviceSyncCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartDeviceSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartDeviceSyncCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDeviceSyncCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceSyncCommandOutput> {
     return deserializeAws_json1_1StartDeviceSyncCommand(output, context);
   }
 

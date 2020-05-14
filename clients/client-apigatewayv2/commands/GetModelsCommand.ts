@@ -1,18 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { GetModelsRequest, GetModelsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetModelsCommand,
   serializeAws_restJson1_1GetModelsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class GetModelsCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetModelsCommandInput, GetModelsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class GetModelsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetModelsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetModelsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetModelsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetModelsCommandOutput> {
     return deserializeAws_restJson1_1GetModelsCommand(output, context);
   }
 

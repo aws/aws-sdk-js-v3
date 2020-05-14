@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient";
-import {
-  DescribeSimulationApplicationRequest,
-  DescribeSimulationApplicationResponse
-} from "../models/index";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { DescribeSimulationApplicationRequest, DescribeSimulationApplicationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeSimulationApplicationCommand,
   serializeAws_restJson1_1DescribeSimulationApplicationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSimulationApplicationCommandInput = DescribeSimulationApplicationRequest;
-export type DescribeSimulationApplicationCommandOutput = DescribeSimulationApplicationResponse &
-  __MetadataBearer;
+export type DescribeSimulationApplicationCommandOutput = DescribeSimulationApplicationResponse & __MetadataBearer;
 
 export class DescribeSimulationApplicationCommand extends $Command<
   DescribeSimulationApplicationCommandInput,
@@ -49,13 +38,8 @@ export class DescribeSimulationApplicationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSimulationApplicationCommandInput,
-    DescribeSimulationApplicationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSimulationApplicationCommandInput, DescribeSimulationApplicationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class DescribeSimulationApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSimulationApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeSimulationApplicationCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeSimulationApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DescribeSimulationApplicationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeSimulationApplicationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSimulationApplicationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSimulationApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  GetDeviceMethodsRequest,
-  GetDeviceMethodsResponse
-} from "../models/index";
+import { GetDeviceMethodsRequest, GetDeviceMethodsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDeviceMethodsCommand,
   serializeAws_restJson1_1GetDeviceMethodsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDeviceMethodsCommandInput = GetDeviceMethodsRequest;
-export type GetDeviceMethodsCommandOutput = GetDeviceMethodsResponse &
-  __MetadataBearer;
+export type GetDeviceMethodsCommandOutput = GetDeviceMethodsResponse & __MetadataBearer;
 
 export class GetDeviceMethodsCommand extends $Command<
   GetDeviceMethodsCommandInput,
@@ -50,9 +43,7 @@ export class GetDeviceMethodsCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDeviceMethodsCommandInput, GetDeviceMethodsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class GetDeviceMethodsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDeviceMethodsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDeviceMethodsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDeviceMethodsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDeviceMethodsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeviceMethodsCommandOutput> {
     return deserializeAws_restJson1_1GetDeviceMethodsCommand(output, context);
   }
 

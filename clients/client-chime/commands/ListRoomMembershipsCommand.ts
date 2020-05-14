@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  ListRoomMembershipsRequest,
-  ListRoomMembershipsResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { ListRoomMembershipsRequest, ListRoomMembershipsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListRoomMembershipsCommand,
   serializeAws_restJson1_1ListRoomMembershipsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRoomMembershipsCommandInput = ListRoomMembershipsRequest;
-export type ListRoomMembershipsCommandOutput = ListRoomMembershipsResponse &
-  __MetadataBearer;
+export type ListRoomMembershipsCommandOutput = ListRoomMembershipsResponse & __MetadataBearer;
 
 export class ListRoomMembershipsCommand extends $Command<
   ListRoomMembershipsCommandInput,
@@ -49,13 +38,8 @@ export class ListRoomMembershipsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRoomMembershipsCommandInput,
-    ListRoomMembershipsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRoomMembershipsCommandInput, ListRoomMembershipsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListRoomMembershipsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRoomMembershipsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRoomMembershipsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListRoomMembershipsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRoomMembershipsCommandOutput> {
-    return deserializeAws_restJson1_1ListRoomMembershipsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoomMembershipsCommandOutput> {
+    return deserializeAws_restJson1_1ListRoomMembershipsCommand(output, context);
   }
 
   // Start section: command_body_extra

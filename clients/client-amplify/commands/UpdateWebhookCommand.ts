@@ -1,18 +1,11 @@
-import {
-  AmplifyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AmplifyClient";
+import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { UpdateWebhookRequest, UpdateWebhookResult } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateWebhookCommand,
   serializeAws_restJson1_1UpdateWebhookCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class UpdateWebhookCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateWebhookCommandInput, UpdateWebhookCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class UpdateWebhookCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateWebhookCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateWebhookCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateWebhookCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateWebhookCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebhookCommandOutput> {
     return deserializeAws_restJson1_1UpdateWebhookCommand(output, context);
   }
 

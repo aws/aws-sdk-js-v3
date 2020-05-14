@@ -1,18 +1,11 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeLedgerCommand,
   serializeAws_restJson1_1DescribeLedgerCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLedgerCommandInput = DescribeLedgerRequest;
-export type DescribeLedgerCommandOutput = DescribeLedgerResponse &
-  __MetadataBearer;
+export type DescribeLedgerCommandOutput = DescribeLedgerResponse & __MetadataBearer;
 
 export class DescribeLedgerCommand extends $Command<
   DescribeLedgerCommandInput,
@@ -47,9 +39,7 @@ export class DescribeLedgerCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLedgerCommandInput, DescribeLedgerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DescribeLedgerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLedgerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeLedgerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLedgerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLedgerCommandOutput> {
     return deserializeAws_restJson1_1DescribeLedgerCommand(output, context);
   }
 

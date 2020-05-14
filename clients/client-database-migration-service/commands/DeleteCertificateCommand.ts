@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteCertificateMessage,
-  DeleteCertificateResponse
-} from "../models/index";
+import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCertificateCommandInput = DeleteCertificateMessage;
-export type DeleteCertificateCommandOutput = DeleteCertificateResponse &
-  __MetadataBearer;
+export type DeleteCertificateCommandOutput = DeleteCertificateResponse & __MetadataBearer;
 
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,
@@ -50,9 +43,7 @@ export class DeleteCertificateCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCertificateCommandInput, DeleteCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeleteCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteCertificateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCertificateCommandOutput> {
     return deserializeAws_json1_1DeleteCertificateCommand(output, context);
   }
 

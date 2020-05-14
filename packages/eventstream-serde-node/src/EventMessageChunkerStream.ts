@@ -76,10 +76,7 @@ export class EventMessageChunkerStream extends Transform {
       currentOffset += numBytesToWrite;
 
       // check if a message is ready to be pushed
-      if (
-        this.currentMessageTotalLength &&
-        this.currentMessageTotalLength === this.currentMessagePendingLength
-      ) {
+      if (this.currentMessageTotalLength && this.currentMessageTotalLength === this.currentMessagePendingLength) {
         // push out the message
         this.push(this.currentMessage);
         // cleanup
@@ -106,10 +103,7 @@ export class EventMessageChunkerStream extends Transform {
 
   private allocateMessage(size: number) {
     if (typeof size !== "number") {
-      throw new Error(
-        "Attempted to allocate an event message where size was not a number: " +
-          size
-      );
+      throw new Error("Attempted to allocate an event message where size was not a number: " + size);
     }
     this.currentMessageTotalLength = size;
     this.currentMessagePendingLength = 4;

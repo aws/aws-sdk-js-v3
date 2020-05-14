@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient";
-import {
-  DescribeStackProvisioningParametersRequest,
-  DescribeStackProvisioningParametersResult
-} from "../models/index";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
+import { DescribeStackProvisioningParametersRequest, DescribeStackProvisioningParametersResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeStackProvisioningParametersCommand,
   serializeAws_json1_1DescribeStackProvisioningParametersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeStackProvisioningParametersCommandInput,
-    DescribeStackProvisioningParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeStackProvisioningParametersCommandInput, DescribeStackProvisioningParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     input: DescribeStackProvisioningParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeStackProvisioningParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeStackProvisioningParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeStackProvisioningParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeStackProvisioningParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeStackProvisioningParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

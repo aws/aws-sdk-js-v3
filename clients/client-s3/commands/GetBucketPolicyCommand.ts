@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketPolicyOutput, GetBucketPolicyRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetBucketPolicyCommand,
@@ -10,10 +6,7 @@ import {
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -26,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBucketPolicyCommandInput = GetBucketPolicyRequest;
-export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput &
-  __MetadataBearer;
+export type GetBucketPolicyCommandOutput = GetBucketPolicyOutput & __MetadataBearer;
 
 export class GetBucketPolicyCommand extends $Command<
   GetBucketPolicyCommandInput,
@@ -48,9 +40,7 @@ export class GetBucketPolicyCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -66,17 +56,11 @@ export class GetBucketPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBucketPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBucketPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetBucketPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBucketPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBucketPolicyCommandOutput> {
     return deserializeAws_restXmlGetBucketPolicyCommand(output, context);
   }
 

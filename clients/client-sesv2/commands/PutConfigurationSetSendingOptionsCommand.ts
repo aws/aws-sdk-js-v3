@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  PutConfigurationSetSendingOptionsRequest,
-  PutConfigurationSetSendingOptionsResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { PutConfigurationSetSendingOptionsRequest, PutConfigurationSetSendingOptionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand,
   serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutConfigurationSetSendingOptionsCommandInput,
-    PutConfigurationSetSendingOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutConfigurationSetSendingOptionsCommandInput, PutConfigurationSetSendingOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     input: PutConfigurationSetSendingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutConfigurationSetSendingOptionsCommandOutput> {
-    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutConfigurationSetSendingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

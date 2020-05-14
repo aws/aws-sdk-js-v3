@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  GetCoreDefinitionVersionRequest,
-  GetCoreDefinitionVersionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetCoreDefinitionVersionRequest, GetCoreDefinitionVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCoreDefinitionVersionCommand,
   serializeAws_restJson1_1GetCoreDefinitionVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCoreDefinitionVersionCommandInput = GetCoreDefinitionVersionRequest;
-export type GetCoreDefinitionVersionCommandOutput = GetCoreDefinitionVersionResponse &
-  __MetadataBearer;
+export type GetCoreDefinitionVersionCommandOutput = GetCoreDefinitionVersionResponse & __MetadataBearer;
 
 export class GetCoreDefinitionVersionCommand extends $Command<
   GetCoreDefinitionVersionCommandInput,
@@ -49,13 +38,8 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCoreDefinitionVersionCommandInput,
-    GetCoreDefinitionVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCoreDefinitionVersionCommandInput, GetCoreDefinitionVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class GetCoreDefinitionVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCoreDefinitionVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetCoreDefinitionVersionCommand(
-      input,
-      context
-    );
+  private serialize(input: GetCoreDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetCoreDefinitionVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCoreDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1GetCoreDefinitionVersionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCoreDefinitionVersionCommandOutput> {
+    return deserializeAws_restJson1_1GetCoreDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

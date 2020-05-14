@@ -1,21 +1,8 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  DescribeTagsMessage,
-  TaggedResourceListMessage
-} from "../models/index";
-import {
-  deserializeAws_queryDescribeTagsCommand,
-  serializeAws_queryDescribeTagsCommand
-} from "../protocols/Aws_query";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DescribeTagsMessage, TaggedResourceListMessage } from "../models/index";
+import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTagsCommandInput = DescribeTagsMessage;
-export type DescribeTagsCommandOutput = TaggedResourceListMessage &
-  __MetadataBearer;
+export type DescribeTagsCommandOutput = TaggedResourceListMessage & __MetadataBearer;
 
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,
@@ -50,9 +36,7 @@ export class DescribeTagsCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTagsCommandInput, DescribeTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +51,11 @@ export class DescribeTagsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTagsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeTagsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTagsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTagsCommandOutput> {
     return deserializeAws_queryDescribeTagsCommand(output, context);
   }
 

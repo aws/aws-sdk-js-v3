@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -79,8 +73,7 @@ export interface AnalyzedResource {
 }
 
 export namespace AnalyzedResource {
-  export const isa = (o: any): o is AnalyzedResource =>
-    __isa(o, "AnalyzedResource");
+  export const isa = (o: any): o is AnalyzedResource => __isa(o, "AnalyzedResource");
 }
 
 /**
@@ -100,8 +93,7 @@ export interface AnalyzedResourceSummary {
 }
 
 export namespace AnalyzedResourceSummary {
-  export const isa = (o: any): o is AnalyzedResourceSummary =>
-    __isa(o, "AnalyzedResourceSummary");
+  export const isa = (o: any): o is AnalyzedResourceSummary => __isa(o, "AnalyzedResourceSummary");
 }
 
 /**
@@ -147,8 +139,7 @@ export interface AnalyzerSummary {
 }
 
 export namespace AnalyzerSummary {
-  export const isa = (o: any): o is AnalyzerSummary =>
-    __isa(o, "AnalyzerSummary");
+  export const isa = (o: any): o is AnalyzerSummary => __isa(o, "AnalyzerSummary");
 }
 
 /**
@@ -178,8 +169,7 @@ export interface ArchiveRuleSummary {
 }
 
 export namespace ArchiveRuleSummary {
-  export const isa = (o: any): o is ArchiveRuleSummary =>
-    __isa(o, "ArchiveRuleSummary");
+  export const isa = (o: any): o is ArchiveRuleSummary => __isa(o, "ArchiveRuleSummary");
 }
 
 /**
@@ -201,8 +191,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
@@ -238,8 +227,7 @@ export interface CreateAnalyzerRequest {
 }
 
 export namespace CreateAnalyzerRequest {
-  export const isa = (o: any): o is CreateAnalyzerRequest =>
-    __isa(o, "CreateAnalyzerRequest");
+  export const isa = (o: any): o is CreateAnalyzerRequest => __isa(o, "CreateAnalyzerRequest");
 }
 
 /**
@@ -254,8 +242,7 @@ export interface CreateAnalyzerResponse {
 }
 
 export namespace CreateAnalyzerResponse {
-  export const isa = (o: any): o is CreateAnalyzerResponse =>
-    __isa(o, "CreateAnalyzerResponse");
+  export const isa = (o: any): o is CreateAnalyzerResponse => __isa(o, "CreateAnalyzerResponse");
 }
 
 /**
@@ -285,8 +272,7 @@ export interface CreateArchiveRuleRequest {
 }
 
 export namespace CreateArchiveRuleRequest {
-  export const isa = (o: any): o is CreateArchiveRuleRequest =>
-    __isa(o, "CreateArchiveRuleRequest");
+  export const isa = (o: any): o is CreateArchiveRuleRequest => __isa(o, "CreateArchiveRuleRequest");
 }
 
 /**
@@ -336,8 +322,7 @@ export interface DeleteAnalyzerRequest {
 }
 
 export namespace DeleteAnalyzerRequest {
-  export const isa = (o: any): o is DeleteAnalyzerRequest =>
-    __isa(o, "DeleteAnalyzerRequest");
+  export const isa = (o: any): o is DeleteAnalyzerRequest => __isa(o, "DeleteAnalyzerRequest");
 }
 
 /**
@@ -362,8 +347,7 @@ export interface DeleteArchiveRuleRequest {
 }
 
 export namespace DeleteArchiveRuleRequest {
-  export const isa = (o: any): o is DeleteArchiveRuleRequest =>
-    __isa(o, "DeleteArchiveRuleRequest");
+  export const isa = (o: any): o is DeleteArchiveRuleRequest => __isa(o, "DeleteArchiveRuleRequest");
 }
 
 /**
@@ -512,8 +496,7 @@ export interface FindingSummary {
 }
 
 export namespace FindingSummary {
-  export const isa = (o: any): o is FindingSummary =>
-    __isa(o, "FindingSummary");
+  export const isa = (o: any): o is FindingSummary => __isa(o, "FindingSummary");
 }
 
 /**
@@ -533,8 +516,7 @@ export interface GetAnalyzedResourceRequest {
 }
 
 export namespace GetAnalyzedResourceRequest {
-  export const isa = (o: any): o is GetAnalyzedResourceRequest =>
-    __isa(o, "GetAnalyzedResourceRequest");
+  export const isa = (o: any): o is GetAnalyzedResourceRequest => __isa(o, "GetAnalyzedResourceRequest");
 }
 
 /**
@@ -550,8 +532,7 @@ export interface GetAnalyzedResourceResponse {
 }
 
 export namespace GetAnalyzedResourceResponse {
-  export const isa = (o: any): o is GetAnalyzedResourceResponse =>
-    __isa(o, "GetAnalyzedResourceResponse");
+  export const isa = (o: any): o is GetAnalyzedResourceResponse => __isa(o, "GetAnalyzedResourceResponse");
 }
 
 /**
@@ -566,8 +547,7 @@ export interface GetAnalyzerRequest {
 }
 
 export namespace GetAnalyzerRequest {
-  export const isa = (o: any): o is GetAnalyzerRequest =>
-    __isa(o, "GetAnalyzerRequest");
+  export const isa = (o: any): o is GetAnalyzerRequest => __isa(o, "GetAnalyzerRequest");
 }
 
 /**
@@ -583,8 +563,7 @@ export interface GetAnalyzerResponse {
 }
 
 export namespace GetAnalyzerResponse {
-  export const isa = (o: any): o is GetAnalyzerResponse =>
-    __isa(o, "GetAnalyzerResponse");
+  export const isa = (o: any): o is GetAnalyzerResponse => __isa(o, "GetAnalyzerResponse");
 }
 
 /**
@@ -604,8 +583,7 @@ export interface GetArchiveRuleRequest {
 }
 
 export namespace GetArchiveRuleRequest {
-  export const isa = (o: any): o is GetArchiveRuleRequest =>
-    __isa(o, "GetArchiveRuleRequest");
+  export const isa = (o: any): o is GetArchiveRuleRequest => __isa(o, "GetArchiveRuleRequest");
 }
 
 /**
@@ -620,8 +598,7 @@ export interface GetArchiveRuleResponse {
 }
 
 export namespace GetArchiveRuleResponse {
-  export const isa = (o: any): o is GetArchiveRuleResponse =>
-    __isa(o, "GetArchiveRuleResponse");
+  export const isa = (o: any): o is GetArchiveRuleResponse => __isa(o, "GetArchiveRuleResponse");
 }
 
 /**
@@ -641,8 +618,7 @@ export interface GetFindingRequest {
 }
 
 export namespace GetFindingRequest {
-  export const isa = (o: any): o is GetFindingRequest =>
-    __isa(o, "GetFindingRequest");
+  export const isa = (o: any): o is GetFindingRequest => __isa(o, "GetFindingRequest");
 }
 
 /**
@@ -657,8 +633,7 @@ export interface GetFindingResponse {
 }
 
 export namespace GetFindingResponse {
-  export const isa = (o: any): o is GetFindingResponse =>
-    __isa(o, "GetFindingResponse");
+  export const isa = (o: any): o is GetFindingResponse => __isa(o, "GetFindingResponse");
 }
 
 /**
@@ -679,16 +654,13 @@ export interface InlineArchiveRule {
 }
 
 export namespace InlineArchiveRule {
-  export const isa = (o: any): o is InlineArchiveRule =>
-    __isa(o, "InlineArchiveRule");
+  export const isa = (o: any): o is InlineArchiveRule => __isa(o, "InlineArchiveRule");
 }
 
 /**
  * <p>Internal server error.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   message: string | undefined;
@@ -699,8 +671,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
@@ -730,8 +701,7 @@ export interface ListAnalyzedResourcesRequest {
 }
 
 export namespace ListAnalyzedResourcesRequest {
-  export const isa = (o: any): o is ListAnalyzedResourcesRequest =>
-    __isa(o, "ListAnalyzedResourcesRequest");
+  export const isa = (o: any): o is ListAnalyzedResourcesRequest => __isa(o, "ListAnalyzedResourcesRequest");
 }
 
 /**
@@ -751,8 +721,7 @@ export interface ListAnalyzedResourcesResponse {
 }
 
 export namespace ListAnalyzedResourcesResponse {
-  export const isa = (o: any): o is ListAnalyzedResourcesResponse =>
-    __isa(o, "ListAnalyzedResourcesResponse");
+  export const isa = (o: any): o is ListAnalyzedResourcesResponse => __isa(o, "ListAnalyzedResourcesResponse");
 }
 
 /**
@@ -777,8 +746,7 @@ export interface ListAnalyzersRequest {
 }
 
 export namespace ListAnalyzersRequest {
-  export const isa = (o: any): o is ListAnalyzersRequest =>
-    __isa(o, "ListAnalyzersRequest");
+  export const isa = (o: any): o is ListAnalyzersRequest => __isa(o, "ListAnalyzersRequest");
 }
 
 /**
@@ -798,8 +766,7 @@ export interface ListAnalyzersResponse {
 }
 
 export namespace ListAnalyzersResponse {
-  export const isa = (o: any): o is ListAnalyzersResponse =>
-    __isa(o, "ListAnalyzersResponse");
+  export const isa = (o: any): o is ListAnalyzersResponse => __isa(o, "ListAnalyzersResponse");
 }
 
 /**
@@ -824,8 +791,7 @@ export interface ListArchiveRulesRequest {
 }
 
 export namespace ListArchiveRulesRequest {
-  export const isa = (o: any): o is ListArchiveRulesRequest =>
-    __isa(o, "ListArchiveRulesRequest");
+  export const isa = (o: any): o is ListArchiveRulesRequest => __isa(o, "ListArchiveRulesRequest");
 }
 
 /**
@@ -845,8 +811,7 @@ export interface ListArchiveRulesResponse {
 }
 
 export namespace ListArchiveRulesResponse {
-  export const isa = (o: any): o is ListArchiveRulesResponse =>
-    __isa(o, "ListArchiveRulesResponse");
+  export const isa = (o: any): o is ListArchiveRulesResponse => __isa(o, "ListArchiveRulesResponse");
 }
 
 /**
@@ -881,8 +846,7 @@ export interface ListFindingsRequest {
 }
 
 export namespace ListFindingsRequest {
-  export const isa = (o: any): o is ListFindingsRequest =>
-    __isa(o, "ListFindingsRequest");
+  export const isa = (o: any): o is ListFindingsRequest => __isa(o, "ListFindingsRequest");
 }
 
 /**
@@ -903,8 +867,7 @@ export interface ListFindingsResponse {
 }
 
 export namespace ListFindingsResponse {
-  export const isa = (o: any): o is ListFindingsResponse =>
-    __isa(o, "ListFindingsResponse");
+  export const isa = (o: any): o is ListFindingsResponse => __isa(o, "ListFindingsResponse");
 }
 
 /**
@@ -919,8 +882,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
@@ -935,8 +897,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export type OrderBy = "ASC" | "DESC";
@@ -944,9 +905,7 @@ export type OrderBy = "ASC" | "DESC";
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -962,8 +921,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export type ResourceType =
@@ -977,9 +935,7 @@ export type ResourceType =
 /**
  * <p>Service quote met error.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message: string | undefined;
@@ -995,8 +951,7 @@ export interface ServiceQuotaExceededException
 }
 
 export namespace ServiceQuotaExceededException {
-  export const isa = (o: any): o is ServiceQuotaExceededException =>
-    __isa(o, "ServiceQuotaExceededException");
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 /**
@@ -1037,8 +992,7 @@ export interface StartResourceScanRequest {
 }
 
 export namespace StartResourceScanRequest {
-  export const isa = (o: any): o is StartResourceScanRequest =>
-    __isa(o, "StartResourceScanRequest");
+  export const isa = (o: any): o is StartResourceScanRequest => __isa(o, "StartResourceScanRequest");
 }
 
 /**
@@ -1058,8 +1012,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
@@ -1070,16 +1023,13 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Throttling limit exceeded error.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
@@ -1090,8 +1040,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export type Type = "ACCOUNT";
@@ -1113,8 +1062,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1125,8 +1073,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
@@ -1157,8 +1104,7 @@ export interface UpdateArchiveRuleRequest {
 }
 
 export namespace UpdateArchiveRuleRequest {
-  export const isa = (o: any): o is UpdateArchiveRuleRequest =>
-    __isa(o, "UpdateArchiveRuleRequest");
+  export const isa = (o: any): o is UpdateArchiveRuleRequest => __isa(o, "UpdateArchiveRuleRequest");
 }
 
 /**
@@ -1195,16 +1141,13 @@ export interface UpdateFindingsRequest {
 }
 
 export namespace UpdateFindingsRequest {
-  export const isa = (o: any): o is UpdateFindingsRequest =>
-    __isa(o, "UpdateFindingsRequest");
+  export const isa = (o: any): o is UpdateFindingsRequest => __isa(o, "UpdateFindingsRequest");
 }
 
 /**
  * <p>Validation exception error.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -1220,8 +1163,7 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }
 
 /**
@@ -1241,8 +1183,7 @@ export interface ValidationExceptionField {
 }
 
 export namespace ValidationExceptionField {
-  export const isa = (o: any): o is ValidationExceptionField =>
-    __isa(o, "ValidationExceptionField");
+  export const isa = (o: any): o is ValidationExceptionField => __isa(o, "ValidationExceptionField");
 }
 
 export enum ValidationExceptionReason {

@@ -1,18 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { PolicyARNType, PutScalingPolicyType } from "../models/index";
 import {
   deserializeAws_queryPutScalingPolicyCommand,
   serializeAws_queryPutScalingPolicyCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class PutScalingPolicyCommand extends $Command<
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class PutScalingPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutScalingPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutScalingPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutScalingPolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
     return deserializeAws_queryPutScalingPolicyCommand(output, context);
   }
 

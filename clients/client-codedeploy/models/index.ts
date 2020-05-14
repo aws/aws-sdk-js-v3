@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -23,8 +20,7 @@ export interface AddTagsToOnPremisesInstancesInput {
 }
 
 export namespace AddTagsToOnPremisesInstancesInput {
-  export const isa = (o: any): o is AddTagsToOnPremisesInstancesInput =>
-    __isa(o, "AddTagsToOnPremisesInstancesInput");
+  export const isa = (o: any): o is AddTagsToOnPremisesInstancesInput => __isa(o, "AddTagsToOnPremisesInstancesInput");
 }
 
 /**
@@ -77,16 +73,13 @@ export interface AlarmConfiguration {
 }
 
 export namespace AlarmConfiguration {
-  export const isa = (o: any): o is AlarmConfiguration =>
-    __isa(o, "AlarmConfiguration");
+  export const isa = (o: any): o is AlarmConfiguration => __isa(o, "AlarmConfiguration");
 }
 
 /**
  * <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
  */
-export interface AlarmsLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlarmsLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "AlarmsLimitExceededException";
   $fault: "client";
   /**
@@ -96,8 +89,7 @@ export interface AlarmsLimitExceededException
 }
 
 export namespace AlarmsLimitExceededException {
-  export const isa = (o: any): o is AlarmsLimitExceededException =>
-    __isa(o, "AlarmsLimitExceededException");
+  export const isa = (o: any): o is AlarmsLimitExceededException => __isa(o, "AlarmsLimitExceededException");
 }
 
 /**
@@ -128,17 +120,14 @@ export interface AppSpecContent {
 }
 
 export namespace AppSpecContent {
-  export const isa = (o: any): o is AppSpecContent =>
-    __isa(o, "AppSpecContent");
+  export const isa = (o: any): o is AppSpecContent => __isa(o, "AppSpecContent");
 }
 
 /**
  * <p>An application with the specified name with the IAM user or AWS account already
  *             exists.</p>
  */
-export interface ApplicationAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApplicationAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ApplicationAlreadyExistsException";
   $fault: "client";
   /**
@@ -148,16 +137,13 @@ export interface ApplicationAlreadyExistsException
 }
 
 export namespace ApplicationAlreadyExistsException {
-  export const isa = (o: any): o is ApplicationAlreadyExistsException =>
-    __isa(o, "ApplicationAlreadyExistsException");
+  export const isa = (o: any): o is ApplicationAlreadyExistsException => __isa(o, "ApplicationAlreadyExistsException");
 }
 
 /**
  * <p>The application does not exist with the IAM user or AWS account.</p>
  */
-export interface ApplicationDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApplicationDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "ApplicationDoesNotExistException";
   $fault: "client";
   /**
@@ -167,8 +153,7 @@ export interface ApplicationDoesNotExistException
 }
 
 export namespace ApplicationDoesNotExistException {
-  export const isa = (o: any): o is ApplicationDoesNotExistException =>
-    __isa(o, "ApplicationDoesNotExistException");
+  export const isa = (o: any): o is ApplicationDoesNotExistException => __isa(o, "ApplicationDoesNotExistException");
 }
 
 /**
@@ -210,16 +195,13 @@ export interface ApplicationInfo {
 }
 
 export namespace ApplicationInfo {
-  export const isa = (o: any): o is ApplicationInfo =>
-    __isa(o, "ApplicationInfo");
+  export const isa = (o: any): o is ApplicationInfo => __isa(o, "ApplicationInfo");
 }
 
 /**
  * <p>More applications were attempted to be created than are allowed.</p>
  */
-export interface ApplicationLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApplicationLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ApplicationLimitExceededException";
   $fault: "client";
   /**
@@ -229,16 +211,13 @@ export interface ApplicationLimitExceededException
 }
 
 export namespace ApplicationLimitExceededException {
-  export const isa = (o: any): o is ApplicationLimitExceededException =>
-    __isa(o, "ApplicationLimitExceededException");
+  export const isa = (o: any): o is ApplicationLimitExceededException => __isa(o, "ApplicationLimitExceededException");
 }
 
 /**
  * <p>The minimum number of required application names was not specified.</p>
  */
-export interface ApplicationNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ApplicationNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "ApplicationNameRequiredException";
   $fault: "client";
   /**
@@ -248,8 +227,7 @@ export interface ApplicationNameRequiredException
 }
 
 export namespace ApplicationNameRequiredException {
-  export const isa = (o: any): o is ApplicationNameRequiredException =>
-    __isa(o, "ApplicationNameRequiredException");
+  export const isa = (o: any): o is ApplicationNameRequiredException => __isa(o, "ApplicationNameRequiredException");
 }
 
 export enum ApplicationRevisionSortBy {
@@ -263,9 +241,7 @@ export enum ApplicationRevisionSortBy {
  *             The specified ARN is not supported. For example, it might be an ARN for a resource that is not expected.
  *         </p>
  */
-export interface ArnNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ArnNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ArnNotSupportedException";
   $fault: "client";
   /**
@@ -275,8 +251,7 @@ export interface ArnNotSupportedException
 }
 
 export namespace ArnNotSupportedException {
-  export const isa = (o: any): o is ArnNotSupportedException =>
-    __isa(o, "ArnNotSupportedException");
+  export const isa = (o: any): o is ArnNotSupportedException => __isa(o, "ArnNotSupportedException");
 }
 
 /**
@@ -298,8 +273,7 @@ export interface AutoRollbackConfiguration {
 }
 
 export namespace AutoRollbackConfiguration {
-  export const isa = (o: any): o is AutoRollbackConfiguration =>
-    __isa(o, "AutoRollbackConfiguration");
+  export const isa = (o: any): o is AutoRollbackConfiguration => __isa(o, "AutoRollbackConfiguration");
 }
 
 export enum AutoRollbackEvent {
@@ -325,8 +299,7 @@ export interface AutoScalingGroup {
 }
 
 export namespace AutoScalingGroup {
-  export const isa = (o: any): o is AutoScalingGroup =>
-    __isa(o, "AutoScalingGroup");
+  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 /**
@@ -348,8 +321,7 @@ export interface BatchGetApplicationRevisionsInput {
 }
 
 export namespace BatchGetApplicationRevisionsInput {
-  export const isa = (o: any): o is BatchGetApplicationRevisionsInput =>
-    __isa(o, "BatchGetApplicationRevisionsInput");
+  export const isa = (o: any): o is BatchGetApplicationRevisionsInput => __isa(o, "BatchGetApplicationRevisionsInput");
 }
 
 /**
@@ -390,8 +362,7 @@ export interface BatchGetApplicationsInput {
 }
 
 export namespace BatchGetApplicationsInput {
-  export const isa = (o: any): o is BatchGetApplicationsInput =>
-    __isa(o, "BatchGetApplicationsInput");
+  export const isa = (o: any): o is BatchGetApplicationsInput => __isa(o, "BatchGetApplicationsInput");
 }
 
 /**
@@ -406,8 +377,7 @@ export interface BatchGetApplicationsOutput {
 }
 
 export namespace BatchGetApplicationsOutput {
-  export const isa = (o: any): o is BatchGetApplicationsOutput =>
-    __isa(o, "BatchGetApplicationsOutput");
+  export const isa = (o: any): o is BatchGetApplicationsOutput => __isa(o, "BatchGetApplicationsOutput");
 }
 
 /**
@@ -428,8 +398,7 @@ export interface BatchGetDeploymentGroupsInput {
 }
 
 export namespace BatchGetDeploymentGroupsInput {
-  export const isa = (o: any): o is BatchGetDeploymentGroupsInput =>
-    __isa(o, "BatchGetDeploymentGroupsInput");
+  export const isa = (o: any): o is BatchGetDeploymentGroupsInput => __isa(o, "BatchGetDeploymentGroupsInput");
 }
 
 /**
@@ -449,8 +418,7 @@ export interface BatchGetDeploymentGroupsOutput {
 }
 
 export namespace BatchGetDeploymentGroupsOutput {
-  export const isa = (o: any): o is BatchGetDeploymentGroupsOutput =>
-    __isa(o, "BatchGetDeploymentGroupsOutput");
+  export const isa = (o: any): o is BatchGetDeploymentGroupsOutput => __isa(o, "BatchGetDeploymentGroupsOutput");
 }
 
 /**
@@ -470,8 +438,7 @@ export interface BatchGetDeploymentInstancesInput {
 }
 
 export namespace BatchGetDeploymentInstancesInput {
-  export const isa = (o: any): o is BatchGetDeploymentInstancesInput =>
-    __isa(o, "BatchGetDeploymentInstancesInput");
+  export const isa = (o: any): o is BatchGetDeploymentInstancesInput => __isa(o, "BatchGetDeploymentInstancesInput");
 }
 
 /**
@@ -491,8 +458,7 @@ export interface BatchGetDeploymentInstancesOutput {
 }
 
 export namespace BatchGetDeploymentInstancesOutput {
-  export const isa = (o: any): o is BatchGetDeploymentInstancesOutput =>
-    __isa(o, "BatchGetDeploymentInstancesOutput");
+  export const isa = (o: any): o is BatchGetDeploymentInstancesOutput => __isa(o, "BatchGetDeploymentInstancesOutput");
 }
 
 export interface BatchGetDeploymentTargetsInput {
@@ -528,8 +494,7 @@ export interface BatchGetDeploymentTargetsInput {
 }
 
 export namespace BatchGetDeploymentTargetsInput {
-  export const isa = (o: any): o is BatchGetDeploymentTargetsInput =>
-    __isa(o, "BatchGetDeploymentTargetsInput");
+  export const isa = (o: any): o is BatchGetDeploymentTargetsInput => __isa(o, "BatchGetDeploymentTargetsInput");
 }
 
 export interface BatchGetDeploymentTargetsOutput {
@@ -560,8 +525,7 @@ export interface BatchGetDeploymentTargetsOutput {
 }
 
 export namespace BatchGetDeploymentTargetsOutput {
-  export const isa = (o: any): o is BatchGetDeploymentTargetsOutput =>
-    __isa(o, "BatchGetDeploymentTargetsOutput");
+  export const isa = (o: any): o is BatchGetDeploymentTargetsOutput => __isa(o, "BatchGetDeploymentTargetsOutput");
 }
 
 /**
@@ -576,8 +540,7 @@ export interface BatchGetDeploymentsInput {
 }
 
 export namespace BatchGetDeploymentsInput {
-  export const isa = (o: any): o is BatchGetDeploymentsInput =>
-    __isa(o, "BatchGetDeploymentsInput");
+  export const isa = (o: any): o is BatchGetDeploymentsInput => __isa(o, "BatchGetDeploymentsInput");
 }
 
 /**
@@ -592,8 +555,7 @@ export interface BatchGetDeploymentsOutput {
 }
 
 export namespace BatchGetDeploymentsOutput {
-  export const isa = (o: any): o is BatchGetDeploymentsOutput =>
-    __isa(o, "BatchGetDeploymentsOutput");
+  export const isa = (o: any): o is BatchGetDeploymentsOutput => __isa(o, "BatchGetDeploymentsOutput");
 }
 
 /**
@@ -608,8 +570,7 @@ export interface BatchGetOnPremisesInstancesInput {
 }
 
 export namespace BatchGetOnPremisesInstancesInput {
-  export const isa = (o: any): o is BatchGetOnPremisesInstancesInput =>
-    __isa(o, "BatchGetOnPremisesInstancesInput");
+  export const isa = (o: any): o is BatchGetOnPremisesInstancesInput => __isa(o, "BatchGetOnPremisesInstancesInput");
 }
 
 /**
@@ -624,16 +585,13 @@ export interface BatchGetOnPremisesInstancesOutput {
 }
 
 export namespace BatchGetOnPremisesInstancesOutput {
-  export const isa = (o: any): o is BatchGetOnPremisesInstancesOutput =>
-    __isa(o, "BatchGetOnPremisesInstancesOutput");
+  export const isa = (o: any): o is BatchGetOnPremisesInstancesOutput => __isa(o, "BatchGetOnPremisesInstancesOutput");
 }
 
 /**
  * <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
  */
-export interface BatchLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BatchLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "BatchLimitExceededException";
   $fault: "client";
   /**
@@ -643,8 +601,7 @@ export interface BatchLimitExceededException
 }
 
 export namespace BatchLimitExceededException {
-  export const isa = (o: any): o is BatchLimitExceededException =>
-    __isa(o, "BatchLimitExceededException");
+  export const isa = (o: any): o is BatchLimitExceededException => __isa(o, "BatchLimitExceededException");
 }
 
 /**
@@ -672,8 +629,7 @@ export interface BlueGreenDeploymentConfiguration {
 }
 
 export namespace BlueGreenDeploymentConfiguration {
-  export const isa = (o: any): o is BlueGreenDeploymentConfiguration =>
-    __isa(o, "BlueGreenDeploymentConfiguration");
+  export const isa = (o: any): o is BlueGreenDeploymentConfiguration => __isa(o, "BlueGreenDeploymentConfiguration");
 }
 
 /**
@@ -716,16 +672,13 @@ export interface BlueInstanceTerminationOption {
 }
 
 export namespace BlueInstanceTerminationOption {
-  export const isa = (o: any): o is BlueInstanceTerminationOption =>
-    __isa(o, "BlueInstanceTerminationOption");
+  export const isa = (o: any): o is BlueInstanceTerminationOption => __isa(o, "BlueInstanceTerminationOption");
 }
 
 /**
  * <p>A bucket name is required, but was not provided.</p>
  */
-export interface BucketNameFilterRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BucketNameFilterRequiredException extends __SmithyException, $MetadataBearer {
   name: "BucketNameFilterRequiredException";
   $fault: "client";
   /**
@@ -735,8 +688,7 @@ export interface BucketNameFilterRequiredException
 }
 
 export namespace BucketNameFilterRequiredException {
-  export const isa = (o: any): o is BucketNameFilterRequiredException =>
-    __isa(o, "BucketNameFilterRequiredException");
+  export const isa = (o: any): o is BucketNameFilterRequiredException => __isa(o, "BucketNameFilterRequiredException");
 }
 
 export enum BundleType {
@@ -770,8 +722,7 @@ export interface ContinueDeploymentInput {
 }
 
 export namespace ContinueDeploymentInput {
-  export const isa = (o: any): o is ContinueDeploymentInput =>
-    __isa(o, "ContinueDeploymentInput");
+  export const isa = (o: any): o is ContinueDeploymentInput => __isa(o, "ContinueDeploymentInput");
 }
 
 /**
@@ -801,8 +752,7 @@ export interface CreateApplicationInput {
 }
 
 export namespace CreateApplicationInput {
-  export const isa = (o: any): o is CreateApplicationInput =>
-    __isa(o, "CreateApplicationInput");
+  export const isa = (o: any): o is CreateApplicationInput => __isa(o, "CreateApplicationInput");
 }
 
 /**
@@ -817,8 +767,7 @@ export interface CreateApplicationOutput {
 }
 
 export namespace CreateApplicationOutput {
-  export const isa = (o: any): o is CreateApplicationOutput =>
-    __isa(o, "CreateApplicationOutput");
+  export const isa = (o: any): o is CreateApplicationOutput => __isa(o, "CreateApplicationOutput");
 }
 
 /**
@@ -866,8 +815,7 @@ export interface CreateDeploymentConfigInput {
 }
 
 export namespace CreateDeploymentConfigInput {
-  export const isa = (o: any): o is CreateDeploymentConfigInput =>
-    __isa(o, "CreateDeploymentConfigInput");
+  export const isa = (o: any): o is CreateDeploymentConfigInput => __isa(o, "CreateDeploymentConfigInput");
 }
 
 /**
@@ -882,8 +830,7 @@ export interface CreateDeploymentConfigOutput {
 }
 
 export namespace CreateDeploymentConfigOutput {
-  export const isa = (o: any): o is CreateDeploymentConfigOutput =>
-    __isa(o, "CreateDeploymentConfigOutput");
+  export const isa = (o: any): o is CreateDeploymentConfigOutput => __isa(o, "CreateDeploymentConfigOutput");
 }
 
 /**
@@ -1005,8 +952,7 @@ export interface CreateDeploymentGroupInput {
 }
 
 export namespace CreateDeploymentGroupInput {
-  export const isa = (o: any): o is CreateDeploymentGroupInput =>
-    __isa(o, "CreateDeploymentGroupInput");
+  export const isa = (o: any): o is CreateDeploymentGroupInput => __isa(o, "CreateDeploymentGroupInput");
 }
 
 /**
@@ -1021,8 +967,7 @@ export interface CreateDeploymentGroupOutput {
 }
 
 export namespace CreateDeploymentGroupOutput {
-  export const isa = (o: any): o is CreateDeploymentGroupOutput =>
-    __isa(o, "CreateDeploymentGroupOutput");
+  export const isa = (o: any): o is CreateDeploymentGroupOutput => __isa(o, "CreateDeploymentGroupOutput");
 }
 
 /**
@@ -1130,8 +1075,7 @@ export interface CreateDeploymentInput {
 }
 
 export namespace CreateDeploymentInput {
-  export const isa = (o: any): o is CreateDeploymentInput =>
-    __isa(o, "CreateDeploymentInput");
+  export const isa = (o: any): o is CreateDeploymentInput => __isa(o, "CreateDeploymentInput");
 }
 
 /**
@@ -1146,8 +1090,7 @@ export interface CreateDeploymentOutput {
 }
 
 export namespace CreateDeploymentOutput {
-  export const isa = (o: any): o is CreateDeploymentOutput =>
-    __isa(o, "CreateDeploymentOutput");
+  export const isa = (o: any): o is CreateDeploymentOutput => __isa(o, "CreateDeploymentOutput");
 }
 
 /**
@@ -1163,8 +1106,7 @@ export interface DeleteApplicationInput {
 }
 
 export namespace DeleteApplicationInput {
-  export const isa = (o: any): o is DeleteApplicationInput =>
-    __isa(o, "DeleteApplicationInput");
+  export const isa = (o: any): o is DeleteApplicationInput => __isa(o, "DeleteApplicationInput");
 }
 
 /**
@@ -1180,8 +1122,7 @@ export interface DeleteDeploymentConfigInput {
 }
 
 export namespace DeleteDeploymentConfigInput {
-  export const isa = (o: any): o is DeleteDeploymentConfigInput =>
-    __isa(o, "DeleteDeploymentConfigInput");
+  export const isa = (o: any): o is DeleteDeploymentConfigInput => __isa(o, "DeleteDeploymentConfigInput");
 }
 
 /**
@@ -1202,8 +1143,7 @@ export interface DeleteDeploymentGroupInput {
 }
 
 export namespace DeleteDeploymentGroupInput {
-  export const isa = (o: any): o is DeleteDeploymentGroupInput =>
-    __isa(o, "DeleteDeploymentGroupInput");
+  export const isa = (o: any): o is DeleteDeploymentGroupInput => __isa(o, "DeleteDeploymentGroupInput");
 }
 
 /**
@@ -1222,8 +1162,7 @@ export interface DeleteDeploymentGroupOutput {
 }
 
 export namespace DeleteDeploymentGroupOutput {
-  export const isa = (o: any): o is DeleteDeploymentGroupOutput =>
-    __isa(o, "DeleteDeploymentGroupOutput");
+  export const isa = (o: any): o is DeleteDeploymentGroupOutput => __isa(o, "DeleteDeploymentGroupOutput");
 }
 
 /**
@@ -1238,8 +1177,7 @@ export interface DeleteGitHubAccountTokenInput {
 }
 
 export namespace DeleteGitHubAccountTokenInput {
-  export const isa = (o: any): o is DeleteGitHubAccountTokenInput =>
-    __isa(o, "DeleteGitHubAccountTokenInput");
+  export const isa = (o: any): o is DeleteGitHubAccountTokenInput => __isa(o, "DeleteGitHubAccountTokenInput");
 }
 
 /**
@@ -1254,16 +1192,13 @@ export interface DeleteGitHubAccountTokenOutput {
 }
 
 export namespace DeleteGitHubAccountTokenOutput {
-  export const isa = (o: any): o is DeleteGitHubAccountTokenOutput =>
-    __isa(o, "DeleteGitHubAccountTokenOutput");
+  export const isa = (o: any): o is DeleteGitHubAccountTokenOutput => __isa(o, "DeleteGitHubAccountTokenOutput");
 }
 
 /**
  * <p>The deployment is already complete.</p>
  */
-export interface DeploymentAlreadyCompletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentAlreadyCompletedException extends __SmithyException, $MetadataBearer {
   name: "DeploymentAlreadyCompletedException";
   $fault: "client";
   /**
@@ -1281,9 +1216,7 @@ export namespace DeploymentAlreadyCompletedException {
  * <p>A deployment configuration with the specified name with the  IAM user or AWS account
  *             already exists .</p>
  */
-export interface DeploymentConfigAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "DeploymentConfigAlreadyExistsException";
   $fault: "client";
   /**
@@ -1300,9 +1233,7 @@ export namespace DeploymentConfigAlreadyExistsException {
 /**
  * <p>The deployment configuration does not exist with the IAM user or AWS account.</p>
  */
-export interface DeploymentConfigDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "DeploymentConfigDoesNotExistException";
   $fault: "client";
   /**
@@ -1319,9 +1250,7 @@ export namespace DeploymentConfigDoesNotExistException {
 /**
  * <p>The deployment configuration is still in use.</p>
  */
-export interface DeploymentConfigInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigInUseException extends __SmithyException, $MetadataBearer {
   name: "DeploymentConfigInUseException";
   $fault: "client";
   /**
@@ -1331,8 +1260,7 @@ export interface DeploymentConfigInUseException
 }
 
 export namespace DeploymentConfigInUseException {
-  export const isa = (o: any): o is DeploymentConfigInUseException =>
-    __isa(o, "DeploymentConfigInUseException");
+  export const isa = (o: any): o is DeploymentConfigInUseException => __isa(o, "DeploymentConfigInUseException");
 }
 
 /**
@@ -1373,16 +1301,13 @@ export interface DeploymentConfigInfo {
 }
 
 export namespace DeploymentConfigInfo {
-  export const isa = (o: any): o is DeploymentConfigInfo =>
-    __isa(o, "DeploymentConfigInfo");
+  export const isa = (o: any): o is DeploymentConfigInfo => __isa(o, "DeploymentConfigInfo");
 }
 
 /**
  * <p>The deployment configurations limit was exceeded.</p>
  */
-export interface DeploymentConfigLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "DeploymentConfigLimitExceededException";
   $fault: "client";
   /**
@@ -1399,9 +1324,7 @@ export namespace DeploymentConfigLimitExceededException {
 /**
  * <p>The deployment configuration name was not specified.</p>
  */
-export interface DeploymentConfigNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentConfigNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "DeploymentConfigNameRequiredException";
   $fault: "client";
   /**
@@ -1424,9 +1347,7 @@ export enum DeploymentCreator {
 /**
  * <p>The deployment with the IAM user or AWS account does not exist.</p>
  */
-export interface DeploymentDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "DeploymentDoesNotExistException";
   $fault: "client";
   /**
@@ -1436,17 +1357,14 @@ export interface DeploymentDoesNotExistException
 }
 
 export namespace DeploymentDoesNotExistException {
-  export const isa = (o: any): o is DeploymentDoesNotExistException =>
-    __isa(o, "DeploymentDoesNotExistException");
+  export const isa = (o: any): o is DeploymentDoesNotExistException => __isa(o, "DeploymentDoesNotExistException");
 }
 
 /**
  * <p>A deployment group with the specified name with the IAM user or AWS account already
  *             exists.</p>
  */
-export interface DeploymentGroupAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "DeploymentGroupAlreadyExistsException";
   $fault: "client";
   /**
@@ -1463,9 +1381,7 @@ export namespace DeploymentGroupAlreadyExistsException {
 /**
  * <p>The named deployment group with the IAM user or AWS account does not exist.</p>
  */
-export interface DeploymentGroupDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "DeploymentGroupDoesNotExistException";
   $fault: "client";
   /**
@@ -1606,16 +1522,13 @@ export interface DeploymentGroupInfo {
 }
 
 export namespace DeploymentGroupInfo {
-  export const isa = (o: any): o is DeploymentGroupInfo =>
-    __isa(o, "DeploymentGroupInfo");
+  export const isa = (o: any): o is DeploymentGroupInfo => __isa(o, "DeploymentGroupInfo");
 }
 
 /**
  * <p> The deployment groups limit was exceeded.</p>
  */
-export interface DeploymentGroupLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "DeploymentGroupLimitExceededException";
   $fault: "client";
   /**
@@ -1632,9 +1545,7 @@ export namespace DeploymentGroupLimitExceededException {
 /**
  * <p>The deployment group name was not specified.</p>
  */
-export interface DeploymentGroupNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentGroupNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "DeploymentGroupNameRequiredException";
   $fault: "client";
   /**
@@ -1651,9 +1562,7 @@ export namespace DeploymentGroupNameRequiredException {
 /**
  * <p>At least one deployment ID must be specified.</p>
  */
-export interface DeploymentIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "DeploymentIdRequiredException";
   $fault: "client";
   /**
@@ -1663,8 +1572,7 @@ export interface DeploymentIdRequiredException
 }
 
 export namespace DeploymentIdRequiredException {
-  export const isa = (o: any): o is DeploymentIdRequiredException =>
-    __isa(o, "DeploymentIdRequiredException");
+  export const isa = (o: any): o is DeploymentIdRequiredException => __isa(o, "DeploymentIdRequiredException");
 }
 
 /**
@@ -1873,16 +1781,13 @@ export interface DeploymentInfo {
 }
 
 export namespace DeploymentInfo {
-  export const isa = (o: any): o is DeploymentInfo =>
-    __isa(o, "DeploymentInfo");
+  export const isa = (o: any): o is DeploymentInfo => __isa(o, "DeploymentInfo");
 }
 
 /**
  * <p>The deployment does not have a status of Ready and can't continue yet.</p>
  */
-export interface DeploymentIsNotInReadyStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentIsNotInReadyStateException extends __SmithyException, $MetadataBearer {
   name: "DeploymentIsNotInReadyStateException";
   $fault: "client";
   /**
@@ -1899,9 +1804,7 @@ export namespace DeploymentIsNotInReadyStateException {
 /**
  * <p>The number of allowed deployments was exceeded.</p>
  */
-export interface DeploymentLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "DeploymentLimitExceededException";
   $fault: "client";
   /**
@@ -1911,16 +1814,13 @@ export interface DeploymentLimitExceededException
 }
 
 export namespace DeploymentLimitExceededException {
-  export const isa = (o: any): o is DeploymentLimitExceededException =>
-    __isa(o, "DeploymentLimitExceededException");
+  export const isa = (o: any): o is DeploymentLimitExceededException => __isa(o, "DeploymentLimitExceededException");
 }
 
 /**
  * <p>The specified deployment has not started.</p>
  */
-export interface DeploymentNotStartedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentNotStartedException extends __SmithyException, $MetadataBearer {
   name: "DeploymentNotStartedException";
   $fault: "client";
   /**
@@ -1930,8 +1830,7 @@ export interface DeploymentNotStartedException
 }
 
 export namespace DeploymentNotStartedException {
-  export const isa = (o: any): o is DeploymentNotStartedException =>
-    __isa(o, "DeploymentNotStartedException");
+  export const isa = (o: any): o is DeploymentNotStartedException => __isa(o, "DeploymentNotStartedException");
 }
 
 export enum DeploymentOption {
@@ -1978,8 +1877,7 @@ export interface DeploymentOverview {
 }
 
 export namespace DeploymentOverview {
-  export const isa = (o: any): o is DeploymentOverview =>
-    __isa(o, "DeploymentOverview");
+  export const isa = (o: any): o is DeploymentOverview => __isa(o, "DeploymentOverview");
 }
 
 export enum DeploymentReadyAction {
@@ -2021,8 +1919,7 @@ export interface DeploymentReadyOption {
 }
 
 export namespace DeploymentReadyOption {
-  export const isa = (o: any): o is DeploymentReadyOption =>
-    __isa(o, "DeploymentReadyOption");
+  export const isa = (o: any): o is DeploymentReadyOption => __isa(o, "DeploymentReadyOption");
 }
 
 export enum DeploymentStatus {
@@ -2053,8 +1950,7 @@ export interface DeploymentStyle {
 }
 
 export namespace DeploymentStyle {
-  export const isa = (o: any): o is DeploymentStyle =>
-    __isa(o, "DeploymentStyle");
+  export const isa = (o: any): o is DeploymentStyle => __isa(o, "DeploymentStyle");
 }
 
 /**
@@ -2087,16 +1983,13 @@ export interface DeploymentTarget {
 }
 
 export namespace DeploymentTarget {
-  export const isa = (o: any): o is DeploymentTarget =>
-    __isa(o, "DeploymentTarget");
+  export const isa = (o: any): o is DeploymentTarget => __isa(o, "DeploymentTarget");
 }
 
 /**
  * <p> The provided target ID does not belong to the attempted deployment. </p>
  */
-export interface DeploymentTargetDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentTargetDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "DeploymentTargetDoesNotExistException";
   $fault: "client";
   /**
@@ -2113,9 +2006,7 @@ export namespace DeploymentTargetDoesNotExistException {
 /**
  * <p> A deployment target ID was not provided. </p>
  */
-export interface DeploymentTargetIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentTargetIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "DeploymentTargetIdRequiredException";
   $fault: "client";
   /**
@@ -2134,9 +2025,7 @@ export namespace DeploymentTargetIdRequiredException {
  *             deployment was exceeded. The target list of both types of deployments must have exactly
  *             one item. This exception does not apply to EC2/On-premises deployments. </p>
  */
-export interface DeploymentTargetListSizeExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeploymentTargetListSizeExceededException extends __SmithyException, $MetadataBearer {
   name: "DeploymentTargetListSizeExceededException";
   $fault: "client";
   /**
@@ -2178,16 +2067,13 @@ export interface DeregisterOnPremisesInstanceInput {
 }
 
 export namespace DeregisterOnPremisesInstanceInput {
-  export const isa = (o: any): o is DeregisterOnPremisesInstanceInput =>
-    __isa(o, "DeregisterOnPremisesInstanceInput");
+  export const isa = (o: any): o is DeregisterOnPremisesInstanceInput => __isa(o, "DeregisterOnPremisesInstanceInput");
 }
 
 /**
  * <p>The description is too long.</p>
  */
-export interface DescriptionTooLongException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DescriptionTooLongException extends __SmithyException, $MetadataBearer {
   name: "DescriptionTooLongException";
   $fault: "client";
   /**
@@ -2197,8 +2083,7 @@ export interface DescriptionTooLongException
 }
 
 export namespace DescriptionTooLongException {
-  export const isa = (o: any): o is DescriptionTooLongException =>
-    __isa(o, "DescriptionTooLongException");
+  export const isa = (o: any): o is DescriptionTooLongException => __isa(o, "DescriptionTooLongException");
 }
 
 /**
@@ -2339,9 +2224,7 @@ export namespace ECSService {
  * <p> The Amazon ECS service is associated with more than one deployment groups. An Amazon
  *             ECS service can be associated with only one deployment group. </p>
  */
-export interface ECSServiceMappingLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ECSServiceMappingLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ECSServiceMappingLimitExceededException";
   $fault: "client";
   /**
@@ -2611,8 +2494,7 @@ export interface ErrorInformation {
 }
 
 export namespace ErrorInformation {
-  export const isa = (o: any): o is ErrorInformation =>
-    __isa(o, "ErrorInformation");
+  export const isa = (o: any): o is ErrorInformation => __isa(o, "ErrorInformation");
 }
 
 export enum FileExistsBehavior {
@@ -2653,8 +2535,7 @@ export interface GenericRevisionInfo {
 }
 
 export namespace GenericRevisionInfo {
-  export const isa = (o: any): o is GenericRevisionInfo =>
-    __isa(o, "GenericRevisionInfo");
+  export const isa = (o: any): o is GenericRevisionInfo => __isa(o, "GenericRevisionInfo");
 }
 
 /**
@@ -2670,8 +2551,7 @@ export interface GetApplicationInput {
 }
 
 export namespace GetApplicationInput {
-  export const isa = (o: any): o is GetApplicationInput =>
-    __isa(o, "GetApplicationInput");
+  export const isa = (o: any): o is GetApplicationInput => __isa(o, "GetApplicationInput");
 }
 
 /**
@@ -2686,8 +2566,7 @@ export interface GetApplicationOutput {
 }
 
 export namespace GetApplicationOutput {
-  export const isa = (o: any): o is GetApplicationOutput =>
-    __isa(o, "GetApplicationOutput");
+  export const isa = (o: any): o is GetApplicationOutput => __isa(o, "GetApplicationOutput");
 }
 
 /**
@@ -2707,8 +2586,7 @@ export interface GetApplicationRevisionInput {
 }
 
 export namespace GetApplicationRevisionInput {
-  export const isa = (o: any): o is GetApplicationRevisionInput =>
-    __isa(o, "GetApplicationRevisionInput");
+  export const isa = (o: any): o is GetApplicationRevisionInput => __isa(o, "GetApplicationRevisionInput");
 }
 
 /**
@@ -2733,8 +2611,7 @@ export interface GetApplicationRevisionOutput {
 }
 
 export namespace GetApplicationRevisionOutput {
-  export const isa = (o: any): o is GetApplicationRevisionOutput =>
-    __isa(o, "GetApplicationRevisionOutput");
+  export const isa = (o: any): o is GetApplicationRevisionOutput => __isa(o, "GetApplicationRevisionOutput");
 }
 
 /**
@@ -2750,8 +2627,7 @@ export interface GetDeploymentConfigInput {
 }
 
 export namespace GetDeploymentConfigInput {
-  export const isa = (o: any): o is GetDeploymentConfigInput =>
-    __isa(o, "GetDeploymentConfigInput");
+  export const isa = (o: any): o is GetDeploymentConfigInput => __isa(o, "GetDeploymentConfigInput");
 }
 
 /**
@@ -2766,8 +2642,7 @@ export interface GetDeploymentConfigOutput {
 }
 
 export namespace GetDeploymentConfigOutput {
-  export const isa = (o: any): o is GetDeploymentConfigOutput =>
-    __isa(o, "GetDeploymentConfigOutput");
+  export const isa = (o: any): o is GetDeploymentConfigOutput => __isa(o, "GetDeploymentConfigOutput");
 }
 
 /**
@@ -2788,8 +2663,7 @@ export interface GetDeploymentGroupInput {
 }
 
 export namespace GetDeploymentGroupInput {
-  export const isa = (o: any): o is GetDeploymentGroupInput =>
-    __isa(o, "GetDeploymentGroupInput");
+  export const isa = (o: any): o is GetDeploymentGroupInput => __isa(o, "GetDeploymentGroupInput");
 }
 
 /**
@@ -2804,8 +2678,7 @@ export interface GetDeploymentGroupOutput {
 }
 
 export namespace GetDeploymentGroupOutput {
-  export const isa = (o: any): o is GetDeploymentGroupOutput =>
-    __isa(o, "GetDeploymentGroupOutput");
+  export const isa = (o: any): o is GetDeploymentGroupOutput => __isa(o, "GetDeploymentGroupOutput");
 }
 
 /**
@@ -2820,8 +2693,7 @@ export interface GetDeploymentInput {
 }
 
 export namespace GetDeploymentInput {
-  export const isa = (o: any): o is GetDeploymentInput =>
-    __isa(o, "GetDeploymentInput");
+  export const isa = (o: any): o is GetDeploymentInput => __isa(o, "GetDeploymentInput");
 }
 
 /**
@@ -2841,8 +2713,7 @@ export interface GetDeploymentInstanceInput {
 }
 
 export namespace GetDeploymentInstanceInput {
-  export const isa = (o: any): o is GetDeploymentInstanceInput =>
-    __isa(o, "GetDeploymentInstanceInput");
+  export const isa = (o: any): o is GetDeploymentInstanceInput => __isa(o, "GetDeploymentInstanceInput");
 }
 
 /**
@@ -2857,8 +2728,7 @@ export interface GetDeploymentInstanceOutput {
 }
 
 export namespace GetDeploymentInstanceOutput {
-  export const isa = (o: any): o is GetDeploymentInstanceOutput =>
-    __isa(o, "GetDeploymentInstanceOutput");
+  export const isa = (o: any): o is GetDeploymentInstanceOutput => __isa(o, "GetDeploymentInstanceOutput");
 }
 
 /**
@@ -2873,8 +2743,7 @@ export interface GetDeploymentOutput {
 }
 
 export namespace GetDeploymentOutput {
-  export const isa = (o: any): o is GetDeploymentOutput =>
-    __isa(o, "GetDeploymentOutput");
+  export const isa = (o: any): o is GetDeploymentOutput => __isa(o, "GetDeploymentOutput");
 }
 
 export interface GetDeploymentTargetInput {
@@ -2891,8 +2760,7 @@ export interface GetDeploymentTargetInput {
 }
 
 export namespace GetDeploymentTargetInput {
-  export const isa = (o: any): o is GetDeploymentTargetInput =>
-    __isa(o, "GetDeploymentTargetInput");
+  export const isa = (o: any): o is GetDeploymentTargetInput => __isa(o, "GetDeploymentTargetInput");
 }
 
 export interface GetDeploymentTargetOutput {
@@ -2908,8 +2776,7 @@ export interface GetDeploymentTargetOutput {
 }
 
 export namespace GetDeploymentTargetOutput {
-  export const isa = (o: any): o is GetDeploymentTargetOutput =>
-    __isa(o, "GetDeploymentTargetOutput");
+  export const isa = (o: any): o is GetDeploymentTargetOutput => __isa(o, "GetDeploymentTargetOutput");
 }
 
 /**
@@ -2924,8 +2791,7 @@ export interface GetOnPremisesInstanceInput {
 }
 
 export namespace GetOnPremisesInstanceInput {
-  export const isa = (o: any): o is GetOnPremisesInstanceInput =>
-    __isa(o, "GetOnPremisesInstanceInput");
+  export const isa = (o: any): o is GetOnPremisesInstanceInput => __isa(o, "GetOnPremisesInstanceInput");
 }
 
 /**
@@ -2940,16 +2806,13 @@ export interface GetOnPremisesInstanceOutput {
 }
 
 export namespace GetOnPremisesInstanceOutput {
-  export const isa = (o: any): o is GetOnPremisesInstanceOutput =>
-    __isa(o, "GetOnPremisesInstanceOutput");
+  export const isa = (o: any): o is GetOnPremisesInstanceOutput => __isa(o, "GetOnPremisesInstanceOutput");
 }
 
 /**
  * <p>No GitHub account connection exists with the named specified in the call.</p>
  */
-export interface GitHubAccountTokenDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface GitHubAccountTokenDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "GitHubAccountTokenDoesNotExistException";
   $fault: "client";
   /**
@@ -2966,9 +2829,7 @@ export namespace GitHubAccountTokenDoesNotExistException {
 /**
  * <p>The call is missing a required GitHub account connection name.</p>
  */
-export interface GitHubAccountTokenNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface GitHubAccountTokenNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "GitHubAccountTokenNameRequiredException";
   $fault: "client";
   /**
@@ -3002,8 +2863,7 @@ export interface GitHubLocation {
 }
 
 export namespace GitHubLocation {
-  export const isa = (o: any): o is GitHubLocation =>
-    __isa(o, "GitHubLocation");
+  export const isa = (o: any): o is GitHubLocation => __isa(o, "GitHubLocation");
 }
 
 export enum GreenFleetProvisioningAction {
@@ -3034,17 +2894,14 @@ export interface GreenFleetProvisioningOption {
 }
 
 export namespace GreenFleetProvisioningOption {
-  export const isa = (o: any): o is GreenFleetProvisioningOption =>
-    __isa(o, "GreenFleetProvisioningOption");
+  export const isa = (o: any): o is GreenFleetProvisioningOption => __isa(o, "GreenFleetProvisioningOption");
 }
 
 /**
  * <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user
  *             ARN in the request.</p>
  */
-export interface IamArnRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IamArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "IamArnRequiredException";
   $fault: "client";
   /**
@@ -3054,17 +2911,14 @@ export interface IamArnRequiredException
 }
 
 export namespace IamArnRequiredException {
-  export const isa = (o: any): o is IamArnRequiredException =>
-    __isa(o, "IamArnRequiredException");
+  export const isa = (o: any): o is IamArnRequiredException => __isa(o, "IamArnRequiredException");
 }
 
 /**
  * <p>The request included an IAM session ARN that has already been used to register a
  *             different instance.</p>
  */
-export interface IamSessionArnAlreadyRegisteredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IamSessionArnAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
   name: "IamSessionArnAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -3081,9 +2935,7 @@ export namespace IamSessionArnAlreadyRegisteredException {
 /**
  * <p>The specified IAM user ARN is already registered with an on-premises instance.</p>
  */
-export interface IamUserArnAlreadyRegisteredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IamUserArnAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
   name: "IamUserArnAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -3100,9 +2952,7 @@ export namespace IamUserArnAlreadyRegisteredException {
 /**
  * <p>An IAM user ARN was not specified.</p>
  */
-export interface IamUserArnRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IamUserArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "IamUserArnRequiredException";
   $fault: "client";
   /**
@@ -3112,8 +2962,7 @@ export interface IamUserArnRequiredException
 }
 
 export namespace IamUserArnRequiredException {
-  export const isa = (o: any): o is IamUserArnRequiredException =>
-    __isa(o, "IamUserArnRequiredException");
+  export const isa = (o: any): o is IamUserArnRequiredException => __isa(o, "IamUserArnRequiredException");
 }
 
 export enum InstanceAction {
@@ -3124,9 +2973,7 @@ export enum InstanceAction {
 /**
  * <p>The specified instance does not exist in the deployment group.</p>
  */
-export interface InstanceDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "InstanceDoesNotExistException";
   $fault: "client";
   /**
@@ -3136,16 +2983,13 @@ export interface InstanceDoesNotExistException
 }
 
 export namespace InstanceDoesNotExistException {
-  export const isa = (o: any): o is InstanceDoesNotExistException =>
-    __isa(o, "InstanceDoesNotExistException");
+  export const isa = (o: any): o is InstanceDoesNotExistException => __isa(o, "InstanceDoesNotExistException");
 }
 
 /**
  * <p>The instance ID was not specified.</p>
  */
-export interface InstanceIdRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceIdRequiredException extends __SmithyException, $MetadataBearer {
   name: "InstanceIdRequiredException";
   $fault: "client";
   /**
@@ -3155,8 +2999,7 @@ export interface InstanceIdRequiredException
 }
 
 export namespace InstanceIdRequiredException {
-  export const isa = (o: any): o is InstanceIdRequiredException =>
-    __isa(o, "InstanceIdRequiredException");
+  export const isa = (o: any): o is InstanceIdRequiredException => __isa(o, "InstanceIdRequiredException");
 }
 
 /**
@@ -3209,9 +3052,7 @@ export namespace InstanceInfo {
  * <p>The maximum number of allowed on-premises instances in a single call was
  *             exceeded.</p>
  */
-export interface InstanceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "InstanceLimitExceededException";
   $fault: "client";
   /**
@@ -3221,16 +3062,13 @@ export interface InstanceLimitExceededException
 }
 
 export namespace InstanceLimitExceededException {
-  export const isa = (o: any): o is InstanceLimitExceededException =>
-    __isa(o, "InstanceLimitExceededException");
+  export const isa = (o: any): o is InstanceLimitExceededException => __isa(o, "InstanceLimitExceededException");
 }
 
 /**
  * <p>The specified on-premises instance name is already registered.</p>
  */
-export interface InstanceNameAlreadyRegisteredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceNameAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
   name: "InstanceNameAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -3247,9 +3085,7 @@ export namespace InstanceNameAlreadyRegisteredException {
 /**
  * <p>An on-premises instance name was not specified.</p>
  */
-export interface InstanceNameRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceNameRequiredException extends __SmithyException, $MetadataBearer {
   name: "InstanceNameRequiredException";
   $fault: "client";
   /**
@@ -3259,16 +3095,13 @@ export interface InstanceNameRequiredException
 }
 
 export namespace InstanceNameRequiredException {
-  export const isa = (o: any): o is InstanceNameRequiredException =>
-    __isa(o, "InstanceNameRequiredException");
+  export const isa = (o: any): o is InstanceNameRequiredException => __isa(o, "InstanceNameRequiredException");
 }
 
 /**
  * <p>The specified on-premises instance is not registered.</p>
  */
-export interface InstanceNotRegisteredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InstanceNotRegisteredException extends __SmithyException, $MetadataBearer {
   name: "InstanceNotRegisteredException";
   $fault: "client";
   /**
@@ -3278,8 +3111,7 @@ export interface InstanceNotRegisteredException
 }
 
 export namespace InstanceNotRegisteredException {
-  export const isa = (o: any): o is InstanceNotRegisteredException =>
-    __isa(o, "InstanceNotRegisteredException");
+  export const isa = (o: any): o is InstanceNotRegisteredException => __isa(o, "InstanceNotRegisteredException");
 }
 
 export enum InstanceStatus {
@@ -3358,8 +3190,7 @@ export interface InstanceSummary {
 }
 
 export namespace InstanceSummary {
-  export const isa = (o: any): o is InstanceSummary =>
-    __isa(o, "InstanceSummary");
+  export const isa = (o: any): o is InstanceSummary => __isa(o, "InstanceSummary");
 }
 
 /**
@@ -3407,8 +3238,7 @@ export interface InstanceTarget {
 }
 
 export namespace InstanceTarget {
-  export const isa = (o: any): o is InstanceTarget =>
-    __isa(o, "InstanceTarget");
+  export const isa = (o: any): o is InstanceTarget => __isa(o, "InstanceTarget");
 }
 
 export enum _InstanceType {
@@ -3436,9 +3266,7 @@ export enum _InstanceType {
  *             </li>
  *          </ul>
  */
-export interface InvalidAlarmConfigException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAlarmConfigException extends __SmithyException, $MetadataBearer {
   name: "InvalidAlarmConfigException";
   $fault: "client";
   /**
@@ -3448,16 +3276,13 @@ export interface InvalidAlarmConfigException
 }
 
 export namespace InvalidAlarmConfigException {
-  export const isa = (o: any): o is InvalidAlarmConfigException =>
-    __isa(o, "InvalidAlarmConfigException");
+  export const isa = (o: any): o is InvalidAlarmConfigException => __isa(o, "InvalidAlarmConfigException");
 }
 
 /**
  * <p>The application name was specified in an invalid format.</p>
  */
-export interface InvalidApplicationNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidApplicationNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidApplicationNameException";
   $fault: "client";
   /**
@@ -3467,8 +3292,7 @@ export interface InvalidApplicationNameException
 }
 
 export namespace InvalidApplicationNameException {
-  export const isa = (o: any): o is InvalidApplicationNameException =>
-    __isa(o, "InvalidApplicationNameException");
+  export const isa = (o: any): o is InvalidApplicationNameException => __isa(o, "InvalidApplicationNameException");
 }
 
 /**
@@ -3476,9 +3300,7 @@ export namespace InvalidApplicationNameException {
  *             The specified ARN is not in a valid format.
  *         </p>
  */
-export interface InvalidArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidArnException";
   $fault: "client";
   /**
@@ -3488,8 +3310,7 @@ export interface InvalidArnException
 }
 
 export namespace InvalidArnException {
-  export const isa = (o: any): o is InvalidArnException =>
-    __isa(o, "InvalidArnException");
+  export const isa = (o: any): o is InvalidArnException => __isa(o, "InvalidArnException");
 }
 
 /**
@@ -3497,9 +3318,7 @@ export namespace InvalidArnException {
  *             automatic rollback is enabled, but an invalid triggering event type or no event types
  *             were listed.</p>
  */
-export interface InvalidAutoRollbackConfigException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAutoRollbackConfigException extends __SmithyException, $MetadataBearer {
   name: "InvalidAutoRollbackConfigException";
   $fault: "client";
   /**
@@ -3516,9 +3335,7 @@ export namespace InvalidAutoRollbackConfigException {
 /**
  * <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
  */
-export interface InvalidAutoScalingGroupException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAutoScalingGroupException extends __SmithyException, $MetadataBearer {
   name: "InvalidAutoScalingGroupException";
   $fault: "client";
   /**
@@ -3528,17 +3345,14 @@ export interface InvalidAutoScalingGroupException
 }
 
 export namespace InvalidAutoScalingGroupException {
-  export const isa = (o: any): o is InvalidAutoScalingGroupException =>
-    __isa(o, "InvalidAutoScalingGroupException");
+  export const isa = (o: any): o is InvalidAutoScalingGroupException => __isa(o, "InvalidAutoScalingGroupException");
 }
 
 /**
  * <p>The configuration for the blue/green deployment group was provided in an invalid
  *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
  */
-export interface InvalidBlueGreenDeploymentConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBlueGreenDeploymentConfigurationException extends __SmithyException, $MetadataBearer {
   name: "InvalidBlueGreenDeploymentConfigurationException";
   $fault: "client";
   /**
@@ -3548,18 +3362,14 @@ export interface InvalidBlueGreenDeploymentConfigurationException
 }
 
 export namespace InvalidBlueGreenDeploymentConfigurationException {
-  export const isa = (
-    o: any
-  ): o is InvalidBlueGreenDeploymentConfigurationException =>
+  export const isa = (o: any): o is InvalidBlueGreenDeploymentConfigurationException =>
     __isa(o, "InvalidBlueGreenDeploymentConfigurationException");
 }
 
 /**
  * <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
  */
-export interface InvalidBucketNameFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBucketNameFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidBucketNameFilterException";
   $fault: "client";
   /**
@@ -3569,17 +3379,14 @@ export interface InvalidBucketNameFilterException
 }
 
 export namespace InvalidBucketNameFilterException {
-  export const isa = (o: any): o is InvalidBucketNameFilterException =>
-    __isa(o, "InvalidBucketNameFilterException");
+  export const isa = (o: any): o is InvalidBucketNameFilterException => __isa(o, "InvalidBucketNameFilterException");
 }
 
 /**
  * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code> or
  *                 <code>Server</code>.</p>
  */
-export interface InvalidComputePlatformException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidComputePlatformException extends __SmithyException, $MetadataBearer {
   name: "InvalidComputePlatformException";
   $fault: "client";
   /**
@@ -3589,16 +3396,13 @@ export interface InvalidComputePlatformException
 }
 
 export namespace InvalidComputePlatformException {
-  export const isa = (o: any): o is InvalidComputePlatformException =>
-    __isa(o, "InvalidComputePlatformException");
+  export const isa = (o: any): o is InvalidComputePlatformException => __isa(o, "InvalidComputePlatformException");
 }
 
 /**
  * <p>The deployed state filter was specified in an invalid format.</p>
  */
-export interface InvalidDeployedStateFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeployedStateFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeployedStateFilterException";
   $fault: "client";
   /**
@@ -3615,9 +3419,7 @@ export namespace InvalidDeployedStateFilterException {
 /**
  * <p>The deployment configuration name was specified in an invalid format.</p>
  */
-export interface InvalidDeploymentConfigNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentConfigNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentConfigNameException";
   $fault: "client";
   /**
@@ -3634,9 +3436,7 @@ export namespace InvalidDeploymentConfigNameException {
 /**
  * <p>The deployment group name was specified in an invalid format.</p>
  */
-export interface InvalidDeploymentGroupNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentGroupNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentGroupNameException";
   $fault: "client";
   /**
@@ -3653,9 +3453,7 @@ export namespace InvalidDeploymentGroupNameException {
 /**
  * <p>At least one of the deployment IDs was specified in an invalid format.</p>
  */
-export interface InvalidDeploymentIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentIdException";
   $fault: "client";
   /**
@@ -3665,17 +3463,14 @@ export interface InvalidDeploymentIdException
 }
 
 export namespace InvalidDeploymentIdException {
-  export const isa = (o: any): o is InvalidDeploymentIdException =>
-    __isa(o, "InvalidDeploymentIdException");
+  export const isa = (o: any): o is InvalidDeploymentIdException => __isa(o, "InvalidDeploymentIdException");
 }
 
 /**
  * <p>An instance type was specified for an in-place deployment. Instance types are
  *             supported for blue/green deployments only.</p>
  */
-export interface InvalidDeploymentInstanceTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentInstanceTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentInstanceTypeException";
   $fault: "client";
   /**
@@ -3692,9 +3487,7 @@ export namespace InvalidDeploymentInstanceTypeException {
 /**
  * <p>The specified deployment status doesn't exist or cannot be determined.</p>
  */
-export interface InvalidDeploymentStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentStatusException";
   $fault: "client";
   /**
@@ -3704,8 +3497,7 @@ export interface InvalidDeploymentStatusException
 }
 
 export namespace InvalidDeploymentStatusException {
-  export const isa = (o: any): o is InvalidDeploymentStatusException =>
-    __isa(o, "InvalidDeploymentStatusException");
+  export const isa = (o: any): o is InvalidDeploymentStatusException => __isa(o, "InvalidDeploymentStatusException");
 }
 
 /**
@@ -3713,9 +3505,7 @@ export namespace InvalidDeploymentStatusException {
  *             and "BLUE_GREEN." Valid deployment options include "WITH_TRAFFIC_CONTROL" and
  *             "WITHOUT_TRAFFIC_CONTROL."</p>
  */
-export interface InvalidDeploymentStyleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentStyleException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentStyleException";
   $fault: "client";
   /**
@@ -3725,16 +3515,13 @@ export interface InvalidDeploymentStyleException
 }
 
 export namespace InvalidDeploymentStyleException {
-  export const isa = (o: any): o is InvalidDeploymentStyleException =>
-    __isa(o, "InvalidDeploymentStyleException");
+  export const isa = (o: any): o is InvalidDeploymentStyleException => __isa(o, "InvalidDeploymentStyleException");
 }
 
 /**
  * <p> The target ID provided was not valid. </p>
  */
-export interface InvalidDeploymentTargetIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentTargetIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentTargetIdException";
   $fault: "client";
   /**
@@ -3751,9 +3538,7 @@ export namespace InvalidDeploymentTargetIdException {
 /**
  * <p> The wait type is invalid. </p>
  */
-export interface InvalidDeploymentWaitTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidDeploymentWaitTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidDeploymentWaitTypeException";
   $fault: "client";
   /**
@@ -3771,9 +3556,7 @@ export namespace InvalidDeploymentWaitTypeException {
  * <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of
  *             these data types can be used in a single call.</p>
  */
-export interface InvalidEC2TagCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEC2TagCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidEC2TagCombinationException";
   $fault: "client";
   /**
@@ -3783,16 +3566,13 @@ export interface InvalidEC2TagCombinationException
 }
 
 export namespace InvalidEC2TagCombinationException {
-  export const isa = (o: any): o is InvalidEC2TagCombinationException =>
-    __isa(o, "InvalidEC2TagCombinationException");
+  export const isa = (o: any): o is InvalidEC2TagCombinationException => __isa(o, "InvalidEC2TagCombinationException");
 }
 
 /**
  * <p>The tag was specified in an invalid format.</p>
  */
-export interface InvalidEC2TagException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEC2TagException extends __SmithyException, $MetadataBearer {
   name: "InvalidEC2TagException";
   $fault: "client";
   /**
@@ -3802,16 +3582,13 @@ export interface InvalidEC2TagException
 }
 
 export namespace InvalidEC2TagException {
-  export const isa = (o: any): o is InvalidEC2TagException =>
-    __isa(o, "InvalidEC2TagException");
+  export const isa = (o: any): o is InvalidEC2TagException => __isa(o, "InvalidEC2TagException");
 }
 
 /**
  * <p> The Amazon ECS service identifier is not valid. </p>
  */
-export interface InvalidECSServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidECSServiceException extends __SmithyException, $MetadataBearer {
   name: "InvalidECSServiceException";
   $fault: "client";
   /**
@@ -3821,8 +3598,7 @@ export interface InvalidECSServiceException
 }
 
 export namespace InvalidECSServiceException {
-  export const isa = (o: any): o is InvalidECSServiceException =>
-    __isa(o, "InvalidECSServiceException");
+  export const isa = (o: any): o is InvalidECSServiceException => __isa(o, "InvalidECSServiceException");
 }
 
 /**
@@ -3831,9 +3607,7 @@ export namespace InvalidECSServiceException {
  *             weren't part of the previous successful deployment. Valid values include "DISALLOW,"
  *             "OVERWRITE," and "RETAIN."</p>
  */
-export interface InvalidFileExistsBehaviorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidFileExistsBehaviorException extends __SmithyException, $MetadataBearer {
   name: "InvalidFileExistsBehaviorException";
   $fault: "client";
   /**
@@ -3850,9 +3624,7 @@ export namespace InvalidFileExistsBehaviorException {
 /**
  * <p>The GitHub token is not valid.</p>
  */
-export interface InvalidGitHubAccountTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidGitHubAccountTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidGitHubAccountTokenException";
   $fault: "client";
   /**
@@ -3869,9 +3641,7 @@ export namespace InvalidGitHubAccountTokenException {
 /**
  * <p>The format of the specified GitHub account connection name is invalid.</p>
  */
-export interface InvalidGitHubAccountTokenNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidGitHubAccountTokenNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidGitHubAccountTokenNameException";
   $fault: "client";
   /**
@@ -3888,9 +3658,7 @@ export namespace InvalidGitHubAccountTokenNameException {
 /**
  * <p>The IAM session ARN was specified in an invalid format.</p>
  */
-export interface InvalidIamSessionArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIamSessionArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidIamSessionArnException";
   $fault: "client";
   /**
@@ -3900,16 +3668,13 @@ export interface InvalidIamSessionArnException
 }
 
 export namespace InvalidIamSessionArnException {
-  export const isa = (o: any): o is InvalidIamSessionArnException =>
-    __isa(o, "InvalidIamSessionArnException");
+  export const isa = (o: any): o is InvalidIamSessionArnException => __isa(o, "InvalidIamSessionArnException");
 }
 
 /**
  * <p>The IAM user ARN was specified in an invalid format.</p>
  */
-export interface InvalidIamUserArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIamUserArnException extends __SmithyException, $MetadataBearer {
   name: "InvalidIamUserArnException";
   $fault: "client";
   /**
@@ -3919,8 +3684,7 @@ export interface InvalidIamUserArnException
 }
 
 export namespace InvalidIamUserArnException {
-  export const isa = (o: any): o is InvalidIamUserArnException =>
-    __isa(o, "InvalidIamUserArnException");
+  export const isa = (o: any): o is InvalidIamUserArnException => __isa(o, "InvalidIamUserArnException");
 }
 
 /**
@@ -3928,9 +3692,7 @@ export namespace InvalidIamUserArnException {
  *                 <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code>
  *             or <code>false</code> is expected.</p>
  */
-export interface InvalidIgnoreApplicationStopFailuresValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIgnoreApplicationStopFailuresValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidIgnoreApplicationStopFailuresValueException";
   $fault: "client";
   /**
@@ -3940,18 +3702,14 @@ export interface InvalidIgnoreApplicationStopFailuresValueException
 }
 
 export namespace InvalidIgnoreApplicationStopFailuresValueException {
-  export const isa = (
-    o: any
-  ): o is InvalidIgnoreApplicationStopFailuresValueException =>
+  export const isa = (o: any): o is InvalidIgnoreApplicationStopFailuresValueException =>
     __isa(o, "InvalidIgnoreApplicationStopFailuresValueException");
 }
 
 /**
  * <p>The input was specified in an invalid format.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -3961,16 +3719,13 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The on-premises instance name was specified in an invalid format.</p>
  */
-export interface InvalidInstanceNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidInstanceNameException";
   $fault: "client";
   /**
@@ -3980,16 +3735,13 @@ export interface InvalidInstanceNameException
 }
 
 export namespace InvalidInstanceNameException {
-  export const isa = (o: any): o is InvalidInstanceNameException =>
-    __isa(o, "InvalidInstanceNameException");
+  export const isa = (o: any): o is InvalidInstanceNameException => __isa(o, "InvalidInstanceNameException");
 }
 
 /**
  * <p>The specified instance status does not exist.</p>
  */
-export interface InvalidInstanceStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidInstanceStatusException";
   $fault: "client";
   /**
@@ -3999,8 +3751,7 @@ export interface InvalidInstanceStatusException
 }
 
 export namespace InvalidInstanceStatusException {
-  export const isa = (o: any): o is InvalidInstanceStatusException =>
-    __isa(o, "InvalidInstanceStatusException");
+  export const isa = (o: any): o is InvalidInstanceStatusException => __isa(o, "InvalidInstanceStatusException");
 }
 
 /**
@@ -4008,9 +3759,7 @@ export namespace InvalidInstanceStatusException {
  *             values include "Blue" for an original environment and "Green" for a replacement
  *             environment.</p>
  */
-export interface InvalidInstanceTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInstanceTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidInstanceTypeException";
   $fault: "client";
   /**
@@ -4020,16 +3769,13 @@ export interface InvalidInstanceTypeException
 }
 
 export namespace InvalidInstanceTypeException {
-  export const isa = (o: any): o is InvalidInstanceTypeException =>
-    __isa(o, "InvalidInstanceTypeException");
+  export const isa = (o: any): o is InvalidInstanceTypeException => __isa(o, "InvalidInstanceTypeException");
 }
 
 /**
  * <p>The specified key prefix filter was specified in an invalid format.</p>
  */
-export interface InvalidKeyPrefixFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidKeyPrefixFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidKeyPrefixFilterException";
   $fault: "client";
   /**
@@ -4039,8 +3785,7 @@ export interface InvalidKeyPrefixFilterException
 }
 
 export namespace InvalidKeyPrefixFilterException {
-  export const isa = (o: any): o is InvalidKeyPrefixFilterException =>
-    __isa(o, "InvalidKeyPrefixFilterException");
+  export const isa = (o: any): o is InvalidKeyPrefixFilterException => __isa(o, "InvalidKeyPrefixFilterException");
 }
 
 /**
@@ -4048,9 +3793,7 @@ export namespace InvalidKeyPrefixFilterException {
  *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
  *             valid.</p>
  */
-export interface InvalidLifecycleEventHookExecutionIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLifecycleEventHookExecutionIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidLifecycleEventHookExecutionIdException";
   $fault: "client";
   /**
@@ -4060,9 +3803,7 @@ export interface InvalidLifecycleEventHookExecutionIdException
 }
 
 export namespace InvalidLifecycleEventHookExecutionIdException {
-  export const isa = (
-    o: any
-  ): o is InvalidLifecycleEventHookExecutionIdException =>
+  export const isa = (o: any): o is InvalidLifecycleEventHookExecutionIdException =>
     __isa(o, "InvalidLifecycleEventHookExecutionIdException");
 }
 
@@ -4070,9 +3811,7 @@ export namespace InvalidLifecycleEventHookExecutionIdException {
  * <p>The result of a Lambda validation function that verifies a lifecycle event is invalid.
  *             It should return <code>Succeeded</code> or <code>Failed</code>.</p>
  */
-export interface InvalidLifecycleEventHookExecutionStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLifecycleEventHookExecutionStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidLifecycleEventHookExecutionStatusException";
   $fault: "client";
   /**
@@ -4082,18 +3821,14 @@ export interface InvalidLifecycleEventHookExecutionStatusException
 }
 
 export namespace InvalidLifecycleEventHookExecutionStatusException {
-  export const isa = (
-    o: any
-  ): o is InvalidLifecycleEventHookExecutionStatusException =>
+  export const isa = (o: any): o is InvalidLifecycleEventHookExecutionStatusException =>
     __isa(o, "InvalidLifecycleEventHookExecutionStatusException");
 }
 
 /**
  * <p>An invalid load balancer name, or no load balancer name, was specified.</p>
  */
-export interface InvalidLoadBalancerInfoException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLoadBalancerInfoException extends __SmithyException, $MetadataBearer {
   name: "InvalidLoadBalancerInfoException";
   $fault: "client";
   /**
@@ -4103,16 +3838,13 @@ export interface InvalidLoadBalancerInfoException
 }
 
 export namespace InvalidLoadBalancerInfoException {
-  export const isa = (o: any): o is InvalidLoadBalancerInfoException =>
-    __isa(o, "InvalidLoadBalancerInfoException");
+  export const isa = (o: any): o is InvalidLoadBalancerInfoException => __isa(o, "InvalidLoadBalancerInfoException");
 }
 
 /**
  * <p>The minimum healthy instance value was specified in an invalid format.</p>
  */
-export interface InvalidMinimumHealthyHostValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMinimumHealthyHostValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidMinimumHealthyHostValueException";
   $fault: "client";
   /**
@@ -4129,9 +3861,7 @@ export namespace InvalidMinimumHealthyHostValueException {
 /**
  * <p>The next token was specified in an invalid format.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -4141,17 +3871,14 @@ export interface InvalidNextTokenException
 }
 
 export namespace InvalidNextTokenException {
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>A call was submitted that specified both OnPremisesTagFilters and OnPremisesTagSet,
  *             but only one of these data types can be used in a single call.</p>
  */
-export interface InvalidOnPremisesTagCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOnPremisesTagCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOnPremisesTagCombinationException";
   $fault: "client";
   /**
@@ -4168,9 +3895,7 @@ export namespace InvalidOnPremisesTagCombinationException {
 /**
  * <p>An invalid operation was detected.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   /**
@@ -4180,16 +3905,13 @@ export interface InvalidOperationException
 }
 
 export namespace InvalidOperationException {
-  export const isa = (o: any): o is InvalidOperationException =>
-    __isa(o, "InvalidOperationException");
+  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 /**
  * <p>The registration status was specified in an invalid format.</p>
  */
-export interface InvalidRegistrationStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRegistrationStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidRegistrationStatusException";
   $fault: "client";
   /**
@@ -4206,9 +3928,7 @@ export namespace InvalidRegistrationStatusException {
 /**
  * <p>The revision was specified in an invalid format.</p>
  */
-export interface InvalidRevisionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRevisionException extends __SmithyException, $MetadataBearer {
   name: "InvalidRevisionException";
   $fault: "client";
   /**
@@ -4218,8 +3938,7 @@ export interface InvalidRevisionException
 }
 
 export namespace InvalidRevisionException {
-  export const isa = (o: any): o is InvalidRevisionException =>
-    __isa(o, "InvalidRevisionException");
+  export const isa = (o: any): o is InvalidRevisionException => __isa(o, "InvalidRevisionException");
 }
 
 /**
@@ -4227,9 +3946,7 @@ export namespace InvalidRevisionException {
  *             was specified, the specified service role does not grant the appropriate permissions to
  *             Amazon EC2 Auto Scaling.</p>
  */
-export interface InvalidRoleException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
   name: "InvalidRoleException";
   $fault: "client";
   /**
@@ -4239,17 +3956,14 @@ export interface InvalidRoleException
 }
 
 export namespace InvalidRoleException {
-  export const isa = (o: any): o is InvalidRoleException =>
-    __isa(o, "InvalidRoleException");
+  export const isa = (o: any): o is InvalidRoleException => __isa(o, "InvalidRoleException");
 }
 
 /**
  * <p>The column name to sort by is either not present or was specified in an invalid
  *             format.</p>
  */
-export interface InvalidSortByException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSortByException extends __SmithyException, $MetadataBearer {
   name: "InvalidSortByException";
   $fault: "client";
   /**
@@ -4259,16 +3973,13 @@ export interface InvalidSortByException
 }
 
 export namespace InvalidSortByException {
-  export const isa = (o: any): o is InvalidSortByException =>
-    __isa(o, "InvalidSortByException");
+  export const isa = (o: any): o is InvalidSortByException => __isa(o, "InvalidSortByException");
 }
 
 /**
  * <p>The sort order was specified in an invalid format.</p>
  */
-export interface InvalidSortOrderException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSortOrderException extends __SmithyException, $MetadataBearer {
   name: "InvalidSortOrderException";
   $fault: "client";
   /**
@@ -4278,16 +3989,13 @@ export interface InvalidSortOrderException
 }
 
 export namespace InvalidSortOrderException {
-  export const isa = (o: any): o is InvalidSortOrderException =>
-    __isa(o, "InvalidSortOrderException");
+  export const isa = (o: any): o is InvalidSortOrderException => __isa(o, "InvalidSortOrderException");
 }
 
 /**
  * <p>The tag was specified in an invalid format.</p>
  */
-export interface InvalidTagException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagException";
   $fault: "client";
   /**
@@ -4297,16 +4005,13 @@ export interface InvalidTagException
 }
 
 export namespace InvalidTagException {
-  export const isa = (o: any): o is InvalidTagException =>
-    __isa(o, "InvalidTagException");
+  export const isa = (o: any): o is InvalidTagException => __isa(o, "InvalidTagException");
 }
 
 /**
  * <p>The tag filter was specified in an invalid format.</p>
  */
-export interface InvalidTagFilterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagFilterException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagFilterException";
   $fault: "client";
   /**
@@ -4316,8 +4021,7 @@ export interface InvalidTagFilterException
 }
 
 export namespace InvalidTagFilterException {
-  export const isa = (o: any): o is InvalidTagFilterException =>
-    __isa(o, "InvalidTagFilterException");
+  export const isa = (o: any): o is InvalidTagFilterException => __isa(o, "InvalidTagFilterException");
 }
 
 /**
@@ -4325,9 +4029,7 @@ export namespace InvalidTagFilterException {
  *             The specified tags are not valid.
  *         </p>
  */
-export interface InvalidTagsToAddException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTagsToAddException extends __SmithyException, $MetadataBearer {
   name: "InvalidTagsToAddException";
   $fault: "client";
   /**
@@ -4337,16 +4039,13 @@ export interface InvalidTagsToAddException
 }
 
 export namespace InvalidTagsToAddException {
-  export const isa = (o: any): o is InvalidTagsToAddException =>
-    __isa(o, "InvalidTagsToAddException");
+  export const isa = (o: any): o is InvalidTagsToAddException => __isa(o, "InvalidTagsToAddException");
 }
 
 /**
  * <p> The target filter name is invalid. </p>
  */
-export interface InvalidTargetFilterNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetFilterNameException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetFilterNameException";
   $fault: "client";
   /**
@@ -4356,16 +4055,13 @@ export interface InvalidTargetFilterNameException
 }
 
 export namespace InvalidTargetFilterNameException {
-  export const isa = (o: any): o is InvalidTargetFilterNameException =>
-    __isa(o, "InvalidTargetFilterNameException");
+  export const isa = (o: any): o is InvalidTargetFilterNameException => __isa(o, "InvalidTargetFilterNameException");
 }
 
 /**
  * <p> A target group pair associated with this deployment is not valid. </p>
  */
-export interface InvalidTargetGroupPairException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetGroupPairException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetGroupPairException";
   $fault: "client";
   /**
@@ -4375,8 +4071,7 @@ export interface InvalidTargetGroupPairException
 }
 
 export namespace InvalidTargetGroupPairException {
-  export const isa = (o: any): o is InvalidTargetGroupPairException =>
-    __isa(o, "InvalidTargetGroupPairException");
+  export const isa = (o: any): o is InvalidTargetGroupPairException => __isa(o, "InvalidTargetGroupPairException");
 }
 
 /**
@@ -4397,9 +4092,7 @@ export namespace InvalidTargetGroupPairException {
  *             </li>
  *          </ul>
  */
-export interface InvalidTargetInstancesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTargetInstancesException extends __SmithyException, $MetadataBearer {
   name: "InvalidTargetInstancesException";
   $fault: "client";
   /**
@@ -4409,16 +4102,13 @@ export interface InvalidTargetInstancesException
 }
 
 export namespace InvalidTargetInstancesException {
-  export const isa = (o: any): o is InvalidTargetInstancesException =>
-    __isa(o, "InvalidTargetInstancesException");
+  export const isa = (o: any): o is InvalidTargetInstancesException => __isa(o, "InvalidTargetInstancesException");
 }
 
 /**
  * <p>The specified time range was specified in an invalid format.</p>
  */
-export interface InvalidTimeRangeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTimeRangeException extends __SmithyException, $MetadataBearer {
   name: "InvalidTimeRangeException";
   $fault: "client";
   /**
@@ -4428,17 +4118,14 @@ export interface InvalidTimeRangeException
 }
 
 export namespace InvalidTimeRangeException {
-  export const isa = (o: any): o is InvalidTimeRangeException =>
-    __isa(o, "InvalidTimeRangeException");
+  export const isa = (o: any): o is InvalidTimeRangeException => __isa(o, "InvalidTimeRangeException");
 }
 
 /**
  * <p> The configuration that specifies how traffic is routed during a deployment is
  *             invalid.</p>
  */
-export interface InvalidTrafficRoutingConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTrafficRoutingConfigurationException extends __SmithyException, $MetadataBearer {
   name: "InvalidTrafficRoutingConfigurationException";
   $fault: "client";
   /**
@@ -4448,18 +4135,14 @@ export interface InvalidTrafficRoutingConfigurationException
 }
 
 export namespace InvalidTrafficRoutingConfigurationException {
-  export const isa = (
-    o: any
-  ): o is InvalidTrafficRoutingConfigurationException =>
+  export const isa = (o: any): o is InvalidTrafficRoutingConfigurationException =>
     __isa(o, "InvalidTrafficRoutingConfigurationException");
 }
 
 /**
  * <p>The trigger was specified in an invalid format.</p>
  */
-export interface InvalidTriggerConfigException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTriggerConfigException extends __SmithyException, $MetadataBearer {
   name: "InvalidTriggerConfigException";
   $fault: "client";
   /**
@@ -4469,8 +4152,7 @@ export interface InvalidTriggerConfigException
 }
 
 export namespace InvalidTriggerConfigException {
-  export const isa = (o: any): o is InvalidTriggerConfigException =>
-    __isa(o, "InvalidTriggerConfigException");
+  export const isa = (o: any): o is InvalidTriggerConfigException => __isa(o, "InvalidTriggerConfigException");
 }
 
 /**
@@ -4478,9 +4160,7 @@ export namespace InvalidTriggerConfigException {
  *                 <code>false</code> is expected. For EC2/On-premises deployments, <code>true</code>
  *             or <code>false</code> is expected.</p>
  */
-export interface InvalidUpdateOutdatedInstancesOnlyValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidUpdateOutdatedInstancesOnlyValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidUpdateOutdatedInstancesOnlyValueException";
   $fault: "client";
   /**
@@ -4490,9 +4170,7 @@ export interface InvalidUpdateOutdatedInstancesOnlyValueException
 }
 
 export namespace InvalidUpdateOutdatedInstancesOnlyValueException {
-  export const isa = (
-    o: any
-  ): o is InvalidUpdateOutdatedInstancesOnlyValueException =>
+  export const isa = (o: any): o is InvalidUpdateOutdatedInstancesOnlyValueException =>
     __isa(o, "InvalidUpdateOutdatedInstancesOnlyValueException");
 }
 
@@ -4541,8 +4219,7 @@ export interface LambdaFunctionInfo {
 }
 
 export namespace LambdaFunctionInfo {
-  export const isa = (o: any): o is LambdaFunctionInfo =>
-    __isa(o, "LambdaFunctionInfo");
+  export const isa = (o: any): o is LambdaFunctionInfo => __isa(o, "LambdaFunctionInfo");
 }
 
 /**
@@ -4625,8 +4302,7 @@ export interface LastDeploymentInfo {
 }
 
 export namespace LastDeploymentInfo {
-  export const isa = (o: any): o is LastDeploymentInfo =>
-    __isa(o, "LastDeploymentInfo");
+  export const isa = (o: any): o is LastDeploymentInfo => __isa(o, "LastDeploymentInfo");
 }
 
 export enum LifecycleErrorCode {
@@ -4691,17 +4367,14 @@ export interface LifecycleEvent {
 }
 
 export namespace LifecycleEvent {
-  export const isa = (o: any): o is LifecycleEvent =>
-    __isa(o, "LifecycleEvent");
+  export const isa = (o: any): o is LifecycleEvent => __isa(o, "LifecycleEvent");
 }
 
 /**
  * <p>An attempt to return the status of an already completed lifecycle event
  *             occurred.</p>
  */
-export interface LifecycleEventAlreadyCompletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LifecycleEventAlreadyCompletedException extends __SmithyException, $MetadataBearer {
   name: "LifecycleEventAlreadyCompletedException";
   $fault: "client";
   /**
@@ -4727,9 +4400,7 @@ export enum LifecycleEventStatus {
 /**
  * <p>The limit for lifecycle hooks was exceeded.</p>
  */
-export interface LifecycleHookLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LifecycleHookLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LifecycleHookLimitExceededException";
   $fault: "client";
   /**
@@ -4828,8 +4499,7 @@ export interface ListApplicationRevisionsInput {
 }
 
 export namespace ListApplicationRevisionsInput {
-  export const isa = (o: any): o is ListApplicationRevisionsInput =>
-    __isa(o, "ListApplicationRevisionsInput");
+  export const isa = (o: any): o is ListApplicationRevisionsInput => __isa(o, "ListApplicationRevisionsInput");
 }
 
 /**
@@ -4851,8 +4521,7 @@ export interface ListApplicationRevisionsOutput {
 }
 
 export namespace ListApplicationRevisionsOutput {
-  export const isa = (o: any): o is ListApplicationRevisionsOutput =>
-    __isa(o, "ListApplicationRevisionsOutput");
+  export const isa = (o: any): o is ListApplicationRevisionsOutput => __isa(o, "ListApplicationRevisionsOutput");
 }
 
 /**
@@ -4868,8 +4537,7 @@ export interface ListApplicationsInput {
 }
 
 export namespace ListApplicationsInput {
-  export const isa = (o: any): o is ListApplicationsInput =>
-    __isa(o, "ListApplicationsInput");
+  export const isa = (o: any): o is ListApplicationsInput => __isa(o, "ListApplicationsInput");
 }
 
 /**
@@ -4891,8 +4559,7 @@ export interface ListApplicationsOutput {
 }
 
 export namespace ListApplicationsOutput {
-  export const isa = (o: any): o is ListApplicationsOutput =>
-    __isa(o, "ListApplicationsOutput");
+  export const isa = (o: any): o is ListApplicationsOutput => __isa(o, "ListApplicationsOutput");
 }
 
 /**
@@ -4908,8 +4575,7 @@ export interface ListDeploymentConfigsInput {
 }
 
 export namespace ListDeploymentConfigsInput {
-  export const isa = (o: any): o is ListDeploymentConfigsInput =>
-    __isa(o, "ListDeploymentConfigsInput");
+  export const isa = (o: any): o is ListDeploymentConfigsInput => __isa(o, "ListDeploymentConfigsInput");
 }
 
 /**
@@ -4932,8 +4598,7 @@ export interface ListDeploymentConfigsOutput {
 }
 
 export namespace ListDeploymentConfigsOutput {
-  export const isa = (o: any): o is ListDeploymentConfigsOutput =>
-    __isa(o, "ListDeploymentConfigsOutput");
+  export const isa = (o: any): o is ListDeploymentConfigsOutput => __isa(o, "ListDeploymentConfigsOutput");
 }
 
 /**
@@ -4955,8 +4620,7 @@ export interface ListDeploymentGroupsInput {
 }
 
 export namespace ListDeploymentGroupsInput {
-  export const isa = (o: any): o is ListDeploymentGroupsInput =>
-    __isa(o, "ListDeploymentGroupsInput");
+  export const isa = (o: any): o is ListDeploymentGroupsInput => __isa(o, "ListDeploymentGroupsInput");
 }
 
 /**
@@ -4983,8 +4647,7 @@ export interface ListDeploymentGroupsOutput {
 }
 
 export namespace ListDeploymentGroupsOutput {
-  export const isa = (o: any): o is ListDeploymentGroupsOutput =>
-    __isa(o, "ListDeploymentGroupsOutput");
+  export const isa = (o: any): o is ListDeploymentGroupsOutput => __isa(o, "ListDeploymentGroupsOutput");
 }
 
 /**
@@ -5038,8 +4701,7 @@ export interface ListDeploymentInstancesInput {
 }
 
 export namespace ListDeploymentInstancesInput {
-  export const isa = (o: any): o is ListDeploymentInstancesInput =>
-    __isa(o, "ListDeploymentInstancesInput");
+  export const isa = (o: any): o is ListDeploymentInstancesInput => __isa(o, "ListDeploymentInstancesInput");
 }
 
 /**
@@ -5061,8 +4723,7 @@ export interface ListDeploymentInstancesOutput {
 }
 
 export namespace ListDeploymentInstancesOutput {
-  export const isa = (o: any): o is ListDeploymentInstancesOutput =>
-    __isa(o, "ListDeploymentInstancesOutput");
+  export const isa = (o: any): o is ListDeploymentInstancesOutput => __isa(o, "ListDeploymentInstancesOutput");
 }
 
 export interface ListDeploymentTargetsInput {
@@ -5098,8 +4759,7 @@ export interface ListDeploymentTargetsInput {
 }
 
 export namespace ListDeploymentTargetsInput {
-  export const isa = (o: any): o is ListDeploymentTargetsInput =>
-    __isa(o, "ListDeploymentTargetsInput");
+  export const isa = (o: any): o is ListDeploymentTargetsInput => __isa(o, "ListDeploymentTargetsInput");
 }
 
 export interface ListDeploymentTargetsOutput {
@@ -5118,8 +4778,7 @@ export interface ListDeploymentTargetsOutput {
 }
 
 export namespace ListDeploymentTargetsOutput {
-  export const isa = (o: any): o is ListDeploymentTargetsOutput =>
-    __isa(o, "ListDeploymentTargetsOutput");
+  export const isa = (o: any): o is ListDeploymentTargetsOutput => __isa(o, "ListDeploymentTargetsOutput");
 }
 
 /**
@@ -5188,8 +4847,7 @@ export interface ListDeploymentsInput {
 }
 
 export namespace ListDeploymentsInput {
-  export const isa = (o: any): o is ListDeploymentsInput =>
-    __isa(o, "ListDeploymentsInput");
+  export const isa = (o: any): o is ListDeploymentsInput => __isa(o, "ListDeploymentsInput");
 }
 
 /**
@@ -5211,8 +4869,7 @@ export interface ListDeploymentsOutput {
 }
 
 export namespace ListDeploymentsOutput {
-  export const isa = (o: any): o is ListDeploymentsOutput =>
-    __isa(o, "ListDeploymentsOutput");
+  export const isa = (o: any): o is ListDeploymentsOutput => __isa(o, "ListDeploymentsOutput");
 }
 
 /**
@@ -5228,8 +4885,7 @@ export interface ListGitHubAccountTokenNamesInput {
 }
 
 export namespace ListGitHubAccountTokenNamesInput {
-  export const isa = (o: any): o is ListGitHubAccountTokenNamesInput =>
-    __isa(o, "ListGitHubAccountTokenNamesInput");
+  export const isa = (o: any): o is ListGitHubAccountTokenNamesInput => __isa(o, "ListGitHubAccountTokenNamesInput");
 }
 
 /**
@@ -5251,8 +4907,7 @@ export interface ListGitHubAccountTokenNamesOutput {
 }
 
 export namespace ListGitHubAccountTokenNamesOutput {
-  export const isa = (o: any): o is ListGitHubAccountTokenNamesOutput =>
-    __isa(o, "ListGitHubAccountTokenNamesOutput");
+  export const isa = (o: any): o is ListGitHubAccountTokenNamesOutput => __isa(o, "ListGitHubAccountTokenNamesOutput");
 }
 
 /**
@@ -5289,8 +4944,7 @@ export interface ListOnPremisesInstancesInput {
 }
 
 export namespace ListOnPremisesInstancesInput {
-  export const isa = (o: any): o is ListOnPremisesInstancesInput =>
-    __isa(o, "ListOnPremisesInstancesInput");
+  export const isa = (o: any): o is ListOnPremisesInstancesInput => __isa(o, "ListOnPremisesInstancesInput");
 }
 
 /**
@@ -5312,8 +4966,7 @@ export interface ListOnPremisesInstancesOutput {
 }
 
 export namespace ListOnPremisesInstancesOutput {
-  export const isa = (o: any): o is ListOnPremisesInstancesOutput =>
-    __isa(o, "ListOnPremisesInstancesOutput");
+  export const isa = (o: any): o is ListOnPremisesInstancesOutput => __isa(o, "ListOnPremisesInstancesOutput");
 }
 
 export enum ListStateFilterAction {
@@ -5340,8 +4993,7 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceOutput {
@@ -5363,8 +5015,7 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
+  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -5401,8 +5052,7 @@ export interface LoadBalancerInfo {
 }
 
 export namespace LoadBalancerInfo {
-  export const isa = (o: any): o is LoadBalancerInfo =>
-    __isa(o, "LoadBalancerInfo");
+  export const isa = (o: any): o is LoadBalancerInfo => __isa(o, "LoadBalancerInfo");
 }
 
 /**
@@ -5450,8 +5100,7 @@ export interface MinimumHealthyHosts {
 }
 
 export namespace MinimumHealthyHosts {
-  export const isa = (o: any): o is MinimumHealthyHosts =>
-    __isa(o, "MinimumHealthyHosts");
+  export const isa = (o: any): o is MinimumHealthyHosts => __isa(o, "MinimumHealthyHosts");
 }
 
 export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
@@ -5460,9 +5109,7 @@ export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
  * <p>Both an IAM user ARN and an IAM session ARN were included in the request. Use only one
  *             ARN type.</p>
  */
-export interface MultipleIamArnsProvidedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MultipleIamArnsProvidedException extends __SmithyException, $MetadataBearer {
   name: "MultipleIamArnsProvidedException";
   $fault: "client";
   /**
@@ -5472,8 +5119,7 @@ export interface MultipleIamArnsProvidedException
 }
 
 export namespace MultipleIamArnsProvidedException {
-  export const isa = (o: any): o is MultipleIamArnsProvidedException =>
-    __isa(o, "MultipleIamArnsProvidedException");
+  export const isa = (o: any): o is MultipleIamArnsProvidedException => __isa(o, "MultipleIamArnsProvidedException");
 }
 
 /**
@@ -5490,16 +5136,13 @@ export interface OnPremisesTagSet {
 }
 
 export namespace OnPremisesTagSet {
-  export const isa = (o: any): o is OnPremisesTagSet =>
-    __isa(o, "OnPremisesTagSet");
+  export const isa = (o: any): o is OnPremisesTagSet => __isa(o, "OnPremisesTagSet");
 }
 
 /**
  * <p>The API used does not support the deployment.</p>
  */
-export interface OperationNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotSupportedException";
   $fault: "client";
   /**
@@ -5509,8 +5152,7 @@ export interface OperationNotSupportedException
 }
 
 export namespace OperationNotSupportedException {
-  export const isa = (o: any): o is OperationNotSupportedException =>
-    __isa(o, "OperationNotSupportedException");
+  export const isa = (o: any): o is OperationNotSupportedException => __isa(o, "OperationNotSupportedException");
 }
 
 export interface PutLifecycleEventHookExecutionStatusInput {
@@ -5549,9 +5191,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
 }
 
 export namespace PutLifecycleEventHookExecutionStatusOutput {
-  export const isa = (
-    o: any
-  ): o is PutLifecycleEventHookExecutionStatusOutput =>
+  export const isa = (o: any): o is PutLifecycleEventHookExecutionStatusOutput =>
     __isa(o, "PutLifecycleEventHookExecutionStatusOutput");
 }
 
@@ -5602,8 +5242,7 @@ export interface RegisterApplicationRevisionInput {
 }
 
 export namespace RegisterApplicationRevisionInput {
-  export const isa = (o: any): o is RegisterApplicationRevisionInput =>
-    __isa(o, "RegisterApplicationRevisionInput");
+  export const isa = (o: any): o is RegisterApplicationRevisionInput => __isa(o, "RegisterApplicationRevisionInput");
 }
 
 /**
@@ -5628,8 +5267,7 @@ export interface RegisterOnPremisesInstanceInput {
 }
 
 export namespace RegisterOnPremisesInstanceInput {
-  export const isa = (o: any): o is RegisterOnPremisesInstanceInput =>
-    __isa(o, "RegisterOnPremisesInstanceInput");
+  export const isa = (o: any): o is RegisterOnPremisesInstanceInput => __isa(o, "RegisterOnPremisesInstanceInput");
 }
 
 export enum RegistrationStatus {
@@ -5663,9 +5301,7 @@ export namespace RemoveTagsFromOnPremisesInstancesInput {
  *             The ARN of a resource is required, but was not found.
  *         </p>
  */
-export interface ResourceArnRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceArnRequiredException extends __SmithyException, $MetadataBearer {
   name: "ResourceArnRequiredException";
   $fault: "client";
   /**
@@ -5675,16 +5311,13 @@ export interface ResourceArnRequiredException
 }
 
 export namespace ResourceArnRequiredException {
-  export const isa = (o: any): o is ResourceArnRequiredException =>
-    __isa(o, "ResourceArnRequiredException");
+  export const isa = (o: any): o is ResourceArnRequiredException => __isa(o, "ResourceArnRequiredException");
 }
 
 /**
  * <p>The specified resource could not be validated.</p>
  */
-export interface ResourceValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceValidationException extends __SmithyException, $MetadataBearer {
   name: "ResourceValidationException";
   $fault: "client";
   /**
@@ -5694,16 +5327,13 @@ export interface ResourceValidationException
 }
 
 export namespace ResourceValidationException {
-  export const isa = (o: any): o is ResourceValidationException =>
-    __isa(o, "ResourceValidationException");
+  export const isa = (o: any): o is ResourceValidationException => __isa(o, "ResourceValidationException");
 }
 
 /**
  * <p>The named revision does not exist with the IAM user or AWS account.</p>
  */
-export interface RevisionDoesNotExistException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RevisionDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RevisionDoesNotExistException";
   $fault: "client";
   /**
@@ -5713,8 +5343,7 @@ export interface RevisionDoesNotExistException
 }
 
 export namespace RevisionDoesNotExistException {
-  export const isa = (o: any): o is RevisionDoesNotExistException =>
-    __isa(o, "RevisionDoesNotExistException");
+  export const isa = (o: any): o is RevisionDoesNotExistException => __isa(o, "RevisionDoesNotExistException");
 }
 
 /**
@@ -5785,8 +5414,7 @@ export interface RevisionLocation {
 }
 
 export namespace RevisionLocation {
-  export const isa = (o: any): o is RevisionLocation =>
-    __isa(o, "RevisionLocation");
+  export const isa = (o: any): o is RevisionLocation => __isa(o, "RevisionLocation");
 }
 
 export enum RevisionLocationType {
@@ -5799,9 +5427,7 @@ export enum RevisionLocationType {
 /**
  * <p>The revision ID was not specified.</p>
  */
-export interface RevisionRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RevisionRequiredException extends __SmithyException, $MetadataBearer {
   name: "RevisionRequiredException";
   $fault: "client";
   /**
@@ -5811,16 +5437,13 @@ export interface RevisionRequiredException
 }
 
 export namespace RevisionRequiredException {
-  export const isa = (o: any): o is RevisionRequiredException =>
-    __isa(o, "RevisionRequiredException");
+  export const isa = (o: any): o is RevisionRequiredException => __isa(o, "RevisionRequiredException");
 }
 
 /**
  * <p>The role ID was not specified.</p>
  */
-export interface RoleRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RoleRequiredException extends __SmithyException, $MetadataBearer {
   name: "RoleRequiredException";
   $fault: "client";
   /**
@@ -5830,8 +5453,7 @@ export interface RoleRequiredException
 }
 
 export namespace RoleRequiredException {
-  export const isa = (o: any): o is RoleRequiredException =>
-    __isa(o, "RoleRequiredException");
+  export const isa = (o: any): o is RoleRequiredException => __isa(o, "RoleRequiredException");
 }
 
 /**
@@ -5951,8 +5573,7 @@ export interface StopDeploymentInput {
 }
 
 export namespace StopDeploymentInput {
-  export const isa = (o: any): o is StopDeploymentInput =>
-    __isa(o, "StopDeploymentInput");
+  export const isa = (o: any): o is StopDeploymentInput => __isa(o, "StopDeploymentInput");
 }
 
 /**
@@ -5980,8 +5601,7 @@ export interface StopDeploymentOutput {
 }
 
 export namespace StopDeploymentOutput {
-  export const isa = (o: any): o is StopDeploymentOutput =>
-    __isa(o, "StopDeploymentOutput");
+  export const isa = (o: any): o is StopDeploymentOutput => __isa(o, "StopDeploymentOutput");
 }
 
 export enum StopStatus {
@@ -6054,9 +5674,7 @@ export enum TagFilterType {
 /**
  * <p>The maximum allowed number of tags was exceeded.</p>
  */
-export interface TagLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
   /**
@@ -6066,16 +5684,13 @@ export interface TagLimitExceededException
 }
 
 export namespace TagLimitExceededException {
-  export const isa = (o: any): o is TagLimitExceededException =>
-    __isa(o, "TagLimitExceededException");
+  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
  * <p>A tag was not specified.</p>
  */
-export interface TagRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagRequiredException extends __SmithyException, $MetadataBearer {
   name: "TagRequiredException";
   $fault: "client";
   /**
@@ -6085,8 +5700,7 @@ export interface TagRequiredException
 }
 
 export namespace TagRequiredException {
-  export const isa = (o: any): o is TagRequiredException =>
-    __isa(o, "TagRequiredException");
+  export const isa = (o: any): o is TagRequiredException => __isa(o, "TagRequiredException");
 }
 
 export interface TagResourceInput {
@@ -6107,8 +5721,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceOutput {
@@ -6116,17 +5729,14 @@ export interface TagResourceOutput {
 }
 
 export namespace TagResourceOutput {
-  export const isa = (o: any): o is TagResourceOutput =>
-    __isa(o, "TagResourceOutput");
+  export const isa = (o: any): o is TagResourceOutput => __isa(o, "TagResourceOutput");
 }
 
 /**
  * <p>The number of tag groups included in the tag set list exceeded the maximum allowed
  *             limit of 3.</p>
  */
-export interface TagSetListLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagSetListLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagSetListLimitExceededException";
   $fault: "client";
   /**
@@ -6136,8 +5746,7 @@ export interface TagSetListLimitExceededException
 }
 
 export namespace TagSetListLimitExceededException {
-  export const isa = (o: any): o is TagSetListLimitExceededException =>
-    __isa(o, "TagSetListLimitExceededException");
+  export const isa = (o: any): o is TagSetListLimitExceededException => __isa(o, "TagSetListLimitExceededException");
 }
 
 export enum TargetFilterName {
@@ -6163,8 +5772,7 @@ export interface TargetGroupInfo {
 }
 
 export namespace TargetGroupInfo {
-  export const isa = (o: any): o is TargetGroupInfo =>
-    __isa(o, "TargetGroupInfo");
+  export const isa = (o: any): o is TargetGroupInfo => __isa(o, "TargetGroupInfo");
 }
 
 /**
@@ -6193,8 +5801,7 @@ export interface TargetGroupPairInfo {
 }
 
 export namespace TargetGroupPairInfo {
-  export const isa = (o: any): o is TargetGroupPairInfo =>
-    __isa(o, "TargetGroupPairInfo");
+  export const isa = (o: any): o is TargetGroupPairInfo => __isa(o, "TargetGroupPairInfo");
 }
 
 /**
@@ -6225,8 +5832,7 @@ export interface TargetInstances {
 }
 
 export namespace TargetInstances {
-  export const isa = (o: any): o is TargetInstances =>
-    __isa(o, "TargetInstances");
+  export const isa = (o: any): o is TargetInstances => __isa(o, "TargetInstances");
 }
 
 export enum TargetLabel {
@@ -6247,9 +5853,7 @@ export enum TargetStatus {
 /**
  * <p>An API function was called too frequently.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   /**
@@ -6259,8 +5863,7 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -6284,8 +5887,7 @@ export interface TimeBasedCanary {
 }
 
 export namespace TimeBasedCanary {
-  export const isa = (o: any): o is TimeBasedCanary =>
-    __isa(o, "TimeBasedCanary");
+  export const isa = (o: any): o is TimeBasedCanary => __isa(o, "TimeBasedCanary");
 }
 
 /**
@@ -6310,8 +5912,7 @@ export interface TimeBasedLinear {
 }
 
 export namespace TimeBasedLinear {
-  export const isa = (o: any): o is TimeBasedLinear =>
-    __isa(o, "TimeBasedLinear");
+  export const isa = (o: any): o is TimeBasedLinear => __isa(o, "TimeBasedLinear");
 }
 
 /**
@@ -6386,8 +5987,7 @@ export interface TrafficRoutingConfig {
 }
 
 export namespace TrafficRoutingConfig {
-  export const isa = (o: any): o is TrafficRoutingConfig =>
-    __isa(o, "TrafficRoutingConfig");
+  export const isa = (o: any): o is TrafficRoutingConfig => __isa(o, "TrafficRoutingConfig");
 }
 
 export enum TrafficRoutingType {
@@ -6438,9 +6038,7 @@ export enum TriggerEventType {
 /**
  * <p>The maximum allowed number of triggers was exceeded.</p>
  */
-export interface TriggerTargetsLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TriggerTargetsLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TriggerTargetsLimitExceededException";
   $fault: "client";
   /**
@@ -6457,9 +6055,7 @@ export namespace TriggerTargetsLimitExceededException {
 /**
  * <p>A call was submitted that is not supported for the specified deployment type.</p>
  */
-export interface UnsupportedActionForDeploymentTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedActionForDeploymentTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedActionForDeploymentTypeException";
   $fault: "client";
   /**
@@ -6469,9 +6065,7 @@ export interface UnsupportedActionForDeploymentTypeException
 }
 
 export namespace UnsupportedActionForDeploymentTypeException {
-  export const isa = (
-    o: any
-  ): o is UnsupportedActionForDeploymentTypeException =>
+  export const isa = (o: any): o is UnsupportedActionForDeploymentTypeException =>
     __isa(o, "UnsupportedActionForDeploymentTypeException");
 }
 
@@ -6494,8 +6088,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceOutput {
@@ -6503,8 +6096,7 @@ export interface UntagResourceOutput {
 }
 
 export namespace UntagResourceOutput {
-  export const isa = (o: any): o is UntagResourceOutput =>
-    __isa(o, "UntagResourceOutput");
+  export const isa = (o: any): o is UntagResourceOutput => __isa(o, "UntagResourceOutput");
 }
 
 /**
@@ -6524,8 +6116,7 @@ export interface UpdateApplicationInput {
 }
 
 export namespace UpdateApplicationInput {
-  export const isa = (o: any): o is UpdateApplicationInput =>
-    __isa(o, "UpdateApplicationInput");
+  export const isa = (o: any): o is UpdateApplicationInput => __isa(o, "UpdateApplicationInput");
 }
 
 /**
@@ -6636,8 +6227,7 @@ export interface UpdateDeploymentGroupInput {
 }
 
 export namespace UpdateDeploymentGroupInput {
-  export const isa = (o: any): o is UpdateDeploymentGroupInput =>
-    __isa(o, "UpdateDeploymentGroupInput");
+  export const isa = (o: any): o is UpdateDeploymentGroupInput => __isa(o, "UpdateDeploymentGroupInput");
 }
 
 /**
@@ -6656,6 +6246,5 @@ export interface UpdateDeploymentGroupOutput {
 }
 
 export namespace UpdateDeploymentGroupOutput {
-  export const isa = (o: any): o is UpdateDeploymentGroupOutput =>
-    __isa(o, "UpdateDeploymentGroupOutput");
+  export const isa = (o: any): o is UpdateDeploymentGroupOutput => __isa(o, "UpdateDeploymentGroupOutput");
 }

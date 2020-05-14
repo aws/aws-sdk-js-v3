@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1SearchCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +43,7 @@ export class SearchCommand extends $Command<
     configuration: CloudSearchDomainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchCommandInput, SearchCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +58,11 @@ export class SearchCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SearchCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SearchCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SearchCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
     return deserializeAws_restJson1_1SearchCommand(output, context);
   }
 

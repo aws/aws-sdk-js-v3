@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  ListObjectChildrenRequest,
-  ListObjectChildrenResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { ListObjectChildrenRequest, ListObjectChildrenResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectChildrenCommand,
   serializeAws_restJson1_1ListObjectChildrenCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectChildrenCommandInput = ListObjectChildrenRequest;
-export type ListObjectChildrenCommandOutput = ListObjectChildrenResponse &
-  __MetadataBearer;
+export type ListObjectChildrenCommandOutput = ListObjectChildrenResponse & __MetadataBearer;
 
 export class ListObjectChildrenCommand extends $Command<
   ListObjectChildrenCommandInput,
@@ -50,9 +39,7 @@ export class ListObjectChildrenCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListObjectChildrenCommandInput, ListObjectChildrenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListObjectChildrenCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListObjectChildrenCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListObjectChildrenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListObjectChildrenCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListObjectChildrenCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectChildrenCommandOutput> {
     return deserializeAws_restJson1_1ListObjectChildrenCommand(output, context);
   }
 

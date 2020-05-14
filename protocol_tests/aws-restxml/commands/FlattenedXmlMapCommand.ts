@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { FlattenedXmlMapInputOutput } from "../models/index";
 import {
   deserializeAws_restXmlFlattenedXmlMapCommand,
   serializeAws_restXmlFlattenedXmlMapCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FlattenedXmlMapCommandInput = FlattenedXmlMapInputOutput;
-export type FlattenedXmlMapCommandOutput = FlattenedXmlMapInputOutput &
-  __MetadataBearer;
+export type FlattenedXmlMapCommandOutput = FlattenedXmlMapInputOutput & __MetadataBearer;
 
 export class FlattenedXmlMapCommand extends $Command<
   FlattenedXmlMapCommandInput,
@@ -47,9 +39,7 @@ export class FlattenedXmlMapCommand extends $Command<
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class FlattenedXmlMapCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: FlattenedXmlMapCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: FlattenedXmlMapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlFlattenedXmlMapCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<FlattenedXmlMapCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FlattenedXmlMapCommandOutput> {
     return deserializeAws_restXmlFlattenedXmlMapCommand(output, context);
   }
 

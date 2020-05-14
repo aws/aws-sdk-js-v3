@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
-import {
-  DescribeDataSourceRequest,
-  DescribeDataSourceResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDataSourceCommand,
   serializeAws_json1_1DescribeDataSourceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDataSourceCommandInput = DescribeDataSourceRequest;
-export type DescribeDataSourceCommandOutput = DescribeDataSourceResponse &
-  __MetadataBearer;
+export type DescribeDataSourceCommandOutput = DescribeDataSourceResponse & __MetadataBearer;
 
 export class DescribeDataSourceCommand extends $Command<
   DescribeDataSourceCommandInput,
@@ -50,9 +39,7 @@ export class DescribeDataSourceCommand extends $Command<
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeDataSourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDataSourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDataSourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDataSourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
     return deserializeAws_json1_1DescribeDataSourceCommand(output, context);
   }
 

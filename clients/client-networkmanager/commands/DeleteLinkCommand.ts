@@ -1,18 +1,11 @@
-import {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NetworkManagerClient";
+import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import { DeleteLinkRequest, DeleteLinkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteLinkCommand,
   serializeAws_restJson1_1DeleteLinkCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeleteLinkCommand extends $Command<
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLinkCommandInput, DeleteLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeleteLinkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLinkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteLinkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLinkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLinkCommandOutput> {
     return deserializeAws_restJson1_1DeleteLinkCommand(output, context);
   }
 

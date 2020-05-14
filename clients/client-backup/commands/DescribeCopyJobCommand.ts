@@ -1,18 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { DescribeCopyJobInput, DescribeCopyJobOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeCopyJobCommand,
   serializeAws_restJson1_1DescribeCopyJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCopyJobCommandInput = DescribeCopyJobInput;
-export type DescribeCopyJobCommandOutput = DescribeCopyJobOutput &
-  __MetadataBearer;
+export type DescribeCopyJobCommandOutput = DescribeCopyJobOutput & __MetadataBearer;
 
 export class DescribeCopyJobCommand extends $Command<
   DescribeCopyJobCommandInput,
@@ -47,9 +39,7 @@ export class DescribeCopyJobCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DescribeCopyJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCopyJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCopyJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeCopyJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCopyJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCopyJobCommandOutput> {
     return deserializeAws_restJson1_1DescribeCopyJobCommand(output, context);
   }
 

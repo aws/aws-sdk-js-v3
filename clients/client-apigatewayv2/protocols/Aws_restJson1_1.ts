@@ -1,87 +1,36 @@
-import {
-  CreateApiCommandInput,
-  CreateApiCommandOutput
-} from "../commands/CreateApiCommand";
-import {
-  CreateApiMappingCommandInput,
-  CreateApiMappingCommandOutput
-} from "../commands/CreateApiMappingCommand";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "../commands/CreateAuthorizerCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "../commands/CreateDeploymentCommand";
-import {
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput
-} from "../commands/CreateDomainNameCommand";
-import {
-  CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput
-} from "../commands/CreateIntegrationCommand";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "../commands/CreateApiCommand";
+import { CreateApiMappingCommandInput, CreateApiMappingCommandOutput } from "../commands/CreateApiMappingCommand";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "../commands/CreateAuthorizerCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "../commands/CreateDeploymentCommand";
+import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "../commands/CreateDomainNameCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "../commands/CreateIntegrationCommand";
 import {
   CreateIntegrationResponseCommandInput,
   CreateIntegrationResponseCommandOutput
 } from "../commands/CreateIntegrationResponseCommand";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "../commands/CreateModelCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "../commands/CreateRouteCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "../commands/CreateRouteCommand";
 import {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput
 } from "../commands/CreateRouteResponseCommand";
-import {
-  CreateStageCommandInput,
-  CreateStageCommandOutput
-} from "../commands/CreateStageCommand";
-import {
-  DeleteApiCommandInput,
-  DeleteApiCommandOutput
-} from "../commands/DeleteApiCommand";
-import {
-  DeleteApiMappingCommandInput,
-  DeleteApiMappingCommandOutput
-} from "../commands/DeleteApiMappingCommand";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "../commands/DeleteAuthorizerCommand";
+import { CreateStageCommandInput, CreateStageCommandOutput } from "../commands/CreateStageCommand";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "../commands/DeleteApiCommand";
+import { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "../commands/DeleteApiMappingCommand";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "../commands/DeleteAuthorizerCommand";
 import {
   DeleteCorsConfigurationCommandInput,
   DeleteCorsConfigurationCommandOutput
 } from "../commands/DeleteCorsConfigurationCommand";
-import {
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput
-} from "../commands/DeleteDeploymentCommand";
-import {
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput
-} from "../commands/DeleteDomainNameCommand";
-import {
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput
-} from "../commands/DeleteIntegrationCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "../commands/DeleteDeploymentCommand";
+import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "../commands/DeleteDomainNameCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import {
   DeleteIntegrationResponseCommandInput,
   DeleteIntegrationResponseCommandOutput
 } from "../commands/DeleteIntegrationResponseCommand";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "../commands/DeleteModelCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "../commands/DeleteRouteCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "../commands/DeleteRouteCommand";
 import {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput
@@ -90,54 +39,18 @@ import {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput
 } from "../commands/DeleteRouteSettingsCommand";
-import {
-  DeleteStageCommandInput,
-  DeleteStageCommandOutput
-} from "../commands/DeleteStageCommand";
-import {
-  GetApiCommandInput,
-  GetApiCommandOutput
-} from "../commands/GetApiCommand";
-import {
-  GetApiMappingCommandInput,
-  GetApiMappingCommandOutput
-} from "../commands/GetApiMappingCommand";
-import {
-  GetApiMappingsCommandInput,
-  GetApiMappingsCommandOutput
-} from "../commands/GetApiMappingsCommand";
-import {
-  GetApisCommandInput,
-  GetApisCommandOutput
-} from "../commands/GetApisCommand";
-import {
-  GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput
-} from "../commands/GetAuthorizerCommand";
-import {
-  GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput
-} from "../commands/GetAuthorizersCommand";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "../commands/GetDeploymentCommand";
-import {
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput
-} from "../commands/GetDeploymentsCommand";
-import {
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput
-} from "../commands/GetDomainNameCommand";
-import {
-  GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput
-} from "../commands/GetDomainNamesCommand";
-import {
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput
-} from "../commands/GetIntegrationCommand";
+import { DeleteStageCommandInput, DeleteStageCommandOutput } from "../commands/DeleteStageCommand";
+import { GetApiCommandInput, GetApiCommandOutput } from "../commands/GetApiCommand";
+import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "../commands/GetApiMappingCommand";
+import { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "../commands/GetApiMappingsCommand";
+import { GetApisCommandInput, GetApisCommandOutput } from "../commands/GetApisCommand";
+import { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "../commands/GetAuthorizerCommand";
+import { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "../commands/GetAuthorizersCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "../commands/GetDeploymentCommand";
+import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "../commands/GetDeploymentsCommand";
+import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "../commands/GetDomainNameCommand";
+import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "../commands/GetDomainNamesCommand";
+import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "../commands/GetIntegrationCommand";
 import {
   GetIntegrationResponseCommandInput,
   GetIntegrationResponseCommandOutput
@@ -146,110 +59,38 @@ import {
   GetIntegrationResponsesCommandInput,
   GetIntegrationResponsesCommandOutput
 } from "../commands/GetIntegrationResponsesCommand";
-import {
-  GetIntegrationsCommandInput,
-  GetIntegrationsCommandOutput
-} from "../commands/GetIntegrationsCommand";
-import {
-  GetModelCommandInput,
-  GetModelCommandOutput
-} from "../commands/GetModelCommand";
-import {
-  GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput
-} from "../commands/GetModelTemplateCommand";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "../commands/GetModelsCommand";
-import {
-  GetRouteCommandInput,
-  GetRouteCommandOutput
-} from "../commands/GetRouteCommand";
-import {
-  GetRouteResponseCommandInput,
-  GetRouteResponseCommandOutput
-} from "../commands/GetRouteResponseCommand";
-import {
-  GetRouteResponsesCommandInput,
-  GetRouteResponsesCommandOutput
-} from "../commands/GetRouteResponsesCommand";
-import {
-  GetRoutesCommandInput,
-  GetRoutesCommandOutput
-} from "../commands/GetRoutesCommand";
-import {
-  GetStageCommandInput,
-  GetStageCommandOutput
-} from "../commands/GetStageCommand";
-import {
-  GetStagesCommandInput,
-  GetStagesCommandOutput
-} from "../commands/GetStagesCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "../commands/GetTagsCommand";
-import {
-  ImportApiCommandInput,
-  ImportApiCommandOutput
-} from "../commands/ImportApiCommand";
-import {
-  ReimportApiCommandInput,
-  ReimportApiCommandOutput
-} from "../commands/ReimportApiCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateApiCommandInput,
-  UpdateApiCommandOutput
-} from "../commands/UpdateApiCommand";
-import {
-  UpdateApiMappingCommandInput,
-  UpdateApiMappingCommandOutput
-} from "../commands/UpdateApiMappingCommand";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "../commands/UpdateAuthorizerCommand";
-import {
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput
-} from "../commands/UpdateDeploymentCommand";
-import {
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput
-} from "../commands/UpdateDomainNameCommand";
-import {
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput
-} from "../commands/UpdateIntegrationCommand";
+import { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "../commands/GetIntegrationsCommand";
+import { GetModelCommandInput, GetModelCommandOutput } from "../commands/GetModelCommand";
+import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "../commands/GetModelTemplateCommand";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "../commands/GetModelsCommand";
+import { GetRouteCommandInput, GetRouteCommandOutput } from "../commands/GetRouteCommand";
+import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "../commands/GetRouteResponseCommand";
+import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "../commands/GetRouteResponsesCommand";
+import { GetRoutesCommandInput, GetRoutesCommandOutput } from "../commands/GetRoutesCommand";
+import { GetStageCommandInput, GetStageCommandOutput } from "../commands/GetStageCommand";
+import { GetStagesCommandInput, GetStagesCommandOutput } from "../commands/GetStagesCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "../commands/GetTagsCommand";
+import { ImportApiCommandInput, ImportApiCommandOutput } from "../commands/ImportApiCommand";
+import { ReimportApiCommandInput, ReimportApiCommandOutput } from "../commands/ReimportApiCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "../commands/UpdateApiCommand";
+import { UpdateApiMappingCommandInput, UpdateApiMappingCommandOutput } from "../commands/UpdateApiMappingCommand";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "../commands/UpdateAuthorizerCommand";
+import { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "../commands/UpdateDeploymentCommand";
+import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "../commands/UpdateDomainNameCommand";
+import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "../commands/UpdateIntegrationCommand";
 import {
   UpdateIntegrationResponseCommandInput,
   UpdateIntegrationResponseCommandOutput
 } from "../commands/UpdateIntegrationResponseCommand";
-import {
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput
-} from "../commands/UpdateModelCommand";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "../commands/UpdateRouteCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "../commands/UpdateModelCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "../commands/UpdateRouteCommand";
 import {
   UpdateRouteResponseCommandInput,
   UpdateRouteResponseCommandOutput
 } from "../commands/UpdateRouteResponseCommand";
-import {
-  UpdateStageCommandInput,
-  UpdateStageCommandOutput
-} from "../commands/UpdateStageCommand";
+import { UpdateStageCommandInput, UpdateStageCommandOutput } from "../commands/UpdateStageCommand";
 import {
   AccessDeniedException,
   AccessLogSettings,
@@ -274,10 +115,7 @@ import {
   Stage,
   TooManyRequestsException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -303,10 +141,7 @@ export const serializeAws_restJson1_1CreateApiCommand = async (
       apiKeySelectionExpression: input.ApiKeySelectionExpression
     }),
     ...(input.CorsConfiguration !== undefined && {
-      corsConfiguration: serializeAws_restJson1_1Cors(
-        input.CorsConfiguration,
-        context
-      )
+      corsConfiguration: serializeAws_restJson1_1Cors(input.CorsConfiguration, context)
     }),
     ...(input.CredentialsArn !== undefined && {
       credentialsArn: input.CredentialsArn
@@ -354,10 +189,7 @@ export const serializeAws_restJson1_1CreateApiMappingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -394,10 +226,7 @@ export const serializeAws_restJson1_1CreateAuthorizerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -416,19 +245,13 @@ export const serializeAws_restJson1_1CreateAuthorizerCommand = async (
       authorizerUri: input.AuthorizerUri
     }),
     ...(input.IdentitySource !== undefined && {
-      identitySource: serializeAws_restJson1_1IdentitySourceList(
-        input.IdentitySource,
-        context
-      )
+      identitySource: serializeAws_restJson1_1IdentitySourceList(input.IdentitySource, context)
     }),
     ...(input.IdentityValidationExpression !== undefined && {
       identityValidationExpression: input.IdentityValidationExpression
     }),
     ...(input.JwtConfiguration !== undefined && {
-      jwtConfiguration: serializeAws_restJson1_1JWTConfiguration(
-        input.JwtConfiguration,
-        context
-      )
+      jwtConfiguration: serializeAws_restJson1_1JWTConfiguration(input.JwtConfiguration, context)
     }),
     ...(input.Name !== undefined && { name: input.Name })
   });
@@ -457,10 +280,7 @@ export const serializeAws_restJson1_1CreateDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -527,10 +347,7 @@ export const serializeAws_restJson1_1CreateIntegrationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -565,16 +382,10 @@ export const serializeAws_restJson1_1CreateIntegrationCommand = async (
       payloadFormatVersion: input.PayloadFormatVersion
     }),
     ...(input.RequestParameters !== undefined && {
-      requestParameters: serializeAws_restJson1_1IntegrationParameters(
-        input.RequestParameters,
-        context
-      )
+      requestParameters: serializeAws_restJson1_1IntegrationParameters(input.RequestParameters, context)
     }),
     ...(input.RequestTemplates !== undefined && {
-      requestTemplates: serializeAws_restJson1_1TemplateMap(
-        input.RequestTemplates,
-        context
-      )
+      requestTemplates: serializeAws_restJson1_1TemplateMap(input.RequestTemplates, context)
     }),
     ...(input.TemplateSelectionExpression !== undefined && {
       templateSelectionExpression: input.TemplateSelectionExpression
@@ -602,31 +413,22 @@ export const serializeAws_restJson1_1CreateIntegrationResponseCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses";
+  let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
@@ -639,16 +441,10 @@ export const serializeAws_restJson1_1CreateIntegrationResponseCommand = async (
       integrationResponseKey: input.IntegrationResponseKey
     }),
     ...(input.ResponseParameters !== undefined && {
-      responseParameters: serializeAws_restJson1_1IntegrationParameters(
-        input.ResponseParameters,
-        context
-      )
+      responseParameters: serializeAws_restJson1_1IntegrationParameters(input.ResponseParameters, context)
     }),
     ...(input.ResponseTemplates !== undefined && {
-      responseTemplates: serializeAws_restJson1_1TemplateMap(
-        input.ResponseTemplates,
-        context
-      )
+      responseTemplates: serializeAws_restJson1_1TemplateMap(input.ResponseTemplates, context)
     }),
     ...(input.TemplateSelectionExpression !== undefined && {
       templateSelectionExpression: input.TemplateSelectionExpression
@@ -679,10 +475,7 @@ export const serializeAws_restJson1_1CreateModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -718,10 +511,7 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -731,10 +521,7 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
       apiKeyRequired: input.ApiKeyRequired
     }),
     ...(input.AuthorizationScopes !== undefined && {
-      authorizationScopes: serializeAws_restJson1_1AuthorizationScopes(
-        input.AuthorizationScopes,
-        context
-      )
+      authorizationScopes: serializeAws_restJson1_1AuthorizationScopes(input.AuthorizationScopes, context)
     }),
     ...(input.AuthorizationType !== undefined && {
       authorizationType: input.AuthorizationType
@@ -749,16 +536,10 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
       operationName: input.OperationName
     }),
     ...(input.RequestModels !== undefined && {
-      requestModels: serializeAws_restJson1_1RouteModels(
-        input.RequestModels,
-        context
-      )
+      requestModels: serializeAws_restJson1_1RouteModels(input.RequestModels, context)
     }),
     ...(input.RequestParameters !== undefined && {
-      requestParameters: serializeAws_restJson1_1RouteParameters(
-        input.RequestParameters,
-        context
-      )
+      requestParameters: serializeAws_restJson1_1RouteParameters(input.RequestParameters, context)
     }),
     ...(input.RouteKey !== undefined && { routeKey: input.RouteKey }),
     ...(input.RouteResponseSelectionExpression !== undefined && {
@@ -791,10 +572,7 @@ export const serializeAws_restJson1_1CreateRouteResponseCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -803,10 +581,7 @@ export const serializeAws_restJson1_1CreateRouteResponseCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
@@ -816,16 +591,10 @@ export const serializeAws_restJson1_1CreateRouteResponseCommand = async (
       modelSelectionExpression: input.ModelSelectionExpression
     }),
     ...(input.ResponseModels !== undefined && {
-      responseModels: serializeAws_restJson1_1RouteModels(
-        input.ResponseModels,
-        context
-      )
+      responseModels: serializeAws_restJson1_1RouteModels(input.ResponseModels, context)
     }),
     ...(input.ResponseParameters !== undefined && {
-      responseParameters: serializeAws_restJson1_1RouteParameters(
-        input.ResponseParameters,
-        context
-      )
+      responseParameters: serializeAws_restJson1_1RouteParameters(input.ResponseParameters, context)
     }),
     ...(input.RouteResponseKey !== undefined && {
       routeResponseKey: input.RouteResponseKey
@@ -856,47 +625,32 @@ export const serializeAws_restJson1_1CreateStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.AccessLogSettings !== undefined && {
-      accessLogSettings: serializeAws_restJson1_1AccessLogSettings(
-        input.AccessLogSettings,
-        context
-      )
+      accessLogSettings: serializeAws_restJson1_1AccessLogSettings(input.AccessLogSettings, context)
     }),
     ...(input.AutoDeploy !== undefined && { autoDeploy: input.AutoDeploy }),
     ...(input.ClientCertificateId !== undefined && {
       clientCertificateId: input.ClientCertificateId
     }),
     ...(input.DefaultRouteSettings !== undefined && {
-      defaultRouteSettings: serializeAws_restJson1_1RouteSettings(
-        input.DefaultRouteSettings,
-        context
-      )
+      defaultRouteSettings: serializeAws_restJson1_1RouteSettings(input.DefaultRouteSettings, context)
     }),
     ...(input.DeploymentId !== undefined && {
       deploymentId: input.DeploymentId
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.RouteSettings !== undefined && {
-      routeSettings: serializeAws_restJson1_1RouteSettingsMap(
-        input.RouteSettings,
-        context
-      )
+      routeSettings: serializeAws_restJson1_1RouteSettingsMap(input.RouteSettings, context)
     }),
     ...(input.StageName !== undefined && { stageName: input.StageName }),
     ...(input.StageVariables !== undefined && {
-      stageVariables: serializeAws_restJson1_1StageVariablesMap(
-        input.StageVariables,
-        context
-      )
+      stageVariables: serializeAws_restJson1_1StageVariablesMap(input.StageVariables, context)
     }),
     ...(input.Tags !== undefined && {
       tags: serializeAws_restJson1_1Tags(input.Tags, context)
@@ -927,10 +681,7 @@ export const serializeAws_restJson1_1DeleteApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -958,14 +709,9 @@ export const serializeAws_restJson1_1DeleteApiMappingCommand = async (
   if (input.ApiMappingId !== undefined) {
     const labelValue: string = input.ApiMappingId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApiMappingId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiMappingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiMappingId.");
   }
@@ -974,10 +720,7 @@ export const serializeAws_restJson1_1DeleteApiMappingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -1007,24 +750,16 @@ export const serializeAws_restJson1_1DeleteAuthorizerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.AuthorizerId !== undefined) {
     const labelValue: string = input.AuthorizerId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AuthorizerId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AuthorizerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AuthorizerId.");
   }
@@ -1054,10 +789,7 @@ export const serializeAws_restJson1_1DeleteCorsConfigurationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1087,24 +819,16 @@ export const serializeAws_restJson1_1DeleteDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
@@ -1134,10 +858,7 @@ export const serializeAws_restJson1_1DeleteDomainNameCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -1167,24 +888,16 @@ export const serializeAws_restJson1_1DeleteIntegrationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
@@ -1208,49 +921,33 @@ export const serializeAws_restJson1_1DeleteIntegrationResponseCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
+  let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
   if (input.IntegrationResponseId !== undefined) {
     const labelValue: string = input.IntegrationResponseId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationResponseId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationResponseId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationResponseId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: IntegrationResponseId."
-    );
+    throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1278,10 +975,7 @@ export const serializeAws_restJson1_1DeleteModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1290,10 +984,7 @@ export const serializeAws_restJson1_1DeleteModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ModelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ModelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ModelId.");
   }
@@ -1323,10 +1014,7 @@ export const serializeAws_restJson1_1DeleteRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1335,10 +1023,7 @@ export const serializeAws_restJson1_1DeleteRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
@@ -1362,17 +1047,13 @@ export const serializeAws_restJson1_1DeleteRouteResponseCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
+  let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1381,24 +1062,16 @@ export const serializeAws_restJson1_1DeleteRouteResponseCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
   if (input.RouteResponseId !== undefined) {
     const labelValue: string = input.RouteResponseId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RouteResponseId."
-      );
+      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteResponseId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteResponseId.");
   }
@@ -1422,17 +1095,13 @@ export const serializeAws_restJson1_1DeleteRouteSettingsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/stages/{StageName}/routesettings/{RouteKey}";
+  let resolvedPath = "/v2/apis/{ApiId}/stages/{StageName}/routesettings/{RouteKey}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1441,10 +1110,7 @@ export const serializeAws_restJson1_1DeleteRouteSettingsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteKey.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteKey}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteKey}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteKey.");
   }
@@ -1453,10 +1119,7 @@ export const serializeAws_restJson1_1DeleteRouteSettingsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: StageName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{StageName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
   }
@@ -1486,10 +1149,7 @@ export const serializeAws_restJson1_1DeleteStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1498,10 +1158,7 @@ export const serializeAws_restJson1_1DeleteStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: StageName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{StageName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
   }
@@ -1531,10 +1188,7 @@ export const serializeAws_restJson1_1GetApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1562,14 +1216,9 @@ export const serializeAws_restJson1_1GetApiMappingCommand = async (
   if (input.ApiMappingId !== undefined) {
     const labelValue: string = input.ApiMappingId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApiMappingId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiMappingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiMappingId.");
   }
@@ -1578,10 +1227,7 @@ export const serializeAws_restJson1_1GetApiMappingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -1611,10 +1257,7 @@ export const serializeAws_restJson1_1GetApiMappingsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -1675,24 +1318,16 @@ export const serializeAws_restJson1_1GetAuthorizerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.AuthorizerId !== undefined) {
     const labelValue: string = input.AuthorizerId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AuthorizerId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AuthorizerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AuthorizerId.");
   }
@@ -1722,10 +1357,7 @@ export const serializeAws_restJson1_1GetAuthorizersCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1760,24 +1392,16 @@ export const serializeAws_restJson1_1GetDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
@@ -1807,10 +1431,7 @@ export const serializeAws_restJson1_1GetDeploymentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -1845,10 +1466,7 @@ export const serializeAws_restJson1_1GetDomainNameCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -1904,24 +1522,16 @@ export const serializeAws_restJson1_1GetIntegrationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
@@ -1945,49 +1555,33 @@ export const serializeAws_restJson1_1GetIntegrationResponseCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
+  let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
   if (input.IntegrationResponseId !== undefined) {
     const labelValue: string = input.IntegrationResponseId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationResponseId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationResponseId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationResponseId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: IntegrationResponseId."
-    );
+    throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2009,31 +1603,22 @@ export const serializeAws_restJson1_1GetIntegrationResponsesCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses";
+  let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
@@ -2068,10 +1653,7 @@ export const serializeAws_restJson1_1GetIntegrationsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2106,10 +1688,7 @@ export const serializeAws_restJson1_1GetModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2118,10 +1697,7 @@ export const serializeAws_restJson1_1GetModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ModelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ModelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ModelId.");
   }
@@ -2151,10 +1727,7 @@ export const serializeAws_restJson1_1GetModelTemplateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2163,10 +1736,7 @@ export const serializeAws_restJson1_1GetModelTemplateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ModelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ModelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ModelId.");
   }
@@ -2196,10 +1766,7 @@ export const serializeAws_restJson1_1GetModelsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2234,10 +1801,7 @@ export const serializeAws_restJson1_1GetRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2246,10 +1810,7 @@ export const serializeAws_restJson1_1GetRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
@@ -2273,17 +1834,13 @@ export const serializeAws_restJson1_1GetRouteResponseCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
+  let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2292,24 +1849,16 @@ export const serializeAws_restJson1_1GetRouteResponseCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
   if (input.RouteResponseId !== undefined) {
     const labelValue: string = input.RouteResponseId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RouteResponseId."
-      );
+      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteResponseId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteResponseId.");
   }
@@ -2339,10 +1888,7 @@ export const serializeAws_restJson1_1GetRouteResponsesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2351,10 +1897,7 @@ export const serializeAws_restJson1_1GetRouteResponsesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
@@ -2389,10 +1932,7 @@ export const serializeAws_restJson1_1GetRoutesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2427,10 +1967,7 @@ export const serializeAws_restJson1_1GetStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2439,10 +1976,7 @@ export const serializeAws_restJson1_1GetStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: StageName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{StageName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
   }
@@ -2472,10 +2006,7 @@ export const serializeAws_restJson1_1GetStagesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2508,14 +2039,9 @@ export const serializeAws_restJson1_1GetTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2576,10 +2102,7 @@ export const serializeAws_restJson1_1ReimportApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2617,14 +2140,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2657,14 +2175,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2700,10 +2213,7 @@ export const serializeAws_restJson1_1UpdateApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -2713,10 +2223,7 @@ export const serializeAws_restJson1_1UpdateApiCommand = async (
       apiKeySelectionExpression: input.ApiKeySelectionExpression
     }),
     ...(input.CorsConfiguration !== undefined && {
-      corsConfiguration: serializeAws_restJson1_1Cors(
-        input.CorsConfiguration,
-        context
-      )
+      corsConfiguration: serializeAws_restJson1_1Cors(input.CorsConfiguration, context)
     }),
     ...(input.CredentialsArn !== undefined && {
       credentialsArn: input.CredentialsArn
@@ -2756,14 +2263,9 @@ export const serializeAws_restJson1_1UpdateApiMappingCommand = async (
   if (input.ApiMappingId !== undefined) {
     const labelValue: string = input.ApiMappingId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ApiMappingId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ApiMappingId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiMappingId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiMappingId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiMappingId.");
   }
@@ -2772,10 +2274,7 @@ export const serializeAws_restJson1_1UpdateApiMappingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -2812,24 +2311,16 @@ export const serializeAws_restJson1_1UpdateAuthorizerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.AuthorizerId !== undefined) {
     const labelValue: string = input.AuthorizerId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AuthorizerId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AuthorizerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AuthorizerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AuthorizerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AuthorizerId.");
   }
@@ -2848,19 +2339,13 @@ export const serializeAws_restJson1_1UpdateAuthorizerCommand = async (
       authorizerUri: input.AuthorizerUri
     }),
     ...(input.IdentitySource !== undefined && {
-      identitySource: serializeAws_restJson1_1IdentitySourceList(
-        input.IdentitySource,
-        context
-      )
+      identitySource: serializeAws_restJson1_1IdentitySourceList(input.IdentitySource, context)
     }),
     ...(input.IdentityValidationExpression !== undefined && {
       identityValidationExpression: input.IdentityValidationExpression
     }),
     ...(input.JwtConfiguration !== undefined && {
-      jwtConfiguration: serializeAws_restJson1_1JWTConfiguration(
-        input.JwtConfiguration,
-        context
-      )
+      jwtConfiguration: serializeAws_restJson1_1JWTConfiguration(input.JwtConfiguration, context)
     }),
     ...(input.Name !== undefined && { name: input.Name })
   });
@@ -2889,24 +2374,16 @@ export const serializeAws_restJson1_1UpdateDeploymentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.DeploymentId !== undefined) {
     const labelValue: string = input.DeploymentId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DeploymentId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeploymentId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
@@ -2939,10 +2416,7 @@ export const serializeAws_restJson1_1UpdateDomainNameCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DomainName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DomainName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
@@ -2980,24 +2454,16 @@ export const serializeAws_restJson1_1UpdateIntegrationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
@@ -3032,16 +2498,10 @@ export const serializeAws_restJson1_1UpdateIntegrationCommand = async (
       payloadFormatVersion: input.PayloadFormatVersion
     }),
     ...(input.RequestParameters !== undefined && {
-      requestParameters: serializeAws_restJson1_1IntegrationParameters(
-        input.RequestParameters,
-        context
-      )
+      requestParameters: serializeAws_restJson1_1IntegrationParameters(input.RequestParameters, context)
     }),
     ...(input.RequestTemplates !== undefined && {
-      requestTemplates: serializeAws_restJson1_1TemplateMap(
-        input.RequestTemplates,
-        context
-      )
+      requestTemplates: serializeAws_restJson1_1TemplateMap(input.RequestTemplates, context)
     }),
     ...(input.TemplateSelectionExpression !== undefined && {
       templateSelectionExpression: input.TemplateSelectionExpression
@@ -3069,49 +2529,33 @@ export const serializeAws_restJson1_1UpdateIntegrationResponseCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
+  let resolvedPath = "/v2/apis/{ApiId}/integrations/{IntegrationId}/integrationresponses/{IntegrationResponseId}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
   if (input.IntegrationId !== undefined) {
     const labelValue: string = input.IntegrationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IntegrationId.");
   }
   if (input.IntegrationResponseId !== undefined) {
     const labelValue: string = input.IntegrationResponseId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IntegrationResponseId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IntegrationResponseId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IntegrationResponseId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IntegrationResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: IntegrationResponseId."
-    );
+    throw new Error("No value provided for input HTTP label: IntegrationResponseId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3122,16 +2566,10 @@ export const serializeAws_restJson1_1UpdateIntegrationResponseCommand = async (
       integrationResponseKey: input.IntegrationResponseKey
     }),
     ...(input.ResponseParameters !== undefined && {
-      responseParameters: serializeAws_restJson1_1IntegrationParameters(
-        input.ResponseParameters,
-        context
-      )
+      responseParameters: serializeAws_restJson1_1IntegrationParameters(input.ResponseParameters, context)
     }),
     ...(input.ResponseTemplates !== undefined && {
-      responseTemplates: serializeAws_restJson1_1TemplateMap(
-        input.ResponseTemplates,
-        context
-      )
+      responseTemplates: serializeAws_restJson1_1TemplateMap(input.ResponseTemplates, context)
     }),
     ...(input.TemplateSelectionExpression !== undefined && {
       templateSelectionExpression: input.TemplateSelectionExpression
@@ -3162,10 +2600,7 @@ export const serializeAws_restJson1_1UpdateModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -3174,10 +2609,7 @@ export const serializeAws_restJson1_1UpdateModelCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ModelId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ModelId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ModelId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ModelId.");
   }
@@ -3213,10 +2645,7 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -3225,10 +2654,7 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
@@ -3238,10 +2664,7 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
       apiKeyRequired: input.ApiKeyRequired
     }),
     ...(input.AuthorizationScopes !== undefined && {
-      authorizationScopes: serializeAws_restJson1_1AuthorizationScopes(
-        input.AuthorizationScopes,
-        context
-      )
+      authorizationScopes: serializeAws_restJson1_1AuthorizationScopes(input.AuthorizationScopes, context)
     }),
     ...(input.AuthorizationType !== undefined && {
       authorizationType: input.AuthorizationType
@@ -3256,16 +2679,10 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
       operationName: input.OperationName
     }),
     ...(input.RequestModels !== undefined && {
-      requestModels: serializeAws_restJson1_1RouteModels(
-        input.RequestModels,
-        context
-      )
+      requestModels: serializeAws_restJson1_1RouteModels(input.RequestModels, context)
     }),
     ...(input.RequestParameters !== undefined && {
-      requestParameters: serializeAws_restJson1_1RouteParameters(
-        input.RequestParameters,
-        context
-      )
+      requestParameters: serializeAws_restJson1_1RouteParameters(input.RequestParameters, context)
     }),
     ...(input.RouteKey !== undefined && { routeKey: input.RouteKey }),
     ...(input.RouteResponseSelectionExpression !== undefined && {
@@ -3292,17 +2709,13 @@ export const serializeAws_restJson1_1UpdateRouteResponseCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
+  let resolvedPath = "/v2/apis/{ApiId}/routes/{RouteId}/routeresponses/{RouteResponseId}";
   if (input.ApiId !== undefined) {
     const labelValue: string = input.ApiId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -3311,24 +2724,16 @@ export const serializeAws_restJson1_1UpdateRouteResponseCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: RouteId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteId.");
   }
   if (input.RouteResponseId !== undefined) {
     const labelValue: string = input.RouteResponseId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: RouteResponseId."
-      );
+      throw new Error("Empty value provided for input HTTP label: RouteResponseId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{RouteResponseId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{RouteResponseId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RouteResponseId.");
   }
@@ -3338,16 +2743,10 @@ export const serializeAws_restJson1_1UpdateRouteResponseCommand = async (
       modelSelectionExpression: input.ModelSelectionExpression
     }),
     ...(input.ResponseModels !== undefined && {
-      responseModels: serializeAws_restJson1_1RouteModels(
-        input.ResponseModels,
-        context
-      )
+      responseModels: serializeAws_restJson1_1RouteModels(input.ResponseModels, context)
     }),
     ...(input.ResponseParameters !== undefined && {
-      responseParameters: serializeAws_restJson1_1RouteParameters(
-        input.ResponseParameters,
-        context
-      )
+      responseParameters: serializeAws_restJson1_1RouteParameters(input.ResponseParameters, context)
     }),
     ...(input.RouteResponseKey !== undefined && {
       routeResponseKey: input.RouteResponseKey
@@ -3378,10 +2777,7 @@ export const serializeAws_restJson1_1UpdateStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ApiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ApiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ApiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApiId.");
   }
@@ -3390,46 +2786,31 @@ export const serializeAws_restJson1_1UpdateStageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: StageName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{StageName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{StageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: StageName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.AccessLogSettings !== undefined && {
-      accessLogSettings: serializeAws_restJson1_1AccessLogSettings(
-        input.AccessLogSettings,
-        context
-      )
+      accessLogSettings: serializeAws_restJson1_1AccessLogSettings(input.AccessLogSettings, context)
     }),
     ...(input.AutoDeploy !== undefined && { autoDeploy: input.AutoDeploy }),
     ...(input.ClientCertificateId !== undefined && {
       clientCertificateId: input.ClientCertificateId
     }),
     ...(input.DefaultRouteSettings !== undefined && {
-      defaultRouteSettings: serializeAws_restJson1_1RouteSettings(
-        input.DefaultRouteSettings,
-        context
-      )
+      defaultRouteSettings: serializeAws_restJson1_1RouteSettings(input.DefaultRouteSettings, context)
     }),
     ...(input.DeploymentId !== undefined && {
       deploymentId: input.DeploymentId
     }),
     ...(input.Description !== undefined && { description: input.Description }),
     ...(input.RouteSettings !== undefined && {
-      routeSettings: serializeAws_restJson1_1RouteSettingsMap(
-        input.RouteSettings,
-        context
-      )
+      routeSettings: serializeAws_restJson1_1RouteSettingsMap(input.RouteSettings, context)
     }),
     ...(input.StageVariables !== undefined && {
-      stageVariables: serializeAws_restJson1_1StageVariablesMap(
-        input.StageVariables,
-        context
-      )
+      stageVariables: serializeAws_restJson1_1StageVariablesMap(input.StageVariables, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3476,17 +2857,11 @@ export const deserializeAws_restJson1_1CreateApiCommand = async (
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = data.apiId;
   }
-  if (
-    data.apiKeySelectionExpression !== undefined &&
-    data.apiKeySelectionExpression !== null
-  ) {
+  if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
     contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
-    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(
-      data.corsConfiguration,
-      context
-    );
+    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -3494,17 +2869,11 @@ export const deserializeAws_restJson1_1CreateApiCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.disableSchemaValidation !== undefined &&
-    data.disableSchemaValidation !== null
-  ) {
+  if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
     contents.DisableSchemaValidation = data.disableSchemaValidation;
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
-    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(
-      data.importInfo,
-      context
-    );
+    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -3512,10 +2881,7 @@ export const deserializeAws_restJson1_1CreateApiCommand = async (
   if (data.protocolType !== undefined && data.protocolType !== null) {
     contents.ProtocolType = data.protocolType;
   }
-  if (
-    data.routeSelectionExpression !== undefined &&
-    data.routeSelectionExpression !== null
-  ) {
+  if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
     contents.RouteSelectionExpression = data.routeSelectionExpression;
   }
   if (data.tags !== undefined && data.tags !== null) {
@@ -3525,10 +2891,7 @@ export const deserializeAws_restJson1_1CreateApiCommand = async (
     contents.Version = data.version;
   }
   if (data.warnings !== undefined && data.warnings !== null) {
-    contents.Warnings = deserializeAws_restJson1_1__listOf__string(
-      data.warnings,
-      context
-    );
+    contents.Warnings = deserializeAws_restJson1_1__listOf__string(data.warnings, context);
   }
   return Promise.resolve(contents);
 };
@@ -3548,10 +2911,7 @@ const deserializeAws_restJson1_1CreateApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3559,10 +2919,7 @@ const deserializeAws_restJson1_1CreateApiCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3570,10 +2927,7 @@ const deserializeAws_restJson1_1CreateApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3581,10 +2935,7 @@ const deserializeAws_restJson1_1CreateApiCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3611,10 +2962,7 @@ export const deserializeAws_restJson1_1CreateApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiMappingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateApiMappingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateApiMappingCommandError(output, context);
   }
   const contents: CreateApiMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3655,10 +3003,7 @@ const deserializeAws_restJson1_1CreateApiMappingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3666,10 +3011,7 @@ const deserializeAws_restJson1_1CreateApiMappingCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3677,10 +3019,7 @@ const deserializeAws_restJson1_1CreateApiMappingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3688,10 +3027,7 @@ const deserializeAws_restJson1_1CreateApiMappingCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3718,10 +3054,7 @@ export const deserializeAws_restJson1_1CreateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateAuthorizerCommandError(output, context);
   }
   const contents: CreateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3737,19 +3070,13 @@ export const deserializeAws_restJson1_1CreateAuthorizerCommand = async (
     Name: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.authorizerCredentialsArn !== undefined &&
-    data.authorizerCredentialsArn !== null
-  ) {
+  if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
     contents.AuthorizerCredentialsArn = data.authorizerCredentialsArn;
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
     contents.AuthorizerId = data.authorizerId;
   }
-  if (
-    data.authorizerResultTtlInSeconds !== undefined &&
-    data.authorizerResultTtlInSeconds !== null
-  ) {
+  if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
     contents.AuthorizerResultTtlInSeconds = data.authorizerResultTtlInSeconds;
   }
   if (data.authorizerType !== undefined && data.authorizerType !== null) {
@@ -3759,22 +3086,13 @@ export const deserializeAws_restJson1_1CreateAuthorizerCommand = async (
     contents.AuthorizerUri = data.authorizerUri;
   }
   if (data.identitySource !== undefined && data.identitySource !== null) {
-    contents.IdentitySource = deserializeAws_restJson1_1IdentitySourceList(
-      data.identitySource,
-      context
-    );
+    contents.IdentitySource = deserializeAws_restJson1_1IdentitySourceList(data.identitySource, context);
   }
-  if (
-    data.identityValidationExpression !== undefined &&
-    data.identityValidationExpression !== null
-  ) {
+  if (data.identityValidationExpression !== undefined && data.identityValidationExpression !== null) {
     contents.IdentityValidationExpression = data.identityValidationExpression;
   }
   if (data.jwtConfiguration !== undefined && data.jwtConfiguration !== null) {
-    contents.JwtConfiguration = deserializeAws_restJson1_1JWTConfiguration(
-      data.jwtConfiguration,
-      context
-    );
+    contents.JwtConfiguration = deserializeAws_restJson1_1JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -3797,10 +3115,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3808,10 +3123,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3819,10 +3131,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3830,10 +3139,7 @@ const deserializeAws_restJson1_1CreateAuthorizerCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3860,10 +3166,7 @@ export const deserializeAws_restJson1_1CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeploymentCommandError(output, context);
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3888,10 +3191,7 @@ export const deserializeAws_restJson1_1CreateDeploymentCommand = async (
   if (data.deploymentStatus !== undefined && data.deploymentStatus !== null) {
     contents.DeploymentStatus = data.deploymentStatus;
   }
-  if (
-    data.deploymentStatusMessage !== undefined &&
-    data.deploymentStatusMessage !== null
-  ) {
+  if (data.deploymentStatusMessage !== undefined && data.deploymentStatusMessage !== null) {
     contents.DeploymentStatusMessage = data.deploymentStatusMessage;
   }
   if (data.description !== undefined && data.description !== null) {
@@ -3915,10 +3215,7 @@ const deserializeAws_restJson1_1CreateDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3926,10 +3223,7 @@ const deserializeAws_restJson1_1CreateDeploymentCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3937,10 +3231,7 @@ const deserializeAws_restJson1_1CreateDeploymentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3948,10 +3239,7 @@ const deserializeAws_restJson1_1CreateDeploymentCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3978,10 +3266,7 @@ export const deserializeAws_restJson1_1CreateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDomainNameCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDomainNameCommandError(output, context);
   }
   const contents: CreateDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3992,19 +3277,13 @@ export const deserializeAws_restJson1_1CreateDomainNameCommand = async (
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.apiMappingSelectionExpression !== undefined &&
-    data.apiMappingSelectionExpression !== null
-  ) {
+  if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
     contents.ApiMappingSelectionExpression = data.apiMappingSelectionExpression;
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
   }
-  if (
-    data.domainNameConfigurations !== undefined &&
-    data.domainNameConfigurations !== null
-  ) {
+  if (data.domainNameConfigurations !== undefined && data.domainNameConfigurations !== null) {
     contents.DomainNameConfigurations = deserializeAws_restJson1_1DomainNameConfigurations(
       data.domainNameConfigurations,
       context
@@ -4031,10 +3310,7 @@ const deserializeAws_restJson1_1CreateDomainNameCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.apigatewayv2#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4042,10 +3318,7 @@ const deserializeAws_restJson1_1CreateDomainNameCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4053,10 +3326,7 @@ const deserializeAws_restJson1_1CreateDomainNameCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4064,10 +3334,7 @@ const deserializeAws_restJson1_1CreateDomainNameCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4075,10 +3342,7 @@ const deserializeAws_restJson1_1CreateDomainNameCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4105,10 +3369,7 @@ export const deserializeAws_restJson1_1CreateIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<CreateIntegrationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateIntegrationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIntegrationCommandError(output, context);
   }
   const contents: CreateIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4141,10 +3402,7 @@ export const deserializeAws_restJson1_1CreateIntegrationCommand = async (
   if (data.connectionType !== undefined && data.connectionType !== null) {
     contents.ConnectionType = data.connectionType;
   }
-  if (
-    data.contentHandlingStrategy !== undefined &&
-    data.contentHandlingStrategy !== null
-  ) {
+  if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = data.contentHandlingStrategy;
   }
   if (data.credentialsArn !== undefined && data.credentialsArn !== null) {
@@ -4163,8 +3421,7 @@ export const deserializeAws_restJson1_1CreateIntegrationCommand = async (
     data.integrationResponseSelectionExpression !== undefined &&
     data.integrationResponseSelectionExpression !== null
   ) {
-    contents.IntegrationResponseSelectionExpression =
-      data.integrationResponseSelectionExpression;
+    contents.IntegrationResponseSelectionExpression = data.integrationResponseSelectionExpression;
   }
   if (data.integrationType !== undefined && data.integrationType !== null) {
     contents.IntegrationType = data.integrationType;
@@ -4172,34 +3429,19 @@ export const deserializeAws_restJson1_1CreateIntegrationCommand = async (
   if (data.integrationUri !== undefined && data.integrationUri !== null) {
     contents.IntegrationUri = data.integrationUri;
   }
-  if (
-    data.passthroughBehavior !== undefined &&
-    data.passthroughBehavior !== null
-  ) {
+  if (data.passthroughBehavior !== undefined && data.passthroughBehavior !== null) {
     contents.PassthroughBehavior = data.passthroughBehavior;
   }
-  if (
-    data.payloadFormatVersion !== undefined &&
-    data.payloadFormatVersion !== null
-  ) {
+  if (data.payloadFormatVersion !== undefined && data.payloadFormatVersion !== null) {
     contents.PayloadFormatVersion = data.payloadFormatVersion;
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
-    contents.RequestParameters = deserializeAws_restJson1_1IntegrationParameters(
-      data.requestParameters,
-      context
-    );
+    contents.RequestParameters = deserializeAws_restJson1_1IntegrationParameters(data.requestParameters, context);
   }
   if (data.requestTemplates !== undefined && data.requestTemplates !== null) {
-    contents.RequestTemplates = deserializeAws_restJson1_1TemplateMap(
-      data.requestTemplates,
-      context
-    );
+    contents.RequestTemplates = deserializeAws_restJson1_1TemplateMap(data.requestTemplates, context);
   }
-  if (
-    data.templateSelectionExpression !== undefined &&
-    data.templateSelectionExpression !== null
-  ) {
+  if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
@@ -4223,10 +3465,7 @@ const deserializeAws_restJson1_1CreateIntegrationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4234,10 +3473,7 @@ const deserializeAws_restJson1_1CreateIntegrationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4245,10 +3481,7 @@ const deserializeAws_restJson1_1CreateIntegrationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4256,10 +3489,7 @@ const deserializeAws_restJson1_1CreateIntegrationCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4286,10 +3516,7 @@ export const deserializeAws_restJson1_1CreateIntegrationResponseCommand = async 
   context: __SerdeContext
 ): Promise<CreateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateIntegrationResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIntegrationResponseCommandError(output, context);
   }
   const contents: CreateIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4302,43 +3529,22 @@ export const deserializeAws_restJson1_1CreateIntegrationResponseCommand = async 
     TemplateSelectionExpression: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.contentHandlingStrategy !== undefined &&
-    data.contentHandlingStrategy !== null
-  ) {
+  if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = data.contentHandlingStrategy;
   }
-  if (
-    data.integrationResponseId !== undefined &&
-    data.integrationResponseId !== null
-  ) {
+  if (data.integrationResponseId !== undefined && data.integrationResponseId !== null) {
     contents.IntegrationResponseId = data.integrationResponseId;
   }
-  if (
-    data.integrationResponseKey !== undefined &&
-    data.integrationResponseKey !== null
-  ) {
+  if (data.integrationResponseKey !== undefined && data.integrationResponseKey !== null) {
     contents.IntegrationResponseKey = data.integrationResponseKey;
   }
-  if (
-    data.responseParameters !== undefined &&
-    data.responseParameters !== null
-  ) {
-    contents.ResponseParameters = deserializeAws_restJson1_1IntegrationParameters(
-      data.responseParameters,
-      context
-    );
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1_1IntegrationParameters(data.responseParameters, context);
   }
   if (data.responseTemplates !== undefined && data.responseTemplates !== null) {
-    contents.ResponseTemplates = deserializeAws_restJson1_1TemplateMap(
-      data.responseTemplates,
-      context
-    );
+    contents.ResponseTemplates = deserializeAws_restJson1_1TemplateMap(data.responseTemplates, context);
   }
-  if (
-    data.templateSelectionExpression !== undefined &&
-    data.templateSelectionExpression !== null
-  ) {
+  if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
   }
   return Promise.resolve(contents);
@@ -4359,10 +3565,7 @@ const deserializeAws_restJson1_1CreateIntegrationResponseCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4370,10 +3573,7 @@ const deserializeAws_restJson1_1CreateIntegrationResponseCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4381,10 +3581,7 @@ const deserializeAws_restJson1_1CreateIntegrationResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4392,10 +3589,7 @@ const deserializeAws_restJson1_1CreateIntegrationResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4467,10 +3661,7 @@ const deserializeAws_restJson1_1CreateModelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4478,10 +3669,7 @@ const deserializeAws_restJson1_1CreateModelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4489,10 +3677,7 @@ const deserializeAws_restJson1_1CreateModelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4500,10 +3685,7 @@ const deserializeAws_restJson1_1CreateModelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4556,14 +3738,8 @@ export const deserializeAws_restJson1_1CreateRouteCommand = async (
   if (data.apiKeyRequired !== undefined && data.apiKeyRequired !== null) {
     contents.ApiKeyRequired = data.apiKeyRequired;
   }
-  if (
-    data.authorizationScopes !== undefined &&
-    data.authorizationScopes !== null
-  ) {
-    contents.AuthorizationScopes = deserializeAws_restJson1_1AuthorizationScopes(
-      data.authorizationScopes,
-      context
-    );
+  if (data.authorizationScopes !== undefined && data.authorizationScopes !== null) {
+    contents.AuthorizationScopes = deserializeAws_restJson1_1AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType !== undefined && data.authorizationType !== null) {
     contents.AuthorizationType = data.authorizationType;
@@ -4571,26 +3747,17 @@ export const deserializeAws_restJson1_1CreateRouteCommand = async (
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
     contents.AuthorizerId = data.authorizerId;
   }
-  if (
-    data.modelSelectionExpression !== undefined &&
-    data.modelSelectionExpression !== null
-  ) {
+  if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = data.modelSelectionExpression;
   }
   if (data.operationName !== undefined && data.operationName !== null) {
     contents.OperationName = data.operationName;
   }
   if (data.requestModels !== undefined && data.requestModels !== null) {
-    contents.RequestModels = deserializeAws_restJson1_1RouteModels(
-      data.requestModels,
-      context
-    );
+    contents.RequestModels = deserializeAws_restJson1_1RouteModels(data.requestModels, context);
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
-    contents.RequestParameters = deserializeAws_restJson1_1RouteParameters(
-      data.requestParameters,
-      context
-    );
+    contents.RequestParameters = deserializeAws_restJson1_1RouteParameters(data.requestParameters, context);
   }
   if (data.routeId !== undefined && data.routeId !== null) {
     contents.RouteId = data.routeId;
@@ -4598,12 +3765,8 @@ export const deserializeAws_restJson1_1CreateRouteCommand = async (
   if (data.routeKey !== undefined && data.routeKey !== null) {
     contents.RouteKey = data.routeKey;
   }
-  if (
-    data.routeResponseSelectionExpression !== undefined &&
-    data.routeResponseSelectionExpression !== null
-  ) {
-    contents.RouteResponseSelectionExpression =
-      data.routeResponseSelectionExpression;
+  if (data.routeResponseSelectionExpression !== undefined && data.routeResponseSelectionExpression !== null) {
+    contents.RouteResponseSelectionExpression = data.routeResponseSelectionExpression;
   }
   if (data.target !== undefined && data.target !== null) {
     contents.Target = data.target;
@@ -4626,10 +3789,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4637,10 +3797,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4648,10 +3805,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4659,10 +3813,7 @@ const deserializeAws_restJson1_1CreateRouteCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4689,10 +3840,7 @@ export const deserializeAws_restJson1_1CreateRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<CreateRouteResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateRouteResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateRouteResponseCommandError(output, context);
   }
   const contents: CreateRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4704,26 +3852,14 @@ export const deserializeAws_restJson1_1CreateRouteResponseCommand = async (
     RouteResponseKey: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.modelSelectionExpression !== undefined &&
-    data.modelSelectionExpression !== null
-  ) {
+  if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = data.modelSelectionExpression;
   }
   if (data.responseModels !== undefined && data.responseModels !== null) {
-    contents.ResponseModels = deserializeAws_restJson1_1RouteModels(
-      data.responseModels,
-      context
-    );
+    contents.ResponseModels = deserializeAws_restJson1_1RouteModels(data.responseModels, context);
   }
-  if (
-    data.responseParameters !== undefined &&
-    data.responseParameters !== null
-  ) {
-    contents.ResponseParameters = deserializeAws_restJson1_1RouteParameters(
-      data.responseParameters,
-      context
-    );
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1_1RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId !== undefined && data.routeResponseId !== null) {
     contents.RouteResponseId = data.routeResponseId;
@@ -4749,10 +3885,7 @@ const deserializeAws_restJson1_1CreateRouteResponseCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4760,10 +3893,7 @@ const deserializeAws_restJson1_1CreateRouteResponseCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4771,10 +3901,7 @@ const deserializeAws_restJson1_1CreateRouteResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4782,10 +3909,7 @@ const deserializeAws_restJson1_1CreateRouteResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4834,10 +3958,7 @@ export const deserializeAws_restJson1_1CreateStageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accessLogSettings !== undefined && data.accessLogSettings !== null) {
-    contents.AccessLogSettings = deserializeAws_restJson1_1AccessLogSettings(
-      data.accessLogSettings,
-      context
-    );
+    contents.AccessLogSettings = deserializeAws_restJson1_1AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = data.apiGatewayManaged;
@@ -4845,23 +3966,14 @@ export const deserializeAws_restJson1_1CreateStageCommand = async (
   if (data.autoDeploy !== undefined && data.autoDeploy !== null) {
     contents.AutoDeploy = data.autoDeploy;
   }
-  if (
-    data.clientCertificateId !== undefined &&
-    data.clientCertificateId !== null
-  ) {
+  if (data.clientCertificateId !== undefined && data.clientCertificateId !== null) {
     contents.ClientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
   }
-  if (
-    data.defaultRouteSettings !== undefined &&
-    data.defaultRouteSettings !== null
-  ) {
-    contents.DefaultRouteSettings = deserializeAws_restJson1_1RouteSettings(
-      data.defaultRouteSettings,
-      context
-    );
+  if (data.defaultRouteSettings !== undefined && data.defaultRouteSettings !== null) {
+    contents.DefaultRouteSettings = deserializeAws_restJson1_1RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.DeploymentId = data.deploymentId;
@@ -4869,29 +3981,20 @@ export const deserializeAws_restJson1_1CreateStageCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.lastDeploymentStatusMessage !== undefined &&
-    data.lastDeploymentStatusMessage !== null
-  ) {
+  if (data.lastDeploymentStatusMessage !== undefined && data.lastDeploymentStatusMessage !== null) {
     contents.LastDeploymentStatusMessage = data.lastDeploymentStatusMessage;
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
   }
   if (data.routeSettings !== undefined && data.routeSettings !== null) {
-    contents.RouteSettings = deserializeAws_restJson1_1RouteSettingsMap(
-      data.routeSettings,
-      context
-    );
+    contents.RouteSettings = deserializeAws_restJson1_1RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName !== undefined && data.stageName !== null) {
     contents.StageName = data.stageName;
   }
   if (data.stageVariables !== undefined && data.stageVariables !== null) {
-    contents.StageVariables = deserializeAws_restJson1_1StageVariablesMap(
-      data.stageVariables,
-      context
-    );
+    contents.StageVariables = deserializeAws_restJson1_1StageVariablesMap(data.stageVariables, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.tags, context);
@@ -4914,10 +4017,7 @@ const deserializeAws_restJson1_1CreateStageCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4925,10 +4025,7 @@ const deserializeAws_restJson1_1CreateStageCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4936,10 +4033,7 @@ const deserializeAws_restJson1_1CreateStageCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4947,10 +4041,7 @@ const deserializeAws_restJson1_1CreateStageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5001,10 +4092,7 @@ const deserializeAws_restJson1_1DeleteApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5012,10 +4100,7 @@ const deserializeAws_restJson1_1DeleteApiCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5042,10 +4127,7 @@ export const deserializeAws_restJson1_1DeleteApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiMappingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteApiMappingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteApiMappingCommandError(output, context);
   }
   const contents: DeleteApiMappingCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5069,10 +4151,7 @@ const deserializeAws_restJson1_1DeleteApiMappingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5080,10 +4159,7 @@ const deserializeAws_restJson1_1DeleteApiMappingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5091,10 +4167,7 @@ const deserializeAws_restJson1_1DeleteApiMappingCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5121,10 +4194,7 @@ export const deserializeAws_restJson1_1DeleteAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAuthorizerCommandError(output, context);
   }
   const contents: DeleteAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5148,10 +4218,7 @@ const deserializeAws_restJson1_1DeleteAuthorizerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5159,10 +4226,7 @@ const deserializeAws_restJson1_1DeleteAuthorizerCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5189,10 +4253,7 @@ export const deserializeAws_restJson1_1DeleteCorsConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCorsConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteCorsConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteCorsConfigurationCommandError(output, context);
   }
   const contents: DeleteCorsConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5216,10 +4277,7 @@ const deserializeAws_restJson1_1DeleteCorsConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5227,10 +4285,7 @@ const deserializeAws_restJson1_1DeleteCorsConfigurationCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5257,10 +4312,7 @@ export const deserializeAws_restJson1_1DeleteDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDeploymentCommandError(output, context);
   }
   const contents: DeleteDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5284,10 +4336,7 @@ const deserializeAws_restJson1_1DeleteDeploymentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5295,10 +4344,7 @@ const deserializeAws_restJson1_1DeleteDeploymentCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5325,10 +4371,7 @@ export const deserializeAws_restJson1_1DeleteDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDomainNameCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDomainNameCommandError(output, context);
   }
   const contents: DeleteDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5352,10 +4395,7 @@ const deserializeAws_restJson1_1DeleteDomainNameCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5363,10 +4403,7 @@ const deserializeAws_restJson1_1DeleteDomainNameCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5393,10 +4430,7 @@ export const deserializeAws_restJson1_1DeleteIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteIntegrationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIntegrationCommandError(output, context);
   }
   const contents: DeleteIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5420,10 +4454,7 @@ const deserializeAws_restJson1_1DeleteIntegrationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5431,10 +4462,7 @@ const deserializeAws_restJson1_1DeleteIntegrationCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5461,10 +4489,7 @@ export const deserializeAws_restJson1_1DeleteIntegrationResponseCommand = async 
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(output, context);
   }
   const contents: DeleteIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5488,10 +4513,7 @@ const deserializeAws_restJson1_1DeleteIntegrationResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5499,10 +4521,7 @@ const deserializeAws_restJson1_1DeleteIntegrationResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5553,10 +4572,7 @@ const deserializeAws_restJson1_1DeleteModelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5564,10 +4580,7 @@ const deserializeAws_restJson1_1DeleteModelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5618,10 +4631,7 @@ const deserializeAws_restJson1_1DeleteRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5629,10 +4639,7 @@ const deserializeAws_restJson1_1DeleteRouteCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5659,10 +4666,7 @@ export const deserializeAws_restJson1_1DeleteRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteRouteResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRouteResponseCommandError(output, context);
   }
   const contents: DeleteRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5686,10 +4690,7 @@ const deserializeAws_restJson1_1DeleteRouteResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5697,10 +4698,7 @@ const deserializeAws_restJson1_1DeleteRouteResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5727,10 +4725,7 @@ export const deserializeAws_restJson1_1DeleteRouteSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteSettingsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteRouteSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteRouteSettingsCommandError(output, context);
   }
   const contents: DeleteRouteSettingsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -5754,10 +4749,7 @@ const deserializeAws_restJson1_1DeleteRouteSettingsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5765,10 +4757,7 @@ const deserializeAws_restJson1_1DeleteRouteSettingsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5819,10 +4808,7 @@ const deserializeAws_restJson1_1DeleteStageCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5830,10 +4816,7 @@ const deserializeAws_restJson1_1DeleteStageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5887,17 +4870,11 @@ export const deserializeAws_restJson1_1GetApiCommand = async (
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = data.apiId;
   }
-  if (
-    data.apiKeySelectionExpression !== undefined &&
-    data.apiKeySelectionExpression !== null
-  ) {
+  if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
     contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
-    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(
-      data.corsConfiguration,
-      context
-    );
+    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -5905,17 +4882,11 @@ export const deserializeAws_restJson1_1GetApiCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.disableSchemaValidation !== undefined &&
-    data.disableSchemaValidation !== null
-  ) {
+  if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
     contents.DisableSchemaValidation = data.disableSchemaValidation;
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
-    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(
-      data.importInfo,
-      context
-    );
+    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -5923,10 +4894,7 @@ export const deserializeAws_restJson1_1GetApiCommand = async (
   if (data.protocolType !== undefined && data.protocolType !== null) {
     contents.ProtocolType = data.protocolType;
   }
-  if (
-    data.routeSelectionExpression !== undefined &&
-    data.routeSelectionExpression !== null
-  ) {
+  if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
     contents.RouteSelectionExpression = data.routeSelectionExpression;
   }
   if (data.tags !== undefined && data.tags !== null) {
@@ -5936,10 +4904,7 @@ export const deserializeAws_restJson1_1GetApiCommand = async (
     contents.Version = data.version;
   }
   if (data.warnings !== undefined && data.warnings !== null) {
-    contents.Warnings = deserializeAws_restJson1_1__listOf__string(
-      data.warnings,
-      context
-    );
+    contents.Warnings = deserializeAws_restJson1_1__listOf__string(data.warnings, context);
   }
   return Promise.resolve(contents);
 };
@@ -5959,10 +4924,7 @@ const deserializeAws_restJson1_1GetApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5970,10 +4932,7 @@ const deserializeAws_restJson1_1GetApiCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6041,10 +5000,7 @@ const deserializeAws_restJson1_1GetApiMappingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6052,10 +5008,7 @@ const deserializeAws_restJson1_1GetApiMappingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6063,10 +5016,7 @@ const deserializeAws_restJson1_1GetApiMappingCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6093,10 +5043,7 @@ export const deserializeAws_restJson1_1GetApiMappingsCommand = async (
   context: __SerdeContext
 ): Promise<GetApiMappingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetApiMappingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetApiMappingsCommandError(output, context);
   }
   const contents: GetApiMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6106,10 +5053,7 @@ export const deserializeAws_restJson1_1GetApiMappingsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfApiMapping(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfApiMapping(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -6132,10 +5076,7 @@ const deserializeAws_restJson1_1GetApiMappingsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6143,10 +5084,7 @@ const deserializeAws_restJson1_1GetApiMappingsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6154,10 +5092,7 @@ const deserializeAws_restJson1_1GetApiMappingsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6217,10 +5152,7 @@ const deserializeAws_restJson1_1GetApisCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6228,10 +5160,7 @@ const deserializeAws_restJson1_1GetApisCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6239,10 +5168,7 @@ const deserializeAws_restJson1_1GetApisCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6285,19 +5211,13 @@ export const deserializeAws_restJson1_1GetAuthorizerCommand = async (
     Name: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.authorizerCredentialsArn !== undefined &&
-    data.authorizerCredentialsArn !== null
-  ) {
+  if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
     contents.AuthorizerCredentialsArn = data.authorizerCredentialsArn;
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
     contents.AuthorizerId = data.authorizerId;
   }
-  if (
-    data.authorizerResultTtlInSeconds !== undefined &&
-    data.authorizerResultTtlInSeconds !== null
-  ) {
+  if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
     contents.AuthorizerResultTtlInSeconds = data.authorizerResultTtlInSeconds;
   }
   if (data.authorizerType !== undefined && data.authorizerType !== null) {
@@ -6307,22 +5227,13 @@ export const deserializeAws_restJson1_1GetAuthorizerCommand = async (
     contents.AuthorizerUri = data.authorizerUri;
   }
   if (data.identitySource !== undefined && data.identitySource !== null) {
-    contents.IdentitySource = deserializeAws_restJson1_1IdentitySourceList(
-      data.identitySource,
-      context
-    );
+    contents.IdentitySource = deserializeAws_restJson1_1IdentitySourceList(data.identitySource, context);
   }
-  if (
-    data.identityValidationExpression !== undefined &&
-    data.identityValidationExpression !== null
-  ) {
+  if (data.identityValidationExpression !== undefined && data.identityValidationExpression !== null) {
     contents.IdentityValidationExpression = data.identityValidationExpression;
   }
   if (data.jwtConfiguration !== undefined && data.jwtConfiguration !== null) {
-    contents.JwtConfiguration = deserializeAws_restJson1_1JWTConfiguration(
-      data.jwtConfiguration,
-      context
-    );
+    contents.JwtConfiguration = deserializeAws_restJson1_1JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -6345,10 +5256,7 @@ const deserializeAws_restJson1_1GetAuthorizerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6356,10 +5264,7 @@ const deserializeAws_restJson1_1GetAuthorizerCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6386,10 +5291,7 @@ export const deserializeAws_restJson1_1GetAuthorizersCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetAuthorizersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetAuthorizersCommandError(output, context);
   }
   const contents: GetAuthorizersCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6399,10 +5301,7 @@ export const deserializeAws_restJson1_1GetAuthorizersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfAuthorizer(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfAuthorizer(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -6425,10 +5324,7 @@ const deserializeAws_restJson1_1GetAuthorizersCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6436,10 +5332,7 @@ const deserializeAws_restJson1_1GetAuthorizersCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6447,10 +5340,7 @@ const deserializeAws_restJson1_1GetAuthorizersCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6502,10 +5392,7 @@ export const deserializeAws_restJson1_1GetDeploymentCommand = async (
   if (data.deploymentStatus !== undefined && data.deploymentStatus !== null) {
     contents.DeploymentStatus = data.deploymentStatus;
   }
-  if (
-    data.deploymentStatusMessage !== undefined &&
-    data.deploymentStatusMessage !== null
-  ) {
+  if (data.deploymentStatusMessage !== undefined && data.deploymentStatusMessage !== null) {
     contents.DeploymentStatusMessage = data.deploymentStatusMessage;
   }
   if (data.description !== undefined && data.description !== null) {
@@ -6529,10 +5416,7 @@ const deserializeAws_restJson1_1GetDeploymentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6540,10 +5424,7 @@ const deserializeAws_restJson1_1GetDeploymentCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6570,10 +5451,7 @@ export const deserializeAws_restJson1_1GetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDeploymentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeploymentsCommandError(output, context);
   }
   const contents: GetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6583,10 +5461,7 @@ export const deserializeAws_restJson1_1GetDeploymentsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfDeployment(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfDeployment(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -6609,10 +5484,7 @@ const deserializeAws_restJson1_1GetDeploymentsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6620,10 +5492,7 @@ const deserializeAws_restJson1_1GetDeploymentsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6631,10 +5500,7 @@ const deserializeAws_restJson1_1GetDeploymentsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6672,19 +5538,13 @@ export const deserializeAws_restJson1_1GetDomainNameCommand = async (
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.apiMappingSelectionExpression !== undefined &&
-    data.apiMappingSelectionExpression !== null
-  ) {
+  if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
     contents.ApiMappingSelectionExpression = data.apiMappingSelectionExpression;
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
   }
-  if (
-    data.domainNameConfigurations !== undefined &&
-    data.domainNameConfigurations !== null
-  ) {
+  if (data.domainNameConfigurations !== undefined && data.domainNameConfigurations !== null) {
     contents.DomainNameConfigurations = deserializeAws_restJson1_1DomainNameConfigurations(
       data.domainNameConfigurations,
       context
@@ -6711,10 +5571,7 @@ const deserializeAws_restJson1_1GetDomainNameCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6722,10 +5579,7 @@ const deserializeAws_restJson1_1GetDomainNameCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6752,10 +5606,7 @@ export const deserializeAws_restJson1_1GetDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDomainNamesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDomainNamesCommandError(output, context);
   }
   const contents: GetDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6765,10 +5616,7 @@ export const deserializeAws_restJson1_1GetDomainNamesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfDomainName(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfDomainName(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -6791,10 +5639,7 @@ const deserializeAws_restJson1_1GetDomainNamesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6802,10 +5647,7 @@ const deserializeAws_restJson1_1GetDomainNamesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6813,10 +5655,7 @@ const deserializeAws_restJson1_1GetDomainNamesCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6843,10 +5682,7 @@ export const deserializeAws_restJson1_1GetIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIntegrationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntegrationCommandError(output, context);
   }
   const contents: GetIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6879,10 +5715,7 @@ export const deserializeAws_restJson1_1GetIntegrationCommand = async (
   if (data.connectionType !== undefined && data.connectionType !== null) {
     contents.ConnectionType = data.connectionType;
   }
-  if (
-    data.contentHandlingStrategy !== undefined &&
-    data.contentHandlingStrategy !== null
-  ) {
+  if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = data.contentHandlingStrategy;
   }
   if (data.credentialsArn !== undefined && data.credentialsArn !== null) {
@@ -6901,8 +5734,7 @@ export const deserializeAws_restJson1_1GetIntegrationCommand = async (
     data.integrationResponseSelectionExpression !== undefined &&
     data.integrationResponseSelectionExpression !== null
   ) {
-    contents.IntegrationResponseSelectionExpression =
-      data.integrationResponseSelectionExpression;
+    contents.IntegrationResponseSelectionExpression = data.integrationResponseSelectionExpression;
   }
   if (data.integrationType !== undefined && data.integrationType !== null) {
     contents.IntegrationType = data.integrationType;
@@ -6910,34 +5742,19 @@ export const deserializeAws_restJson1_1GetIntegrationCommand = async (
   if (data.integrationUri !== undefined && data.integrationUri !== null) {
     contents.IntegrationUri = data.integrationUri;
   }
-  if (
-    data.passthroughBehavior !== undefined &&
-    data.passthroughBehavior !== null
-  ) {
+  if (data.passthroughBehavior !== undefined && data.passthroughBehavior !== null) {
     contents.PassthroughBehavior = data.passthroughBehavior;
   }
-  if (
-    data.payloadFormatVersion !== undefined &&
-    data.payloadFormatVersion !== null
-  ) {
+  if (data.payloadFormatVersion !== undefined && data.payloadFormatVersion !== null) {
     contents.PayloadFormatVersion = data.payloadFormatVersion;
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
-    contents.RequestParameters = deserializeAws_restJson1_1IntegrationParameters(
-      data.requestParameters,
-      context
-    );
+    contents.RequestParameters = deserializeAws_restJson1_1IntegrationParameters(data.requestParameters, context);
   }
   if (data.requestTemplates !== undefined && data.requestTemplates !== null) {
-    contents.RequestTemplates = deserializeAws_restJson1_1TemplateMap(
-      data.requestTemplates,
-      context
-    );
+    contents.RequestTemplates = deserializeAws_restJson1_1TemplateMap(data.requestTemplates, context);
   }
-  if (
-    data.templateSelectionExpression !== undefined &&
-    data.templateSelectionExpression !== null
-  ) {
+  if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
@@ -6961,10 +5778,7 @@ const deserializeAws_restJson1_1GetIntegrationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6972,10 +5786,7 @@ const deserializeAws_restJson1_1GetIntegrationCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7002,10 +5813,7 @@ export const deserializeAws_restJson1_1GetIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIntegrationResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntegrationResponseCommandError(output, context);
   }
   const contents: GetIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7018,43 +5826,22 @@ export const deserializeAws_restJson1_1GetIntegrationResponseCommand = async (
     TemplateSelectionExpression: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.contentHandlingStrategy !== undefined &&
-    data.contentHandlingStrategy !== null
-  ) {
+  if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = data.contentHandlingStrategy;
   }
-  if (
-    data.integrationResponseId !== undefined &&
-    data.integrationResponseId !== null
-  ) {
+  if (data.integrationResponseId !== undefined && data.integrationResponseId !== null) {
     contents.IntegrationResponseId = data.integrationResponseId;
   }
-  if (
-    data.integrationResponseKey !== undefined &&
-    data.integrationResponseKey !== null
-  ) {
+  if (data.integrationResponseKey !== undefined && data.integrationResponseKey !== null) {
     contents.IntegrationResponseKey = data.integrationResponseKey;
   }
-  if (
-    data.responseParameters !== undefined &&
-    data.responseParameters !== null
-  ) {
-    contents.ResponseParameters = deserializeAws_restJson1_1IntegrationParameters(
-      data.responseParameters,
-      context
-    );
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1_1IntegrationParameters(data.responseParameters, context);
   }
   if (data.responseTemplates !== undefined && data.responseTemplates !== null) {
-    contents.ResponseTemplates = deserializeAws_restJson1_1TemplateMap(
-      data.responseTemplates,
-      context
-    );
+    contents.ResponseTemplates = deserializeAws_restJson1_1TemplateMap(data.responseTemplates, context);
   }
-  if (
-    data.templateSelectionExpression !== undefined &&
-    data.templateSelectionExpression !== null
-  ) {
+  if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
   }
   return Promise.resolve(contents);
@@ -7075,10 +5862,7 @@ const deserializeAws_restJson1_1GetIntegrationResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7086,10 +5870,7 @@ const deserializeAws_restJson1_1GetIntegrationResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7116,10 +5897,7 @@ export const deserializeAws_restJson1_1GetIntegrationResponsesCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIntegrationResponsesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntegrationResponsesCommandError(output, context);
   }
   const contents: GetIntegrationResponsesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7129,10 +5907,7 @@ export const deserializeAws_restJson1_1GetIntegrationResponsesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfIntegrationResponse(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfIntegrationResponse(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -7155,10 +5930,7 @@ const deserializeAws_restJson1_1GetIntegrationResponsesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7166,10 +5938,7 @@ const deserializeAws_restJson1_1GetIntegrationResponsesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7177,10 +5946,7 @@ const deserializeAws_restJson1_1GetIntegrationResponsesCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7207,10 +5973,7 @@ export const deserializeAws_restJson1_1GetIntegrationsCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIntegrationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntegrationsCommandError(output, context);
   }
   const contents: GetIntegrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7220,10 +5983,7 @@ export const deserializeAws_restJson1_1GetIntegrationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfIntegration(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfIntegration(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -7246,10 +6006,7 @@ const deserializeAws_restJson1_1GetIntegrationsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7257,10 +6014,7 @@ const deserializeAws_restJson1_1GetIntegrationsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7268,10 +6022,7 @@ const deserializeAws_restJson1_1GetIntegrationsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7343,10 +6094,7 @@ const deserializeAws_restJson1_1GetModelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7354,10 +6102,7 @@ const deserializeAws_restJson1_1GetModelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7384,10 +6129,7 @@ export const deserializeAws_restJson1_1GetModelTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetModelTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetModelTemplateCommandError(output, context);
   }
   const contents: GetModelTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7416,10 +6158,7 @@ const deserializeAws_restJson1_1GetModelTemplateCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7427,10 +6166,7 @@ const deserializeAws_restJson1_1GetModelTemplateCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7467,10 +6203,7 @@ export const deserializeAws_restJson1_1GetModelsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfModel(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfModel(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -7493,10 +6226,7 @@ const deserializeAws_restJson1_1GetModelsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7504,10 +6234,7 @@ const deserializeAws_restJson1_1GetModelsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7515,10 +6242,7 @@ const deserializeAws_restJson1_1GetModelsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7571,14 +6295,8 @@ export const deserializeAws_restJson1_1GetRouteCommand = async (
   if (data.apiKeyRequired !== undefined && data.apiKeyRequired !== null) {
     contents.ApiKeyRequired = data.apiKeyRequired;
   }
-  if (
-    data.authorizationScopes !== undefined &&
-    data.authorizationScopes !== null
-  ) {
-    contents.AuthorizationScopes = deserializeAws_restJson1_1AuthorizationScopes(
-      data.authorizationScopes,
-      context
-    );
+  if (data.authorizationScopes !== undefined && data.authorizationScopes !== null) {
+    contents.AuthorizationScopes = deserializeAws_restJson1_1AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType !== undefined && data.authorizationType !== null) {
     contents.AuthorizationType = data.authorizationType;
@@ -7586,26 +6304,17 @@ export const deserializeAws_restJson1_1GetRouteCommand = async (
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
     contents.AuthorizerId = data.authorizerId;
   }
-  if (
-    data.modelSelectionExpression !== undefined &&
-    data.modelSelectionExpression !== null
-  ) {
+  if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = data.modelSelectionExpression;
   }
   if (data.operationName !== undefined && data.operationName !== null) {
     contents.OperationName = data.operationName;
   }
   if (data.requestModels !== undefined && data.requestModels !== null) {
-    contents.RequestModels = deserializeAws_restJson1_1RouteModels(
-      data.requestModels,
-      context
-    );
+    contents.RequestModels = deserializeAws_restJson1_1RouteModels(data.requestModels, context);
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
-    contents.RequestParameters = deserializeAws_restJson1_1RouteParameters(
-      data.requestParameters,
-      context
-    );
+    contents.RequestParameters = deserializeAws_restJson1_1RouteParameters(data.requestParameters, context);
   }
   if (data.routeId !== undefined && data.routeId !== null) {
     contents.RouteId = data.routeId;
@@ -7613,12 +6322,8 @@ export const deserializeAws_restJson1_1GetRouteCommand = async (
   if (data.routeKey !== undefined && data.routeKey !== null) {
     contents.RouteKey = data.routeKey;
   }
-  if (
-    data.routeResponseSelectionExpression !== undefined &&
-    data.routeResponseSelectionExpression !== null
-  ) {
-    contents.RouteResponseSelectionExpression =
-      data.routeResponseSelectionExpression;
+  if (data.routeResponseSelectionExpression !== undefined && data.routeResponseSelectionExpression !== null) {
+    contents.RouteResponseSelectionExpression = data.routeResponseSelectionExpression;
   }
   if (data.target !== undefined && data.target !== null) {
     contents.Target = data.target;
@@ -7641,10 +6346,7 @@ const deserializeAws_restJson1_1GetRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7652,10 +6354,7 @@ const deserializeAws_restJson1_1GetRouteCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7682,10 +6381,7 @@ export const deserializeAws_restJson1_1GetRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetRouteResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetRouteResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRouteResponseCommandError(output, context);
   }
   const contents: GetRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7697,26 +6393,14 @@ export const deserializeAws_restJson1_1GetRouteResponseCommand = async (
     RouteResponseKey: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.modelSelectionExpression !== undefined &&
-    data.modelSelectionExpression !== null
-  ) {
+  if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = data.modelSelectionExpression;
   }
   if (data.responseModels !== undefined && data.responseModels !== null) {
-    contents.ResponseModels = deserializeAws_restJson1_1RouteModels(
-      data.responseModels,
-      context
-    );
+    contents.ResponseModels = deserializeAws_restJson1_1RouteModels(data.responseModels, context);
   }
-  if (
-    data.responseParameters !== undefined &&
-    data.responseParameters !== null
-  ) {
-    contents.ResponseParameters = deserializeAws_restJson1_1RouteParameters(
-      data.responseParameters,
-      context
-    );
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1_1RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId !== undefined && data.routeResponseId !== null) {
     contents.RouteResponseId = data.routeResponseId;
@@ -7742,10 +6426,7 @@ const deserializeAws_restJson1_1GetRouteResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7753,10 +6434,7 @@ const deserializeAws_restJson1_1GetRouteResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7783,10 +6461,7 @@ export const deserializeAws_restJson1_1GetRouteResponsesCommand = async (
   context: __SerdeContext
 ): Promise<GetRouteResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetRouteResponsesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRouteResponsesCommandError(output, context);
   }
   const contents: GetRouteResponsesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7796,10 +6471,7 @@ export const deserializeAws_restJson1_1GetRouteResponsesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfRouteResponse(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfRouteResponse(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -7822,10 +6494,7 @@ const deserializeAws_restJson1_1GetRouteResponsesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7833,10 +6502,7 @@ const deserializeAws_restJson1_1GetRouteResponsesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7844,10 +6510,7 @@ const deserializeAws_restJson1_1GetRouteResponsesCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7884,10 +6547,7 @@ export const deserializeAws_restJson1_1GetRoutesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfRoute(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfRoute(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -7910,10 +6570,7 @@ const deserializeAws_restJson1_1GetRoutesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7921,10 +6578,7 @@ const deserializeAws_restJson1_1GetRoutesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7932,10 +6586,7 @@ const deserializeAws_restJson1_1GetRoutesCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7984,10 +6635,7 @@ export const deserializeAws_restJson1_1GetStageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accessLogSettings !== undefined && data.accessLogSettings !== null) {
-    contents.AccessLogSettings = deserializeAws_restJson1_1AccessLogSettings(
-      data.accessLogSettings,
-      context
-    );
+    contents.AccessLogSettings = deserializeAws_restJson1_1AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = data.apiGatewayManaged;
@@ -7995,23 +6643,14 @@ export const deserializeAws_restJson1_1GetStageCommand = async (
   if (data.autoDeploy !== undefined && data.autoDeploy !== null) {
     contents.AutoDeploy = data.autoDeploy;
   }
-  if (
-    data.clientCertificateId !== undefined &&
-    data.clientCertificateId !== null
-  ) {
+  if (data.clientCertificateId !== undefined && data.clientCertificateId !== null) {
     contents.ClientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
   }
-  if (
-    data.defaultRouteSettings !== undefined &&
-    data.defaultRouteSettings !== null
-  ) {
-    contents.DefaultRouteSettings = deserializeAws_restJson1_1RouteSettings(
-      data.defaultRouteSettings,
-      context
-    );
+  if (data.defaultRouteSettings !== undefined && data.defaultRouteSettings !== null) {
+    contents.DefaultRouteSettings = deserializeAws_restJson1_1RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.DeploymentId = data.deploymentId;
@@ -8019,29 +6658,20 @@ export const deserializeAws_restJson1_1GetStageCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.lastDeploymentStatusMessage !== undefined &&
-    data.lastDeploymentStatusMessage !== null
-  ) {
+  if (data.lastDeploymentStatusMessage !== undefined && data.lastDeploymentStatusMessage !== null) {
     contents.LastDeploymentStatusMessage = data.lastDeploymentStatusMessage;
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
   }
   if (data.routeSettings !== undefined && data.routeSettings !== null) {
-    contents.RouteSettings = deserializeAws_restJson1_1RouteSettingsMap(
-      data.routeSettings,
-      context
-    );
+    contents.RouteSettings = deserializeAws_restJson1_1RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName !== undefined && data.stageName !== null) {
     contents.StageName = data.stageName;
   }
   if (data.stageVariables !== undefined && data.stageVariables !== null) {
-    contents.StageVariables = deserializeAws_restJson1_1StageVariablesMap(
-      data.stageVariables,
-      context
-    );
+    contents.StageVariables = deserializeAws_restJson1_1StageVariablesMap(data.stageVariables, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.tags, context);
@@ -8064,10 +6694,7 @@ const deserializeAws_restJson1_1GetStageCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8075,10 +6702,7 @@ const deserializeAws_restJson1_1GetStageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8115,10 +6739,7 @@ export const deserializeAws_restJson1_1GetStagesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.items !== undefined && data.items !== null) {
-    contents.Items = deserializeAws_restJson1_1__listOfStage(
-      data.items,
-      context
-    );
+    contents.Items = deserializeAws_restJson1_1__listOfStage(data.items, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -8141,10 +6762,7 @@ const deserializeAws_restJson1_1GetStagesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8152,10 +6770,7 @@ const deserializeAws_restJson1_1GetStagesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8163,10 +6778,7 @@ const deserializeAws_restJson1_1GetStagesCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8222,10 +6834,7 @@ const deserializeAws_restJson1_1GetTagsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8233,10 +6842,7 @@ const deserializeAws_restJson1_1GetTagsCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8244,10 +6850,7 @@ const deserializeAws_restJson1_1GetTagsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8255,10 +6858,7 @@ const deserializeAws_restJson1_1GetTagsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8312,17 +6912,11 @@ export const deserializeAws_restJson1_1ImportApiCommand = async (
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = data.apiId;
   }
-  if (
-    data.apiKeySelectionExpression !== undefined &&
-    data.apiKeySelectionExpression !== null
-  ) {
+  if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
     contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
-    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(
-      data.corsConfiguration,
-      context
-    );
+    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -8330,17 +6924,11 @@ export const deserializeAws_restJson1_1ImportApiCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.disableSchemaValidation !== undefined &&
-    data.disableSchemaValidation !== null
-  ) {
+  if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
     contents.DisableSchemaValidation = data.disableSchemaValidation;
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
-    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(
-      data.importInfo,
-      context
-    );
+    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -8348,10 +6936,7 @@ export const deserializeAws_restJson1_1ImportApiCommand = async (
   if (data.protocolType !== undefined && data.protocolType !== null) {
     contents.ProtocolType = data.protocolType;
   }
-  if (
-    data.routeSelectionExpression !== undefined &&
-    data.routeSelectionExpression !== null
-  ) {
+  if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
     contents.RouteSelectionExpression = data.routeSelectionExpression;
   }
   if (data.tags !== undefined && data.tags !== null) {
@@ -8361,10 +6946,7 @@ export const deserializeAws_restJson1_1ImportApiCommand = async (
     contents.Version = data.version;
   }
   if (data.warnings !== undefined && data.warnings !== null) {
-    contents.Warnings = deserializeAws_restJson1_1__listOf__string(
-      data.warnings,
-      context
-    );
+    contents.Warnings = deserializeAws_restJson1_1__listOf__string(data.warnings, context);
   }
   return Promise.resolve(contents);
 };
@@ -8384,10 +6966,7 @@ const deserializeAws_restJson1_1ImportApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8395,10 +6974,7 @@ const deserializeAws_restJson1_1ImportApiCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8406,10 +6982,7 @@ const deserializeAws_restJson1_1ImportApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8417,10 +6990,7 @@ const deserializeAws_restJson1_1ImportApiCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8474,17 +7044,11 @@ export const deserializeAws_restJson1_1ReimportApiCommand = async (
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = data.apiId;
   }
-  if (
-    data.apiKeySelectionExpression !== undefined &&
-    data.apiKeySelectionExpression !== null
-  ) {
+  if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
     contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
-    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(
-      data.corsConfiguration,
-      context
-    );
+    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -8492,17 +7056,11 @@ export const deserializeAws_restJson1_1ReimportApiCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.disableSchemaValidation !== undefined &&
-    data.disableSchemaValidation !== null
-  ) {
+  if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
     contents.DisableSchemaValidation = data.disableSchemaValidation;
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
-    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(
-      data.importInfo,
-      context
-    );
+    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -8510,10 +7068,7 @@ export const deserializeAws_restJson1_1ReimportApiCommand = async (
   if (data.protocolType !== undefined && data.protocolType !== null) {
     contents.ProtocolType = data.protocolType;
   }
-  if (
-    data.routeSelectionExpression !== undefined &&
-    data.routeSelectionExpression !== null
-  ) {
+  if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
     contents.RouteSelectionExpression = data.routeSelectionExpression;
   }
   if (data.tags !== undefined && data.tags !== null) {
@@ -8523,10 +7078,7 @@ export const deserializeAws_restJson1_1ReimportApiCommand = async (
     contents.Version = data.version;
   }
   if (data.warnings !== undefined && data.warnings !== null) {
-    contents.Warnings = deserializeAws_restJson1_1__listOf__string(
-      data.warnings,
-      context
-    );
+    contents.Warnings = deserializeAws_restJson1_1__listOf__string(data.warnings, context);
   }
   return Promise.resolve(contents);
 };
@@ -8546,10 +7098,7 @@ const deserializeAws_restJson1_1ReimportApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8557,10 +7106,7 @@ const deserializeAws_restJson1_1ReimportApiCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8568,10 +7114,7 @@ const deserializeAws_restJson1_1ReimportApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8579,10 +7122,7 @@ const deserializeAws_restJson1_1ReimportApiCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8634,10 +7174,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8645,10 +7182,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8656,10 +7190,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8667,10 +7198,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8721,10 +7249,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8732,10 +7257,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8743,10 +7265,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8754,10 +7273,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8811,17 +7327,11 @@ export const deserializeAws_restJson1_1UpdateApiCommand = async (
   if (data.apiId !== undefined && data.apiId !== null) {
     contents.ApiId = data.apiId;
   }
-  if (
-    data.apiKeySelectionExpression !== undefined &&
-    data.apiKeySelectionExpression !== null
-  ) {
+  if (data.apiKeySelectionExpression !== undefined && data.apiKeySelectionExpression !== null) {
     contents.ApiKeySelectionExpression = data.apiKeySelectionExpression;
   }
   if (data.corsConfiguration !== undefined && data.corsConfiguration !== null) {
-    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(
-      data.corsConfiguration,
-      context
-    );
+    contents.CorsConfiguration = deserializeAws_restJson1_1Cors(data.corsConfiguration, context);
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
@@ -8829,17 +7339,11 @@ export const deserializeAws_restJson1_1UpdateApiCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.disableSchemaValidation !== undefined &&
-    data.disableSchemaValidation !== null
-  ) {
+  if (data.disableSchemaValidation !== undefined && data.disableSchemaValidation !== null) {
     contents.DisableSchemaValidation = data.disableSchemaValidation;
   }
   if (data.importInfo !== undefined && data.importInfo !== null) {
-    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(
-      data.importInfo,
-      context
-    );
+    contents.ImportInfo = deserializeAws_restJson1_1__listOf__string(data.importInfo, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -8847,10 +7351,7 @@ export const deserializeAws_restJson1_1UpdateApiCommand = async (
   if (data.protocolType !== undefined && data.protocolType !== null) {
     contents.ProtocolType = data.protocolType;
   }
-  if (
-    data.routeSelectionExpression !== undefined &&
-    data.routeSelectionExpression !== null
-  ) {
+  if (data.routeSelectionExpression !== undefined && data.routeSelectionExpression !== null) {
     contents.RouteSelectionExpression = data.routeSelectionExpression;
   }
   if (data.tags !== undefined && data.tags !== null) {
@@ -8860,10 +7361,7 @@ export const deserializeAws_restJson1_1UpdateApiCommand = async (
     contents.Version = data.version;
   }
   if (data.warnings !== undefined && data.warnings !== null) {
-    contents.Warnings = deserializeAws_restJson1_1__listOf__string(
-      data.warnings,
-      context
-    );
+    contents.Warnings = deserializeAws_restJson1_1__listOf__string(data.warnings, context);
   }
   return Promise.resolve(contents);
 };
@@ -8883,10 +7381,7 @@ const deserializeAws_restJson1_1UpdateApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8894,10 +7389,7 @@ const deserializeAws_restJson1_1UpdateApiCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8905,10 +7397,7 @@ const deserializeAws_restJson1_1UpdateApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8916,10 +7405,7 @@ const deserializeAws_restJson1_1UpdateApiCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8946,10 +7432,7 @@ export const deserializeAws_restJson1_1UpdateApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateApiMappingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateApiMappingCommandError(output, context);
   }
   const contents: UpdateApiMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8990,10 +7473,7 @@ const deserializeAws_restJson1_1UpdateApiMappingCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9001,10 +7481,7 @@ const deserializeAws_restJson1_1UpdateApiMappingCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9012,10 +7489,7 @@ const deserializeAws_restJson1_1UpdateApiMappingCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9023,10 +7497,7 @@ const deserializeAws_restJson1_1UpdateApiMappingCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9053,10 +7524,7 @@ export const deserializeAws_restJson1_1UpdateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateAuthorizerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateAuthorizerCommandError(output, context);
   }
   const contents: UpdateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9072,19 +7540,13 @@ export const deserializeAws_restJson1_1UpdateAuthorizerCommand = async (
     Name: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.authorizerCredentialsArn !== undefined &&
-    data.authorizerCredentialsArn !== null
-  ) {
+  if (data.authorizerCredentialsArn !== undefined && data.authorizerCredentialsArn !== null) {
     contents.AuthorizerCredentialsArn = data.authorizerCredentialsArn;
   }
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
     contents.AuthorizerId = data.authorizerId;
   }
-  if (
-    data.authorizerResultTtlInSeconds !== undefined &&
-    data.authorizerResultTtlInSeconds !== null
-  ) {
+  if (data.authorizerResultTtlInSeconds !== undefined && data.authorizerResultTtlInSeconds !== null) {
     contents.AuthorizerResultTtlInSeconds = data.authorizerResultTtlInSeconds;
   }
   if (data.authorizerType !== undefined && data.authorizerType !== null) {
@@ -9094,22 +7556,13 @@ export const deserializeAws_restJson1_1UpdateAuthorizerCommand = async (
     contents.AuthorizerUri = data.authorizerUri;
   }
   if (data.identitySource !== undefined && data.identitySource !== null) {
-    contents.IdentitySource = deserializeAws_restJson1_1IdentitySourceList(
-      data.identitySource,
-      context
-    );
+    contents.IdentitySource = deserializeAws_restJson1_1IdentitySourceList(data.identitySource, context);
   }
-  if (
-    data.identityValidationExpression !== undefined &&
-    data.identityValidationExpression !== null
-  ) {
+  if (data.identityValidationExpression !== undefined && data.identityValidationExpression !== null) {
     contents.IdentityValidationExpression = data.identityValidationExpression;
   }
   if (data.jwtConfiguration !== undefined && data.jwtConfiguration !== null) {
-    contents.JwtConfiguration = deserializeAws_restJson1_1JWTConfiguration(
-      data.jwtConfiguration,
-      context
-    );
+    contents.JwtConfiguration = deserializeAws_restJson1_1JWTConfiguration(data.jwtConfiguration, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -9132,10 +7585,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9143,10 +7593,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9154,10 +7601,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9165,10 +7609,7 @@ const deserializeAws_restJson1_1UpdateAuthorizerCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9195,10 +7636,7 @@ export const deserializeAws_restJson1_1UpdateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDeploymentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDeploymentCommandError(output, context);
   }
   const contents: UpdateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9223,10 +7661,7 @@ export const deserializeAws_restJson1_1UpdateDeploymentCommand = async (
   if (data.deploymentStatus !== undefined && data.deploymentStatus !== null) {
     contents.DeploymentStatus = data.deploymentStatus;
   }
-  if (
-    data.deploymentStatusMessage !== undefined &&
-    data.deploymentStatusMessage !== null
-  ) {
+  if (data.deploymentStatusMessage !== undefined && data.deploymentStatusMessage !== null) {
     contents.DeploymentStatusMessage = data.deploymentStatusMessage;
   }
   if (data.description !== undefined && data.description !== null) {
@@ -9250,10 +7685,7 @@ const deserializeAws_restJson1_1UpdateDeploymentCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9261,10 +7693,7 @@ const deserializeAws_restJson1_1UpdateDeploymentCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9272,10 +7701,7 @@ const deserializeAws_restJson1_1UpdateDeploymentCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9283,10 +7709,7 @@ const deserializeAws_restJson1_1UpdateDeploymentCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9313,10 +7736,7 @@ export const deserializeAws_restJson1_1UpdateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDomainNameCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDomainNameCommandError(output, context);
   }
   const contents: UpdateDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9327,19 +7747,13 @@ export const deserializeAws_restJson1_1UpdateDomainNameCommand = async (
     Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.apiMappingSelectionExpression !== undefined &&
-    data.apiMappingSelectionExpression !== null
-  ) {
+  if (data.apiMappingSelectionExpression !== undefined && data.apiMappingSelectionExpression !== null) {
     contents.ApiMappingSelectionExpression = data.apiMappingSelectionExpression;
   }
   if (data.domainName !== undefined && data.domainName !== null) {
     contents.DomainName = data.domainName;
   }
-  if (
-    data.domainNameConfigurations !== undefined &&
-    data.domainNameConfigurations !== null
-  ) {
+  if (data.domainNameConfigurations !== undefined && data.domainNameConfigurations !== null) {
     contents.DomainNameConfigurations = deserializeAws_restJson1_1DomainNameConfigurations(
       data.domainNameConfigurations,
       context
@@ -9366,10 +7780,7 @@ const deserializeAws_restJson1_1UpdateDomainNameCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9377,10 +7788,7 @@ const deserializeAws_restJson1_1UpdateDomainNameCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9388,10 +7796,7 @@ const deserializeAws_restJson1_1UpdateDomainNameCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9399,10 +7804,7 @@ const deserializeAws_restJson1_1UpdateDomainNameCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9429,10 +7831,7 @@ export const deserializeAws_restJson1_1UpdateIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateIntegrationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateIntegrationCommandError(output, context);
   }
   const contents: UpdateIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9465,10 +7864,7 @@ export const deserializeAws_restJson1_1UpdateIntegrationCommand = async (
   if (data.connectionType !== undefined && data.connectionType !== null) {
     contents.ConnectionType = data.connectionType;
   }
-  if (
-    data.contentHandlingStrategy !== undefined &&
-    data.contentHandlingStrategy !== null
-  ) {
+  if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = data.contentHandlingStrategy;
   }
   if (data.credentialsArn !== undefined && data.credentialsArn !== null) {
@@ -9487,8 +7883,7 @@ export const deserializeAws_restJson1_1UpdateIntegrationCommand = async (
     data.integrationResponseSelectionExpression !== undefined &&
     data.integrationResponseSelectionExpression !== null
   ) {
-    contents.IntegrationResponseSelectionExpression =
-      data.integrationResponseSelectionExpression;
+    contents.IntegrationResponseSelectionExpression = data.integrationResponseSelectionExpression;
   }
   if (data.integrationType !== undefined && data.integrationType !== null) {
     contents.IntegrationType = data.integrationType;
@@ -9496,34 +7891,19 @@ export const deserializeAws_restJson1_1UpdateIntegrationCommand = async (
   if (data.integrationUri !== undefined && data.integrationUri !== null) {
     contents.IntegrationUri = data.integrationUri;
   }
-  if (
-    data.passthroughBehavior !== undefined &&
-    data.passthroughBehavior !== null
-  ) {
+  if (data.passthroughBehavior !== undefined && data.passthroughBehavior !== null) {
     contents.PassthroughBehavior = data.passthroughBehavior;
   }
-  if (
-    data.payloadFormatVersion !== undefined &&
-    data.payloadFormatVersion !== null
-  ) {
+  if (data.payloadFormatVersion !== undefined && data.payloadFormatVersion !== null) {
     contents.PayloadFormatVersion = data.payloadFormatVersion;
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
-    contents.RequestParameters = deserializeAws_restJson1_1IntegrationParameters(
-      data.requestParameters,
-      context
-    );
+    contents.RequestParameters = deserializeAws_restJson1_1IntegrationParameters(data.requestParameters, context);
   }
   if (data.requestTemplates !== undefined && data.requestTemplates !== null) {
-    contents.RequestTemplates = deserializeAws_restJson1_1TemplateMap(
-      data.requestTemplates,
-      context
-    );
+    contents.RequestTemplates = deserializeAws_restJson1_1TemplateMap(data.requestTemplates, context);
   }
-  if (
-    data.templateSelectionExpression !== undefined &&
-    data.templateSelectionExpression !== null
-  ) {
+  if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
   }
   if (data.timeoutInMillis !== undefined && data.timeoutInMillis !== null) {
@@ -9547,10 +7927,7 @@ const deserializeAws_restJson1_1UpdateIntegrationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9558,10 +7935,7 @@ const deserializeAws_restJson1_1UpdateIntegrationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9569,10 +7943,7 @@ const deserializeAws_restJson1_1UpdateIntegrationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9580,10 +7951,7 @@ const deserializeAws_restJson1_1UpdateIntegrationCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9610,10 +7978,7 @@ export const deserializeAws_restJson1_1UpdateIntegrationResponseCommand = async 
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(output, context);
   }
   const contents: UpdateIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9626,43 +7991,22 @@ export const deserializeAws_restJson1_1UpdateIntegrationResponseCommand = async 
     TemplateSelectionExpression: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.contentHandlingStrategy !== undefined &&
-    data.contentHandlingStrategy !== null
-  ) {
+  if (data.contentHandlingStrategy !== undefined && data.contentHandlingStrategy !== null) {
     contents.ContentHandlingStrategy = data.contentHandlingStrategy;
   }
-  if (
-    data.integrationResponseId !== undefined &&
-    data.integrationResponseId !== null
-  ) {
+  if (data.integrationResponseId !== undefined && data.integrationResponseId !== null) {
     contents.IntegrationResponseId = data.integrationResponseId;
   }
-  if (
-    data.integrationResponseKey !== undefined &&
-    data.integrationResponseKey !== null
-  ) {
+  if (data.integrationResponseKey !== undefined && data.integrationResponseKey !== null) {
     contents.IntegrationResponseKey = data.integrationResponseKey;
   }
-  if (
-    data.responseParameters !== undefined &&
-    data.responseParameters !== null
-  ) {
-    contents.ResponseParameters = deserializeAws_restJson1_1IntegrationParameters(
-      data.responseParameters,
-      context
-    );
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1_1IntegrationParameters(data.responseParameters, context);
   }
   if (data.responseTemplates !== undefined && data.responseTemplates !== null) {
-    contents.ResponseTemplates = deserializeAws_restJson1_1TemplateMap(
-      data.responseTemplates,
-      context
-    );
+    contents.ResponseTemplates = deserializeAws_restJson1_1TemplateMap(data.responseTemplates, context);
   }
-  if (
-    data.templateSelectionExpression !== undefined &&
-    data.templateSelectionExpression !== null
-  ) {
+  if (data.templateSelectionExpression !== undefined && data.templateSelectionExpression !== null) {
     contents.TemplateSelectionExpression = data.templateSelectionExpression;
   }
   return Promise.resolve(contents);
@@ -9683,10 +8027,7 @@ const deserializeAws_restJson1_1UpdateIntegrationResponseCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9694,10 +8035,7 @@ const deserializeAws_restJson1_1UpdateIntegrationResponseCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9705,10 +8043,7 @@ const deserializeAws_restJson1_1UpdateIntegrationResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9716,10 +8051,7 @@ const deserializeAws_restJson1_1UpdateIntegrationResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9791,10 +8123,7 @@ const deserializeAws_restJson1_1UpdateModelCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9802,10 +8131,7 @@ const deserializeAws_restJson1_1UpdateModelCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9813,10 +8139,7 @@ const deserializeAws_restJson1_1UpdateModelCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9824,10 +8147,7 @@ const deserializeAws_restJson1_1UpdateModelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9880,14 +8200,8 @@ export const deserializeAws_restJson1_1UpdateRouteCommand = async (
   if (data.apiKeyRequired !== undefined && data.apiKeyRequired !== null) {
     contents.ApiKeyRequired = data.apiKeyRequired;
   }
-  if (
-    data.authorizationScopes !== undefined &&
-    data.authorizationScopes !== null
-  ) {
-    contents.AuthorizationScopes = deserializeAws_restJson1_1AuthorizationScopes(
-      data.authorizationScopes,
-      context
-    );
+  if (data.authorizationScopes !== undefined && data.authorizationScopes !== null) {
+    contents.AuthorizationScopes = deserializeAws_restJson1_1AuthorizationScopes(data.authorizationScopes, context);
   }
   if (data.authorizationType !== undefined && data.authorizationType !== null) {
     contents.AuthorizationType = data.authorizationType;
@@ -9895,26 +8209,17 @@ export const deserializeAws_restJson1_1UpdateRouteCommand = async (
   if (data.authorizerId !== undefined && data.authorizerId !== null) {
     contents.AuthorizerId = data.authorizerId;
   }
-  if (
-    data.modelSelectionExpression !== undefined &&
-    data.modelSelectionExpression !== null
-  ) {
+  if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = data.modelSelectionExpression;
   }
   if (data.operationName !== undefined && data.operationName !== null) {
     contents.OperationName = data.operationName;
   }
   if (data.requestModels !== undefined && data.requestModels !== null) {
-    contents.RequestModels = deserializeAws_restJson1_1RouteModels(
-      data.requestModels,
-      context
-    );
+    contents.RequestModels = deserializeAws_restJson1_1RouteModels(data.requestModels, context);
   }
   if (data.requestParameters !== undefined && data.requestParameters !== null) {
-    contents.RequestParameters = deserializeAws_restJson1_1RouteParameters(
-      data.requestParameters,
-      context
-    );
+    contents.RequestParameters = deserializeAws_restJson1_1RouteParameters(data.requestParameters, context);
   }
   if (data.routeId !== undefined && data.routeId !== null) {
     contents.RouteId = data.routeId;
@@ -9922,12 +8227,8 @@ export const deserializeAws_restJson1_1UpdateRouteCommand = async (
   if (data.routeKey !== undefined && data.routeKey !== null) {
     contents.RouteKey = data.routeKey;
   }
-  if (
-    data.routeResponseSelectionExpression !== undefined &&
-    data.routeResponseSelectionExpression !== null
-  ) {
-    contents.RouteResponseSelectionExpression =
-      data.routeResponseSelectionExpression;
+  if (data.routeResponseSelectionExpression !== undefined && data.routeResponseSelectionExpression !== null) {
+    contents.RouteResponseSelectionExpression = data.routeResponseSelectionExpression;
   }
   if (data.target !== undefined && data.target !== null) {
     contents.Target = data.target;
@@ -9950,10 +8251,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9961,10 +8259,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9972,10 +8267,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9983,10 +8275,7 @@ const deserializeAws_restJson1_1UpdateRouteCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10013,10 +8302,7 @@ export const deserializeAws_restJson1_1UpdateRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRouteResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateRouteResponseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateRouteResponseCommandError(output, context);
   }
   const contents: UpdateRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -10028,26 +8314,14 @@ export const deserializeAws_restJson1_1UpdateRouteResponseCommand = async (
     RouteResponseKey: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.modelSelectionExpression !== undefined &&
-    data.modelSelectionExpression !== null
-  ) {
+  if (data.modelSelectionExpression !== undefined && data.modelSelectionExpression !== null) {
     contents.ModelSelectionExpression = data.modelSelectionExpression;
   }
   if (data.responseModels !== undefined && data.responseModels !== null) {
-    contents.ResponseModels = deserializeAws_restJson1_1RouteModels(
-      data.responseModels,
-      context
-    );
+    contents.ResponseModels = deserializeAws_restJson1_1RouteModels(data.responseModels, context);
   }
-  if (
-    data.responseParameters !== undefined &&
-    data.responseParameters !== null
-  ) {
-    contents.ResponseParameters = deserializeAws_restJson1_1RouteParameters(
-      data.responseParameters,
-      context
-    );
+  if (data.responseParameters !== undefined && data.responseParameters !== null) {
+    contents.ResponseParameters = deserializeAws_restJson1_1RouteParameters(data.responseParameters, context);
   }
   if (data.routeResponseId !== undefined && data.routeResponseId !== null) {
     contents.RouteResponseId = data.routeResponseId;
@@ -10073,10 +8347,7 @@ const deserializeAws_restJson1_1UpdateRouteResponseCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10084,10 +8355,7 @@ const deserializeAws_restJson1_1UpdateRouteResponseCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10095,10 +8363,7 @@ const deserializeAws_restJson1_1UpdateRouteResponseCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10106,10 +8371,7 @@ const deserializeAws_restJson1_1UpdateRouteResponseCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10158,10 +8420,7 @@ export const deserializeAws_restJson1_1UpdateStageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.accessLogSettings !== undefined && data.accessLogSettings !== null) {
-    contents.AccessLogSettings = deserializeAws_restJson1_1AccessLogSettings(
-      data.accessLogSettings,
-      context
-    );
+    contents.AccessLogSettings = deserializeAws_restJson1_1AccessLogSettings(data.accessLogSettings, context);
   }
   if (data.apiGatewayManaged !== undefined && data.apiGatewayManaged !== null) {
     contents.ApiGatewayManaged = data.apiGatewayManaged;
@@ -10169,23 +8428,14 @@ export const deserializeAws_restJson1_1UpdateStageCommand = async (
   if (data.autoDeploy !== undefined && data.autoDeploy !== null) {
     contents.AutoDeploy = data.autoDeploy;
   }
-  if (
-    data.clientCertificateId !== undefined &&
-    data.clientCertificateId !== null
-  ) {
+  if (data.clientCertificateId !== undefined && data.clientCertificateId !== null) {
     contents.ClientCertificateId = data.clientCertificateId;
   }
   if (data.createdDate !== undefined && data.createdDate !== null) {
     contents.CreatedDate = new Date(data.createdDate);
   }
-  if (
-    data.defaultRouteSettings !== undefined &&
-    data.defaultRouteSettings !== null
-  ) {
-    contents.DefaultRouteSettings = deserializeAws_restJson1_1RouteSettings(
-      data.defaultRouteSettings,
-      context
-    );
+  if (data.defaultRouteSettings !== undefined && data.defaultRouteSettings !== null) {
+    contents.DefaultRouteSettings = deserializeAws_restJson1_1RouteSettings(data.defaultRouteSettings, context);
   }
   if (data.deploymentId !== undefined && data.deploymentId !== null) {
     contents.DeploymentId = data.deploymentId;
@@ -10193,29 +8443,20 @@ export const deserializeAws_restJson1_1UpdateStageCommand = async (
   if (data.description !== undefined && data.description !== null) {
     contents.Description = data.description;
   }
-  if (
-    data.lastDeploymentStatusMessage !== undefined &&
-    data.lastDeploymentStatusMessage !== null
-  ) {
+  if (data.lastDeploymentStatusMessage !== undefined && data.lastDeploymentStatusMessage !== null) {
     contents.LastDeploymentStatusMessage = data.lastDeploymentStatusMessage;
   }
   if (data.lastUpdatedDate !== undefined && data.lastUpdatedDate !== null) {
     contents.LastUpdatedDate = new Date(data.lastUpdatedDate);
   }
   if (data.routeSettings !== undefined && data.routeSettings !== null) {
-    contents.RouteSettings = deserializeAws_restJson1_1RouteSettingsMap(
-      data.routeSettings,
-      context
-    );
+    contents.RouteSettings = deserializeAws_restJson1_1RouteSettingsMap(data.routeSettings, context);
   }
   if (data.stageName !== undefined && data.stageName !== null) {
     contents.StageName = data.stageName;
   }
   if (data.stageVariables !== undefined && data.stageVariables !== null) {
-    contents.StageVariables = deserializeAws_restJson1_1StageVariablesMap(
-      data.stageVariables,
-      context
-    );
+    contents.StageVariables = deserializeAws_restJson1_1StageVariablesMap(data.stageVariables, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.Tags = deserializeAws_restJson1_1Tags(data.tags, context);
@@ -10238,10 +8479,7 @@ const deserializeAws_restJson1_1UpdateStageCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10249,10 +8487,7 @@ const deserializeAws_restJson1_1UpdateStageCommandError = async (
     case "ConflictException":
     case "com.amazonaws.apigatewayv2#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10260,10 +8495,7 @@ const deserializeAws_restJson1_1UpdateStageCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10271,10 +8503,7 @@ const deserializeAws_restJson1_1UpdateStageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10389,10 +8618,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1AccessLogSettings = (
-  input: AccessLogSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AccessLogSettings = (input: AccessLogSettings, context: __SerdeContext): any => {
   return {
     ...(input.DestinationArn !== undefined && {
       destinationArn: input.DestinationArn
@@ -10401,67 +8627,40 @@ const serializeAws_restJson1_1AccessLogSettings = (
   };
 };
 
-const serializeAws_restJson1_1AuthorizationScopes = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AuthorizationScopes = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Cors = (
-  input: Cors,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Cors = (input: Cors, context: __SerdeContext): any => {
   return {
     ...(input.AllowCredentials !== undefined && {
       allowCredentials: input.AllowCredentials
     }),
     ...(input.AllowHeaders !== undefined && {
-      allowHeaders: serializeAws_restJson1_1CorsHeaderList(
-        input.AllowHeaders,
-        context
-      )
+      allowHeaders: serializeAws_restJson1_1CorsHeaderList(input.AllowHeaders, context)
     }),
     ...(input.AllowMethods !== undefined && {
-      allowMethods: serializeAws_restJson1_1CorsMethodList(
-        input.AllowMethods,
-        context
-      )
+      allowMethods: serializeAws_restJson1_1CorsMethodList(input.AllowMethods, context)
     }),
     ...(input.AllowOrigins !== undefined && {
-      allowOrigins: serializeAws_restJson1_1CorsOriginList(
-        input.AllowOrigins,
-        context
-      )
+      allowOrigins: serializeAws_restJson1_1CorsOriginList(input.AllowOrigins, context)
     }),
     ...(input.ExposeHeaders !== undefined && {
-      exposeHeaders: serializeAws_restJson1_1CorsHeaderList(
-        input.ExposeHeaders,
-        context
-      )
+      exposeHeaders: serializeAws_restJson1_1CorsHeaderList(input.ExposeHeaders, context)
     }),
     ...(input.MaxAge !== undefined && { maxAge: input.MaxAge })
   };
 };
 
-const serializeAws_restJson1_1CorsHeaderList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CorsHeaderList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1CorsMethodList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CorsMethodList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1CorsOriginList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CorsOriginList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -10480,8 +8679,7 @@ const serializeAws_restJson1_1DomainNameConfiguration = (
       certificateName: input.CertificateName
     }),
     ...(input.CertificateUploadDate !== undefined && {
-      certificateUploadDate:
-        input.CertificateUploadDate.toISOString().split(".")[0] + "Z"
+      certificateUploadDate: input.CertificateUploadDate.toISOString().split(".")[0] + "Z"
     }),
     ...(input.DomainNameStatus !== undefined && {
       domainNameStatus: input.DomainNameStatus
@@ -10505,15 +8703,10 @@ const serializeAws_restJson1_1DomainNameConfigurations = (
   input: DomainNameConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1DomainNameConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1DomainNameConfiguration(entry, context));
 };
 
-const serializeAws_restJson1_1IdentitySourceList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IdentitySourceList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -10530,34 +8723,22 @@ const serializeAws_restJson1_1IntegrationParameters = (
   );
 };
 
-const serializeAws_restJson1_1JWTConfiguration = (
-  input: JWTConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1JWTConfiguration = (input: JWTConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Audience !== undefined && {
-      audience: serializeAws_restJson1_1__listOf__string(
-        input.Audience,
-        context
-      )
+      audience: serializeAws_restJson1_1__listOf__string(input.Audience, context)
     }),
     ...(input.Issuer !== undefined && { issuer: input.Issuer })
   };
 };
 
-const serializeAws_restJson1_1ParameterConstraints = (
-  input: ParameterConstraints,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ParameterConstraints = (input: ParameterConstraints, context: __SerdeContext): any => {
   return {
     ...(input.Required !== undefined && { required: input.Required })
   };
 };
 
-const serializeAws_restJson1_1RouteModels = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RouteModels = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -10572,10 +8753,7 @@ const serializeAws_restJson1_1RouteParameters = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: ParameterConstraints },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: ParameterConstraints }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: serializeAws_restJson1_1ParameterConstraints(value, context)
     }),
@@ -10583,10 +8761,7 @@ const serializeAws_restJson1_1RouteParameters = (
   );
 };
 
-const serializeAws_restJson1_1RouteSettings = (
-  input: RouteSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RouteSettings = (input: RouteSettings, context: __SerdeContext): any => {
   return {
     ...(input.DataTraceEnabled !== undefined && {
       dataTraceEnabled: input.DataTraceEnabled
@@ -10619,10 +8794,7 @@ const serializeAws_restJson1_1RouteSettingsMap = (
   );
 };
 
-const serializeAws_restJson1_1StageVariablesMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StageVariablesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -10632,10 +8804,7 @@ const serializeAws_restJson1_1StageVariablesMap = (
   );
 };
 
-const serializeAws_restJson1_1Tags = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -10645,10 +8814,7 @@ const serializeAws_restJson1_1Tags = (
   );
 };
 
-const serializeAws_restJson1_1TemplateMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TemplateMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -10658,92 +8824,54 @@ const serializeAws_restJson1_1TemplateMap = (
   );
 };
 
-const serializeAws_restJson1_1__listOf__string = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1__listOf__string = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const deserializeAws_restJson1_1AccessLogSettings = (
-  output: any,
-  context: __SerdeContext
-): AccessLogSettings => {
+const deserializeAws_restJson1_1AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
   return {
     __type: "AccessLogSettings",
     DestinationArn:
-      output.destinationArn !== undefined && output.destinationArn !== null
-        ? output.destinationArn
-        : undefined,
-    Format:
-      output.format !== undefined && output.format !== null
-        ? output.format
-        : undefined
+      output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
+    Format: output.format !== undefined && output.format !== null ? output.format : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Api = (
-  output: any,
-  context: __SerdeContext
-): Api => {
+const deserializeAws_restJson1_1Api = (output: any, context: __SerdeContext): Api => {
   return {
     __type: "Api",
-    ApiEndpoint:
-      output.apiEndpoint !== undefined && output.apiEndpoint !== null
-        ? output.apiEndpoint
-        : undefined,
-    ApiId:
-      output.apiId !== undefined && output.apiId !== null
-        ? output.apiId
-        : undefined,
+    ApiEndpoint: output.apiEndpoint !== undefined && output.apiEndpoint !== null ? output.apiEndpoint : undefined,
+    ApiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
     ApiKeySelectionExpression:
-      output.apiKeySelectionExpression !== undefined &&
-      output.apiKeySelectionExpression !== null
+      output.apiKeySelectionExpression !== undefined && output.apiKeySelectionExpression !== null
         ? output.apiKeySelectionExpression
         : undefined,
     CorsConfiguration:
-      output.corsConfiguration !== undefined &&
-      output.corsConfiguration !== null
+      output.corsConfiguration !== undefined && output.corsConfiguration !== null
         ? deserializeAws_restJson1_1Cors(output.corsConfiguration, context)
         : undefined,
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(output.createdDate)
-        : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     DisableSchemaValidation:
-      output.disableSchemaValidation !== undefined &&
-      output.disableSchemaValidation !== null
+      output.disableSchemaValidation !== undefined && output.disableSchemaValidation !== null
         ? output.disableSchemaValidation
         : undefined,
     ImportInfo:
       output.importInfo !== undefined && output.importInfo !== null
         ? deserializeAws_restJson1_1__listOf__string(output.importInfo, context)
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    ProtocolType:
-      output.protocolType !== undefined && output.protocolType !== null
-        ? output.protocolType
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    ProtocolType: output.protocolType !== undefined && output.protocolType !== null ? output.protocolType : undefined,
     RouteSelectionExpression:
-      output.routeSelectionExpression !== undefined &&
-      output.routeSelectionExpression !== null
+      output.routeSelectionExpression !== undefined && output.routeSelectionExpression !== null
         ? output.routeSelectionExpression
         : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1Tags(output.tags, context)
         : undefined,
-    Version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined,
+    Version: output.version !== undefined && output.version !== null ? output.version : undefined,
     Warnings:
       output.warnings !== undefined && output.warnings !== null
         ? deserializeAws_restJson1_1__listOf__string(output.warnings, context)
@@ -10751,102 +8879,58 @@ const deserializeAws_restJson1_1Api = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ApiMapping = (
-  output: any,
-  context: __SerdeContext
-): ApiMapping => {
+const deserializeAws_restJson1_1ApiMapping = (output: any, context: __SerdeContext): ApiMapping => {
   return {
     __type: "ApiMapping",
-    ApiId:
-      output.apiId !== undefined && output.apiId !== null
-        ? output.apiId
-        : undefined,
-    ApiMappingId:
-      output.apiMappingId !== undefined && output.apiMappingId !== null
-        ? output.apiMappingId
-        : undefined,
+    ApiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
+    ApiMappingId: output.apiMappingId !== undefined && output.apiMappingId !== null ? output.apiMappingId : undefined,
     ApiMappingKey:
-      output.apiMappingKey !== undefined && output.apiMappingKey !== null
-        ? output.apiMappingKey
-        : undefined,
-    Stage:
-      output.stage !== undefined && output.stage !== null
-        ? output.stage
-        : undefined
+      output.apiMappingKey !== undefined && output.apiMappingKey !== null ? output.apiMappingKey : undefined,
+    Stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AuthorizationScopes = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1AuthorizationScopes = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Authorizer = (
-  output: any,
-  context: __SerdeContext
-): Authorizer => {
+const deserializeAws_restJson1_1Authorizer = (output: any, context: __SerdeContext): Authorizer => {
   return {
     __type: "Authorizer",
     AuthorizerCredentialsArn:
-      output.authorizerCredentialsArn !== undefined &&
-      output.authorizerCredentialsArn !== null
+      output.authorizerCredentialsArn !== undefined && output.authorizerCredentialsArn !== null
         ? output.authorizerCredentialsArn
         : undefined,
-    AuthorizerId:
-      output.authorizerId !== undefined && output.authorizerId !== null
-        ? output.authorizerId
-        : undefined,
+    AuthorizerId: output.authorizerId !== undefined && output.authorizerId !== null ? output.authorizerId : undefined,
     AuthorizerResultTtlInSeconds:
-      output.authorizerResultTtlInSeconds !== undefined &&
-      output.authorizerResultTtlInSeconds !== null
+      output.authorizerResultTtlInSeconds !== undefined && output.authorizerResultTtlInSeconds !== null
         ? output.authorizerResultTtlInSeconds
         : undefined,
     AuthorizerType:
-      output.authorizerType !== undefined && output.authorizerType !== null
-        ? output.authorizerType
-        : undefined,
+      output.authorizerType !== undefined && output.authorizerType !== null ? output.authorizerType : undefined,
     AuthorizerUri:
-      output.authorizerUri !== undefined && output.authorizerUri !== null
-        ? output.authorizerUri
-        : undefined,
+      output.authorizerUri !== undefined && output.authorizerUri !== null ? output.authorizerUri : undefined,
     IdentitySource:
       output.identitySource !== undefined && output.identitySource !== null
-        ? deserializeAws_restJson1_1IdentitySourceList(
-            output.identitySource,
-            context
-          )
+        ? deserializeAws_restJson1_1IdentitySourceList(output.identitySource, context)
         : undefined,
     IdentityValidationExpression:
-      output.identityValidationExpression !== undefined &&
-      output.identityValidationExpression !== null
+      output.identityValidationExpression !== undefined && output.identityValidationExpression !== null
         ? output.identityValidationExpression
         : undefined,
     JwtConfiguration:
       output.jwtConfiguration !== undefined && output.jwtConfiguration !== null
-        ? deserializeAws_restJson1_1JWTConfiguration(
-            output.jwtConfiguration,
-            context
-          )
+        ? deserializeAws_restJson1_1JWTConfiguration(output.jwtConfiguration, context)
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Cors = (
-  output: any,
-  context: __SerdeContext
-): Cors => {
+const deserializeAws_restJson1_1Cors = (output: any, context: __SerdeContext): Cors => {
   return {
     __type: "Cors",
     AllowCredentials:
-      output.allowCredentials !== undefined && output.allowCredentials !== null
-        ? output.allowCredentials
-        : undefined,
+      output.allowCredentials !== undefined && output.allowCredentials !== null ? output.allowCredentials : undefined,
     AllowHeaders:
       output.allowHeaders !== undefined && output.allowHeaders !== null
         ? deserializeAws_restJson1_1CorsHeaderList(output.allowHeaders, context)
@@ -10861,95 +8945,52 @@ const deserializeAws_restJson1_1Cors = (
         : undefined,
     ExposeHeaders:
       output.exposeHeaders !== undefined && output.exposeHeaders !== null
-        ? deserializeAws_restJson1_1CorsHeaderList(
-            output.exposeHeaders,
-            context
-          )
+        ? deserializeAws_restJson1_1CorsHeaderList(output.exposeHeaders, context)
         : undefined,
-    MaxAge:
-      output.maxAge !== undefined && output.maxAge !== null
-        ? output.maxAge
-        : undefined
+    MaxAge: output.maxAge !== undefined && output.maxAge !== null ? output.maxAge : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CorsHeaderList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1CorsHeaderList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1CorsMethodList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1CorsMethodList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1CorsOriginList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1CorsOriginList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Deployment = (
-  output: any,
-  context: __SerdeContext
-): Deployment => {
+const deserializeAws_restJson1_1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
     __type: "Deployment",
-    AutoDeployed:
-      output.autoDeployed !== undefined && output.autoDeployed !== null
-        ? output.autoDeployed
-        : undefined,
+    AutoDeployed: output.autoDeployed !== undefined && output.autoDeployed !== null ? output.autoDeployed : undefined,
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(output.createdDate)
-        : undefined,
-    DeploymentId:
-      output.deploymentId !== undefined && output.deploymentId !== null
-        ? output.deploymentId
-        : undefined,
+      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
+    DeploymentId: output.deploymentId !== undefined && output.deploymentId !== null ? output.deploymentId : undefined,
     DeploymentStatus:
-      output.deploymentStatus !== undefined && output.deploymentStatus !== null
-        ? output.deploymentStatus
-        : undefined,
+      output.deploymentStatus !== undefined && output.deploymentStatus !== null ? output.deploymentStatus : undefined,
     DeploymentStatusMessage:
-      output.deploymentStatusMessage !== undefined &&
-      output.deploymentStatusMessage !== null
+      output.deploymentStatusMessage !== undefined && output.deploymentStatusMessage !== null
         ? output.deploymentStatusMessage
         : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DomainName = (
-  output: any,
-  context: __SerdeContext
-): DomainName => {
+const deserializeAws_restJson1_1DomainName = (output: any, context: __SerdeContext): DomainName => {
   return {
     __type: "DomainName",
     ApiMappingSelectionExpression:
-      output.apiMappingSelectionExpression !== undefined &&
-      output.apiMappingSelectionExpression !== null
+      output.apiMappingSelectionExpression !== undefined && output.apiMappingSelectionExpression !== null
         ? output.apiMappingSelectionExpression
         : undefined,
-    DomainName:
-      output.domainName !== undefined && output.domainName !== null
-        ? output.domainName
-        : undefined,
+    DomainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     DomainNameConfigurations:
-      output.domainNameConfigurations !== undefined &&
-      output.domainNameConfigurations !== null
-        ? deserializeAws_restJson1_1DomainNameConfigurations(
-            output.domainNameConfigurations,
-            context
-          )
+      output.domainNameConfigurations !== undefined && output.domainNameConfigurations !== null
+        ? deserializeAws_restJson1_1DomainNameConfigurations(output.domainNameConfigurations, context)
         : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
@@ -10965,44 +9006,27 @@ const deserializeAws_restJson1_1DomainNameConfiguration = (
   return {
     __type: "DomainNameConfiguration",
     ApiGatewayDomainName:
-      output.apiGatewayDomainName !== undefined &&
-      output.apiGatewayDomainName !== null
+      output.apiGatewayDomainName !== undefined && output.apiGatewayDomainName !== null
         ? output.apiGatewayDomainName
         : undefined,
     CertificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null
-        ? output.certificateArn
-        : undefined,
+      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     CertificateName:
-      output.certificateName !== undefined && output.certificateName !== null
-        ? output.certificateName
-        : undefined,
+      output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
     CertificateUploadDate:
-      output.certificateUploadDate !== undefined &&
-      output.certificateUploadDate !== null
+      output.certificateUploadDate !== undefined && output.certificateUploadDate !== null
         ? new Date(output.certificateUploadDate)
         : undefined,
     DomainNameStatus:
-      output.domainNameStatus !== undefined && output.domainNameStatus !== null
-        ? output.domainNameStatus
-        : undefined,
+      output.domainNameStatus !== undefined && output.domainNameStatus !== null ? output.domainNameStatus : undefined,
     DomainNameStatusMessage:
-      output.domainNameStatusMessage !== undefined &&
-      output.domainNameStatusMessage !== null
+      output.domainNameStatusMessage !== undefined && output.domainNameStatusMessage !== null
         ? output.domainNameStatusMessage
         : undefined,
-    EndpointType:
-      output.endpointType !== undefined && output.endpointType !== null
-        ? output.endpointType
-        : undefined,
-    HostedZoneId:
-      output.hostedZoneId !== undefined && output.hostedZoneId !== null
-        ? output.hostedZoneId
-        : undefined,
+    EndpointType: output.endpointType !== undefined && output.endpointType !== null ? output.endpointType : undefined,
+    HostedZoneId: output.hostedZoneId !== undefined && output.hostedZoneId !== null ? output.hostedZoneId : undefined,
     SecurityPolicy:
-      output.securityPolicy !== undefined && output.securityPolicy !== null
-        ? output.securityPolicy
-        : undefined
+      output.securityPolicy !== undefined && output.securityPolicy !== null ? output.securityPolicy : undefined
   } as any;
 };
 
@@ -11010,57 +9034,34 @@ const deserializeAws_restJson1_1DomainNameConfigurations = (
   output: any,
   context: __SerdeContext
 ): DomainNameConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DomainNameConfiguration(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DomainNameConfiguration(entry, context));
 };
 
-const deserializeAws_restJson1_1IdentitySourceList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1IdentitySourceList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Integration = (
-  output: any,
-  context: __SerdeContext
-): Integration => {
+const deserializeAws_restJson1_1Integration = (output: any, context: __SerdeContext): Integration => {
   return {
     __type: "Integration",
     ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined &&
-      output.apiGatewayManaged !== null
+      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
         ? output.apiGatewayManaged
         : undefined,
-    ConnectionId:
-      output.connectionId !== undefined && output.connectionId !== null
-        ? output.connectionId
-        : undefined,
+    ConnectionId: output.connectionId !== undefined && output.connectionId !== null ? output.connectionId : undefined,
     ConnectionType:
-      output.connectionType !== undefined && output.connectionType !== null
-        ? output.connectionType
-        : undefined,
+      output.connectionType !== undefined && output.connectionType !== null ? output.connectionType : undefined,
     ContentHandlingStrategy:
-      output.contentHandlingStrategy !== undefined &&
-      output.contentHandlingStrategy !== null
+      output.contentHandlingStrategy !== undefined && output.contentHandlingStrategy !== null
         ? output.contentHandlingStrategy
         : undefined,
     CredentialsArn:
-      output.credentialsArn !== undefined && output.credentialsArn !== null
-        ? output.credentialsArn
-        : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+      output.credentialsArn !== undefined && output.credentialsArn !== null ? output.credentialsArn : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     IntegrationId:
-      output.integrationId !== undefined && output.integrationId !== null
-        ? output.integrationId
-        : undefined,
+      output.integrationId !== undefined && output.integrationId !== null ? output.integrationId : undefined,
     IntegrationMethod:
-      output.integrationMethod !== undefined &&
-      output.integrationMethod !== null
+      output.integrationMethod !== undefined && output.integrationMethod !== null
         ? output.integrationMethod
         : undefined,
     IntegrationResponseSelectionExpression:
@@ -11069,47 +9070,31 @@ const deserializeAws_restJson1_1Integration = (
         ? output.integrationResponseSelectionExpression
         : undefined,
     IntegrationType:
-      output.integrationType !== undefined && output.integrationType !== null
-        ? output.integrationType
-        : undefined,
+      output.integrationType !== undefined && output.integrationType !== null ? output.integrationType : undefined,
     IntegrationUri:
-      output.integrationUri !== undefined && output.integrationUri !== null
-        ? output.integrationUri
-        : undefined,
+      output.integrationUri !== undefined && output.integrationUri !== null ? output.integrationUri : undefined,
     PassthroughBehavior:
-      output.passthroughBehavior !== undefined &&
-      output.passthroughBehavior !== null
+      output.passthroughBehavior !== undefined && output.passthroughBehavior !== null
         ? output.passthroughBehavior
         : undefined,
     PayloadFormatVersion:
-      output.payloadFormatVersion !== undefined &&
-      output.payloadFormatVersion !== null
+      output.payloadFormatVersion !== undefined && output.payloadFormatVersion !== null
         ? output.payloadFormatVersion
         : undefined,
     RequestParameters:
-      output.requestParameters !== undefined &&
-      output.requestParameters !== null
-        ? deserializeAws_restJson1_1IntegrationParameters(
-            output.requestParameters,
-            context
-          )
+      output.requestParameters !== undefined && output.requestParameters !== null
+        ? deserializeAws_restJson1_1IntegrationParameters(output.requestParameters, context)
         : undefined,
     RequestTemplates:
       output.requestTemplates !== undefined && output.requestTemplates !== null
-        ? deserializeAws_restJson1_1TemplateMap(
-            output.requestTemplates,
-            context
-          )
+        ? deserializeAws_restJson1_1TemplateMap(output.requestTemplates, context)
         : undefined,
     TemplateSelectionExpression:
-      output.templateSelectionExpression !== undefined &&
-      output.templateSelectionExpression !== null
+      output.templateSelectionExpression !== undefined && output.templateSelectionExpression !== null
         ? output.templateSelectionExpression
         : undefined,
     TimeoutInMillis:
-      output.timeoutInMillis !== undefined && output.timeoutInMillis !== null
-        ? output.timeoutInMillis
-        : undefined
+      output.timeoutInMillis !== undefined && output.timeoutInMillis !== null ? output.timeoutInMillis : undefined
   } as any;
 };
 
@@ -11126,187 +9111,108 @@ const deserializeAws_restJson1_1IntegrationParameters = (
   );
 };
 
-const deserializeAws_restJson1_1IntegrationResponse = (
-  output: any,
-  context: __SerdeContext
-): IntegrationResponse => {
+const deserializeAws_restJson1_1IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
   return {
     __type: "IntegrationResponse",
     ContentHandlingStrategy:
-      output.contentHandlingStrategy !== undefined &&
-      output.contentHandlingStrategy !== null
+      output.contentHandlingStrategy !== undefined && output.contentHandlingStrategy !== null
         ? output.contentHandlingStrategy
         : undefined,
     IntegrationResponseId:
-      output.integrationResponseId !== undefined &&
-      output.integrationResponseId !== null
+      output.integrationResponseId !== undefined && output.integrationResponseId !== null
         ? output.integrationResponseId
         : undefined,
     IntegrationResponseKey:
-      output.integrationResponseKey !== undefined &&
-      output.integrationResponseKey !== null
+      output.integrationResponseKey !== undefined && output.integrationResponseKey !== null
         ? output.integrationResponseKey
         : undefined,
     ResponseParameters:
-      output.responseParameters !== undefined &&
-      output.responseParameters !== null
-        ? deserializeAws_restJson1_1IntegrationParameters(
-            output.responseParameters,
-            context
-          )
+      output.responseParameters !== undefined && output.responseParameters !== null
+        ? deserializeAws_restJson1_1IntegrationParameters(output.responseParameters, context)
         : undefined,
     ResponseTemplates:
-      output.responseTemplates !== undefined &&
-      output.responseTemplates !== null
-        ? deserializeAws_restJson1_1TemplateMap(
-            output.responseTemplates,
-            context
-          )
+      output.responseTemplates !== undefined && output.responseTemplates !== null
+        ? deserializeAws_restJson1_1TemplateMap(output.responseTemplates, context)
         : undefined,
     TemplateSelectionExpression:
-      output.templateSelectionExpression !== undefined &&
-      output.templateSelectionExpression !== null
+      output.templateSelectionExpression !== undefined && output.templateSelectionExpression !== null
         ? output.templateSelectionExpression
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JWTConfiguration = (
-  output: any,
-  context: __SerdeContext
-): JWTConfiguration => {
+const deserializeAws_restJson1_1JWTConfiguration = (output: any, context: __SerdeContext): JWTConfiguration => {
   return {
     __type: "JWTConfiguration",
     Audience:
       output.audience !== undefined && output.audience !== null
         ? deserializeAws_restJson1_1__listOf__string(output.audience, context)
         : undefined,
-    Issuer:
-      output.issuer !== undefined && output.issuer !== null
-        ? output.issuer
-        : undefined
+    Issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Model = (
-  output: any,
-  context: __SerdeContext
-): Model => {
+const deserializeAws_restJson1_1Model = (output: any, context: __SerdeContext): Model => {
   return {
     __type: "Model",
-    ContentType:
-      output.contentType !== undefined && output.contentType !== null
-        ? output.contentType
-        : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    ModelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    Schema:
-      output.schema !== undefined && output.schema !== null
-        ? output.schema
-        : undefined
+    ContentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    ModelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    Schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ParameterConstraints = (
-  output: any,
-  context: __SerdeContext
-): ParameterConstraints => {
+const deserializeAws_restJson1_1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
     __type: "ParameterConstraints",
-    Required:
-      output.required !== undefined && output.required !== null
-        ? output.required
-        : undefined
+    Required: output.required !== undefined && output.required !== null ? output.required : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Route = (
-  output: any,
-  context: __SerdeContext
-): Route => {
+const deserializeAws_restJson1_1Route = (output: any, context: __SerdeContext): Route => {
   return {
     __type: "Route",
     ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined &&
-      output.apiGatewayManaged !== null
+      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
         ? output.apiGatewayManaged
         : undefined,
     ApiKeyRequired:
-      output.apiKeyRequired !== undefined && output.apiKeyRequired !== null
-        ? output.apiKeyRequired
-        : undefined,
+      output.apiKeyRequired !== undefined && output.apiKeyRequired !== null ? output.apiKeyRequired : undefined,
     AuthorizationScopes:
-      output.authorizationScopes !== undefined &&
-      output.authorizationScopes !== null
-        ? deserializeAws_restJson1_1AuthorizationScopes(
-            output.authorizationScopes,
-            context
-          )
+      output.authorizationScopes !== undefined && output.authorizationScopes !== null
+        ? deserializeAws_restJson1_1AuthorizationScopes(output.authorizationScopes, context)
         : undefined,
     AuthorizationType:
-      output.authorizationType !== undefined &&
-      output.authorizationType !== null
+      output.authorizationType !== undefined && output.authorizationType !== null
         ? output.authorizationType
         : undefined,
-    AuthorizerId:
-      output.authorizerId !== undefined && output.authorizerId !== null
-        ? output.authorizerId
-        : undefined,
+    AuthorizerId: output.authorizerId !== undefined && output.authorizerId !== null ? output.authorizerId : undefined,
     ModelSelectionExpression:
-      output.modelSelectionExpression !== undefined &&
-      output.modelSelectionExpression !== null
+      output.modelSelectionExpression !== undefined && output.modelSelectionExpression !== null
         ? output.modelSelectionExpression
         : undefined,
     OperationName:
-      output.operationName !== undefined && output.operationName !== null
-        ? output.operationName
-        : undefined,
+      output.operationName !== undefined && output.operationName !== null ? output.operationName : undefined,
     RequestModels:
       output.requestModels !== undefined && output.requestModels !== null
         ? deserializeAws_restJson1_1RouteModels(output.requestModels, context)
         : undefined,
     RequestParameters:
-      output.requestParameters !== undefined &&
-      output.requestParameters !== null
-        ? deserializeAws_restJson1_1RouteParameters(
-            output.requestParameters,
-            context
-          )
+      output.requestParameters !== undefined && output.requestParameters !== null
+        ? deserializeAws_restJson1_1RouteParameters(output.requestParameters, context)
         : undefined,
-    RouteId:
-      output.routeId !== undefined && output.routeId !== null
-        ? output.routeId
-        : undefined,
-    RouteKey:
-      output.routeKey !== undefined && output.routeKey !== null
-        ? output.routeKey
-        : undefined,
+    RouteId: output.routeId !== undefined && output.routeId !== null ? output.routeId : undefined,
+    RouteKey: output.routeKey !== undefined && output.routeKey !== null ? output.routeKey : undefined,
     RouteResponseSelectionExpression:
-      output.routeResponseSelectionExpression !== undefined &&
-      output.routeResponseSelectionExpression !== null
+      output.routeResponseSelectionExpression !== undefined && output.routeResponseSelectionExpression !== null
         ? output.routeResponseSelectionExpression
         : undefined,
-    Target:
-      output.target !== undefined && output.target !== null
-        ? output.target
-        : undefined
+    Target: output.target !== undefined && output.target !== null ? output.target : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RouteModels = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1RouteModels = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -11321,10 +9227,7 @@ const deserializeAws_restJson1_1RouteParameters = (
   context: __SerdeContext
 ): { [key: string]: ParameterConstraints } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: ParameterConstraints },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: ParameterConstraints }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1ParameterConstraints(value, context)
     }),
@@ -11332,15 +9235,11 @@ const deserializeAws_restJson1_1RouteParameters = (
   );
 };
 
-const deserializeAws_restJson1_1RouteResponse = (
-  output: any,
-  context: __SerdeContext
-): RouteResponse => {
+const deserializeAws_restJson1_1RouteResponse = (output: any, context: __SerdeContext): RouteResponse => {
   return {
     __type: "RouteResponse",
     ModelSelectionExpression:
-      output.modelSelectionExpression !== undefined &&
-      output.modelSelectionExpression !== null
+      output.modelSelectionExpression !== undefined && output.modelSelectionExpression !== null
         ? output.modelSelectionExpression
         : undefined,
     ResponseModels:
@@ -11348,51 +9247,32 @@ const deserializeAws_restJson1_1RouteResponse = (
         ? deserializeAws_restJson1_1RouteModels(output.responseModels, context)
         : undefined,
     ResponseParameters:
-      output.responseParameters !== undefined &&
-      output.responseParameters !== null
-        ? deserializeAws_restJson1_1RouteParameters(
-            output.responseParameters,
-            context
-          )
+      output.responseParameters !== undefined && output.responseParameters !== null
+        ? deserializeAws_restJson1_1RouteParameters(output.responseParameters, context)
         : undefined,
     RouteResponseId:
-      output.routeResponseId !== undefined && output.routeResponseId !== null
-        ? output.routeResponseId
-        : undefined,
+      output.routeResponseId !== undefined && output.routeResponseId !== null ? output.routeResponseId : undefined,
     RouteResponseKey:
-      output.routeResponseKey !== undefined && output.routeResponseKey !== null
-        ? output.routeResponseKey
-        : undefined
+      output.routeResponseKey !== undefined && output.routeResponseKey !== null ? output.routeResponseKey : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RouteSettings = (
-  output: any,
-  context: __SerdeContext
-): RouteSettings => {
+const deserializeAws_restJson1_1RouteSettings = (output: any, context: __SerdeContext): RouteSettings => {
   return {
     __type: "RouteSettings",
     DataTraceEnabled:
-      output.dataTraceEnabled !== undefined && output.dataTraceEnabled !== null
-        ? output.dataTraceEnabled
-        : undefined,
+      output.dataTraceEnabled !== undefined && output.dataTraceEnabled !== null ? output.dataTraceEnabled : undefined,
     DetailedMetricsEnabled:
-      output.detailedMetricsEnabled !== undefined &&
-      output.detailedMetricsEnabled !== null
+      output.detailedMetricsEnabled !== undefined && output.detailedMetricsEnabled !== null
         ? output.detailedMetricsEnabled
         : undefined,
-    LoggingLevel:
-      output.loggingLevel !== undefined && output.loggingLevel !== null
-        ? output.loggingLevel
-        : undefined,
+    LoggingLevel: output.loggingLevel !== undefined && output.loggingLevel !== null ? output.loggingLevel : undefined,
     ThrottlingBurstLimit:
-      output.throttlingBurstLimit !== undefined &&
-      output.throttlingBurstLimit !== null
+      output.throttlingBurstLimit !== undefined && output.throttlingBurstLimit !== null
         ? output.throttlingBurstLimit
         : undefined,
     ThrottlingRateLimit:
-      output.throttlingRateLimit !== undefined &&
-      output.throttlingRateLimit !== null
+      output.throttlingRateLimit !== undefined && output.throttlingRateLimit !== null
         ? output.throttlingRateLimit
         : undefined
   } as any;
@@ -11411,57 +9291,32 @@ const deserializeAws_restJson1_1RouteSettingsMap = (
   );
 };
 
-const deserializeAws_restJson1_1Stage = (
-  output: any,
-  context: __SerdeContext
-): Stage => {
+const deserializeAws_restJson1_1Stage = (output: any, context: __SerdeContext): Stage => {
   return {
     __type: "Stage",
     AccessLogSettings:
-      output.accessLogSettings !== undefined &&
-      output.accessLogSettings !== null
-        ? deserializeAws_restJson1_1AccessLogSettings(
-            output.accessLogSettings,
-            context
-          )
+      output.accessLogSettings !== undefined && output.accessLogSettings !== null
+        ? deserializeAws_restJson1_1AccessLogSettings(output.accessLogSettings, context)
         : undefined,
     ApiGatewayManaged:
-      output.apiGatewayManaged !== undefined &&
-      output.apiGatewayManaged !== null
+      output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
         ? output.apiGatewayManaged
         : undefined,
-    AutoDeploy:
-      output.autoDeploy !== undefined && output.autoDeploy !== null
-        ? output.autoDeploy
-        : undefined,
+    AutoDeploy: output.autoDeploy !== undefined && output.autoDeploy !== null ? output.autoDeploy : undefined,
     ClientCertificateId:
-      output.clientCertificateId !== undefined &&
-      output.clientCertificateId !== null
+      output.clientCertificateId !== undefined && output.clientCertificateId !== null
         ? output.clientCertificateId
         : undefined,
     CreatedDate:
-      output.createdDate !== undefined && output.createdDate !== null
-        ? new Date(output.createdDate)
-        : undefined,
+      output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
     DefaultRouteSettings:
-      output.defaultRouteSettings !== undefined &&
-      output.defaultRouteSettings !== null
-        ? deserializeAws_restJson1_1RouteSettings(
-            output.defaultRouteSettings,
-            context
-          )
+      output.defaultRouteSettings !== undefined && output.defaultRouteSettings !== null
+        ? deserializeAws_restJson1_1RouteSettings(output.defaultRouteSettings, context)
         : undefined,
-    DeploymentId:
-      output.deploymentId !== undefined && output.deploymentId !== null
-        ? output.deploymentId
-        : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    DeploymentId: output.deploymentId !== undefined && output.deploymentId !== null ? output.deploymentId : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     LastDeploymentStatusMessage:
-      output.lastDeploymentStatusMessage !== undefined &&
-      output.lastDeploymentStatusMessage !== null
+      output.lastDeploymentStatusMessage !== undefined && output.lastDeploymentStatusMessage !== null
         ? output.lastDeploymentStatusMessage
         : undefined,
     LastUpdatedDate:
@@ -11470,21 +9325,12 @@ const deserializeAws_restJson1_1Stage = (
         : undefined,
     RouteSettings:
       output.routeSettings !== undefined && output.routeSettings !== null
-        ? deserializeAws_restJson1_1RouteSettingsMap(
-            output.routeSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1RouteSettingsMap(output.routeSettings, context)
         : undefined,
-    StageName:
-      output.stageName !== undefined && output.stageName !== null
-        ? output.stageName
-        : undefined,
+    StageName: output.stageName !== undefined && output.stageName !== null ? output.stageName : undefined,
     StageVariables:
       output.stageVariables !== undefined && output.stageVariables !== null
-        ? deserializeAws_restJson1_1StageVariablesMap(
-            output.stageVariables,
-            context
-          )
+        ? deserializeAws_restJson1_1StageVariablesMap(output.stageVariables, context)
         : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
@@ -11506,10 +9352,7 @@ const deserializeAws_restJson1_1StageVariablesMap = (
   );
 };
 
-const deserializeAws_restJson1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -11519,10 +9362,7 @@ const deserializeAws_restJson1_1Tags = (
   );
 };
 
-const deserializeAws_restJson1_1TemplateMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1TemplateMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -11532,109 +9372,54 @@ const deserializeAws_restJson1_1TemplateMap = (
   );
 };
 
-const deserializeAws_restJson1_1__listOfApi = (
-  output: any,
-  context: __SerdeContext
-): Api[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Api(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfApi = (output: any, context: __SerdeContext): Api[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Api(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfApiMapping = (
-  output: any,
-  context: __SerdeContext
-): ApiMapping[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ApiMapping(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfApiMapping = (output: any, context: __SerdeContext): ApiMapping[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ApiMapping(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfAuthorizer = (
-  output: any,
-  context: __SerdeContext
-): Authorizer[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Authorizer(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfAuthorizer = (output: any, context: __SerdeContext): Authorizer[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Authorizer(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfDeployment = (
-  output: any,
-  context: __SerdeContext
-): Deployment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Deployment(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfDeployment = (output: any, context: __SerdeContext): Deployment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Deployment(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfDomainName = (
-  output: any,
-  context: __SerdeContext
-): DomainName[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DomainName(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfDomainName = (output: any, context: __SerdeContext): DomainName[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DomainName(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfIntegration = (
-  output: any,
-  context: __SerdeContext
-): Integration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Integration(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfIntegration = (output: any, context: __SerdeContext): Integration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Integration(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfIntegrationResponse = (
   output: any,
   context: __SerdeContext
 ): IntegrationResponse[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1IntegrationResponse(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1IntegrationResponse(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfModel = (
-  output: any,
-  context: __SerdeContext
-): Model[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Model(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfModel = (output: any, context: __SerdeContext): Model[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Model(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfRoute = (
-  output: any,
-  context: __SerdeContext
-): Route[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Route(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfRoute = (output: any, context: __SerdeContext): Route[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Route(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfRouteResponse = (
-  output: any,
-  context: __SerdeContext
-): RouteResponse[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1RouteResponse(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfRouteResponse = (output: any, context: __SerdeContext): RouteResponse[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1RouteResponse(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfStage = (
-  output: any,
-  context: __SerdeContext
-): Stage[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Stage(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfStage = (output: any, context: __SerdeContext): Stage[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Stage(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOf__string = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1__listOf__string = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -11645,30 +9430,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -11683,8 +9459,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

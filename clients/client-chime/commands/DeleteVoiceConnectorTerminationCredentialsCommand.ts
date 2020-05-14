@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { DeleteVoiceConnectorTerminationCredentialsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand,
   serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -35,9 +28,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteVoiceConnectorTerminationCredentialsCommandInput
-  ) {
+  constructor(readonly input: DeleteVoiceConnectorTerminationCredentialsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +42,7 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     DeleteVoiceConnectorTerminationCredentialsCommandInput,
     DeleteVoiceConnectorTerminationCredentialsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,20 +61,14 @@ export class DeleteVoiceConnectorTerminationCredentialsCommand extends $Command<
     input: DeleteVoiceConnectorTerminationCredentialsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVoiceConnectorTerminationCredentialsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsCommand(output, context);
   }
 
   // Start section: command_body_extra

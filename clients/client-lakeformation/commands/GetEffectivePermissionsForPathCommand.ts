@@ -1,21 +1,11 @@
-import {
-  LakeFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LakeFormationClient";
-import {
-  GetEffectivePermissionsForPathRequest,
-  GetEffectivePermissionsForPathResponse
-} from "../models/index";
+import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetEffectivePermissionsForPathCommand,
   serializeAws_json1_1GetEffectivePermissionsForPathCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEffectivePermissionsForPathCommandInput = GetEffectivePermissionsForPathRequest;
-export type GetEffectivePermissionsForPathCommandOutput = GetEffectivePermissionsForPathResponse &
-  __MetadataBearer;
+export type GetEffectivePermissionsForPathCommandOutput = GetEffectivePermissionsForPathResponse & __MetadataBearer;
 
 export class GetEffectivePermissionsForPathCommand extends $Command<
   GetEffectivePermissionsForPathCommandInput,
@@ -49,13 +38,8 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEffectivePermissionsForPathCommandInput,
-    GetEffectivePermissionsForPathCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEffectivePermissionsForPathCommandInput, GetEffectivePermissionsForPathCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class GetEffectivePermissionsForPathCommand extends $Command<
     input: GetEffectivePermissionsForPathCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetEffectivePermissionsForPathCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetEffectivePermissionsForPathCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetEffectivePermissionsForPathCommandOutput> {
-    return deserializeAws_json1_1GetEffectivePermissionsForPathCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetEffectivePermissionsForPathCommand(output, context);
   }
 
   // Start section: command_body_extra

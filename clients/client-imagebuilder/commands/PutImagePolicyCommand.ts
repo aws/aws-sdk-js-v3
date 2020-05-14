@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient";
+import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
 import { PutImagePolicyRequest, PutImagePolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutImagePolicyCommand,
   serializeAws_restJson1_1PutImagePolicyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutImagePolicyCommandInput = PutImagePolicyRequest;
-export type PutImagePolicyCommandOutput = PutImagePolicyResponse &
-  __MetadataBearer;
+export type PutImagePolicyCommandOutput = PutImagePolicyResponse & __MetadataBearer;
 
 export class PutImagePolicyCommand extends $Command<
   PutImagePolicyCommandInput,
@@ -47,9 +39,7 @@ export class PutImagePolicyCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutImagePolicyCommandInput, PutImagePolicyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class PutImagePolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutImagePolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutImagePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutImagePolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutImagePolicyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImagePolicyCommandOutput> {
     return deserializeAws_restJson1_1PutImagePolicyCommand(output, context);
   }
 

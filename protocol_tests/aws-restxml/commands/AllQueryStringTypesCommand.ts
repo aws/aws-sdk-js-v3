@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { AllQueryStringTypesInput } from "../models/index";
 import {
   deserializeAws_restXmlAllQueryStringTypesCommand,
   serializeAws_restXmlAllQueryStringTypesCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class AllQueryStringTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AllQueryStringTypesCommandInput,
-    AllQueryStringTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AllQueryStringTypesCommandInput, AllQueryStringTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class AllQueryStringTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AllQueryStringTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AllQueryStringTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlAllQueryStringTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AllQueryStringTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllQueryStringTypesCommandOutput> {
     return deserializeAws_restXmlAllQueryStringTypesCommand(output, context);
   }
 

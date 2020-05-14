@@ -6,10 +6,7 @@ jest.mock("@aws-sdk/util-utf8-browser", () => {
     toUtf8: jest.fn()
   };
 });
-import {
-  fromUtf8 as browserFromUtf8,
-  toUtf8 as browserToUtf8
-} from "@aws-sdk/util-utf8-browser";
+import { fromUtf8 as browserFromUtf8, toUtf8 as browserToUtf8 } from "@aws-sdk/util-utf8-browser";
 
 jest.mock("@aws-sdk/util-utf8-node", () => {
   return {
@@ -17,10 +14,7 @@ jest.mock("@aws-sdk/util-utf8-node", () => {
     toUtf8: jest.fn()
   };
 });
-import {
-  fromUtf8 as nodeFromUtf8,
-  toUtf8 as nodeToUtf8
-} from "@aws-sdk/util-utf8-node";
+import { fromUtf8 as nodeFromUtf8, toUtf8 as nodeToUtf8 } from "@aws-sdk/util-utf8-node";
 
 jest.mock("@aws-sdk/is-node", () => {
   return { isNode: jest.fn() };
@@ -41,12 +35,8 @@ beforeEach(() => {
     encode: jest.fn().mockReturnValue(new Uint8Array(0))
   };
 
-  (global as any).TextDecoder = jest
-    .fn()
-    .mockReturnValue(textDecoderInstance) as any;
-  (global as any).TextEncoder = jest
-    .fn()
-    .mockReturnValue(textEncoderInstance) as any;
+  (global as any).TextDecoder = jest.fn().mockReturnValue(textDecoderInstance) as any;
+  (global as any).TextEncoder = jest.fn().mockReturnValue(textEncoderInstance) as any;
 });
 
 interface TextDecoderCtor {

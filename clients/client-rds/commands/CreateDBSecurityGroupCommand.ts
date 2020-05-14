@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CreateDBSecurityGroupMessage,
-  CreateDBSecurityGroupResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateDBSecurityGroupMessage, CreateDBSecurityGroupResult } from "../models/index";
 import {
   deserializeAws_queryCreateDBSecurityGroupCommand,
   serializeAws_queryCreateDBSecurityGroupCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBSecurityGroupCommandInput = CreateDBSecurityGroupMessage;
-export type CreateDBSecurityGroupCommandOutput = CreateDBSecurityGroupResult &
-  __MetadataBearer;
+export type CreateDBSecurityGroupCommandOutput = CreateDBSecurityGroupResult & __MetadataBearer;
 
 export class CreateDBSecurityGroupCommand extends $Command<
   CreateDBSecurityGroupCommandInput,
@@ -49,13 +38,8 @@ export class CreateDBSecurityGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDBSecurityGroupCommandInput,
-    CreateDBSecurityGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDBSecurityGroupCommandInput, CreateDBSecurityGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class CreateDBSecurityGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDBSecurityGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDBSecurityGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBSecurityGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDBSecurityGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBSecurityGroupCommandOutput> {
     return deserializeAws_queryCreateDBSecurityGroupCommand(output, context);
   }
 

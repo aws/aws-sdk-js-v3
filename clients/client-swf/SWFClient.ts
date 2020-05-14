@@ -18,10 +18,7 @@ import {
   DeprecateActivityTypeCommandInput,
   DeprecateActivityTypeCommandOutput
 } from "./commands/DeprecateActivityTypeCommand";
-import {
-  DeprecateDomainCommandInput,
-  DeprecateDomainCommandOutput
-} from "./commands/DeprecateDomainCommand";
+import { DeprecateDomainCommandInput, DeprecateDomainCommandOutput } from "./commands/DeprecateDomainCommand";
 import {
   DeprecateWorkflowTypeCommandInput,
   DeprecateWorkflowTypeCommandOutput
@@ -30,10 +27,7 @@ import {
   DescribeActivityTypeCommandInput,
   DescribeActivityTypeCommandOutput
 } from "./commands/DescribeActivityTypeCommand";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import {
   DescribeWorkflowExecutionCommandInput,
   DescribeWorkflowExecutionCommandOutput
@@ -46,18 +40,12 @@ import {
   GetWorkflowExecutionHistoryCommandInput,
   GetWorkflowExecutionHistoryCommandOutput
 } from "./commands/GetWorkflowExecutionHistoryCommand";
-import {
-  ListActivityTypesCommandInput,
-  ListActivityTypesCommandOutput
-} from "./commands/ListActivityTypesCommand";
+import { ListActivityTypesCommandInput, ListActivityTypesCommandOutput } from "./commands/ListActivityTypesCommand";
 import {
   ListClosedWorkflowExecutionsCommandInput,
   ListClosedWorkflowExecutionsCommandOutput
 } from "./commands/ListClosedWorkflowExecutionsCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListOpenWorkflowExecutionsCommandInput,
   ListOpenWorkflowExecutionsCommandOutput
@@ -66,10 +54,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWorkflowTypesCommandInput,
-  ListWorkflowTypesCommandOutput
-} from "./commands/ListWorkflowTypesCommand";
+import { ListWorkflowTypesCommandInput, ListWorkflowTypesCommandOutput } from "./commands/ListWorkflowTypesCommand";
 import {
   PollForActivityTaskCommandInput,
   PollForActivityTaskCommandOutput
@@ -86,10 +71,7 @@ import {
   RegisterActivityTypeCommandInput,
   RegisterActivityTypeCommandOutput
 } from "./commands/RegisterActivityTypeCommand";
-import {
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
-} from "./commands/RegisterDomainCommand";
+import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
 import {
   RegisterWorkflowTypeCommandInput,
   RegisterWorkflowTypeCommandOutput
@@ -122,10 +104,7 @@ import {
   StartWorkflowExecutionCommandInput,
   StartWorkflowExecutionCommandOutput
 } from "./commands/StartWorkflowExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateWorkflowExecutionCommandInput,
   TerminateWorkflowExecutionCommandOutput
@@ -134,18 +113,12 @@ import {
   UndeprecateActivityTypeCommandInput,
   UndeprecateActivityTypeCommandOutput
 } from "./commands/UndeprecateActivityTypeCommand";
-import {
-  UndeprecateDomainCommandInput,
-  UndeprecateDomainCommandOutput
-} from "./commands/UndeprecateDomainCommand";
+import { UndeprecateDomainCommandInput, UndeprecateDomainCommandOutput } from "./commands/UndeprecateDomainCommand";
 import {
   UndeprecateWorkflowTypeCommandInput,
   UndeprecateWorkflowTypeCommandOutput
 } from "./commands/UndeprecateWorkflowTypeCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -162,12 +135,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -276,8 +244,7 @@ export type ServiceOutputTypes =
   | UndeprecateWorkflowTypeCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -361,9 +328,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SWFClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SWFClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -372,9 +337,7 @@ export type SWFClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SWFClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

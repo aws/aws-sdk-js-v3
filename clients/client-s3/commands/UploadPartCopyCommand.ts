@@ -1,8 +1,4 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/index";
 import {
   deserializeAws_restXmlUploadPartCopyCommand,
@@ -11,10 +7,7 @@ import {
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,8 +20,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UploadPartCopyCommandInput = UploadPartCopyRequest;
-export type UploadPartCopyCommandOutput = UploadPartCopyOutput &
-  __MetadataBearer;
+export type UploadPartCopyCommandOutput = UploadPartCopyOutput & __MetadataBearer;
 
 export class UploadPartCopyCommand extends $Command<
   UploadPartCopyCommandInput,
@@ -49,9 +41,7 @@ export class UploadPartCopyCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadPartCopyCommandInput, UploadPartCopyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
@@ -68,17 +58,11 @@ export class UploadPartCopyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UploadPartCopyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UploadPartCopyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlUploadPartCopyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UploadPartCopyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadPartCopyCommandOutput> {
     return deserializeAws_restXmlUploadPartCopyCommand(output, context);
   }
 

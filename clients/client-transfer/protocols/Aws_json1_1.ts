@@ -1,75 +1,27 @@
-import {
-  CreateServerCommandInput,
-  CreateServerCommandOutput
-} from "../commands/CreateServerCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "../commands/CreateUserCommand";
-import {
-  DeleteServerCommandInput,
-  DeleteServerCommandOutput
-} from "../commands/DeleteServerCommand";
-import {
-  DeleteSshPublicKeyCommandInput,
-  DeleteSshPublicKeyCommandOutput
-} from "../commands/DeleteSshPublicKeyCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "../commands/DeleteUserCommand";
-import {
-  DescribeServerCommandInput,
-  DescribeServerCommandOutput
-} from "../commands/DescribeServerCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "../commands/DescribeUserCommand";
-import {
-  ImportSshPublicKeyCommandInput,
-  ImportSshPublicKeyCommandOutput
-} from "../commands/ImportSshPublicKeyCommand";
-import {
-  ListServersCommandInput,
-  ListServersCommandOutput
-} from "../commands/ListServersCommand";
+import { CreateServerCommandInput, CreateServerCommandOutput } from "../commands/CreateServerCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import { DeleteServerCommandInput, DeleteServerCommandOutput } from "../commands/DeleteServerCommand";
+import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "../commands/DeleteSshPublicKeyCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import { DescribeServerCommandInput, DescribeServerCommandOutput } from "../commands/DescribeServerCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
+import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "../commands/ImportSshPublicKeyCommand";
+import { ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "../commands/ListUsersCommand";
-import {
-  StartServerCommandInput,
-  StartServerCommandOutput
-} from "../commands/StartServerCommand";
-import {
-  StopServerCommandInput,
-  StopServerCommandOutput
-} from "../commands/StopServerCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { StartServerCommandInput, StartServerCommandOutput } from "../commands/StartServerCommand";
+import { StopServerCommandInput, StopServerCommandOutput } from "../commands/StopServerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput
 } from "../commands/TestIdentityProviderCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateServerCommandInput,
-  UpdateServerCommandOutput
-} from "../commands/UpdateServerCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "../commands/UpdateUserCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateServerCommandInput, UpdateServerCommandOutput } from "../commands/UpdateServerCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   ConflictException,
   CreateServerRequest,
@@ -118,10 +70,7 @@ import {
   UpdateUserRequest,
   UpdateUserResponse
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -140,9 +89,7 @@ export const serializeAws_json1_1CreateServerCommand = async (
     "X-Amz-Target": "TransferService.CreateServer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateServerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -168,9 +115,7 @@ export const serializeAws_json1_1DeleteServerCommand = async (
     "X-Amz-Target": "TransferService.DeleteServer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteServerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -183,9 +128,7 @@ export const serializeAws_json1_1DeleteSshPublicKeyCommand = async (
     "X-Amz-Target": "TransferService.DeleteSshPublicKey"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteSshPublicKeyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteSshPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -211,9 +154,7 @@ export const serializeAws_json1_1DescribeServerCommand = async (
     "X-Amz-Target": "TransferService.DescribeServer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeServerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -226,9 +167,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
     "X-Amz-Target": "TransferService.DescribeUser"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeUserRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -241,9 +180,7 @@ export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
     "X-Amz-Target": "TransferService.ImportSshPublicKey"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ImportSshPublicKeyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ImportSshPublicKeyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -269,9 +206,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "TransferService.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -336,9 +271,7 @@ export const serializeAws_json1_1TestIdentityProviderCommand = async (
     "X-Amz-Target": "TransferService.TestIdentityProvider"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TestIdentityProviderRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TestIdentityProviderRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -351,9 +284,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "TransferService.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -366,9 +297,7 @@ export const serializeAws_json1_1UpdateServerCommand = async (
     "X-Amz-Target": "TransferService.UpdateServer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateServerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateServerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -414,16 +343,12 @@ const deserializeAws_json1_1CreateServerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -431,10 +356,7 @@ const deserializeAws_json1_1CreateServerCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -442,10 +364,7 @@ const deserializeAws_json1_1CreateServerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -453,10 +372,7 @@ const deserializeAws_json1_1CreateServerCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -507,16 +423,12 @@ const deserializeAws_json1_1CreateUserCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -524,10 +436,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -535,10 +444,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -546,10 +452,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -557,10 +460,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -607,16 +507,12 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -624,10 +520,7 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -635,10 +528,7 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -646,10 +536,7 @@ const deserializeAws_json1_1DeleteServerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -676,10 +563,7 @@ export const deserializeAws_json1_1DeleteSshPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSshPublicKeyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteSshPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSshPublicKeyCommandOutput = {
@@ -699,16 +583,12 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -716,10 +596,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -727,10 +604,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -738,10 +612,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -749,10 +620,7 @@ const deserializeAws_json1_1DeleteSshPublicKeyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -799,16 +667,12 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -816,10 +680,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -827,10 +688,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -838,10 +696,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -892,16 +747,12 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -909,10 +760,7 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -920,10 +768,7 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -931,10 +776,7 @@ const deserializeAws_json1_1DescribeServerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -985,16 +827,12 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1002,10 +840,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1013,10 +848,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1024,10 +856,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1054,10 +883,7 @@ export const deserializeAws_json1_1ImportSshPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ImportSshPublicKeyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ImportSshPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1081,16 +907,12 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1098,10 +920,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1109,10 +928,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1120,10 +936,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1131,10 +944,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1142,10 +952,7 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1196,16 +1003,12 @@ const deserializeAws_json1_1ListServersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1213,10 +1016,7 @@ const deserializeAws_json1_1ListServersCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1224,10 +1024,7 @@ const deserializeAws_json1_1ListServersCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.necco.coral#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1235,10 +1032,7 @@ const deserializeAws_json1_1ListServersCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1265,10 +1059,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1292,16 +1083,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1309,10 +1096,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1320,10 +1104,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.necco.coral#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1331,10 +1112,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1385,16 +1163,12 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1402,10 +1176,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1413,10 +1184,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.necco.coral#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1424,10 +1192,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1435,10 +1200,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1485,16 +1247,12 @@ const deserializeAws_json1_1StartServerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1502,10 +1260,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1513,10 +1268,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1524,10 +1276,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1535,10 +1284,7 @@ const deserializeAws_json1_1StartServerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1585,16 +1331,12 @@ const deserializeAws_json1_1StopServerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1602,10 +1344,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1613,10 +1352,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1624,10 +1360,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1635,10 +1368,7 @@ const deserializeAws_json1_1StopServerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1685,16 +1415,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1702,10 +1428,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1713,10 +1436,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1724,10 +1444,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1754,10 +1471,7 @@ export const deserializeAws_json1_1TestIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1TestIdentityProviderCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1TestIdentityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1781,16 +1495,12 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1798,10 +1508,7 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1809,10 +1516,7 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1820,10 +1524,7 @@ const deserializeAws_json1_1TestIdentityProviderCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1870,16 +1571,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1887,10 +1584,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1898,10 +1592,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1909,10 +1600,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1963,16 +1651,12 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1980,10 +1664,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
     case "ConflictException":
     case "com.amazonaws.necco.coral#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1991,10 +1672,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2002,10 +1680,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2013,10 +1688,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
       response = {
-        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2024,10 +1696,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2035,10 +1704,7 @@ const deserializeAws_json1_1UpdateServerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2089,16 +1755,12 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2106,10 +1768,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2117,10 +1776,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
       response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2128,10 +1784,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2139,10 +1792,7 @@ const deserializeAws_json1_1UpdateUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
       response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2169,10 +1819,7 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
   const contents: ServiceUnavailableException = {
     name: "ServiceUnavailableException",
     $fault: "server",
@@ -2187,10 +1834,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
@@ -2205,10 +1849,7 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceError(body, context);
   const contents: InternalServiceError = {
     name: "InternalServiceError",
     $fault: "server",
@@ -2223,10 +1864,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
@@ -2241,10 +1879,7 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
   const contents: InvalidRequestException = {
     name: "InvalidRequestException",
     $fault: "client",
@@ -2259,10 +1894,7 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceExistsException(body, context);
   const contents: ResourceExistsException = {
     name: "ResourceExistsException",
     $fault: "client",
@@ -2277,10 +1909,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -2295,10 +1924,7 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
@@ -2308,33 +1934,21 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AddressAllocationIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AddressAllocationIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CreateServerRequest = (
-  input: CreateServerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.EndpointDetails !== undefined && {
-      EndpointDetails: serializeAws_json1_1EndpointDetails(
-        input.EndpointDetails,
-        context
-      )
+      EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context)
     }),
     ...(input.EndpointType !== undefined && {
       EndpointType: input.EndpointType
     }),
     ...(input.HostKey !== undefined && { HostKey: input.HostKey }),
     ...(input.IdentityProviderDetails !== undefined && {
-      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(
-        input.IdentityProviderDetails,
-        context
-      )
+      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context)
     }),
     ...(input.IdentityProviderType !== undefined && {
       IdentityProviderType: input.IdentityProviderType
@@ -2346,19 +1960,13 @@ const serializeAws_json1_1CreateServerRequest = (
   };
 };
 
-const serializeAws_json1_1CreateUserRequest = (
-  input: CreateUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.HomeDirectory !== undefined && {
       HomeDirectory: input.HomeDirectory
     }),
     ...(input.HomeDirectoryMappings !== undefined && {
-      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(
-        input.HomeDirectoryMappings,
-        context
-      )
+      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context)
     }),
     ...(input.HomeDirectoryType !== undefined && {
       HomeDirectoryType: input.HomeDirectoryType
@@ -2376,10 +1984,7 @@ const serializeAws_json1_1CreateUserRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteServerRequest = (
-  input: DeleteServerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteServerRequest = (input: DeleteServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId })
   };
@@ -2398,45 +2003,30 @@ const serializeAws_json1_1DeleteSshPublicKeyRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteUserRequest = (
-  input: DeleteUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
     ...(input.UserName !== undefined && { UserName: input.UserName })
   };
 };
 
-const serializeAws_json1_1DescribeServerRequest = (
-  input: DescribeServerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeServerRequest = (input: DescribeServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId })
   };
 };
 
-const serializeAws_json1_1DescribeUserRequest = (
-  input: DescribeUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
     ...(input.UserName !== undefined && { UserName: input.UserName })
   };
 };
 
-const serializeAws_json1_1EndpointDetails = (
-  input: EndpointDetails,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EndpointDetails = (input: EndpointDetails, context: __SerdeContext): any => {
   return {
     ...(input.AddressAllocationIds !== undefined && {
-      AddressAllocationIds: serializeAws_json1_1AddressAllocationIds(
-        input.AddressAllocationIds,
-        context
-      )
+      AddressAllocationIds: serializeAws_json1_1AddressAllocationIds(input.AddressAllocationIds, context)
     }),
     ...(input.SubnetIds !== undefined && {
       SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
@@ -2448,29 +2038,18 @@ const serializeAws_json1_1EndpointDetails = (
   };
 };
 
-const serializeAws_json1_1HomeDirectoryMapEntry = (
-  input: HomeDirectoryMapEntry,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1HomeDirectoryMapEntry = (input: HomeDirectoryMapEntry, context: __SerdeContext): any => {
   return {
     ...(input.Entry !== undefined && { Entry: input.Entry }),
     ...(input.Target !== undefined && { Target: input.Target })
   };
 };
 
-const serializeAws_json1_1HomeDirectoryMappings = (
-  input: HomeDirectoryMapEntry[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1HomeDirectoryMapEntry(entry, context)
-  );
+const serializeAws_json1_1HomeDirectoryMappings = (input: HomeDirectoryMapEntry[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_1HomeDirectoryMapEntry(entry, context));
 };
 
-const serializeAws_json1_1IdentityProviderDetails = (
-  input: IdentityProviderDetails,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1IdentityProviderDetails = (input: IdentityProviderDetails, context: __SerdeContext): any => {
   return {
     ...(input.InvocationRole !== undefined && {
       InvocationRole: input.InvocationRole
@@ -2492,10 +2071,7 @@ const serializeAws_json1_1ImportSshPublicKeyRequest = (
   };
 };
 
-const serializeAws_json1_1ListServersRequest = (
-  input: ListServersRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListServersRequest = (input: ListServersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -2513,10 +2089,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
-const serializeAws_json1_1ListUsersRequest = (
-  input: ListUsersRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -2524,28 +2097,19 @@ const serializeAws_json1_1ListUsersRequest = (
   };
 };
 
-const serializeAws_json1_1StartServerRequest = (
-  input: StartServerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StartServerRequest = (input: StartServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId })
   };
 };
 
-const serializeAws_json1_1StopServerRequest = (
-  input: StopServerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopServerRequest = (input: StopServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId })
   };
 };
 
-const serializeAws_json1_1SubnetIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -2556,17 +2120,11 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagResourceRequest = (
-  input: TagResourceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.Tags !== undefined && {
@@ -2575,10 +2133,7 @@ const serializeAws_json1_1TagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
@@ -2595,10 +2150,7 @@ const serializeAws_json1_1TestIdentityProviderRequest = (
   };
 };
 
-const serializeAws_json1_1UntagResourceRequest = (
-  input: UntagResourceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.TagKeys !== undefined && {
@@ -2607,45 +2159,30 @@ const serializeAws_json1_1UntagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateServerRequest = (
-  input: UpdateServerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.EndpointDetails !== undefined && {
-      EndpointDetails: serializeAws_json1_1EndpointDetails(
-        input.EndpointDetails,
-        context
-      )
+      EndpointDetails: serializeAws_json1_1EndpointDetails(input.EndpointDetails, context)
     }),
     ...(input.EndpointType !== undefined && {
       EndpointType: input.EndpointType
     }),
     ...(input.HostKey !== undefined && { HostKey: input.HostKey }),
     ...(input.IdentityProviderDetails !== undefined && {
-      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(
-        input.IdentityProviderDetails,
-        context
-      )
+      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context)
     }),
     ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
     ...(input.ServerId !== undefined && { ServerId: input.ServerId })
   };
 };
 
-const serializeAws_json1_1UpdateUserRequest = (
-  input: UpdateUserRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   return {
     ...(input.HomeDirectory !== undefined && {
       HomeDirectory: input.HomeDirectory
     }),
     ...(input.HomeDirectoryMappings !== undefined && {
-      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(
-        input.HomeDirectoryMappings,
-        context
-      )
+      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context)
     }),
     ...(input.HomeDirectoryType !== undefined && {
       HomeDirectoryType: input.HomeDirectoryType
@@ -2663,67 +2200,37 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   return {
     __type: "ServiceUnavailableException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AddressAllocationIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1AddressAllocationIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1ConflictException = (
-  output: any,
-  context: __SerdeContext
-): ConflictException => {
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     __type: "ConflictException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateServerResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateServerResponse => {
+const deserializeAws_json1_1CreateServerResponse = (output: any, context: __SerdeContext): CreateServerResponse => {
   return {
     __type: "CreateServerResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateUserResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateUserResponse => {
+const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
     __type: "CreateUserResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DescribeServerResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeServerResponse => {
+const deserializeAws_json1_1DescribeServerResponse = (output: any, context: __SerdeContext): DescribeServerResponse => {
   return {
     __type: "DescribeServerResponse",
     Server:
@@ -2733,16 +2240,10 @@ const deserializeAws_json1_1DescribeServerResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeUserResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeUserResponse => {
+const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __SerdeContext): DescribeUserResponse => {
   return {
     __type: "DescribeUserResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     User:
       output.User !== undefined && output.User !== null
         ? deserializeAws_json1_1DescribedUser(output.User, context)
@@ -2750,164 +2251,89 @@ const deserializeAws_json1_1DescribeUserResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribedServer = (
-  output: any,
-  context: __SerdeContext
-): DescribedServer => {
+const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeContext): DescribedServer => {
   return {
     __type: "DescribedServer",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     EndpointDetails:
       output.EndpointDetails !== undefined && output.EndpointDetails !== null
         ? deserializeAws_json1_1EndpointDetails(output.EndpointDetails, context)
         : undefined,
-    EndpointType:
-      output.EndpointType !== undefined && output.EndpointType !== null
-        ? output.EndpointType
-        : undefined,
+    EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     HostKeyFingerprint:
-      output.HostKeyFingerprint !== undefined &&
-      output.HostKeyFingerprint !== null
+      output.HostKeyFingerprint !== undefined && output.HostKeyFingerprint !== null
         ? output.HostKeyFingerprint
         : undefined,
     IdentityProviderDetails:
-      output.IdentityProviderDetails !== undefined &&
-      output.IdentityProviderDetails !== null
-        ? deserializeAws_json1_1IdentityProviderDetails(
-            output.IdentityProviderDetails,
-            context
-          )
+      output.IdentityProviderDetails !== undefined && output.IdentityProviderDetails !== null
+        ? deserializeAws_json1_1IdentityProviderDetails(output.IdentityProviderDetails, context)
         : undefined,
     IdentityProviderType:
-      output.IdentityProviderType !== undefined &&
-      output.IdentityProviderType !== null
+      output.IdentityProviderType !== undefined && output.IdentityProviderType !== null
         ? output.IdentityProviderType
         : undefined,
-    LoggingRole:
-      output.LoggingRole !== undefined && output.LoggingRole !== null
-        ? output.LoggingRole
-        : undefined,
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    LoggingRole: output.LoggingRole !== undefined && output.LoggingRole !== null ? output.LoggingRole : undefined,
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1Tags(output.Tags, context)
-        : undefined,
-    UserCount:
-      output.UserCount !== undefined && output.UserCount !== null
-        ? output.UserCount
-        : undefined
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    UserCount: output.UserCount !== undefined && output.UserCount !== null ? output.UserCount : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DescribedUser = (
-  output: any,
-  context: __SerdeContext
-): DescribedUser => {
+const deserializeAws_json1_1DescribedUser = (output: any, context: __SerdeContext): DescribedUser => {
   return {
     __type: "DescribedUser",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     HomeDirectory:
-      output.HomeDirectory !== undefined && output.HomeDirectory !== null
-        ? output.HomeDirectory
-        : undefined,
+      output.HomeDirectory !== undefined && output.HomeDirectory !== null ? output.HomeDirectory : undefined,
     HomeDirectoryMappings:
-      output.HomeDirectoryMappings !== undefined &&
-      output.HomeDirectoryMappings !== null
-        ? deserializeAws_json1_1HomeDirectoryMappings(
-            output.HomeDirectoryMappings,
-            context
-          )
+      output.HomeDirectoryMappings !== undefined && output.HomeDirectoryMappings !== null
+        ? deserializeAws_json1_1HomeDirectoryMappings(output.HomeDirectoryMappings, context)
         : undefined,
     HomeDirectoryType:
-      output.HomeDirectoryType !== undefined &&
-      output.HomeDirectoryType !== null
+      output.HomeDirectoryType !== undefined && output.HomeDirectoryType !== null
         ? output.HomeDirectoryType
         : undefined,
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? output.Policy
-        : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     SshPublicKeys:
       output.SshPublicKeys !== undefined && output.SshPublicKeys !== null
         ? deserializeAws_json1_1SshPublicKeys(output.SshPublicKeys, context)
         : undefined,
     Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1Tags(output.Tags, context)
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EndpointDetails = (
-  output: any,
-  context: __SerdeContext
-): EndpointDetails => {
+const deserializeAws_json1_1EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
   return {
     __type: "EndpointDetails",
     AddressAllocationIds:
-      output.AddressAllocationIds !== undefined &&
-      output.AddressAllocationIds !== null
-        ? deserializeAws_json1_1AddressAllocationIds(
-            output.AddressAllocationIds,
-            context
-          )
+      output.AddressAllocationIds !== undefined && output.AddressAllocationIds !== null
+        ? deserializeAws_json1_1AddressAllocationIds(output.AddressAllocationIds, context)
         : undefined,
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
         ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
         : undefined,
     VpcEndpointId:
-      output.VpcEndpointId !== undefined && output.VpcEndpointId !== null
-        ? output.VpcEndpointId
-        : undefined,
-    VpcId:
-      output.VpcId !== undefined && output.VpcId !== null
-        ? output.VpcId
-        : undefined
+      output.VpcEndpointId !== undefined && output.VpcEndpointId !== null ? output.VpcEndpointId : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1HomeDirectoryMapEntry = (
-  output: any,
-  context: __SerdeContext
-): HomeDirectoryMapEntry => {
+const deserializeAws_json1_1HomeDirectoryMapEntry = (output: any, context: __SerdeContext): HomeDirectoryMapEntry => {
   return {
     __type: "HomeDirectoryMapEntry",
-    Entry:
-      output.Entry !== undefined && output.Entry !== null
-        ? output.Entry
-        : undefined,
-    Target:
-      output.Target !== undefined && output.Target !== null
-        ? output.Target
-        : undefined
+    Entry: output.Entry !== undefined && output.Entry !== null ? output.Entry : undefined,
+    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined
   } as any;
 };
 
-const deserializeAws_json1_1HomeDirectoryMappings = (
-  output: any,
-  context: __SerdeContext
-): HomeDirectoryMapEntry[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1HomeDirectoryMapEntry(entry, context)
-  );
+const deserializeAws_json1_1HomeDirectoryMappings = (output: any, context: __SerdeContext): HomeDirectoryMapEntry[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1HomeDirectoryMapEntry(entry, context));
 };
 
 const deserializeAws_json1_1IdentityProviderDetails = (
@@ -2917,11 +2343,8 @@ const deserializeAws_json1_1IdentityProviderDetails = (
   return {
     __type: "IdentityProviderDetails",
     InvocationRole:
-      output.InvocationRole !== undefined && output.InvocationRole !== null
-        ? output.InvocationRole
-        : undefined,
-    Url:
-      output.Url !== undefined && output.Url !== null ? output.Url : undefined
+      output.InvocationRole !== undefined && output.InvocationRole !== null ? output.InvocationRole : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined
   } as any;
 };
 
@@ -2931,31 +2354,17 @@ const deserializeAws_json1_1ImportSshPublicKeyResponse = (
 ): ImportSshPublicKeyResponse => {
   return {
     __type: "ImportSshPublicKeyResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     SshPublicKeyId:
-      output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null
-        ? output.SshPublicKeyId
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+      output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null ? output.SshPublicKeyId : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1InternalServiceError = (
-  output: any,
-  context: __SerdeContext
-): InternalServiceError => {
+const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
     __type: "InternalServiceError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2965,10 +2374,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   return {
     __type: "InvalidNextTokenException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2978,23 +2384,14 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   return {
     __type: "InvalidRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListServersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListServersResponse => {
+const deserializeAws_json1_1ListServersResponse = (output: any, context: __SerdeContext): ListServersResponse => {
   return {
     __type: "ListServersResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Servers:
       output.Servers !== undefined && output.Servers !== null
         ? deserializeAws_json1_1ListedServers(output.Servers, context)
@@ -3008,33 +2405,18 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 ): ListTagsForResourceResponse => {
   return {
     __type: "ListTagsForResourceResponse",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
-      output.Tags !== undefined && output.Tags !== null
-        ? deserializeAws_json1_1Tags(output.Tags, context)
-        : undefined
+      output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListUsersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListUsersResponse => {
+const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
     __type: "ListUsersResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     Users:
       output.Users !== undefined && output.Users !== null
         ? deserializeAws_json1_1ListedUsers(output.Users, context)
@@ -3042,91 +2424,47 @@ const deserializeAws_json1_1ListUsersResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ListedServer = (
-  output: any,
-  context: __SerdeContext
-): ListedServer => {
+const deserializeAws_json1_1ListedServer = (output: any, context: __SerdeContext): ListedServer => {
   return {
     __type: "ListedServer",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    EndpointType:
-      output.EndpointType !== undefined && output.EndpointType !== null
-        ? output.EndpointType
-        : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     IdentityProviderType:
-      output.IdentityProviderType !== undefined &&
-      output.IdentityProviderType !== null
+      output.IdentityProviderType !== undefined && output.IdentityProviderType !== null
         ? output.IdentityProviderType
         : undefined,
-    LoggingRole:
-      output.LoggingRole !== undefined && output.LoggingRole !== null
-        ? output.LoggingRole
-        : undefined,
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
-    UserCount:
-      output.UserCount !== undefined && output.UserCount !== null
-        ? output.UserCount
-        : undefined
+    LoggingRole: output.LoggingRole !== undefined && output.LoggingRole !== null ? output.LoggingRole : undefined,
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    UserCount: output.UserCount !== undefined && output.UserCount !== null ? output.UserCount : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListedServers = (
-  output: any,
-  context: __SerdeContext
-): ListedServer[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ListedServer(entry, context)
-  );
+const deserializeAws_json1_1ListedServers = (output: any, context: __SerdeContext): ListedServer[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ListedServer(entry, context));
 };
 
-const deserializeAws_json1_1ListedUser = (
-  output: any,
-  context: __SerdeContext
-): ListedUser => {
+const deserializeAws_json1_1ListedUser = (output: any, context: __SerdeContext): ListedUser => {
   return {
     __type: "ListedUser",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     HomeDirectory:
-      output.HomeDirectory !== undefined && output.HomeDirectory !== null
-        ? output.HomeDirectory
-        : undefined,
+      output.HomeDirectory !== undefined && output.HomeDirectory !== null ? output.HomeDirectory : undefined,
     HomeDirectoryType:
-      output.HomeDirectoryType !== undefined &&
-      output.HomeDirectoryType !== null
+      output.HomeDirectoryType !== undefined && output.HomeDirectoryType !== null
         ? output.HomeDirectoryType
         : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     SshPublicKeyCount:
-      output.SshPublicKeyCount !== undefined &&
-      output.SshPublicKeyCount !== null
+      output.SshPublicKeyCount !== undefined && output.SshPublicKeyCount !== null
         ? output.SshPublicKeyCount
         : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListedUsers = (
-  output: any,
-  context: __SerdeContext
-): ListedUser[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ListedUser(entry, context)
-  );
+const deserializeAws_json1_1ListedUsers = (output: any, context: __SerdeContext): ListedUser[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ListedUser(entry, context));
 };
 
 const deserializeAws_json1_1ResourceExistsException = (
@@ -3135,18 +2473,9 @@ const deserializeAws_json1_1ResourceExistsException = (
 ): ResourceExistsException => {
   return {
     __type: "ResourceExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Resource:
-      output.Resource !== undefined && output.Resource !== null
-        ? output.Resource
-        : undefined,
-    ResourceType:
-      output.ResourceType !== undefined && output.ResourceType !== null
-        ? output.ResourceType
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined
   } as any;
 };
 
@@ -3156,25 +2485,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Resource:
-      output.Resource !== undefined && output.Resource !== null
-        ? output.Resource
-        : undefined,
-    ResourceType:
-      output.ResourceType !== undefined && output.ResourceType !== null
-        ? output.ResourceType
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SshPublicKey = (
-  output: any,
-  context: __SerdeContext
-): SshPublicKey => {
+const deserializeAws_json1_1SshPublicKey = (output: any, context: __SerdeContext): SshPublicKey => {
   return {
     __type: "SshPublicKey",
     DateImported:
@@ -3182,54 +2499,30 @@ const deserializeAws_json1_1SshPublicKey = (
         ? new Date(Math.round(output.DateImported * 1000))
         : undefined,
     SshPublicKeyBody:
-      output.SshPublicKeyBody !== undefined && output.SshPublicKeyBody !== null
-        ? output.SshPublicKeyBody
-        : undefined,
+      output.SshPublicKeyBody !== undefined && output.SshPublicKeyBody !== null ? output.SshPublicKeyBody : undefined,
     SshPublicKeyId:
-      output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null
-        ? output.SshPublicKeyId
-        : undefined
+      output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null ? output.SshPublicKeyId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SshPublicKeys = (
-  output: any,
-  context: __SerdeContext
-): SshPublicKey[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SshPublicKey(entry, context)
-  );
+const deserializeAws_json1_1SshPublicKeys = (output: any, context: __SerdeContext): SshPublicKey[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SshPublicKey(entry, context));
 };
 
-const deserializeAws_json1_1SubnetIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
 const deserializeAws_json1_1TestIdentityProviderResponse = (
@@ -3238,64 +2531,33 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
 ): TestIdentityProviderResponse => {
   return {
     __type: "TestIdentityProviderResponse",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Response:
-      output.Response !== undefined && output.Response !== null
-        ? output.Response
-        : undefined,
-    StatusCode:
-      output.StatusCode !== undefined && output.StatusCode !== null
-        ? output.StatusCode
-        : undefined,
-    Url:
-      output.Url !== undefined && output.Url !== null ? output.Url : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Response: output.Response !== undefined && output.Response !== null ? output.Response : undefined,
+    StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
+    Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ThrottlingException = (
-  output: any,
-  context: __SerdeContext
-): ThrottlingException => {
+const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     __type: "ThrottlingException",
     RetryAfterSeconds:
-      output.RetryAfterSeconds !== undefined &&
-      output.RetryAfterSeconds !== null
-        ? output.RetryAfterSeconds
-        : undefined
+      output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null ? output.RetryAfterSeconds : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UpdateServerResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateServerResponse => {
+const deserializeAws_json1_1UpdateServerResponse = (output: any, context: __SerdeContext): UpdateServerResponse => {
   return {
     __type: "UpdateServerResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUserResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateUserResponse => {
+const deserializeAws_json1_1UpdateUserResponse = (output: any, context: __SerdeContext): UpdateUserResponse => {
   return {
     __type: "UpdateUserResponse",
-    ServerId:
-      output.ServerId !== undefined && output.ServerId !== null
-        ? output.ServerId
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
@@ -3306,23 +2568,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

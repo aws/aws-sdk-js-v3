@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  DeleteResourceDefinitionRequest,
-  DeleteResourceDefinitionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { DeleteResourceDefinitionRequest, DeleteResourceDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteResourceDefinitionCommand,
   serializeAws_restJson1_1DeleteResourceDefinitionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResourceDefinitionCommandInput = DeleteResourceDefinitionRequest;
-export type DeleteResourceDefinitionCommandOutput = DeleteResourceDefinitionResponse &
-  __MetadataBearer;
+export type DeleteResourceDefinitionCommandOutput = DeleteResourceDefinitionResponse & __MetadataBearer;
 
 export class DeleteResourceDefinitionCommand extends $Command<
   DeleteResourceDefinitionCommandInput,
@@ -49,13 +38,8 @@ export class DeleteResourceDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteResourceDefinitionCommandInput,
-    DeleteResourceDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteResourceDefinitionCommandInput, DeleteResourceDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class DeleteResourceDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteResourceDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteResourceDefinitionCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteResourceDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DeleteResourceDefinitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteResourceDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteResourceDefinitionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceDefinitionCommandOutput> {
+    return deserializeAws_restJson1_1DeleteResourceDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

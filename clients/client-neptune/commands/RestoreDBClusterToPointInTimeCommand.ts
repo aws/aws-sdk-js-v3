@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
-import {
-  RestoreDBClusterToPointInTimeMessage,
-  RestoreDBClusterToPointInTimeResult
-} from "../models/index";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/index";
 import {
   deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
   serializeAws_queryRestoreDBClusterToPointInTimeCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBClusterToPointInTimeCommandInput = RestoreDBClusterToPointInTimeMessage;
-export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult &
-  __MetadataBearer;
+export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult & __MetadataBearer;
 
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,
@@ -49,13 +38,8 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDBClusterToPointInTimeCommandInput,
-    RestoreDBClusterToPointInTimeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDBClusterToPointInTimeCommandInput, RestoreDBClusterToPointInTimeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RestoreDBClusterToPointInTimeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(
-      input,
-      context
-    );
+  private serialize(input: RestoreDBClusterToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryRestoreDBClusterToPointInTimeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRestoreDBClusterToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

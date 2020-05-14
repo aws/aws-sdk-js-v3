@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient";
-import {
-  ListImageRecipesRequest,
-  ListImageRecipesResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { ListImageRecipesRequest, ListImageRecipesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListImageRecipesCommand,
   serializeAws_restJson1_1ListImageRecipesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListImageRecipesCommandInput = ListImageRecipesRequest;
-export type ListImageRecipesCommandOutput = ListImageRecipesResponse &
-  __MetadataBearer;
+export type ListImageRecipesCommandOutput = ListImageRecipesResponse & __MetadataBearer;
 
 export class ListImageRecipesCommand extends $Command<
   ListImageRecipesCommandInput,
@@ -50,9 +39,7 @@ export class ListImageRecipesCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListImageRecipesCommandInput, ListImageRecipesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListImageRecipesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListImageRecipesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListImageRecipesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListImageRecipesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListImageRecipesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageRecipesCommandOutput> {
     return deserializeAws_restJson1_1ListImageRecipesCommand(output, context);
   }
 

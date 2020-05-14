@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 import { DeleteNotificationSubscriptionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteNotificationSubscriptionCommand,
   serializeAws_restJson1_1DeleteNotificationSubscriptionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteNotificationSubscriptionCommandInput,
-    DeleteNotificationSubscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteNotificationSubscriptionCommandInput, DeleteNotificationSubscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +58,14 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     input: DeleteNotificationSubscriptionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteNotificationSubscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteNotificationSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteNotificationSubscriptionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectoryServiceClient";
+import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { ShareDirectoryRequest, ShareDirectoryResult } from "../models/index";
 import {
   deserializeAws_json1_1ShareDirectoryCommand,
   serializeAws_json1_1ShareDirectoryCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ShareDirectoryCommandInput = ShareDirectoryRequest;
-export type ShareDirectoryCommandOutput = ShareDirectoryResult &
-  __MetadataBearer;
+export type ShareDirectoryCommandOutput = ShareDirectoryResult & __MetadataBearer;
 
 export class ShareDirectoryCommand extends $Command<
   ShareDirectoryCommandInput,
@@ -47,9 +39,7 @@ export class ShareDirectoryCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ShareDirectoryCommandInput, ShareDirectoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ShareDirectoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ShareDirectoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ShareDirectoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ShareDirectoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ShareDirectoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShareDirectoryCommandOutput> {
     return deserializeAws_json1_1ShareDirectoryCommand(output, context);
   }
 

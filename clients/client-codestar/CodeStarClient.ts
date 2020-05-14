@@ -2,26 +2,11 @@ import {
   AssociateTeamMemberCommandInput,
   AssociateTeamMemberCommandOutput
 } from "./commands/AssociateTeamMemberCommand";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand";
-import {
-  CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput
-} from "./commands/CreateUserProfileCommand";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "./commands/DeleteProjectCommand";
-import {
-  DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput
-} from "./commands/DeleteUserProfileCommand";
-import {
-  DescribeProjectCommandInput,
-  DescribeProjectCommandOutput
-} from "./commands/DescribeProjectCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand";
+import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
 import {
   DescribeUserProfileCommandInput,
   DescribeUserProfileCommandOutput
@@ -30,46 +15,16 @@ import {
   DisassociateTeamMemberCommandInput,
   DisassociateTeamMemberCommandOutput
 } from "./commands/DisassociateTeamMemberCommand";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "./commands/ListProjectsCommand";
-import {
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput
-} from "./commands/ListResourcesCommand";
-import {
-  ListTagsForProjectCommandInput,
-  ListTagsForProjectCommandOutput
-} from "./commands/ListTagsForProjectCommand";
-import {
-  ListTeamMembersCommandInput,
-  ListTeamMembersCommandOutput
-} from "./commands/ListTeamMembersCommand";
-import {
-  ListUserProfilesCommandInput,
-  ListUserProfilesCommandOutput
-} from "./commands/ListUserProfilesCommand";
-import {
-  TagProjectCommandInput,
-  TagProjectCommandOutput
-} from "./commands/TagProjectCommand";
-import {
-  UntagProjectCommandInput,
-  UntagProjectCommandOutput
-} from "./commands/UntagProjectCommand";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "./commands/UpdateProjectCommand";
-import {
-  UpdateTeamMemberCommandInput,
-  UpdateTeamMemberCommandOutput
-} from "./commands/UpdateTeamMemberCommand";
-import {
-  UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput
-} from "./commands/UpdateUserProfileCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
+import { ListTagsForProjectCommandInput, ListTagsForProjectCommandOutput } from "./commands/ListTagsForProjectCommand";
+import { ListTeamMembersCommandInput, ListTeamMembersCommandOutput } from "./commands/ListTeamMembersCommand";
+import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
+import { TagProjectCommandInput, TagProjectCommandOutput } from "./commands/TagProjectCommand";
+import { UntagProjectCommandInput, UntagProjectCommandOutput } from "./commands/UntagProjectCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import { UpdateTeamMemberCommandInput, UpdateTeamMemberCommandOutput } from "./commands/UpdateTeamMemberCommand";
+import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "./commands/UpdateUserProfileCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -86,12 +41,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -162,8 +112,7 @@ export type ServiceOutputTypes =
   | UpdateTeamMemberCommandOutput
   | UpdateUserProfileCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -247,9 +196,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeStarClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeStarClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +205,7 @@ export type CodeStarClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeStarClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeStarClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

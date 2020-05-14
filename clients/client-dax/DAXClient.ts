@@ -1,51 +1,30 @@
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateParameterGroupCommandInput,
   CreateParameterGroupCommandOutput
 } from "./commands/CreateParameterGroupCommand";
-import {
-  CreateSubnetGroupCommandInput,
-  CreateSubnetGroupCommandOutput
-} from "./commands/CreateSubnetGroupCommand";
+import { CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput } from "./commands/CreateSubnetGroupCommand";
 import {
   DecreaseReplicationFactorCommandInput,
   DecreaseReplicationFactorCommandOutput
 } from "./commands/DecreaseReplicationFactorCommand";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteParameterGroupCommandInput,
   DeleteParameterGroupCommandOutput
 } from "./commands/DeleteParameterGroupCommand";
-import {
-  DeleteSubnetGroupCommandInput,
-  DeleteSubnetGroupCommandOutput
-} from "./commands/DeleteSubnetGroupCommand";
-import {
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
-} from "./commands/DescribeClustersCommand";
+import { DeleteSubnetGroupCommandInput, DeleteSubnetGroupCommandOutput } from "./commands/DeleteSubnetGroupCommand";
+import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
 import {
   DescribeDefaultParametersCommandInput,
   DescribeDefaultParametersCommandOutput
 } from "./commands/DescribeDefaultParametersCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeParameterGroupsCommandInput,
   DescribeParameterGroupsCommandOutput
 } from "./commands/DescribeParameterGroupsCommand";
-import {
-  DescribeParametersCommandInput,
-  DescribeParametersCommandOutput
-} from "./commands/DescribeParametersCommand";
+import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "./commands/DescribeParametersCommand";
 import {
   DescribeSubnetGroupsCommandInput,
   DescribeSubnetGroupsCommandOutput
@@ -54,34 +33,16 @@ import {
   IncreaseReplicationFactorCommandInput,
   IncreaseReplicationFactorCommandOutput
 } from "./commands/IncreaseReplicationFactorCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  RebootNodeCommandInput,
-  RebootNodeCommandOutput
-} from "./commands/RebootNodeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput
-} from "./commands/UpdateClusterCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { RebootNodeCommandInput, RebootNodeCommandOutput } from "./commands/RebootNodeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import {
   UpdateParameterGroupCommandInput,
   UpdateParameterGroupCommandOutput
 } from "./commands/UpdateParameterGroupCommand";
-import {
-  UpdateSubnetGroupCommandInput,
-  UpdateSubnetGroupCommandOutput
-} from "./commands/UpdateSubnetGroupCommand";
+import { UpdateSubnetGroupCommandInput, UpdateSubnetGroupCommandOutput } from "./commands/UpdateSubnetGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -98,12 +59,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -180,8 +136,7 @@ export type ServiceOutputTypes =
   | UpdateParameterGroupCommandOutput
   | UpdateSubnetGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -265,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DAXClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DAXClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -276,9 +229,7 @@ export type DAXClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DAXClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DAXClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

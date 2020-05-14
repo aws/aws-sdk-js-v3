@@ -6,18 +6,12 @@ import {
   CreateCertificateAuthorityCommandInput,
   CreateCertificateAuthorityCommandOutput
 } from "./commands/CreateCertificateAuthorityCommand";
-import {
-  CreatePermissionCommandInput,
-  CreatePermissionCommandOutput
-} from "./commands/CreatePermissionCommand";
+import { CreatePermissionCommandInput, CreatePermissionCommandOutput } from "./commands/CreatePermissionCommand";
 import {
   DeleteCertificateAuthorityCommandInput,
   DeleteCertificateAuthorityCommandOutput
 } from "./commands/DeleteCertificateAuthorityCommand";
-import {
-  DeletePermissionCommandInput,
-  DeletePermissionCommandOutput
-} from "./commands/DeletePermissionCommand";
+import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
 import {
   DescribeCertificateAuthorityAuditReportCommandInput,
   DescribeCertificateAuthorityAuditReportCommandOutput
@@ -34,38 +28,23 @@ import {
   GetCertificateAuthorityCsrCommandInput,
   GetCertificateAuthorityCsrCommandOutput
 } from "./commands/GetCertificateAuthorityCsrCommand";
-import {
-  GetCertificateCommandInput,
-  GetCertificateCommandOutput
-} from "./commands/GetCertificateCommand";
+import { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand";
 import {
   ImportCertificateAuthorityCertificateCommandInput,
   ImportCertificateAuthorityCertificateCommandOutput
 } from "./commands/ImportCertificateAuthorityCertificateCommand";
-import {
-  IssueCertificateCommandInput,
-  IssueCertificateCommandOutput
-} from "./commands/IssueCertificateCommand";
+import { IssueCertificateCommandInput, IssueCertificateCommandOutput } from "./commands/IssueCertificateCommand";
 import {
   ListCertificateAuthoritiesCommandInput,
   ListCertificateAuthoritiesCommandOutput
 } from "./commands/ListCertificateAuthoritiesCommand";
-import {
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
-} from "./commands/ListPermissionsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   RestoreCertificateAuthorityCommandInput,
   RestoreCertificateAuthorityCommandOutput
 } from "./commands/RestoreCertificateAuthorityCommand";
-import {
-  RevokeCertificateCommandInput,
-  RevokeCertificateCommandOutput
-} from "./commands/RevokeCertificateCommand";
+import { RevokeCertificateCommandInput, RevokeCertificateCommandOutput } from "./commands/RevokeCertificateCommand";
 import {
   TagCertificateAuthorityCommandInput,
   TagCertificateAuthorityCommandOutput
@@ -94,12 +73,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -174,8 +148,7 @@ export type ServiceOutputTypes =
   | UntagCertificateAuthorityCommandOutput
   | UpdateCertificateAuthorityCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -259,9 +232,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ACMPCAClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ACMPCAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -270,9 +241,7 @@ export type ACMPCAClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

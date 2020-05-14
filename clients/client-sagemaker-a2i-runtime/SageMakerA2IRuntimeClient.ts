@@ -1,23 +1,8 @@
-import {
-  DeleteHumanLoopCommandInput,
-  DeleteHumanLoopCommandOutput
-} from "./commands/DeleteHumanLoopCommand";
-import {
-  DescribeHumanLoopCommandInput,
-  DescribeHumanLoopCommandOutput
-} from "./commands/DescribeHumanLoopCommand";
-import {
-  ListHumanLoopsCommandInput,
-  ListHumanLoopsCommandOutput
-} from "./commands/ListHumanLoopsCommand";
-import {
-  StartHumanLoopCommandInput,
-  StartHumanLoopCommandOutput
-} from "./commands/StartHumanLoopCommand";
-import {
-  StopHumanLoopCommandInput,
-  StopHumanLoopCommandOutput
-} from "./commands/StopHumanLoopCommand";
+import { DeleteHumanLoopCommandInput, DeleteHumanLoopCommandOutput } from "./commands/DeleteHumanLoopCommand";
+import { DescribeHumanLoopCommandInput, DescribeHumanLoopCommandOutput } from "./commands/DescribeHumanLoopCommand";
+import { ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput } from "./commands/ListHumanLoopsCommand";
+import { StartHumanLoopCommandInput, StartHumanLoopCommandOutput } from "./commands/StartHumanLoopCommand";
+import { StopHumanLoopCommandInput, StopHumanLoopCommandOutput } from "./commands/StopHumanLoopCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -34,12 +19,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -84,8 +64,7 @@ export type ServiceOutputTypes =
   | StartHumanLoopCommandOutput
   | StopHumanLoopCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -169,9 +148,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SageMakerA2IRuntimeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SageMakerA2IRuntimeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -180,9 +157,7 @@ export type SageMakerA2IRuntimeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SageMakerA2IRuntimeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

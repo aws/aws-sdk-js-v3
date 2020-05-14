@@ -14,10 +14,7 @@ import {
   ComposeEnvironmentsCommandInput,
   ComposeEnvironmentsCommandOutput
 } from "./commands/ComposeEnvironmentsCommand";
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateApplicationVersionCommandInput,
   CreateApplicationVersionCommandOutput
@@ -26,10 +23,7 @@ import {
   CreateConfigurationTemplateCommandInput,
   CreateConfigurationTemplateCommandOutput
 } from "./commands/CreateConfigurationTemplateCommand";
-import {
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput
-} from "./commands/CreateEnvironmentCommand";
+import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
 import {
   CreatePlatformVersionCommandInput,
   CreatePlatformVersionCommandOutput
@@ -38,10 +32,7 @@ import {
   CreateStorageLocationCommandInput,
   CreateStorageLocationCommandOutput
 } from "./commands/CreateStorageLocationCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteApplicationVersionCommandInput,
   DeleteApplicationVersionCommandOutput
@@ -98,10 +89,7 @@ import {
   DescribeEnvironmentsCommandInput,
   DescribeEnvironmentsCommandOutput
 } from "./commands/DescribeEnvironmentsCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeInstancesHealthCommandInput,
   DescribeInstancesHealthCommandOutput
@@ -122,18 +110,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  RebuildEnvironmentCommandInput,
-  RebuildEnvironmentCommandOutput
-} from "./commands/RebuildEnvironmentCommand";
+import { RebuildEnvironmentCommandInput, RebuildEnvironmentCommandOutput } from "./commands/RebuildEnvironmentCommand";
 import {
   RequestEnvironmentInfoCommandInput,
   RequestEnvironmentInfoCommandOutput
 } from "./commands/RequestEnvironmentInfoCommand";
-import {
-  RestartAppServerCommandInput,
-  RestartAppServerCommandOutput
-} from "./commands/RestartAppServerCommand";
+import { RestartAppServerCommandInput, RestartAppServerCommandOutput } from "./commands/RestartAppServerCommand";
 import {
   RetrieveEnvironmentInfoCommandInput,
   RetrieveEnvironmentInfoCommandOutput
@@ -146,10 +128,7 @@ import {
   TerminateEnvironmentCommandInput,
   TerminateEnvironmentCommandOutput
 } from "./commands/TerminateEnvironmentCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateApplicationResourceLifecycleCommandInput,
   UpdateApplicationResourceLifecycleCommandOutput
@@ -162,10 +141,7 @@ import {
   UpdateConfigurationTemplateCommandInput,
   UpdateConfigurationTemplateCommandOutput
 } from "./commands/UpdateConfigurationTemplateCommand";
-import {
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
-} from "./commands/UpdateEnvironmentCommand";
+import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateTagsForResourceCommandInput,
   UpdateTagsForResourceCommandOutput
@@ -190,12 +166,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -318,8 +289,7 @@ export type ServiceOutputTypes =
   | UpdateTagsForResourceCommandOutput
   | ValidateConfigurationSettingsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -403,9 +373,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticBeanstalkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticBeanstalkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -414,9 +382,7 @@ export type ElasticBeanstalkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElasticBeanstalkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

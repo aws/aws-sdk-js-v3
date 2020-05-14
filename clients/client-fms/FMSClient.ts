@@ -6,18 +6,12 @@ import {
   DeleteNotificationChannelCommandInput,
   DeleteNotificationChannelCommandOutput
 } from "./commands/DeleteNotificationChannelCommand";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput
 } from "./commands/DisassociateAdminAccountCommand";
-import {
-  GetAdminAccountCommandInput,
-  GetAdminAccountCommandOutput
-} from "./commands/GetAdminAccountCommand";
+import { GetAdminAccountCommandInput, GetAdminAccountCommandOutput } from "./commands/GetAdminAccountCommand";
 import {
   GetComplianceDetailCommandInput,
   GetComplianceDetailCommandOutput
@@ -26,10 +20,7 @@ import {
   GetNotificationChannelCommandInput,
   GetNotificationChannelCommandOutput
 } from "./commands/GetNotificationChannelCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetProtectionStatusCommandInput,
   GetProtectionStatusCommandOutput
@@ -38,14 +29,8 @@ import {
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput
 } from "./commands/ListComplianceStatusCommand";
-import {
-  ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput
-} from "./commands/ListMemberAccountsCommand";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand";
+import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -54,18 +39,9 @@ import {
   PutNotificationChannelCommandInput,
   PutNotificationChannelCommandOutput
 } from "./commands/PutNotificationChannelCommand";
-import {
-  PutPolicyCommandInput,
-  PutPolicyCommandOutput
-} from "./commands/PutPolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -82,12 +58,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -156,8 +127,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -241,9 +211,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +220,7 @@ export type FMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

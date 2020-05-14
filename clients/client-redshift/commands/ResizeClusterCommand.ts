@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ResizeClusterMessage, ResizeClusterResult } from "../models/index";
 import {
   deserializeAws_queryResizeClusterCommand,
   serializeAws_queryResizeClusterCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ResizeClusterCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResizeClusterCommandInput, ResizeClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ResizeClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResizeClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResizeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResizeClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResizeClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResizeClusterCommandOutput> {
     return deserializeAws_queryResizeClusterCommand(output, context);
   }
 

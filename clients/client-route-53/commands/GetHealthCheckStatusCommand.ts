@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  GetHealthCheckStatusRequest,
-  GetHealthCheckStatusResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetHealthCheckStatusRequest, GetHealthCheckStatusResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetHealthCheckStatusCommand,
   serializeAws_restXmlGetHealthCheckStatusCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetHealthCheckStatusCommandInput = GetHealthCheckStatusRequest;
-export type GetHealthCheckStatusCommandOutput = GetHealthCheckStatusResponse &
-  __MetadataBearer;
+export type GetHealthCheckStatusCommandOutput = GetHealthCheckStatusResponse & __MetadataBearer;
 
 export class GetHealthCheckStatusCommand extends $Command<
   GetHealthCheckStatusCommandInput,
@@ -49,13 +38,8 @@ export class GetHealthCheckStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetHealthCheckStatusCommandInput,
-    GetHealthCheckStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetHealthCheckStatusCommandInput, GetHealthCheckStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class GetHealthCheckStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetHealthCheckStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetHealthCheckStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetHealthCheckStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetHealthCheckStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetHealthCheckStatusCommandOutput> {
     return deserializeAws_restXmlGetHealthCheckStatusCommand(output, context);
   }
 

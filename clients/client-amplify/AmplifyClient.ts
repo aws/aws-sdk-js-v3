@@ -1,151 +1,70 @@
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateBackendEnvironmentCommandInput,
   CreateBackendEnvironmentCommandOutput
 } from "./commands/CreateBackendEnvironmentCommand";
-import {
-  CreateBranchCommandInput,
-  CreateBranchCommandOutput
-} from "./commands/CreateBranchCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
+import { CreateBranchCommandInput, CreateBranchCommandOutput } from "./commands/CreateBranchCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import {
   CreateDomainAssociationCommandInput,
   CreateDomainAssociationCommandOutput
 } from "./commands/CreateDomainAssociationCommand";
-import {
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput
-} from "./commands/CreateWebhookCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteBackendEnvironmentCommandInput,
   DeleteBackendEnvironmentCommandOutput
 } from "./commands/DeleteBackendEnvironmentCommand";
-import {
-  DeleteBranchCommandInput,
-  DeleteBranchCommandOutput
-} from "./commands/DeleteBranchCommand";
+import { DeleteBranchCommandInput, DeleteBranchCommandOutput } from "./commands/DeleteBranchCommand";
 import {
   DeleteDomainAssociationCommandInput,
   DeleteDomainAssociationCommandOutput
 } from "./commands/DeleteDomainAssociationCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
-import {
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
-} from "./commands/DeleteWebhookCommand";
-import {
-  GenerateAccessLogsCommandInput,
-  GenerateAccessLogsCommandOutput
-} from "./commands/GenerateAccessLogsCommand";
-import {
-  GetAppCommandInput,
-  GetAppCommandOutput
-} from "./commands/GetAppCommand";
-import {
-  GetArtifactUrlCommandInput,
-  GetArtifactUrlCommandOutput
-} from "./commands/GetArtifactUrlCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
+import { GenerateAccessLogsCommandInput, GenerateAccessLogsCommandOutput } from "./commands/GenerateAccessLogsCommand";
+import { GetAppCommandInput, GetAppCommandOutput } from "./commands/GetAppCommand";
+import { GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput } from "./commands/GetArtifactUrlCommand";
 import {
   GetBackendEnvironmentCommandInput,
   GetBackendEnvironmentCommandOutput
 } from "./commands/GetBackendEnvironmentCommand";
-import {
-  GetBranchCommandInput,
-  GetBranchCommandOutput
-} from "./commands/GetBranchCommand";
+import { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
 import {
   GetDomainAssociationCommandInput,
   GetDomainAssociationCommandOutput
 } from "./commands/GetDomainAssociationCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
-import {
-  GetWebhookCommandInput,
-  GetWebhookCommandOutput
-} from "./commands/GetWebhookCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand";
-import {
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
-} from "./commands/ListArtifactsCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { GetWebhookCommandInput, GetWebhookCommandOutput } from "./commands/GetWebhookCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
 import {
   ListBackendEnvironmentsCommandInput,
   ListBackendEnvironmentsCommandOutput
 } from "./commands/ListBackendEnvironmentsCommand";
-import {
-  ListBranchesCommandInput,
-  ListBranchesCommandOutput
-} from "./commands/ListBranchesCommand";
+import { ListBranchesCommandInput, ListBranchesCommandOutput } from "./commands/ListBranchesCommand";
 import {
   ListDomainAssociationsCommandInput,
   ListDomainAssociationsCommandOutput
 } from "./commands/ListDomainAssociationsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWebhooksCommandInput,
-  ListWebhooksCommandOutput
-} from "./commands/ListWebhooksCommand";
-import {
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput
-} from "./commands/StartDeploymentCommand";
-import {
-  StartJobCommandInput,
-  StartJobCommandOutput
-} from "./commands/StartJobCommand";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAppCommandInput,
-  UpdateAppCommandOutput
-} from "./commands/UpdateAppCommand";
-import {
-  UpdateBranchCommandInput,
-  UpdateBranchCommandOutput
-} from "./commands/UpdateBranchCommand";
+import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
+import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
+import { StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand";
+import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "./commands/UpdateAppCommand";
+import { UpdateBranchCommandInput, UpdateBranchCommandOutput } from "./commands/UpdateBranchCommand";
 import {
   UpdateDomainAssociationCommandInput,
   UpdateDomainAssociationCommandOutput
 } from "./commands/UpdateDomainAssociationCommand";
-import {
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput
-} from "./commands/UpdateWebhookCommand";
+import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -162,12 +81,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -276,8 +190,7 @@ export type ServiceOutputTypes =
   | UpdateDomainAssociationCommandOutput
   | UpdateWebhookCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -361,9 +274,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AmplifyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AmplifyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -372,9 +283,7 @@ export type AmplifyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AmplifyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

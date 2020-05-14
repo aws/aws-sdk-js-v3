@@ -1,18 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import { DeleteEnvironmentConfigurationMessage } from "../models/index";
 import {
   deserializeAws_queryDeleteEnvironmentConfigurationCommand,
   serializeAws_queryDeleteEnvironmentConfigurationCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEnvironmentConfigurationCommandInput,
-    DeleteEnvironmentConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEnvironmentConfigurationCommandInput, DeleteEnvironmentConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +58,14 @@ export class DeleteEnvironmentConfigurationCommand extends $Command<
     input: DeleteEnvironmentConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDeleteEnvironmentConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDeleteEnvironmentConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteEnvironmentConfigurationCommandOutput> {
-    return deserializeAws_queryDeleteEnvironmentConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteEnvironmentConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

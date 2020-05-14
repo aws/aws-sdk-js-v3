@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  DeleteDashboardRequest,
-  DeleteDashboardResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDashboardCommand,
   serializeAws_restJson1_1DeleteDashboardCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDashboardCommandInput = DeleteDashboardRequest;
-export type DeleteDashboardCommandOutput = DeleteDashboardResponse &
-  __MetadataBearer;
+export type DeleteDashboardCommandOutput = DeleteDashboardResponse & __MetadataBearer;
 
 export class DeleteDashboardCommand extends $Command<
   DeleteDashboardCommandInput,
@@ -50,9 +39,7 @@ export class DeleteDashboardCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDashboardCommandInput, DeleteDashboardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteDashboardCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDashboardCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteDashboardCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDashboardCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDashboardCommandOutput> {
     return deserializeAws_restJson1_1DeleteDashboardCommand(output, context);
   }
 

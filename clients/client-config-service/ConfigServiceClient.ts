@@ -10,10 +10,7 @@ import {
   DeleteAggregationAuthorizationCommandInput,
   DeleteAggregationAuthorizationCommandOutput
 } from "./commands/DeleteAggregationAuthorizationCommand";
-import {
-  DeleteConfigRuleCommandInput,
-  DeleteConfigRuleCommandOutput
-} from "./commands/DeleteConfigRuleCommand";
+import { DeleteConfigRuleCommandInput, DeleteConfigRuleCommandOutput } from "./commands/DeleteConfigRuleCommand";
 import {
   DeleteConfigurationAggregatorCommandInput,
   DeleteConfigurationAggregatorCommandOutput
@@ -234,10 +231,7 @@ import {
   PutAggregationAuthorizationCommandInput,
   PutAggregationAuthorizationCommandOutput
 } from "./commands/PutAggregationAuthorizationCommand";
-import {
-  PutConfigRuleCommandInput,
-  PutConfigRuleCommandOutput
-} from "./commands/PutConfigRuleCommand";
+import { PutConfigRuleCommandInput, PutConfigRuleCommandOutput } from "./commands/PutConfigRuleCommand";
 import {
   PutConfigurationAggregatorCommandInput,
   PutConfigurationAggregatorCommandOutput
@@ -246,18 +240,9 @@ import {
   PutConfigurationRecorderCommandInput,
   PutConfigurationRecorderCommandOutput
 } from "./commands/PutConfigurationRecorderCommand";
-import {
-  PutConformancePackCommandInput,
-  PutConformancePackCommandOutput
-} from "./commands/PutConformancePackCommand";
-import {
-  PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput
-} from "./commands/PutDeliveryChannelCommand";
-import {
-  PutEvaluationsCommandInput,
-  PutEvaluationsCommandOutput
-} from "./commands/PutEvaluationsCommand";
+import { PutConformancePackCommandInput, PutConformancePackCommandOutput } from "./commands/PutConformancePackCommand";
+import { PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput } from "./commands/PutDeliveryChannelCommand";
+import { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand";
 import {
   PutOrganizationConfigRuleCommandInput,
   PutOrganizationConfigRuleCommandOutput
@@ -274,10 +259,7 @@ import {
   PutRemediationExceptionsCommandInput,
   PutRemediationExceptionsCommandOutput
 } from "./commands/PutRemediationExceptionsCommand";
-import {
-  PutResourceConfigCommandInput,
-  PutResourceConfigCommandOutput
-} from "./commands/PutResourceConfigCommand";
+import { PutResourceConfigCommandInput, PutResourceConfigCommandOutput } from "./commands/PutResourceConfigCommand";
 import {
   PutRetentionConfigurationCommandInput,
   PutRetentionConfigurationCommandOutput
@@ -302,14 +284,8 @@ import {
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput
 } from "./commands/StopConfigurationRecorderCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -326,12 +302,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -522,8 +493,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -607,9 +577,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConfigServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConfigServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -618,9 +586,7 @@ export type ConfigServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConfigServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,18 +1,11 @@
-import {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestJsonProtocolClient";
+import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 import { RecursiveShapesInputOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1RecursiveShapesCommand,
   serializeAws_restJson1_1RecursiveShapesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecursiveShapesCommandInput = RecursiveShapesInputOutput;
-export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput &
-  __MetadataBearer;
+export type RecursiveShapesCommandOutput = RecursiveShapesInputOutput & __MetadataBearer;
 
 export class RecursiveShapesCommand extends $Command<
   RecursiveShapesCommandInput,
@@ -47,9 +39,7 @@ export class RecursiveShapesCommand extends $Command<
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RecursiveShapesCommandInput, RecursiveShapesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class RecursiveShapesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RecursiveShapesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RecursiveShapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RecursiveShapesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RecursiveShapesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RecursiveShapesCommandOutput> {
     return deserializeAws_restJson1_1RecursiveShapesCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
-} from "../WorkSpacesClient";
+import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 import { DescribeAccountRequest, DescribeAccountResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAccountCommand,
   serializeAws_json1_1DescribeAccountCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAccountCommandInput = DescribeAccountRequest;
-export type DescribeAccountCommandOutput = DescribeAccountResult &
-  __MetadataBearer;
+export type DescribeAccountCommandOutput = DescribeAccountResult & __MetadataBearer;
 
 export class DescribeAccountCommand extends $Command<
   DescribeAccountCommandInput,
@@ -47,9 +39,7 @@ export class DescribeAccountCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountCommandInput, DescribeAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DescribeAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAccountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAccountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccountCommandOutput> {
     return deserializeAws_json1_1DescribeAccountCommand(output, context);
   }
 

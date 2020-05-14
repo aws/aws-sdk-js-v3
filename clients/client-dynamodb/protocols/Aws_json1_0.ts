@@ -1,39 +1,12 @@
-import {
-  BatchGetItemCommandInput,
-  BatchGetItemCommandOutput
-} from "../commands/BatchGetItemCommand";
-import {
-  BatchWriteItemCommandInput,
-  BatchWriteItemCommandOutput
-} from "../commands/BatchWriteItemCommand";
-import {
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput
-} from "../commands/CreateBackupCommand";
-import {
-  CreateGlobalTableCommandInput,
-  CreateGlobalTableCommandOutput
-} from "../commands/CreateGlobalTableCommand";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "../commands/CreateTableCommand";
-import {
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
-} from "../commands/DeleteBackupCommand";
-import {
-  DeleteItemCommandInput,
-  DeleteItemCommandOutput
-} from "../commands/DeleteItemCommand";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "../commands/DeleteTableCommand";
-import {
-  DescribeBackupCommandInput,
-  DescribeBackupCommandOutput
-} from "../commands/DescribeBackupCommand";
+import { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "../commands/BatchGetItemCommand";
+import { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "../commands/BatchWriteItemCommand";
+import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand";
+import { CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput } from "../commands/CreateGlobalTableCommand";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "../commands/CreateTableCommand";
+import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "../commands/DeleteBackupCommand";
+import { DeleteItemCommandInput, DeleteItemCommandOutput } from "../commands/DeleteItemCommand";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "../commands/DeleteTableCommand";
+import { DescribeBackupCommandInput, DescribeBackupCommandOutput } from "../commands/DescribeBackupCommand";
 import {
   DescribeContinuousBackupsCommandInput,
   DescribeContinuousBackupsCommandOutput
@@ -42,10 +15,7 @@ import {
   DescribeContributorInsightsCommandInput,
   DescribeContributorInsightsCommandOutput
 } from "../commands/DescribeContributorInsightsCommand";
-import {
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
-} from "../commands/DescribeEndpointsCommand";
+import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "../commands/DescribeEndpointsCommand";
 import {
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput
@@ -54,54 +24,24 @@ import {
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput
 } from "../commands/DescribeGlobalTableSettingsCommand";
-import {
-  DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput
-} from "../commands/DescribeLimitsCommand";
-import {
-  DescribeTableCommandInput,
-  DescribeTableCommandOutput
-} from "../commands/DescribeTableCommand";
+import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "../commands/DescribeLimitsCommand";
+import { DescribeTableCommandInput, DescribeTableCommandOutput } from "../commands/DescribeTableCommand";
 import {
   DescribeTableReplicaAutoScalingCommandInput,
   DescribeTableReplicaAutoScalingCommandOutput
 } from "../commands/DescribeTableReplicaAutoScalingCommand";
-import {
-  DescribeTimeToLiveCommandInput,
-  DescribeTimeToLiveCommandOutput
-} from "../commands/DescribeTimeToLiveCommand";
-import {
-  GetItemCommandInput,
-  GetItemCommandOutput
-} from "../commands/GetItemCommand";
-import {
-  ListBackupsCommandInput,
-  ListBackupsCommandOutput
-} from "../commands/ListBackupsCommand";
+import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "../commands/DescribeTimeToLiveCommand";
+import { GetItemCommandInput, GetItemCommandOutput } from "../commands/GetItemCommand";
+import { ListBackupsCommandInput, ListBackupsCommandOutput } from "../commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput
 } from "../commands/ListContributorInsightsCommand";
-import {
-  ListGlobalTablesCommandInput,
-  ListGlobalTablesCommandOutput
-} from "../commands/ListGlobalTablesCommand";
-import {
-  ListTablesCommandInput,
-  ListTablesCommandOutput
-} from "../commands/ListTablesCommand";
-import {
-  ListTagsOfResourceCommandInput,
-  ListTagsOfResourceCommandOutput
-} from "../commands/ListTagsOfResourceCommand";
-import {
-  PutItemCommandInput,
-  PutItemCommandOutput
-} from "../commands/PutItemCommand";
-import {
-  QueryCommandInput,
-  QueryCommandOutput
-} from "../commands/QueryCommand";
+import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "../commands/ListGlobalTablesCommand";
+import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand";
+import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "../commands/ListTagsOfResourceCommand";
+import { PutItemCommandInput, PutItemCommandOutput } from "../commands/PutItemCommand";
+import { QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand";
 import {
   RestoreTableFromBackupCommandInput,
   RestoreTableFromBackupCommandOutput
@@ -111,22 +51,10 @@ import {
   RestoreTableToPointInTimeCommandOutput
 } from "../commands/RestoreTableToPointInTimeCommand";
 import { ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput
-} from "../commands/TransactGetItemsCommand";
-import {
-  TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput
-} from "../commands/TransactWriteItemsCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TransactGetItemsCommandInput, TransactGetItemsCommandOutput } from "../commands/TransactGetItemsCommand";
+import { TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput } from "../commands/TransactWriteItemsCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateContinuousBackupsCommandInput,
   UpdateContinuousBackupsCommandOutput
@@ -135,30 +63,18 @@ import {
   UpdateContributorInsightsCommandInput,
   UpdateContributorInsightsCommandOutput
 } from "../commands/UpdateContributorInsightsCommand";
-import {
-  UpdateGlobalTableCommandInput,
-  UpdateGlobalTableCommandOutput
-} from "../commands/UpdateGlobalTableCommand";
+import { UpdateGlobalTableCommandInput, UpdateGlobalTableCommandOutput } from "../commands/UpdateGlobalTableCommand";
 import {
   UpdateGlobalTableSettingsCommandInput,
   UpdateGlobalTableSettingsCommandOutput
 } from "../commands/UpdateGlobalTableSettingsCommand";
-import {
-  UpdateItemCommandInput,
-  UpdateItemCommandOutput
-} from "../commands/UpdateItemCommand";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "../commands/UpdateTableCommand";
+import { UpdateItemCommandInput, UpdateItemCommandOutput } from "../commands/UpdateItemCommand";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
   UpdateTableReplicaAutoScalingCommandOutput
 } from "../commands/UpdateTableReplicaAutoScalingCommand";
-import {
-  UpdateTimeToLiveCommandInput,
-  UpdateTimeToLiveCommandOutput
-} from "../commands/UpdateTimeToLiveCommand";
+import { UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput } from "../commands/UpdateTimeToLiveCommand";
 import {
   ArchivalSummary,
   AttributeDefinition,
@@ -354,10 +270,7 @@ import {
   UpdateTimeToLiveOutput,
   WriteRequest
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -377,9 +290,7 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeEndpoints"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeEndpointsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeEndpointsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -405,9 +316,7 @@ export const serializeAws_json1_0BatchWriteItemCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.BatchWriteItem"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0BatchWriteItemInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0BatchWriteItemInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -433,9 +342,7 @@ export const serializeAws_json1_0CreateGlobalTableCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.CreateGlobalTable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0CreateGlobalTableInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0CreateGlobalTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -500,9 +407,7 @@ export const serializeAws_json1_0DescribeBackupCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeBackupInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeBackupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -515,9 +420,7 @@ export const serializeAws_json1_0DescribeContinuousBackupsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeContinuousBackups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeContinuousBackupsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeContinuousBackupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -530,9 +433,7 @@ export const serializeAws_json1_0DescribeContributorInsightsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeContributorInsights"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeContributorInsightsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeContributorInsightsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -545,9 +446,7 @@ export const serializeAws_json1_0DescribeGlobalTableCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeGlobalTableInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeGlobalTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -560,9 +459,7 @@ export const serializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTableSettings"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeGlobalTableSettingsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeGlobalTableSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -575,9 +472,7 @@ export const serializeAws_json1_0DescribeLimitsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeLimits"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeLimitsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeLimitsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -603,9 +498,7 @@ export const serializeAws_json1_0DescribeTableReplicaAutoScalingCommand = async 
     "X-Amz-Target": "DynamoDB_20120810.DescribeTableReplicaAutoScaling"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeTableReplicaAutoScalingInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeTableReplicaAutoScalingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -618,9 +511,7 @@ export const serializeAws_json1_0DescribeTimeToLiveCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.DescribeTimeToLive"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0DescribeTimeToLiveInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0DescribeTimeToLiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -659,9 +550,7 @@ export const serializeAws_json1_0ListContributorInsightsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.ListContributorInsights"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListContributorInsightsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListContributorInsightsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -674,9 +563,7 @@ export const serializeAws_json1_0ListGlobalTablesCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.ListGlobalTables"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListGlobalTablesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListGlobalTablesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -702,9 +589,7 @@ export const serializeAws_json1_0ListTagsOfResourceCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.ListTagsOfResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0ListTagsOfResourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0ListTagsOfResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -743,9 +628,7 @@ export const serializeAws_json1_0RestoreTableFromBackupCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.RestoreTableFromBackup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0RestoreTableFromBackupInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0RestoreTableFromBackupInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -758,9 +641,7 @@ export const serializeAws_json1_0RestoreTableToPointInTimeCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.RestoreTableToPointInTime"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0RestoreTableToPointInTimeInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0RestoreTableToPointInTimeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -799,9 +680,7 @@ export const serializeAws_json1_0TransactGetItemsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.TransactGetItems"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0TransactGetItemsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0TransactGetItemsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -814,9 +693,7 @@ export const serializeAws_json1_0TransactWriteItemsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.TransactWriteItems"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0TransactWriteItemsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0TransactWriteItemsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,9 +719,7 @@ export const serializeAws_json1_0UpdateContinuousBackupsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.UpdateContinuousBackups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateContinuousBackupsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateContinuousBackupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -857,9 +732,7 @@ export const serializeAws_json1_0UpdateContributorInsightsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.UpdateContributorInsights"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateContributorInsightsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateContributorInsightsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -872,9 +745,7 @@ export const serializeAws_json1_0UpdateGlobalTableCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTable"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateGlobalTableInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateGlobalTableInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -887,9 +758,7 @@ export const serializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTableSettings"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateGlobalTableSettingsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateGlobalTableSettingsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -928,9 +797,7 @@ export const serializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.UpdateTableReplicaAutoScaling"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateTableReplicaAutoScalingInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateTableReplicaAutoScalingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -943,9 +810,7 @@ export const serializeAws_json1_0UpdateTimeToLiveCommand = async (
     "X-Amz-Target": "DynamoDB_20120810.UpdateTimeToLive"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_0UpdateTimeToLiveInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_0UpdateTimeToLiveInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -978,8 +843,7 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -1027,16 +891,12 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1044,10 +904,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1055,10 +912,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1066,10 +920,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1077,10 +928,7 @@ const deserializeAws_json1_0BatchGetItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1131,16 +979,12 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1148,10 +992,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1159,10 +1000,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1170,10 +1008,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1181,10 +1016,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1192,10 +1024,7 @@ const deserializeAws_json1_0BatchWriteItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1246,16 +1075,12 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1263,10 +1088,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     case "BackupInUseException":
     case "com.amazonaws.dynamodb.v20120810#BackupInUseException":
       response = {
-        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1274,10 +1096,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     case "ContinuousBackupsUnavailableException":
     case "com.amazonaws.dynamodb.v20120810#ContinuousBackupsUnavailableException":
       response = {
-        ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1285,10 +1104,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1296,10 +1112,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1307,10 +1120,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     case "TableInUseException":
     case "com.amazonaws.dynamodb.v20120810#TableInUseException":
       response = {
-        ...(await deserializeAws_json1_0TableInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1318,10 +1128,7 @@ const deserializeAws_json1_0CreateBackupCommandError = async (
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1372,16 +1179,12 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1389,10 +1192,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
     case "GlobalTableAlreadyExistsException":
     case "com.amazonaws.dynamodb.v20120810#GlobalTableAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1400,10 +1200,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1411,10 +1208,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1422,10 +1216,7 @@ const deserializeAws_json1_0CreateGlobalTableCommandError = async (
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1476,16 +1267,12 @@ const deserializeAws_json1_0CreateTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1493,10 +1280,7 @@ const deserializeAws_json1_0CreateTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1504,10 +1288,7 @@ const deserializeAws_json1_0CreateTableCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1515,10 +1296,7 @@ const deserializeAws_json1_0CreateTableCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1569,16 +1347,12 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1586,10 +1360,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
     case "BackupInUseException":
     case "com.amazonaws.dynamodb.v20120810#BackupInUseException":
       response = {
-        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1597,10 +1368,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
     case "BackupNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#BackupNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1608,10 +1376,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1619,10 +1384,7 @@ const deserializeAws_json1_0DeleteBackupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1673,16 +1435,12 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1690,10 +1448,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb.v20120810#ConditionalCheckFailedException":
       response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1701,10 +1456,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1712,10 +1464,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1723,10 +1472,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1734,10 +1480,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1745,10 +1488,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1756,10 +1496,7 @@ const deserializeAws_json1_0DeleteItemCommandError = async (
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb.v20120810#TransactionConflictException":
       response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1810,16 +1547,12 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1827,10 +1560,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1838,10 +1568,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1849,10 +1576,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1860,10 +1584,7 @@ const deserializeAws_json1_0DeleteTableCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1914,16 +1635,12 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1931,10 +1648,7 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
     case "BackupNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#BackupNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1942,10 +1656,7 @@ const deserializeAws_json1_0DescribeBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1972,17 +1683,11 @@ export const deserializeAws_json1_0DescribeContinuousBackupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContinuousBackupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeContinuousBackupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeContinuousBackupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeContinuousBackupsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeContinuousBackupsOutput(data, context);
   const response: DescribeContinuousBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeContinuousBackupsOutput",
@@ -2002,16 +1707,12 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2019,10 +1720,7 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2030,10 +1728,7 @@ const deserializeAws_json1_0DescribeContinuousBackupsCommandError = async (
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2060,17 +1755,11 @@ export const deserializeAws_json1_0DescribeContributorInsightsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContributorInsightsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeContributorInsightsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeContributorInsightsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeContributorInsightsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeContributorInsightsOutput(data, context);
   const response: DescribeContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeContributorInsightsOutput",
@@ -2090,16 +1779,12 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2107,10 +1792,7 @@ const deserializeAws_json1_0DescribeContributorInsightsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2137,10 +1819,7 @@ export const deserializeAws_json1_0DescribeGlobalTableCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGlobalTableCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeGlobalTableCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeGlobalTableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2164,16 +1843,12 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2181,10 +1856,7 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2192,10 +1864,7 @@ const deserializeAws_json1_0DescribeGlobalTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2222,17 +1891,11 @@ export const deserializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGlobalTableSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeGlobalTableSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeGlobalTableSettingsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeGlobalTableSettingsOutput(data, context);
   const response: DescribeGlobalTableSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGlobalTableSettingsOutput",
@@ -2252,16 +1915,12 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2269,10 +1928,7 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2280,10 +1936,7 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2334,16 +1987,12 @@ const deserializeAws_json1_0DescribeLimitsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2351,10 +2000,7 @@ const deserializeAws_json1_0DescribeLimitsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2405,16 +2051,12 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2422,10 +2064,7 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2433,10 +2072,7 @@ const deserializeAws_json1_0DescribeTableCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2463,17 +2099,11 @@ export const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeTableReplicaAutoScalingCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput(data, context);
   const response: DescribeTableReplicaAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTableReplicaAutoScalingOutput",
@@ -2493,16 +2123,12 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async 
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2510,10 +2136,7 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError = async 
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2540,10 +2163,7 @@ export const deserializeAws_json1_0DescribeTimeToLiveCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTimeToLiveCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeTimeToLiveCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0DescribeTimeToLiveCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2567,16 +2187,12 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2584,10 +2200,7 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2595,10 +2208,7 @@ const deserializeAws_json1_0DescribeTimeToLiveCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2649,16 +2259,12 @@ const deserializeAws_json1_0GetItemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2666,10 +2272,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2677,10 +2280,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2688,10 +2288,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2699,10 +2296,7 @@ const deserializeAws_json1_0GetItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2753,16 +2347,12 @@ const deserializeAws_json1_0ListBackupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2770,10 +2360,7 @@ const deserializeAws_json1_0ListBackupsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2800,10 +2387,7 @@ export const deserializeAws_json1_0ListContributorInsightsCommand = async (
   context: __SerdeContext
 ): Promise<ListContributorInsightsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0ListContributorInsightsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0ListContributorInsightsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2827,16 +2411,12 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2844,10 +2424,7 @@ const deserializeAws_json1_0ListContributorInsightsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2898,16 +2475,12 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2915,10 +2488,7 @@ const deserializeAws_json1_0ListGlobalTablesCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2969,16 +2539,12 @@ const deserializeAws_json1_0ListTablesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2986,10 +2552,7 @@ const deserializeAws_json1_0ListTablesCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3016,10 +2579,7 @@ export const deserializeAws_json1_0ListTagsOfResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsOfResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0ListTagsOfResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0ListTagsOfResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3043,16 +2603,12 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3060,10 +2616,7 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3071,10 +2624,7 @@ const deserializeAws_json1_0ListTagsOfResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3125,16 +2675,12 @@ const deserializeAws_json1_0PutItemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3142,10 +2688,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb.v20120810#ConditionalCheckFailedException":
       response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3153,10 +2696,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3164,10 +2704,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3175,10 +2712,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3186,10 +2720,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3197,10 +2728,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3208,10 +2736,7 @@ const deserializeAws_json1_0PutItemCommandError = async (
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb.v20120810#TransactionConflictException":
       response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3262,16 +2787,12 @@ const deserializeAws_json1_0QueryCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3279,10 +2800,7 @@ const deserializeAws_json1_0QueryCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3290,10 +2808,7 @@ const deserializeAws_json1_0QueryCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3301,10 +2816,7 @@ const deserializeAws_json1_0QueryCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3312,10 +2824,7 @@ const deserializeAws_json1_0QueryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3342,10 +2851,7 @@ export const deserializeAws_json1_0RestoreTableFromBackupCommand = async (
   context: __SerdeContext
 ): Promise<RestoreTableFromBackupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0RestoreTableFromBackupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RestoreTableFromBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3369,16 +2875,12 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3386,10 +2888,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     case "BackupInUseException":
     case "com.amazonaws.dynamodb.v20120810#BackupInUseException":
       response = {
-        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0BackupInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3397,10 +2896,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     case "BackupNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#BackupNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0BackupNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3408,10 +2904,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3419,10 +2912,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3430,10 +2920,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     case "TableAlreadyExistsException":
     case "com.amazonaws.dynamodb.v20120810#TableAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3441,10 +2928,7 @@ const deserializeAws_json1_0RestoreTableFromBackupCommandError = async (
     case "TableInUseException":
     case "com.amazonaws.dynamodb.v20120810#TableInUseException":
       response = {
-        ...(await deserializeAws_json1_0TableInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3471,17 +2955,11 @@ export const deserializeAws_json1_0RestoreTableToPointInTimeCommand = async (
   context: __SerdeContext
 ): Promise<RestoreTableToPointInTimeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0RestoreTableToPointInTimeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0RestoreTableToPointInTimeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RestoreTableToPointInTimeOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0RestoreTableToPointInTimeOutput(data, context);
   const response: RestoreTableToPointInTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreTableToPointInTimeOutput",
@@ -3501,16 +2979,12 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3518,10 +2992,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3529,10 +3000,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "InvalidRestoreTimeException":
     case "com.amazonaws.dynamodb.v20120810#InvalidRestoreTimeException":
       response = {
-        ...(await deserializeAws_json1_0InvalidRestoreTimeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidRestoreTimeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3540,10 +3008,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3551,10 +3016,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "PointInTimeRecoveryUnavailableException":
     case "com.amazonaws.dynamodb.v20120810#PointInTimeRecoveryUnavailableException":
       response = {
-        ...(await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3562,10 +3024,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "TableAlreadyExistsException":
     case "com.amazonaws.dynamodb.v20120810#TableAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3573,10 +3032,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "TableInUseException":
     case "com.amazonaws.dynamodb.v20120810#TableInUseException":
       response = {
-        ...(await deserializeAws_json1_0TableInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3584,10 +3040,7 @@ const deserializeAws_json1_0RestoreTableToPointInTimeCommandError = async (
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3638,16 +3091,12 @@ const deserializeAws_json1_0ScanCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3655,10 +3104,7 @@ const deserializeAws_json1_0ScanCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3666,10 +3112,7 @@ const deserializeAws_json1_0ScanCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3677,10 +3120,7 @@ const deserializeAws_json1_0ScanCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3688,10 +3128,7 @@ const deserializeAws_json1_0ScanCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3738,16 +3175,12 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3755,10 +3188,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3766,10 +3196,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3777,10 +3204,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3788,10 +3212,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3842,16 +3263,12 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3859,10 +3276,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3870,10 +3284,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3881,10 +3292,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3892,10 +3300,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3903,10 +3308,7 @@ const deserializeAws_json1_0TransactGetItemsCommandError = async (
     case "TransactionCanceledException":
     case "com.amazonaws.dynamodb.v20120810#TransactionCanceledException":
       response = {
-        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3933,10 +3335,7 @@ export const deserializeAws_json1_0TransactWriteItemsCommand = async (
   context: __SerdeContext
 ): Promise<TransactWriteItemsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0TransactWriteItemsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0TransactWriteItemsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3960,16 +3359,12 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3977,10 +3372,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.dynamodb.v20120810#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3988,10 +3380,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3999,10 +3388,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4010,10 +3396,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4021,10 +3404,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4032,10 +3412,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "TransactionCanceledException":
     case "com.amazonaws.dynamodb.v20120810#TransactionCanceledException":
       response = {
-        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TransactionCanceledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4043,10 +3420,7 @@ const deserializeAws_json1_0TransactWriteItemsCommandError = async (
     case "TransactionInProgressException":
     case "com.amazonaws.dynamodb.v20120810#TransactionInProgressException":
       response = {
-        ...(await deserializeAws_json1_0TransactionInProgressExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TransactionInProgressExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4093,16 +3467,12 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4110,10 +3480,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4121,10 +3488,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4132,10 +3496,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4143,10 +3504,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4173,10 +3531,7 @@ export const deserializeAws_json1_0UpdateContinuousBackupsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContinuousBackupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0UpdateContinuousBackupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateContinuousBackupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4200,16 +3555,12 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4217,10 +3568,7 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
     case "ContinuousBackupsUnavailableException":
     case "com.amazonaws.dynamodb.v20120810#ContinuousBackupsUnavailableException":
       response = {
-        ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4228,10 +3576,7 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4239,10 +3584,7 @@ const deserializeAws_json1_0UpdateContinuousBackupsCommandError = async (
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4269,17 +3611,11 @@ export const deserializeAws_json1_0UpdateContributorInsightsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContributorInsightsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0UpdateContributorInsightsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateContributorInsightsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateContributorInsightsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateContributorInsightsOutput(data, context);
   const response: UpdateContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateContributorInsightsOutput",
@@ -4299,16 +3635,12 @@ const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4316,10 +3648,7 @@ const deserializeAws_json1_0UpdateContributorInsightsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4370,16 +3699,12 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4387,10 +3712,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4398,10 +3720,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4409,10 +3728,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
     case "ReplicaAlreadyExistsException":
     case "com.amazonaws.dynamodb.v20120810#ReplicaAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4420,10 +3736,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
     case "ReplicaNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ReplicaNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4431,10 +3744,7 @@ const deserializeAws_json1_0UpdateGlobalTableCommandError = async (
     case "TableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#TableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4461,17 +3771,11 @@ export const deserializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGlobalTableSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateGlobalTableSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateGlobalTableSettingsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateGlobalTableSettingsOutput(data, context);
   const response: UpdateGlobalTableSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGlobalTableSettingsOutput",
@@ -4491,16 +3795,12 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4508,10 +3808,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     case "GlobalTableNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#GlobalTableNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0GlobalTableNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4519,10 +3816,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     case "IndexNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#IndexNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0IndexNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0IndexNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4530,10 +3824,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4541,10 +3832,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4552,10 +3840,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     case "ReplicaNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ReplicaNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ReplicaNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4563,10 +3848,7 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4617,16 +3899,12 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4634,10 +3912,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "ConditionalCheckFailedException":
     case "com.amazonaws.dynamodb.v20120810#ConditionalCheckFailedException":
       response = {
-        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ConditionalCheckFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4645,10 +3920,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4656,10 +3928,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "ItemCollectionSizeLimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#ItemCollectionSizeLimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4667,10 +3936,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.dynamodb.v20120810#ProvisionedThroughputExceededException":
       response = {
-        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4678,10 +3944,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "RequestLimitExceeded":
     case "com.amazonaws.dynamodb.v20120810#RequestLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_0RequestLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0RequestLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4689,10 +3952,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4700,10 +3960,7 @@ const deserializeAws_json1_0UpdateItemCommandError = async (
     case "TransactionConflictException":
     case "com.amazonaws.dynamodb.v20120810#TransactionConflictException":
       response = {
-        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0TransactionConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4754,16 +4011,12 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4771,10 +4024,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4782,10 +4032,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4793,10 +4040,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4804,10 +4048,7 @@ const deserializeAws_json1_0UpdateTableCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4834,17 +4075,11 @@ export const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async 
   context: __SerdeContext
 ): Promise<UpdateTableReplicaAutoScalingCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput(data, context);
   const response: UpdateTableReplicaAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTableReplicaAutoScalingOutput",
@@ -4864,16 +4099,12 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4881,10 +4112,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4892,10 +4120,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4903,10 +4128,7 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4957,16 +4179,12 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidEndpointException":
     case "com.amazon.aws.sdk.endpointdiscovery#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4974,10 +4192,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb.v20120810#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_0InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4985,10 +4200,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.dynamodb.v20120810#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4996,10 +4208,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.dynamodb.v20120810#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5007,10 +4216,7 @@ const deserializeAws_json1_0UpdateTimeToLiveCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb.v20120810#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5037,10 +4243,7 @@ const deserializeAws_json1_0InvalidEndpointExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidEndpointException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidEndpointException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0InvalidEndpointException(body, context);
   const contents: InvalidEndpointException = {
     name: "InvalidEndpointException",
     $fault: "client",
@@ -5055,10 +4258,7 @@ const deserializeAws_json1_0BackupInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BackupInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0BackupInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0BackupInUseException(body, context);
   const contents: BackupInUseException = {
     name: "BackupInUseException",
     $fault: "client",
@@ -5073,10 +4273,7 @@ const deserializeAws_json1_0BackupNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BackupNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0BackupNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0BackupNotFoundException(body, context);
   const contents: BackupNotFoundException = {
     name: "BackupNotFoundException",
     $fault: "client",
@@ -5091,10 +4288,7 @@ const deserializeAws_json1_0ConditionalCheckFailedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConditionalCheckFailedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ConditionalCheckFailedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ConditionalCheckFailedException(body, context);
   const contents: ConditionalCheckFailedException = {
     name: "ConditionalCheckFailedException",
     $fault: "client",
@@ -5109,10 +4303,7 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<ContinuousBackupsUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ContinuousBackupsUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ContinuousBackupsUnavailableException(body, context);
   const contents: ContinuousBackupsUnavailableException = {
     name: "ContinuousBackupsUnavailableException",
     $fault: "client",
@@ -5127,10 +4318,7 @@ const deserializeAws_json1_0GlobalTableAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<GlobalTableAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0GlobalTableAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0GlobalTableAlreadyExistsException(body, context);
   const contents: GlobalTableAlreadyExistsException = {
     name: "GlobalTableAlreadyExistsException",
     $fault: "client",
@@ -5145,10 +4333,7 @@ const deserializeAws_json1_0GlobalTableNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<GlobalTableNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0GlobalTableNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0GlobalTableNotFoundException(body, context);
   const contents: GlobalTableNotFoundException = {
     name: "GlobalTableNotFoundException",
     $fault: "client",
@@ -5163,10 +4348,7 @@ const deserializeAws_json1_0IdempotentParameterMismatchExceptionResponse = async
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0IdempotentParameterMismatchException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0IdempotentParameterMismatchException(body, context);
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
     $fault: "client",
@@ -5181,10 +4363,7 @@ const deserializeAws_json1_0IndexNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IndexNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0IndexNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0IndexNotFoundException(body, context);
   const contents: IndexNotFoundException = {
     name: "IndexNotFoundException",
     $fault: "client",
@@ -5199,10 +4378,7 @@ const deserializeAws_json1_0InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InternalServerError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0InternalServerError(body, context);
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
@@ -5217,10 +4393,7 @@ const deserializeAws_json1_0InvalidRestoreTimeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidRestoreTimeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0InvalidRestoreTimeException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0InvalidRestoreTimeException(body, context);
   const contents: InvalidRestoreTimeException = {
     name: "InvalidRestoreTimeException",
     $fault: "client",
@@ -5235,10 +4408,7 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededExceptionResponse = a
   context: __SerdeContext
 ): Promise<ItemCollectionSizeLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ItemCollectionSizeLimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ItemCollectionSizeLimitExceededException(body, context);
   const contents: ItemCollectionSizeLimitExceededException = {
     name: "ItemCollectionSizeLimitExceededException",
     $fault: "client",
@@ -5253,10 +4423,7 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -5271,10 +4438,7 @@ const deserializeAws_json1_0PointInTimeRecoveryUnavailableExceptionResponse = as
   context: __SerdeContext
 ): Promise<PointInTimeRecoveryUnavailableException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0PointInTimeRecoveryUnavailableException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0PointInTimeRecoveryUnavailableException(body, context);
   const contents: PointInTimeRecoveryUnavailableException = {
     name: "PointInTimeRecoveryUnavailableException",
     $fault: "client",
@@ -5289,10 +4453,7 @@ const deserializeAws_json1_0ProvisionedThroughputExceededExceptionResponse = asy
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ProvisionedThroughputExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ProvisionedThroughputExceededException(body, context);
   const contents: ProvisionedThroughputExceededException = {
     name: "ProvisionedThroughputExceededException",
     $fault: "client",
@@ -5307,10 +4468,7 @@ const deserializeAws_json1_0ReplicaAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ReplicaAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ReplicaAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ReplicaAlreadyExistsException(body, context);
   const contents: ReplicaAlreadyExistsException = {
     name: "ReplicaAlreadyExistsException",
     $fault: "client",
@@ -5325,10 +4483,7 @@ const deserializeAws_json1_0ReplicaNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ReplicaNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ReplicaNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ReplicaNotFoundException(body, context);
   const contents: ReplicaNotFoundException = {
     name: "ReplicaNotFoundException",
     $fault: "client",
@@ -5343,10 +4498,7 @@ const deserializeAws_json1_0RequestLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<RequestLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0RequestLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0RequestLimitExceeded(body, context);
   const contents: RequestLimitExceeded = {
     name: "RequestLimitExceeded",
     $fault: "client",
@@ -5361,10 +4513,7 @@ const deserializeAws_json1_0ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
@@ -5379,10 +4528,7 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -5397,10 +4543,7 @@ const deserializeAws_json1_0TableAlreadyExistsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TableAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TableAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TableAlreadyExistsException(body, context);
   const contents: TableAlreadyExistsException = {
     name: "TableAlreadyExistsException",
     $fault: "client",
@@ -5415,10 +4558,7 @@ const deserializeAws_json1_0TableInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TableInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TableInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TableInUseException(body, context);
   const contents: TableInUseException = {
     name: "TableInUseException",
     $fault: "client",
@@ -5433,10 +4573,7 @@ const deserializeAws_json1_0TableNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TableNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TableNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TableNotFoundException(body, context);
   const contents: TableNotFoundException = {
     name: "TableNotFoundException",
     $fault: "client",
@@ -5451,10 +4588,7 @@ const deserializeAws_json1_0TransactionCanceledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TransactionCanceledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TransactionCanceledException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TransactionCanceledException(body, context);
   const contents: TransactionCanceledException = {
     name: "TransactionCanceledException",
     $fault: "client",
@@ -5469,10 +4603,7 @@ const deserializeAws_json1_0TransactionConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TransactionConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TransactionConflictException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TransactionConflictException(body, context);
   const contents: TransactionConflictException = {
     name: "TransactionConflictException",
     $fault: "client",
@@ -5487,10 +4618,7 @@ const deserializeAws_json1_0TransactionInProgressExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TransactionInProgressException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_0TransactionInProgressException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_0TransactionInProgressException(body, context);
   const contents: TransactionInProgressException = {
     name: "TransactionInProgressException",
     $fault: "client",
@@ -5507,10 +4635,7 @@ const serializeAws_json1_0DescribeEndpointsRequest = (
   return {};
 };
 
-const serializeAws_json1_0AttributeDefinition = (
-  input: AttributeDefinition,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0AttributeDefinition = (input: AttributeDefinition, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName !== undefined && {
       AttributeName: input.AttributeName
@@ -5521,19 +4646,11 @@ const serializeAws_json1_0AttributeDefinition = (
   };
 };
 
-const serializeAws_json1_0AttributeDefinitions = (
-  input: AttributeDefinition[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0AttributeDefinition(entry, context)
-  );
+const serializeAws_json1_0AttributeDefinitions = (input: AttributeDefinition[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_0AttributeDefinition(entry, context));
 };
 
-const serializeAws_json1_0AttributeNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0AttributeNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -5542,10 +4659,7 @@ const serializeAws_json1_0AttributeUpdates = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: AttributeValueUpdate },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: AttributeValueUpdate }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: serializeAws_json1_0AttributeValueUpdate(value, context)
     }),
@@ -5553,10 +4667,7 @@ const serializeAws_json1_0AttributeUpdates = (
   );
 };
 
-const serializeAws_json1_0AttributeValue = (
-  input: AttributeValue,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return {
     ...(input.B !== undefined && { B: context.base64Encoder(input.B) }),
     ...(input.BOOL !== undefined && { BOOL: input.BOOL }),
@@ -5581,17 +4692,11 @@ const serializeAws_json1_0AttributeValue = (
   };
 };
 
-const serializeAws_json1_0AttributeValueList = (
-  input: AttributeValue[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0AttributeValueList = (input: AttributeValue[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
-const serializeAws_json1_0AttributeValueUpdate = (
-  input: AttributeValueUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0AttributeValueUpdate = (input: AttributeValueUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && { Action: input.Action }),
     ...(input.Value !== undefined && {
@@ -5600,10 +4705,7 @@ const serializeAws_json1_0AttributeValueUpdate = (
   };
 };
 
-const serializeAws_json1_0AutoScalingPolicyUpdate = (
-  input: AutoScalingPolicyUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0AutoScalingPolicyUpdate = (input: AutoScalingPolicyUpdate, context: __SerdeContext): any => {
   return {
     ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
     ...(input.TargetTrackingScalingPolicyConfiguration !== undefined && {
@@ -5633,10 +4735,7 @@ const serializeAws_json1_0AutoScalingSettingsUpdate = (
       MinimumUnits: input.MinimumUnits
     }),
     ...(input.ScalingPolicyUpdate !== undefined && {
-      ScalingPolicyUpdate: serializeAws_json1_0AutoScalingPolicyUpdate(
-        input.ScalingPolicyUpdate,
-        context
-      )
+      ScalingPolicyUpdate: serializeAws_json1_0AutoScalingPolicyUpdate(input.ScalingPolicyUpdate, context)
     })
   };
 };
@@ -5659,16 +4758,10 @@ const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpd
   };
 };
 
-const serializeAws_json1_0BatchGetItemInput = (
-  input: BatchGetItemInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0BatchGetItemInput = (input: BatchGetItemInput, context: __SerdeContext): any => {
   return {
     ...(input.RequestItems !== undefined && {
-      RequestItems: serializeAws_json1_0BatchGetRequestMap(
-        input.RequestItems,
-        context
-      )
+      RequestItems: serializeAws_json1_0BatchGetRequestMap(input.RequestItems, context)
     }),
     ...(input.ReturnConsumedCapacity !== undefined && {
       ReturnConsumedCapacity: input.ReturnConsumedCapacity
@@ -5681,10 +4774,7 @@ const serializeAws_json1_0BatchGetRequestMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: KeysAndAttributes },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: KeysAndAttributes }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: serializeAws_json1_0KeysAndAttributes(value, context)
     }),
@@ -5692,16 +4782,10 @@ const serializeAws_json1_0BatchGetRequestMap = (
   );
 };
 
-const serializeAws_json1_0BatchWriteItemInput = (
-  input: BatchWriteItemInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0BatchWriteItemInput = (input: BatchWriteItemInput, context: __SerdeContext): any => {
   return {
     ...(input.RequestItems !== undefined && {
-      RequestItems: serializeAws_json1_0BatchWriteItemRequestMap(
-        input.RequestItems,
-        context
-      )
+      RequestItems: serializeAws_json1_0BatchWriteItemRequestMap(input.RequestItems, context)
     }),
     ...(input.ReturnConsumedCapacity !== undefined && {
       ReturnConsumedCapacity: input.ReturnConsumedCapacity
@@ -5725,23 +4809,14 @@ const serializeAws_json1_0BatchWriteItemRequestMap = (
   );
 };
 
-const serializeAws_json1_0BinarySetAttributeValue = (
-  input: Uint8Array[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0BinarySetAttributeValue = (input: Uint8Array[], context: __SerdeContext): any => {
   return input.map(entry => context.base64Encoder(entry));
 };
 
-const serializeAws_json1_0Condition = (
-  input: Condition,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Condition = (input: Condition, context: __SerdeContext): any => {
   return {
     ...(input.AttributeValueList !== undefined && {
-      AttributeValueList: serializeAws_json1_0AttributeValueList(
-        input.AttributeValueList,
-        context
-      )
+      AttributeValueList: serializeAws_json1_0AttributeValueList(input.AttributeValueList, context)
     }),
     ...(input.ComparisonOperator !== undefined && {
       ComparisonOperator: input.ComparisonOperator
@@ -5749,19 +4824,13 @@ const serializeAws_json1_0Condition = (
   };
 };
 
-const serializeAws_json1_0ConditionCheck = (
-  input: ConditionCheck,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ConditionCheck = (input: ConditionCheck, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -5773,17 +4842,13 @@ const serializeAws_json1_0ConditionCheck = (
       Key: serializeAws_json1_0Key(input.Key, context)
     }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
-      ReturnValuesOnConditionCheckFailure:
-        input.ReturnValuesOnConditionCheckFailure
+      ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
 
-const serializeAws_json1_0CreateBackupInput = (
-  input: CreateBackupInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0CreateBackupInput = (input: CreateBackupInput, context: __SerdeContext): any => {
   return {
     ...(input.BackupName !== undefined && { BackupName: input.BackupName }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
@@ -5803,35 +4868,23 @@ const serializeAws_json1_0CreateGlobalSecondaryIndexAction = (
       Projection: serializeAws_json1_0Projection(input.Projection, context)
     }),
     ...(input.ProvisionedThroughput !== undefined && {
-      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
-        input.ProvisionedThroughput,
-        context
-      )
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context)
     })
   };
 };
 
-const serializeAws_json1_0CreateGlobalTableInput = (
-  input: CreateGlobalTableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0CreateGlobalTableInput = (input: CreateGlobalTableInput, context: __SerdeContext): any => {
   return {
     ...(input.GlobalTableName !== undefined && {
       GlobalTableName: input.GlobalTableName
     }),
     ...(input.ReplicationGroup !== undefined && {
-      ReplicationGroup: serializeAws_json1_0ReplicaList(
-        input.ReplicationGroup,
-        context
-      )
+      ReplicationGroup: serializeAws_json1_0ReplicaList(input.ReplicationGroup, context)
     })
   };
 };
 
-const serializeAws_json1_0CreateReplicaAction = (
-  input: CreateReplicaAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0CreateReplicaAction = (input: CreateReplicaAction, context: __SerdeContext): any => {
   return {
     ...(input.RegionName !== undefined && { RegionName: input.RegionName })
   };
@@ -5843,10 +4896,7 @@ const serializeAws_json1_0CreateReplicationGroupMemberAction = (
 ): any => {
   return {
     ...(input.GlobalSecondaryIndexes !== undefined && {
-      GlobalSecondaryIndexes: serializeAws_json1_0ReplicaGlobalSecondaryIndexList(
-        input.GlobalSecondaryIndexes,
-        context
-      )
+      GlobalSecondaryIndexes: serializeAws_json1_0ReplicaGlobalSecondaryIndexList(input.GlobalSecondaryIndexes, context)
     }),
     ...(input.KMSMasterKeyId !== undefined && {
       KMSMasterKeyId: input.KMSMasterKeyId
@@ -5861,50 +4911,29 @@ const serializeAws_json1_0CreateReplicationGroupMemberAction = (
   };
 };
 
-const serializeAws_json1_0CreateTableInput = (
-  input: CreateTableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0CreateTableInput = (input: CreateTableInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributeDefinitions !== undefined && {
-      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(
-        input.AttributeDefinitions,
-        context
-      )
+      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(input.AttributeDefinitions, context)
     }),
     ...(input.BillingMode !== undefined && { BillingMode: input.BillingMode }),
     ...(input.GlobalSecondaryIndexes !== undefined && {
-      GlobalSecondaryIndexes: serializeAws_json1_0GlobalSecondaryIndexList(
-        input.GlobalSecondaryIndexes,
-        context
-      )
+      GlobalSecondaryIndexes: serializeAws_json1_0GlobalSecondaryIndexList(input.GlobalSecondaryIndexes, context)
     }),
     ...(input.KeySchema !== undefined && {
       KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context)
     }),
     ...(input.LocalSecondaryIndexes !== undefined && {
-      LocalSecondaryIndexes: serializeAws_json1_0LocalSecondaryIndexList(
-        input.LocalSecondaryIndexes,
-        context
-      )
+      LocalSecondaryIndexes: serializeAws_json1_0LocalSecondaryIndexList(input.LocalSecondaryIndexes, context)
     }),
     ...(input.ProvisionedThroughput !== undefined && {
-      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
-        input.ProvisionedThroughput,
-        context
-      )
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context)
     }),
     ...(input.SSESpecification !== undefined && {
-      SSESpecification: serializeAws_json1_0SSESpecification(
-        input.SSESpecification,
-        context
-      )
+      SSESpecification: serializeAws_json1_0SSESpecification(input.SSESpecification, context)
     }),
     ...(input.StreamSpecification !== undefined && {
-      StreamSpecification: serializeAws_json1_0StreamSpecification(
-        input.StreamSpecification,
-        context
-      )
+      StreamSpecification: serializeAws_json1_0StreamSpecification(input.StreamSpecification, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
     ...(input.Tags !== undefined && {
@@ -5913,19 +4942,13 @@ const serializeAws_json1_0CreateTableInput = (
   };
 };
 
-const serializeAws_json1_0Delete = (
-  input: Delete,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Delete = (input: Delete, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -5937,17 +4960,13 @@ const serializeAws_json1_0Delete = (
       Key: serializeAws_json1_0Key(input.Key, context)
     }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
-      ReturnValuesOnConditionCheckFailure:
-        input.ReturnValuesOnConditionCheckFailure
+      ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
 
-const serializeAws_json1_0DeleteBackupInput = (
-  input: DeleteBackupInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DeleteBackupInput = (input: DeleteBackupInput, context: __SerdeContext): any => {
   return {
     ...(input.BackupArn !== undefined && { BackupArn: input.BackupArn })
   };
@@ -5962,10 +4981,7 @@ const serializeAws_json1_0DeleteGlobalSecondaryIndexAction = (
   };
 };
 
-const serializeAws_json1_0DeleteItemInput = (
-  input: DeleteItemInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DeleteItemInput = (input: DeleteItemInput, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
@@ -5974,16 +4990,10 @@ const serializeAws_json1_0DeleteItemInput = (
       ConditionalOperator: input.ConditionalOperator
     }),
     ...(input.Expected !== undefined && {
-      Expected: serializeAws_json1_0ExpectedAttributeMap(
-        input.Expected,
-        context
-      )
+      Expected: serializeAws_json1_0ExpectedAttributeMap(input.Expected, context)
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -6007,10 +5017,7 @@ const serializeAws_json1_0DeleteItemInput = (
   };
 };
 
-const serializeAws_json1_0DeleteReplicaAction = (
-  input: DeleteReplicaAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DeleteReplicaAction = (input: DeleteReplicaAction, context: __SerdeContext): any => {
   return {
     ...(input.RegionName !== undefined && { RegionName: input.RegionName })
   };
@@ -6025,10 +5032,7 @@ const serializeAws_json1_0DeleteReplicationGroupMemberAction = (
   };
 };
 
-const serializeAws_json1_0DeleteRequest = (
-  input: DeleteRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DeleteRequest = (input: DeleteRequest, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && {
       Key: serializeAws_json1_0Key(input.Key, context)
@@ -6036,19 +5040,13 @@ const serializeAws_json1_0DeleteRequest = (
   };
 };
 
-const serializeAws_json1_0DeleteTableInput = (
-  input: DeleteTableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DeleteTableInput = (input: DeleteTableInput, context: __SerdeContext): any => {
   return {
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
 
-const serializeAws_json1_0DescribeBackupInput = (
-  input: DescribeBackupInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DescribeBackupInput = (input: DescribeBackupInput, context: __SerdeContext): any => {
   return {
     ...(input.BackupArn !== undefined && { BackupArn: input.BackupArn })
   };
@@ -6095,17 +5093,11 @@ const serializeAws_json1_0DescribeGlobalTableSettingsInput = (
   };
 };
 
-const serializeAws_json1_0DescribeLimitsInput = (
-  input: DescribeLimitsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DescribeLimitsInput = (input: DescribeLimitsInput, context: __SerdeContext): any => {
   return {};
 };
 
-const serializeAws_json1_0DescribeTableInput = (
-  input: DescribeTableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DescribeTableInput = (input: DescribeTableInput, context: __SerdeContext): any => {
   return {
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -6120,10 +5112,7 @@ const serializeAws_json1_0DescribeTableReplicaAutoScalingInput = (
   };
 };
 
-const serializeAws_json1_0DescribeTimeToLiveInput = (
-  input: DescribeTimeToLiveInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0DescribeTimeToLiveInput = (input: DescribeTimeToLiveInput, context: __SerdeContext): any => {
   return {
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -6134,10 +5123,7 @@ const serializeAws_json1_0ExpectedAttributeMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (
-      acc: { [key: string]: ExpectedAttributeValue },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: ExpectedAttributeValue }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: serializeAws_json1_0ExpectedAttributeValue(value, context)
     }),
@@ -6145,16 +5131,10 @@ const serializeAws_json1_0ExpectedAttributeMap = (
   );
 };
 
-const serializeAws_json1_0ExpectedAttributeValue = (
-  input: ExpectedAttributeValue,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ExpectedAttributeValue = (input: ExpectedAttributeValue, context: __SerdeContext): any => {
   return {
     ...(input.AttributeValueList !== undefined && {
-      AttributeValueList: serializeAws_json1_0AttributeValueList(
-        input.AttributeValueList,
-        context
-      )
+      AttributeValueList: serializeAws_json1_0AttributeValueList(input.AttributeValueList, context)
     }),
     ...(input.ComparisonOperator !== undefined && {
       ComparisonOperator: input.ComparisonOperator
@@ -6192,10 +5172,7 @@ const serializeAws_json1_0ExpressionAttributeValueMap = (
   );
 };
 
-const serializeAws_json1_0FilterConditionMap = (
-  input: { [key: string]: Condition },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0FilterConditionMap = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: Condition }, [key, value]: [string, any]) => ({
       ...acc,
@@ -6208,10 +5185,7 @@ const serializeAws_json1_0FilterConditionMap = (
 const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
   return {
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.Key !== undefined && {
       Key: serializeAws_json1_0Key(input.Key, context)
@@ -6223,25 +5197,16 @@ const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_0GetItemInput = (
-  input: GetItemInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0GetItemInput = (input: GetItemInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToGet !== undefined && {
-      AttributesToGet: serializeAws_json1_0AttributeNameList(
-        input.AttributesToGet,
-        context
-      )
+      AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context)
     }),
     ...(input.ConsistentRead !== undefined && {
       ConsistentRead: input.ConsistentRead
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.Key !== undefined && {
       Key: serializeAws_json1_0Key(input.Key, context)
@@ -6256,10 +5221,7 @@ const serializeAws_json1_0GetItemInput = (
   };
 };
 
-const serializeAws_json1_0GlobalSecondaryIndex = (
-  input: GlobalSecondaryIndex,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0GlobalSecondaryIndex = (input: GlobalSecondaryIndex, context: __SerdeContext): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.KeySchema !== undefined && {
@@ -6269,10 +5231,7 @@ const serializeAws_json1_0GlobalSecondaryIndex = (
       Projection: serializeAws_json1_0Projection(input.Projection, context)
     }),
     ...(input.ProvisionedThroughput !== undefined && {
-      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
-        input.ProvisionedThroughput,
-        context
-      )
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context)
     })
   };
 };
@@ -6296,18 +5255,11 @@ const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
   input: GlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate(entry, context));
 };
 
-const serializeAws_json1_0GlobalSecondaryIndexList = (
-  input: GlobalSecondaryIndex[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0GlobalSecondaryIndex(entry, context)
-  );
+const serializeAws_json1_0GlobalSecondaryIndexList = (input: GlobalSecondaryIndex[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_0GlobalSecondaryIndex(entry, context));
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
@@ -6316,22 +5268,13 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
 ): any => {
   return {
     ...(input.Create !== undefined && {
-      Create: serializeAws_json1_0CreateGlobalSecondaryIndexAction(
-        input.Create,
-        context
-      )
+      Create: serializeAws_json1_0CreateGlobalSecondaryIndexAction(input.Create, context)
     }),
     ...(input.Delete !== undefined && {
-      Delete: serializeAws_json1_0DeleteGlobalSecondaryIndexAction(
-        input.Delete,
-        context
-      )
+      Delete: serializeAws_json1_0DeleteGlobalSecondaryIndexAction(input.Delete, context)
     }),
     ...(input.Update !== undefined && {
-      Update: serializeAws_json1_0UpdateGlobalSecondaryIndexAction(
-        input.Update,
-        context
-      )
+      Update: serializeAws_json1_0UpdateGlobalSecondaryIndexAction(input.Update, context)
     })
   };
 };
@@ -6340,9 +5283,7 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdateList = (
   input: GlobalSecondaryIndexUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0GlobalSecondaryIndexUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_0GlobalSecondaryIndexUpdate(entry, context));
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
@@ -6351,8 +5292,7 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
 ): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.ProvisionedWriteCapacityAutoScalingSettingsUpdate !==
-      undefined && {
+    ...(input.ProvisionedWriteCapacityAutoScalingSettingsUpdate !== undefined && {
       ProvisionedWriteCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
         input.ProvisionedWriteCapacityAutoScalingSettingsUpdate,
         context
@@ -6368,18 +5308,10 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
   input: GlobalTableGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate(
-      entry,
-      context
-    )
-  );
+  return input.map(entry => serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate(entry, context));
 };
 
-const serializeAws_json1_0Key = (
-  input: { [key: string]: AttributeValue },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Key = (input: { [key: string]: AttributeValue }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
       ...acc,
@@ -6389,10 +5321,7 @@ const serializeAws_json1_0Key = (
   );
 };
 
-const serializeAws_json1_0KeyConditions = (
-  input: { [key: string]: Condition },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0KeyConditions = (input: { [key: string]: Condition }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: Condition }, [key, value]: [string, any]) => ({
       ...acc,
@@ -6402,26 +5331,15 @@ const serializeAws_json1_0KeyConditions = (
   );
 };
 
-const serializeAws_json1_0KeyList = (
-  input: { [key: string]: AttributeValue }[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0KeyList = (input: { [key: string]: AttributeValue }[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0Key(entry, context));
 };
 
-const serializeAws_json1_0KeySchema = (
-  input: KeySchemaElement[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0KeySchemaElement(entry, context)
-  );
+const serializeAws_json1_0KeySchema = (input: KeySchemaElement[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_0KeySchemaElement(entry, context));
 };
 
-const serializeAws_json1_0KeySchemaElement = (
-  input: KeySchemaElement,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0KeySchemaElement = (input: KeySchemaElement, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName !== undefined && {
       AttributeName: input.AttributeName
@@ -6430,25 +5348,16 @@ const serializeAws_json1_0KeySchemaElement = (
   };
 };
 
-const serializeAws_json1_0KeysAndAttributes = (
-  input: KeysAndAttributes,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0KeysAndAttributes = (input: KeysAndAttributes, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToGet !== undefined && {
-      AttributesToGet: serializeAws_json1_0AttributeNameList(
-        input.AttributesToGet,
-        context
-      )
+      AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context)
     }),
     ...(input.ConsistentRead !== undefined && {
       ConsistentRead: input.ConsistentRead
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.Keys !== undefined && {
       Keys: serializeAws_json1_0KeyList(input.Keys, context)
@@ -6459,17 +5368,11 @@ const serializeAws_json1_0KeysAndAttributes = (
   };
 };
 
-const serializeAws_json1_0ListAttributeValue = (
-  input: AttributeValue[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ListAttributeValue = (input: AttributeValue[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0AttributeValue(entry, context));
 };
 
-const serializeAws_json1_0ListBackupsInput = (
-  input: ListBackupsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ListBackupsInput = (input: ListBackupsInput, context: __SerdeContext): any => {
   return {
     ...(input.BackupType !== undefined && { BackupType: input.BackupType }),
     ...(input.ExclusiveStartBackupArn !== undefined && {
@@ -6478,14 +5381,10 @@ const serializeAws_json1_0ListBackupsInput = (
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
     ...(input.TimeRangeLowerBound !== undefined && {
-      TimeRangeLowerBound: Math.round(
-        input.TimeRangeLowerBound.getTime() / 1000
-      )
+      TimeRangeLowerBound: Math.round(input.TimeRangeLowerBound.getTime() / 1000)
     }),
     ...(input.TimeRangeUpperBound !== undefined && {
-      TimeRangeUpperBound: Math.round(
-        input.TimeRangeUpperBound.getTime() / 1000
-      )
+      TimeRangeUpperBound: Math.round(input.TimeRangeUpperBound.getTime() / 1000)
     })
   };
 };
@@ -6501,10 +5400,7 @@ const serializeAws_json1_0ListContributorInsightsInput = (
   };
 };
 
-const serializeAws_json1_0ListGlobalTablesInput = (
-  input: ListGlobalTablesInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ListGlobalTablesInput = (input: ListGlobalTablesInput, context: __SerdeContext): any => {
   return {
     ...(input.ExclusiveStartGlobalTableName !== undefined && {
       ExclusiveStartGlobalTableName: input.ExclusiveStartGlobalTableName
@@ -6514,10 +5410,7 @@ const serializeAws_json1_0ListGlobalTablesInput = (
   };
 };
 
-const serializeAws_json1_0ListTablesInput = (
-  input: ListTablesInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ListTablesInput = (input: ListTablesInput, context: __SerdeContext): any => {
   return {
     ...(input.ExclusiveStartTableName !== undefined && {
       ExclusiveStartTableName: input.ExclusiveStartTableName
@@ -6526,20 +5419,14 @@ const serializeAws_json1_0ListTablesInput = (
   };
 };
 
-const serializeAws_json1_0ListTagsOfResourceInput = (
-  input: ListTagsOfResourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ListTagsOfResourceInput = (input: ListTagsOfResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
   };
 };
 
-const serializeAws_json1_0LocalSecondaryIndex = (
-  input: LocalSecondaryIndex,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0LocalSecondaryIndex = (input: LocalSecondaryIndex, context: __SerdeContext): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.KeySchema !== undefined && {
@@ -6551,13 +5438,8 @@ const serializeAws_json1_0LocalSecondaryIndex = (
   };
 };
 
-const serializeAws_json1_0LocalSecondaryIndexList = (
-  input: LocalSecondaryIndex[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0LocalSecondaryIndex(entry, context)
-  );
+const serializeAws_json1_0LocalSecondaryIndexList = (input: LocalSecondaryIndex[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_0LocalSecondaryIndex(entry, context));
 };
 
 const serializeAws_json1_0MapAttributeValue = (
@@ -6573,17 +5455,11 @@ const serializeAws_json1_0MapAttributeValue = (
   );
 };
 
-const serializeAws_json1_0NonKeyAttributeNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0NonKeyAttributeNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_0NumberSetAttributeValue = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0NumberSetAttributeValue = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -6598,16 +5474,10 @@ const serializeAws_json1_0PointInTimeRecoverySpecification = (
   };
 };
 
-const serializeAws_json1_0Projection = (
-  input: Projection,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Projection = (input: Projection, context: __SerdeContext): any => {
   return {
     ...(input.NonKeyAttributes !== undefined && {
-      NonKeyAttributes: serializeAws_json1_0NonKeyAttributeNameList(
-        input.NonKeyAttributes,
-        context
-      )
+      NonKeyAttributes: serializeAws_json1_0NonKeyAttributeNameList(input.NonKeyAttributes, context)
     }),
     ...(input.ProjectionType !== undefined && {
       ProjectionType: input.ProjectionType
@@ -6615,10 +5485,7 @@ const serializeAws_json1_0Projection = (
   };
 };
 
-const serializeAws_json1_0ProvisionedThroughput = (
-  input: ProvisionedThroughput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ProvisionedThroughput = (input: ProvisionedThroughput, context: __SerdeContext): any => {
   return {
     ...(input.ReadCapacityUnits !== undefined && {
       ReadCapacityUnits: input.ReadCapacityUnits
@@ -6646,10 +5513,7 @@ const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
       ConditionExpression: input.ConditionExpression
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -6661,17 +5525,13 @@ const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
       Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context)
     }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
-      ReturnValuesOnConditionCheckFailure:
-        input.ReturnValuesOnConditionCheckFailure
+      ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
 
-const serializeAws_json1_0PutItemInput = (
-  input: PutItemInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0PutItemInput = (input: PutItemInput, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
@@ -6680,16 +5540,10 @@ const serializeAws_json1_0PutItemInput = (
       ConditionalOperator: input.ConditionalOperator
     }),
     ...(input.Expected !== undefined && {
-      Expected: serializeAws_json1_0ExpectedAttributeMap(
-        input.Expected,
-        context
-      )
+      Expected: serializeAws_json1_0ExpectedAttributeMap(input.Expected, context)
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -6726,10 +5580,7 @@ const serializeAws_json1_0PutItemInputAttributeMap = (
   );
 };
 
-const serializeAws_json1_0PutRequest = (
-  input: PutRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0PutRequest = (input: PutRequest, context: __SerdeContext): any => {
   return {
     ...(input.Item !== undefined && {
       Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context)
@@ -6737,16 +5588,10 @@ const serializeAws_json1_0PutRequest = (
   };
 };
 
-const serializeAws_json1_0QueryInput = (
-  input: QueryInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0QueryInput = (input: QueryInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToGet !== undefined && {
-      AttributesToGet: serializeAws_json1_0AttributeNameList(
-        input.AttributesToGet,
-        context
-      )
+      AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context)
     }),
     ...(input.ConditionalOperator !== undefined && {
       ConditionalOperator: input.ConditionalOperator
@@ -6755,16 +5600,10 @@ const serializeAws_json1_0QueryInput = (
       ConsistentRead: input.ConsistentRead
     }),
     ...(input.ExclusiveStartKey !== undefined && {
-      ExclusiveStartKey: serializeAws_json1_0Key(
-        input.ExclusiveStartKey,
-        context
-      )
+      ExclusiveStartKey: serializeAws_json1_0Key(input.ExclusiveStartKey, context)
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -6780,20 +5619,14 @@ const serializeAws_json1_0QueryInput = (
       KeyConditionExpression: input.KeyConditionExpression
     }),
     ...(input.KeyConditions !== undefined && {
-      KeyConditions: serializeAws_json1_0KeyConditions(
-        input.KeyConditions,
-        context
-      )
+      KeyConditions: serializeAws_json1_0KeyConditions(input.KeyConditions, context)
     }),
     ...(input.Limit !== undefined && { Limit: input.Limit }),
     ...(input.ProjectionExpression !== undefined && {
       ProjectionExpression: input.ProjectionExpression
     }),
     ...(input.QueryFilter !== undefined && {
-      QueryFilter: serializeAws_json1_0FilterConditionMap(
-        input.QueryFilter,
-        context
-      )
+      QueryFilter: serializeAws_json1_0FilterConditionMap(input.QueryFilter, context)
     }),
     ...(input.ReturnConsumedCapacity !== undefined && {
       ReturnConsumedCapacity: input.ReturnConsumedCapacity
@@ -6806,10 +5639,7 @@ const serializeAws_json1_0QueryInput = (
   };
 };
 
-const serializeAws_json1_0Replica = (
-  input: Replica,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Replica = (input: Replica, context: __SerdeContext): any => {
   return {
     ...(input.RegionName !== undefined && { RegionName: input.RegionName })
   };
@@ -6840,9 +5670,7 @@ const serializeAws_json1_0ReplicaAutoScalingUpdateList = (
   input: ReplicaAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0ReplicaAutoScalingUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_0ReplicaAutoScalingUpdate(entry, context));
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndex = (
@@ -6879,21 +5707,14 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
   input: ReplicaGlobalSecondaryIndexAutoScalingUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate(
-      entry,
-      context
-    )
-  );
+  return input.map(entry => serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate(entry, context));
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexList = (
   input: ReplicaGlobalSecondaryIndex[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0ReplicaGlobalSecondaryIndex(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_0ReplicaGlobalSecondaryIndex(entry, context));
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
@@ -6902,8 +5723,7 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
 ): any => {
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
-    ...(input.ProvisionedReadCapacityAutoScalingSettingsUpdate !==
-      undefined && {
+    ...(input.ProvisionedReadCapacityAutoScalingSettingsUpdate !== undefined && {
       ProvisionedReadCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
         input.ProvisionedReadCapacityAutoScalingSettingsUpdate,
         context
@@ -6919,25 +5739,14 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
   input: ReplicaGlobalSecondaryIndexSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate(
-      entry,
-      context
-    )
-  );
+  return input.map(entry => serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate(entry, context));
 };
 
-const serializeAws_json1_0ReplicaList = (
-  input: Replica[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ReplicaList = (input: Replica[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0Replica(entry, context));
 };
 
-const serializeAws_json1_0ReplicaSettingsUpdate = (
-  input: ReplicaSettingsUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ReplicaSettingsUpdate = (input: ReplicaSettingsUpdate, context: __SerdeContext): any => {
   return {
     ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
     ...(input.ReplicaGlobalSecondaryIndexSettingsUpdate !== undefined && {
@@ -6946,16 +5755,14 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (
         context
       )
     }),
-    ...(input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate !==
-      undefined && {
+    ...(input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate !== undefined && {
       ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
         input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
         context
       )
     }),
     ...(input.ReplicaProvisionedReadCapacityUnits !== undefined && {
-      ReplicaProvisionedReadCapacityUnits:
-        input.ReplicaProvisionedReadCapacityUnits
+      ReplicaProvisionedReadCapacityUnits: input.ReplicaProvisionedReadCapacityUnits
     })
   };
 };
@@ -6964,15 +5771,10 @@ const serializeAws_json1_0ReplicaSettingsUpdateList = (
   input: ReplicaSettingsUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0ReplicaSettingsUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_0ReplicaSettingsUpdate(entry, context));
 };
 
-const serializeAws_json1_0ReplicaUpdate = (
-  input: ReplicaUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ReplicaUpdate = (input: ReplicaUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Create !== undefined && {
       Create: serializeAws_json1_0CreateReplicaAction(input.Create, context)
@@ -6983,35 +5785,20 @@ const serializeAws_json1_0ReplicaUpdate = (
   };
 };
 
-const serializeAws_json1_0ReplicaUpdateList = (
-  input: ReplicaUpdate[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ReplicaUpdateList = (input: ReplicaUpdate[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0ReplicaUpdate(entry, context));
 };
 
-const serializeAws_json1_0ReplicationGroupUpdate = (
-  input: ReplicationGroupUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ReplicationGroupUpdate = (input: ReplicationGroupUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Create !== undefined && {
-      Create: serializeAws_json1_0CreateReplicationGroupMemberAction(
-        input.Create,
-        context
-      )
+      Create: serializeAws_json1_0CreateReplicationGroupMemberAction(input.Create, context)
     }),
     ...(input.Delete !== undefined && {
-      Delete: serializeAws_json1_0DeleteReplicationGroupMemberAction(
-        input.Delete,
-        context
-      )
+      Delete: serializeAws_json1_0DeleteReplicationGroupMemberAction(input.Delete, context)
     }),
     ...(input.Update !== undefined && {
-      Update: serializeAws_json1_0UpdateReplicationGroupMemberAction(
-        input.Update,
-        context
-      )
+      Update: serializeAws_json1_0UpdateReplicationGroupMemberAction(input.Update, context)
     })
   };
 };
@@ -7020,9 +5807,7 @@ const serializeAws_json1_0ReplicationGroupUpdateList = (
   input: ReplicationGroupUpdate[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_0ReplicationGroupUpdate(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_0ReplicationGroupUpdate(entry, context));
 };
 
 const serializeAws_json1_0RestoreTableFromBackupInput = (
@@ -7099,10 +5884,7 @@ const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   };
 };
 
-const serializeAws_json1_0SSESpecification = (
-  input: SSESpecification,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0SSESpecification = (input: SSESpecification, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
     ...(input.KMSMasterKeyId !== undefined && {
@@ -7112,16 +5894,10 @@ const serializeAws_json1_0SSESpecification = (
   };
 };
 
-const serializeAws_json1_0ScanInput = (
-  input: ScanInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0ScanInput = (input: ScanInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributesToGet !== undefined && {
-      AttributesToGet: serializeAws_json1_0AttributeNameList(
-        input.AttributesToGet,
-        context
-      )
+      AttributesToGet: serializeAws_json1_0AttributeNameList(input.AttributesToGet, context)
     }),
     ...(input.ConditionalOperator !== undefined && {
       ConditionalOperator: input.ConditionalOperator
@@ -7130,16 +5906,10 @@ const serializeAws_json1_0ScanInput = (
       ConsistentRead: input.ConsistentRead
     }),
     ...(input.ExclusiveStartKey !== undefined && {
-      ExclusiveStartKey: serializeAws_json1_0Key(
-        input.ExclusiveStartKey,
-        context
-      )
+      ExclusiveStartKey: serializeAws_json1_0Key(input.ExclusiveStartKey, context)
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -7159,10 +5929,7 @@ const serializeAws_json1_0ScanInput = (
       ReturnConsumedCapacity: input.ReturnConsumedCapacity
     }),
     ...(input.ScanFilter !== undefined && {
-      ScanFilter: serializeAws_json1_0FilterConditionMap(
-        input.ScanFilter,
-        context
-      )
+      ScanFilter: serializeAws_json1_0FilterConditionMap(input.ScanFilter, context)
     }),
     ...(input.Segment !== undefined && { Segment: input.Segment }),
     ...(input.Select !== undefined && { Select: input.Select }),
@@ -7173,10 +5940,7 @@ const serializeAws_json1_0ScanInput = (
   };
 };
 
-const serializeAws_json1_0StreamSpecification = (
-  input: StreamSpecification,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0StreamSpecification = (input: StreamSpecification, context: __SerdeContext): any => {
   return {
     ...(input.StreamEnabled !== undefined && {
       StreamEnabled: input.StreamEnabled
@@ -7187,10 +5951,7 @@ const serializeAws_json1_0StreamSpecification = (
   };
 };
 
-const serializeAws_json1_0StringSetAttributeValue = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0StringSetAttributeValue = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -7201,24 +5962,15 @@ const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_0TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_0TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0Tag(entry, context));
 };
 
-const serializeAws_json1_0TagResourceInput = (
-  input: TagResourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.Tags !== undefined && {
@@ -7227,10 +5979,7 @@ const serializeAws_json1_0TagResourceInput = (
   };
 };
 
-const serializeAws_json1_0TimeToLiveSpecification = (
-  input: TimeToLiveSpecification,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TimeToLiveSpecification = (input: TimeToLiveSpecification, context: __SerdeContext): any => {
   return {
     ...(input.AttributeName !== undefined && {
       AttributeName: input.AttributeName
@@ -7239,10 +5988,7 @@ const serializeAws_json1_0TimeToLiveSpecification = (
   };
 };
 
-const serializeAws_json1_0TransactGetItem = (
-  input: TransactGetItem,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TransactGetItem = (input: TransactGetItem, context: __SerdeContext): any => {
   return {
     ...(input.Get !== undefined && {
       Get: serializeAws_json1_0Get(input.Get, context)
@@ -7250,42 +5996,25 @@ const serializeAws_json1_0TransactGetItem = (
   };
 };
 
-const serializeAws_json1_0TransactGetItemList = (
-  input: TransactGetItem[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0TransactGetItem(entry, context)
-  );
+const serializeAws_json1_0TransactGetItemList = (input: TransactGetItem[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_0TransactGetItem(entry, context));
 };
 
-const serializeAws_json1_0TransactGetItemsInput = (
-  input: TransactGetItemsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TransactGetItemsInput = (input: TransactGetItemsInput, context: __SerdeContext): any => {
   return {
     ...(input.ReturnConsumedCapacity !== undefined && {
       ReturnConsumedCapacity: input.ReturnConsumedCapacity
     }),
     ...(input.TransactItems !== undefined && {
-      TransactItems: serializeAws_json1_0TransactGetItemList(
-        input.TransactItems,
-        context
-      )
+      TransactItems: serializeAws_json1_0TransactGetItemList(input.TransactItems, context)
     })
   };
 };
 
-const serializeAws_json1_0TransactWriteItem = (
-  input: TransactWriteItem,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TransactWriteItem = (input: TransactWriteItem, context: __SerdeContext): any => {
   return {
     ...(input.ConditionCheck !== undefined && {
-      ConditionCheck: serializeAws_json1_0ConditionCheck(
-        input.ConditionCheck,
-        context
-      )
+      ConditionCheck: serializeAws_json1_0ConditionCheck(input.ConditionCheck, context)
     }),
     ...(input.Delete !== undefined && {
       Delete: serializeAws_json1_0Delete(input.Delete, context)
@@ -7299,19 +6028,11 @@ const serializeAws_json1_0TransactWriteItem = (
   };
 };
 
-const serializeAws_json1_0TransactWriteItemList = (
-  input: TransactWriteItem[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_0TransactWriteItem(entry, context)
-  );
+const serializeAws_json1_0TransactWriteItemList = (input: TransactWriteItem[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_0TransactWriteItem(entry, context));
 };
 
-const serializeAws_json1_0TransactWriteItemsInput = (
-  input: TransactWriteItemsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0TransactWriteItemsInput = (input: TransactWriteItemsInput, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.ReturnConsumedCapacity !== undefined && {
@@ -7321,18 +6042,12 @@ const serializeAws_json1_0TransactWriteItemsInput = (
       ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
     }),
     ...(input.TransactItems !== undefined && {
-      TransactItems: serializeAws_json1_0TransactWriteItemList(
-        input.TransactItems,
-        context
-      )
+      TransactItems: serializeAws_json1_0TransactWriteItemList(input.TransactItems, context)
     })
   };
 };
 
-const serializeAws_json1_0UntagResourceInput = (
-  input: UntagResourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.TagKeys !== undefined && {
@@ -7341,19 +6056,13 @@ const serializeAws_json1_0UntagResourceInput = (
   };
 };
 
-const serializeAws_json1_0Update = (
-  input: Update,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Update = (input: Update, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -7365,8 +6074,7 @@ const serializeAws_json1_0Update = (
       Key: serializeAws_json1_0Key(input.Key, context)
     }),
     ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
-      ReturnValuesOnConditionCheckFailure:
-        input.ReturnValuesOnConditionCheckFailure
+      ReturnValuesOnConditionCheckFailure: input.ReturnValuesOnConditionCheckFailure
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName }),
     ...(input.UpdateExpression !== undefined && {
@@ -7410,27 +6118,18 @@ const serializeAws_json1_0UpdateGlobalSecondaryIndexAction = (
   return {
     ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
     ...(input.ProvisionedThroughput !== undefined && {
-      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
-        input.ProvisionedThroughput,
-        context
-      )
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context)
     })
   };
 };
 
-const serializeAws_json1_0UpdateGlobalTableInput = (
-  input: UpdateGlobalTableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0UpdateGlobalTableInput = (input: UpdateGlobalTableInput, context: __SerdeContext): any => {
   return {
     ...(input.GlobalTableName !== undefined && {
       GlobalTableName: input.GlobalTableName
     }),
     ...(input.ReplicaUpdates !== undefined && {
-      ReplicaUpdates: serializeAws_json1_0ReplicaUpdateList(
-        input.ReplicaUpdates,
-        context
-      )
+      ReplicaUpdates: serializeAws_json1_0ReplicaUpdateList(input.ReplicaUpdates, context)
     })
   };
 };
@@ -7452,36 +6151,25 @@ const serializeAws_json1_0UpdateGlobalTableSettingsInput = (
     ...(input.GlobalTableName !== undefined && {
       GlobalTableName: input.GlobalTableName
     }),
-    ...(input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate !==
-      undefined && {
+    ...(input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate !== undefined && {
       GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
         input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
         context
       )
     }),
     ...(input.GlobalTableProvisionedWriteCapacityUnits !== undefined && {
-      GlobalTableProvisionedWriteCapacityUnits:
-        input.GlobalTableProvisionedWriteCapacityUnits
+      GlobalTableProvisionedWriteCapacityUnits: input.GlobalTableProvisionedWriteCapacityUnits
     }),
     ...(input.ReplicaSettingsUpdate !== undefined && {
-      ReplicaSettingsUpdate: serializeAws_json1_0ReplicaSettingsUpdateList(
-        input.ReplicaSettingsUpdate,
-        context
-      )
+      ReplicaSettingsUpdate: serializeAws_json1_0ReplicaSettingsUpdateList(input.ReplicaSettingsUpdate, context)
     })
   };
 };
 
-const serializeAws_json1_0UpdateItemInput = (
-  input: UpdateItemInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0UpdateItemInput = (input: UpdateItemInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributeUpdates !== undefined && {
-      AttributeUpdates: serializeAws_json1_0AttributeUpdates(
-        input.AttributeUpdates,
-        context
-      )
+      AttributeUpdates: serializeAws_json1_0AttributeUpdates(input.AttributeUpdates, context)
     }),
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
@@ -7490,16 +6178,10 @@ const serializeAws_json1_0UpdateItemInput = (
       ConditionalOperator: input.ConditionalOperator
     }),
     ...(input.Expected !== undefined && {
-      Expected: serializeAws_json1_0ExpectedAttributeMap(
-        input.Expected,
-        context
-      )
+      Expected: serializeAws_json1_0ExpectedAttributeMap(input.Expected, context)
     }),
     ...(input.ExpressionAttributeNames !== undefined && {
-      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
-        input.ExpressionAttributeNames,
-        context
-      )
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(input.ExpressionAttributeNames, context)
     }),
     ...(input.ExpressionAttributeValues !== undefined && {
       ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
@@ -7532,10 +6214,7 @@ const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
 ): any => {
   return {
     ...(input.GlobalSecondaryIndexes !== undefined && {
-      GlobalSecondaryIndexes: serializeAws_json1_0ReplicaGlobalSecondaryIndexList(
-        input.GlobalSecondaryIndexes,
-        context
-      )
+      GlobalSecondaryIndexes: serializeAws_json1_0ReplicaGlobalSecondaryIndexList(input.GlobalSecondaryIndexes, context)
     }),
     ...(input.KMSMasterKeyId !== undefined && {
       KMSMasterKeyId: input.KMSMasterKeyId
@@ -7550,16 +6229,10 @@ const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
   };
 };
 
-const serializeAws_json1_0UpdateTableInput = (
-  input: UpdateTableInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0UpdateTableInput = (input: UpdateTableInput, context: __SerdeContext): any => {
   return {
     ...(input.AttributeDefinitions !== undefined && {
-      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(
-        input.AttributeDefinitions,
-        context
-      )
+      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(input.AttributeDefinitions, context)
     }),
     ...(input.BillingMode !== undefined && { BillingMode: input.BillingMode }),
     ...(input.GlobalSecondaryIndexUpdates !== undefined && {
@@ -7569,28 +6242,16 @@ const serializeAws_json1_0UpdateTableInput = (
       )
     }),
     ...(input.ProvisionedThroughput !== undefined && {
-      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
-        input.ProvisionedThroughput,
-        context
-      )
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(input.ProvisionedThroughput, context)
     }),
     ...(input.ReplicaUpdates !== undefined && {
-      ReplicaUpdates: serializeAws_json1_0ReplicationGroupUpdateList(
-        input.ReplicaUpdates,
-        context
-      )
+      ReplicaUpdates: serializeAws_json1_0ReplicationGroupUpdateList(input.ReplicaUpdates, context)
     }),
     ...(input.SSESpecification !== undefined && {
-      SSESpecification: serializeAws_json1_0SSESpecification(
-        input.SSESpecification,
-        context
-      )
+      SSESpecification: serializeAws_json1_0SSESpecification(input.SSESpecification, context)
     }),
     ...(input.StreamSpecification !== undefined && {
-      StreamSpecification: serializeAws_json1_0StreamSpecification(
-        input.StreamSpecification,
-        context
-      )
+      StreamSpecification: serializeAws_json1_0StreamSpecification(input.StreamSpecification, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
@@ -7614,40 +6275,25 @@ const serializeAws_json1_0UpdateTableReplicaAutoScalingInput = (
       )
     }),
     ...(input.ReplicaUpdates !== undefined && {
-      ReplicaUpdates: serializeAws_json1_0ReplicaAutoScalingUpdateList(
-        input.ReplicaUpdates,
-        context
-      )
+      ReplicaUpdates: serializeAws_json1_0ReplicaAutoScalingUpdateList(input.ReplicaUpdates, context)
     }),
     ...(input.TableName !== undefined && { TableName: input.TableName })
   };
 };
 
-const serializeAws_json1_0UpdateTimeToLiveInput = (
-  input: UpdateTimeToLiveInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0UpdateTimeToLiveInput = (input: UpdateTimeToLiveInput, context: __SerdeContext): any => {
   return {
     ...(input.TableName !== undefined && { TableName: input.TableName }),
     ...(input.TimeToLiveSpecification !== undefined && {
-      TimeToLiveSpecification: serializeAws_json1_0TimeToLiveSpecification(
-        input.TimeToLiveSpecification,
-        context
-      )
+      TimeToLiveSpecification: serializeAws_json1_0TimeToLiveSpecification(input.TimeToLiveSpecification, context)
     })
   };
 };
 
-const serializeAws_json1_0WriteRequest = (
-  input: WriteRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0WriteRequest = (input: WriteRequest, context: __SerdeContext): any => {
   return {
     ...(input.DeleteRequest !== undefined && {
-      DeleteRequest: serializeAws_json1_0DeleteRequest(
-        input.DeleteRequest,
-        context
-      )
+      DeleteRequest: serializeAws_json1_0DeleteRequest(input.DeleteRequest, context)
     }),
     ...(input.PutRequest !== undefined && {
       PutRequest: serializeAws_json1_0PutRequest(input.PutRequest, context)
@@ -7655,10 +6301,7 @@ const serializeAws_json1_0WriteRequest = (
   };
 };
 
-const serializeAws_json1_0WriteRequests = (
-  input: WriteRequest[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0WriteRequests = (input: WriteRequest[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_0WriteRequest(entry, context));
 };
 
@@ -7675,31 +6318,19 @@ const deserializeAws_json1_0DescribeEndpointsResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0Endpoint = (
-  output: any,
-  context: __SerdeContext
-): Endpoint => {
+const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
     __type: "Endpoint",
-    Address:
-      output.Address !== undefined && output.Address !== null
-        ? output.Address
-        : undefined,
+    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     CachePeriodInMinutes:
-      output.CachePeriodInMinutes !== undefined &&
-      output.CachePeriodInMinutes !== null
+      output.CachePeriodInMinutes !== undefined && output.CachePeriodInMinutes !== null
         ? output.CachePeriodInMinutes
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0Endpoints = (
-  output: any,
-  context: __SerdeContext
-): Endpoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Endpoint(entry, context)
-  );
+const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Endpoint(entry, context));
 };
 
 const deserializeAws_json1_0InvalidEndpointException = (
@@ -7708,22 +6339,15 @@ const deserializeAws_json1_0InvalidEndpointException = (
 ): InvalidEndpointException => {
   return {
     __type: "InvalidEndpointException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ArchivalSummary = (
-  output: any,
-  context: __SerdeContext
-): ArchivalSummary => {
+const deserializeAws_json1_0ArchivalSummary = (output: any, context: __SerdeContext): ArchivalSummary => {
   return {
     __type: "ArchivalSummary",
     ArchivalBackupArn:
-      output.ArchivalBackupArn !== undefined &&
-      output.ArchivalBackupArn !== null
+      output.ArchivalBackupArn !== undefined && output.ArchivalBackupArn !== null
         ? output.ArchivalBackupArn
         : undefined,
     ArchivalDateTime:
@@ -7731,36 +6355,22 @@ const deserializeAws_json1_0ArchivalSummary = (
         ? new Date(Math.round(output.ArchivalDateTime * 1000))
         : undefined,
     ArchivalReason:
-      output.ArchivalReason !== undefined && output.ArchivalReason !== null
-        ? output.ArchivalReason
-        : undefined
+      output.ArchivalReason !== undefined && output.ArchivalReason !== null ? output.ArchivalReason : undefined
   } as any;
 };
 
-const deserializeAws_json1_0AttributeDefinition = (
-  output: any,
-  context: __SerdeContext
-): AttributeDefinition => {
+const deserializeAws_json1_0AttributeDefinition = (output: any, context: __SerdeContext): AttributeDefinition => {
   return {
     __type: "AttributeDefinition",
     AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null
-        ? output.AttributeName
-        : undefined,
+      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     AttributeType:
-      output.AttributeType !== undefined && output.AttributeType !== null
-        ? output.AttributeType
-        : undefined
+      output.AttributeType !== undefined && output.AttributeType !== null ? output.AttributeType : undefined
   } as any;
 };
 
-const deserializeAws_json1_0AttributeDefinitions = (
-  output: any,
-  context: __SerdeContext
-): AttributeDefinition[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0AttributeDefinition(entry, context)
-  );
+const deserializeAws_json1_0AttributeDefinitions = (output: any, context: __SerdeContext): AttributeDefinition[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0AttributeDefinition(entry, context));
 };
 
 const deserializeAws_json1_0AttributeMap = (
@@ -7776,27 +6386,15 @@ const deserializeAws_json1_0AttributeMap = (
   );
 };
 
-const deserializeAws_json1_0AttributeNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_0AttributeNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_0AttributeValue = (
-  output: any,
-  context: __SerdeContext
-): AttributeValue => {
+const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
     __type: "AttributeValue",
-    B:
-      output.B !== undefined && output.B !== null
-        ? context.base64Decoder(output.B)
-        : undefined,
-    BOOL:
-      output.BOOL !== undefined && output.BOOL !== null
-        ? output.BOOL
-        : undefined,
+    B: output.B !== undefined && output.B !== null ? context.base64Decoder(output.B) : undefined,
+    BOOL: output.BOOL !== undefined && output.BOOL !== null ? output.BOOL : undefined,
     BS:
       output.BS !== undefined && output.BS !== null
         ? deserializeAws_json1_0BinarySetAttributeValue(output.BS, context)
@@ -7814,10 +6412,7 @@ const deserializeAws_json1_0AttributeValue = (
       output.NS !== undefined && output.NS !== null
         ? deserializeAws_json1_0NumberSetAttributeValue(output.NS, context)
         : undefined,
-    NULL:
-      output.NULL !== undefined && output.NULL !== null
-        ? output.NULL
-        : undefined,
+    NULL: output.NULL !== undefined && output.NULL !== null ? output.NULL : undefined,
     S: output.S !== undefined && output.S !== null ? output.S : undefined,
     SS:
       output.SS !== undefined && output.SS !== null
@@ -7832,10 +6427,7 @@ const deserializeAws_json1_0AutoScalingPolicyDescription = (
 ): AutoScalingPolicyDescription => {
   return {
     __type: "AutoScalingPolicyDescription",
-    PolicyName:
-      output.PolicyName !== undefined && output.PolicyName !== null
-        ? output.PolicyName
-        : undefined,
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
     TargetTrackingScalingPolicyConfiguration:
       output.TargetTrackingScalingPolicyConfiguration !== undefined &&
       output.TargetTrackingScalingPolicyConfiguration !== null
@@ -7851,9 +6443,7 @@ const deserializeAws_json1_0AutoScalingPolicyDescriptionList = (
   output: any,
   context: __SerdeContext
 ): AutoScalingPolicyDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0AutoScalingPolicyDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0AutoScalingPolicyDescription(entry, context));
 };
 
 const deserializeAws_json1_0AutoScalingSettingsDescription = (
@@ -7863,29 +6453,18 @@ const deserializeAws_json1_0AutoScalingSettingsDescription = (
   return {
     __type: "AutoScalingSettingsDescription",
     AutoScalingDisabled:
-      output.AutoScalingDisabled !== undefined &&
-      output.AutoScalingDisabled !== null
+      output.AutoScalingDisabled !== undefined && output.AutoScalingDisabled !== null
         ? output.AutoScalingDisabled
         : undefined,
     AutoScalingRoleArn:
-      output.AutoScalingRoleArn !== undefined &&
-      output.AutoScalingRoleArn !== null
+      output.AutoScalingRoleArn !== undefined && output.AutoScalingRoleArn !== null
         ? output.AutoScalingRoleArn
         : undefined,
-    MaximumUnits:
-      output.MaximumUnits !== undefined && output.MaximumUnits !== null
-        ? output.MaximumUnits
-        : undefined,
-    MinimumUnits:
-      output.MinimumUnits !== undefined && output.MinimumUnits !== null
-        ? output.MinimumUnits
-        : undefined,
+    MaximumUnits: output.MaximumUnits !== undefined && output.MaximumUnits !== null ? output.MaximumUnits : undefined,
+    MinimumUnits: output.MinimumUnits !== undefined && output.MinimumUnits !== null ? output.MinimumUnits : undefined,
     ScalingPolicies:
       output.ScalingPolicies !== undefined && output.ScalingPolicies !== null
-        ? deserializeAws_json1_0AutoScalingPolicyDescriptionList(
-            output.ScalingPolicies,
-            context
-          )
+        ? deserializeAws_json1_0AutoScalingPolicyDescriptionList(output.ScalingPolicies, context)
         : undefined
   } as any;
 };
@@ -7897,28 +6476,16 @@ const deserializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationD
   return {
     __type: "AutoScalingTargetTrackingScalingPolicyConfigurationDescription",
     DisableScaleIn:
-      output.DisableScaleIn !== undefined && output.DisableScaleIn !== null
-        ? output.DisableScaleIn
-        : undefined,
+      output.DisableScaleIn !== undefined && output.DisableScaleIn !== null ? output.DisableScaleIn : undefined,
     ScaleInCooldown:
-      output.ScaleInCooldown !== undefined && output.ScaleInCooldown !== null
-        ? output.ScaleInCooldown
-        : undefined,
+      output.ScaleInCooldown !== undefined && output.ScaleInCooldown !== null ? output.ScaleInCooldown : undefined,
     ScaleOutCooldown:
-      output.ScaleOutCooldown !== undefined && output.ScaleOutCooldown !== null
-        ? output.ScaleOutCooldown
-        : undefined,
-    TargetValue:
-      output.TargetValue !== undefined && output.TargetValue !== null
-        ? output.TargetValue
-        : undefined
+      output.ScaleOutCooldown !== undefined && output.ScaleOutCooldown !== null ? output.ScaleOutCooldown : undefined,
+    TargetValue: output.TargetValue !== undefined && output.TargetValue !== null ? output.TargetValue : undefined
   } as any;
 };
 
-const deserializeAws_json1_0BackupDescription = (
-  output: any,
-  context: __SerdeContext
-): BackupDescription => {
+const deserializeAws_json1_0BackupDescription = (output: any, context: __SerdeContext): BackupDescription => {
   return {
     __type: "BackupDescription",
     BackupDetails:
@@ -7926,73 +6493,40 @@ const deserializeAws_json1_0BackupDescription = (
         ? deserializeAws_json1_0BackupDetails(output.BackupDetails, context)
         : undefined,
     SourceTableDetails:
-      output.SourceTableDetails !== undefined &&
-      output.SourceTableDetails !== null
-        ? deserializeAws_json1_0SourceTableDetails(
-            output.SourceTableDetails,
-            context
-          )
+      output.SourceTableDetails !== undefined && output.SourceTableDetails !== null
+        ? deserializeAws_json1_0SourceTableDetails(output.SourceTableDetails, context)
         : undefined,
     SourceTableFeatureDetails:
-      output.SourceTableFeatureDetails !== undefined &&
-      output.SourceTableFeatureDetails !== null
-        ? deserializeAws_json1_0SourceTableFeatureDetails(
-            output.SourceTableFeatureDetails,
-            context
-          )
+      output.SourceTableFeatureDetails !== undefined && output.SourceTableFeatureDetails !== null
+        ? deserializeAws_json1_0SourceTableFeatureDetails(output.SourceTableFeatureDetails, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0BackupDetails = (
-  output: any,
-  context: __SerdeContext
-): BackupDetails => {
+const deserializeAws_json1_0BackupDetails = (output: any, context: __SerdeContext): BackupDetails => {
   return {
     __type: "BackupDetails",
-    BackupArn:
-      output.BackupArn !== undefined && output.BackupArn !== null
-        ? output.BackupArn
-        : undefined,
+    BackupArn: output.BackupArn !== undefined && output.BackupArn !== null ? output.BackupArn : undefined,
     BackupCreationDateTime:
-      output.BackupCreationDateTime !== undefined &&
-      output.BackupCreationDateTime !== null
+      output.BackupCreationDateTime !== undefined && output.BackupCreationDateTime !== null
         ? new Date(Math.round(output.BackupCreationDateTime * 1000))
         : undefined,
     BackupExpiryDateTime:
-      output.BackupExpiryDateTime !== undefined &&
-      output.BackupExpiryDateTime !== null
+      output.BackupExpiryDateTime !== undefined && output.BackupExpiryDateTime !== null
         ? new Date(Math.round(output.BackupExpiryDateTime * 1000))
         : undefined,
-    BackupName:
-      output.BackupName !== undefined && output.BackupName !== null
-        ? output.BackupName
-        : undefined,
+    BackupName: output.BackupName !== undefined && output.BackupName !== null ? output.BackupName : undefined,
     BackupSizeBytes:
-      output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null
-        ? output.BackupSizeBytes
-        : undefined,
-    BackupStatus:
-      output.BackupStatus !== undefined && output.BackupStatus !== null
-        ? output.BackupStatus
-        : undefined,
-    BackupType:
-      output.BackupType !== undefined && output.BackupType !== null
-        ? output.BackupType
-        : undefined
+      output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null ? output.BackupSizeBytes : undefined,
+    BackupStatus: output.BackupStatus !== undefined && output.BackupStatus !== null ? output.BackupStatus : undefined,
+    BackupType: output.BackupType !== undefined && output.BackupType !== null ? output.BackupType : undefined
   } as any;
 };
 
-const deserializeAws_json1_0BackupInUseException = (
-  output: any,
-  context: __SerdeContext
-): BackupInUseException => {
+const deserializeAws_json1_0BackupInUseException = (output: any, context: __SerdeContext): BackupInUseException => {
   return {
     __type: "BackupInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8002,85 +6536,43 @@ const deserializeAws_json1_0BackupNotFoundException = (
 ): BackupNotFoundException => {
   return {
     __type: "BackupNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0BackupSummaries = (
-  output: any,
-  context: __SerdeContext
-): BackupSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0BackupSummary(entry, context)
-  );
+const deserializeAws_json1_0BackupSummaries = (output: any, context: __SerdeContext): BackupSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0BackupSummary(entry, context));
 };
 
-const deserializeAws_json1_0BackupSummary = (
-  output: any,
-  context: __SerdeContext
-): BackupSummary => {
+const deserializeAws_json1_0BackupSummary = (output: any, context: __SerdeContext): BackupSummary => {
   return {
     __type: "BackupSummary",
-    BackupArn:
-      output.BackupArn !== undefined && output.BackupArn !== null
-        ? output.BackupArn
-        : undefined,
+    BackupArn: output.BackupArn !== undefined && output.BackupArn !== null ? output.BackupArn : undefined,
     BackupCreationDateTime:
-      output.BackupCreationDateTime !== undefined &&
-      output.BackupCreationDateTime !== null
+      output.BackupCreationDateTime !== undefined && output.BackupCreationDateTime !== null
         ? new Date(Math.round(output.BackupCreationDateTime * 1000))
         : undefined,
     BackupExpiryDateTime:
-      output.BackupExpiryDateTime !== undefined &&
-      output.BackupExpiryDateTime !== null
+      output.BackupExpiryDateTime !== undefined && output.BackupExpiryDateTime !== null
         ? new Date(Math.round(output.BackupExpiryDateTime * 1000))
         : undefined,
-    BackupName:
-      output.BackupName !== undefined && output.BackupName !== null
-        ? output.BackupName
-        : undefined,
+    BackupName: output.BackupName !== undefined && output.BackupName !== null ? output.BackupName : undefined,
     BackupSizeBytes:
-      output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null
-        ? output.BackupSizeBytes
-        : undefined,
-    BackupStatus:
-      output.BackupStatus !== undefined && output.BackupStatus !== null
-        ? output.BackupStatus
-        : undefined,
-    BackupType:
-      output.BackupType !== undefined && output.BackupType !== null
-        ? output.BackupType
-        : undefined,
-    TableArn:
-      output.TableArn !== undefined && output.TableArn !== null
-        ? output.TableArn
-        : undefined,
-    TableId:
-      output.TableId !== undefined && output.TableId !== null
-        ? output.TableId
-        : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+      output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null ? output.BackupSizeBytes : undefined,
+    BackupStatus: output.BackupStatus !== undefined && output.BackupStatus !== null ? output.BackupStatus : undefined,
+    BackupType: output.BackupType !== undefined && output.BackupType !== null ? output.BackupType : undefined,
+    TableArn: output.TableArn !== undefined && output.TableArn !== null ? output.TableArn : undefined,
+    TableId: output.TableId !== undefined && output.TableId !== null ? output.TableId : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
-const deserializeAws_json1_0BatchGetItemOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchGetItemOutput => {
+const deserializeAws_json1_0BatchGetItemOutput = (output: any, context: __SerdeContext): BatchGetItemOutput => {
   return {
     __type: "BatchGetItemOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacityMultiple(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
         : undefined,
     Responses:
       output.Responses !== undefined && output.Responses !== null
@@ -8088,10 +6580,7 @@ const deserializeAws_json1_0BatchGetItemOutput = (
         : undefined,
     UnprocessedKeys:
       output.UnprocessedKeys !== undefined && output.UnprocessedKeys !== null
-        ? deserializeAws_json1_0BatchGetRequestMap(
-            output.UnprocessedKeys,
-            context
-          )
+        ? deserializeAws_json1_0BatchGetRequestMap(output.UnprocessedKeys, context)
         : undefined
   } as any;
 };
@@ -8101,10 +6590,7 @@ const deserializeAws_json1_0BatchGetRequestMap = (
   context: __SerdeContext
 ): { [key: string]: KeysAndAttributes } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: KeysAndAttributes },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: KeysAndAttributes }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_json1_0KeysAndAttributes(value, context)
     }),
@@ -8117,10 +6603,7 @@ const deserializeAws_json1_0BatchGetResponseMap = (
   context: __SerdeContext
 ): { [key: string]: { [key: string]: AttributeValue }[] } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: { [key: string]: AttributeValue }[] },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: { [key: string]: AttributeValue }[] }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_json1_0ItemList(value, context)
     }),
@@ -8128,33 +6611,20 @@ const deserializeAws_json1_0BatchGetResponseMap = (
   );
 };
 
-const deserializeAws_json1_0BatchWriteItemOutput = (
-  output: any,
-  context: __SerdeContext
-): BatchWriteItemOutput => {
+const deserializeAws_json1_0BatchWriteItemOutput = (output: any, context: __SerdeContext): BatchWriteItemOutput => {
   return {
     __type: "BatchWriteItemOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacityMultiple(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
         : undefined,
     ItemCollectionMetrics:
-      output.ItemCollectionMetrics !== undefined &&
-      output.ItemCollectionMetrics !== null
-        ? deserializeAws_json1_0ItemCollectionMetricsPerTable(
-            output.ItemCollectionMetrics,
-            context
-          )
+      output.ItemCollectionMetrics !== undefined && output.ItemCollectionMetrics !== null
+        ? deserializeAws_json1_0ItemCollectionMetricsPerTable(output.ItemCollectionMetrics, context)
         : undefined,
     UnprocessedItems:
       output.UnprocessedItems !== undefined && output.UnprocessedItems !== null
-        ? deserializeAws_json1_0BatchWriteItemRequestMap(
-            output.UnprocessedItems,
-            context
-          )
+        ? deserializeAws_json1_0BatchWriteItemRequestMap(output.UnprocessedItems, context)
         : undefined
   } as any;
 };
@@ -8172,79 +6642,48 @@ const deserializeAws_json1_0BatchWriteItemRequestMap = (
   );
 };
 
-const deserializeAws_json1_0BillingModeSummary = (
-  output: any,
-  context: __SerdeContext
-): BillingModeSummary => {
+const deserializeAws_json1_0BillingModeSummary = (output: any, context: __SerdeContext): BillingModeSummary => {
   return {
     __type: "BillingModeSummary",
-    BillingMode:
-      output.BillingMode !== undefined && output.BillingMode !== null
-        ? output.BillingMode
-        : undefined,
+    BillingMode: output.BillingMode !== undefined && output.BillingMode !== null ? output.BillingMode : undefined,
     LastUpdateToPayPerRequestDateTime:
-      output.LastUpdateToPayPerRequestDateTime !== undefined &&
-      output.LastUpdateToPayPerRequestDateTime !== null
+      output.LastUpdateToPayPerRequestDateTime !== undefined && output.LastUpdateToPayPerRequestDateTime !== null
         ? new Date(Math.round(output.LastUpdateToPayPerRequestDateTime * 1000))
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0BinarySetAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): Uint8Array[] => {
+const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __SerdeContext): Uint8Array[] => {
   return (output || []).map((entry: any) => context.base64Decoder(entry));
 };
 
-const deserializeAws_json1_0CancellationReason = (
-  output: any,
-  context: __SerdeContext
-): CancellationReason => {
+const deserializeAws_json1_0CancellationReason = (output: any, context: __SerdeContext): CancellationReason => {
   return {
     __type: "CancellationReason",
-    Code:
-      output.Code !== undefined && output.Code !== null
-        ? output.Code
-        : undefined,
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_json1_0AttributeMap(output.Item, context)
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0CancellationReasonList = (
-  output: any,
-  context: __SerdeContext
-): CancellationReason[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0CancellationReason(entry, context)
-  );
+const deserializeAws_json1_0CancellationReasonList = (output: any, context: __SerdeContext): CancellationReason[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0CancellationReason(entry, context));
 };
 
-const deserializeAws_json1_0Capacity = (
-  output: any,
-  context: __SerdeContext
-): Capacity => {
+const deserializeAws_json1_0Capacity = (output: any, context: __SerdeContext): Capacity => {
   return {
     __type: "Capacity",
     CapacityUnits:
-      output.CapacityUnits !== undefined && output.CapacityUnits !== null
-        ? output.CapacityUnits
-        : undefined,
+      output.CapacityUnits !== undefined && output.CapacityUnits !== null ? output.CapacityUnits : undefined,
     ReadCapacityUnits:
-      output.ReadCapacityUnits !== undefined &&
-      output.ReadCapacityUnits !== null
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
         ? output.ReadCapacityUnits
         : undefined,
     WriteCapacityUnits:
-      output.WriteCapacityUnits !== undefined &&
-      output.WriteCapacityUnits !== null
+      output.WriteCapacityUnits !== undefined && output.WriteCapacityUnits !== null
         ? output.WriteCapacityUnits
         : undefined
   } as any;
@@ -8256,67 +6695,41 @@ const deserializeAws_json1_0ConditionalCheckFailedException = (
 ): ConditionalCheckFailedException => {
   return {
     __type: "ConditionalCheckFailedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ConsumedCapacity = (
-  output: any,
-  context: __SerdeContext
-): ConsumedCapacity => {
+const deserializeAws_json1_0ConsumedCapacity = (output: any, context: __SerdeContext): ConsumedCapacity => {
   return {
     __type: "ConsumedCapacity",
     CapacityUnits:
-      output.CapacityUnits !== undefined && output.CapacityUnits !== null
-        ? output.CapacityUnits
-        : undefined,
+      output.CapacityUnits !== undefined && output.CapacityUnits !== null ? output.CapacityUnits : undefined,
     GlobalSecondaryIndexes:
-      output.GlobalSecondaryIndexes !== undefined &&
-      output.GlobalSecondaryIndexes !== null
-        ? deserializeAws_json1_0SecondaryIndexesCapacityMap(
-            output.GlobalSecondaryIndexes,
-            context
-          )
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
+        ? deserializeAws_json1_0SecondaryIndexesCapacityMap(output.GlobalSecondaryIndexes, context)
         : undefined,
     LocalSecondaryIndexes:
-      output.LocalSecondaryIndexes !== undefined &&
-      output.LocalSecondaryIndexes !== null
-        ? deserializeAws_json1_0SecondaryIndexesCapacityMap(
-            output.LocalSecondaryIndexes,
-            context
-          )
+      output.LocalSecondaryIndexes !== undefined && output.LocalSecondaryIndexes !== null
+        ? deserializeAws_json1_0SecondaryIndexesCapacityMap(output.LocalSecondaryIndexes, context)
         : undefined,
     ReadCapacityUnits:
-      output.ReadCapacityUnits !== undefined &&
-      output.ReadCapacityUnits !== null
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
         ? output.ReadCapacityUnits
         : undefined,
     Table:
       output.Table !== undefined && output.Table !== null
         ? deserializeAws_json1_0Capacity(output.Table, context)
         : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
     WriteCapacityUnits:
-      output.WriteCapacityUnits !== undefined &&
-      output.WriteCapacityUnits !== null
+      output.WriteCapacityUnits !== undefined && output.WriteCapacityUnits !== null
         ? output.WriteCapacityUnits
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ConsumedCapacityMultiple = (
-  output: any,
-  context: __SerdeContext
-): ConsumedCapacity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ConsumedCapacity(entry, context)
-  );
+const deserializeAws_json1_0ConsumedCapacityMultiple = (output: any, context: __SerdeContext): ConsumedCapacity[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0ConsumedCapacity(entry, context));
 };
 
 const deserializeAws_json1_0ContinuousBackupsDescription = (
@@ -8326,17 +6739,12 @@ const deserializeAws_json1_0ContinuousBackupsDescription = (
   return {
     __type: "ContinuousBackupsDescription",
     ContinuousBackupsStatus:
-      output.ContinuousBackupsStatus !== undefined &&
-      output.ContinuousBackupsStatus !== null
+      output.ContinuousBackupsStatus !== undefined && output.ContinuousBackupsStatus !== null
         ? output.ContinuousBackupsStatus
         : undefined,
     PointInTimeRecoveryDescription:
-      output.PointInTimeRecoveryDescription !== undefined &&
-      output.PointInTimeRecoveryDescription !== null
-        ? deserializeAws_json1_0PointInTimeRecoveryDescription(
-            output.PointInTimeRecoveryDescription,
-            context
-          )
+      output.PointInTimeRecoveryDescription !== undefined && output.PointInTimeRecoveryDescription !== null
+        ? deserializeAws_json1_0PointInTimeRecoveryDescription(output.PointInTimeRecoveryDescription, context)
         : undefined
   } as any;
 };
@@ -8347,17 +6755,11 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableException = (
 ): ContinuousBackupsUnavailableException => {
   return {
     __type: "ContinuousBackupsUnavailableException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ContributorInsightsRuleList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_0ContributorInsightsRuleList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -8365,9 +6767,7 @@ const deserializeAws_json1_0ContributorInsightsSummaries = (
   output: any,
   context: __SerdeContext
 ): ContributorInsightsSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ContributorInsightsSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0ContributorInsightsSummary(entry, context));
 };
 
 const deserializeAws_json1_0ContributorInsightsSummary = (
@@ -8377,25 +6777,15 @@ const deserializeAws_json1_0ContributorInsightsSummary = (
   return {
     __type: "ContributorInsightsSummary",
     ContributorInsightsStatus:
-      output.ContributorInsightsStatus !== undefined &&
-      output.ContributorInsightsStatus !== null
+      output.ContributorInsightsStatus !== undefined && output.ContributorInsightsStatus !== null
         ? output.ContributorInsightsStatus
         : undefined,
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
-const deserializeAws_json1_0CreateBackupOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateBackupOutput => {
+const deserializeAws_json1_0CreateBackupOutput = (output: any, context: __SerdeContext): CreateBackupOutput => {
   return {
     __type: "CreateBackupOutput",
     BackupDetails:
@@ -8412,53 +6802,33 @@ const deserializeAws_json1_0CreateGlobalTableOutput = (
   return {
     __type: "CreateGlobalTableOutput",
     GlobalTableDescription:
-      output.GlobalTableDescription !== undefined &&
-      output.GlobalTableDescription !== null
-        ? deserializeAws_json1_0GlobalTableDescription(
-            output.GlobalTableDescription,
-            context
-          )
+      output.GlobalTableDescription !== undefined && output.GlobalTableDescription !== null
+        ? deserializeAws_json1_0GlobalTableDescription(output.GlobalTableDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0CreateTableOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateTableOutput => {
+const deserializeAws_json1_0CreateTableOutput = (output: any, context: __SerdeContext): CreateTableOutput => {
   return {
     __type: "CreateTableOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
-        ? deserializeAws_json1_0TableDescription(
-            output.TableDescription,
-            context
-          )
+        ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DeleteBackupOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteBackupOutput => {
+const deserializeAws_json1_0DeleteBackupOutput = (output: any, context: __SerdeContext): DeleteBackupOutput => {
   return {
     __type: "DeleteBackupOutput",
     BackupDescription:
-      output.BackupDescription !== undefined &&
-      output.BackupDescription !== null
-        ? deserializeAws_json1_0BackupDescription(
-            output.BackupDescription,
-            context
-          )
+      output.BackupDescription !== undefined && output.BackupDescription !== null
+        ? deserializeAws_json1_0BackupDescription(output.BackupDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DeleteItemOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteItemOutput => {
+const deserializeAws_json1_0DeleteItemOutput = (output: any, context: __SerdeContext): DeleteItemOutput => {
   return {
     __type: "DeleteItemOutput",
     Attributes:
@@ -8467,64 +6837,38 @@ const deserializeAws_json1_0DeleteItemOutput = (
         : undefined,
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
     ItemCollectionMetrics:
-      output.ItemCollectionMetrics !== undefined &&
-      output.ItemCollectionMetrics !== null
-        ? deserializeAws_json1_0ItemCollectionMetrics(
-            output.ItemCollectionMetrics,
-            context
-          )
+      output.ItemCollectionMetrics !== undefined && output.ItemCollectionMetrics !== null
+        ? deserializeAws_json1_0ItemCollectionMetrics(output.ItemCollectionMetrics, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DeleteRequest = (
-  output: any,
-  context: __SerdeContext
-): DeleteRequest => {
+const deserializeAws_json1_0DeleteRequest = (output: any, context: __SerdeContext): DeleteRequest => {
   return {
     __type: "DeleteRequest",
-    Key:
-      output.Key !== undefined && output.Key !== null
-        ? deserializeAws_json1_0Key(output.Key, context)
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? deserializeAws_json1_0Key(output.Key, context) : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DeleteTableOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteTableOutput => {
+const deserializeAws_json1_0DeleteTableOutput = (output: any, context: __SerdeContext): DeleteTableOutput => {
   return {
     __type: "DeleteTableOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
-        ? deserializeAws_json1_0TableDescription(
-            output.TableDescription,
-            context
-          )
+        ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DescribeBackupOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeBackupOutput => {
+const deserializeAws_json1_0DescribeBackupOutput = (output: any, context: __SerdeContext): DescribeBackupOutput => {
   return {
     __type: "DescribeBackupOutput",
     BackupDescription:
-      output.BackupDescription !== undefined &&
-      output.BackupDescription !== null
-        ? deserializeAws_json1_0BackupDescription(
-            output.BackupDescription,
-            context
-          )
+      output.BackupDescription !== undefined && output.BackupDescription !== null
+        ? deserializeAws_json1_0BackupDescription(output.BackupDescription, context)
         : undefined
   } as any;
 };
@@ -8536,12 +6880,8 @@ const deserializeAws_json1_0DescribeContinuousBackupsOutput = (
   return {
     __type: "DescribeContinuousBackupsOutput",
     ContinuousBackupsDescription:
-      output.ContinuousBackupsDescription !== undefined &&
-      output.ContinuousBackupsDescription !== null
-        ? deserializeAws_json1_0ContinuousBackupsDescription(
-            output.ContinuousBackupsDescription,
-            context
-          )
+      output.ContinuousBackupsDescription !== undefined && output.ContinuousBackupsDescription !== null
+        ? deserializeAws_json1_0ContinuousBackupsDescription(output.ContinuousBackupsDescription, context)
         : undefined
   } as any;
 };
@@ -8553,38 +6893,23 @@ const deserializeAws_json1_0DescribeContributorInsightsOutput = (
   return {
     __type: "DescribeContributorInsightsOutput",
     ContributorInsightsRuleList:
-      output.ContributorInsightsRuleList !== undefined &&
-      output.ContributorInsightsRuleList !== null
-        ? deserializeAws_json1_0ContributorInsightsRuleList(
-            output.ContributorInsightsRuleList,
-            context
-          )
+      output.ContributorInsightsRuleList !== undefined && output.ContributorInsightsRuleList !== null
+        ? deserializeAws_json1_0ContributorInsightsRuleList(output.ContributorInsightsRuleList, context)
         : undefined,
     ContributorInsightsStatus:
-      output.ContributorInsightsStatus !== undefined &&
-      output.ContributorInsightsStatus !== null
+      output.ContributorInsightsStatus !== undefined && output.ContributorInsightsStatus !== null
         ? output.ContributorInsightsStatus
         : undefined,
     FailureException:
       output.FailureException !== undefined && output.FailureException !== null
-        ? deserializeAws_json1_0FailureException(
-            output.FailureException,
-            context
-          )
+        ? deserializeAws_json1_0FailureException(output.FailureException, context)
         : undefined,
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     LastUpdateDateTime:
-      output.LastUpdateDateTime !== undefined &&
-      output.LastUpdateDateTime !== null
+      output.LastUpdateDateTime !== undefined && output.LastUpdateDateTime !== null
         ? new Date(Math.round(output.LastUpdateDateTime * 1000))
         : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
@@ -8595,12 +6920,8 @@ const deserializeAws_json1_0DescribeGlobalTableOutput = (
   return {
     __type: "DescribeGlobalTableOutput",
     GlobalTableDescription:
-      output.GlobalTableDescription !== undefined &&
-      output.GlobalTableDescription !== null
-        ? deserializeAws_json1_0GlobalTableDescription(
-            output.GlobalTableDescription,
-            context
-          )
+      output.GlobalTableDescription !== undefined && output.GlobalTableDescription !== null
+        ? deserializeAws_json1_0GlobalTableDescription(output.GlobalTableDescription, context)
         : undefined
   } as any;
 };
@@ -8612,52 +6933,37 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsOutput = (
   return {
     __type: "DescribeGlobalTableSettingsOutput",
     GlobalTableName:
-      output.GlobalTableName !== undefined && output.GlobalTableName !== null
-        ? output.GlobalTableName
-        : undefined,
+      output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     ReplicaSettings:
       output.ReplicaSettings !== undefined && output.ReplicaSettings !== null
-        ? deserializeAws_json1_0ReplicaSettingsDescriptionList(
-            output.ReplicaSettings,
-            context
-          )
+        ? deserializeAws_json1_0ReplicaSettingsDescriptionList(output.ReplicaSettings, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DescribeLimitsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeLimitsOutput => {
+const deserializeAws_json1_0DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
   return {
     __type: "DescribeLimitsOutput",
     AccountMaxReadCapacityUnits:
-      output.AccountMaxReadCapacityUnits !== undefined &&
-      output.AccountMaxReadCapacityUnits !== null
+      output.AccountMaxReadCapacityUnits !== undefined && output.AccountMaxReadCapacityUnits !== null
         ? output.AccountMaxReadCapacityUnits
         : undefined,
     AccountMaxWriteCapacityUnits:
-      output.AccountMaxWriteCapacityUnits !== undefined &&
-      output.AccountMaxWriteCapacityUnits !== null
+      output.AccountMaxWriteCapacityUnits !== undefined && output.AccountMaxWriteCapacityUnits !== null
         ? output.AccountMaxWriteCapacityUnits
         : undefined,
     TableMaxReadCapacityUnits:
-      output.TableMaxReadCapacityUnits !== undefined &&
-      output.TableMaxReadCapacityUnits !== null
+      output.TableMaxReadCapacityUnits !== undefined && output.TableMaxReadCapacityUnits !== null
         ? output.TableMaxReadCapacityUnits
         : undefined,
     TableMaxWriteCapacityUnits:
-      output.TableMaxWriteCapacityUnits !== undefined &&
-      output.TableMaxWriteCapacityUnits !== null
+      output.TableMaxWriteCapacityUnits !== undefined && output.TableMaxWriteCapacityUnits !== null
         ? output.TableMaxWriteCapacityUnits
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0DescribeTableOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTableOutput => {
+const deserializeAws_json1_0DescribeTableOutput = (output: any, context: __SerdeContext): DescribeTableOutput => {
   return {
     __type: "DescribeTableOutput",
     Table:
@@ -8674,12 +6980,8 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput = (
   return {
     __type: "DescribeTableReplicaAutoScalingOutput",
     TableAutoScalingDescription:
-      output.TableAutoScalingDescription !== undefined &&
-      output.TableAutoScalingDescription !== null
-        ? deserializeAws_json1_0TableAutoScalingDescription(
-            output.TableAutoScalingDescription,
-            context
-          )
+      output.TableAutoScalingDescription !== undefined && output.TableAutoScalingDescription !== null
+        ? deserializeAws_json1_0TableAutoScalingDescription(output.TableAutoScalingDescription, context)
         : undefined
   } as any;
 };
@@ -8691,12 +6993,8 @@ const deserializeAws_json1_0DescribeTimeToLiveOutput = (
   return {
     __type: "DescribeTimeToLiveOutput",
     TimeToLiveDescription:
-      output.TimeToLiveDescription !== undefined &&
-      output.TimeToLiveDescription !== null
-        ? deserializeAws_json1_0TimeToLiveDescription(
-            output.TimeToLiveDescription,
-            context
-          )
+      output.TimeToLiveDescription !== undefined && output.TimeToLiveDescription !== null
+        ? deserializeAws_json1_0TimeToLiveDescription(output.TimeToLiveDescription, context)
         : undefined
   } as any;
 };
@@ -8714,36 +7012,24 @@ const deserializeAws_json1_0ExpressionAttributeNameMap = (
   );
 };
 
-const deserializeAws_json1_0FailureException = (
-  output: any,
-  context: __SerdeContext
-): FailureException => {
+const deserializeAws_json1_0FailureException = (output: any, context: __SerdeContext): FailureException => {
   return {
     __type: "FailureException",
     ExceptionDescription:
-      output.ExceptionDescription !== undefined &&
-      output.ExceptionDescription !== null
+      output.ExceptionDescription !== undefined && output.ExceptionDescription !== null
         ? output.ExceptionDescription
         : undefined,
     ExceptionName:
-      output.ExceptionName !== undefined && output.ExceptionName !== null
-        ? output.ExceptionName
-        : undefined
+      output.ExceptionName !== undefined && output.ExceptionName !== null ? output.ExceptionName : undefined
   } as any;
 };
 
-const deserializeAws_json1_0GetItemOutput = (
-  output: any,
-  context: __SerdeContext
-): GetItemOutput => {
+const deserializeAws_json1_0GetItemOutput = (output: any, context: __SerdeContext): GetItemOutput => {
   return {
     __type: "GetItemOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
     Item:
       output.Item !== undefined && output.Item !== null
@@ -8758,30 +7044,13 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescription = (
 ): GlobalSecondaryIndexDescription => {
   return {
     __type: "GlobalSecondaryIndexDescription",
-    Backfilling:
-      output.Backfilling !== undefined && output.Backfilling !== null
-        ? output.Backfilling
-        : undefined,
-    IndexArn:
-      output.IndexArn !== undefined && output.IndexArn !== null
-        ? output.IndexArn
-        : undefined,
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
+    Backfilling: output.Backfilling !== undefined && output.Backfilling !== null ? output.Backfilling : undefined,
+    IndexArn: output.IndexArn !== undefined && output.IndexArn !== null ? output.IndexArn : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     IndexSizeBytes:
-      output.IndexSizeBytes !== undefined && output.IndexSizeBytes !== null
-        ? output.IndexSizeBytes
-        : undefined,
-    IndexStatus:
-      output.IndexStatus !== undefined && output.IndexStatus !== null
-        ? output.IndexStatus
-        : undefined,
-    ItemCount:
-      output.ItemCount !== undefined && output.ItemCount !== null
-        ? output.ItemCount
-        : undefined,
+      output.IndexSizeBytes !== undefined && output.IndexSizeBytes !== null ? output.IndexSizeBytes : undefined,
+    IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
@@ -8791,12 +7060,8 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescription = (
         ? deserializeAws_json1_0Projection(output.Projection, context)
         : undefined,
     ProvisionedThroughput:
-      output.ProvisionedThroughput !== undefined &&
-      output.ProvisionedThroughput !== null
-        ? deserializeAws_json1_0ProvisionedThroughputDescription(
-            output.ProvisionedThroughput,
-            context
-          )
+      output.ProvisionedThroughput !== undefined && output.ProvisionedThroughput !== null
+        ? deserializeAws_json1_0ProvisionedThroughputDescription(output.ProvisionedThroughput, context)
         : undefined
   } as any;
 };
@@ -8805,9 +7070,7 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
 ): GlobalSecondaryIndexDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0GlobalSecondaryIndexDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0GlobalSecondaryIndexDescription(entry, context));
 };
 
 const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
@@ -8816,10 +7079,7 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
 ): GlobalSecondaryIndexInfo => {
   return {
     __type: "GlobalSecondaryIndexInfo",
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
@@ -8829,12 +7089,8 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
         ? deserializeAws_json1_0Projection(output.Projection, context)
         : undefined,
     ProvisionedThroughput:
-      output.ProvisionedThroughput !== undefined &&
-      output.ProvisionedThroughput !== null
-        ? deserializeAws_json1_0ProvisionedThroughput(
-            output.ProvisionedThroughput,
-            context
-          )
+      output.ProvisionedThroughput !== undefined && output.ProvisionedThroughput !== null
+        ? deserializeAws_json1_0ProvisionedThroughput(output.ProvisionedThroughput, context)
         : undefined
   } as any;
 };
@@ -8843,21 +7099,14 @@ const deserializeAws_json1_0GlobalSecondaryIndexes = (
   output: any,
   context: __SerdeContext
 ): GlobalSecondaryIndexInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0GlobalSecondaryIndexInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0GlobalSecondaryIndexInfo(entry, context));
 };
 
-const deserializeAws_json1_0GlobalTable = (
-  output: any,
-  context: __SerdeContext
-): GlobalTable => {
+const deserializeAws_json1_0GlobalTable = (output: any, context: __SerdeContext): GlobalTable => {
   return {
     __type: "GlobalTable",
     GlobalTableName:
-      output.GlobalTableName !== undefined && output.GlobalTableName !== null
-        ? output.GlobalTableName
-        : undefined,
+      output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     ReplicationGroup:
       output.ReplicationGroup !== undefined && output.ReplicationGroup !== null
         ? deserializeAws_json1_0ReplicaList(output.ReplicationGroup, context)
@@ -8871,17 +7120,11 @@ const deserializeAws_json1_0GlobalTableAlreadyExistsException = (
 ): GlobalTableAlreadyExistsException => {
   return {
     __type: "GlobalTableAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0GlobalTableDescription = (
-  output: any,
-  context: __SerdeContext
-): GlobalTableDescription => {
+const deserializeAws_json1_0GlobalTableDescription = (output: any, context: __SerdeContext): GlobalTableDescription => {
   return {
     __type: "GlobalTableDescription",
     CreationDateTime:
@@ -8889,35 +7132,22 @@ const deserializeAws_json1_0GlobalTableDescription = (
         ? new Date(Math.round(output.CreationDateTime * 1000))
         : undefined,
     GlobalTableArn:
-      output.GlobalTableArn !== undefined && output.GlobalTableArn !== null
-        ? output.GlobalTableArn
-        : undefined,
+      output.GlobalTableArn !== undefined && output.GlobalTableArn !== null ? output.GlobalTableArn : undefined,
     GlobalTableName:
-      output.GlobalTableName !== undefined && output.GlobalTableName !== null
-        ? output.GlobalTableName
-        : undefined,
+      output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     GlobalTableStatus:
-      output.GlobalTableStatus !== undefined &&
-      output.GlobalTableStatus !== null
+      output.GlobalTableStatus !== undefined && output.GlobalTableStatus !== null
         ? output.GlobalTableStatus
         : undefined,
     ReplicationGroup:
       output.ReplicationGroup !== undefined && output.ReplicationGroup !== null
-        ? deserializeAws_json1_0ReplicaDescriptionList(
-            output.ReplicationGroup,
-            context
-          )
+        ? deserializeAws_json1_0ReplicaDescriptionList(output.ReplicationGroup, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0GlobalTableList = (
-  output: any,
-  context: __SerdeContext
-): GlobalTable[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0GlobalTable(entry, context)
-  );
+const deserializeAws_json1_0GlobalTableList = (output: any, context: __SerdeContext): GlobalTable[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0GlobalTable(entry, context));
 };
 
 const deserializeAws_json1_0GlobalTableNotFoundException = (
@@ -8926,10 +7156,7 @@ const deserializeAws_json1_0GlobalTableNotFoundException = (
 ): GlobalTableNotFoundException => {
   return {
     __type: "GlobalTableNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8939,36 +7166,21 @@ const deserializeAws_json1_0IdempotentParameterMismatchException = (
 ): IdempotentParameterMismatchException => {
   return {
     __type: "IdempotentParameterMismatchException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0IndexNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): IndexNotFoundException => {
+const deserializeAws_json1_0IndexNotFoundException = (output: any, context: __SerdeContext): IndexNotFoundException => {
   return {
     __type: "IndexNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0InternalServerError = (
-  output: any,
-  context: __SerdeContext
-): InternalServerError => {
+const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
     __type: "InternalServerError",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8978,10 +7190,7 @@ const deserializeAws_json1_0InvalidRestoreTimeException = (
 ): InvalidRestoreTimeException => {
   return {
     __type: "InvalidRestoreTimeException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -8998,27 +7207,16 @@ const deserializeAws_json1_0ItemCollectionKeyAttributeMap = (
   );
 };
 
-const deserializeAws_json1_0ItemCollectionMetrics = (
-  output: any,
-  context: __SerdeContext
-): ItemCollectionMetrics => {
+const deserializeAws_json1_0ItemCollectionMetrics = (output: any, context: __SerdeContext): ItemCollectionMetrics => {
   return {
     __type: "ItemCollectionMetrics",
     ItemCollectionKey:
-      output.ItemCollectionKey !== undefined &&
-      output.ItemCollectionKey !== null
-        ? deserializeAws_json1_0ItemCollectionKeyAttributeMap(
-            output.ItemCollectionKey,
-            context
-          )
+      output.ItemCollectionKey !== undefined && output.ItemCollectionKey !== null
+        ? deserializeAws_json1_0ItemCollectionKeyAttributeMap(output.ItemCollectionKey, context)
         : undefined,
     SizeEstimateRangeGB:
-      output.SizeEstimateRangeGB !== undefined &&
-      output.SizeEstimateRangeGB !== null
-        ? deserializeAws_json1_0ItemCollectionSizeEstimateRange(
-            output.SizeEstimateRangeGB,
-            context
-          )
+      output.SizeEstimateRangeGB !== undefined && output.SizeEstimateRangeGB !== null
+        ? deserializeAws_json1_0ItemCollectionSizeEstimateRange(output.SizeEstimateRangeGB, context)
         : undefined
   } as any;
 };
@@ -9027,9 +7225,7 @@ const deserializeAws_json1_0ItemCollectionMetricsMultiple = (
   output: any,
   context: __SerdeContext
 ): ItemCollectionMetrics[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ItemCollectionMetrics(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0ItemCollectionMetrics(entry, context));
 };
 
 const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
@@ -9037,10 +7233,7 @@ const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
   context: __SerdeContext
 ): { [key: string]: ItemCollectionMetrics[] } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: ItemCollectionMetrics[] },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: ItemCollectionMetrics[] }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_json1_0ItemCollectionMetricsMultiple(value, context)
     }),
@@ -9048,10 +7241,7 @@ const deserializeAws_json1_0ItemCollectionMetricsPerTable = (
   );
 };
 
-const deserializeAws_json1_0ItemCollectionSizeEstimateRange = (
-  output: any,
-  context: __SerdeContext
-): number[] => {
+const deserializeAws_json1_0ItemCollectionSizeEstimateRange = (output: any, context: __SerdeContext): number[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9061,26 +7251,15 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededException = (
 ): ItemCollectionSizeLimitExceededException => {
   return {
     __type: "ItemCollectionSizeLimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ItemList = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue }[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0AttributeMap(entry, context)
-  );
+const deserializeAws_json1_0ItemList = (output: any, context: __SerdeContext): { [key: string]: AttributeValue }[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0AttributeMap(entry, context));
 };
 
-const deserializeAws_json1_0ItemResponse = (
-  output: any,
-  context: __SerdeContext
-): ItemResponse => {
+const deserializeAws_json1_0ItemResponse = (output: any, context: __SerdeContext): ItemResponse => {
   return {
     __type: "ItemResponse",
     Item:
@@ -9090,19 +7269,11 @@ const deserializeAws_json1_0ItemResponse = (
   } as any;
 };
 
-const deserializeAws_json1_0ItemResponseList = (
-  output: any,
-  context: __SerdeContext
-): ItemResponse[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ItemResponse(entry, context)
-  );
+const deserializeAws_json1_0ItemResponseList = (output: any, context: __SerdeContext): ItemResponse[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0ItemResponse(entry, context));
 };
 
-const deserializeAws_json1_0Key = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue } => {
+const deserializeAws_json1_0Key = (output: any, context: __SerdeContext): { [key: string]: AttributeValue } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
       ...acc,
@@ -9112,104 +7283,59 @@ const deserializeAws_json1_0Key = (
   );
 };
 
-const deserializeAws_json1_0KeyList = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: AttributeValue }[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Key(entry, context)
-  );
+const deserializeAws_json1_0KeyList = (output: any, context: __SerdeContext): { [key: string]: AttributeValue }[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Key(entry, context));
 };
 
-const deserializeAws_json1_0KeySchema = (
-  output: any,
-  context: __SerdeContext
-): KeySchemaElement[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0KeySchemaElement(entry, context)
-  );
+const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): KeySchemaElement[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0KeySchemaElement(entry, context));
 };
 
-const deserializeAws_json1_0KeySchemaElement = (
-  output: any,
-  context: __SerdeContext
-): KeySchemaElement => {
+const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
   return {
     __type: "KeySchemaElement",
     AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null
-        ? output.AttributeName
-        : undefined,
-    KeyType:
-      output.KeyType !== undefined && output.KeyType !== null
-        ? output.KeyType
-        : undefined
+      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
+    KeyType: output.KeyType !== undefined && output.KeyType !== null ? output.KeyType : undefined
   } as any;
 };
 
-const deserializeAws_json1_0KeysAndAttributes = (
-  output: any,
-  context: __SerdeContext
-): KeysAndAttributes => {
+const deserializeAws_json1_0KeysAndAttributes = (output: any, context: __SerdeContext): KeysAndAttributes => {
   return {
     __type: "KeysAndAttributes",
     AttributesToGet:
       output.AttributesToGet !== undefined && output.AttributesToGet !== null
-        ? deserializeAws_json1_0AttributeNameList(
-            output.AttributesToGet,
-            context
-          )
+        ? deserializeAws_json1_0AttributeNameList(output.AttributesToGet, context)
         : undefined,
     ConsistentRead:
-      output.ConsistentRead !== undefined && output.ConsistentRead !== null
-        ? output.ConsistentRead
-        : undefined,
+      output.ConsistentRead !== undefined && output.ConsistentRead !== null ? output.ConsistentRead : undefined,
     ExpressionAttributeNames:
-      output.ExpressionAttributeNames !== undefined &&
-      output.ExpressionAttributeNames !== null
-        ? deserializeAws_json1_0ExpressionAttributeNameMap(
-            output.ExpressionAttributeNames,
-            context
-          )
+      output.ExpressionAttributeNames !== undefined && output.ExpressionAttributeNames !== null
+        ? deserializeAws_json1_0ExpressionAttributeNameMap(output.ExpressionAttributeNames, context)
         : undefined,
     Keys:
       output.Keys !== undefined && output.Keys !== null
         ? deserializeAws_json1_0KeyList(output.Keys, context)
         : undefined,
     ProjectionExpression:
-      output.ProjectionExpression !== undefined &&
-      output.ProjectionExpression !== null
+      output.ProjectionExpression !== undefined && output.ProjectionExpression !== null
         ? output.ProjectionExpression
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ListAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): AttributeValue[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0AttributeValue(entry, context)
-  );
+const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeContext): AttributeValue[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0AttributeValue(entry, context));
 };
 
-const deserializeAws_json1_0ListBackupsOutput = (
-  output: any,
-  context: __SerdeContext
-): ListBackupsOutput => {
+const deserializeAws_json1_0ListBackupsOutput = (output: any, context: __SerdeContext): ListBackupsOutput => {
   return {
     __type: "ListBackupsOutput",
     BackupSummaries:
@@ -9217,8 +7343,7 @@ const deserializeAws_json1_0ListBackupsOutput = (
         ? deserializeAws_json1_0BackupSummaries(output.BackupSummaries, context)
         : undefined,
     LastEvaluatedBackupArn:
-      output.LastEvaluatedBackupArn !== undefined &&
-      output.LastEvaluatedBackupArn !== null
+      output.LastEvaluatedBackupArn !== undefined && output.LastEvaluatedBackupArn !== null
         ? output.LastEvaluatedBackupArn
         : undefined
   } as any;
@@ -9231,24 +7356,14 @@ const deserializeAws_json1_0ListContributorInsightsOutput = (
   return {
     __type: "ListContributorInsightsOutput",
     ContributorInsightsSummaries:
-      output.ContributorInsightsSummaries !== undefined &&
-      output.ContributorInsightsSummaries !== null
-        ? deserializeAws_json1_0ContributorInsightsSummaries(
-            output.ContributorInsightsSummaries,
-            context
-          )
+      output.ContributorInsightsSummaries !== undefined && output.ContributorInsightsSummaries !== null
+        ? deserializeAws_json1_0ContributorInsightsSummaries(output.ContributorInsightsSummaries, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ListGlobalTablesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListGlobalTablesOutput => {
+const deserializeAws_json1_0ListGlobalTablesOutput = (output: any, context: __SerdeContext): ListGlobalTablesOutput => {
   return {
     __type: "ListGlobalTablesOutput",
     GlobalTables:
@@ -9256,22 +7371,17 @@ const deserializeAws_json1_0ListGlobalTablesOutput = (
         ? deserializeAws_json1_0GlobalTableList(output.GlobalTables, context)
         : undefined,
     LastEvaluatedGlobalTableName:
-      output.LastEvaluatedGlobalTableName !== undefined &&
-      output.LastEvaluatedGlobalTableName !== null
+      output.LastEvaluatedGlobalTableName !== undefined && output.LastEvaluatedGlobalTableName !== null
         ? output.LastEvaluatedGlobalTableName
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ListTablesOutput = (
-  output: any,
-  context: __SerdeContext
-): ListTablesOutput => {
+const deserializeAws_json1_0ListTablesOutput = (output: any, context: __SerdeContext): ListTablesOutput => {
   return {
     __type: "ListTablesOutput",
     LastEvaluatedTableName:
-      output.LastEvaluatedTableName !== undefined &&
-      output.LastEvaluatedTableName !== null
+      output.LastEvaluatedTableName !== undefined && output.LastEvaluatedTableName !== null
         ? output.LastEvaluatedTableName
         : undefined,
     TableNames:
@@ -9287,10 +7397,7 @@ const deserializeAws_json1_0ListTagsOfResourceOutput = (
 ): ListTagsOfResourceOutput => {
   return {
     __type: "ListTagsOfResourceOutput",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -9304,22 +7411,11 @@ const deserializeAws_json1_0LocalSecondaryIndexDescription = (
 ): LocalSecondaryIndexDescription => {
   return {
     __type: "LocalSecondaryIndexDescription",
-    IndexArn:
-      output.IndexArn !== undefined && output.IndexArn !== null
-        ? output.IndexArn
-        : undefined,
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
+    IndexArn: output.IndexArn !== undefined && output.IndexArn !== null ? output.IndexArn : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     IndexSizeBytes:
-      output.IndexSizeBytes !== undefined && output.IndexSizeBytes !== null
-        ? output.IndexSizeBytes
-        : undefined,
-    ItemCount:
-      output.ItemCount !== undefined && output.ItemCount !== null
-        ? output.ItemCount
-        : undefined,
+      output.IndexSizeBytes !== undefined && output.IndexSizeBytes !== null ? output.IndexSizeBytes : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
@@ -9335,9 +7431,7 @@ const deserializeAws_json1_0LocalSecondaryIndexDescriptionList = (
   output: any,
   context: __SerdeContext
 ): LocalSecondaryIndexDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0LocalSecondaryIndexDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0LocalSecondaryIndexDescription(entry, context));
 };
 
 const deserializeAws_json1_0LocalSecondaryIndexInfo = (
@@ -9346,10 +7440,7 @@ const deserializeAws_json1_0LocalSecondaryIndexInfo = (
 ): LocalSecondaryIndexInfo => {
   return {
     __type: "LocalSecondaryIndexInfo",
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
@@ -9365,9 +7456,7 @@ const deserializeAws_json1_0LocalSecondaryIndexes = (
   output: any,
   context: __SerdeContext
 ): LocalSecondaryIndexInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0LocalSecondaryIndexInfo(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0LocalSecondaryIndexInfo(entry, context));
 };
 
 const deserializeAws_json1_0MapAttributeValue = (
@@ -9383,17 +7472,11 @@ const deserializeAws_json1_0MapAttributeValue = (
   );
 };
 
-const deserializeAws_json1_0NonKeyAttributeNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_0NonKeyAttributeNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_0NumberSetAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -9404,18 +7487,15 @@ const deserializeAws_json1_0PointInTimeRecoveryDescription = (
   return {
     __type: "PointInTimeRecoveryDescription",
     EarliestRestorableDateTime:
-      output.EarliestRestorableDateTime !== undefined &&
-      output.EarliestRestorableDateTime !== null
+      output.EarliestRestorableDateTime !== undefined && output.EarliestRestorableDateTime !== null
         ? new Date(Math.round(output.EarliestRestorableDateTime * 1000))
         : undefined,
     LatestRestorableDateTime:
-      output.LatestRestorableDateTime !== undefined &&
-      output.LatestRestorableDateTime !== null
+      output.LatestRestorableDateTime !== undefined && output.LatestRestorableDateTime !== null
         ? new Date(Math.round(output.LatestRestorableDateTime * 1000))
         : undefined,
     PointInTimeRecoveryStatus:
-      output.PointInTimeRecoveryStatus !== undefined &&
-      output.PointInTimeRecoveryStatus !== null
+      output.PointInTimeRecoveryStatus !== undefined && output.PointInTimeRecoveryStatus !== null
         ? output.PointInTimeRecoveryStatus
         : undefined
   } as any;
@@ -9427,47 +7507,31 @@ const deserializeAws_json1_0PointInTimeRecoveryUnavailableException = (
 ): PointInTimeRecoveryUnavailableException => {
   return {
     __type: "PointInTimeRecoveryUnavailableException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0Projection = (
-  output: any,
-  context: __SerdeContext
-): Projection => {
+const deserializeAws_json1_0Projection = (output: any, context: __SerdeContext): Projection => {
   return {
     __type: "Projection",
     NonKeyAttributes:
       output.NonKeyAttributes !== undefined && output.NonKeyAttributes !== null
-        ? deserializeAws_json1_0NonKeyAttributeNameList(
-            output.NonKeyAttributes,
-            context
-          )
+        ? deserializeAws_json1_0NonKeyAttributeNameList(output.NonKeyAttributes, context)
         : undefined,
     ProjectionType:
-      output.ProjectionType !== undefined && output.ProjectionType !== null
-        ? output.ProjectionType
-        : undefined
+      output.ProjectionType !== undefined && output.ProjectionType !== null ? output.ProjectionType : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ProvisionedThroughput = (
-  output: any,
-  context: __SerdeContext
-): ProvisionedThroughput => {
+const deserializeAws_json1_0ProvisionedThroughput = (output: any, context: __SerdeContext): ProvisionedThroughput => {
   return {
     __type: "ProvisionedThroughput",
     ReadCapacityUnits:
-      output.ReadCapacityUnits !== undefined &&
-      output.ReadCapacityUnits !== null
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
         ? output.ReadCapacityUnits
         : undefined,
     WriteCapacityUnits:
-      output.WriteCapacityUnits !== undefined &&
-      output.WriteCapacityUnits !== null
+      output.WriteCapacityUnits !== undefined && output.WriteCapacityUnits !== null
         ? output.WriteCapacityUnits
         : undefined
   } as any;
@@ -9480,28 +7544,23 @@ const deserializeAws_json1_0ProvisionedThroughputDescription = (
   return {
     __type: "ProvisionedThroughputDescription",
     LastDecreaseDateTime:
-      output.LastDecreaseDateTime !== undefined &&
-      output.LastDecreaseDateTime !== null
+      output.LastDecreaseDateTime !== undefined && output.LastDecreaseDateTime !== null
         ? new Date(Math.round(output.LastDecreaseDateTime * 1000))
         : undefined,
     LastIncreaseDateTime:
-      output.LastIncreaseDateTime !== undefined &&
-      output.LastIncreaseDateTime !== null
+      output.LastIncreaseDateTime !== undefined && output.LastIncreaseDateTime !== null
         ? new Date(Math.round(output.LastIncreaseDateTime * 1000))
         : undefined,
     NumberOfDecreasesToday:
-      output.NumberOfDecreasesToday !== undefined &&
-      output.NumberOfDecreasesToday !== null
+      output.NumberOfDecreasesToday !== undefined && output.NumberOfDecreasesToday !== null
         ? output.NumberOfDecreasesToday
         : undefined,
     ReadCapacityUnits:
-      output.ReadCapacityUnits !== undefined &&
-      output.ReadCapacityUnits !== null
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
         ? output.ReadCapacityUnits
         : undefined,
     WriteCapacityUnits:
-      output.WriteCapacityUnits !== undefined &&
-      output.WriteCapacityUnits !== null
+      output.WriteCapacityUnits !== undefined && output.WriteCapacityUnits !== null
         ? output.WriteCapacityUnits
         : undefined
   } as any;
@@ -9513,10 +7572,7 @@ const deserializeAws_json1_0ProvisionedThroughputExceededException = (
 ): ProvisionedThroughputExceededException => {
   return {
     __type: "ProvisionedThroughputExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -9527,10 +7583,7 @@ const deserializeAws_json1_0ProvisionedThroughputOverride = (
   return {
     __type: "ProvisionedThroughputOverride",
     ReadCapacityUnits:
-      output.ReadCapacityUnits !== undefined &&
-      output.ReadCapacityUnits !== null
-        ? output.ReadCapacityUnits
-        : undefined
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null ? output.ReadCapacityUnits : undefined
   } as any;
 };
 
@@ -9547,10 +7600,7 @@ const deserializeAws_json1_0PutItemInputAttributeMap = (
   );
 };
 
-const deserializeAws_json1_0PutItemOutput = (
-  output: any,
-  context: __SerdeContext
-): PutItemOutput => {
+const deserializeAws_json1_0PutItemOutput = (output: any, context: __SerdeContext): PutItemOutput => {
   return {
     __type: "PutItemOutput",
     Attributes:
@@ -9559,26 +7609,16 @@ const deserializeAws_json1_0PutItemOutput = (
         : undefined,
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
     ItemCollectionMetrics:
-      output.ItemCollectionMetrics !== undefined &&
-      output.ItemCollectionMetrics !== null
-        ? deserializeAws_json1_0ItemCollectionMetrics(
-            output.ItemCollectionMetrics,
-            context
-          )
+      output.ItemCollectionMetrics !== undefined && output.ItemCollectionMetrics !== null
+        ? deserializeAws_json1_0ItemCollectionMetrics(output.ItemCollectionMetrics, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0PutRequest = (
-  output: any,
-  context: __SerdeContext
-): PutRequest => {
+const deserializeAws_json1_0PutRequest = (output: any, context: __SerdeContext): PutRequest => {
   return {
     __type: "PutRequest",
     Item:
@@ -9588,23 +7628,14 @@ const deserializeAws_json1_0PutRequest = (
   } as any;
 };
 
-const deserializeAws_json1_0QueryOutput = (
-  output: any,
-  context: __SerdeContext
-): QueryOutput => {
+const deserializeAws_json1_0QueryOutput = (output: any, context: __SerdeContext): QueryOutput => {
   return {
     __type: "QueryOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? output.Count
-        : undefined,
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_json1_0ItemList(output.Items, context)
@@ -9613,23 +7644,14 @@ const deserializeAws_json1_0QueryOutput = (
       output.LastEvaluatedKey !== undefined && output.LastEvaluatedKey !== null
         ? deserializeAws_json1_0Key(output.LastEvaluatedKey, context)
         : undefined,
-    ScannedCount:
-      output.ScannedCount !== undefined && output.ScannedCount !== null
-        ? output.ScannedCount
-        : undefined
+    ScannedCount: output.ScannedCount !== undefined && output.ScannedCount !== null ? output.ScannedCount : undefined
   } as any;
 };
 
-const deserializeAws_json1_0Replica = (
-  output: any,
-  context: __SerdeContext
-): Replica => {
+const deserializeAws_json1_0Replica = (output: any, context: __SerdeContext): Replica => {
   return {
     __type: "Replica",
-    RegionName:
-      output.RegionName !== undefined && output.RegionName !== null
-        ? output.RegionName
-        : undefined
+    RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined
   } as any;
 };
 
@@ -9639,10 +7661,7 @@ const deserializeAws_json1_0ReplicaAlreadyExistsException = (
 ): ReplicaAlreadyExistsException => {
   return {
     __type: "ReplicaAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -9653,17 +7672,13 @@ const deserializeAws_json1_0ReplicaAutoScalingDescription = (
   return {
     __type: "ReplicaAutoScalingDescription",
     GlobalSecondaryIndexes:
-      output.GlobalSecondaryIndexes !== undefined &&
-      output.GlobalSecondaryIndexes !== null
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
         ? deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescriptionList(
             output.GlobalSecondaryIndexes,
             context
           )
         : undefined,
-    RegionName:
-      output.RegionName !== undefined && output.RegionName !== null
-        ? output.RegionName
-        : undefined,
+    RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
     ReplicaProvisionedReadCapacityAutoScalingSettings:
       output.ReplicaProvisionedReadCapacityAutoScalingSettings !== undefined &&
       output.ReplicaProvisionedReadCapacityAutoScalingSettings !== null
@@ -9681,9 +7696,7 @@ const deserializeAws_json1_0ReplicaAutoScalingDescription = (
           )
         : undefined,
     ReplicaStatus:
-      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null
-        ? output.ReplicaStatus
-        : undefined
+      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null ? output.ReplicaStatus : undefined
   } as any;
 };
 
@@ -9691,65 +7704,38 @@ const deserializeAws_json1_0ReplicaAutoScalingDescriptionList = (
   output: any,
   context: __SerdeContext
 ): ReplicaAutoScalingDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ReplicaAutoScalingDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0ReplicaAutoScalingDescription(entry, context));
 };
 
-const deserializeAws_json1_0ReplicaDescription = (
-  output: any,
-  context: __SerdeContext
-): ReplicaDescription => {
+const deserializeAws_json1_0ReplicaDescription = (output: any, context: __SerdeContext): ReplicaDescription => {
   return {
     __type: "ReplicaDescription",
     GlobalSecondaryIndexes:
-      output.GlobalSecondaryIndexes !== undefined &&
-      output.GlobalSecondaryIndexes !== null
-        ? deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescriptionList(
-            output.GlobalSecondaryIndexes,
-            context
-          )
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
+        ? deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescriptionList(output.GlobalSecondaryIndexes, context)
         : undefined,
     KMSMasterKeyId:
-      output.KMSMasterKeyId !== undefined && output.KMSMasterKeyId !== null
-        ? output.KMSMasterKeyId
-        : undefined,
+      output.KMSMasterKeyId !== undefined && output.KMSMasterKeyId !== null ? output.KMSMasterKeyId : undefined,
     ProvisionedThroughputOverride:
-      output.ProvisionedThroughputOverride !== undefined &&
-      output.ProvisionedThroughputOverride !== null
-        ? deserializeAws_json1_0ProvisionedThroughputOverride(
-            output.ProvisionedThroughputOverride,
-            context
-          )
+      output.ProvisionedThroughputOverride !== undefined && output.ProvisionedThroughputOverride !== null
+        ? deserializeAws_json1_0ProvisionedThroughputOverride(output.ProvisionedThroughputOverride, context)
         : undefined,
-    RegionName:
-      output.RegionName !== undefined && output.RegionName !== null
-        ? output.RegionName
-        : undefined,
+    RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
     ReplicaStatus:
-      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null
-        ? output.ReplicaStatus
-        : undefined,
+      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null ? output.ReplicaStatus : undefined,
     ReplicaStatusDescription:
-      output.ReplicaStatusDescription !== undefined &&
-      output.ReplicaStatusDescription !== null
+      output.ReplicaStatusDescription !== undefined && output.ReplicaStatusDescription !== null
         ? output.ReplicaStatusDescription
         : undefined,
     ReplicaStatusPercentProgress:
-      output.ReplicaStatusPercentProgress !== undefined &&
-      output.ReplicaStatusPercentProgress !== null
+      output.ReplicaStatusPercentProgress !== undefined && output.ReplicaStatusPercentProgress !== null
         ? output.ReplicaStatusPercentProgress
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ReplicaDescriptionList = (
-  output: any,
-  context: __SerdeContext
-): ReplicaDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ReplicaDescription(entry, context)
-  );
+const deserializeAws_json1_0ReplicaDescriptionList = (output: any, context: __SerdeContext): ReplicaDescription[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0ReplicaDescription(entry, context));
 };
 
 const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription = (
@@ -9758,14 +7744,8 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription = 
 ): ReplicaGlobalSecondaryIndexAutoScalingDescription => {
   return {
     __type: "ReplicaGlobalSecondaryIndexAutoScalingDescription",
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
-    IndexStatus:
-      output.IndexStatus !== undefined && output.IndexStatus !== null
-        ? output.IndexStatus
-        : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
     ProvisionedReadCapacityAutoScalingSettings:
       output.ProvisionedReadCapacityAutoScalingSettings !== undefined &&
       output.ProvisionedReadCapacityAutoScalingSettings !== null
@@ -9790,10 +7770,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescriptionLis
   context: __SerdeContext
 ): ReplicaGlobalSecondaryIndexAutoScalingDescription[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription(
-      entry,
-      context
-    )
+    deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription(entry, context)
   );
 };
 
@@ -9803,17 +7780,10 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescription = (
 ): ReplicaGlobalSecondaryIndexDescription => {
   return {
     __type: "ReplicaGlobalSecondaryIndexDescription",
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     ProvisionedThroughputOverride:
-      output.ProvisionedThroughputOverride !== undefined &&
-      output.ProvisionedThroughputOverride !== null
-        ? deserializeAws_json1_0ProvisionedThroughputOverride(
-            output.ProvisionedThroughputOverride,
-            context
-          )
+      output.ProvisionedThroughputOverride !== undefined && output.ProvisionedThroughputOverride !== null
+        ? deserializeAws_json1_0ProvisionedThroughputOverride(output.ProvisionedThroughputOverride, context)
         : undefined
   } as any;
 };
@@ -9833,14 +7803,8 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription = (
 ): ReplicaGlobalSecondaryIndexSettingsDescription => {
   return {
     __type: "ReplicaGlobalSecondaryIndexSettingsDescription",
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
-    IndexStatus:
-      output.IndexStatus !== undefined && output.IndexStatus !== null
-        ? output.IndexStatus
-        : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
     ProvisionedReadCapacityAutoScalingSettings:
       output.ProvisionedReadCapacityAutoScalingSettings !== undefined &&
       output.ProvisionedReadCapacityAutoScalingSettings !== null
@@ -9850,8 +7814,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription = (
           )
         : undefined,
     ProvisionedReadCapacityUnits:
-      output.ProvisionedReadCapacityUnits !== undefined &&
-      output.ProvisionedReadCapacityUnits !== null
+      output.ProvisionedReadCapacityUnits !== undefined && output.ProvisionedReadCapacityUnits !== null
         ? output.ProvisionedReadCapacityUnits
         : undefined,
     ProvisionedWriteCapacityAutoScalingSettings:
@@ -9863,8 +7826,7 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription = (
           )
         : undefined,
     ProvisionedWriteCapacityUnits:
-      output.ProvisionedWriteCapacityUnits !== undefined &&
-      output.ProvisionedWriteCapacityUnits !== null
+      output.ProvisionedWriteCapacityUnits !== undefined && output.ProvisionedWriteCapacityUnits !== null
         ? output.ProvisionedWriteCapacityUnits
         : undefined
   } as any;
@@ -9875,20 +7837,12 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescriptionList =
   context: __SerdeContext
 ): ReplicaGlobalSecondaryIndexSettingsDescription[] => {
   return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription(
-      entry,
-      context
-    )
+    deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription(entry, context)
   );
 };
 
-const deserializeAws_json1_0ReplicaList = (
-  output: any,
-  context: __SerdeContext
-): Replica[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Replica(entry, context)
-  );
+const deserializeAws_json1_0ReplicaList = (output: any, context: __SerdeContext): Replica[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Replica(entry, context));
 };
 
 const deserializeAws_json1_0ReplicaNotFoundException = (
@@ -9897,10 +7851,7 @@ const deserializeAws_json1_0ReplicaNotFoundException = (
 ): ReplicaNotFoundException => {
   return {
     __type: "ReplicaNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -9910,21 +7861,13 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
 ): ReplicaSettingsDescription => {
   return {
     __type: "ReplicaSettingsDescription",
-    RegionName:
-      output.RegionName !== undefined && output.RegionName !== null
-        ? output.RegionName
-        : undefined,
+    RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
     ReplicaBillingModeSummary:
-      output.ReplicaBillingModeSummary !== undefined &&
-      output.ReplicaBillingModeSummary !== null
-        ? deserializeAws_json1_0BillingModeSummary(
-            output.ReplicaBillingModeSummary,
-            context
-          )
+      output.ReplicaBillingModeSummary !== undefined && output.ReplicaBillingModeSummary !== null
+        ? deserializeAws_json1_0BillingModeSummary(output.ReplicaBillingModeSummary, context)
         : undefined,
     ReplicaGlobalSecondaryIndexSettings:
-      output.ReplicaGlobalSecondaryIndexSettings !== undefined &&
-      output.ReplicaGlobalSecondaryIndexSettings !== null
+      output.ReplicaGlobalSecondaryIndexSettings !== undefined && output.ReplicaGlobalSecondaryIndexSettings !== null
         ? deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescriptionList(
             output.ReplicaGlobalSecondaryIndexSettings,
             context
@@ -9939,8 +7882,7 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
           )
         : undefined,
     ReplicaProvisionedReadCapacityUnits:
-      output.ReplicaProvisionedReadCapacityUnits !== undefined &&
-      output.ReplicaProvisionedReadCapacityUnits !== null
+      output.ReplicaProvisionedReadCapacityUnits !== undefined && output.ReplicaProvisionedReadCapacityUnits !== null
         ? output.ReplicaProvisionedReadCapacityUnits
         : undefined,
     ReplicaProvisionedWriteCapacityAutoScalingSettings:
@@ -9952,14 +7894,11 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
           )
         : undefined,
     ReplicaProvisionedWriteCapacityUnits:
-      output.ReplicaProvisionedWriteCapacityUnits !== undefined &&
-      output.ReplicaProvisionedWriteCapacityUnits !== null
+      output.ReplicaProvisionedWriteCapacityUnits !== undefined && output.ReplicaProvisionedWriteCapacityUnits !== null
         ? output.ReplicaProvisionedWriteCapacityUnits
         : undefined,
     ReplicaStatus:
-      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null
-        ? output.ReplicaStatus
-        : undefined
+      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null ? output.ReplicaStatus : undefined
   } as any;
 };
 
@@ -9967,34 +7906,20 @@ const deserializeAws_json1_0ReplicaSettingsDescriptionList = (
   output: any,
   context: __SerdeContext
 ): ReplicaSettingsDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0ReplicaSettingsDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_0ReplicaSettingsDescription(entry, context));
 };
 
-const deserializeAws_json1_0RequestLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): RequestLimitExceeded => {
+const deserializeAws_json1_0RequestLimitExceeded = (output: any, context: __SerdeContext): RequestLimitExceeded => {
   return {
     __type: "RequestLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ResourceInUseException = (
-  output: any,
-  context: __SerdeContext
-): ResourceInUseException => {
+const deserializeAws_json1_0ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -10004,17 +7929,11 @@ const deserializeAws_json1_0ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0RestoreSummary = (
-  output: any,
-  context: __SerdeContext
-): RestoreSummary => {
+const deserializeAws_json1_0RestoreSummary = (output: any, context: __SerdeContext): RestoreSummary => {
   return {
     __type: "RestoreSummary",
     RestoreDateTime:
@@ -10022,18 +7941,13 @@ const deserializeAws_json1_0RestoreSummary = (
         ? new Date(Math.round(output.RestoreDateTime * 1000))
         : undefined,
     RestoreInProgress:
-      output.RestoreInProgress !== undefined &&
-      output.RestoreInProgress !== null
+      output.RestoreInProgress !== undefined && output.RestoreInProgress !== null
         ? output.RestoreInProgress
         : undefined,
     SourceBackupArn:
-      output.SourceBackupArn !== undefined && output.SourceBackupArn !== null
-        ? output.SourceBackupArn
-        : undefined,
+      output.SourceBackupArn !== undefined && output.SourceBackupArn !== null ? output.SourceBackupArn : undefined,
     SourceTableArn:
-      output.SourceTableArn !== undefined && output.SourceTableArn !== null
-        ? output.SourceTableArn
-        : undefined
+      output.SourceTableArn !== undefined && output.SourceTableArn !== null ? output.SourceTableArn : undefined
   } as any;
 };
 
@@ -10045,10 +7959,7 @@ const deserializeAws_json1_0RestoreTableFromBackupOutput = (
     __type: "RestoreTableFromBackupOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
-        ? deserializeAws_json1_0TableDescription(
-            output.TableDescription,
-            context
-          )
+        ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
         : undefined
   } as any;
 };
@@ -10061,57 +7972,33 @@ const deserializeAws_json1_0RestoreTableToPointInTimeOutput = (
     __type: "RestoreTableToPointInTimeOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
-        ? deserializeAws_json1_0TableDescription(
-            output.TableDescription,
-            context
-          )
+        ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0SSEDescription = (
-  output: any,
-  context: __SerdeContext
-): SSEDescription => {
+const deserializeAws_json1_0SSEDescription = (output: any, context: __SerdeContext): SSEDescription => {
   return {
     __type: "SSEDescription",
     InaccessibleEncryptionDateTime:
-      output.InaccessibleEncryptionDateTime !== undefined &&
-      output.InaccessibleEncryptionDateTime !== null
+      output.InaccessibleEncryptionDateTime !== undefined && output.InaccessibleEncryptionDateTime !== null
         ? new Date(Math.round(output.InaccessibleEncryptionDateTime * 1000))
         : undefined,
     KMSMasterKeyArn:
-      output.KMSMasterKeyArn !== undefined && output.KMSMasterKeyArn !== null
-        ? output.KMSMasterKeyArn
-        : undefined,
-    SSEType:
-      output.SSEType !== undefined && output.SSEType !== null
-        ? output.SSEType
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+      output.KMSMasterKeyArn !== undefined && output.KMSMasterKeyArn !== null ? output.KMSMasterKeyArn : undefined,
+    SSEType: output.SSEType !== undefined && output.SSEType !== null ? output.SSEType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_json1_0ScanOutput = (
-  output: any,
-  context: __SerdeContext
-): ScanOutput => {
+const deserializeAws_json1_0ScanOutput = (output: any, context: __SerdeContext): ScanOutput => {
   return {
     __type: "ScanOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? output.Count
-        : undefined,
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_json1_0ItemList(output.Items, context)
@@ -10120,10 +8007,7 @@ const deserializeAws_json1_0ScanOutput = (
       output.LastEvaluatedKey !== undefined && output.LastEvaluatedKey !== null
         ? deserializeAws_json1_0Key(output.LastEvaluatedKey, context)
         : undefined,
-    ScannedCount:
-      output.ScannedCount !== undefined && output.ScannedCount !== null
-        ? output.ScannedCount
-        : undefined
+    ScannedCount: output.ScannedCount !== undefined && output.ScannedCount !== null ? output.ScannedCount : undefined
   } as any;
 };
 
@@ -10140,53 +8024,28 @@ const deserializeAws_json1_0SecondaryIndexesCapacityMap = (
   );
 };
 
-const deserializeAws_json1_0SourceTableDetails = (
-  output: any,
-  context: __SerdeContext
-): SourceTableDetails => {
+const deserializeAws_json1_0SourceTableDetails = (output: any, context: __SerdeContext): SourceTableDetails => {
   return {
     __type: "SourceTableDetails",
-    BillingMode:
-      output.BillingMode !== undefined && output.BillingMode !== null
-        ? output.BillingMode
-        : undefined,
-    ItemCount:
-      output.ItemCount !== undefined && output.ItemCount !== null
-        ? output.ItemCount
-        : undefined,
+    BillingMode: output.BillingMode !== undefined && output.BillingMode !== null ? output.BillingMode : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
         : undefined,
     ProvisionedThroughput:
-      output.ProvisionedThroughput !== undefined &&
-      output.ProvisionedThroughput !== null
-        ? deserializeAws_json1_0ProvisionedThroughput(
-            output.ProvisionedThroughput,
-            context
-          )
+      output.ProvisionedThroughput !== undefined && output.ProvisionedThroughput !== null
+        ? deserializeAws_json1_0ProvisionedThroughput(output.ProvisionedThroughput, context)
         : undefined,
-    TableArn:
-      output.TableArn !== undefined && output.TableArn !== null
-        ? output.TableArn
-        : undefined,
+    TableArn: output.TableArn !== undefined && output.TableArn !== null ? output.TableArn : undefined,
     TableCreationDateTime:
-      output.TableCreationDateTime !== undefined &&
-      output.TableCreationDateTime !== null
+      output.TableCreationDateTime !== undefined && output.TableCreationDateTime !== null
         ? new Date(Math.round(output.TableCreationDateTime * 1000))
         : undefined,
-    TableId:
-      output.TableId !== undefined && output.TableId !== null
-        ? output.TableId
-        : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined,
+    TableId: output.TableId !== undefined && output.TableId !== null ? output.TableId : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
     TableSizeBytes:
-      output.TableSizeBytes !== undefined && output.TableSizeBytes !== null
-        ? output.TableSizeBytes
-        : undefined
+      output.TableSizeBytes !== undefined && output.TableSizeBytes !== null ? output.TableSizeBytes : undefined
   } as any;
 };
 
@@ -10197,65 +8056,39 @@ const deserializeAws_json1_0SourceTableFeatureDetails = (
   return {
     __type: "SourceTableFeatureDetails",
     GlobalSecondaryIndexes:
-      output.GlobalSecondaryIndexes !== undefined &&
-      output.GlobalSecondaryIndexes !== null
-        ? deserializeAws_json1_0GlobalSecondaryIndexes(
-            output.GlobalSecondaryIndexes,
-            context
-          )
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
+        ? deserializeAws_json1_0GlobalSecondaryIndexes(output.GlobalSecondaryIndexes, context)
         : undefined,
     LocalSecondaryIndexes:
-      output.LocalSecondaryIndexes !== undefined &&
-      output.LocalSecondaryIndexes !== null
-        ? deserializeAws_json1_0LocalSecondaryIndexes(
-            output.LocalSecondaryIndexes,
-            context
-          )
+      output.LocalSecondaryIndexes !== undefined && output.LocalSecondaryIndexes !== null
+        ? deserializeAws_json1_0LocalSecondaryIndexes(output.LocalSecondaryIndexes, context)
         : undefined,
     SSEDescription:
       output.SSEDescription !== undefined && output.SSEDescription !== null
         ? deserializeAws_json1_0SSEDescription(output.SSEDescription, context)
         : undefined,
     StreamDescription:
-      output.StreamDescription !== undefined &&
-      output.StreamDescription !== null
-        ? deserializeAws_json1_0StreamSpecification(
-            output.StreamDescription,
-            context
-          )
+      output.StreamDescription !== undefined && output.StreamDescription !== null
+        ? deserializeAws_json1_0StreamSpecification(output.StreamDescription, context)
         : undefined,
     TimeToLiveDescription:
-      output.TimeToLiveDescription !== undefined &&
-      output.TimeToLiveDescription !== null
-        ? deserializeAws_json1_0TimeToLiveDescription(
-            output.TimeToLiveDescription,
-            context
-          )
+      output.TimeToLiveDescription !== undefined && output.TimeToLiveDescription !== null
+        ? deserializeAws_json1_0TimeToLiveDescription(output.TimeToLiveDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0StreamSpecification = (
-  output: any,
-  context: __SerdeContext
-): StreamSpecification => {
+const deserializeAws_json1_0StreamSpecification = (output: any, context: __SerdeContext): StreamSpecification => {
   return {
     __type: "StreamSpecification",
     StreamEnabled:
-      output.StreamEnabled !== undefined && output.StreamEnabled !== null
-        ? output.StreamEnabled
-        : undefined,
+      output.StreamEnabled !== undefined && output.StreamEnabled !== null ? output.StreamEnabled : undefined,
     StreamViewType:
-      output.StreamViewType !== undefined && output.StreamViewType !== null
-        ? output.StreamViewType
-        : undefined
+      output.StreamViewType !== undefined && output.StreamViewType !== null ? output.StreamViewType : undefined
   } as any;
 };
 
-const deserializeAws_json1_0StringSetAttributeValue = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_0StringSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -10265,10 +8098,7 @@ const deserializeAws_json1_0TableAlreadyExistsException = (
 ): TableAlreadyExistsException => {
   return {
     __type: "TableAlreadyExistsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -10280,26 +8110,14 @@ const deserializeAws_json1_0TableAutoScalingDescription = (
     __type: "TableAutoScalingDescription",
     Replicas:
       output.Replicas !== undefined && output.Replicas !== null
-        ? deserializeAws_json1_0ReplicaAutoScalingDescriptionList(
-            output.Replicas,
-            context
-          )
+        ? deserializeAws_json1_0ReplicaAutoScalingDescriptionList(output.Replicas, context)
         : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined,
-    TableStatus:
-      output.TableStatus !== undefined && output.TableStatus !== null
-        ? output.TableStatus
-        : undefined
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+    TableStatus: output.TableStatus !== undefined && output.TableStatus !== null ? output.TableStatus : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TableDescription = (
-  output: any,
-  context: __SerdeContext
-): TableDescription => {
+const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeContext): TableDescription => {
   return {
     __type: "TableDescription",
     ArchivalSummary:
@@ -10307,70 +8125,43 @@ const deserializeAws_json1_0TableDescription = (
         ? deserializeAws_json1_0ArchivalSummary(output.ArchivalSummary, context)
         : undefined,
     AttributeDefinitions:
-      output.AttributeDefinitions !== undefined &&
-      output.AttributeDefinitions !== null
-        ? deserializeAws_json1_0AttributeDefinitions(
-            output.AttributeDefinitions,
-            context
-          )
+      output.AttributeDefinitions !== undefined && output.AttributeDefinitions !== null
+        ? deserializeAws_json1_0AttributeDefinitions(output.AttributeDefinitions, context)
         : undefined,
     BillingModeSummary:
-      output.BillingModeSummary !== undefined &&
-      output.BillingModeSummary !== null
-        ? deserializeAws_json1_0BillingModeSummary(
-            output.BillingModeSummary,
-            context
-          )
+      output.BillingModeSummary !== undefined && output.BillingModeSummary !== null
+        ? deserializeAws_json1_0BillingModeSummary(output.BillingModeSummary, context)
         : undefined,
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
         : undefined,
     GlobalSecondaryIndexes:
-      output.GlobalSecondaryIndexes !== undefined &&
-      output.GlobalSecondaryIndexes !== null
-        ? deserializeAws_json1_0GlobalSecondaryIndexDescriptionList(
-            output.GlobalSecondaryIndexes,
-            context
-          )
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
+        ? deserializeAws_json1_0GlobalSecondaryIndexDescriptionList(output.GlobalSecondaryIndexes, context)
         : undefined,
     GlobalTableVersion:
-      output.GlobalTableVersion !== undefined &&
-      output.GlobalTableVersion !== null
+      output.GlobalTableVersion !== undefined && output.GlobalTableVersion !== null
         ? output.GlobalTableVersion
         : undefined,
-    ItemCount:
-      output.ItemCount !== undefined && output.ItemCount !== null
-        ? output.ItemCount
-        : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
         ? deserializeAws_json1_0KeySchema(output.KeySchema, context)
         : undefined,
     LatestStreamArn:
-      output.LatestStreamArn !== undefined && output.LatestStreamArn !== null
-        ? output.LatestStreamArn
-        : undefined,
+      output.LatestStreamArn !== undefined && output.LatestStreamArn !== null ? output.LatestStreamArn : undefined,
     LatestStreamLabel:
-      output.LatestStreamLabel !== undefined &&
-      output.LatestStreamLabel !== null
+      output.LatestStreamLabel !== undefined && output.LatestStreamLabel !== null
         ? output.LatestStreamLabel
         : undefined,
     LocalSecondaryIndexes:
-      output.LocalSecondaryIndexes !== undefined &&
-      output.LocalSecondaryIndexes !== null
-        ? deserializeAws_json1_0LocalSecondaryIndexDescriptionList(
-            output.LocalSecondaryIndexes,
-            context
-          )
+      output.LocalSecondaryIndexes !== undefined && output.LocalSecondaryIndexes !== null
+        ? deserializeAws_json1_0LocalSecondaryIndexDescriptionList(output.LocalSecondaryIndexes, context)
         : undefined,
     ProvisionedThroughput:
-      output.ProvisionedThroughput !== undefined &&
-      output.ProvisionedThroughput !== null
-        ? deserializeAws_json1_0ProvisionedThroughputDescription(
-            output.ProvisionedThroughput,
-            context
-          )
+      output.ProvisionedThroughput !== undefined && output.ProvisionedThroughput !== null
+        ? deserializeAws_json1_0ProvisionedThroughputDescription(output.ProvisionedThroughput, context)
         : undefined,
     Replicas:
       output.Replicas !== undefined && output.Replicas !== null
@@ -10385,107 +8176,55 @@ const deserializeAws_json1_0TableDescription = (
         ? deserializeAws_json1_0SSEDescription(output.SSEDescription, context)
         : undefined,
     StreamSpecification:
-      output.StreamSpecification !== undefined &&
-      output.StreamSpecification !== null
-        ? deserializeAws_json1_0StreamSpecification(
-            output.StreamSpecification,
-            context
-          )
+      output.StreamSpecification !== undefined && output.StreamSpecification !== null
+        ? deserializeAws_json1_0StreamSpecification(output.StreamSpecification, context)
         : undefined,
-    TableArn:
-      output.TableArn !== undefined && output.TableArn !== null
-        ? output.TableArn
-        : undefined,
-    TableId:
-      output.TableId !== undefined && output.TableId !== null
-        ? output.TableId
-        : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined,
+    TableArn: output.TableArn !== undefined && output.TableArn !== null ? output.TableArn : undefined,
+    TableId: output.TableId !== undefined && output.TableId !== null ? output.TableId : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
     TableSizeBytes:
-      output.TableSizeBytes !== undefined && output.TableSizeBytes !== null
-        ? output.TableSizeBytes
-        : undefined,
-    TableStatus:
-      output.TableStatus !== undefined && output.TableStatus !== null
-        ? output.TableStatus
-        : undefined
+      output.TableSizeBytes !== undefined && output.TableSizeBytes !== null ? output.TableSizeBytes : undefined,
+    TableStatus: output.TableStatus !== undefined && output.TableStatus !== null ? output.TableStatus : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TableInUseException = (
-  output: any,
-  context: __SerdeContext
-): TableInUseException => {
+const deserializeAws_json1_0TableInUseException = (output: any, context: __SerdeContext): TableInUseException => {
   return {
     __type: "TableInUseException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TableNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_0TableNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_0TableNotFoundException = (
-  output: any,
-  context: __SerdeContext
-): TableNotFoundException => {
+const deserializeAws_json1_0TableNotFoundException = (output: any, context: __SerdeContext): TableNotFoundException => {
   return {
     __type: "TableNotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_0Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0Tag(entry, context)
-  );
+const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0Tag(entry, context));
 };
 
-const deserializeAws_json1_0TimeToLiveDescription = (
-  output: any,
-  context: __SerdeContext
-): TimeToLiveDescription => {
+const deserializeAws_json1_0TimeToLiveDescription = (output: any, context: __SerdeContext): TimeToLiveDescription => {
   return {
     __type: "TimeToLiveDescription",
     AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null
-        ? output.AttributeName
-        : undefined,
+      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     TimeToLiveStatus:
-      output.TimeToLiveStatus !== undefined && output.TimeToLiveStatus !== null
-        ? output.TimeToLiveStatus
-        : undefined
+      output.TimeToLiveStatus !== undefined && output.TimeToLiveStatus !== null ? output.TimeToLiveStatus : undefined
   } as any;
 };
 
@@ -10496,28 +8235,17 @@ const deserializeAws_json1_0TimeToLiveSpecification = (
   return {
     __type: "TimeToLiveSpecification",
     AttributeName:
-      output.AttributeName !== undefined && output.AttributeName !== null
-        ? output.AttributeName
-        : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined
+      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined
   } as any;
 };
 
-const deserializeAws_json1_0TransactGetItemsOutput = (
-  output: any,
-  context: __SerdeContext
-): TransactGetItemsOutput => {
+const deserializeAws_json1_0TransactGetItemsOutput = (output: any, context: __SerdeContext): TransactGetItemsOutput => {
   return {
     __type: "TransactGetItemsOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacityMultiple(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
         : undefined,
     Responses:
       output.Responses !== undefined && output.Responses !== null
@@ -10534,18 +8262,11 @@ const deserializeAws_json1_0TransactWriteItemsOutput = (
     __type: "TransactWriteItemsOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacityMultiple(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
         : undefined,
     ItemCollectionMetrics:
-      output.ItemCollectionMetrics !== undefined &&
-      output.ItemCollectionMetrics !== null
-        ? deserializeAws_json1_0ItemCollectionMetricsPerTable(
-            output.ItemCollectionMetrics,
-            context
-          )
+      output.ItemCollectionMetrics !== undefined && output.ItemCollectionMetrics !== null
+        ? deserializeAws_json1_0ItemCollectionMetricsPerTable(output.ItemCollectionMetrics, context)
         : undefined
   } as any;
 };
@@ -10557,17 +8278,10 @@ const deserializeAws_json1_0TransactionCanceledException = (
   return {
     __type: "TransactionCanceledException",
     CancellationReasons:
-      output.CancellationReasons !== undefined &&
-      output.CancellationReasons !== null
-        ? deserializeAws_json1_0CancellationReasonList(
-            output.CancellationReasons,
-            context
-          )
+      output.CancellationReasons !== undefined && output.CancellationReasons !== null
+        ? deserializeAws_json1_0CancellationReasonList(output.CancellationReasons, context)
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -10577,10 +8291,7 @@ const deserializeAws_json1_0TransactionConflictException = (
 ): TransactionConflictException => {
   return {
     __type: "TransactionConflictException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -10590,10 +8301,7 @@ const deserializeAws_json1_0TransactionInProgressException = (
 ): TransactionInProgressException => {
   return {
     __type: "TransactionInProgressException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -10604,12 +8312,8 @@ const deserializeAws_json1_0UpdateContinuousBackupsOutput = (
   return {
     __type: "UpdateContinuousBackupsOutput",
     ContinuousBackupsDescription:
-      output.ContinuousBackupsDescription !== undefined &&
-      output.ContinuousBackupsDescription !== null
-        ? deserializeAws_json1_0ContinuousBackupsDescription(
-            output.ContinuousBackupsDescription,
-            context
-          )
+      output.ContinuousBackupsDescription !== undefined && output.ContinuousBackupsDescription !== null
+        ? deserializeAws_json1_0ContinuousBackupsDescription(output.ContinuousBackupsDescription, context)
         : undefined
   } as any;
 };
@@ -10621,18 +8325,11 @@ const deserializeAws_json1_0UpdateContributorInsightsOutput = (
   return {
     __type: "UpdateContributorInsightsOutput",
     ContributorInsightsStatus:
-      output.ContributorInsightsStatus !== undefined &&
-      output.ContributorInsightsStatus !== null
+      output.ContributorInsightsStatus !== undefined && output.ContributorInsightsStatus !== null
         ? output.ContributorInsightsStatus
         : undefined,
-    IndexName:
-      output.IndexName !== undefined && output.IndexName !== null
-        ? output.IndexName
-        : undefined,
-    TableName:
-      output.TableName !== undefined && output.TableName !== null
-        ? output.TableName
-        : undefined
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined
   } as any;
 };
 
@@ -10643,12 +8340,8 @@ const deserializeAws_json1_0UpdateGlobalTableOutput = (
   return {
     __type: "UpdateGlobalTableOutput",
     GlobalTableDescription:
-      output.GlobalTableDescription !== undefined &&
-      output.GlobalTableDescription !== null
-        ? deserializeAws_json1_0GlobalTableDescription(
-            output.GlobalTableDescription,
-            context
-          )
+      output.GlobalTableDescription !== undefined && output.GlobalTableDescription !== null
+        ? deserializeAws_json1_0GlobalTableDescription(output.GlobalTableDescription, context)
         : undefined
   } as any;
 };
@@ -10660,23 +8353,15 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsOutput = (
   return {
     __type: "UpdateGlobalTableSettingsOutput",
     GlobalTableName:
-      output.GlobalTableName !== undefined && output.GlobalTableName !== null
-        ? output.GlobalTableName
-        : undefined,
+      output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     ReplicaSettings:
       output.ReplicaSettings !== undefined && output.ReplicaSettings !== null
-        ? deserializeAws_json1_0ReplicaSettingsDescriptionList(
-            output.ReplicaSettings,
-            context
-          )
+        ? deserializeAws_json1_0ReplicaSettingsDescriptionList(output.ReplicaSettings, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0UpdateItemOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateItemOutput => {
+const deserializeAws_json1_0UpdateItemOutput = (output: any, context: __SerdeContext): UpdateItemOutput => {
   return {
     __type: "UpdateItemOutput",
     Attributes:
@@ -10685,34 +8370,21 @@ const deserializeAws_json1_0UpdateItemOutput = (
         : undefined,
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
-        ? deserializeAws_json1_0ConsumedCapacity(
-            output.ConsumedCapacity,
-            context
-          )
+        ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
         : undefined,
     ItemCollectionMetrics:
-      output.ItemCollectionMetrics !== undefined &&
-      output.ItemCollectionMetrics !== null
-        ? deserializeAws_json1_0ItemCollectionMetrics(
-            output.ItemCollectionMetrics,
-            context
-          )
+      output.ItemCollectionMetrics !== undefined && output.ItemCollectionMetrics !== null
+        ? deserializeAws_json1_0ItemCollectionMetrics(output.ItemCollectionMetrics, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0UpdateTableOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateTableOutput => {
+const deserializeAws_json1_0UpdateTableOutput = (output: any, context: __SerdeContext): UpdateTableOutput => {
   return {
     __type: "UpdateTableOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
-        ? deserializeAws_json1_0TableDescription(
-            output.TableDescription,
-            context
-          )
+        ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
         : undefined
   } as any;
 };
@@ -10724,37 +8396,23 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput = (
   return {
     __type: "UpdateTableReplicaAutoScalingOutput",
     TableAutoScalingDescription:
-      output.TableAutoScalingDescription !== undefined &&
-      output.TableAutoScalingDescription !== null
-        ? deserializeAws_json1_0TableAutoScalingDescription(
-            output.TableAutoScalingDescription,
-            context
-          )
+      output.TableAutoScalingDescription !== undefined && output.TableAutoScalingDescription !== null
+        ? deserializeAws_json1_0TableAutoScalingDescription(output.TableAutoScalingDescription, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0UpdateTimeToLiveOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateTimeToLiveOutput => {
+const deserializeAws_json1_0UpdateTimeToLiveOutput = (output: any, context: __SerdeContext): UpdateTimeToLiveOutput => {
   return {
     __type: "UpdateTimeToLiveOutput",
     TimeToLiveSpecification:
-      output.TimeToLiveSpecification !== undefined &&
-      output.TimeToLiveSpecification !== null
-        ? deserializeAws_json1_0TimeToLiveSpecification(
-            output.TimeToLiveSpecification,
-            context
-          )
+      output.TimeToLiveSpecification !== undefined && output.TimeToLiveSpecification !== null
+        ? deserializeAws_json1_0TimeToLiveSpecification(output.TimeToLiveSpecification, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_0WriteRequest = (
-  output: any,
-  context: __SerdeContext
-): WriteRequest => {
+const deserializeAws_json1_0WriteRequest = (output: any, context: __SerdeContext): WriteRequest => {
   return {
     __type: "WriteRequest",
     DeleteRequest:
@@ -10768,13 +8426,8 @@ const deserializeAws_json1_0WriteRequest = (
   } as any;
 };
 
-const deserializeAws_json1_0WriteRequests = (
-  output: any,
-  context: __SerdeContext
-): WriteRequest[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_0WriteRequest(entry, context)
-  );
+const deserializeAws_json1_0WriteRequests = (output: any, context: __SerdeContext): WriteRequest[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_0WriteRequest(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -10784,23 +8437,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

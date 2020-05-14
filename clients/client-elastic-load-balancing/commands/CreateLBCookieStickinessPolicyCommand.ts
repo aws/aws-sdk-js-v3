@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateLBCookieStickinessPolicyInput,
-  CreateLBCookieStickinessPolicyOutput
-} from "../models/index";
+import { CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput } from "../models/index";
 import {
   deserializeAws_queryCreateLBCookieStickinessPolicyCommand,
   serializeAws_queryCreateLBCookieStickinessPolicyCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLBCookieStickinessPolicyCommandInput = CreateLBCookieStickinessPolicyInput;
-export type CreateLBCookieStickinessPolicyCommandOutput = CreateLBCookieStickinessPolicyOutput &
-  __MetadataBearer;
+export type CreateLBCookieStickinessPolicyCommandOutput = CreateLBCookieStickinessPolicyOutput & __MetadataBearer;
 
 export class CreateLBCookieStickinessPolicyCommand extends $Command<
   CreateLBCookieStickinessPolicyCommandInput,
@@ -49,13 +42,8 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateLBCookieStickinessPolicyCommandInput,
-    CreateLBCookieStickinessPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateLBCookieStickinessPolicyCommandInput, CreateLBCookieStickinessPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class CreateLBCookieStickinessPolicyCommand extends $Command<
     input: CreateLBCookieStickinessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateLBCookieStickinessPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_queryCreateLBCookieStickinessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateLBCookieStickinessPolicyCommandOutput> {
-    return deserializeAws_queryCreateLBCookieStickinessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateLBCookieStickinessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

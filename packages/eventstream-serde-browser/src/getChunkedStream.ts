@@ -1,6 +1,4 @@
-export function getChunkedStream(
-  source: ReadableStream<Uint8Array>
-): ReadableStream<Uint8Array> {
+export function getChunkedStream(source: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> {
   const sourceReader = source.getReader();
   let currentMessageTotalLength = 0;
   let currentMessagePendingLength = 0;
@@ -8,10 +6,7 @@ export function getChunkedStream(
   let messageLengthBuffer: Uint8Array | null = null;
   const allocateMessage = function (size: number) {
     if (typeof size !== "number") {
-      throw new Error(
-        "Attempted to allocate an event message where size was not a number: " +
-          size
-      );
+      throw new Error("Attempted to allocate an event message where size was not a number: " + size);
     }
     currentMessageTotalLength = size;
     currentMessagePendingLength = 4;
@@ -67,9 +62,7 @@ export function getChunkedStream(
                 // not enough information to create the current message
                 break;
               }
-              allocateMessage(
-                new DataView(messageLengthBuffer.buffer).getUint32(0, false)
-              );
+              allocateMessage(new DataView(messageLengthBuffer.buffer).getUint32(0, false));
               messageLengthBuffer = null;
             }
 
@@ -87,10 +80,7 @@ export function getChunkedStream(
             currentOffset += numBytesToWrite;
 
             // check if a message is ready to be pushed
-            if (
-              currentMessageTotalLength &&
-              currentMessageTotalLength === currentMessagePendingLength
-            ) {
+            if (currentMessageTotalLength && currentMessageTotalLength === currentMessagePendingLength) {
               // push out the message
               controller.enqueue(currentMessage);
               // cleanup

@@ -1,18 +1,11 @@
-import {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecretsManagerClient";
+import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
 import { RestoreSecretRequest, RestoreSecretResponse } from "../models/index";
 import {
   deserializeAws_json1_1RestoreSecretCommand,
   serializeAws_json1_1RestoreSecretCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreSecretCommandInput = RestoreSecretRequest;
-export type RestoreSecretCommandOutput = RestoreSecretResponse &
-  __MetadataBearer;
+export type RestoreSecretCommandOutput = RestoreSecretResponse & __MetadataBearer;
 
 export class RestoreSecretCommand extends $Command<
   RestoreSecretCommandInput,
@@ -47,9 +39,7 @@ export class RestoreSecretCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreSecretCommandInput, RestoreSecretCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class RestoreSecretCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RestoreSecretCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RestoreSecretCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreSecretCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreSecretCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreSecretCommandOutput> {
     return deserializeAws_json1_1RestoreSecretCommand(output, context);
   }
 

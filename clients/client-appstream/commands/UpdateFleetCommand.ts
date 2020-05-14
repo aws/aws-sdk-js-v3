@@ -1,18 +1,11 @@
-import {
-  AppStreamClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppStreamClient";
+import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import { UpdateFleetRequest, UpdateFleetResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateFleetCommand,
   serializeAws_json1_1UpdateFleetCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class UpdateFleetCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateFleetCommandInput, UpdateFleetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class UpdateFleetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateFleetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateFleetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateFleetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFleetCommandOutput> {
     return deserializeAws_json1_1UpdateFleetCommand(output, context);
   }
 

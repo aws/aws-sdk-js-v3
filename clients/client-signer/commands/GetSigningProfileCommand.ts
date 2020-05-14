@@ -1,21 +1,11 @@
-import {
-  GetSigningProfileRequest,
-  GetSigningProfileResponse
-} from "../models/index";
+import { GetSigningProfileRequest, GetSigningProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSigningProfileCommand,
   serializeAws_restJson1_1GetSigningProfileCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSigningProfileCommandInput = GetSigningProfileRequest;
-export type GetSigningProfileCommandOutput = GetSigningProfileResponse &
-  __MetadataBearer;
+export type GetSigningProfileCommandOutput = GetSigningProfileResponse & __MetadataBearer;
 
 export class GetSigningProfileCommand extends $Command<
   GetSigningProfileCommandInput,
@@ -50,9 +39,7 @@ export class GetSigningProfileCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSigningProfileCommandInput, GetSigningProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetSigningProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSigningProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSigningProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSigningProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSigningProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningProfileCommandOutput> {
     return deserializeAws_restJson1_1GetSigningProfileCommand(output, context);
   }
 

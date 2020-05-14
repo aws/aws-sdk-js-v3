@@ -1,21 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient";
-import {
-  DescribeChannelRequest,
-  DescribeChannelResponse
-} from "../models/index";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { DescribeChannelRequest, DescribeChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeChannelCommand,
   serializeAws_restJson1_1DescribeChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeChannelCommandInput = DescribeChannelRequest;
-export type DescribeChannelCommandOutput = DescribeChannelResponse &
-  __MetadataBearer;
+export type DescribeChannelCommandOutput = DescribeChannelResponse & __MetadataBearer;
 
 export class DescribeChannelCommand extends $Command<
   DescribeChannelCommandInput,
@@ -50,9 +39,7 @@ export class DescribeChannelCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeChannelCommandInput, DescribeChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeChannelCommandOutput> {
     return deserializeAws_restJson1_1DescribeChannelCommand(output, context);
   }
 

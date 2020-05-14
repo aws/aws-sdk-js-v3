@@ -1,18 +1,11 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import { AddPermissionRequest } from "../models/index";
 import {
   deserializeAws_queryAddPermissionCommand,
   serializeAws_queryAddPermissionCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class AddPermissionCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddPermissionCommandInput, AddPermissionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddPermissionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAddPermissionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddPermissionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
     return deserializeAws_queryAddPermissionCommand(output, context);
   }
 

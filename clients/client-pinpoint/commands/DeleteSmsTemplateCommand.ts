@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  DeleteSmsTemplateRequest,
-  DeleteSmsTemplateResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { DeleteSmsTemplateRequest, DeleteSmsTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteSmsTemplateCommand,
   serializeAws_restJson1_1DeleteSmsTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSmsTemplateCommandInput = DeleteSmsTemplateRequest;
-export type DeleteSmsTemplateCommandOutput = DeleteSmsTemplateResponse &
-  __MetadataBearer;
+export type DeleteSmsTemplateCommandOutput = DeleteSmsTemplateResponse & __MetadataBearer;
 
 export class DeleteSmsTemplateCommand extends $Command<
   DeleteSmsTemplateCommandInput,
@@ -50,9 +39,7 @@ export class DeleteSmsTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSmsTemplateCommandInput, DeleteSmsTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteSmsTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSmsTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSmsTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteSmsTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSmsTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSmsTemplateCommandOutput> {
     return deserializeAws_restJson1_1DeleteSmsTemplateCommand(output, context);
   }
 

@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeEventCategoriesMessage,
-  DescribeEventCategoriesResponse
-} from "../models/index";
+import { DescribeEventCategoriesMessage, DescribeEventCategoriesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEventCategoriesCommand,
   serializeAws_json1_1DescribeEventCategoriesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventCategoriesCommandInput = DescribeEventCategoriesMessage;
-export type DescribeEventCategoriesCommandOutput = DescribeEventCategoriesResponse &
-  __MetadataBearer;
+export type DescribeEventCategoriesCommandOutput = DescribeEventCategoriesResponse & __MetadataBearer;
 
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,
@@ -49,13 +42,8 @@ export class DescribeEventCategoriesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEventCategoriesCommandInput,
-    DescribeEventCategoriesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEventCategoriesCommandInput, DescribeEventCategoriesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +58,12 @@ export class DescribeEventCategoriesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventCategoriesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventCategoriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventCategoriesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventCategoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeEventCategoriesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventCategoriesCommandOutput> {
+    return deserializeAws_json1_1DescribeEventCategoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

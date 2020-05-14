@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticsearchServiceClient";
-import {
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusResponse
-} from "../models/index";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUpgradeStatusCommand,
   serializeAws_restJson1_1GetUpgradeStatusCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUpgradeStatusCommandInput = GetUpgradeStatusRequest;
-export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse &
-  __MetadataBearer;
+export type GetUpgradeStatusCommandOutput = GetUpgradeStatusResponse & __MetadataBearer;
 
 export class GetUpgradeStatusCommand extends $Command<
   GetUpgradeStatusCommandInput,
@@ -50,9 +43,7 @@ export class GetUpgradeStatusCommand extends $Command<
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class GetUpgradeStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUpgradeStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUpgradeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetUpgradeStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetUpgradeStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUpgradeStatusCommandOutput> {
     return deserializeAws_restJson1_1GetUpgradeStatusCommand(output, context);
   }
 

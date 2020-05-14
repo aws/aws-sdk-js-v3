@@ -1,21 +1,11 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
-import {
-  GetQueueAttributesRequest,
-  GetQueueAttributesResult
-} from "../models/index";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
+import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/index";
 import {
   deserializeAws_queryGetQueueAttributesCommand,
   serializeAws_queryGetQueueAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetQueueAttributesCommandInput = GetQueueAttributesRequest;
-export type GetQueueAttributesCommandOutput = GetQueueAttributesResult &
-  __MetadataBearer;
+export type GetQueueAttributesCommandOutput = GetQueueAttributesResult & __MetadataBearer;
 
 export class GetQueueAttributesCommand extends $Command<
   GetQueueAttributesCommandInput,
@@ -50,9 +39,7 @@ export class GetQueueAttributesCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetQueueAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetQueueAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetQueueAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetQueueAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetQueueAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetQueueAttributesCommandOutput> {
     return deserializeAws_queryGetQueueAttributesCommand(output, context);
   }
 

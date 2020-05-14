@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient";
-import {
-  UpdateServiceAccessPoliciesRequest,
-  UpdateServiceAccessPoliciesResponse
-} from "../models/index";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { UpdateServiceAccessPoliciesRequest, UpdateServiceAccessPoliciesResponse } from "../models/index";
 import {
   deserializeAws_queryUpdateServiceAccessPoliciesCommand,
   serializeAws_queryUpdateServiceAccessPoliciesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateServiceAccessPoliciesCommandInput = UpdateServiceAccessPoliciesRequest;
-export type UpdateServiceAccessPoliciesCommandOutput = UpdateServiceAccessPoliciesResponse &
-  __MetadataBearer;
+export type UpdateServiceAccessPoliciesCommandOutput = UpdateServiceAccessPoliciesResponse & __MetadataBearer;
 
 export class UpdateServiceAccessPoliciesCommand extends $Command<
   UpdateServiceAccessPoliciesCommandInput,
@@ -49,13 +38,8 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServiceAccessPoliciesCommandInput,
-    UpdateServiceAccessPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServiceAccessPoliciesCommandInput, UpdateServiceAccessPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateServiceAccessPoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateServiceAccessPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateServiceAccessPoliciesCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class UpdateServiceAccessPoliciesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateServiceAccessPoliciesCommandOutput> {
-    return deserializeAws_queryUpdateServiceAccessPoliciesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateServiceAccessPoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

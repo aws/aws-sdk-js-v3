@@ -1,75 +1,30 @@
-import {
-  CreateContainerCommandInput,
-  CreateContainerCommandOutput
-} from "../commands/CreateContainerCommand";
-import {
-  DeleteContainerCommandInput,
-  DeleteContainerCommandOutput
-} from "../commands/DeleteContainerCommand";
+import { CreateContainerCommandInput, CreateContainerCommandOutput } from "../commands/CreateContainerCommand";
+import { DeleteContainerCommandInput, DeleteContainerCommandOutput } from "../commands/DeleteContainerCommand";
 import {
   DeleteContainerPolicyCommandInput,
   DeleteContainerPolicyCommandOutput
 } from "../commands/DeleteContainerPolicyCommand";
-import {
-  DeleteCorsPolicyCommandInput,
-  DeleteCorsPolicyCommandOutput
-} from "../commands/DeleteCorsPolicyCommand";
+import { DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput } from "../commands/DeleteCorsPolicyCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput
 } from "../commands/DeleteLifecyclePolicyCommand";
-import {
-  DescribeContainerCommandInput,
-  DescribeContainerCommandOutput
-} from "../commands/DescribeContainerCommand";
-import {
-  GetContainerPolicyCommandInput,
-  GetContainerPolicyCommandOutput
-} from "../commands/GetContainerPolicyCommand";
-import {
-  GetCorsPolicyCommandInput,
-  GetCorsPolicyCommandOutput
-} from "../commands/GetCorsPolicyCommand";
-import {
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
-} from "../commands/GetLifecyclePolicyCommand";
-import {
-  ListContainersCommandInput,
-  ListContainersCommandOutput
-} from "../commands/ListContainersCommand";
+import { DescribeContainerCommandInput, DescribeContainerCommandOutput } from "../commands/DescribeContainerCommand";
+import { GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput } from "../commands/GetContainerPolicyCommand";
+import { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "../commands/GetCorsPolicyCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
+import { ListContainersCommandInput, ListContainersCommandOutput } from "../commands/ListContainersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  PutContainerPolicyCommandInput,
-  PutContainerPolicyCommandOutput
-} from "../commands/PutContainerPolicyCommand";
-import {
-  PutCorsPolicyCommandInput,
-  PutCorsPolicyCommandOutput
-} from "../commands/PutCorsPolicyCommand";
-import {
-  PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput
-} from "../commands/PutLifecyclePolicyCommand";
-import {
-  StartAccessLoggingCommandInput,
-  StartAccessLoggingCommandOutput
-} from "../commands/StartAccessLoggingCommand";
-import {
-  StopAccessLoggingCommandInput,
-  StopAccessLoggingCommandOutput
-} from "../commands/StopAccessLoggingCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { PutContainerPolicyCommandInput, PutContainerPolicyCommandOutput } from "../commands/PutContainerPolicyCommand";
+import { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "../commands/PutCorsPolicyCommand";
+import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "../commands/PutLifecyclePolicyCommand";
+import { StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput } from "../commands/StartAccessLoggingCommand";
+import { StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput } from "../commands/StopAccessLoggingCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   Container,
   ContainerInUseException,
@@ -118,10 +73,7 @@ import {
   UntagResourceInput,
   UntagResourceOutput
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -140,9 +92,7 @@ export const serializeAws_json1_1CreateContainerCommand = async (
     "X-Amz-Target": "MediaStore_20170901.CreateContainer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateContainerInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateContainerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -155,9 +105,7 @@ export const serializeAws_json1_1DeleteContainerCommand = async (
     "X-Amz-Target": "MediaStore_20170901.DeleteContainer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteContainerInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteContainerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -170,9 +118,7 @@ export const serializeAws_json1_1DeleteContainerPolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.DeleteContainerPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteContainerPolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteContainerPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -185,9 +131,7 @@ export const serializeAws_json1_1DeleteCorsPolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.DeleteCorsPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteCorsPolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteCorsPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -200,9 +144,7 @@ export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.DeleteLifecyclePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteLifecyclePolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteLifecyclePolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -215,9 +157,7 @@ export const serializeAws_json1_1DescribeContainerCommand = async (
     "X-Amz-Target": "MediaStore_20170901.DescribeContainer"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeContainerInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeContainerInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -230,9 +170,7 @@ export const serializeAws_json1_1GetContainerPolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.GetContainerPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetContainerPolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetContainerPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -258,9 +196,7 @@ export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.GetLifecyclePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetLifecyclePolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -273,9 +209,7 @@ export const serializeAws_json1_1ListContainersCommand = async (
     "X-Amz-Target": "MediaStore_20170901.ListContainers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListContainersInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListContainersInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -288,9 +222,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "MediaStore_20170901.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -303,9 +235,7 @@ export const serializeAws_json1_1PutContainerPolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.PutContainerPolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutContainerPolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutContainerPolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,9 +261,7 @@ export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
     "X-Amz-Target": "MediaStore_20170901.PutLifecyclePolicy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PutLifecyclePolicyInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PutLifecyclePolicyInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,9 +274,7 @@ export const serializeAws_json1_1StartAccessLoggingCommand = async (
     "X-Amz-Target": "MediaStore_20170901.StartAccessLogging"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartAccessLoggingInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartAccessLoggingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -361,9 +287,7 @@ export const serializeAws_json1_1StopAccessLoggingCommand = async (
     "X-Amz-Target": "MediaStore_20170901.StopAccessLogging"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopAccessLoggingInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopAccessLoggingInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -422,16 +346,12 @@ const deserializeAws_json1_1CreateContainerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -439,10 +359,7 @@ const deserializeAws_json1_1CreateContainerCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -450,10 +367,7 @@ const deserializeAws_json1_1CreateContainerCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.mediastore#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -504,16 +418,12 @@ const deserializeAws_json1_1DeleteContainerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -521,10 +431,7 @@ const deserializeAws_json1_1DeleteContainerCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -532,10 +439,7 @@ const deserializeAws_json1_1DeleteContainerCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -562,10 +466,7 @@ export const deserializeAws_json1_1DeleteContainerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContainerPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteContainerPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteContainerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -589,16 +490,12 @@ const deserializeAws_json1_1DeleteContainerPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -606,10 +503,7 @@ const deserializeAws_json1_1DeleteContainerPolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -617,10 +511,7 @@ const deserializeAws_json1_1DeleteContainerPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -628,10 +519,7 @@ const deserializeAws_json1_1DeleteContainerPolicyCommandError = async (
     case "PolicyNotFoundException":
     case "com.amazonaws.mediastore#PolicyNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -682,16 +570,12 @@ const deserializeAws_json1_1DeleteCorsPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -699,10 +583,7 @@ const deserializeAws_json1_1DeleteCorsPolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -710,10 +591,7 @@ const deserializeAws_json1_1DeleteCorsPolicyCommandError = async (
     case "CorsPolicyNotFoundException":
     case "com.amazonaws.mediastore#CorsPolicyNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1CorsPolicyNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CorsPolicyNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -721,10 +599,7 @@ const deserializeAws_json1_1DeleteCorsPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -751,10 +626,7 @@ export const deserializeAws_json1_1DeleteLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -778,16 +650,12 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -795,10 +663,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -806,10 +671,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -817,10 +679,7 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
     case "PolicyNotFoundException":
     case "com.amazonaws.mediastore#PolicyNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -871,16 +730,12 @@ const deserializeAws_json1_1DescribeContainerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -888,10 +743,7 @@ const deserializeAws_json1_1DescribeContainerCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,10 +770,7 @@ export const deserializeAws_json1_1GetContainerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetContainerPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetContainerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -945,16 +794,12 @@ const deserializeAws_json1_1GetContainerPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -962,10 +807,7 @@ const deserializeAws_json1_1GetContainerPolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -973,10 +815,7 @@ const deserializeAws_json1_1GetContainerPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -984,10 +823,7 @@ const deserializeAws_json1_1GetContainerPolicyCommandError = async (
     case "PolicyNotFoundException":
     case "com.amazonaws.mediastore#PolicyNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1038,16 +874,12 @@ const deserializeAws_json1_1GetCorsPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1055,10 +887,7 @@ const deserializeAws_json1_1GetCorsPolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1066,10 +895,7 @@ const deserializeAws_json1_1GetCorsPolicyCommandError = async (
     case "CorsPolicyNotFoundException":
     case "com.amazonaws.mediastore#CorsPolicyNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1CorsPolicyNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CorsPolicyNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1077,10 +903,7 @@ const deserializeAws_json1_1GetCorsPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1107,10 +930,7 @@ export const deserializeAws_json1_1GetLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1134,16 +954,12 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1151,10 +967,7 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1162,10 +975,7 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1173,10 +983,7 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
     case "PolicyNotFoundException":
     case "com.amazonaws.mediastore#PolicyNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1PolicyNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1227,16 +1034,12 @@ const deserializeAws_json1_1ListContainersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1263,10 +1066,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1290,16 +1090,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1307,10 +1103,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1318,10 +1111,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1348,10 +1138,7 @@ export const deserializeAws_json1_1PutContainerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutContainerPolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutContainerPolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutContainerPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1375,16 +1162,12 @@ const deserializeAws_json1_1PutContainerPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1392,10 +1175,7 @@ const deserializeAws_json1_1PutContainerPolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1403,10 +1183,7 @@ const deserializeAws_json1_1PutContainerPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1457,16 +1234,12 @@ const deserializeAws_json1_1PutCorsPolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1474,10 +1247,7 @@ const deserializeAws_json1_1PutCorsPolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1485,10 +1255,7 @@ const deserializeAws_json1_1PutCorsPolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1515,10 +1282,7 @@ export const deserializeAws_json1_1PutLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutLifecyclePolicyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1542,16 +1306,12 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1559,10 +1319,7 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1570,10 +1327,7 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1600,10 +1354,7 @@ export const deserializeAws_json1_1StartAccessLoggingCommand = async (
   context: __SerdeContext
 ): Promise<StartAccessLoggingCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartAccessLoggingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartAccessLoggingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1627,16 +1378,12 @@ const deserializeAws_json1_1StartAccessLoggingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1644,10 +1391,7 @@ const deserializeAws_json1_1StartAccessLoggingCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1655,10 +1399,7 @@ const deserializeAws_json1_1StartAccessLoggingCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1709,16 +1450,12 @@ const deserializeAws_json1_1StopAccessLoggingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1726,10 +1463,7 @@ const deserializeAws_json1_1StopAccessLoggingCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1737,10 +1471,7 @@ const deserializeAws_json1_1StopAccessLoggingCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1791,16 +1522,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1808,10 +1535,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1819,10 +1543,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1873,16 +1594,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ContainerInUseException":
     case "com.amazonaws.mediastore#ContainerInUseException":
       response = {
-        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1890,10 +1607,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ContainerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1901,10 +1615,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.mediastore#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1931,10 +1642,7 @@ const deserializeAws_json1_1ContainerInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ContainerInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ContainerInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ContainerInUseException(body, context);
   const contents: ContainerInUseException = {
     name: "ContainerInUseException",
     $fault: "client",
@@ -1949,10 +1657,7 @@ const deserializeAws_json1_1ContainerNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ContainerNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ContainerNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ContainerNotFoundException(body, context);
   const contents: ContainerNotFoundException = {
     name: "ContainerNotFoundException",
     $fault: "client",
@@ -1967,10 +1672,7 @@ const deserializeAws_json1_1CorsPolicyNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CorsPolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CorsPolicyNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CorsPolicyNotFoundException(body, context);
   const contents: CorsPolicyNotFoundException = {
     name: "CorsPolicyNotFoundException",
     $fault: "client",
@@ -1985,10 +1687,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
@@ -2003,10 +1702,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -2021,10 +1717,7 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PolicyNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PolicyNotFoundException(body, context);
   const contents: PolicyNotFoundException = {
     name: "PolicyNotFoundException",
     $fault: "client",
@@ -2034,62 +1727,35 @@ const deserializeAws_json1_1PolicyNotFoundExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AllowedHeaders = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AllowedHeaders = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1AllowedMethods = (
-  input: (MethodName | string)[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AllowedMethods = (input: (MethodName | string)[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1AllowedOrigins = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AllowedOrigins = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CorsPolicy = (
-  input: CorsRule[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CorsPolicy = (input: CorsRule[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1CorsRule(entry, context));
 };
 
-const serializeAws_json1_1CorsRule = (
-  input: CorsRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CorsRule = (input: CorsRule, context: __SerdeContext): any => {
   return {
     ...(input.AllowedHeaders !== undefined && {
-      AllowedHeaders: serializeAws_json1_1AllowedHeaders(
-        input.AllowedHeaders,
-        context
-      )
+      AllowedHeaders: serializeAws_json1_1AllowedHeaders(input.AllowedHeaders, context)
     }),
     ...(input.AllowedMethods !== undefined && {
-      AllowedMethods: serializeAws_json1_1AllowedMethods(
-        input.AllowedMethods,
-        context
-      )
+      AllowedMethods: serializeAws_json1_1AllowedMethods(input.AllowedMethods, context)
     }),
     ...(input.AllowedOrigins !== undefined && {
-      AllowedOrigins: serializeAws_json1_1AllowedOrigins(
-        input.AllowedOrigins,
-        context
-      )
+      AllowedOrigins: serializeAws_json1_1AllowedOrigins(input.AllowedOrigins, context)
     }),
     ...(input.ExposeHeaders !== undefined && {
-      ExposeHeaders: serializeAws_json1_1ExposeHeaders(
-        input.ExposeHeaders,
-        context
-      )
+      ExposeHeaders: serializeAws_json1_1ExposeHeaders(input.ExposeHeaders, context)
     }),
     ...(input.MaxAgeSeconds !== undefined && {
       MaxAgeSeconds: input.MaxAgeSeconds
@@ -2097,10 +1763,7 @@ const serializeAws_json1_1CorsRule = (
   };
 };
 
-const serializeAws_json1_1CreateContainerInput = (
-  input: CreateContainerInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateContainerInput = (input: CreateContainerInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2111,10 +1774,7 @@ const serializeAws_json1_1CreateContainerInput = (
   };
 };
 
-const serializeAws_json1_1DeleteContainerInput = (
-  input: DeleteContainerInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteContainerInput = (input: DeleteContainerInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2133,10 +1793,7 @@ const serializeAws_json1_1DeleteContainerPolicyInput = (
   };
 };
 
-const serializeAws_json1_1DeleteCorsPolicyInput = (
-  input: DeleteCorsPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteCorsPolicyInput = (input: DeleteCorsPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2155,10 +1812,7 @@ const serializeAws_json1_1DeleteLifecyclePolicyInput = (
   };
 };
 
-const serializeAws_json1_1DescribeContainerInput = (
-  input: DescribeContainerInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeContainerInput = (input: DescribeContainerInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2166,17 +1820,11 @@ const serializeAws_json1_1DescribeContainerInput = (
   };
 };
 
-const serializeAws_json1_1ExposeHeaders = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExposeHeaders = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1GetContainerPolicyInput = (
-  input: GetContainerPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetContainerPolicyInput = (input: GetContainerPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2184,10 +1832,7 @@ const serializeAws_json1_1GetContainerPolicyInput = (
   };
 };
 
-const serializeAws_json1_1GetCorsPolicyInput = (
-  input: GetCorsPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetCorsPolicyInput = (input: GetCorsPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2195,10 +1840,7 @@ const serializeAws_json1_1GetCorsPolicyInput = (
   };
 };
 
-const serializeAws_json1_1GetLifecyclePolicyInput = (
-  input: GetLifecyclePolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetLifecyclePolicyInput = (input: GetLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2206,10 +1848,7 @@ const serializeAws_json1_1GetLifecyclePolicyInput = (
   };
 };
 
-const serializeAws_json1_1ListContainersInput = (
-  input: ListContainersInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListContainersInput = (input: ListContainersInput, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -2225,10 +1864,7 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   };
 };
 
-const serializeAws_json1_1PutContainerPolicyInput = (
-  input: PutContainerPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PutContainerPolicyInput = (input: PutContainerPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2237,10 +1873,7 @@ const serializeAws_json1_1PutContainerPolicyInput = (
   };
 };
 
-const serializeAws_json1_1PutCorsPolicyInput = (
-  input: PutCorsPolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PutCorsPolicyInput = (input: PutCorsPolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2251,10 +1884,7 @@ const serializeAws_json1_1PutCorsPolicyInput = (
   };
 };
 
-const serializeAws_json1_1PutLifecyclePolicyInput = (
-  input: PutLifecyclePolicyInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PutLifecyclePolicyInput = (input: PutLifecyclePolicyInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2265,10 +1895,7 @@ const serializeAws_json1_1PutLifecyclePolicyInput = (
   };
 };
 
-const serializeAws_json1_1StartAccessLoggingInput = (
-  input: StartAccessLoggingInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StartAccessLoggingInput = (input: StartAccessLoggingInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2276,10 +1903,7 @@ const serializeAws_json1_1StartAccessLoggingInput = (
   };
 };
 
-const serializeAws_json1_1StopAccessLoggingInput = (
-  input: StopAccessLoggingInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopAccessLoggingInput = (input: StopAccessLoggingInput, context: __SerdeContext): any => {
   return {
     ...(input.ContainerName !== undefined && {
       ContainerName: input.ContainerName
@@ -2294,24 +1918,15 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const serializeAws_json1_1TagResourceInput = (
-  input: TagResourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
     ...(input.Tags !== undefined && {
@@ -2320,10 +1935,7 @@ const serializeAws_json1_1TagResourceInput = (
   };
 };
 
-const serializeAws_json1_1UntagResourceInput = (
-  input: UntagResourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
     ...(input.TagKeys !== undefined && {
@@ -2332,56 +1944,33 @@ const serializeAws_json1_1UntagResourceInput = (
   };
 };
 
-const deserializeAws_json1_1AllowedHeaders = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1AllowedHeaders = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1AllowedMethods = (
-  output: any,
-  context: __SerdeContext
-): (MethodName | string)[] => {
+const deserializeAws_json1_1AllowedMethods = (output: any, context: __SerdeContext): (MethodName | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1AllowedOrigins = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1AllowedOrigins = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Container = (
-  output: any,
-  context: __SerdeContext
-): Container => {
+const deserializeAws_json1_1Container = (output: any, context: __SerdeContext): Container => {
   return {
     __type: "Container",
-    ARN:
-      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     AccessLoggingEnabled:
-      output.AccessLoggingEnabled !== undefined &&
-      output.AccessLoggingEnabled !== null
+      output.AccessLoggingEnabled !== undefined && output.AccessLoggingEnabled !== null
         ? output.AccessLoggingEnabled
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
-    Endpoint:
-      output.Endpoint !== undefined && output.Endpoint !== null
-        ? output.Endpoint
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Endpoint: output.Endpoint !== undefined && output.Endpoint !== null ? output.Endpoint : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -2391,20 +1980,12 @@ const deserializeAws_json1_1ContainerInUseException = (
 ): ContainerInUseException => {
   return {
     __type: "ContainerInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ContainerList = (
-  output: any,
-  context: __SerdeContext
-): Container[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Container(entry, context)
-  );
+const deserializeAws_json1_1ContainerList = (output: any, context: __SerdeContext): Container[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Container(entry, context));
 };
 
 const deserializeAws_json1_1ContainerNotFoundException = (
@@ -2413,20 +1994,12 @@ const deserializeAws_json1_1ContainerNotFoundException = (
 ): ContainerNotFoundException => {
   return {
     __type: "ContainerNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CorsPolicy = (
-  output: any,
-  context: __SerdeContext
-): CorsRule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CorsRule(entry, context)
-  );
+const deserializeAws_json1_1CorsPolicy = (output: any, context: __SerdeContext): CorsRule[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CorsRule(entry, context));
 };
 
 const deserializeAws_json1_1CorsPolicyNotFoundException = (
@@ -2435,17 +2008,11 @@ const deserializeAws_json1_1CorsPolicyNotFoundException = (
 ): CorsPolicyNotFoundException => {
   return {
     __type: "CorsPolicyNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CorsRule = (
-  output: any,
-  context: __SerdeContext
-): CorsRule => {
+const deserializeAws_json1_1CorsRule = (output: any, context: __SerdeContext): CorsRule => {
   return {
     __type: "CorsRule",
     AllowedHeaders:
@@ -2465,16 +2032,11 @@ const deserializeAws_json1_1CorsRule = (
         ? deserializeAws_json1_1ExposeHeaders(output.ExposeHeaders, context)
         : undefined,
     MaxAgeSeconds:
-      output.MaxAgeSeconds !== undefined && output.MaxAgeSeconds !== null
-        ? output.MaxAgeSeconds
-        : undefined
+      output.MaxAgeSeconds !== undefined && output.MaxAgeSeconds !== null ? output.MaxAgeSeconds : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateContainerOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateContainerOutput => {
+const deserializeAws_json1_1CreateContainerOutput = (output: any, context: __SerdeContext): CreateContainerOutput => {
   return {
     __type: "CreateContainerOutput",
     Container:
@@ -2484,10 +2046,7 @@ const deserializeAws_json1_1CreateContainerOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteContainerOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteContainerOutput => {
+const deserializeAws_json1_1DeleteContainerOutput = (output: any, context: __SerdeContext): DeleteContainerOutput => {
   return {
     __type: "DeleteContainerOutput"
   } as any;
@@ -2502,10 +2061,7 @@ const deserializeAws_json1_1DeleteContainerPolicyOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteCorsPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteCorsPolicyOutput => {
+const deserializeAws_json1_1DeleteCorsPolicyOutput = (output: any, context: __SerdeContext): DeleteCorsPolicyOutput => {
   return {
     __type: "DeleteCorsPolicyOutput"
   } as any;
@@ -2533,10 +2089,7 @@ const deserializeAws_json1_1DescribeContainerOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1ExposeHeaders = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1ExposeHeaders = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2546,17 +2099,11 @@ const deserializeAws_json1_1GetContainerPolicyOutput = (
 ): GetContainerPolicyOutput => {
   return {
     __type: "GetContainerPolicyOutput",
-    Policy:
-      output.Policy !== undefined && output.Policy !== null
-        ? output.Policy
-        : undefined
+    Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetCorsPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): GetCorsPolicyOutput => {
+const deserializeAws_json1_1GetCorsPolicyOutput = (output: any, context: __SerdeContext): GetCorsPolicyOutput => {
   return {
     __type: "GetCorsPolicyOutput",
     CorsPolicy:
@@ -2573,52 +2120,32 @@ const deserializeAws_json1_1GetLifecyclePolicyOutput = (
   return {
     __type: "GetLifecyclePolicyOutput",
     LifecyclePolicy:
-      output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null
-        ? output.LifecyclePolicy
-        : undefined
+      output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null ? output.LifecyclePolicy : undefined
   } as any;
 };
 
-const deserializeAws_json1_1InternalServerError = (
-  output: any,
-  context: __SerdeContext
-): InternalServerError => {
+const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
     __type: "InternalServerError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListContainersOutput = (
-  output: any,
-  context: __SerdeContext
-): ListContainersOutput => {
+const deserializeAws_json1_1ListContainersOutput = (output: any, context: __SerdeContext): ListContainersOutput => {
   return {
     __type: "ListContainersOutput",
     Containers:
       output.Containers !== undefined && output.Containers !== null
         ? deserializeAws_json1_1ContainerList(output.Containers, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -2641,10 +2168,7 @@ const deserializeAws_json1_1PolicyNotFoundException = (
 ): PolicyNotFoundException => {
   return {
     __type: "PolicyNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2657,10 +2181,7 @@ const deserializeAws_json1_1PutContainerPolicyOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1PutCorsPolicyOutput = (
-  output: any,
-  context: __SerdeContext
-): PutCorsPolicyOutput => {
+const deserializeAws_json1_1PutCorsPolicyOutput = (output: any, context: __SerdeContext): PutCorsPolicyOutput => {
   return {
     __type: "PutCorsPolicyOutput"
   } as any;
@@ -2693,43 +2214,25 @@ const deserializeAws_json1_1StopAccessLoggingOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
-const deserializeAws_json1_1TagResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): TagResourceOutput => {
+const deserializeAws_json1_1TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
   return {
     __type: "TagResourceOutput"
   } as any;
 };
 
-const deserializeAws_json1_1UntagResourceOutput = (
-  output: any,
-  context: __SerdeContext
-): UntagResourceOutput => {
+const deserializeAws_json1_1UntagResourceOutput = (output: any, context: __SerdeContext): UntagResourceOutput => {
   return {
     __type: "UntagResourceOutput"
   } as any;
@@ -2742,23 +2245,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

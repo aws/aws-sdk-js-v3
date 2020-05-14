@@ -13,11 +13,7 @@ import {
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput
 } from "./commands/CreateDistributionConfigurationCommand";
-import {
-  CreateImageCommand,
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand";
+import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
   CreateImagePipelineCommand,
   CreateImagePipelineCommandInput,
@@ -43,11 +39,7 @@ import {
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput
 } from "./commands/DeleteDistributionConfigurationCommand";
-import {
-  DeleteImageCommand,
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput
-} from "./commands/DeleteImageCommand";
+import { DeleteImageCommand, DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
   DeleteImagePipelineCommand,
   DeleteImagePipelineCommandInput,
@@ -78,11 +70,7 @@ import {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput
 } from "./commands/GetDistributionConfigurationCommand";
-import {
-  GetImageCommand,
-  GetImageCommandInput,
-  GetImageCommandOutput
-} from "./commands/GetImageCommand";
+import { GetImageCommand, GetImageCommandInput, GetImageCommandOutput } from "./commands/GetImageCommand";
 import {
   GetImagePipelineCommand,
   GetImagePipelineCommandInput,
@@ -148,11 +136,7 @@ import {
   ListImageRecipesCommandInput,
   ListImageRecipesCommandOutput
 } from "./commands/ListImageRecipesCommand";
-import {
-  ListImagesCommand,
-  ListImagesCommandInput,
-  ListImagesCommandOutput
-} from "./commands/ListImagesCommand";
+import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommand,
   ListInfrastructureConfigurationsCommandInput,
@@ -183,11 +167,7 @@ import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput
 } from "./commands/StartImagePipelineExecutionCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -233,17 +213,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public cancelImageCreation(
     args: CancelImageCreationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelImageCreationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelImageCreationCommandOutput) => void),
     cb?: (err: any, data?: CancelImageCreationCommandOutput) => void
   ): Promise<CancelImageCreationCommandOutput> | void {
     const command = new CancelImageCreationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -268,17 +245,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createComponent(
     args: CreateComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComponentCommandOutput) => void),
     cb?: (err: any, data?: CreateComponentCommandOutput) => void
   ): Promise<CreateComponentCommandOutput> | void {
     const command = new CreateComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -303,20 +277,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateDistributionConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateDistributionConfigurationCommandOutput) => void
   ): Promise<CreateDistributionConfigurationCommandOutput> | void {
     const command = new CreateDistributionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -326,14 +294,8 @@ export class imagebuilder extends imagebuilderClient {
   /**
    * <p> Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. </p>
    */
-  public createImage(
-    args: CreateImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateImageCommandOutput>;
-  public createImage(
-    args: CreateImageCommandInput,
-    cb: (err: any, data?: CreateImageCommandOutput) => void
-  ): void;
+  public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
+  public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
   public createImage(
     args: CreateImageCommandInput,
     options: __HttpHandlerOptions,
@@ -341,17 +303,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createImage(
     args: CreateImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageCommandOutput) => void),
     cb?: (err: any, data?: CreateImageCommandOutput) => void
   ): Promise<CreateImageCommandOutput> | void {
     const command = new CreateImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -376,17 +335,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createImagePipeline(
     args: CreateImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImagePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImagePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreateImagePipelineCommandOutput) => void
   ): Promise<CreateImagePipelineCommandOutput> | void {
     const command = new CreateImagePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -411,17 +367,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateImageRecipeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageRecipeCommandOutput) => void),
     cb?: (err: any, data?: CreateImageRecipeCommandOutput) => void
   ): Promise<CreateImageRecipeCommandOutput> | void {
     const command = new CreateImageRecipeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -437,38 +390,23 @@ export class imagebuilder extends imagebuilderClient {
   ): Promise<CreateInfrastructureConfigurationCommandOutput>;
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: CreateInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: CreateInfrastructureConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateInfrastructureConfigurationCommandOutput) => void
   ): Promise<CreateInfrastructureConfigurationCommandOutput> | void {
     const command = new CreateInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -493,17 +431,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteComponent(
     args: DeleteComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComponentCommandOutput) => void),
     cb?: (err: any, data?: DeleteComponentCommandOutput) => void
   ): Promise<DeleteComponentCommandOutput> | void {
     const command = new DeleteComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -528,20 +463,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteDistributionConfiguration(
     args: DeleteDistributionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteDistributionConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteDistributionConfigurationCommandOutput) => void
   ): Promise<DeleteDistributionConfigurationCommandOutput> | void {
     const command = new DeleteDistributionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -551,14 +480,8 @@ export class imagebuilder extends imagebuilderClient {
   /**
    * <p> Deletes an image. </p>
    */
-  public deleteImage(
-    args: DeleteImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteImageCommandOutput>;
-  public deleteImage(
-    args: DeleteImageCommandInput,
-    cb: (err: any, data?: DeleteImageCommandOutput) => void
-  ): void;
+  public deleteImage(args: DeleteImageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteImageCommandOutput>;
+  public deleteImage(args: DeleteImageCommandInput, cb: (err: any, data?: DeleteImageCommandOutput) => void): void;
   public deleteImage(
     args: DeleteImageCommandInput,
     options: __HttpHandlerOptions,
@@ -566,17 +489,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteImage(
     args: DeleteImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteImageCommandOutput) => void
   ): Promise<DeleteImageCommandOutput> | void {
     const command = new DeleteImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -601,17 +521,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteImagePipeline(
     args: DeleteImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImagePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImagePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeleteImagePipelineCommandOutput) => void
   ): Promise<DeleteImagePipelineCommandOutput> | void {
     const command = new DeleteImagePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -636,17 +553,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public deleteImageRecipe(
     args: DeleteImageRecipeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteImageRecipeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageRecipeCommandOutput) => void),
     cb?: (err: any, data?: DeleteImageRecipeCommandOutput) => void
   ): Promise<DeleteImageRecipeCommandOutput> | void {
     const command = new DeleteImageRecipeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -662,38 +576,23 @@ export class imagebuilder extends imagebuilderClient {
   ): Promise<DeleteInfrastructureConfigurationCommandOutput>;
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: DeleteInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
   ): void;
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DeleteInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
   ): void;
   public deleteInfrastructureConfiguration(
     args: DeleteInfrastructureConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DeleteInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DeleteInfrastructureConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteInfrastructureConfigurationCommandOutput) => void
   ): Promise<DeleteInfrastructureConfigurationCommandOutput> | void {
     const command = new DeleteInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -707,10 +606,7 @@ export class imagebuilder extends imagebuilderClient {
     args: GetComponentCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetComponentCommandOutput>;
-  public getComponent(
-    args: GetComponentCommandInput,
-    cb: (err: any, data?: GetComponentCommandOutput) => void
-  ): void;
+  public getComponent(args: GetComponentCommandInput, cb: (err: any, data?: GetComponentCommandOutput) => void): void;
   public getComponent(
     args: GetComponentCommandInput,
     options: __HttpHandlerOptions,
@@ -718,17 +614,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getComponent(
     args: GetComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComponentCommandOutput) => void),
     cb?: (err: any, data?: GetComponentCommandOutput) => void
   ): Promise<GetComponentCommandOutput> | void {
     const command = new GetComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -753,17 +646,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getComponentPolicy(
     args: GetComponentPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetComponentPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetComponentPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetComponentPolicyCommandOutput) => void
   ): Promise<GetComponentPolicyCommandOutput> | void {
     const command = new GetComponentPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -788,17 +678,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getDistributionConfiguration(
     args: GetDistributionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDistributionConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetDistributionConfigurationCommandOutput) => void
   ): Promise<GetDistributionConfigurationCommandOutput> | void {
     const command = new GetDistributionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -808,14 +695,8 @@ export class imagebuilder extends imagebuilderClient {
   /**
    * <p> Gets an image. </p>
    */
-  public getImage(
-    args: GetImageCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetImageCommandOutput>;
-  public getImage(
-    args: GetImageCommandInput,
-    cb: (err: any, data?: GetImageCommandOutput) => void
-  ): void;
+  public getImage(args: GetImageCommandInput, options?: __HttpHandlerOptions): Promise<GetImageCommandOutput>;
+  public getImage(args: GetImageCommandInput, cb: (err: any, data?: GetImageCommandOutput) => void): void;
   public getImage(
     args: GetImageCommandInput,
     options: __HttpHandlerOptions,
@@ -823,17 +704,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImage(
     args: GetImageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImageCommandOutput) => void),
     cb?: (err: any, data?: GetImageCommandOutput) => void
   ): Promise<GetImageCommandOutput> | void {
     const command = new GetImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -858,17 +736,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImagePipeline(
     args: GetImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImagePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImagePipelineCommandOutput) => void),
     cb?: (err: any, data?: GetImagePipelineCommandOutput) => void
   ): Promise<GetImagePipelineCommandOutput> | void {
     const command = new GetImagePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -893,17 +768,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImagePolicy(
     args: GetImagePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImagePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImagePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetImagePolicyCommandOutput) => void
   ): Promise<GetImagePolicyCommandOutput> | void {
     const command = new GetImagePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -928,17 +800,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImageRecipe(
     args: GetImageRecipeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImageRecipeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImageRecipeCommandOutput) => void),
     cb?: (err: any, data?: GetImageRecipeCommandOutput) => void
   ): Promise<GetImageRecipeCommandOutput> | void {
     const command = new GetImageRecipeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -963,17 +832,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getImageRecipePolicy(
     args: GetImageRecipePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetImageRecipePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImageRecipePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetImageRecipePolicyCommandOutput) => void
   ): Promise<GetImageRecipePolicyCommandOutput> | void {
     const command = new GetImageRecipePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -998,20 +864,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public getInfrastructureConfiguration(
     args: GetInfrastructureConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: GetInfrastructureConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInfrastructureConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetInfrastructureConfigurationCommandOutput) => void
   ): Promise<GetInfrastructureConfigurationCommandOutput> | void {
     const command = new GetInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1036,17 +896,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public importComponent(
     args: ImportComponentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ImportComponentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportComponentCommandOutput) => void),
     cb?: (err: any, data?: ImportComponentCommandOutput) => void
   ): Promise<ImportComponentCommandOutput> | void {
     const command = new ImportComponentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1071,17 +928,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listComponentBuildVersions(
     args: ListComponentBuildVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComponentBuildVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentBuildVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListComponentBuildVersionsCommandOutput) => void
   ): Promise<ListComponentBuildVersionsCommandOutput> | void {
     const command = new ListComponentBuildVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1106,17 +960,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listComponents(
     args: ListComponentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListComponentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentsCommandOutput) => void),
     cb?: (err: any, data?: ListComponentsCommandOutput) => void
   ): Promise<ListComponentsCommandOutput> | void {
     const command = new ListComponentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1141,20 +992,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listDistributionConfigurations(
     args: ListDistributionConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListDistributionConfigurationsCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListDistributionConfigurationsCommandOutput) => void
   ): Promise<ListDistributionConfigurationsCommandOutput> | void {
     const command = new ListDistributionConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1179,17 +1024,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImageBuildVersions(
     args: ListImageBuildVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImageBuildVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImageBuildVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListImageBuildVersionsCommandOutput) => void
   ): Promise<ListImageBuildVersionsCommandOutput> | void {
     const command = new ListImageBuildVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1214,17 +1056,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImagePipelineImages(
     args: ListImagePipelineImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagePipelineImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagePipelineImagesCommandOutput) => void),
     cb?: (err: any, data?: ListImagePipelineImagesCommandOutput) => void
   ): Promise<ListImagePipelineImagesCommandOutput> | void {
     const command = new ListImagePipelineImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1249,17 +1088,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImagePipelines(
     args: ListImagePipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagePipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagePipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListImagePipelinesCommandOutput) => void
   ): Promise<ListImagePipelinesCommandOutput> | void {
     const command = new ListImagePipelinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1284,17 +1120,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImageRecipes(
     args: ListImageRecipesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImageRecipesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImageRecipesCommandOutput) => void),
     cb?: (err: any, data?: ListImageRecipesCommandOutput) => void
   ): Promise<ListImageRecipesCommandOutput> | void {
     const command = new ListImageRecipesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1304,14 +1137,8 @@ export class imagebuilder extends imagebuilderClient {
   /**
    * <p> Returns the list of image build versions for the specified semantic version. </p>
    */
-  public listImages(
-    args: ListImagesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImagesCommandOutput>;
-  public listImages(
-    args: ListImagesCommandInput,
-    cb: (err: any, data?: ListImagesCommandOutput) => void
-  ): void;
+  public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
+  public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
   public listImages(
     args: ListImagesCommandInput,
     options: __HttpHandlerOptions,
@@ -1319,17 +1146,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listImages(
     args: ListImagesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImagesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagesCommandOutput) => void),
     cb?: (err: any, data?: ListImagesCommandOutput) => void
   ): Promise<ListImagesCommandOutput> | void {
     const command = new ListImagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1354,23 +1178,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listInfrastructureConfigurations(
     args: ListInfrastructureConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: ListInfrastructureConfigurationsCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: ListInfrastructureConfigurationsCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: ListInfrastructureConfigurationsCommandOutput) => void
   ): Promise<ListInfrastructureConfigurationsCommandOutput> | void {
     const command = new ListInfrastructureConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1395,17 +1210,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1430,17 +1242,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutComponentPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutComponentPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutComponentPolicyCommandOutput) => void
   ): Promise<PutComponentPolicyCommandOutput> | void {
     const command = new PutComponentPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1465,17 +1274,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImagePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImagePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutImagePolicyCommandOutput) => void
   ): Promise<PutImagePolicyCommandOutput> | void {
     const command = new PutImagePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1500,17 +1306,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutImageRecipePolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutImageRecipePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutImageRecipePolicyCommandOutput) => void
   ): Promise<PutImageRecipePolicyCommandOutput> | void {
     const command = new PutImageRecipePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1535,17 +1338,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public startImagePipelineExecution(
     args: StartImagePipelineExecutionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartImagePipelineExecutionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImagePipelineExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartImagePipelineExecutionCommandOutput) => void
   ): Promise<StartImagePipelineExecutionCommandOutput> | void {
     const command = new StartImagePipelineExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1555,14 +1355,8 @@ export class imagebuilder extends imagebuilderClient {
   /**
    * <p> Adds a tag to a resource. </p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1570,17 +1364,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1605,17 +1396,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1640,20 +1428,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public updateDistributionConfiguration(
     args: UpdateDistributionConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateDistributionConfigurationCommandOutput
-        ) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDistributionConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateDistributionConfigurationCommandOutput) => void
   ): Promise<UpdateDistributionConfigurationCommandOutput> | void {
     const command = new UpdateDistributionConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1678,17 +1460,14 @@ export class imagebuilder extends imagebuilderClient {
   ): void;
   public updateImagePipeline(
     args: UpdateImagePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateImagePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImagePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdateImagePipelineCommandOutput) => void
   ): Promise<UpdateImagePipelineCommandOutput> | void {
     const command = new UpdateImagePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1704,38 +1483,23 @@ export class imagebuilder extends imagebuilderClient {
   ): Promise<UpdateInfrastructureConfigurationCommandOutput>;
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,
-    cb: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
+    cb: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
   ): void;
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: UpdateInfrastructureConfigurationCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: UpdateInfrastructureConfigurationCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateInfrastructureConfigurationCommandOutput) => void
   ): Promise<UpdateInfrastructureConfigurationCommandOutput> | void {
     const command = new UpdateInfrastructureConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetSAMLProviderRequest,
-  GetSAMLProviderResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetSAMLProviderRequest, GetSAMLProviderResponse } from "../models/index";
 import {
   deserializeAws_queryGetSAMLProviderCommand,
   serializeAws_queryGetSAMLProviderCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSAMLProviderCommandInput = GetSAMLProviderRequest;
-export type GetSAMLProviderCommandOutput = GetSAMLProviderResponse &
-  __MetadataBearer;
+export type GetSAMLProviderCommandOutput = GetSAMLProviderResponse & __MetadataBearer;
 
 export class GetSAMLProviderCommand extends $Command<
   GetSAMLProviderCommandInput,
@@ -50,9 +39,7 @@ export class GetSAMLProviderCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetSAMLProviderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSAMLProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSAMLProviderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSAMLProviderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSAMLProviderCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSAMLProviderCommandOutput> {
     return deserializeAws_queryGetSAMLProviderCommand(output, context);
   }
 

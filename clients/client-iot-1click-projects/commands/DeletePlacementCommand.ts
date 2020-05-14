@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickProjectsClient";
-import {
-  DeletePlacementRequest,
-  DeletePlacementResponse
-} from "../models/index";
+import { DeletePlacementRequest, DeletePlacementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeletePlacementCommand,
   serializeAws_restJson1_1DeletePlacementCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePlacementCommandInput = DeletePlacementRequest;
-export type DeletePlacementCommandOutput = DeletePlacementResponse &
-  __MetadataBearer;
+export type DeletePlacementCommandOutput = DeletePlacementResponse & __MetadataBearer;
 
 export class DeletePlacementCommand extends $Command<
   DeletePlacementCommandInput,
@@ -50,9 +43,7 @@ export class DeletePlacementCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePlacementCommandInput, DeletePlacementCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeletePlacementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePlacementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeletePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeletePlacementCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeletePlacementCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePlacementCommandOutput> {
     return deserializeAws_restJson1_1DeletePlacementCommand(output, context);
   }
 

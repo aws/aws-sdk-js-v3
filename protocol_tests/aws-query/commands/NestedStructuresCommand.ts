@@ -1,18 +1,11 @@
-import {
-  QueryProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QueryProtocolClient";
+import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { NestedStructuresInput } from "../models/index";
 import {
   deserializeAws_queryNestedStructuresCommand,
   serializeAws_queryNestedStructuresCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class NestedStructuresCommand extends $Command<
     configuration: QueryProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NestedStructuresCommandInput, NestedStructuresCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class NestedStructuresCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: NestedStructuresCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: NestedStructuresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryNestedStructuresCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<NestedStructuresCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NestedStructuresCommandOutput> {
     return deserializeAws_queryNestedStructuresCommand(output, context);
   }
 

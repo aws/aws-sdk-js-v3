@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  PromoteReadReplicaMessage,
-  PromoteReadReplicaResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { PromoteReadReplicaMessage, PromoteReadReplicaResult } from "../models/index";
 import {
   deserializeAws_queryPromoteReadReplicaCommand,
   serializeAws_queryPromoteReadReplicaCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PromoteReadReplicaCommandInput = PromoteReadReplicaMessage;
-export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult &
-  __MetadataBearer;
+export type PromoteReadReplicaCommandOutput = PromoteReadReplicaResult & __MetadataBearer;
 
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,
@@ -50,9 +39,7 @@ export class PromoteReadReplicaCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class PromoteReadReplicaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PromoteReadReplicaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PromoteReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPromoteReadReplicaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PromoteReadReplicaCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PromoteReadReplicaCommandOutput> {
     return deserializeAws_queryPromoteReadReplicaCommand(output, context);
   }
 

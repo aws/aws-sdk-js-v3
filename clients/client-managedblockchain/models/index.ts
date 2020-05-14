@@ -1,22 +1,16 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 /**
@@ -41,8 +35,7 @@ export interface ApprovalThresholdPolicy {
 }
 
 export namespace ApprovalThresholdPolicy {
-  export const isa = (o: any): o is ApprovalThresholdPolicy =>
-    __isa(o, "ApprovalThresholdPolicy");
+  export const isa = (o: any): o is ApprovalThresholdPolicy => __isa(o, "ApprovalThresholdPolicy");
 }
 
 export interface CreateMemberInput {
@@ -69,8 +62,7 @@ export interface CreateMemberInput {
 }
 
 export namespace CreateMemberInput {
-  export const isa = (o: any): o is CreateMemberInput =>
-    __isa(o, "CreateMemberInput");
+  export const isa = (o: any): o is CreateMemberInput => __isa(o, "CreateMemberInput");
 }
 
 export interface CreateMemberOutput {
@@ -82,8 +74,7 @@ export interface CreateMemberOutput {
 }
 
 export namespace CreateMemberOutput {
-  export const isa = (o: any): o is CreateMemberOutput =>
-    __isa(o, "CreateMemberOutput");
+  export const isa = (o: any): o is CreateMemberOutput => __isa(o, "CreateMemberOutput");
 }
 
 export interface CreateNetworkInput {
@@ -134,8 +125,7 @@ export interface CreateNetworkInput {
 }
 
 export namespace CreateNetworkInput {
-  export const isa = (o: any): o is CreateNetworkInput =>
-    __isa(o, "CreateNetworkInput");
+  export const isa = (o: any): o is CreateNetworkInput => __isa(o, "CreateNetworkInput");
 }
 
 export interface CreateNetworkOutput {
@@ -152,8 +142,7 @@ export interface CreateNetworkOutput {
 }
 
 export namespace CreateNetworkOutput {
-  export const isa = (o: any): o is CreateNetworkOutput =>
-    __isa(o, "CreateNetworkOutput");
+  export const isa = (o: any): o is CreateNetworkOutput => __isa(o, "CreateNetworkOutput");
 }
 
 export interface CreateNodeInput {
@@ -180,8 +169,7 @@ export interface CreateNodeInput {
 }
 
 export namespace CreateNodeInput {
-  export const isa = (o: any): o is CreateNodeInput =>
-    __isa(o, "CreateNodeInput");
+  export const isa = (o: any): o is CreateNodeInput => __isa(o, "CreateNodeInput");
 }
 
 export interface CreateNodeOutput {
@@ -193,8 +181,7 @@ export interface CreateNodeOutput {
 }
 
 export namespace CreateNodeOutput {
-  export const isa = (o: any): o is CreateNodeOutput =>
-    __isa(o, "CreateNodeOutput");
+  export const isa = (o: any): o is CreateNodeOutput => __isa(o, "CreateNodeOutput");
 }
 
 export interface CreateProposalInput {
@@ -227,8 +214,7 @@ export interface CreateProposalInput {
 }
 
 export namespace CreateProposalInput {
-  export const isa = (o: any): o is CreateProposalInput =>
-    __isa(o, "CreateProposalInput");
+  export const isa = (o: any): o is CreateProposalInput => __isa(o, "CreateProposalInput");
 }
 
 export interface CreateProposalOutput {
@@ -240,8 +226,7 @@ export interface CreateProposalOutput {
 }
 
 export namespace CreateProposalOutput {
-  export const isa = (o: any): o is CreateProposalOutput =>
-    __isa(o, "CreateProposalOutput");
+  export const isa = (o: any): o is CreateProposalOutput => __isa(o, "CreateProposalOutput");
 }
 
 export interface DeleteMemberInput {
@@ -258,8 +243,7 @@ export interface DeleteMemberInput {
 }
 
 export namespace DeleteMemberInput {
-  export const isa = (o: any): o is DeleteMemberInput =>
-    __isa(o, "DeleteMemberInput");
+  export const isa = (o: any): o is DeleteMemberInput => __isa(o, "DeleteMemberInput");
 }
 
 export interface DeleteMemberOutput {
@@ -267,8 +251,7 @@ export interface DeleteMemberOutput {
 }
 
 export namespace DeleteMemberOutput {
-  export const isa = (o: any): o is DeleteMemberOutput =>
-    __isa(o, "DeleteMemberOutput");
+  export const isa = (o: any): o is DeleteMemberOutput => __isa(o, "DeleteMemberOutput");
 }
 
 export interface DeleteNodeInput {
@@ -290,8 +273,7 @@ export interface DeleteNodeInput {
 }
 
 export namespace DeleteNodeInput {
-  export const isa = (o: any): o is DeleteNodeInput =>
-    __isa(o, "DeleteNodeInput");
+  export const isa = (o: any): o is DeleteNodeInput => __isa(o, "DeleteNodeInput");
 }
 
 export interface DeleteNodeOutput {
@@ -299,8 +281,7 @@ export interface DeleteNodeOutput {
 }
 
 export namespace DeleteNodeOutput {
-  export const isa = (o: any): o is DeleteNodeOutput =>
-    __isa(o, "DeleteNodeOutput");
+  export const isa = (o: any): o is DeleteNodeOutput => __isa(o, "DeleteNodeOutput");
 }
 
 export enum Edition {
@@ -326,8 +307,7 @@ export interface GetMemberInput {
 }
 
 export namespace GetMemberInput {
-  export const isa = (o: any): o is GetMemberInput =>
-    __isa(o, "GetMemberInput");
+  export const isa = (o: any): o is GetMemberInput => __isa(o, "GetMemberInput");
 }
 
 export interface GetMemberOutput {
@@ -339,8 +319,7 @@ export interface GetMemberOutput {
 }
 
 export namespace GetMemberOutput {
-  export const isa = (o: any): o is GetMemberOutput =>
-    __isa(o, "GetMemberOutput");
+  export const isa = (o: any): o is GetMemberOutput => __isa(o, "GetMemberOutput");
 }
 
 export interface GetNetworkInput {
@@ -352,8 +331,7 @@ export interface GetNetworkInput {
 }
 
 export namespace GetNetworkInput {
-  export const isa = (o: any): o is GetNetworkInput =>
-    __isa(o, "GetNetworkInput");
+  export const isa = (o: any): o is GetNetworkInput => __isa(o, "GetNetworkInput");
 }
 
 export interface GetNetworkOutput {
@@ -365,8 +343,7 @@ export interface GetNetworkOutput {
 }
 
 export namespace GetNetworkOutput {
-  export const isa = (o: any): o is GetNetworkOutput =>
-    __isa(o, "GetNetworkOutput");
+  export const isa = (o: any): o is GetNetworkOutput => __isa(o, "GetNetworkOutput");
 }
 
 export interface GetNodeInput {
@@ -417,8 +394,7 @@ export interface GetProposalInput {
 }
 
 export namespace GetProposalInput {
-  export const isa = (o: any): o is GetProposalInput =>
-    __isa(o, "GetProposalInput");
+  export const isa = (o: any): o is GetProposalInput => __isa(o, "GetProposalInput");
 }
 
 export interface GetProposalOutput {
@@ -430,55 +406,45 @@ export interface GetProposalOutput {
 }
 
 export namespace GetProposalOutput {
-  export const isa = (o: any): o is GetProposalOutput =>
-    __isa(o, "GetProposalOutput");
+  export const isa = (o: any): o is GetProposalOutput => __isa(o, "GetProposalOutput");
 }
 
 /**
  * <p></p>
  */
-export interface IllegalActionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IllegalActionException extends __SmithyException, $MetadataBearer {
   name: "IllegalActionException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace IllegalActionException {
-  export const isa = (o: any): o is IllegalActionException =>
-    __isa(o, "IllegalActionException");
+  export const isa = (o: any): o is IllegalActionException => __isa(o, "IllegalActionException");
 }
 
 /**
  * <p>The request processing has failed because of an unknown error, exception or failure.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
 }
 
 export namespace InternalServiceErrorException {
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -575,8 +541,7 @@ export interface ListInvitationsInput {
 }
 
 export namespace ListInvitationsInput {
-  export const isa = (o: any): o is ListInvitationsInput =>
-    __isa(o, "ListInvitationsInput");
+  export const isa = (o: any): o is ListInvitationsInput => __isa(o, "ListInvitationsInput");
 }
 
 export interface ListInvitationsOutput {
@@ -593,8 +558,7 @@ export interface ListInvitationsOutput {
 }
 
 export namespace ListInvitationsOutput {
-  export const isa = (o: any): o is ListInvitationsOutput =>
-    __isa(o, "ListInvitationsOutput");
+  export const isa = (o: any): o is ListInvitationsOutput => __isa(o, "ListInvitationsOutput");
 }
 
 export interface ListMembersInput {
@@ -633,8 +597,7 @@ export interface ListMembersInput {
 }
 
 export namespace ListMembersInput {
-  export const isa = (o: any): o is ListMembersInput =>
-    __isa(o, "ListMembersInput");
+  export const isa = (o: any): o is ListMembersInput => __isa(o, "ListMembersInput");
 }
 
 export interface ListMembersOutput {
@@ -651,8 +614,7 @@ export interface ListMembersOutput {
 }
 
 export namespace ListMembersOutput {
-  export const isa = (o: any): o is ListMembersOutput =>
-    __isa(o, "ListMembersOutput");
+  export const isa = (o: any): o is ListMembersOutput => __isa(o, "ListMembersOutput");
 }
 
 export interface ListNetworksInput {
@@ -684,8 +646,7 @@ export interface ListNetworksInput {
 }
 
 export namespace ListNetworksInput {
-  export const isa = (o: any): o is ListNetworksInput =>
-    __isa(o, "ListNetworksInput");
+  export const isa = (o: any): o is ListNetworksInput => __isa(o, "ListNetworksInput");
 }
 
 export interface ListNetworksOutput {
@@ -702,8 +663,7 @@ export interface ListNetworksOutput {
 }
 
 export namespace ListNetworksOutput {
-  export const isa = (o: any): o is ListNetworksOutput =>
-    __isa(o, "ListNetworksOutput");
+  export const isa = (o: any): o is ListNetworksOutput => __isa(o, "ListNetworksOutput");
 }
 
 export interface ListNodesInput {
@@ -735,8 +695,7 @@ export interface ListNodesInput {
 }
 
 export namespace ListNodesInput {
-  export const isa = (o: any): o is ListNodesInput =>
-    __isa(o, "ListNodesInput");
+  export const isa = (o: any): o is ListNodesInput => __isa(o, "ListNodesInput");
 }
 
 export interface ListNodesOutput {
@@ -753,8 +712,7 @@ export interface ListNodesOutput {
 }
 
 export namespace ListNodesOutput {
-  export const isa = (o: any): o is ListNodesOutput =>
-    __isa(o, "ListNodesOutput");
+  export const isa = (o: any): o is ListNodesOutput => __isa(o, "ListNodesOutput");
 }
 
 export interface ListProposalVotesInput {
@@ -789,8 +747,7 @@ export interface ListProposalVotesInput {
 }
 
 export namespace ListProposalVotesInput {
-  export const isa = (o: any): o is ListProposalVotesInput =>
-    __isa(o, "ListProposalVotesInput");
+  export const isa = (o: any): o is ListProposalVotesInput => __isa(o, "ListProposalVotesInput");
 }
 
 export interface ListProposalVotesOutput {
@@ -811,8 +768,7 @@ export interface ListProposalVotesOutput {
 }
 
 export namespace ListProposalVotesOutput {
-  export const isa = (o: any): o is ListProposalVotesOutput =>
-    __isa(o, "ListProposalVotesOutput");
+  export const isa = (o: any): o is ListProposalVotesOutput => __isa(o, "ListProposalVotesOutput");
 }
 
 export interface ListProposalsInput {
@@ -840,8 +796,7 @@ export interface ListProposalsInput {
 }
 
 export namespace ListProposalsInput {
-  export const isa = (o: any): o is ListProposalsInput =>
-    __isa(o, "ListProposalsInput");
+  export const isa = (o: any): o is ListProposalsInput => __isa(o, "ListProposalsInput");
 }
 
 export interface ListProposalsOutput {
@@ -858,8 +813,7 @@ export interface ListProposalsOutput {
 }
 
 export namespace ListProposalsOutput {
-  export const isa = (o: any): o is ListProposalsOutput =>
-    __isa(o, "ListProposalsOutput");
+  export const isa = (o: any): o is ListProposalsOutput => __isa(o, "ListProposalsOutput");
 }
 
 /**
@@ -953,8 +907,7 @@ export interface MemberConfiguration {
 }
 
 export namespace MemberConfiguration {
-  export const isa = (o: any): o is MemberConfiguration =>
-    __isa(o, "MemberConfiguration");
+  export const isa = (o: any): o is MemberConfiguration => __isa(o, "MemberConfiguration");
 }
 
 /**
@@ -974,8 +927,7 @@ export interface MemberFabricAttributes {
 }
 
 export namespace MemberFabricAttributes {
-  export const isa = (o: any): o is MemberFabricAttributes =>
-    __isa(o, "MemberFabricAttributes");
+  export const isa = (o: any): o is MemberFabricAttributes => __isa(o, "MemberFabricAttributes");
 }
 
 /**
@@ -995,8 +947,7 @@ export interface MemberFabricConfiguration {
 }
 
 export namespace MemberFabricConfiguration {
-  export const isa = (o: any): o is MemberFabricConfiguration =>
-    __isa(o, "MemberFabricConfiguration");
+  export const isa = (o: any): o is MemberFabricConfiguration => __isa(o, "MemberFabricConfiguration");
 }
 
 /**
@@ -1011,8 +962,7 @@ export interface MemberFrameworkAttributes {
 }
 
 export namespace MemberFrameworkAttributes {
-  export const isa = (o: any): o is MemberFrameworkAttributes =>
-    __isa(o, "MemberFrameworkAttributes");
+  export const isa = (o: any): o is MemberFrameworkAttributes => __isa(o, "MemberFrameworkAttributes");
 }
 
 /**
@@ -1027,8 +977,7 @@ export interface MemberFrameworkConfiguration {
 }
 
 export namespace MemberFrameworkConfiguration {
-  export const isa = (o: any): o is MemberFrameworkConfiguration =>
-    __isa(o, "MemberFrameworkConfiguration");
+  export const isa = (o: any): o is MemberFrameworkConfiguration => __isa(o, "MemberFrameworkConfiguration");
 }
 
 export enum MemberStatus {
@@ -1180,8 +1129,7 @@ export interface NetworkFabricAttributes {
 }
 
 export namespace NetworkFabricAttributes {
-  export const isa = (o: any): o is NetworkFabricAttributes =>
-    __isa(o, "NetworkFabricAttributes");
+  export const isa = (o: any): o is NetworkFabricAttributes => __isa(o, "NetworkFabricAttributes");
 }
 
 /**
@@ -1196,8 +1144,7 @@ export interface NetworkFabricConfiguration {
 }
 
 export namespace NetworkFabricConfiguration {
-  export const isa = (o: any): o is NetworkFabricConfiguration =>
-    __isa(o, "NetworkFabricConfiguration");
+  export const isa = (o: any): o is NetworkFabricConfiguration => __isa(o, "NetworkFabricConfiguration");
 }
 
 /**
@@ -1212,8 +1159,7 @@ export interface NetworkFrameworkAttributes {
 }
 
 export namespace NetworkFrameworkAttributes {
-  export const isa = (o: any): o is NetworkFrameworkAttributes =>
-    __isa(o, "NetworkFrameworkAttributes");
+  export const isa = (o: any): o is NetworkFrameworkAttributes => __isa(o, "NetworkFrameworkAttributes");
 }
 
 /**
@@ -1232,8 +1178,7 @@ export interface NetworkFrameworkConfiguration {
 }
 
 export namespace NetworkFrameworkConfiguration {
-  export const isa = (o: any): o is NetworkFrameworkConfiguration =>
-    __isa(o, "NetworkFrameworkConfiguration");
+  export const isa = (o: any): o is NetworkFrameworkConfiguration => __isa(o, "NetworkFrameworkConfiguration");
 }
 
 export enum NetworkStatus {
@@ -1286,8 +1231,7 @@ export interface NetworkSummary {
 }
 
 export namespace NetworkSummary {
-  export const isa = (o: any): o is NetworkSummary =>
-    __isa(o, "NetworkSummary");
+  export const isa = (o: any): o is NetworkSummary => __isa(o, "NetworkSummary");
 }
 
 /**
@@ -1357,8 +1301,7 @@ export interface NodeConfiguration {
 }
 
 export namespace NodeConfiguration {
-  export const isa = (o: any): o is NodeConfiguration =>
-    __isa(o, "NodeConfiguration");
+  export const isa = (o: any): o is NodeConfiguration => __isa(o, "NodeConfiguration");
 }
 
 /**
@@ -1378,8 +1321,7 @@ export interface NodeFabricAttributes {
 }
 
 export namespace NodeFabricAttributes {
-  export const isa = (o: any): o is NodeFabricAttributes =>
-    __isa(o, "NodeFabricAttributes");
+  export const isa = (o: any): o is NodeFabricAttributes => __isa(o, "NodeFabricAttributes");
 }
 
 /**
@@ -1394,8 +1336,7 @@ export interface NodeFrameworkAttributes {
 }
 
 export namespace NodeFrameworkAttributes {
-  export const isa = (o: any): o is NodeFrameworkAttributes =>
-    __isa(o, "NodeFrameworkAttributes");
+  export const isa = (o: any): o is NodeFrameworkAttributes => __isa(o, "NodeFrameworkAttributes");
 }
 
 export enum NodeStatus {
@@ -1567,8 +1508,7 @@ export interface ProposalActions {
 }
 
 export namespace ProposalActions {
-  export const isa = (o: any): o is ProposalActions =>
-    __isa(o, "ProposalActions");
+  export const isa = (o: any): o is ProposalActions => __isa(o, "ProposalActions");
 }
 
 export enum ProposalStatus {
@@ -1655,8 +1595,7 @@ export interface ProposalSummary {
 }
 
 export namespace ProposalSummary {
-  export const isa = (o: any): o is ProposalSummary =>
-    __isa(o, "ProposalSummary");
+  export const isa = (o: any): o is ProposalSummary => __isa(o, "ProposalSummary");
 }
 
 export interface RejectInvitationInput {
@@ -1668,8 +1607,7 @@ export interface RejectInvitationInput {
 }
 
 export namespace RejectInvitationInput {
-  export const isa = (o: any): o is RejectInvitationInput =>
-    __isa(o, "RejectInvitationInput");
+  export const isa = (o: any): o is RejectInvitationInput => __isa(o, "RejectInvitationInput");
 }
 
 export interface RejectInvitationOutput {
@@ -1677,8 +1615,7 @@ export interface RejectInvitationOutput {
 }
 
 export namespace RejectInvitationOutput {
-  export const isa = (o: any): o is RejectInvitationOutput =>
-    __isa(o, "RejectInvitationOutput");
+  export const isa = (o: any): o is RejectInvitationOutput => __isa(o, "RejectInvitationOutput");
 }
 
 /**
@@ -1699,65 +1636,53 @@ export namespace RemoveAction {
 /**
  * <p>A resource request is issued for a resource that already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
  */
-export interface ResourceLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceLimitExceededException {
-  export const isa = (o: any): o is ResourceLimitExceededException =>
-    __isa(o, "ResourceLimitExceededException");
+  export const isa = (o: any): o is ResourceLimitExceededException => __isa(o, "ResourceLimitExceededException");
 }
 
 /**
  * <p>A requested resource does not exist on the network. It may have been deleted or referenced inaccurately.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The requested resource exists but is not in a status that can complete the operation.</p>
  */
-export interface ResourceNotReadyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotReadyException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceNotReadyException {
-  export const isa = (o: any): o is ResourceNotReadyException =>
-    __isa(o, "ResourceNotReadyException");
+  export const isa = (o: any): o is ResourceNotReadyException => __isa(o, "ResourceNotReadyException");
 }
 
 export enum ThresholdComparator {
@@ -1768,16 +1693,13 @@ export enum ThresholdComparator {
 /**
  * <p>The request or operation could not be performed because a service is throttling requests. The most common source of throttling errors is launching EC2 instances such that your service limit for EC2 instances is exceeded. Request a limit increase or delete unused resources if possible.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 export interface VoteOnProposalInput {
@@ -1811,8 +1733,7 @@ export interface VoteOnProposalInput {
 }
 
 export namespace VoteOnProposalInput {
-  export const isa = (o: any): o is VoteOnProposalInput =>
-    __isa(o, "VoteOnProposalInput");
+  export const isa = (o: any): o is VoteOnProposalInput => __isa(o, "VoteOnProposalInput");
 }
 
 export interface VoteOnProposalOutput {
@@ -1820,8 +1741,7 @@ export interface VoteOnProposalOutput {
 }
 
 export namespace VoteOnProposalOutput {
-  export const isa = (o: any): o is VoteOnProposalOutput =>
-    __isa(o, "VoteOnProposalOutput");
+  export const isa = (o: any): o is VoteOnProposalOutput => __isa(o, "VoteOnProposalOutput");
 }
 
 /**

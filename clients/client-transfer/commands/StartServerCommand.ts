@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TransferClientResolvedConfig
-} from "../TransferClient";
+import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 import { StartServerRequest } from "../models/index";
 import {
   deserializeAws_json1_1StartServerCommand,
   serializeAws_json1_1StartServerCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class StartServerCommand extends $Command<
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartServerCommandInput, StartServerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class StartServerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartServerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartServerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartServerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartServerCommandOutput> {
     return deserializeAws_json1_1StartServerCommand(output, context);
   }
 

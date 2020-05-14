@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateTopicRuleDestinationRequest,
-  UpdateTopicRuleDestinationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateTopicRuleDestinationRequest, UpdateTopicRuleDestinationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateTopicRuleDestinationCommand,
   serializeAws_restJson1_1UpdateTopicRuleDestinationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateTopicRuleDestinationCommandInput = UpdateTopicRuleDestinationRequest;
-export type UpdateTopicRuleDestinationCommandOutput = UpdateTopicRuleDestinationResponse &
-  __MetadataBearer;
+export type UpdateTopicRuleDestinationCommandOutput = UpdateTopicRuleDestinationResponse & __MetadataBearer;
 
 export class UpdateTopicRuleDestinationCommand extends $Command<
   UpdateTopicRuleDestinationCommandInput,
@@ -49,13 +38,8 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateTopicRuleDestinationCommandInput,
-    UpdateTopicRuleDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateTopicRuleDestinationCommandInput, UpdateTopicRuleDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class UpdateTopicRuleDestinationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateTopicRuleDestinationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateTopicRuleDestinationCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateTopicRuleDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateTopicRuleDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateTopicRuleDestinationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateTopicRuleDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTopicRuleDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

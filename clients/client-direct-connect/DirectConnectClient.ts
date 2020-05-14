@@ -34,10 +34,7 @@ import {
   AssociateVirtualInterfaceCommandInput,
   AssociateVirtualInterfaceCommandOutput
 } from "./commands/AssociateVirtualInterfaceCommand";
-import {
-  ConfirmConnectionCommandInput,
-  ConfirmConnectionCommandOutput
-} from "./commands/ConfirmConnectionCommand";
+import { ConfirmConnectionCommandInput, ConfirmConnectionCommandOutput } from "./commands/ConfirmConnectionCommand";
 import {
   ConfirmPrivateVirtualInterfaceCommandInput,
   ConfirmPrivateVirtualInterfaceCommandOutput
@@ -50,14 +47,8 @@ import {
   ConfirmTransitVirtualInterfaceCommandInput,
   ConfirmTransitVirtualInterfaceCommandOutput
 } from "./commands/ConfirmTransitVirtualInterfaceCommand";
-import {
-  CreateBGPPeerCommandInput,
-  CreateBGPPeerCommandOutput
-} from "./commands/CreateBGPPeerCommand";
-import {
-  CreateConnectionCommandInput,
-  CreateConnectionCommandOutput
-} from "./commands/CreateConnectionCommand";
+import { CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput } from "./commands/CreateBGPPeerCommand";
+import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import {
   CreateDirectConnectGatewayAssociationCommandInput,
   CreateDirectConnectGatewayAssociationCommandOutput
@@ -70,14 +61,8 @@ import {
   CreateDirectConnectGatewayCommandInput,
   CreateDirectConnectGatewayCommandOutput
 } from "./commands/CreateDirectConnectGatewayCommand";
-import {
-  CreateInterconnectCommandInput,
-  CreateInterconnectCommandOutput
-} from "./commands/CreateInterconnectCommand";
-import {
-  CreateLagCommandInput,
-  CreateLagCommandOutput
-} from "./commands/CreateLagCommand";
+import { CreateInterconnectCommandInput, CreateInterconnectCommandOutput } from "./commands/CreateInterconnectCommand";
+import { CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand";
 import {
   CreatePrivateVirtualInterfaceCommandInput,
   CreatePrivateVirtualInterfaceCommandOutput
@@ -90,14 +75,8 @@ import {
   CreateTransitVirtualInterfaceCommandInput,
   CreateTransitVirtualInterfaceCommandOutput
 } from "./commands/CreateTransitVirtualInterfaceCommand";
-import {
-  DeleteBGPPeerCommandInput,
-  DeleteBGPPeerCommandOutput
-} from "./commands/DeleteBGPPeerCommand";
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "./commands/DeleteConnectionCommand";
+import { DeleteBGPPeerCommandInput, DeleteBGPPeerCommandOutput } from "./commands/DeleteBGPPeerCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import {
   DeleteDirectConnectGatewayAssociationCommandInput,
   DeleteDirectConnectGatewayAssociationCommandOutput
@@ -110,14 +89,8 @@ import {
   DeleteDirectConnectGatewayCommandInput,
   DeleteDirectConnectGatewayCommandOutput
 } from "./commands/DeleteDirectConnectGatewayCommand";
-import {
-  DeleteInterconnectCommandInput,
-  DeleteInterconnectCommandOutput
-} from "./commands/DeleteInterconnectCommand";
-import {
-  DeleteLagCommandInput,
-  DeleteLagCommandOutput
-} from "./commands/DeleteLagCommand";
+import { DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput } from "./commands/DeleteInterconnectCommand";
+import { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand";
 import {
   DeleteVirtualInterfaceCommandInput,
   DeleteVirtualInterfaceCommandOutput
@@ -162,22 +135,10 @@ import {
   DescribeInterconnectsCommandInput,
   DescribeInterconnectsCommandOutput
 } from "./commands/DescribeInterconnectsCommand";
-import {
-  DescribeLagsCommandInput,
-  DescribeLagsCommandOutput
-} from "./commands/DescribeLagsCommand";
-import {
-  DescribeLoaCommandInput,
-  DescribeLoaCommandOutput
-} from "./commands/DescribeLoaCommand";
-import {
-  DescribeLocationsCommandInput,
-  DescribeLocationsCommandOutput
-} from "./commands/DescribeLocationsCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeLagsCommandInput, DescribeLagsCommandOutput } from "./commands/DescribeLagsCommand";
+import { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand";
+import { DescribeLocationsCommandInput, DescribeLocationsCommandOutput } from "./commands/DescribeLocationsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DescribeVirtualGatewaysCommandInput,
   DescribeVirtualGatewaysCommandOutput
@@ -190,22 +151,13 @@ import {
   DisassociateConnectionFromLagCommandInput,
   DisassociateConnectionFromLagCommandOutput
 } from "./commands/DisassociateConnectionFromLagCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
-import {
-  UpdateLagCommandInput,
-  UpdateLagCommandOutput
-} from "./commands/UpdateLagCommand";
+import { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
 import {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput
@@ -226,12 +178,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -372,8 +319,7 @@ export type ServiceOutputTypes =
   | UpdateLagCommandOutput
   | UpdateVirtualInterfaceAttributesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -457,9 +403,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DirectConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DirectConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -468,9 +412,7 @@ export type DirectConnectClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DirectConnectClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DirectConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

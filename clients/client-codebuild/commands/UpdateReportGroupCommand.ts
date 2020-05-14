@@ -1,21 +1,11 @@
-import {
-  CodeBuildClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeBuildClient";
-import {
-  UpdateReportGroupInput,
-  UpdateReportGroupOutput
-} from "../models/index";
+import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
+import { UpdateReportGroupInput, UpdateReportGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateReportGroupCommand,
   serializeAws_json1_1UpdateReportGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateReportGroupCommandInput = UpdateReportGroupInput;
-export type UpdateReportGroupCommandOutput = UpdateReportGroupOutput &
-  __MetadataBearer;
+export type UpdateReportGroupCommandOutput = UpdateReportGroupOutput & __MetadataBearer;
 
 export class UpdateReportGroupCommand extends $Command<
   UpdateReportGroupCommandInput,
@@ -50,9 +39,7 @@ export class UpdateReportGroupCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateReportGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateReportGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateReportGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateReportGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateReportGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateReportGroupCommandOutput> {
     return deserializeAws_json1_1UpdateReportGroupCommand(output, context);
   }
 

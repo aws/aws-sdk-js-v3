@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
-import {
-  UpdateVirtualNodeInput,
-  UpdateVirtualNodeOutput
-} from "../models/index";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVirtualNodeCommand,
   serializeAws_restJson1_1UpdateVirtualNodeCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVirtualNodeCommandInput = UpdateVirtualNodeInput;
-export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput &
-  __MetadataBearer;
+export type UpdateVirtualNodeCommandOutput = UpdateVirtualNodeOutput & __MetadataBearer;
 
 export class UpdateVirtualNodeCommand extends $Command<
   UpdateVirtualNodeCommandInput,
@@ -50,9 +39,7 @@ export class UpdateVirtualNodeCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateVirtualNodeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVirtualNodeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVirtualNodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateVirtualNodeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVirtualNodeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualNodeCommandOutput> {
     return deserializeAws_restJson1_1UpdateVirtualNodeCommand(output, context);
   }
 

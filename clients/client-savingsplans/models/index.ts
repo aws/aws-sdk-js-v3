@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DescribeSavingsPlansOfferingRatesRequest {
@@ -212,8 +209,7 @@ export interface ParentSavingsPlanOffering {
 }
 
 export namespace ParentSavingsPlanOffering {
-  export const isa = (o: any): o is ParentSavingsPlanOffering =>
-    __isa(o, "ParentSavingsPlanOffering");
+  export const isa = (o: any): o is ParentSavingsPlanOffering => __isa(o, "ParentSavingsPlanOffering");
 }
 
 /**
@@ -278,8 +274,7 @@ export interface SavingsPlanOffering {
 }
 
 export namespace SavingsPlanOffering {
-  export const isa = (o: any): o is SavingsPlanOffering =>
-    __isa(o, "SavingsPlanOffering");
+  export const isa = (o: any): o is SavingsPlanOffering => __isa(o, "SavingsPlanOffering");
 }
 
 export enum SavingsPlanOfferingFilterAttribute {
@@ -304,8 +299,7 @@ export interface SavingsPlanOfferingFilterElement {
 }
 
 export namespace SavingsPlanOfferingFilterElement {
-  export const isa = (o: any): o is SavingsPlanOfferingFilterElement =>
-    __isa(o, "SavingsPlanOfferingFilterElement");
+  export const isa = (o: any): o is SavingsPlanOfferingFilterElement => __isa(o, "SavingsPlanOfferingFilterElement");
 }
 
 /**
@@ -325,8 +319,7 @@ export interface SavingsPlanOfferingProperty {
 }
 
 export namespace SavingsPlanOfferingProperty {
-  export const isa = (o: any): o is SavingsPlanOfferingProperty =>
-    __isa(o, "SavingsPlanOfferingProperty");
+  export const isa = (o: any): o is SavingsPlanOfferingProperty => __isa(o, "SavingsPlanOfferingProperty");
 }
 
 export enum SavingsPlanOfferingPropertyKey {
@@ -381,8 +374,7 @@ export interface SavingsPlanOfferingRate {
 }
 
 export namespace SavingsPlanOfferingRate {
-  export const isa = (o: any): o is SavingsPlanOfferingRate =>
-    __isa(o, "SavingsPlanOfferingRate");
+  export const isa = (o: any): o is SavingsPlanOfferingRate => __isa(o, "SavingsPlanOfferingRate");
 }
 
 /**
@@ -423,8 +415,7 @@ export interface SavingsPlanOfferingRateProperty {
 }
 
 export namespace SavingsPlanOfferingRateProperty {
-  export const isa = (o: any): o is SavingsPlanOfferingRateProperty =>
-    __isa(o, "SavingsPlanOfferingRateProperty");
+  export const isa = (o: any): o is SavingsPlanOfferingRateProperty => __isa(o, "SavingsPlanOfferingRateProperty");
 }
 
 export enum SavingsPlanRateFilterAttribute {
@@ -470,8 +461,7 @@ export interface SavingsPlanRateProperty {
 }
 
 export namespace SavingsPlanRateProperty {
-  export const isa = (o: any): o is SavingsPlanRateProperty =>
-    __isa(o, "SavingsPlanRateProperty");
+  export const isa = (o: any): o is SavingsPlanRateProperty => __isa(o, "SavingsPlanRateProperty");
 }
 
 export enum SavingsPlanRatePropertyKey {
@@ -523,8 +513,7 @@ export interface CreateSavingsPlanRequest {
 }
 
 export namespace CreateSavingsPlanRequest {
-  export const isa = (o: any): o is CreateSavingsPlanRequest =>
-    __isa(o, "CreateSavingsPlanRequest");
+  export const isa = (o: any): o is CreateSavingsPlanRequest => __isa(o, "CreateSavingsPlanRequest");
 }
 
 export interface CreateSavingsPlanResponse {
@@ -536,8 +525,7 @@ export interface CreateSavingsPlanResponse {
 }
 
 export namespace CreateSavingsPlanResponse {
-  export const isa = (o: any): o is CreateSavingsPlanResponse =>
-    __isa(o, "CreateSavingsPlanResponse");
+  export const isa = (o: any): o is CreateSavingsPlanResponse => __isa(o, "CreateSavingsPlanResponse");
 }
 
 export interface DescribeSavingsPlanRatesRequest {
@@ -565,8 +553,7 @@ export interface DescribeSavingsPlanRatesRequest {
 }
 
 export namespace DescribeSavingsPlanRatesRequest {
-  export const isa = (o: any): o is DescribeSavingsPlanRatesRequest =>
-    __isa(o, "DescribeSavingsPlanRatesRequest");
+  export const isa = (o: any): o is DescribeSavingsPlanRatesRequest => __isa(o, "DescribeSavingsPlanRatesRequest");
 }
 
 export interface DescribeSavingsPlanRatesResponse {
@@ -589,8 +576,7 @@ export interface DescribeSavingsPlanRatesResponse {
 }
 
 export namespace DescribeSavingsPlanRatesResponse {
-  export const isa = (o: any): o is DescribeSavingsPlanRatesResponse =>
-    __isa(o, "DescribeSavingsPlanRatesResponse");
+  export const isa = (o: any): o is DescribeSavingsPlanRatesResponse => __isa(o, "DescribeSavingsPlanRatesResponse");
 }
 
 export interface DescribeSavingsPlansRequest {
@@ -628,8 +614,7 @@ export interface DescribeSavingsPlansRequest {
 }
 
 export namespace DescribeSavingsPlansRequest {
-  export const isa = (o: any): o is DescribeSavingsPlansRequest =>
-    __isa(o, "DescribeSavingsPlansRequest");
+  export const isa = (o: any): o is DescribeSavingsPlansRequest => __isa(o, "DescribeSavingsPlansRequest");
 }
 
 export interface DescribeSavingsPlansResponse {
@@ -647,24 +632,20 @@ export interface DescribeSavingsPlansResponse {
 }
 
 export namespace DescribeSavingsPlansResponse {
-  export const isa = (o: any): o is DescribeSavingsPlansResponse =>
-    __isa(o, "DescribeSavingsPlansResponse");
+  export const isa = (o: any): o is DescribeSavingsPlansResponse => __isa(o, "DescribeSavingsPlansResponse");
 }
 
 /**
  * <p>An unexpected error occurred.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   message: string | undefined;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListTagsForResourceRequest {
@@ -676,8 +657,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -689,24 +669,20 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -826,8 +802,7 @@ export interface SavingsPlanFilter {
 }
 
 export namespace SavingsPlanFilter {
-  export const isa = (o: any): o is SavingsPlanFilter =>
-    __isa(o, "SavingsPlanFilter");
+  export const isa = (o: any): o is SavingsPlanFilter => __isa(o, "SavingsPlanFilter");
 }
 
 /**
@@ -877,8 +852,7 @@ export interface SavingsPlanRate {
 }
 
 export namespace SavingsPlanRate {
-  export const isa = (o: any): o is SavingsPlanRate =>
-    __isa(o, "SavingsPlanRate");
+  export const isa = (o: any): o is SavingsPlanRate => __isa(o, "SavingsPlanRate");
 }
 
 /**
@@ -898,8 +872,7 @@ export interface SavingsPlanRateFilter {
 }
 
 export namespace SavingsPlanRateFilter {
-  export const isa = (o: any): o is SavingsPlanRateFilter =>
-    __isa(o, "SavingsPlanRateFilter");
+  export const isa = (o: any): o is SavingsPlanRateFilter => __isa(o, "SavingsPlanRateFilter");
 }
 
 export enum SavingsPlanRateFilterName {
@@ -935,17 +908,14 @@ export enum SavingsPlansFilterName {
 /**
  * <p>A service quota has been exceeded.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ServiceQuotaExceededException {
-  export const isa = (o: any): o is ServiceQuotaExceededException =>
-    __isa(o, "ServiceQuotaExceededException");
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export interface TagResourceRequest {
@@ -962,8 +932,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -971,8 +940,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -989,8 +957,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -998,22 +965,18 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 /**
  * <p>One of the input parameters is not valid.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

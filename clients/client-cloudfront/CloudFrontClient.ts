@@ -2,10 +2,7 @@ import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
-import {
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput
-} from "./commands/CreateDistributionCommand";
+import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import {
   CreateDistributionWithTagsCommandInput,
   CreateDistributionWithTagsCommandOutput
@@ -18,14 +15,8 @@ import {
   CreateFieldLevelEncryptionProfileCommandInput,
   CreateFieldLevelEncryptionProfileCommandOutput
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
-import {
-  CreateInvalidationCommandInput,
-  CreateInvalidationCommandOutput
-} from "./commands/CreateInvalidationCommand";
-import {
-  CreatePublicKeyCommandInput,
-  CreatePublicKeyCommandOutput
-} from "./commands/CreatePublicKeyCommand";
+import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand";
+import { CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput } from "./commands/CreatePublicKeyCommand";
 import {
   CreateStreamingDistributionCommandInput,
   CreateStreamingDistributionCommandOutput
@@ -38,10 +29,7 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
-import {
-  DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput
-} from "./commands/DeleteDistributionCommand";
+import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
   DeleteFieldLevelEncryptionConfigCommandOutput
@@ -50,10 +38,7 @@ import {
   DeleteFieldLevelEncryptionProfileCommandInput,
   DeleteFieldLevelEncryptionProfileCommandOutput
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
-import {
-  DeletePublicKeyCommandInput,
-  DeletePublicKeyCommandOutput
-} from "./commands/DeletePublicKeyCommand";
+import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
 import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput
@@ -66,10 +51,7 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
-import {
-  GetDistributionCommandInput,
-  GetDistributionCommandOutput
-} from "./commands/GetDistributionCommand";
+import { GetDistributionCommandInput, GetDistributionCommandOutput } from "./commands/GetDistributionCommand";
 import {
   GetDistributionConfigCommandInput,
   GetDistributionConfigCommandOutput
@@ -90,18 +72,9 @@ import {
   GetFieldLevelEncryptionProfileConfigCommandInput,
   GetFieldLevelEncryptionProfileConfigCommandOutput
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
-import {
-  GetInvalidationCommandInput,
-  GetInvalidationCommandOutput
-} from "./commands/GetInvalidationCommand";
-import {
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
-} from "./commands/GetPublicKeyCommand";
-import {
-  GetPublicKeyConfigCommandInput,
-  GetPublicKeyConfigCommandOutput
-} from "./commands/GetPublicKeyConfigCommand";
+import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand";
+import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
+import { GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput } from "./commands/GetPublicKeyConfigCommand";
 import {
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput
@@ -118,10 +91,7 @@ import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput
 } from "./commands/ListDistributionsByWebACLIdCommand";
-import {
-  ListDistributionsCommandInput,
-  ListDistributionsCommandOutput
-} from "./commands/ListDistributionsCommand";
+import { ListDistributionsCommandInput, ListDistributionsCommandOutput } from "./commands/ListDistributionsCommand";
 import {
   ListFieldLevelEncryptionConfigsCommandInput,
   ListFieldLevelEncryptionConfigsCommandOutput
@@ -130,14 +100,8 @@ import {
   ListFieldLevelEncryptionProfilesCommandInput,
   ListFieldLevelEncryptionProfilesCommandOutput
 } from "./commands/ListFieldLevelEncryptionProfilesCommand";
-import {
-  ListInvalidationsCommandInput,
-  ListInvalidationsCommandOutput
-} from "./commands/ListInvalidationsCommand";
-import {
-  ListPublicKeysCommandInput,
-  ListPublicKeysCommandOutput
-} from "./commands/ListPublicKeysCommand";
+import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
+import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
 import {
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput
@@ -146,22 +110,13 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
-import {
-  UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput
-} from "./commands/UpdateDistributionCommand";
+import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput
@@ -170,10 +125,7 @@ import {
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
-import {
-  UpdatePublicKeyCommandInput,
-  UpdatePublicKeyCommandOutput
-} from "./commands/UpdatePublicKeyCommand";
+import { UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput } from "./commands/UpdatePublicKeyCommand";
 import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput
@@ -194,12 +146,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -324,8 +271,7 @@ export type ServiceOutputTypes =
   | UpdatePublicKeyCommandOutput
   | UpdateStreamingDistributionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -409,9 +355,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudFrontClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudFrontClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -420,9 +364,7 @@ export type CloudFrontClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudFrontClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudFrontClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  SetSecurityGroupsInput,
-  SetSecurityGroupsOutput
-} from "../models/index";
+import { SetSecurityGroupsInput, SetSecurityGroupsOutput } from "../models/index";
 import {
   deserializeAws_querySetSecurityGroupsCommand,
   serializeAws_querySetSecurityGroupsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetSecurityGroupsCommandInput = SetSecurityGroupsInput;
-export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput &
-  __MetadataBearer;
+export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput & __MetadataBearer;
 
 export class SetSecurityGroupsCommand extends $Command<
   SetSecurityGroupsCommandInput,
@@ -50,9 +43,7 @@ export class SetSecurityGroupsCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class SetSecurityGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetSecurityGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetSecurityGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetSecurityGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetSecurityGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetSecurityGroupsCommandOutput> {
     return deserializeAws_querySetSecurityGroupsCommand(output, context);
   }
 

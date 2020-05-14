@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteAccountAuditConfigurationRequest,
-  DeleteAccountAuditConfigurationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand,
   serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAccountAuditConfigurationCommandInput = DeleteAccountAuditConfigurationRequest;
-export type DeleteAccountAuditConfigurationCommandOutput = DeleteAccountAuditConfigurationResponse &
-  __MetadataBearer;
+export type DeleteAccountAuditConfigurationCommandOutput = DeleteAccountAuditConfigurationResponse & __MetadataBearer;
 
 export class DeleteAccountAuditConfigurationCommand extends $Command<
   DeleteAccountAuditConfigurationCommandInput,
@@ -49,13 +38,8 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAccountAuditConfigurationCommandInput,
-    DeleteAccountAuditConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAccountAuditConfigurationCommandInput, DeleteAccountAuditConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     input: DeleteAccountAuditConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAccountAuditConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

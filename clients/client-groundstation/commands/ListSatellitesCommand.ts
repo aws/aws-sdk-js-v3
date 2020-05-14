@@ -1,18 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { ListSatellitesRequest, ListSatellitesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSatellitesCommand,
   serializeAws_restJson1_1ListSatellitesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSatellitesCommandInput = ListSatellitesRequest;
-export type ListSatellitesCommandOutput = ListSatellitesResponse &
-  __MetadataBearer;
+export type ListSatellitesCommandOutput = ListSatellitesResponse & __MetadataBearer;
 
 export class ListSatellitesCommand extends $Command<
   ListSatellitesCommandInput,
@@ -47,9 +39,7 @@ export class ListSatellitesCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSatellitesCommandInput, ListSatellitesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListSatellitesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSatellitesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSatellitesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListSatellitesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSatellitesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSatellitesCommandOutput> {
     return deserializeAws_restJson1_1ListSatellitesCommand(output, context);
   }
 

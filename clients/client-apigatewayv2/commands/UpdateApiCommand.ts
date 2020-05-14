@@ -1,18 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { UpdateApiRequest, UpdateApiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateApiCommand,
   serializeAws_restJson1_1UpdateApiCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class UpdateApiCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApiCommandInput, UpdateApiCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class UpdateApiCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateApiCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateApiCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateApiCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApiCommandOutput> {
     return deserializeAws_restJson1_1UpdateApiCommand(output, context);
   }
 

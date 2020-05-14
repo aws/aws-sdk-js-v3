@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -63,8 +60,7 @@ export interface CheckDomainAvailabilityRequest {
 }
 
 export namespace CheckDomainAvailabilityRequest {
-  export const isa = (o: any): o is CheckDomainAvailabilityRequest =>
-    __isa(o, "CheckDomainAvailabilityRequest");
+  export const isa = (o: any): o is CheckDomainAvailabilityRequest => __isa(o, "CheckDomainAvailabilityRequest");
 }
 
 /**
@@ -124,8 +120,7 @@ export interface CheckDomainAvailabilityResponse {
 }
 
 export namespace CheckDomainAvailabilityResponse {
-  export const isa = (o: any): o is CheckDomainAvailabilityResponse =>
-    __isa(o, "CheckDomainAvailabilityResponse");
+  export const isa = (o: any): o is CheckDomainAvailabilityResponse => __isa(o, "CheckDomainAvailabilityResponse");
 }
 
 /**
@@ -148,8 +143,7 @@ export interface CheckDomainTransferabilityRequest {
 }
 
 export namespace CheckDomainTransferabilityRequest {
-  export const isa = (o: any): o is CheckDomainTransferabilityRequest =>
-    __isa(o, "CheckDomainTransferabilityRequest");
+  export const isa = (o: any): o is CheckDomainTransferabilityRequest => __isa(o, "CheckDomainTransferabilityRequest");
 }
 
 /**
@@ -254,12 +248,7 @@ export namespace ContactDetail {
   export const isa = (o: any): o is ContactDetail => __isa(o, "ContactDetail");
 }
 
-export type ContactType =
-  | "ASSOCIATION"
-  | "COMPANY"
-  | "PERSON"
-  | "PUBLIC_BODY"
-  | "RESELLER";
+export type ContactType = "ASSOCIATION" | "COMPANY" | "PERSON" | "PUBLIC_BODY" | "RESELLER";
 
 export type CountryCode =
   | "AD"
@@ -509,8 +498,7 @@ export interface DeleteTagsForDomainRequest {
 }
 
 export namespace DeleteTagsForDomainRequest {
-  export const isa = (o: any): o is DeleteTagsForDomainRequest =>
-    __isa(o, "DeleteTagsForDomainRequest");
+  export const isa = (o: any): o is DeleteTagsForDomainRequest => __isa(o, "DeleteTagsForDomainRequest");
 }
 
 export interface DeleteTagsForDomainResponse {
@@ -518,8 +506,7 @@ export interface DeleteTagsForDomainResponse {
 }
 
 export namespace DeleteTagsForDomainResponse {
-  export const isa = (o: any): o is DeleteTagsForDomainResponse =>
-    __isa(o, "DeleteTagsForDomainResponse");
+  export const isa = (o: any): o is DeleteTagsForDomainResponse => __isa(o, "DeleteTagsForDomainResponse");
 }
 
 export interface DisableDomainAutoRenewRequest {
@@ -531,8 +518,7 @@ export interface DisableDomainAutoRenewRequest {
 }
 
 export namespace DisableDomainAutoRenewRequest {
-  export const isa = (o: any): o is DisableDomainAutoRenewRequest =>
-    __isa(o, "DisableDomainAutoRenewRequest");
+  export const isa = (o: any): o is DisableDomainAutoRenewRequest => __isa(o, "DisableDomainAutoRenewRequest");
 }
 
 export interface DisableDomainAutoRenewResponse {
@@ -540,8 +526,7 @@ export interface DisableDomainAutoRenewResponse {
 }
 
 export namespace DisableDomainAutoRenewResponse {
-  export const isa = (o: any): o is DisableDomainAutoRenewResponse =>
-    __isa(o, "DisableDomainAutoRenewResponse");
+  export const isa = (o: any): o is DisableDomainAutoRenewResponse => __isa(o, "DisableDomainAutoRenewResponse");
 }
 
 /**
@@ -556,8 +541,7 @@ export interface DisableDomainTransferLockRequest {
 }
 
 export namespace DisableDomainTransferLockRequest {
-  export const isa = (o: any): o is DisableDomainTransferLockRequest =>
-    __isa(o, "DisableDomainTransferLockRequest");
+  export const isa = (o: any): o is DisableDomainTransferLockRequest => __isa(o, "DisableDomainTransferLockRequest");
 }
 
 /**
@@ -573,8 +557,7 @@ export interface DisableDomainTransferLockResponse {
 }
 
 export namespace DisableDomainTransferLockResponse {
-  export const isa = (o: any): o is DisableDomainTransferLockResponse =>
-    __isa(o, "DisableDomainTransferLockResponse");
+  export const isa = (o: any): o is DisableDomainTransferLockResponse => __isa(o, "DisableDomainTransferLockResponse");
 }
 
 export type DomainAvailability =
@@ -590,9 +573,7 @@ export type DomainAvailability =
 /**
  * <p>The number of domains has exceeded the allowed threshold for the account.</p>
  */
-export interface DomainLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DomainLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "DomainLimitExceeded";
   $fault: "client";
   /**
@@ -602,8 +583,7 @@ export interface DomainLimitExceeded
 }
 
 export namespace DomainLimitExceeded {
-  export const isa = (o: any): o is DomainLimitExceeded =>
-    __isa(o, "DomainLimitExceeded");
+  export const isa = (o: any): o is DomainLimitExceeded => __isa(o, "DomainLimitExceeded");
 }
 
 /**
@@ -668,8 +648,7 @@ export interface DomainSuggestion {
 }
 
 export namespace DomainSuggestion {
-  export const isa = (o: any): o is DomainSuggestion =>
-    __isa(o, "DomainSuggestion");
+  export const isa = (o: any): o is DomainSuggestion => __isa(o, "DomainSuggestion");
 }
 
 /**
@@ -733,8 +712,7 @@ export interface DomainTransferability {
 }
 
 export namespace DomainTransferability {
-  export const isa = (o: any): o is DomainTransferability =>
-    __isa(o, "DomainTransferability");
+  export const isa = (o: any): o is DomainTransferability => __isa(o, "DomainTransferability");
 }
 
 /**
@@ -750,8 +728,7 @@ export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DuplicateRequest {
-  export const isa = (o: any): o is DuplicateRequest =>
-    __isa(o, "DuplicateRequest");
+  export const isa = (o: any): o is DuplicateRequest => __isa(o, "DuplicateRequest");
 }
 
 export interface EnableDomainAutoRenewRequest {
@@ -763,8 +740,7 @@ export interface EnableDomainAutoRenewRequest {
 }
 
 export namespace EnableDomainAutoRenewRequest {
-  export const isa = (o: any): o is EnableDomainAutoRenewRequest =>
-    __isa(o, "EnableDomainAutoRenewRequest");
+  export const isa = (o: any): o is EnableDomainAutoRenewRequest => __isa(o, "EnableDomainAutoRenewRequest");
 }
 
 export interface EnableDomainAutoRenewResponse {
@@ -772,8 +748,7 @@ export interface EnableDomainAutoRenewResponse {
 }
 
 export namespace EnableDomainAutoRenewResponse {
-  export const isa = (o: any): o is EnableDomainAutoRenewResponse =>
-    __isa(o, "EnableDomainAutoRenewResponse");
+  export const isa = (o: any): o is EnableDomainAutoRenewResponse => __isa(o, "EnableDomainAutoRenewResponse");
 }
 
 /**
@@ -788,8 +763,7 @@ export interface EnableDomainTransferLockRequest {
 }
 
 export namespace EnableDomainTransferLockRequest {
-  export const isa = (o: any): o is EnableDomainTransferLockRequest =>
-    __isa(o, "EnableDomainTransferLockRequest");
+  export const isa = (o: any): o is EnableDomainTransferLockRequest => __isa(o, "EnableDomainTransferLockRequest");
 }
 
 /**
@@ -804,8 +778,7 @@ export interface EnableDomainTransferLockResponse {
 }
 
 export namespace EnableDomainTransferLockResponse {
-  export const isa = (o: any): o is EnableDomainTransferLockResponse =>
-    __isa(o, "EnableDomainTransferLockResponse");
+  export const isa = (o: any): o is EnableDomainTransferLockResponse => __isa(o, "EnableDomainTransferLockResponse");
 }
 
 /**
@@ -985,8 +958,7 @@ export interface GetDomainDetailRequest {
 }
 
 export namespace GetDomainDetailRequest {
-  export const isa = (o: any): o is GetDomainDetailRequest =>
-    __isa(o, "GetDomainDetailRequest");
+  export const isa = (o: any): o is GetDomainDetailRequest => __isa(o, "GetDomainDetailRequest");
 }
 
 /**
@@ -1123,8 +1095,7 @@ export interface GetDomainDetailResponse {
 }
 
 export namespace GetDomainDetailResponse {
-  export const isa = (o: any): o is GetDomainDetailResponse =>
-    __isa(o, "GetDomainDetailResponse");
+  export const isa = (o: any): o is GetDomainDetailResponse => __isa(o, "GetDomainDetailResponse");
 }
 
 export interface GetDomainSuggestionsRequest {
@@ -1152,8 +1123,7 @@ export interface GetDomainSuggestionsRequest {
 }
 
 export namespace GetDomainSuggestionsRequest {
-  export const isa = (o: any): o is GetDomainSuggestionsRequest =>
-    __isa(o, "GetDomainSuggestionsRequest");
+  export const isa = (o: any): o is GetDomainSuggestionsRequest => __isa(o, "GetDomainSuggestionsRequest");
 }
 
 export interface GetDomainSuggestionsResponse {
@@ -1166,8 +1136,7 @@ export interface GetDomainSuggestionsResponse {
 }
 
 export namespace GetDomainSuggestionsResponse {
-  export const isa = (o: any): o is GetDomainSuggestionsResponse =>
-    __isa(o, "GetDomainSuggestionsResponse");
+  export const isa = (o: any): o is GetDomainSuggestionsResponse => __isa(o, "GetDomainSuggestionsResponse");
 }
 
 /**
@@ -1183,8 +1152,7 @@ export interface GetOperationDetailRequest {
 }
 
 export namespace GetOperationDetailRequest {
-  export const isa = (o: any): o is GetOperationDetailRequest =>
-    __isa(o, "GetOperationDetailRequest");
+  export const isa = (o: any): o is GetOperationDetailRequest => __isa(o, "GetOperationDetailRequest");
 }
 
 /**
@@ -1224,8 +1192,7 @@ export interface GetOperationDetailResponse {
 }
 
 export namespace GetOperationDetailResponse {
-  export const isa = (o: any): o is GetOperationDetailResponse =>
-    __isa(o, "GetOperationDetailResponse");
+  export const isa = (o: any): o is GetOperationDetailResponse => __isa(o, "GetOperationDetailResponse");
 }
 
 /**
@@ -1269,8 +1236,7 @@ export interface ListDomainsRequest {
 }
 
 export namespace ListDomainsRequest {
-  export const isa = (o: any): o is ListDomainsRequest =>
-    __isa(o, "ListDomainsRequest");
+  export const isa = (o: any): o is ListDomainsRequest => __isa(o, "ListDomainsRequest");
 }
 
 /**
@@ -1291,8 +1257,7 @@ export interface ListDomainsResponse {
 }
 
 export namespace ListDomainsResponse {
-  export const isa = (o: any): o is ListDomainsResponse =>
-    __isa(o, "ListDomainsResponse");
+  export const isa = (o: any): o is ListDomainsResponse => __isa(o, "ListDomainsResponse");
 }
 
 /**
@@ -1322,8 +1287,7 @@ export interface ListOperationsRequest {
 }
 
 export namespace ListOperationsRequest {
-  export const isa = (o: any): o is ListOperationsRequest =>
-    __isa(o, "ListOperationsRequest");
+  export const isa = (o: any): o is ListOperationsRequest => __isa(o, "ListOperationsRequest");
 }
 
 /**
@@ -1344,8 +1308,7 @@ export interface ListOperationsResponse {
 }
 
 export namespace ListOperationsResponse {
-  export const isa = (o: any): o is ListOperationsResponse =>
-    __isa(o, "ListOperationsResponse");
+  export const isa = (o: any): o is ListOperationsResponse => __isa(o, "ListOperationsResponse");
 }
 
 /**
@@ -1360,8 +1323,7 @@ export interface ListTagsForDomainRequest {
 }
 
 export namespace ListTagsForDomainRequest {
-  export const isa = (o: any): o is ListTagsForDomainRequest =>
-    __isa(o, "ListTagsForDomainRequest");
+  export const isa = (o: any): o is ListTagsForDomainRequest => __isa(o, "ListTagsForDomainRequest");
 }
 
 /**
@@ -1376,8 +1338,7 @@ export interface ListTagsForDomainResponse {
 }
 
 export namespace ListTagsForDomainResponse {
-  export const isa = (o: any): o is ListTagsForDomainResponse =>
-    __isa(o, "ListTagsForDomainResponse");
+  export const isa = (o: any): o is ListTagsForDomainResponse => __isa(o, "ListTagsForDomainResponse");
 }
 
 /**
@@ -1405,9 +1366,7 @@ export namespace Nameserver {
 /**
  * <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
  */
-export interface OperationLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "OperationLimitExceeded";
   $fault: "client";
   /**
@@ -1417,16 +1376,10 @@ export interface OperationLimitExceeded
 }
 
 export namespace OperationLimitExceeded {
-  export const isa = (o: any): o is OperationLimitExceeded =>
-    __isa(o, "OperationLimitExceeded");
+  export const isa = (o: any): o is OperationLimitExceeded => __isa(o, "OperationLimitExceeded");
 }
 
-export type OperationStatus =
-  | "ERROR"
-  | "FAILED"
-  | "IN_PROGRESS"
-  | "SUBMITTED"
-  | "SUCCESSFUL";
+export type OperationStatus = "ERROR" | "FAILED" | "IN_PROGRESS" | "SUBMITTED" | "SUCCESSFUL";
 
 /**
  * <p>OperationSummary includes the following elements.</p>
@@ -1455,8 +1408,7 @@ export interface OperationSummary {
 }
 
 export namespace OperationSummary {
-  export const isa = (o: any): o is OperationSummary =>
-    __isa(o, "OperationSummary");
+  export const isa = (o: any): o is OperationSummary => __isa(o, "OperationSummary");
 }
 
 export enum OperationType {
@@ -1565,8 +1517,7 @@ export interface RegisterDomainRequest {
 }
 
 export namespace RegisterDomainRequest {
-  export const isa = (o: any): o is RegisterDomainRequest =>
-    __isa(o, "RegisterDomainRequest");
+  export const isa = (o: any): o is RegisterDomainRequest => __isa(o, "RegisterDomainRequest");
 }
 
 /**
@@ -1582,8 +1533,7 @@ export interface RegisterDomainResponse {
 }
 
 export namespace RegisterDomainResponse {
-  export const isa = (o: any): o is RegisterDomainResponse =>
-    __isa(o, "RegisterDomainResponse");
+  export const isa = (o: any): o is RegisterDomainResponse => __isa(o, "RegisterDomainResponse");
 }
 
 /**
@@ -1612,8 +1562,7 @@ export interface RenewDomainRequest {
 }
 
 export namespace RenewDomainRequest {
-  export const isa = (o: any): o is RenewDomainRequest =>
-    __isa(o, "RenewDomainRequest");
+  export const isa = (o: any): o is RenewDomainRequest => __isa(o, "RenewDomainRequest");
 }
 
 export interface RenewDomainResponse {
@@ -1626,8 +1575,7 @@ export interface RenewDomainResponse {
 }
 
 export namespace RenewDomainResponse {
-  export const isa = (o: any): o is RenewDomainResponse =>
-    __isa(o, "RenewDomainResponse");
+  export const isa = (o: any): o is RenewDomainResponse => __isa(o, "RenewDomainResponse");
 }
 
 export interface ResendContactReachabilityEmailRequest {
@@ -1681,8 +1629,7 @@ export interface RetrieveDomainAuthCodeRequest {
 }
 
 export namespace RetrieveDomainAuthCodeRequest {
-  export const isa = (o: any): o is RetrieveDomainAuthCodeRequest =>
-    __isa(o, "RetrieveDomainAuthCodeRequest");
+  export const isa = (o: any): o is RetrieveDomainAuthCodeRequest => __isa(o, "RetrieveDomainAuthCodeRequest");
 }
 
 /**
@@ -1697,8 +1644,7 @@ export interface RetrieveDomainAuthCodeResponse {
 }
 
 export namespace RetrieveDomainAuthCodeResponse {
-  export const isa = (o: any): o is RetrieveDomainAuthCodeResponse =>
-    __isa(o, "RetrieveDomainAuthCodeResponse");
+  export const isa = (o: any): o is RetrieveDomainAuthCodeResponse => __isa(o, "RetrieveDomainAuthCodeResponse");
 }
 
 /**
@@ -1714,8 +1660,7 @@ export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TLDRulesViolation {
-  export const isa = (o: any): o is TLDRulesViolation =>
-    __isa(o, "TLDRulesViolation");
+  export const isa = (o: any): o is TLDRulesViolation => __isa(o, "TLDRulesViolation");
 }
 
 /**
@@ -1830,8 +1775,7 @@ export interface TransferDomainRequest {
 }
 
 export namespace TransferDomainRequest {
-  export const isa = (o: any): o is TransferDomainRequest =>
-    __isa(o, "TransferDomainRequest");
+  export const isa = (o: any): o is TransferDomainRequest => __isa(o, "TransferDomainRequest");
 }
 
 /**
@@ -1847,8 +1791,7 @@ export interface TransferDomainResponse {
 }
 
 export namespace TransferDomainResponse {
-  export const isa = (o: any): o is TransferDomainResponse =>
-    __isa(o, "TransferDomainResponse");
+  export const isa = (o: any): o is TransferDomainResponse => __isa(o, "TransferDomainResponse");
 }
 
 export enum Transferable {
@@ -1870,8 +1813,7 @@ export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
 }
 
 export namespace UnsupportedTLD {
-  export const isa = (o: any): o is UnsupportedTLD =>
-    __isa(o, "UnsupportedTLD");
+  export const isa = (o: any): o is UnsupportedTLD => __isa(o, "UnsupportedTLD");
 }
 
 /**
@@ -1910,8 +1852,7 @@ export interface UpdateDomainContactPrivacyRequest {
 }
 
 export namespace UpdateDomainContactPrivacyRequest {
-  export const isa = (o: any): o is UpdateDomainContactPrivacyRequest =>
-    __isa(o, "UpdateDomainContactPrivacyRequest");
+  export const isa = (o: any): o is UpdateDomainContactPrivacyRequest => __isa(o, "UpdateDomainContactPrivacyRequest");
 }
 
 /**
@@ -1957,8 +1898,7 @@ export interface UpdateDomainContactRequest {
 }
 
 export namespace UpdateDomainContactRequest {
-  export const isa = (o: any): o is UpdateDomainContactRequest =>
-    __isa(o, "UpdateDomainContactRequest");
+  export const isa = (o: any): o is UpdateDomainContactRequest => __isa(o, "UpdateDomainContactRequest");
 }
 
 /**
@@ -1974,8 +1914,7 @@ export interface UpdateDomainContactResponse {
 }
 
 export namespace UpdateDomainContactResponse {
-  export const isa = (o: any): o is UpdateDomainContactResponse =>
-    __isa(o, "UpdateDomainContactResponse");
+  export const isa = (o: any): o is UpdateDomainContactResponse => __isa(o, "UpdateDomainContactResponse");
 }
 
 /**
@@ -2003,8 +1942,7 @@ export interface UpdateDomainNameserversRequest {
 }
 
 export namespace UpdateDomainNameserversRequest {
-  export const isa = (o: any): o is UpdateDomainNameserversRequest =>
-    __isa(o, "UpdateDomainNameserversRequest");
+  export const isa = (o: any): o is UpdateDomainNameserversRequest => __isa(o, "UpdateDomainNameserversRequest");
 }
 
 /**
@@ -2020,8 +1958,7 @@ export interface UpdateDomainNameserversResponse {
 }
 
 export namespace UpdateDomainNameserversResponse {
-  export const isa = (o: any): o is UpdateDomainNameserversResponse =>
-    __isa(o, "UpdateDomainNameserversResponse");
+  export const isa = (o: any): o is UpdateDomainNameserversResponse => __isa(o, "UpdateDomainNameserversResponse");
 }
 
 /**
@@ -2042,8 +1979,7 @@ export interface UpdateTagsForDomainRequest {
 }
 
 export namespace UpdateTagsForDomainRequest {
-  export const isa = (o: any): o is UpdateTagsForDomainRequest =>
-    __isa(o, "UpdateTagsForDomainRequest");
+  export const isa = (o: any): o is UpdateTagsForDomainRequest => __isa(o, "UpdateTagsForDomainRequest");
 }
 
 export interface UpdateTagsForDomainResponse {
@@ -2051,8 +1987,7 @@ export interface UpdateTagsForDomainResponse {
 }
 
 export namespace UpdateTagsForDomainResponse {
-  export const isa = (o: any): o is UpdateTagsForDomainResponse =>
-    __isa(o, "UpdateTagsForDomainResponse");
+  export const isa = (o: any): o is UpdateTagsForDomainResponse => __isa(o, "UpdateTagsForDomainResponse");
 }
 
 /**
@@ -2091,8 +2026,7 @@ export interface ViewBillingRequest {
 }
 
 export namespace ViewBillingRequest {
-  export const isa = (o: any): o is ViewBillingRequest =>
-    __isa(o, "ViewBillingRequest");
+  export const isa = (o: any): o is ViewBillingRequest => __isa(o, "ViewBillingRequest");
 }
 
 /**
@@ -2113,6 +2047,5 @@ export interface ViewBillingResponse {
 }
 
 export namespace ViewBillingResponse {
-  export const isa = (o: any): o is ViewBillingResponse =>
-    __isa(o, "ViewBillingResponse");
+  export const isa = (o: any): o is ViewBillingResponse => __isa(o, "ViewBillingResponse");
 }

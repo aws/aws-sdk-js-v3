@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GetAccessKeyLastUsedRequest,
-  GetAccessKeyLastUsedResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccessKeyLastUsedCommand,
   serializeAws_queryGetAccessKeyLastUsedCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
-export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse &
-  __MetadataBearer;
+export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse & __MetadataBearer;
 
 export class GetAccessKeyLastUsedCommand extends $Command<
   GetAccessKeyLastUsedCommandInput,
@@ -49,13 +38,8 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAccessKeyLastUsedCommandInput,
-    GetAccessKeyLastUsedCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAccessKeyLastUsedCommandInput, GetAccessKeyLastUsedCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class GetAccessKeyLastUsedCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccessKeyLastUsedCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAccessKeyLastUsedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccessKeyLastUsedCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAccessKeyLastUsedCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccessKeyLastUsedCommandOutput> {
     return deserializeAws_queryGetAccessKeyLastUsedCommand(output, context);
   }
 

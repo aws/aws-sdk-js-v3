@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateDomainConfigurationRequest,
-  CreateDomainConfigurationResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateDomainConfigurationRequest, CreateDomainConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDomainConfigurationCommand,
   serializeAws_restJson1_1CreateDomainConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDomainConfigurationCommandInput = CreateDomainConfigurationRequest;
-export type CreateDomainConfigurationCommandOutput = CreateDomainConfigurationResponse &
-  __MetadataBearer;
+export type CreateDomainConfigurationCommandOutput = CreateDomainConfigurationResponse & __MetadataBearer;
 
 export class CreateDomainConfigurationCommand extends $Command<
   CreateDomainConfigurationCommandInput,
@@ -49,13 +38,8 @@ export class CreateDomainConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDomainConfigurationCommandInput,
-    CreateDomainConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDomainConfigurationCommandInput, CreateDomainConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class CreateDomainConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDomainConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDomainConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDomainConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateDomainConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDomainConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1CreateDomainConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDomainConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

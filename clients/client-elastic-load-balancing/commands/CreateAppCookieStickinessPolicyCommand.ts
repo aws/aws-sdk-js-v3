@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  CreateAppCookieStickinessPolicyInput,
-  CreateAppCookieStickinessPolicyOutput
-} from "../models/index";
+import { CreateAppCookieStickinessPolicyInput, CreateAppCookieStickinessPolicyOutput } from "../models/index";
 import {
   deserializeAws_queryCreateAppCookieStickinessPolicyCommand,
   serializeAws_queryCreateAppCookieStickinessPolicyCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAppCookieStickinessPolicyCommandInput = CreateAppCookieStickinessPolicyInput;
-export type CreateAppCookieStickinessPolicyCommandOutput = CreateAppCookieStickinessPolicyOutput &
-  __MetadataBearer;
+export type CreateAppCookieStickinessPolicyCommandOutput = CreateAppCookieStickinessPolicyOutput & __MetadataBearer;
 
 export class CreateAppCookieStickinessPolicyCommand extends $Command<
   CreateAppCookieStickinessPolicyCommandInput,
@@ -49,13 +42,8 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateAppCookieStickinessPolicyCommandInput,
-    CreateAppCookieStickinessPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateAppCookieStickinessPolicyCommandInput, CreateAppCookieStickinessPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     input: CreateAppCookieStickinessPolicyCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryCreateAppCookieStickinessPolicyCommand(
-      input,
-      context
-    );
+    return serializeAws_queryCreateAppCookieStickinessPolicyCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateAppCookieStickinessPolicyCommandOutput> {
-    return deserializeAws_queryCreateAppCookieStickinessPolicyCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryCreateAppCookieStickinessPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { ListTemplatesRequest, ListTemplatesResponse } from "../models/index";
 import {
   deserializeAws_queryListTemplatesCommand,
   serializeAws_queryListTemplatesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTemplatesCommandInput = ListTemplatesRequest;
-export type ListTemplatesCommandOutput = ListTemplatesResponse &
-  __MetadataBearer;
+export type ListTemplatesCommandOutput = ListTemplatesResponse & __MetadataBearer;
 
 export class ListTemplatesCommand extends $Command<
   ListTemplatesCommandInput,
@@ -47,9 +39,7 @@ export class ListTemplatesCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTemplatesCommandInput, ListTemplatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListTemplatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTemplatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListTemplatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTemplatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTemplatesCommandOutput> {
     return deserializeAws_queryListTemplatesCommand(output, context);
   }
 

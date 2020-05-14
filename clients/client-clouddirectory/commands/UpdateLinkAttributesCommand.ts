@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  UpdateLinkAttributesRequest,
-  UpdateLinkAttributesResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { UpdateLinkAttributesRequest, UpdateLinkAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateLinkAttributesCommand,
   serializeAws_restJson1_1UpdateLinkAttributesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateLinkAttributesCommandInput = UpdateLinkAttributesRequest;
-export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse &
-  __MetadataBearer;
+export type UpdateLinkAttributesCommandOutput = UpdateLinkAttributesResponse & __MetadataBearer;
 
 export class UpdateLinkAttributesCommand extends $Command<
   UpdateLinkAttributesCommandInput,
@@ -49,13 +38,8 @@ export class UpdateLinkAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateLinkAttributesCommandInput,
-    UpdateLinkAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateLinkAttributesCommandInput, UpdateLinkAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateLinkAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateLinkAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateLinkAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateLinkAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateLinkAttributesCommandOutput> {
-    return deserializeAws_restJson1_1UpdateLinkAttributesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLinkAttributesCommandOutput> {
+    return deserializeAws_restJson1_1UpdateLinkAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient";
-import {
-  CreateSystemTemplateRequest,
-  CreateSystemTemplateResponse
-} from "../models/index";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
+import { CreateSystemTemplateRequest, CreateSystemTemplateResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSystemTemplateCommand,
   serializeAws_json1_1CreateSystemTemplateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSystemTemplateCommandInput = CreateSystemTemplateRequest;
-export type CreateSystemTemplateCommandOutput = CreateSystemTemplateResponse &
-  __MetadataBearer;
+export type CreateSystemTemplateCommandOutput = CreateSystemTemplateResponse & __MetadataBearer;
 
 export class CreateSystemTemplateCommand extends $Command<
   CreateSystemTemplateCommandInput,
@@ -49,13 +38,8 @@ export class CreateSystemTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSystemTemplateCommandInput,
-    CreateSystemTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSystemTemplateCommandInput, CreateSystemTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class CreateSystemTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSystemTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSystemTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSystemTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSystemTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSystemTemplateCommandOutput> {
     return deserializeAws_json1_1CreateSystemTemplateCommand(output, context);
   }
 

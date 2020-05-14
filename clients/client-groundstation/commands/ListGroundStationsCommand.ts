@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient";
-import {
-  ListGroundStationsRequest,
-  ListGroundStationsResponse
-} from "../models/index";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { ListGroundStationsRequest, ListGroundStationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGroundStationsCommand,
   serializeAws_restJson1_1ListGroundStationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroundStationsCommandInput = ListGroundStationsRequest;
-export type ListGroundStationsCommandOutput = ListGroundStationsResponse &
-  __MetadataBearer;
+export type ListGroundStationsCommandOutput = ListGroundStationsResponse & __MetadataBearer;
 
 export class ListGroundStationsCommand extends $Command<
   ListGroundStationsCommandInput,
@@ -50,9 +39,7 @@ export class ListGroundStationsCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroundStationsCommandInput, ListGroundStationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListGroundStationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListGroundStationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListGroundStationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListGroundStationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListGroundStationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroundStationsCommandOutput> {
     return deserializeAws_restJson1_1ListGroundStationsCommand(output, context);
   }
 

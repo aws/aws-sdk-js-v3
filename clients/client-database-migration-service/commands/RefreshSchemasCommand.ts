@@ -9,10 +9,7 @@ import {
   serializeAws_json1_1RefreshSchemasCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RefreshSchemasCommandInput = RefreshSchemasMessage;
-export type RefreshSchemasCommandOutput = RefreshSchemasResponse &
-  __MetadataBearer;
+export type RefreshSchemasCommandOutput = RefreshSchemasResponse & __MetadataBearer;
 
 export class RefreshSchemasCommand extends $Command<
   RefreshSchemasCommandInput,
@@ -47,9 +43,7 @@ export class RefreshSchemasCommand extends $Command<
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RefreshSchemasCommandInput, RefreshSchemasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class RefreshSchemasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RefreshSchemasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RefreshSchemasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RefreshSchemasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RefreshSchemasCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RefreshSchemasCommandOutput> {
     return deserializeAws_json1_1RefreshSchemasCommand(output, context);
   }
 

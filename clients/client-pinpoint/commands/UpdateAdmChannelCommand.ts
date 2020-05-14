@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  UpdateAdmChannelRequest,
-  UpdateAdmChannelResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateAdmChannelCommand,
   serializeAws_restJson1_1UpdateAdmChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAdmChannelCommandInput = UpdateAdmChannelRequest;
-export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse &
-  __MetadataBearer;
+export type UpdateAdmChannelCommandOutput = UpdateAdmChannelResponse & __MetadataBearer;
 
 export class UpdateAdmChannelCommand extends $Command<
   UpdateAdmChannelCommandInput,
@@ -50,9 +39,7 @@ export class UpdateAdmChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAdmChannelCommandInput, UpdateAdmChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateAdmChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAdmChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAdmChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateAdmChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAdmChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAdmChannelCommandOutput> {
     return deserializeAws_restJson1_1UpdateAdmChannelCommand(output, context);
   }
 

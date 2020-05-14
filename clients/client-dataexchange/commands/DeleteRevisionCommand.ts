@@ -1,18 +1,11 @@
-import {
-  DataExchangeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataExchangeClient";
+import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { DeleteRevisionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRevisionCommand,
   serializeAws_restJson1_1DeleteRevisionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeleteRevisionCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRevisionCommandInput, DeleteRevisionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeleteRevisionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteRevisionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteRevisionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteRevisionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRevisionCommandOutput> {
     return deserializeAws_restJson1_1DeleteRevisionCommand(output, context);
   }
 

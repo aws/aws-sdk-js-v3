@@ -1,21 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient";
-import {
-  CreateExportTaskRequest,
-  CreateExportTaskResponse
-} from "../models/index";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import { CreateExportTaskRequest, CreateExportTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateExportTaskCommand,
   serializeAws_json1_1CreateExportTaskCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateExportTaskCommandInput = CreateExportTaskRequest;
-export type CreateExportTaskCommandOutput = CreateExportTaskResponse &
-  __MetadataBearer;
+export type CreateExportTaskCommandOutput = CreateExportTaskResponse & __MetadataBearer;
 
 export class CreateExportTaskCommand extends $Command<
   CreateExportTaskCommandInput,
@@ -50,9 +39,7 @@ export class CreateExportTaskCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateExportTaskCommandInput, CreateExportTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateExportTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateExportTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateExportTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateExportTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportTaskCommandOutput> {
     return deserializeAws_json1_1CreateExportTaskCommand(output, context);
   }
 

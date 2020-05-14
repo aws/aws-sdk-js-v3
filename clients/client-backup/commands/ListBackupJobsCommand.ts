@@ -1,18 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { ListBackupJobsInput, ListBackupJobsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBackupJobsCommand,
   serializeAws_restJson1_1ListBackupJobsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBackupJobsCommandInput = ListBackupJobsInput;
-export type ListBackupJobsCommandOutput = ListBackupJobsOutput &
-  __MetadataBearer;
+export type ListBackupJobsCommandOutput = ListBackupJobsOutput & __MetadataBearer;
 
 export class ListBackupJobsCommand extends $Command<
   ListBackupJobsCommandInput,
@@ -47,9 +39,7 @@ export class ListBackupJobsCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBackupJobsCommandInput, ListBackupJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListBackupJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListBackupJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListBackupJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListBackupJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListBackupJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBackupJobsCommandOutput> {
     return deserializeAws_restJson1_1ListBackupJobsCommand(output, context);
   }
 

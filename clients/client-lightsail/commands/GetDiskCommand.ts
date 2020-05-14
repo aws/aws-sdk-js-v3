@@ -1,18 +1,8 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { GetDiskRequest, GetDiskResult } from "../models/index";
-import {
-  deserializeAws_json1_1GetDiskCommand,
-  serializeAws_json1_1GetDiskCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1GetDiskCommand, serializeAws_json1_1GetDiskCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type GetDiskCommandInput = GetDiskRequest;
 export type GetDiskCommandOutput = GetDiskResult & __MetadataBearer;
 
-export class GetDiskCommand extends $Command<
-  GetDiskCommandInput,
-  GetDiskCommandOutput,
-  LightsailClientResolvedConfig
-> {
+export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommandOutput, LightsailClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class GetDiskCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskCommandInput, GetDiskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class GetDiskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDiskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDiskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDiskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskCommandOutput> {
     return deserializeAws_json1_1GetDiskCommand(output, context);
   }
 

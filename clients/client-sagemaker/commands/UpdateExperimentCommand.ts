@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  UpdateExperimentRequest,
-  UpdateExperimentResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { UpdateExperimentRequest, UpdateExperimentResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateExperimentCommand,
   serializeAws_json1_1UpdateExperimentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateExperimentCommandInput = UpdateExperimentRequest;
-export type UpdateExperimentCommandOutput = UpdateExperimentResponse &
-  __MetadataBearer;
+export type UpdateExperimentCommandOutput = UpdateExperimentResponse & __MetadataBearer;
 
 export class UpdateExperimentCommand extends $Command<
   UpdateExperimentCommandInput,
@@ -50,9 +39,7 @@ export class UpdateExperimentCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateExperimentCommandInput, UpdateExperimentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateExperimentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateExperimentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateExperimentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateExperimentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateExperimentCommandOutput> {
     return deserializeAws_json1_1UpdateExperimentCommand(output, context);
   }
 

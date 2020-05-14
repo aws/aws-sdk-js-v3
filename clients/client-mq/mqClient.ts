@@ -1,35 +1,14 @@
-import {
-  CreateBrokerCommandInput,
-  CreateBrokerCommandOutput
-} from "./commands/CreateBrokerCommand";
+import { CreateBrokerCommandInput, CreateBrokerCommandOutput } from "./commands/CreateBrokerCommand";
 import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput
 } from "./commands/CreateConfigurationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteBrokerCommandInput,
-  DeleteBrokerCommandOutput
-} from "./commands/DeleteBrokerCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
-import {
-  DescribeBrokerCommandInput,
-  DescribeBrokerCommandOutput
-} from "./commands/DescribeBrokerCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "./commands/DeleteBrokerCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "./commands/DescribeBrokerCommand";
 import {
   DescribeBrokerEngineTypesCommandInput,
   DescribeBrokerEngineTypesCommandOutput
@@ -46,46 +25,22 @@ import {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput
 } from "./commands/DescribeConfigurationRevisionCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand";
-import {
-  ListBrokersCommandInput,
-  ListBrokersCommandOutput
-} from "./commands/ListBrokersCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import { ListBrokersCommandInput, ListBrokersCommandOutput } from "./commands/ListBrokersCommand";
 import {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput
 } from "./commands/ListConfigurationRevisionsCommand";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput
-} from "./commands/ListConfigurationsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  RebootBrokerCommandInput,
-  RebootBrokerCommandOutput
-} from "./commands/RebootBrokerCommand";
-import {
-  UpdateBrokerCommandInput,
-  UpdateBrokerCommandOutput
-} from "./commands/UpdateBrokerCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "./commands/RebootBrokerCommand";
+import { UpdateBrokerCommandInput, UpdateBrokerCommandOutput } from "./commands/UpdateBrokerCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput
 } from "./commands/UpdateConfigurationCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -102,12 +57,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -186,8 +136,7 @@ export type ServiceOutputTypes =
   | UpdateConfigurationCommandOutput
   | UpdateUserCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -271,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type mqClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type mqClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -282,9 +229,7 @@ export type mqClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type mqClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type mqClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

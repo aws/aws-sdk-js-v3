@@ -14,11 +14,7 @@ import {
   CreateGeoMatchSetCommandInput,
   CreateGeoMatchSetCommandOutput
 } from "./commands/CreateGeoMatchSetCommand";
-import {
-  CreateIPSetCommand,
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand";
+import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRateBasedRuleCommand,
   CreateRateBasedRuleCommandInput,
@@ -34,11 +30,7 @@ import {
   CreateRegexPatternSetCommandInput,
   CreateRegexPatternSetCommandOutput
 } from "./commands/CreateRegexPatternSetCommand";
-import {
-  CreateRuleCommand,
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
+import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateRuleGroupCommand,
   CreateRuleGroupCommandInput,
@@ -74,11 +66,7 @@ import {
   DeleteGeoMatchSetCommandInput,
   DeleteGeoMatchSetCommandOutput
 } from "./commands/DeleteGeoMatchSetCommand";
-import {
-  DeleteIPSetCommand,
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand";
+import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
@@ -104,11 +92,7 @@ import {
   DeleteRegexPatternSetCommandInput,
   DeleteRegexPatternSetCommandOutput
 } from "./commands/DeleteRegexPatternSetCommand";
-import {
-  DeleteRuleCommand,
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteRuleGroupCommand,
   DeleteRuleGroupCommandInput,
@@ -159,11 +143,7 @@ import {
   GetGeoMatchSetCommandInput,
   GetGeoMatchSetCommandOutput
 } from "./commands/GetGeoMatchSetCommand";
-import {
-  GetIPSetCommand,
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand";
+import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommand,
   GetLoggingConfigurationCommandInput,
@@ -194,11 +174,7 @@ import {
   GetRegexPatternSetCommandInput,
   GetRegexPatternSetCommandOutput
 } from "./commands/GetRegexPatternSetCommand";
-import {
-  GetRuleCommand,
-  GetRuleCommandInput,
-  GetRuleCommandOutput
-} from "./commands/GetRuleCommand";
+import { GetRuleCommand, GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
 import {
   GetRuleGroupCommand,
   GetRuleGroupCommandInput,
@@ -219,11 +195,7 @@ import {
   GetSqlInjectionMatchSetCommandInput,
   GetSqlInjectionMatchSetCommandOutput
 } from "./commands/GetSqlInjectionMatchSetCommand";
-import {
-  GetWebACLCommand,
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand";
+import { GetWebACLCommand, GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommand,
   GetWebACLForResourceCommandInput,
@@ -249,11 +221,7 @@ import {
   ListGeoMatchSetsCommandInput,
   ListGeoMatchSetsCommandOutput
 } from "./commands/ListGeoMatchSetsCommand";
-import {
-  ListIPSetsCommand,
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand";
+import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommand,
   ListLoggingConfigurationsCommandInput,
@@ -284,11 +252,7 @@ import {
   ListRuleGroupsCommandInput,
   ListRuleGroupsCommandOutput
 } from "./commands/ListRuleGroupsCommand";
-import {
-  ListRulesCommand,
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand";
+import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSizeConstraintSetsCommand,
   ListSizeConstraintSetsCommandInput,
@@ -309,11 +273,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWebACLsCommand,
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
-} from "./commands/ListWebACLsCommand";
+import { ListWebACLsCommand, ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand";
 import {
   ListXssMatchSetsCommand,
   ListXssMatchSetsCommandInput,
@@ -329,11 +289,7 @@ import {
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput
 } from "./commands/PutPermissionPolicyCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -349,11 +305,7 @@ import {
   UpdateGeoMatchSetCommandInput,
   UpdateGeoMatchSetCommandOutput
 } from "./commands/UpdateGeoMatchSetCommand";
-import {
-  UpdateIPSetCommand,
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand";
+import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
   UpdateRateBasedRuleCommand,
   UpdateRateBasedRuleCommandInput,
@@ -369,11 +321,7 @@ import {
   UpdateRegexPatternSetCommandInput,
   UpdateRegexPatternSetCommandOutput
 } from "./commands/UpdateRegexPatternSetCommand";
-import {
-  UpdateRuleCommand,
-  UpdateRuleCommandInput,
-  UpdateRuleCommandOutput
-} from "./commands/UpdateRuleCommand";
+import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateRuleGroupCommand,
   UpdateRuleGroupCommandInput,
@@ -424,17 +372,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public associateWebACL(
     args: AssociateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: AssociateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateWebACLCommandOutput) => void),
     cb?: (err: any, data?: AssociateWebACLCommandOutput) => void
   ): Promise<AssociateWebACLCommandOutput> | void {
     const command = new AssociateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -459,17 +404,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DisassociateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateWebACLCommandOutput) => void),
     cb?: (err: any, data?: DisassociateWebACLCommandOutput) => void
   ): Promise<DisassociateWebACLCommandOutput> | void {
     const command = new DisassociateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -494,17 +436,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebACLForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLForResourceCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLForResourceCommandOutput) => void
   ): Promise<GetWebACLForResourceCommandOutput> | void {
     const command = new GetWebACLForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -529,17 +468,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListResourcesForWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesForWebACLCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
   ): Promise<ListResourcesForWebACLCommandOutput> | void {
     const command = new ListResourcesForWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -587,17 +523,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createByteMatchSet(
     args: CreateByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateByteMatchSetCommandOutput) => void
   ): Promise<CreateByteMatchSetCommandOutput> | void {
     const command = new CreateByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -642,17 +575,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createGeoMatchSet(
     args: CreateGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateGeoMatchSetCommandOutput) => void
   ): Promise<CreateGeoMatchSetCommandOutput> | void {
     const command = new CreateGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -687,14 +617,8 @@ export class WAFRegional extends WAFRegionalClient {
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    */
-  public createIPSet(
-    args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateIPSetCommandOutput>;
-  public createIPSet(
-    args: CreateIPSetCommandInput,
-    cb: (err: any, data?: CreateIPSetCommandOutput) => void
-  ): void;
+  public createIPSet(args: CreateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<CreateIPSetCommandOutput>;
+  public createIPSet(args: CreateIPSetCommandInput, cb: (err: any, data?: CreateIPSetCommandOutput) => void): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -702,17 +626,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -822,17 +743,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createRateBasedRule(
     args: CreateRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRateBasedRuleCommandOutput) => void
   ): Promise<CreateRateBasedRuleCommandOutput> | void {
     const command = new CreateRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -880,17 +798,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createRegexMatchSet(
     args: CreateRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexMatchSetCommandOutput) => void
   ): Promise<CreateRegexMatchSetCommandOutput> | void {
     const command = new CreateRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -934,17 +849,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexPatternSetCommandOutput) => void
   ): Promise<CreateRegexPatternSetCommandOutput> | void {
     const command = new CreateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -997,14 +909,8 @@ export class WAFRegional extends WAFRegionalClient {
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    */
-  public createRule(
-    args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateRuleCommandOutput>;
-  public createRule(
-    args: CreateRuleCommandInput,
-    cb: (err: any, data?: CreateRuleCommandOutput) => void
-  ): void;
+  public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
   public createRule(
     args: CreateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1012,17 +918,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1061,17 +964,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): Promise<CreateRuleGroupCommandOutput> | void {
     const command = new CreateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1119,17 +1019,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createSizeConstraintSet(
     args: CreateSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: CreateSizeConstraintSetCommandOutput) => void
   ): Promise<CreateSizeConstraintSetCommandOutput> | void {
     const command = new CreateSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1175,17 +1072,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createSqlInjectionMatchSet(
     args: CreateSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateSqlInjectionMatchSetCommandOutput) => void
   ): Promise<CreateSqlInjectionMatchSetCommandOutput> | void {
     const command = new CreateSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1230,10 +1124,7 @@ export class WAFRegional extends WAFRegionalClient {
     args: CreateWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<CreateWebACLCommandOutput>;
-  public createWebACL(
-    args: CreateWebACLCommandInput,
-    cb: (err: any, data?: CreateWebACLCommandOutput) => void
-  ): void;
+  public createWebACL(args: CreateWebACLCommandInput, cb: (err: any, data?: CreateWebACLCommandOutput) => void): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -1241,17 +1132,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebACLCommandOutput) => void),
     cb?: (err: any, data?: CreateWebACLCommandOutput) => void
   ): Promise<CreateWebACLCommandOutput> | void {
     const command = new CreateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1297,17 +1185,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public createXssMatchSet(
     args: CreateXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: CreateXssMatchSetCommandOutput) => void
   ): Promise<CreateXssMatchSetCommandOutput> | void {
     const command = new CreateXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1347,17 +1232,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteByteMatchSet(
     args: DeleteByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteByteMatchSetCommandOutput) => void
   ): Promise<DeleteByteMatchSetCommandOutput> | void {
     const command = new DeleteByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1397,17 +1279,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteGeoMatchSet(
     args: DeleteGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteGeoMatchSetCommandOutput) => void
   ): Promise<DeleteGeoMatchSetCommandOutput> | void {
     const command = new DeleteGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1432,14 +1311,8 @@ export class WAFRegional extends WAFRegionalClient {
    *             </li>
    *          </ol>
    */
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteIPSetCommandOutput>;
-  public deleteIPSet(
-    args: DeleteIPSetCommandInput,
-    cb: (err: any, data?: DeleteIPSetCommandOutput) => void
-  ): void;
+  public deleteIPSet(args: DeleteIPSetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIPSetCommandOutput>;
+  public deleteIPSet(args: DeleteIPSetCommandInput, cb: (err: any, data?: DeleteIPSetCommandOutput) => void): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -1447,17 +1320,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1483,17 +1353,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
     const command = new DeleteLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1519,17 +1386,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deletePermissionPolicy(
     args: DeletePermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePermissionPolicyCommandOutput) => void
   ): Promise<DeletePermissionPolicyCommandOutput> | void {
     const command = new DeletePermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1573,17 +1437,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteRateBasedRule(
     args: DeleteRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRateBasedRuleCommandOutput) => void
   ): Promise<DeleteRateBasedRuleCommandOutput> | void {
     const command = new DeleteRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1623,17 +1484,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteRegexMatchSet(
     args: DeleteRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexMatchSetCommandOutput) => void
   ): Promise<DeleteRegexMatchSetCommandOutput> | void {
     const command = new DeleteRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1659,17 +1517,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexPatternSetCommandOutput) => void
   ): Promise<DeleteRegexPatternSetCommandOutput> | void {
     const command = new DeleteRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1694,14 +1549,8 @@ export class WAFRegional extends WAFRegionalClient {
    *             </li>
    *          </ol>
    */
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteRuleCommandOutput>;
-  public deleteRule(
-    args: DeleteRuleCommandInput,
-    cb: (err: any, data?: DeleteRuleCommandOutput) => void
-  ): void;
+  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -1709,17 +1558,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteRule(
     args: DeleteRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1759,17 +1605,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): Promise<DeleteRuleGroupCommandOutput> | void {
     const command = new DeleteRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1809,17 +1652,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteSizeConstraintSet(
     args: DeleteSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSizeConstraintSetCommandOutput) => void
   ): Promise<DeleteSizeConstraintSetCommandOutput> | void {
     const command = new DeleteSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1860,17 +1700,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteSqlInjectionMatchSet(
     args: DeleteSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteSqlInjectionMatchSetCommandOutput) => void
   ): Promise<DeleteSqlInjectionMatchSetCommandOutput> | void {
     const command = new DeleteSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1897,10 +1734,7 @@ export class WAFRegional extends WAFRegionalClient {
     args: DeleteWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DeleteWebACLCommandOutput>;
-  public deleteWebACL(
-    args: DeleteWebACLCommandInput,
-    cb: (err: any, data?: DeleteWebACLCommandOutput) => void
-  ): void;
+  public deleteWebACL(args: DeleteWebACLCommandInput, cb: (err: any, data?: DeleteWebACLCommandOutput) => void): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -1908,17 +1742,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebACLCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): Promise<DeleteWebACLCommandOutput> | void {
     const command = new DeleteWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1959,17 +1790,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public deleteXssMatchSet(
     args: DeleteXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteXssMatchSetCommandOutput) => void
   ): Promise<DeleteXssMatchSetCommandOutput> | void {
     const command = new DeleteXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1994,17 +1822,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getByteMatchSet(
     args: GetByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetByteMatchSetCommandOutput) => void
   ): Promise<GetByteMatchSetCommandOutput> | void {
     const command = new GetByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2035,17 +1860,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getChangeToken(
     args: GetChangeTokenCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenCommandOutput) => void
   ): Promise<GetChangeTokenCommandOutput> | void {
     const command = new GetChangeTokenCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2086,17 +1908,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getChangeTokenStatus(
     args: GetChangeTokenStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetChangeTokenStatusCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChangeTokenStatusCommandOutput) => void),
     cb?: (err: any, data?: GetChangeTokenStatusCommandOutput) => void
   ): Promise<GetChangeTokenStatusCommandOutput> | void {
     const command = new GetChangeTokenStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2121,17 +1940,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getGeoMatchSet(
     args: GetGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetGeoMatchSetCommandOutput) => void
   ): Promise<GetGeoMatchSetCommandOutput> | void {
     const command = new GetGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2141,14 +1957,8 @@ export class WAFRegional extends WAFRegionalClient {
   /**
    * <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
    */
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetIPSetCommandOutput>;
-  public getIPSet(
-    args: GetIPSetCommandInput,
-    cb: (err: any, data?: GetIPSetCommandOutput) => void
-  ): void;
+  public getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
+  public getIPSet(args: GetIPSetCommandInput, cb: (err: any, data?: GetIPSetCommandOutput) => void): void;
   public getIPSet(
     args: GetIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -2156,17 +1966,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2191,17 +1998,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): Promise<GetLoggingConfigurationCommandOutput> | void {
     const command = new GetLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2226,17 +2030,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getPermissionPolicy(
     args: GetPermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetPermissionPolicyCommandOutput) => void
   ): Promise<GetPermissionPolicyCommandOutput> | void {
     const command = new GetPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2263,17 +2064,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getRateBasedRule(
     args: GetRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleCommandOutput) => void
   ): Promise<GetRateBasedRuleCommandOutput> | void {
     const command = new GetRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2300,17 +2098,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getRateBasedRuleManagedKeys(
     args: GetRateBasedRuleManagedKeysCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void),
     cb?: (err: any, data?: GetRateBasedRuleManagedKeysCommandOutput) => void
   ): Promise<GetRateBasedRuleManagedKeysCommandOutput> | void {
     const command = new GetRateBasedRuleManagedKeysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2335,17 +2130,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getRegexMatchSet(
     args: GetRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexMatchSetCommandOutput) => void
   ): Promise<GetRegexMatchSetCommandOutput> | void {
     const command = new GetRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2370,17 +2162,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexPatternSetCommandOutput) => void
   ): Promise<GetRegexPatternSetCommandOutput> | void {
     const command = new GetRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2390,14 +2179,8 @@ export class WAFRegional extends WAFRegionalClient {
   /**
    * <p>Returns the <a>Rule</a> that is specified by the <code>RuleId</code> that you included in the <code>GetRule</code> request.</p>
    */
-  public getRule(
-    args: GetRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetRuleCommandOutput>;
-  public getRule(
-    args: GetRuleCommandInput,
-    cb: (err: any, data?: GetRuleCommandOutput) => void
-  ): void;
+  public getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
+  public getRule(args: GetRuleCommandInput, cb: (err: any, data?: GetRuleCommandOutput) => void): void;
   public getRule(
     args: GetRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -2405,17 +2188,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getRule(
     args: GetRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleCommandOutput) => void),
     cb?: (err: any, data?: GetRuleCommandOutput) => void
   ): Promise<GetRuleCommandOutput> | void {
     const command = new GetRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2430,10 +2210,7 @@ export class WAFRegional extends WAFRegionalClient {
     args: GetRuleGroupCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<GetRuleGroupCommandOutput>;
-  public getRuleGroup(
-    args: GetRuleGroupCommandInput,
-    cb: (err: any, data?: GetRuleGroupCommandOutput) => void
-  ): void;
+  public getRuleGroup(args: GetRuleGroupCommandInput, cb: (err: any, data?: GetRuleGroupCommandOutput) => void): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
     options: __HttpHandlerOptions,
@@ -2441,17 +2218,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): Promise<GetRuleGroupCommandOutput> | void {
     const command = new GetRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2480,17 +2254,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
     cb?: (err: any, data?: GetSampledRequestsCommandOutput) => void
   ): Promise<GetSampledRequestsCommandOutput> | void {
     const command = new GetSampledRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2515,17 +2286,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getSizeConstraintSet(
     args: GetSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: GetSizeConstraintSetCommandOutput) => void
   ): Promise<GetSizeConstraintSetCommandOutput> | void {
     const command = new GetSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2550,17 +2318,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getSqlInjectionMatchSet(
     args: GetSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetSqlInjectionMatchSetCommandOutput) => void
   ): Promise<GetSqlInjectionMatchSetCommandOutput> | void {
     const command = new GetSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2570,14 +2335,8 @@ export class WAFRegional extends WAFRegionalClient {
   /**
    * <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
    */
-  public getWebACL(
-    args: GetWebACLCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetWebACLCommandOutput>;
-  public getWebACL(
-    args: GetWebACLCommandInput,
-    cb: (err: any, data?: GetWebACLCommandOutput) => void
-  ): void;
+  public getWebACL(args: GetWebACLCommandInput, options?: __HttpHandlerOptions): Promise<GetWebACLCommandOutput>;
+  public getWebACL(args: GetWebACLCommandInput, cb: (err: any, data?: GetWebACLCommandOutput) => void): void;
   public getWebACL(
     args: GetWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -2585,17 +2344,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getWebACL(
     args: GetWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLCommandOutput) => void
   ): Promise<GetWebACLCommandOutput> | void {
     const command = new GetWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2620,17 +2376,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public getXssMatchSet(
     args: GetXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: GetXssMatchSetCommandOutput) => void
   ): Promise<GetXssMatchSetCommandOutput> | void {
     const command = new GetXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2655,17 +2408,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: ListActivatedRulesInRuleGroupCommandOutput) => void
   ): Promise<ListActivatedRulesInRuleGroupCommandOutput> | void {
     const command = new ListActivatedRulesInRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2690,17 +2440,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListByteMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListByteMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListByteMatchSetsCommandOutput) => void
   ): Promise<ListByteMatchSetsCommandOutput> | void {
     const command = new ListByteMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2725,17 +2472,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGeoMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListGeoMatchSetsCommandOutput) => void
   ): Promise<ListGeoMatchSetsCommandOutput> | void {
     const command = new ListGeoMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2745,14 +2489,8 @@ export class WAFRegional extends WAFRegionalClient {
   /**
    * <p>Returns an array of <a>IPSetSummary</a> objects in the response.</p>
    */
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListIPSetsCommandOutput>;
-  public listIPSets(
-    args: ListIPSetsCommandInput,
-    cb: (err: any, data?: ListIPSetsCommandOutput) => void
-  ): void;
+  public listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
+  public listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
     options: __HttpHandlerOptions,
@@ -2760,17 +2498,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2795,17 +2530,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): Promise<ListLoggingConfigurationsCommandOutput> | void {
     const command = new ListLoggingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2830,17 +2562,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRateBasedRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRateBasedRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRateBasedRulesCommandOutput) => void
   ): Promise<ListRateBasedRulesCommandOutput> | void {
     const command = new ListRateBasedRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2865,17 +2594,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegexMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexMatchSetsCommandOutput) => void
   ): Promise<ListRegexMatchSetsCommandOutput> | void {
     const command = new ListRegexMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2900,17 +2626,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): Promise<ListRegexPatternSetsCommandOutput> | void {
     const command = new ListRegexPatternSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2935,17 +2658,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): Promise<ListRuleGroupsCommandOutput> | void {
     const command = new ListRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2955,14 +2675,8 @@ export class WAFRegional extends WAFRegionalClient {
   /**
    * <p>Returns an array of <a>RuleSummary</a> objects.</p>
    */
-  public listRules(
-    args: ListRulesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListRulesCommandOutput>;
-  public listRules(
-    args: ListRulesCommandInput,
-    cb: (err: any, data?: ListRulesCommandOutput) => void
-  ): void;
+  public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
+  public listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
   public listRules(
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
@@ -2970,17 +2684,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listRules(
     args: ListRulesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListRulesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
     cb?: (err: any, data?: ListRulesCommandOutput) => void
   ): Promise<ListRulesCommandOutput> | void {
     const command = new ListRulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3005,17 +2716,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSizeConstraintSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSizeConstraintSetsCommandOutput) => void),
     cb?: (err: any, data?: ListSizeConstraintSetsCommandOutput) => void
   ): Promise<ListSizeConstraintSetsCommandOutput> | void {
     const command = new ListSizeConstraintSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3040,17 +2748,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListSqlInjectionMatchSetsCommandOutput) => void
   ): Promise<ListSqlInjectionMatchSetsCommandOutput> | void {
     const command = new ListSqlInjectionMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3075,17 +2780,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListSubscribedRuleGroupsCommandOutput) => void
   ): Promise<ListSubscribedRuleGroupsCommandOutput> | void {
     const command = new ListSubscribedRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3107,17 +2809,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3127,14 +2826,8 @@ export class WAFRegional extends WAFRegionalClient {
   /**
    * <p>Returns an array of <a>WebACLSummary</a> objects in the response.</p>
    */
-  public listWebACLs(
-    args: ListWebACLsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListWebACLsCommandOutput>;
-  public listWebACLs(
-    args: ListWebACLsCommandInput,
-    cb: (err: any, data?: ListWebACLsCommandOutput) => void
-  ): void;
+  public listWebACLs(args: ListWebACLsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebACLsCommandOutput>;
+  public listWebACLs(args: ListWebACLsCommandInput, cb: (err: any, data?: ListWebACLsCommandOutput) => void): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
     options: __HttpHandlerOptions,
@@ -3142,17 +2835,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListWebACLsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebACLsCommandOutput) => void),
     cb?: (err: any, data?: ListWebACLsCommandOutput) => void
   ): Promise<ListWebACLsCommandOutput> | void {
     const command = new ListWebACLsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3177,17 +2867,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListXssMatchSetsCommandOutput) => void),
     cb?: (err: any, data?: ListXssMatchSetsCommandOutput) => void
   ): Promise<ListXssMatchSetsCommandOutput> | void {
     const command = new ListXssMatchSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3229,17 +2916,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutLoggingConfigurationCommandOutput) => void
   ): Promise<PutLoggingConfigurationCommandOutput> | void {
     const command = new PutLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3296,31 +2980,22 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public putPermissionPolicy(
     args: PutPermissionPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPermissionPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutPermissionPolicyCommandOutput) => void
   ): Promise<PutPermissionPolicyCommandOutput> | void {
     const command = new PutPermissionPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
 
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -3328,17 +3003,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3360,17 +3032,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3433,17 +3102,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateByteMatchSet(
     args: UpdateByteMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateByteMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateByteMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateByteMatchSetCommandOutput) => void
   ): Promise<UpdateByteMatchSetCommandOutput> | void {
     const command = new UpdateByteMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3498,17 +3164,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateGeoMatchSet(
     args: UpdateGeoMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateGeoMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGeoMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateGeoMatchSetCommandOutput) => void
   ): Promise<UpdateGeoMatchSetCommandOutput> | void {
     const command = new UpdateGeoMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3583,14 +3246,8 @@ export class WAFRegional extends WAFRegionalClient {
    *          requests, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF
    *             Developer Guide</a>.</p>
    */
-  public updateIPSet(
-    args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateIPSetCommandOutput>;
-  public updateIPSet(
-    args: UpdateIPSetCommandInput,
-    cb: (err: any, data?: UpdateIPSetCommandOutput) => void
-  ): void;
+  public updateIPSet(args: UpdateIPSetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateIPSetCommandOutput>;
+  public updateIPSet(args: UpdateIPSetCommandInput, cb: (err: any, data?: UpdateIPSetCommandOutput) => void): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
     options: __HttpHandlerOptions,
@@ -3598,17 +3255,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3679,17 +3333,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateRateBasedRule(
     args: UpdateRateBasedRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRateBasedRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRateBasedRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRateBasedRuleCommandOutput) => void
   ): Promise<UpdateRateBasedRuleCommandOutput> | void {
     const command = new UpdateRateBasedRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3748,17 +3399,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateRegexMatchSet(
     args: UpdateRegexMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegexMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexMatchSetCommandOutput) => void
   ): Promise<UpdateRegexMatchSetCommandOutput> | void {
     const command = new UpdateRegexMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3822,17 +3470,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexPatternSetCommandOutput) => void
   ): Promise<UpdateRegexPatternSetCommandOutput> | void {
     const command = new UpdateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3883,14 +3528,8 @@ export class WAFRegional extends WAFRegionalClient {
    * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
    * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
    */
-  public updateRule(
-    args: UpdateRuleCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateRuleCommandOutput>;
-  public updateRule(
-    args: UpdateRuleCommandInput,
-    cb: (err: any, data?: UpdateRuleCommandOutput) => void
-  ): void;
+  public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
+  public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
   public updateRule(
     args: UpdateRuleCommandInput,
     options: __HttpHandlerOptions,
@@ -3898,17 +3537,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateRule(
     args: UpdateRuleCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleCommandOutput) => void
   ): Promise<UpdateRuleCommandOutput> | void {
     const command = new UpdateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -3957,17 +3593,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): Promise<UpdateRuleGroupCommandOutput> | void {
     const command = new UpdateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4034,17 +3667,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateSizeConstraintSet(
     args: UpdateSizeConstraintSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSizeConstraintSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSizeConstraintSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateSizeConstraintSetCommandOutput) => void
   ): Promise<UpdateSizeConstraintSetCommandOutput> | void {
     const command = new UpdateSizeConstraintSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4110,17 +3740,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateSqlInjectionMatchSet(
     args: UpdateSqlInjectionMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateSqlInjectionMatchSetCommandOutput) => void
   ): Promise<UpdateSqlInjectionMatchSetCommandOutput> | void {
     const command = new UpdateSqlInjectionMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4203,10 +3830,7 @@ export class WAFRegional extends WAFRegionalClient {
     args: UpdateWebACLCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<UpdateWebACLCommandOutput>;
-  public updateWebACL(
-    args: UpdateWebACLCommandInput,
-    cb: (err: any, data?: UpdateWebACLCommandOutput) => void
-  ): void;
+  public updateWebACL(args: UpdateWebACLCommandInput, cb: (err: any, data?: UpdateWebACLCommandOutput) => void): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
     options: __HttpHandlerOptions,
@@ -4214,17 +3838,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateWebACLCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebACLCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): Promise<UpdateWebACLCommandOutput> | void {
     const command = new UpdateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -4292,17 +3913,14 @@ export class WAFRegional extends WAFRegionalClient {
   ): void;
   public updateXssMatchSet(
     args: UpdateXssMatchSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateXssMatchSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateXssMatchSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateXssMatchSetCommandOutput) => void
   ): Promise<UpdateXssMatchSetCommandOutput> | void {
     const command = new UpdateXssMatchSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

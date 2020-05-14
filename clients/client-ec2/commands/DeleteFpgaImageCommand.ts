@@ -1,18 +1,8 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/index";
-import {
-  deserializeAws_ec2DeleteFpgaImageCommand,
-  serializeAws_ec2DeleteFpgaImageCommand
-} from "../protocols/Aws_ec2";
+import { deserializeAws_ec2DeleteFpgaImageCommand, serializeAws_ec2DeleteFpgaImageCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteFpgaImageCommandInput = DeleteFpgaImageRequest;
-export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult &
-  __MetadataBearer;
+export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult & __MetadataBearer;
 
 export class DeleteFpgaImageCommand extends $Command<
   DeleteFpgaImageCommandInput,
@@ -47,9 +36,7 @@ export class DeleteFpgaImageCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +51,11 @@ export class DeleteFpgaImageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteFpgaImageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteFpgaImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DeleteFpgaImageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteFpgaImageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFpgaImageCommandOutput> {
     return deserializeAws_ec2DeleteFpgaImageCommand(output, context);
   }
 

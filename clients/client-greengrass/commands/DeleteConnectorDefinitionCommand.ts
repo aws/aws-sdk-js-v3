@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  DeleteConnectorDefinitionRequest,
-  DeleteConnectorDefinitionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteConnectorDefinitionCommand,
   serializeAws_restJson1_1DeleteConnectorDefinitionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConnectorDefinitionCommandInput = DeleteConnectorDefinitionRequest;
-export type DeleteConnectorDefinitionCommandOutput = DeleteConnectorDefinitionResponse &
-  __MetadataBearer;
+export type DeleteConnectorDefinitionCommandOutput = DeleteConnectorDefinitionResponse & __MetadataBearer;
 
 export class DeleteConnectorDefinitionCommand extends $Command<
   DeleteConnectorDefinitionCommandInput,
@@ -49,13 +38,8 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConnectorDefinitionCommandInput,
-    DeleteConnectorDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConnectorDefinitionCommandInput, DeleteConnectorDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConnectorDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteConnectorDefinitionCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DeleteConnectorDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1DeleteConnectorDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  MediaTailorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaTailorClient";
-import {
-  GetPlaybackConfigurationRequest,
-  GetPlaybackConfigurationResponse
-} from "../models/index";
+import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPlaybackConfigurationCommand,
   serializeAws_restJson1_1GetPlaybackConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPlaybackConfigurationCommandInput = GetPlaybackConfigurationRequest;
-export type GetPlaybackConfigurationCommandOutput = GetPlaybackConfigurationResponse &
-  __MetadataBearer;
+export type GetPlaybackConfigurationCommandOutput = GetPlaybackConfigurationResponse & __MetadataBearer;
 
 export class GetPlaybackConfigurationCommand extends $Command<
   GetPlaybackConfigurationCommandInput,
@@ -49,13 +38,8 @@ export class GetPlaybackConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPlaybackConfigurationCommandInput,
-    GetPlaybackConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPlaybackConfigurationCommandInput, GetPlaybackConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class GetPlaybackConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPlaybackConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPlaybackConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: GetPlaybackConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetPlaybackConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetPlaybackConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlaybackConfigurationCommandOutput> {
+    return deserializeAws_restJson1_1GetPlaybackConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

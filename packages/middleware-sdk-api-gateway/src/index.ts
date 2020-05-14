@@ -10,9 +10,7 @@ import {
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
 export function acceptHeaderMiddleware(): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     let { request } = args;

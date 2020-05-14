@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  CreateApplicationRequest,
-  CreateApplicationResponse
-} from "../models/index";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateApplicationCommand,
   serializeAws_json1_1CreateApplicationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateApplicationCommandInput = CreateApplicationRequest;
-export type CreateApplicationCommandOutput = CreateApplicationResponse &
-  __MetadataBearer;
+export type CreateApplicationCommandOutput = CreateApplicationResponse & __MetadataBearer;
 
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,
@@ -50,9 +43,7 @@ export class CreateApplicationCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class CreateApplicationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateApplicationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateApplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateApplicationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateApplicationCommandOutput> {
     return deserializeAws_json1_1CreateApplicationCommand(output, context);
   }
 

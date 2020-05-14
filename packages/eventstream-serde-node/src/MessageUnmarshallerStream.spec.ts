@@ -1,11 +1,7 @@
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { EventStreamMarshaller } from "@aws-sdk/eventstream-marshaller";
 import { MessageUnmarshallerStream } from "./MessageUnmarshallerStream";
-import {
-  recordEventMessage,
-  statsEventMessage,
-  endEventMessage
-} from "./fixtures/event.fixture";
+import { recordEventMessage, statsEventMessage, endEventMessage } from "./fixtures/event.fixture";
 import { Message } from "@aws-sdk/types";
 
 describe("MessageUnmarshallerStream", () => {

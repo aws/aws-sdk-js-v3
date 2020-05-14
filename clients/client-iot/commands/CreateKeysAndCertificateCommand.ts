@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateKeysAndCertificateRequest,
-  CreateKeysAndCertificateResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateKeysAndCertificateRequest, CreateKeysAndCertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateKeysAndCertificateCommand,
   serializeAws_restJson1_1CreateKeysAndCertificateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateKeysAndCertificateCommandInput = CreateKeysAndCertificateRequest;
-export type CreateKeysAndCertificateCommandOutput = CreateKeysAndCertificateResponse &
-  __MetadataBearer;
+export type CreateKeysAndCertificateCommandOutput = CreateKeysAndCertificateResponse & __MetadataBearer;
 
 export class CreateKeysAndCertificateCommand extends $Command<
   CreateKeysAndCertificateCommandInput,
@@ -49,13 +38,8 @@ export class CreateKeysAndCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateKeysAndCertificateCommandInput,
-    CreateKeysAndCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateKeysAndCertificateCommandInput, CreateKeysAndCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class CreateKeysAndCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateKeysAndCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateKeysAndCertificateCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateKeysAndCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateKeysAndCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateKeysAndCertificateCommandOutput> {
-    return deserializeAws_restJson1_1CreateKeysAndCertificateCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateKeysAndCertificateCommandOutput> {
+    return deserializeAws_restJson1_1CreateKeysAndCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

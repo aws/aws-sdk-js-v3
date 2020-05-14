@@ -1,18 +1,11 @@
-import {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectoryServiceClient";
+import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/index";
 import {
   deserializeAws_json1_1AddIpRoutesCommand,
   serializeAws_json1_1AddIpRoutesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class AddIpRoutesCommand extends $Command<
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddIpRoutesCommandInput, AddIpRoutesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class AddIpRoutesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddIpRoutesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddIpRoutesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddIpRoutesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddIpRoutesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddIpRoutesCommandOutput> {
     return deserializeAws_json1_1AddIpRoutesCommand(output, context);
   }
 

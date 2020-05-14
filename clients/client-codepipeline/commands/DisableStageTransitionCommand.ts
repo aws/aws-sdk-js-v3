@@ -1,18 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { DisableStageTransitionInput } from "../models/index";
 import {
   deserializeAws_json1_1DisableStageTransitionCommand,
   serializeAws_json1_1DisableStageTransitionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DisableStageTransitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableStageTransitionCommandInput,
-    DisableStageTransitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableStageTransitionCommandInput, DisableStageTransitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class DisableStageTransitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisableStageTransitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisableStageTransitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DisableStageTransitionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisableStageTransitionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableStageTransitionCommandOutput> {
     return deserializeAws_json1_1DisableStageTransitionCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  CancelCapacityReservationRequest,
-  CancelCapacityReservationResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/index";
 import {
   deserializeAws_ec2CancelCapacityReservationCommand,
   serializeAws_ec2CancelCapacityReservationCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelCapacityReservationCommandInput = CancelCapacityReservationRequest;
-export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult &
-  __MetadataBearer;
+export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult & __MetadataBearer;
 
 export class CancelCapacityReservationCommand extends $Command<
   CancelCapacityReservationCommandInput,
@@ -49,13 +38,8 @@ export class CancelCapacityReservationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelCapacityReservationCommandInput,
-    CancelCapacityReservationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelCapacityReservationCommandInput, CancelCapacityReservationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class CancelCapacityReservationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelCapacityReservationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2CancelCapacityReservationCommand(input, context);
   }
 

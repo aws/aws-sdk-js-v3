@@ -1,18 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import { ScheduleRunRequest, ScheduleRunResult } from "../models/index";
 import {
   deserializeAws_json1_1ScheduleRunCommand,
   serializeAws_json1_1ScheduleRunCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ScheduleRunCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ScheduleRunCommandInput, ScheduleRunCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ScheduleRunCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ScheduleRunCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ScheduleRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ScheduleRunCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ScheduleRunCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ScheduleRunCommandOutput> {
     return deserializeAws_json1_1ScheduleRunCommand(output, context);
   }
 

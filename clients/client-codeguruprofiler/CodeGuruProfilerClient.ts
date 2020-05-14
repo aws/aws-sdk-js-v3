@@ -1,7 +1,4 @@
-import {
-  ConfigureAgentCommandInput,
-  ConfigureAgentCommandOutput
-} from "./commands/ConfigureAgentCommand";
+import { ConfigureAgentCommandInput, ConfigureAgentCommandOutput } from "./commands/ConfigureAgentCommand";
 import {
   CreateProfilingGroupCommandInput,
   CreateProfilingGroupCommandOutput
@@ -14,22 +11,13 @@ import {
   DescribeProfilingGroupCommandInput,
   DescribeProfilingGroupCommandOutput
 } from "./commands/DescribeProfilingGroupCommand";
-import {
-  GetProfileCommandInput,
-  GetProfileCommandOutput
-} from "./commands/GetProfileCommand";
-import {
-  ListProfileTimesCommandInput,
-  ListProfileTimesCommandOutput
-} from "./commands/ListProfileTimesCommand";
+import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
+import { ListProfileTimesCommandInput, ListProfileTimesCommandOutput } from "./commands/ListProfileTimesCommand";
 import {
   ListProfilingGroupsCommandInput,
   ListProfilingGroupsCommandOutput
 } from "./commands/ListProfilingGroupsCommand";
-import {
-  PostAgentProfileCommandInput,
-  PostAgentProfileCommandOutput
-} from "./commands/PostAgentProfileCommand";
+import { PostAgentProfileCommandInput, PostAgentProfileCommandOutput } from "./commands/PostAgentProfileCommand";
 import {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput
@@ -50,12 +38,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -108,8 +91,7 @@ export type ServiceOutputTypes =
   | PostAgentProfileCommandOutput
   | UpdateProfilingGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -193,9 +175,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeGuruProfilerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeGuruProfilerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +184,7 @@ export type CodeGuruProfilerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeGuruProfilerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeGuruProfilerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

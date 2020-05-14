@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  UploadSSHPublicKeyRequest,
-  UploadSSHPublicKeyResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/index";
 import {
   deserializeAws_queryUploadSSHPublicKeyCommand,
   serializeAws_queryUploadSSHPublicKeyCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UploadSSHPublicKeyCommandInput = UploadSSHPublicKeyRequest;
-export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse &
-  __MetadataBearer;
+export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse & __MetadataBearer;
 
 export class UploadSSHPublicKeyCommand extends $Command<
   UploadSSHPublicKeyCommandInput,
@@ -50,9 +39,7 @@ export class UploadSSHPublicKeyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UploadSSHPublicKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UploadSSHPublicKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UploadSSHPublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUploadSSHPublicKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UploadSSHPublicKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UploadSSHPublicKeyCommandOutput> {
     return deserializeAws_queryUploadSSHPublicKeyCommand(output, context);
   }
 

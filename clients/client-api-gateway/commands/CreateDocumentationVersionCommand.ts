@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
-import {
-  CreateDocumentationVersionRequest,
-  DocumentationVersion
-} from "../models/index";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import { CreateDocumentationVersionRequest, DocumentationVersion } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDocumentationVersionCommand,
   serializeAws_restJson1_1CreateDocumentationVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDocumentationVersionCommandInput = CreateDocumentationVersionRequest;
-export type CreateDocumentationVersionCommandOutput = DocumentationVersion &
-  __MetadataBearer;
+export type CreateDocumentationVersionCommandOutput = DocumentationVersion & __MetadataBearer;
 
 export class CreateDocumentationVersionCommand extends $Command<
   CreateDocumentationVersionCommandInput,
@@ -49,13 +38,8 @@ export class CreateDocumentationVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDocumentationVersionCommandInput,
-    CreateDocumentationVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDocumentationVersionCommandInput, CreateDocumentationVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class CreateDocumentationVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDocumentationVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDocumentationVersionCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDocumentationVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateDocumentationVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDocumentationVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateDocumentationVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDocumentationVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

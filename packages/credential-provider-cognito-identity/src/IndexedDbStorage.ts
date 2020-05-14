@@ -67,10 +67,7 @@ export class IndexedDbStorage implements Storage {
     });
   }
 
-  private withObjectStore<R>(
-    mode: IDBTransactionMode,
-    action: (store: IDBObjectStore) => Promise<R>
-  ): Promise<R> {
+  private withObjectStore<R>(mode: IDBTransactionMode, action: (store: IDBObjectStore) => Promise<R>): Promise<R> {
     return this.getDb().then(db => {
       const tx = db.transaction(STORE_NAME, mode);
       tx.oncomplete = () => db.close();

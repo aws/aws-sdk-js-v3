@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  GenerateOrganizationsAccessReportRequest,
-  GenerateOrganizationsAccessReportResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { GenerateOrganizationsAccessReportRequest, GenerateOrganizationsAccessReportResponse } from "../models/index";
 import {
   deserializeAws_queryGenerateOrganizationsAccessReportCommand,
   serializeAws_queryGenerateOrganizationsAccessReportCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GenerateOrganizationsAccessReportCommandInput,
-    GenerateOrganizationsAccessReportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GenerateOrganizationsAccessReportCommandInput, GenerateOrganizationsAccessReportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     input: GenerateOrganizationsAccessReportCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGenerateOrganizationsAccessReportCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGenerateOrganizationsAccessReportCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GenerateOrganizationsAccessReportCommandOutput> {
-    return deserializeAws_queryGenerateOrganizationsAccessReportCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGenerateOrganizationsAccessReportCommand(output, context);
   }
 
   // Start section: command_body_extra

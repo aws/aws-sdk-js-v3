@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  EnvironmentDescription,
-  TerminateEnvironmentMessage
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/index";
 import {
   deserializeAws_queryTerminateEnvironmentCommand,
   serializeAws_queryTerminateEnvironmentCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TerminateEnvironmentCommandInput = TerminateEnvironmentMessage;
-export type TerminateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type TerminateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class TerminateEnvironmentCommand extends $Command<
   TerminateEnvironmentCommandInput,
@@ -49,13 +38,8 @@ export class TerminateEnvironmentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    TerminateEnvironmentCommandInput,
-    TerminateEnvironmentCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<TerminateEnvironmentCommandInput, TerminateEnvironmentCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class TerminateEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TerminateEnvironmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TerminateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTerminateEnvironmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TerminateEnvironmentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TerminateEnvironmentCommandOutput> {
     return deserializeAws_queryTerminateEnvironmentCommand(output, context);
   }
 

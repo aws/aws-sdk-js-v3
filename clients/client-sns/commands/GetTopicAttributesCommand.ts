@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  GetTopicAttributesInput,
-  GetTopicAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { GetTopicAttributesInput, GetTopicAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetTopicAttributesCommand,
   serializeAws_queryGetTopicAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTopicAttributesCommandInput = GetTopicAttributesInput;
-export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse &
-  __MetadataBearer;
+export type GetTopicAttributesCommandOutput = GetTopicAttributesResponse & __MetadataBearer;
 
 export class GetTopicAttributesCommand extends $Command<
   GetTopicAttributesCommandInput,
@@ -50,9 +39,7 @@ export class GetTopicAttributesCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTopicAttributesCommandInput, GetTopicAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetTopicAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTopicAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetTopicAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTopicAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicAttributesCommandOutput> {
     return deserializeAws_queryGetTopicAttributesCommand(output, context);
   }
 

@@ -1,7 +1,4 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   AuthorizeCacheSecurityGroupIngressCommandInput,
   AuthorizeCacheSecurityGroupIngressCommandOutput
@@ -14,18 +11,9 @@ import {
   BatchStopUpdateActionCommandInput,
   BatchStopUpdateActionCommandOutput
 } from "./commands/BatchStopUpdateActionCommand";
-import {
-  CompleteMigrationCommandInput,
-  CompleteMigrationCommandOutput
-} from "./commands/CompleteMigrationCommand";
-import {
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
-} from "./commands/CopySnapshotCommand";
-import {
-  CreateCacheClusterCommandInput,
-  CreateCacheClusterCommandOutput
-} from "./commands/CreateCacheClusterCommand";
+import { CompleteMigrationCommandInput, CompleteMigrationCommandOutput } from "./commands/CompleteMigrationCommand";
+import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
+import { CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput } from "./commands/CreateCacheClusterCommand";
 import {
   CreateCacheParameterGroupCommandInput,
   CreateCacheParameterGroupCommandOutput
@@ -42,18 +30,12 @@ import {
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput
 } from "./commands/CreateReplicationGroupCommand";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import {
   DecreaseReplicaCountCommandInput,
   DecreaseReplicaCountCommandOutput
 } from "./commands/DecreaseReplicaCountCommand";
-import {
-  DeleteCacheClusterCommandInput,
-  DeleteCacheClusterCommandOutput
-} from "./commands/DeleteCacheClusterCommand";
+import { DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput } from "./commands/DeleteCacheClusterCommand";
 import {
   DeleteCacheParameterGroupCommandInput,
   DeleteCacheParameterGroupCommandOutput
@@ -70,10 +52,7 @@ import {
   DeleteReplicationGroupCommandInput,
   DeleteReplicationGroupCommandOutput
 } from "./commands/DeleteReplicationGroupCommand";
-import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import {
   DescribeCacheClustersCommandInput,
   DescribeCacheClustersCommandOutput
@@ -102,10 +81,7 @@ import {
   DescribeEngineDefaultParametersCommandInput,
   DescribeEngineDefaultParametersCommandOutput
 } from "./commands/DescribeEngineDefaultParametersCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeReplicationGroupsCommandInput,
   DescribeReplicationGroupsCommandOutput
@@ -122,10 +98,7 @@ import {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput
 } from "./commands/DescribeServiceUpdatesCommand";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeUpdateActionsCommandInput,
   DescribeUpdateActionsCommandOutput
@@ -142,10 +115,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ModifyCacheClusterCommandInput,
-  ModifyCacheClusterCommandOutput
-} from "./commands/ModifyCacheClusterCommand";
+import { ModifyCacheClusterCommandInput, ModifyCacheClusterCommandOutput } from "./commands/ModifyCacheClusterCommand";
 import {
   ModifyCacheParameterGroupCommandInput,
   ModifyCacheParameterGroupCommandOutput
@@ -166,10 +136,7 @@ import {
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput
 } from "./commands/PurchaseReservedCacheNodesOfferingCommand";
-import {
-  RebootCacheClusterCommandInput,
-  RebootCacheClusterCommandOutput
-} from "./commands/RebootCacheClusterCommand";
+import { RebootCacheClusterCommandInput, RebootCacheClusterCommandOutput } from "./commands/RebootCacheClusterCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput
@@ -182,14 +149,8 @@ import {
   RevokeCacheSecurityGroupIngressCommandInput,
   RevokeCacheSecurityGroupIngressCommandOutput
 } from "./commands/RevokeCacheSecurityGroupIngressCommand";
-import {
-  StartMigrationCommandInput,
-  StartMigrationCommandOutput
-} from "./commands/StartMigrationCommand";
-import {
-  TestFailoverCommandInput,
-  TestFailoverCommandOutput
-} from "./commands/TestFailoverCommand";
+import { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
+import { TestFailoverCommandInput, TestFailoverCommandOutput } from "./commands/TestFailoverCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -206,12 +167,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -342,8 +298,7 @@ export type ServiceOutputTypes =
   | StartMigrationCommandOutput
   | TestFailoverCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -427,9 +382,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElastiCacheClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElastiCacheClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -438,9 +391,7 @@ export type ElastiCacheClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElastiCacheClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

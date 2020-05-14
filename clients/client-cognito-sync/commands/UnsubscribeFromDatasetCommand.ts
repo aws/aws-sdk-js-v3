@@ -1,21 +1,11 @@
-import {
-  CognitoSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoSyncClient";
-import {
-  UnsubscribeFromDatasetRequest,
-  UnsubscribeFromDatasetResponse
-} from "../models/index";
+import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
+import { UnsubscribeFromDatasetRequest, UnsubscribeFromDatasetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UnsubscribeFromDatasetCommand,
   serializeAws_restJson1_1UnsubscribeFromDatasetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UnsubscribeFromDatasetCommandInput = UnsubscribeFromDatasetRequest;
-export type UnsubscribeFromDatasetCommandOutput = UnsubscribeFromDatasetResponse &
-  __MetadataBearer;
+export type UnsubscribeFromDatasetCommandOutput = UnsubscribeFromDatasetResponse & __MetadataBearer;
 
 export class UnsubscribeFromDatasetCommand extends $Command<
   UnsubscribeFromDatasetCommandInput,
@@ -49,13 +38,8 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UnsubscribeFromDatasetCommandInput,
-    UnsubscribeFromDatasetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UnsubscribeFromDatasetCommandInput, UnsubscribeFromDatasetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnsubscribeFromDatasetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UnsubscribeFromDatasetCommand(
-      input,
-      context
-    );
+  private serialize(input: UnsubscribeFromDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UnsubscribeFromDatasetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnsubscribeFromDatasetCommandOutput> {
-    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromDatasetCommandOutput> {
+    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommand(output, context);
   }
 
   // Start section: command_body_extra

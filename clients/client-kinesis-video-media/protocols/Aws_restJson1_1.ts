@@ -1,7 +1,4 @@
-import {
-  GetMediaCommandInput,
-  GetMediaCommandOutput
-} from "../commands/GetMediaCommand";
+import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
 import {
   ClientLimitExceededException,
   ConnectionLimitExceededException,
@@ -11,10 +8,7 @@ import {
   ResourceNotFoundException,
   StartSelector
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,10 +28,7 @@ export const serializeAws_restJson1_1GetMediaCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.StartSelector !== undefined && {
-      StartSelector: serializeAws_restJson1_1StartSelector(
-        input.StartSelector,
-        context
-      )
+      StartSelector: serializeAws_restJson1_1StartSelector(input.StartSelector, context)
     }),
     ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
     ...(input.StreamName !== undefined && { StreamName: input.StreamName })
@@ -90,10 +81,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -101,10 +89,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "ConnectionLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ConnectionLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ConnectionLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConnectionLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -112,10 +97,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "InvalidArgumentException":
     case "com.amazon.kinesis.video.v20170930#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -123,10 +105,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "InvalidEndpointException":
     case "com.amazon.kinesis.video.v20170930#InvalidEndpointException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidEndpointExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidEndpointExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -134,10 +113,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "NotAuthorizedException":
     case "com.amazon.kinesis.video.v20170930#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -145,10 +121,7 @@ const deserializeAws_restJson1_1GetMediaCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.kinesis.video.v20170930#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -272,10 +245,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1StartSelector = (
-  input: StartSelector,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StartSelector = (input: StartSelector, context: __SerdeContext): any => {
   return {
     ...(input.AfterFragmentNumber !== undefined && {
       AfterFragmentNumber: input.AfterFragmentNumber
@@ -299,30 +269,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -337,8 +298,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

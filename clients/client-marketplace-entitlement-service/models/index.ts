@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -82,8 +79,7 @@ export interface EntitlementValue {
 }
 
 export namespace EntitlementValue {
-  export const isa = (o: any): o is EntitlementValue =>
-    __isa(o, "EntitlementValue");
+  export const isa = (o: any): o is EntitlementValue => __isa(o, "EntitlementValue");
 }
 
 export enum GetEntitlementFilterName {
@@ -125,8 +121,7 @@ export interface GetEntitlementsRequest {
 }
 
 export namespace GetEntitlementsRequest {
-  export const isa = (o: any): o is GetEntitlementsRequest =>
-    __isa(o, "GetEntitlementsRequest");
+  export const isa = (o: any): o is GetEntitlementsRequest => __isa(o, "GetEntitlementsRequest");
 }
 
 /**
@@ -150,55 +145,45 @@ export interface GetEntitlementsResult {
 }
 
 export namespace GetEntitlementsResult {
-  export const isa = (o: any): o is GetEntitlementsResult =>
-    __isa(o, "GetEntitlementsResult");
+  export const isa = (o: any): o is GetEntitlementsResult => __isa(o, "GetEntitlementsResult");
 }
 
 /**
  * <p>An internal error has occurred. Retry your request. If the problem persists, post a
  *    message with details on the AWS forums.</p>
  */
-export interface InternalServiceErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalServiceErrorException {
-  export const isa = (o: any): o is InternalServiceErrorException =>
-    __isa(o, "InternalServiceErrorException");
+  export const isa = (o: any): o is InternalServiceErrorException => __isa(o, "InternalServiceErrorException");
 }
 
 /**
  * <p>One or more parameters in your request was invalid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>The calls to the GetEntitlements API are throttled.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }

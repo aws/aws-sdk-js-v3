@@ -16,9 +16,7 @@ describe("hostHeaderMiddleware", () => {
       request: new HttpRequest({ hostname: "foo.amazonaws.com" })
     });
     expect(mockNextHandler.mock.calls.length).toEqual(1);
-    expect(mockNextHandler.mock.calls[0][0].request.headers.host).toBe(
-      "foo.amazonaws.com"
-    );
+    expect(mockNextHandler.mock.calls[0][0].request.headers.host).toBe("foo.amazonaws.com");
   });
 
   it("should not set host header if already set", async () => {
@@ -33,9 +31,7 @@ describe("hostHeaderMiddleware", () => {
       })
     });
     expect(mockNextHandler.mock.calls.length).toEqual(1);
-    expect(mockNextHandler.mock.calls[0][0].request.headers.host).toBe(
-      "random host"
-    );
+    expect(mockNextHandler.mock.calls[0][0].request.headers.host).toBe("random host");
   });
 
   it("should set :authority header for H2 requests", async () => {
@@ -52,11 +48,7 @@ describe("hostHeaderMiddleware", () => {
       })
     });
     expect(mockNextHandler.mock.calls.length).toEqual(1);
-    expect(
-      mockNextHandler.mock.calls[0][0].request.headers.host
-    ).not.toBeDefined();
-    expect(
-      mockNextHandler.mock.calls[0][0].request.headers[":authority"]
-    ).toEqual("");
+    expect(mockNextHandler.mock.calls[0][0].request.headers.host).not.toBeDefined();
+    expect(mockNextHandler.mock.calls[0][0].request.headers[":authority"]).toEqual("");
   });
 });

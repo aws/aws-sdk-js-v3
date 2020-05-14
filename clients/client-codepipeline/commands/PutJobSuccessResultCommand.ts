@@ -1,18 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import { PutJobSuccessResultInput } from "../models/index";
 import {
   deserializeAws_json1_1PutJobSuccessResultCommand,
   serializeAws_json1_1PutJobSuccessResultCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class PutJobSuccessResultCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutJobSuccessResultCommandInput,
-    PutJobSuccessResultCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutJobSuccessResultCommandInput, PutJobSuccessResultCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class PutJobSuccessResultCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutJobSuccessResultCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutJobSuccessResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutJobSuccessResultCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutJobSuccessResultCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobSuccessResultCommandOutput> {
     return deserializeAws_json1_1PutJobSuccessResultCommand(output, context);
   }
 

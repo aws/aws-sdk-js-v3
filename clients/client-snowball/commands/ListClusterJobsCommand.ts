@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowballClientResolvedConfig
-} from "../SnowballClient";
+import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 import { ListClusterJobsRequest, ListClusterJobsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListClusterJobsCommand,
   serializeAws_json1_1ListClusterJobsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListClusterJobsCommandInput = ListClusterJobsRequest;
-export type ListClusterJobsCommandOutput = ListClusterJobsResult &
-  __MetadataBearer;
+export type ListClusterJobsCommandOutput = ListClusterJobsResult & __MetadataBearer;
 
 export class ListClusterJobsCommand extends $Command<
   ListClusterJobsCommandInput,
@@ -47,9 +39,7 @@ export class ListClusterJobsCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListClusterJobsCommandInput, ListClusterJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListClusterJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListClusterJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListClusterJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListClusterJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListClusterJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClusterJobsCommandOutput> {
     return deserializeAws_json1_1ListClusterJobsCommand(output, context);
   }
 

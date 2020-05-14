@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  CreateMonitoringScheduleRequest,
-  CreateMonitoringScheduleResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateMonitoringScheduleCommand,
   serializeAws_json1_1CreateMonitoringScheduleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMonitoringScheduleCommandInput = CreateMonitoringScheduleRequest;
-export type CreateMonitoringScheduleCommandOutput = CreateMonitoringScheduleResponse &
-  __MetadataBearer;
+export type CreateMonitoringScheduleCommandOutput = CreateMonitoringScheduleResponse & __MetadataBearer;
 
 export class CreateMonitoringScheduleCommand extends $Command<
   CreateMonitoringScheduleCommandInput,
@@ -49,13 +38,8 @@ export class CreateMonitoringScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateMonitoringScheduleCommandInput,
-    CreateMonitoringScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateMonitoringScheduleCommandInput, CreateMonitoringScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class CreateMonitoringScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateMonitoringScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateMonitoringScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1CreateMonitoringScheduleCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitoringScheduleCommandOutput> {
+    return deserializeAws_json1_1CreateMonitoringScheduleCommand(output, context);
   }
 
   // Start section: command_body_extra

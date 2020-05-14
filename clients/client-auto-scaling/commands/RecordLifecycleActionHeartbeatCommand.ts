@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  RecordLifecycleActionHeartbeatAnswer,
-  RecordLifecycleActionHeartbeatType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { RecordLifecycleActionHeartbeatAnswer, RecordLifecycleActionHeartbeatType } from "../models/index";
 import {
   deserializeAws_queryRecordLifecycleActionHeartbeatCommand,
   serializeAws_queryRecordLifecycleActionHeartbeatCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RecordLifecycleActionHeartbeatCommandInput = RecordLifecycleActionHeartbeatType;
-export type RecordLifecycleActionHeartbeatCommandOutput = RecordLifecycleActionHeartbeatAnswer &
-  __MetadataBearer;
+export type RecordLifecycleActionHeartbeatCommandOutput = RecordLifecycleActionHeartbeatAnswer & __MetadataBearer;
 
 export class RecordLifecycleActionHeartbeatCommand extends $Command<
   RecordLifecycleActionHeartbeatCommandInput,
@@ -49,13 +38,8 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RecordLifecycleActionHeartbeatCommandInput,
-    RecordLifecycleActionHeartbeatCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RecordLifecycleActionHeartbeatCommandInput, RecordLifecycleActionHeartbeatCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class RecordLifecycleActionHeartbeatCommand extends $Command<
     input: RecordLifecycleActionHeartbeatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRecordLifecycleActionHeartbeatCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRecordLifecycleActionHeartbeatCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RecordLifecycleActionHeartbeatCommandOutput> {
-    return deserializeAws_queryRecordLifecycleActionHeartbeatCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRecordLifecycleActionHeartbeatCommand(output, context);
   }
 
   // Start section: command_body_extra

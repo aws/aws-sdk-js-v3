@@ -2,13 +2,10 @@ import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
 const AWS_TEMPLATE = "marketplacecommerceanalytics.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE =
-  "marketplacecommerceanalytics.{region}.amazonaws.com.cn";
+const AWS_CN_TEMPLATE = "marketplacecommerceanalytics.{region}.amazonaws.com.cn";
 const AWS_ISO_TEMPLATE = "marketplacecommerceanalytics.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE =
-  "marketplacecommerceanalytics.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE =
-  "marketplacecommerceanalytics.{region}.amazonaws.com";
+const AWS_ISO_B_TEMPLATE = "marketplacecommerceanalytics.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "marketplacecommerceanalytics.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
@@ -36,10 +33,7 @@ const AWS_ISO_REGIONS = new Set(["us-iso-east-1"]);
 const AWS_ISO_B_REGIONS = new Set(["us-isob-east-1"]);
 const AWS_US_GOV_REGIONS = new Set(["us-gov-west-1", "us-gov-east-1"]);
 
-export const defaultRegionInfoProvider: RegionInfoProvider = (
-  region: string,
-  options?: any
-) => {
+export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, options?: any) => {
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.

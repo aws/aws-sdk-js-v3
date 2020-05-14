@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptResourceShareInvitationRequest {
@@ -112,8 +109,7 @@ export interface AssociateResourceShareRequest {
 }
 
 export namespace AssociateResourceShareRequest {
-  export const isa = (o: any): o is AssociateResourceShareRequest =>
-    __isa(o, "AssociateResourceShareRequest");
+  export const isa = (o: any): o is AssociateResourceShareRequest => __isa(o, "AssociateResourceShareRequest");
 }
 
 export interface AssociateResourceShareResponse {
@@ -130,8 +126,7 @@ export interface AssociateResourceShareResponse {
 }
 
 export namespace AssociateResourceShareResponse {
-  export const isa = (o: any): o is AssociateResourceShareResponse =>
-    __isa(o, "AssociateResourceShareResponse");
+  export const isa = (o: any): o is AssociateResourceShareResponse => __isa(o, "AssociateResourceShareResponse");
 }
 
 export interface CreateResourceShareRequest {
@@ -176,8 +171,7 @@ export interface CreateResourceShareRequest {
 }
 
 export namespace CreateResourceShareRequest {
-  export const isa = (o: any): o is CreateResourceShareRequest =>
-    __isa(o, "CreateResourceShareRequest");
+  export const isa = (o: any): o is CreateResourceShareRequest => __isa(o, "CreateResourceShareRequest");
 }
 
 export interface CreateResourceShareResponse {
@@ -194,8 +188,7 @@ export interface CreateResourceShareResponse {
 }
 
 export namespace CreateResourceShareResponse {
-  export const isa = (o: any): o is CreateResourceShareResponse =>
-    __isa(o, "CreateResourceShareResponse");
+  export const isa = (o: any): o is CreateResourceShareResponse => __isa(o, "CreateResourceShareResponse");
 }
 
 export interface DeleteResourceShareRequest {
@@ -212,8 +205,7 @@ export interface DeleteResourceShareRequest {
 }
 
 export namespace DeleteResourceShareRequest {
-  export const isa = (o: any): o is DeleteResourceShareRequest =>
-    __isa(o, "DeleteResourceShareRequest");
+  export const isa = (o: any): o is DeleteResourceShareRequest => __isa(o, "DeleteResourceShareRequest");
 }
 
 export interface DeleteResourceShareResponse {
@@ -230,8 +222,7 @@ export interface DeleteResourceShareResponse {
 }
 
 export namespace DeleteResourceShareResponse {
-  export const isa = (o: any): o is DeleteResourceShareResponse =>
-    __isa(o, "DeleteResourceShareResponse");
+  export const isa = (o: any): o is DeleteResourceShareResponse => __isa(o, "DeleteResourceShareResponse");
 }
 
 export interface DisassociateResourceSharePermissionRequest {
@@ -253,9 +244,7 @@ export interface DisassociateResourceSharePermissionRequest {
 }
 
 export namespace DisassociateResourceSharePermissionRequest {
-  export const isa = (
-    o: any
-  ): o is DisassociateResourceSharePermissionRequest =>
+  export const isa = (o: any): o is DisassociateResourceSharePermissionRequest =>
     __isa(o, "DisassociateResourceSharePermissionRequest");
 }
 
@@ -273,9 +262,7 @@ export interface DisassociateResourceSharePermissionResponse {
 }
 
 export namespace DisassociateResourceSharePermissionResponse {
-  export const isa = (
-    o: any
-  ): o is DisassociateResourceSharePermissionResponse =>
+  export const isa = (o: any): o is DisassociateResourceSharePermissionResponse =>
     __isa(o, "DisassociateResourceSharePermissionResponse");
 }
 
@@ -303,8 +290,7 @@ export interface DisassociateResourceShareRequest {
 }
 
 export namespace DisassociateResourceShareRequest {
-  export const isa = (o: any): o is DisassociateResourceShareRequest =>
-    __isa(o, "DisassociateResourceShareRequest");
+  export const isa = (o: any): o is DisassociateResourceShareRequest => __isa(o, "DisassociateResourceShareRequest");
 }
 
 export interface DisassociateResourceShareResponse {
@@ -321,8 +307,7 @@ export interface DisassociateResourceShareResponse {
 }
 
 export namespace DisassociateResourceShareResponse {
-  export const isa = (o: any): o is DisassociateResourceShareResponse =>
-    __isa(o, "DisassociateResourceShareResponse");
+  export const isa = (o: any): o is DisassociateResourceShareResponse => __isa(o, "DisassociateResourceShareResponse");
 }
 
 export interface EnableSharingWithAwsOrganizationRequest {
@@ -361,8 +346,7 @@ export interface GetPermissionRequest {
 }
 
 export namespace GetPermissionRequest {
-  export const isa = (o: any): o is GetPermissionRequest =>
-    __isa(o, "GetPermissionRequest");
+  export const isa = (o: any): o is GetPermissionRequest => __isa(o, "GetPermissionRequest");
 }
 
 export interface GetPermissionResponse {
@@ -374,8 +358,7 @@ export interface GetPermissionResponse {
 }
 
 export namespace GetPermissionResponse {
-  export const isa = (o: any): o is GetPermissionResponse =>
-    __isa(o, "GetPermissionResponse");
+  export const isa = (o: any): o is GetPermissionResponse => __isa(o, "GetPermissionResponse");
 }
 
 export interface GetResourcePoliciesRequest {
@@ -403,8 +386,7 @@ export interface GetResourcePoliciesRequest {
 }
 
 export namespace GetResourcePoliciesRequest {
-  export const isa = (o: any): o is GetResourcePoliciesRequest =>
-    __isa(o, "GetResourcePoliciesRequest");
+  export const isa = (o: any): o is GetResourcePoliciesRequest => __isa(o, "GetResourcePoliciesRequest");
 }
 
 export interface GetResourcePoliciesResponse {
@@ -421,8 +403,7 @@ export interface GetResourcePoliciesResponse {
 }
 
 export namespace GetResourcePoliciesResponse {
-  export const isa = (o: any): o is GetResourcePoliciesResponse =>
-    __isa(o, "GetResourcePoliciesResponse");
+  export const isa = (o: any): o is GetResourcePoliciesResponse => __isa(o, "GetResourcePoliciesResponse");
 }
 
 export interface GetResourceShareAssociationsRequest {
@@ -578,8 +559,7 @@ export interface GetResourceSharesRequest {
 }
 
 export namespace GetResourceSharesRequest {
-  export const isa = (o: any): o is GetResourceSharesRequest =>
-    __isa(o, "GetResourceSharesRequest");
+  export const isa = (o: any): o is GetResourceSharesRequest => __isa(o, "GetResourceSharesRequest");
 }
 
 export interface GetResourceSharesResponse {
@@ -596,17 +576,14 @@ export interface GetResourceSharesResponse {
 }
 
 export namespace GetResourceSharesResponse {
-  export const isa = (o: any): o is GetResourceSharesResponse =>
-    __isa(o, "GetResourceSharesResponse");
+  export const isa = (o: any): o is GetResourceSharesResponse => __isa(o, "GetResourceSharesResponse");
 }
 
 /**
  * <p>A client token input parameter was reused with an operation, but at least one of
  *         the other input parameters is different from the previous call to the operation.</p>
  */
-export interface IdempotentParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   message: string | undefined;
@@ -620,97 +597,79 @@ export namespace IdempotentParameterMismatchException {
 /**
  * <p>A client token is not valid.</p>
  */
-export interface InvalidClientTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClientTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidClientTokenException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidClientTokenException {
-  export const isa = (o: any): o is InvalidClientTokenException =>
-    __isa(o, "InvalidClientTokenException");
+  export const isa = (o: any): o is InvalidClientTokenException => __isa(o, "InvalidClientTokenException");
 }
 
 /**
  * <p>The specified value for MaxResults is not valid.</p>
  */
-export interface InvalidMaxResultsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
   name: "InvalidMaxResultsException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidMaxResultsException {
-  export const isa = (o: any): o is InvalidMaxResultsException =>
-    __isa(o, "InvalidMaxResultsException");
+  export const isa = (o: any): o is InvalidMaxResultsException => __isa(o, "InvalidMaxResultsException");
 }
 
 /**
  * <p>The specified value for NextToken is not valid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidNextTokenException {
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>A parameter is not valid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>The specified resource type is not valid.</p>
  */
-export interface InvalidResourceTypeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidResourceTypeException extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceTypeException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidResourceTypeException {
-  export const isa = (o: any): o is InvalidResourceTypeException =>
-    __isa(o, "InvalidResourceTypeException");
+  export const isa = (o: any): o is InvalidResourceTypeException => __isa(o, "InvalidResourceTypeException");
 }
 
 /**
  * <p>The requested state transition is not valid.</p>
  */
-export interface InvalidStateTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace InvalidStateTransitionException {
-  export const isa = (o: any): o is InvalidStateTransitionException =>
-    __isa(o, "InvalidStateTransitionException");
+  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 export interface ListPendingInvitationResourcesRequest {
@@ -776,8 +735,7 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
-  export const isa = (o: any): o is ListPermissionsRequest =>
-    __isa(o, "ListPermissionsRequest");
+  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
@@ -794,8 +752,7 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
-  export const isa = (o: any): o is ListPermissionsResponse =>
-    __isa(o, "ListPermissionsResponse");
+  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListPrincipalsRequest {
@@ -844,8 +801,7 @@ export interface ListPrincipalsRequest {
 }
 
 export namespace ListPrincipalsRequest {
-  export const isa = (o: any): o is ListPrincipalsRequest =>
-    __isa(o, "ListPrincipalsRequest");
+  export const isa = (o: any): o is ListPrincipalsRequest => __isa(o, "ListPrincipalsRequest");
 }
 
 export interface ListPrincipalsResponse {
@@ -862,8 +818,7 @@ export interface ListPrincipalsResponse {
 }
 
 export namespace ListPrincipalsResponse {
-  export const isa = (o: any): o is ListPrincipalsResponse =>
-    __isa(o, "ListPrincipalsResponse");
+  export const isa = (o: any): o is ListPrincipalsResponse => __isa(o, "ListPrincipalsResponse");
 }
 
 export interface ListResourceSharePermissionsRequest {
@@ -954,8 +909,7 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
-  export const isa = (o: any): o is ListResourcesRequest =>
-    __isa(o, "ListResourcesRequest");
+  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
@@ -972,56 +926,46 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
-  export const isa = (o: any): o is ListResourcesResponse =>
-    __isa(o, "ListResourcesResponse");
+  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
 }
 
 /**
  * <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  */
-export interface MalformedArnException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MalformedArnException extends __SmithyException, $MetadataBearer {
   name: "MalformedArnException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace MalformedArnException {
-  export const isa = (o: any): o is MalformedArnException =>
-    __isa(o, "MalformedArnException");
+  export const isa = (o: any): o is MalformedArnException => __isa(o, "MalformedArnException");
 }
 
 /**
  * <p>A required input parameter is missing.</p>
  */
-export interface MissingRequiredParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
   name: "MissingRequiredParameterException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace MissingRequiredParameterException {
-  export const isa = (o: any): o is MissingRequiredParameterException =>
-    __isa(o, "MissingRequiredParameterException");
+  export const isa = (o: any): o is MissingRequiredParameterException => __isa(o, "MissingRequiredParameterException");
 }
 
 /**
  * <p>The requested operation is not permitted.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace OperationNotPermittedException {
-  export const isa = (o: any): o is OperationNotPermittedException =>
-    __isa(o, "OperationNotPermittedException");
+  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 /**
@@ -1068,9 +1012,7 @@ export interface PromoteResourceShareCreatedFromPolicyRequest {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyRequest {
-  export const isa = (
-    o: any
-  ): o is PromoteResourceShareCreatedFromPolicyRequest =>
+  export const isa = (o: any): o is PromoteResourceShareCreatedFromPolicyRequest =>
     __isa(o, "PromoteResourceShareCreatedFromPolicyRequest");
 }
 
@@ -1083,9 +1025,7 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
 }
 
 export namespace PromoteResourceShareCreatedFromPolicyResponse {
-  export const isa = (
-    o: any
-  ): o is PromoteResourceShareCreatedFromPolicyResponse =>
+  export const isa = (o: any): o is PromoteResourceShareCreatedFromPolicyResponse =>
     __isa(o, "PromoteResourceShareCreatedFromPolicyResponse");
 }
 
@@ -1179,17 +1119,14 @@ export namespace Resource {
 /**
  * <p>An Amazon Resource Name (ARN) was not found.</p>
  */
-export interface ResourceArnNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceArnNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceArnNotFoundException {
-  export const isa = (o: any): o is ResourceArnNotFoundException =>
-    __isa(o, "ResourceArnNotFoundException");
+  export const isa = (o: any): o is ResourceArnNotFoundException => __isa(o, "ResourceArnNotFoundException");
 }
 
 export enum ResourceOwner {
@@ -1332,8 +1269,7 @@ export interface ResourceShareAssociation {
 }
 
 export namespace ResourceShareAssociation {
-  export const isa = (o: any): o is ResourceShareAssociation =>
-    __isa(o, "ResourceShareAssociation");
+  export const isa = (o: any): o is ResourceShareAssociation => __isa(o, "ResourceShareAssociation");
 }
 
 export type ResourceShareAssociationStatus =
@@ -1345,10 +1281,7 @@ export type ResourceShareAssociationStatus =
 
 export type ResourceShareAssociationType = "PRINCIPAL" | "RESOURCE";
 
-export type ResourceShareFeatureSet =
-  | "CREATED_FROM_POLICY"
-  | "PROMOTING_TO_STANDARD"
-  | "STANDARD";
+export type ResourceShareFeatureSet = "CREATED_FROM_POLICY" | "PROMOTING_TO_STANDARD" | "STANDARD";
 
 /**
  * <p>Describes an invitation to join a resource share.</p>
@@ -1399,70 +1332,55 @@ export interface ResourceShareInvitation {
 }
 
 export namespace ResourceShareInvitation {
-  export const isa = (o: any): o is ResourceShareInvitation =>
-    __isa(o, "ResourceShareInvitation");
+  export const isa = (o: any): o is ResourceShareInvitation => __isa(o, "ResourceShareInvitation");
 }
 
 /**
  * <p>The invitation was already accepted.</p>
  */
-export interface ResourceShareInvitationAlreadyAcceptedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationAlreadyAcceptedException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationAlreadyAcceptedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationAlreadyAcceptedException {
-  export const isa = (
-    o: any
-  ): o is ResourceShareInvitationAlreadyAcceptedException =>
+  export const isa = (o: any): o is ResourceShareInvitationAlreadyAcceptedException =>
     __isa(o, "ResourceShareInvitationAlreadyAcceptedException");
 }
 
 /**
  * <p>The invitation was already rejected.</p>
  */
-export interface ResourceShareInvitationAlreadyRejectedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationAlreadyRejectedException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationAlreadyRejectedException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationAlreadyRejectedException {
-  export const isa = (
-    o: any
-  ): o is ResourceShareInvitationAlreadyRejectedException =>
+  export const isa = (o: any): o is ResourceShareInvitationAlreadyRejectedException =>
     __isa(o, "ResourceShareInvitationAlreadyRejectedException");
 }
 
 /**
  * <p>The Amazon Resource Name (ARN) for an invitation was not found.</p>
  */
-export interface ResourceShareInvitationArnNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationArnNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationArnNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceShareInvitationArnNotFoundException {
-  export const isa = (
-    o: any
-  ): o is ResourceShareInvitationArnNotFoundException =>
+  export const isa = (o: any): o is ResourceShareInvitationArnNotFoundException =>
     __isa(o, "ResourceShareInvitationArnNotFoundException");
 }
 
 /**
  * <p>The invitation is expired.</p>
  */
-export interface ResourceShareInvitationExpiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareInvitationExpiredException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareInvitationExpiredException";
   $fault: "client";
   message: string | undefined;
@@ -1473,18 +1391,12 @@ export namespace ResourceShareInvitationExpiredException {
     __isa(o, "ResourceShareInvitationExpiredException");
 }
 
-export type ResourceShareInvitationStatus =
-  | "ACCEPTED"
-  | "EXPIRED"
-  | "PENDING"
-  | "REJECTED";
+export type ResourceShareInvitationStatus = "ACCEPTED" | "EXPIRED" | "PENDING" | "REJECTED";
 
 /**
  * <p>The requested resource share exceeds the limit for your account.</p>
  */
-export interface ResourceShareLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceShareLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ResourceShareLimitExceededException";
   $fault: "client";
   message: string | undefined;
@@ -1545,8 +1457,7 @@ export interface ResourceSharePermissionDetail {
 }
 
 export namespace ResourceSharePermissionDetail {
-  export const isa = (o: any): o is ResourceSharePermissionDetail =>
-    __isa(o, "ResourceSharePermissionDetail");
+  export const isa = (o: any): o is ResourceSharePermissionDetail => __isa(o, "ResourceSharePermissionDetail");
 }
 
 /**
@@ -1596,54 +1507,37 @@ export interface ResourceSharePermissionSummary {
 }
 
 export namespace ResourceSharePermissionSummary {
-  export const isa = (o: any): o is ResourceSharePermissionSummary =>
-    __isa(o, "ResourceSharePermissionSummary");
+  export const isa = (o: any): o is ResourceSharePermissionSummary => __isa(o, "ResourceSharePermissionSummary");
 }
 
-export type ResourceShareStatus =
-  | "ACTIVE"
-  | "DELETED"
-  | "DELETING"
-  | "FAILED"
-  | "PENDING";
+export type ResourceShareStatus = "ACTIVE" | "DELETED" | "DELETING" | "FAILED" | "PENDING";
 
-export type ResourceStatus =
-  | "AVAILABLE"
-  | "LIMIT_EXCEEDED"
-  | "PENDING"
-  | "UNAVAILABLE"
-  | "ZONAL_RESOURCE_INACCESSIBLE";
+export type ResourceStatus = "AVAILABLE" | "LIMIT_EXCEEDED" | "PENDING" | "UNAVAILABLE" | "ZONAL_RESOURCE_INACCESSIBLE";
 
 /**
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
-export interface ServerInternalException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServerInternalException extends __SmithyException, $MetadataBearer {
   name: "ServerInternalException";
   $fault: "server";
   message: string | undefined;
 }
 
 export namespace ServerInternalException {
-  export const isa = (o: any): o is ServerInternalException =>
-    __isa(o, "ServerInternalException");
+  export const isa = (o: any): o is ServerInternalException => __isa(o, "ServerInternalException");
 }
 
 /**
  * <p>The service is not available.</p>
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   message: string | undefined;
 }
 
 export namespace ServiceUnavailableException {
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -1689,33 +1583,27 @@ export namespace TagFilter {
 /**
  * <p>The requested tags exceed the limit for your account.</p>
  */
-export interface TagLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace TagLimitExceededException {
-  export const isa = (o: any): o is TagLimitExceededException =>
-    __isa(o, "TagLimitExceededException");
+  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
  * <p>The specified tag is a reserved word and cannot be used.</p>
  */
-export interface TagPolicyViolationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagPolicyViolationException extends __SmithyException, $MetadataBearer {
   name: "TagPolicyViolationException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace TagPolicyViolationException {
-  export const isa = (o: any): o is TagPolicyViolationException =>
-    __isa(o, "TagPolicyViolationException");
+  export const isa = (o: any): o is TagPolicyViolationException => __isa(o, "TagPolicyViolationException");
 }
 
 export interface TagResourceRequest {
@@ -1732,8 +1620,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1741,24 +1628,20 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>A specified resource was not found.</p>
  */
-export interface UnknownResourceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnknownResourceException extends __SmithyException, $MetadataBearer {
   name: "UnknownResourceException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace UnknownResourceException {
-  export const isa = (o: any): o is UnknownResourceException =>
-    __isa(o, "UnknownResourceException");
+  export const isa = (o: any): o is UnknownResourceException => __isa(o, "UnknownResourceException");
 }
 
 export interface UntagResourceRequest {
@@ -1775,8 +1658,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1784,8 +1666,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateResourceShareRequest {
@@ -1812,8 +1693,7 @@ export interface UpdateResourceShareRequest {
 }
 
 export namespace UpdateResourceShareRequest {
-  export const isa = (o: any): o is UpdateResourceShareRequest =>
-    __isa(o, "UpdateResourceShareRequest");
+  export const isa = (o: any): o is UpdateResourceShareRequest => __isa(o, "UpdateResourceShareRequest");
 }
 
 export interface UpdateResourceShareResponse {
@@ -1830,6 +1710,5 @@ export interface UpdateResourceShareResponse {
 }
 
 export namespace UpdateResourceShareResponse {
-  export const isa = (o: any): o is UpdateResourceShareResponse =>
-    __isa(o, "UpdateResourceShareResponse");
+  export const isa = (o: any): o is UpdateResourceShareResponse => __isa(o, "UpdateResourceShareResponse");
 }

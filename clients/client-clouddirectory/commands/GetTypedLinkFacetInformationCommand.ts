@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  GetTypedLinkFacetInformationRequest,
-  GetTypedLinkFacetInformationResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand,
   serializeAws_restJson1_1GetTypedLinkFacetInformationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTypedLinkFacetInformationCommandInput = GetTypedLinkFacetInformationRequest;
-export type GetTypedLinkFacetInformationCommandOutput = GetTypedLinkFacetInformationResponse &
-  __MetadataBearer;
+export type GetTypedLinkFacetInformationCommandOutput = GetTypedLinkFacetInformationResponse & __MetadataBearer;
 
 export class GetTypedLinkFacetInformationCommand extends $Command<
   GetTypedLinkFacetInformationCommandInput,
@@ -49,13 +38,8 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetTypedLinkFacetInformationCommandInput,
-    GetTypedLinkFacetInformationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetTypedLinkFacetInformationCommandInput, GetTypedLinkFacetInformationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class GetTypedLinkFacetInformationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTypedLinkFacetInformationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetTypedLinkFacetInformationCommand(
-      input,
-      context
-    );
+  private serialize(input: GetTypedLinkFacetInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetTypedLinkFacetInformationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetTypedLinkFacetInformationCommandOutput> {
-    return deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTypedLinkFacetInformationCommand(output, context);
   }
 
   // Start section: command_body_extra

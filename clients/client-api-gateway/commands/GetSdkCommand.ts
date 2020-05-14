@@ -1,18 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { GetSdkRequest, SdkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSdkCommand,
   serializeAws_restJson1_1GetSdkCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +20,7 @@ import {
 export type GetSdkCommandInput = GetSdkRequest;
 export type GetSdkCommandOutput = SdkResponse & __MetadataBearer;
 
-export class GetSdkCommand extends $Command<
-  GetSdkCommandInput,
-  GetSdkCommandOutput,
-  APIGatewayClientResolvedConfig
-> {
+export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOutput, APIGatewayClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +35,7 @@ export class GetSdkCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSdkCommandInput, GetSdkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +50,11 @@ export class GetSdkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSdkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSdkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSdkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSdkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSdkCommandOutput> {
     return deserializeAws_restJson1_1GetSdkCommand(output, context);
   }
 

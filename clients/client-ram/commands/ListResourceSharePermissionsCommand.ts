@@ -1,21 +1,11 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
-import {
-  ListResourceSharePermissionsRequest,
-  ListResourceSharePermissionsResponse
-} from "../models/index";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { ListResourceSharePermissionsRequest, ListResourceSharePermissionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListResourceSharePermissionsCommand,
   serializeAws_restJson1_1ListResourceSharePermissionsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResourceSharePermissionsCommandInput = ListResourceSharePermissionsRequest;
-export type ListResourceSharePermissionsCommandOutput = ListResourceSharePermissionsResponse &
-  __MetadataBearer;
+export type ListResourceSharePermissionsCommandOutput = ListResourceSharePermissionsResponse & __MetadataBearer;
 
 export class ListResourceSharePermissionsCommand extends $Command<
   ListResourceSharePermissionsCommandInput,
@@ -49,13 +38,8 @@ export class ListResourceSharePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListResourceSharePermissionsCommandInput,
-    ListResourceSharePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListResourceSharePermissionsCommandInput, ListResourceSharePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class ListResourceSharePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListResourceSharePermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListResourceSharePermissionsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListResourceSharePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ListResourceSharePermissionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListResourceSharePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1ListResourceSharePermissionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListResourceSharePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

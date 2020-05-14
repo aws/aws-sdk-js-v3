@@ -9,10 +9,7 @@ import {
   serializeAws_queryCreateListenerCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateListenerCommandInput = CreateListenerInput;
-export type CreateListenerCommandOutput = CreateListenerOutput &
-  __MetadataBearer;
+export type CreateListenerCommandOutput = CreateListenerOutput & __MetadataBearer;
 
 export class CreateListenerCommand extends $Command<
   CreateListenerCommandInput,
@@ -47,9 +43,7 @@ export class CreateListenerCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateListenerCommandInput, CreateListenerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class CreateListenerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateListenerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateListenerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateListenerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
     return deserializeAws_queryCreateListenerCommand(output, context);
   }
 

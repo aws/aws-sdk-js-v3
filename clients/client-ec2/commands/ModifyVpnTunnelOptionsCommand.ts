@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  ModifyVpnTunnelOptionsRequest,
-  ModifyVpnTunnelOptionsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/index";
 import {
   deserializeAws_ec2ModifyVpnTunnelOptionsCommand,
   serializeAws_ec2ModifyVpnTunnelOptionsCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyVpnTunnelOptionsCommandInput = ModifyVpnTunnelOptionsRequest;
-export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult &
-  __MetadataBearer;
+export type ModifyVpnTunnelOptionsCommandOutput = ModifyVpnTunnelOptionsResult & __MetadataBearer;
 
 export class ModifyVpnTunnelOptionsCommand extends $Command<
   ModifyVpnTunnelOptionsCommandInput,
@@ -49,13 +38,8 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyVpnTunnelOptionsCommandInput,
-    ModifyVpnTunnelOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyVpnTunnelOptionsCommandInput, ModifyVpnTunnelOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyVpnTunnelOptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyVpnTunnelOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2ModifyVpnTunnelOptionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyVpnTunnelOptionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyVpnTunnelOptionsCommandOutput> {
     return deserializeAws_ec2ModifyVpnTunnelOptionsCommand(output, context);
   }
 

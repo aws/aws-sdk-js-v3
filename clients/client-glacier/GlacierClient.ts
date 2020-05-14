@@ -2,106 +2,58 @@ import {
   AbortMultipartUploadCommandInput,
   AbortMultipartUploadCommandOutput
 } from "./commands/AbortMultipartUploadCommand";
-import {
-  AbortVaultLockCommandInput,
-  AbortVaultLockCommandOutput
-} from "./commands/AbortVaultLockCommand";
-import {
-  AddTagsToVaultCommandInput,
-  AddTagsToVaultCommandOutput
-} from "./commands/AddTagsToVaultCommand";
+import { AbortVaultLockCommandInput, AbortVaultLockCommandOutput } from "./commands/AbortVaultLockCommand";
+import { AddTagsToVaultCommandInput, AddTagsToVaultCommandOutput } from "./commands/AddTagsToVaultCommand";
 import {
   CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput
 } from "./commands/CompleteMultipartUploadCommand";
-import {
-  CompleteVaultLockCommandInput,
-  CompleteVaultLockCommandOutput
-} from "./commands/CompleteVaultLockCommand";
-import {
-  CreateVaultCommandInput,
-  CreateVaultCommandOutput
-} from "./commands/CreateVaultCommand";
-import {
-  DeleteArchiveCommandInput,
-  DeleteArchiveCommandOutput
-} from "./commands/DeleteArchiveCommand";
+import { CompleteVaultLockCommandInput, CompleteVaultLockCommandOutput } from "./commands/CompleteVaultLockCommand";
+import { CreateVaultCommandInput, CreateVaultCommandOutput } from "./commands/CreateVaultCommand";
+import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
 import {
   DeleteVaultAccessPolicyCommandInput,
   DeleteVaultAccessPolicyCommandOutput
 } from "./commands/DeleteVaultAccessPolicyCommand";
-import {
-  DeleteVaultCommandInput,
-  DeleteVaultCommandOutput
-} from "./commands/DeleteVaultCommand";
+import { DeleteVaultCommandInput, DeleteVaultCommandOutput } from "./commands/DeleteVaultCommand";
 import {
   DeleteVaultNotificationsCommandInput,
   DeleteVaultNotificationsCommandOutput
 } from "./commands/DeleteVaultNotificationsCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
-import {
-  DescribeVaultCommandInput,
-  DescribeVaultCommandOutput
-} from "./commands/DescribeVaultCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import { DescribeVaultCommandInput, DescribeVaultCommandOutput } from "./commands/DescribeVaultCommand";
 import {
   GetDataRetrievalPolicyCommandInput,
   GetDataRetrievalPolicyCommandOutput
 } from "./commands/GetDataRetrievalPolicyCommand";
-import {
-  GetJobOutputCommandInput,
-  GetJobOutputCommandOutput
-} from "./commands/GetJobOutputCommand";
+import { GetJobOutputCommandInput, GetJobOutputCommandOutput } from "./commands/GetJobOutputCommand";
 import {
   GetVaultAccessPolicyCommandInput,
   GetVaultAccessPolicyCommandOutput
 } from "./commands/GetVaultAccessPolicyCommand";
-import {
-  GetVaultLockCommandInput,
-  GetVaultLockCommandOutput
-} from "./commands/GetVaultLockCommand";
+import { GetVaultLockCommandInput, GetVaultLockCommandOutput } from "./commands/GetVaultLockCommand";
 import {
   GetVaultNotificationsCommandInput,
   GetVaultNotificationsCommandOutput
 } from "./commands/GetVaultNotificationsCommand";
-import {
-  InitiateJobCommandInput,
-  InitiateJobCommandOutput
-} from "./commands/InitiateJobCommand";
+import { InitiateJobCommandInput, InitiateJobCommandOutput } from "./commands/InitiateJobCommand";
 import {
   InitiateMultipartUploadCommandInput,
   InitiateMultipartUploadCommandOutput
 } from "./commands/InitiateMultipartUploadCommand";
-import {
-  InitiateVaultLockCommandInput,
-  InitiateVaultLockCommandOutput
-} from "./commands/InitiateVaultLockCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { InitiateVaultLockCommandInput, InitiateVaultLockCommandOutput } from "./commands/InitiateVaultLockCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput
 } from "./commands/ListMultipartUploadsCommand";
-import {
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand";
+import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
 import {
   ListProvisionedCapacityCommandInput,
   ListProvisionedCapacityCommandOutput
 } from "./commands/ListProvisionedCapacityCommand";
-import {
-  ListTagsForVaultCommandInput,
-  ListTagsForVaultCommandOutput
-} from "./commands/ListTagsForVaultCommand";
-import {
-  ListVaultsCommandInput,
-  ListVaultsCommandOutput
-} from "./commands/ListVaultsCommand";
+import { ListTagsForVaultCommandInput, ListTagsForVaultCommandOutput } from "./commands/ListTagsForVaultCommand";
+import { ListVaultsCommandInput, ListVaultsCommandOutput } from "./commands/ListVaultsCommand";
 import {
   PurchaseProvisionedCapacityCommandInput,
   PurchaseProvisionedCapacityCommandOutput
@@ -122,10 +74,7 @@ import {
   SetVaultNotificationsCommandInput,
   SetVaultNotificationsCommandOutput
 } from "./commands/SetVaultNotificationsCommand";
-import {
-  UploadArchiveCommandInput,
-  UploadArchiveCommandOutput
-} from "./commands/UploadArchiveCommand";
+import { UploadArchiveCommandInput, UploadArchiveCommandOutput } from "./commands/UploadArchiveCommand";
 import {
   UploadMultipartPartCommandInput,
   UploadMultipartPartCommandOutput
@@ -146,12 +95,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import { getGlacierPlugin } from "@aws-sdk/middleware-sdk-glacier";
 import {
   AwsAuthInputConfig,
@@ -254,8 +198,7 @@ export type ServiceOutputTypes =
   | UploadArchiveCommandOutput
   | UploadMultipartPartCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -347,9 +290,7 @@ export interface ClientDefaults
   ) => Promise<[string, string]>;
 }
 
-export type GlacierClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GlacierClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -358,9 +299,7 @@ export type GlacierClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GlacierClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

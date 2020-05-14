@@ -1,18 +1,11 @@
-import {
-  ServiceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceDiscoveryClient";
+import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient";
 import { GetInstanceRequest, GetInstanceResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceCommand,
   serializeAws_json1_1GetInstanceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class GetInstanceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInstanceCommandInput, GetInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class GetInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetInstanceCommandOutput> {
     return deserializeAws_json1_1GetInstanceCommand(output, context);
   }
 

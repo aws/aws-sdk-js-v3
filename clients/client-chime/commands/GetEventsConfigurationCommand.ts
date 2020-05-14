@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetEventsConfigurationRequest,
-  GetEventsConfigurationResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetEventsConfigurationRequest, GetEventsConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEventsConfigurationCommand,
   serializeAws_restJson1_1GetEventsConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEventsConfigurationCommandInput = GetEventsConfigurationRequest;
-export type GetEventsConfigurationCommandOutput = GetEventsConfigurationResponse &
-  __MetadataBearer;
+export type GetEventsConfigurationCommandOutput = GetEventsConfigurationResponse & __MetadataBearer;
 
 export class GetEventsConfigurationCommand extends $Command<
   GetEventsConfigurationCommandInput,
@@ -49,13 +38,8 @@ export class GetEventsConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEventsConfigurationCommandInput,
-    GetEventsConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEventsConfigurationCommandInput, GetEventsConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class GetEventsConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEventsConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetEventsConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: GetEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetEventsConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1GetEventsConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEventsConfigurationCommandOutput> {
+    return deserializeAws_restJson1_1GetEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

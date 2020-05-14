@@ -2,22 +2,10 @@ import {
   BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput
 } from "./commands/BatchExecuteStatementCommand";
-import {
-  BeginTransactionCommandInput,
-  BeginTransactionCommandOutput
-} from "./commands/BeginTransactionCommand";
-import {
-  CommitTransactionCommandInput,
-  CommitTransactionCommandOutput
-} from "./commands/CommitTransactionCommand";
-import {
-  ExecuteSqlCommandInput,
-  ExecuteSqlCommandOutput
-} from "./commands/ExecuteSqlCommand";
-import {
-  ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput
-} from "./commands/ExecuteStatementCommand";
+import { BeginTransactionCommandInput, BeginTransactionCommandOutput } from "./commands/BeginTransactionCommand";
+import { CommitTransactionCommandInput, CommitTransactionCommandOutput } from "./commands/CommitTransactionCommand";
+import { ExecuteSqlCommandInput, ExecuteSqlCommandOutput } from "./commands/ExecuteSqlCommand";
+import { ExecuteStatementCommandInput, ExecuteStatementCommandOutput } from "./commands/ExecuteStatementCommand";
 import {
   RollbackTransactionCommandInput,
   RollbackTransactionCommandOutput
@@ -38,12 +26,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -90,8 +73,7 @@ export type ServiceOutputTypes =
   | ExecuteStatementCommandOutput
   | RollbackTransactionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -175,9 +157,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RDSDataClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RDSDataClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -186,9 +166,7 @@ export type RDSDataClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RDSDataClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

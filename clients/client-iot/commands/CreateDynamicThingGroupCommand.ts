@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateDynamicThingGroupRequest,
-  CreateDynamicThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateDynamicThingGroupRequest, CreateDynamicThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDynamicThingGroupCommand,
   serializeAws_restJson1_1CreateDynamicThingGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDynamicThingGroupCommandInput = CreateDynamicThingGroupRequest;
-export type CreateDynamicThingGroupCommandOutput = CreateDynamicThingGroupResponse &
-  __MetadataBearer;
+export type CreateDynamicThingGroupCommandOutput = CreateDynamicThingGroupResponse & __MetadataBearer;
 
 export class CreateDynamicThingGroupCommand extends $Command<
   CreateDynamicThingGroupCommandInput,
@@ -49,13 +38,8 @@ export class CreateDynamicThingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDynamicThingGroupCommandInput,
-    CreateDynamicThingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDynamicThingGroupCommandInput, CreateDynamicThingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class CreateDynamicThingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDynamicThingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDynamicThingGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDynamicThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateDynamicThingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDynamicThingGroupCommandOutput> {
-    return deserializeAws_restJson1_1CreateDynamicThingGroupCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDynamicThingGroupCommandOutput> {
+    return deserializeAws_restJson1_1CreateDynamicThingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

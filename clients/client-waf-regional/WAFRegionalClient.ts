@@ -1,19 +1,7 @@
-import {
-  AssociateWebACLCommandInput,
-  AssociateWebACLCommandOutput
-} from "./commands/AssociateWebACLCommand";
-import {
-  CreateByteMatchSetCommandInput,
-  CreateByteMatchSetCommandOutput
-} from "./commands/CreateByteMatchSetCommand";
-import {
-  CreateGeoMatchSetCommandInput,
-  CreateGeoMatchSetCommandOutput
-} from "./commands/CreateGeoMatchSetCommand";
-import {
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand";
+import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand";
+import { CreateByteMatchSetCommandInput, CreateByteMatchSetCommandOutput } from "./commands/CreateByteMatchSetCommand";
+import { CreateGeoMatchSetCommandInput, CreateGeoMatchSetCommandOutput } from "./commands/CreateGeoMatchSetCommand";
+import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRateBasedRuleCommandInput,
   CreateRateBasedRuleCommandOutput
@@ -26,14 +14,8 @@ import {
   CreateRegexPatternSetCommandInput,
   CreateRegexPatternSetCommandOutput
 } from "./commands/CreateRegexPatternSetCommand";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
-import {
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput
-} from "./commands/CreateRuleGroupCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
+import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
 import {
   CreateSizeConstraintSetCommandInput,
   CreateSizeConstraintSetCommandOutput
@@ -42,26 +24,11 @@ import {
   CreateSqlInjectionMatchSetCommandInput,
   CreateSqlInjectionMatchSetCommandOutput
 } from "./commands/CreateSqlInjectionMatchSetCommand";
-import {
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput
-} from "./commands/CreateWebACLCommand";
-import {
-  CreateXssMatchSetCommandInput,
-  CreateXssMatchSetCommandOutput
-} from "./commands/CreateXssMatchSetCommand";
-import {
-  DeleteByteMatchSetCommandInput,
-  DeleteByteMatchSetCommandOutput
-} from "./commands/DeleteByteMatchSetCommand";
-import {
-  DeleteGeoMatchSetCommandInput,
-  DeleteGeoMatchSetCommandOutput
-} from "./commands/DeleteGeoMatchSetCommand";
-import {
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand";
+import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "./commands/CreateWebACLCommand";
+import { CreateXssMatchSetCommandInput, CreateXssMatchSetCommandOutput } from "./commands/CreateXssMatchSetCommand";
+import { DeleteByteMatchSetCommandInput, DeleteByteMatchSetCommandOutput } from "./commands/DeleteByteMatchSetCommand";
+import { DeleteGeoMatchSetCommandInput, DeleteGeoMatchSetCommandOutput } from "./commands/DeleteGeoMatchSetCommand";
+import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput
@@ -82,14 +49,8 @@ import {
   DeleteRegexPatternSetCommandInput,
   DeleteRegexPatternSetCommandOutput
 } from "./commands/DeleteRegexPatternSetCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
-import {
-  DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput
-} from "./commands/DeleteRuleGroupCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
 import {
   DeleteSizeConstraintSetCommandInput,
   DeleteSizeConstraintSetCommandOutput
@@ -98,38 +59,17 @@ import {
   DeleteSqlInjectionMatchSetCommandInput,
   DeleteSqlInjectionMatchSetCommandOutput
 } from "./commands/DeleteSqlInjectionMatchSetCommand";
-import {
-  DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput
-} from "./commands/DeleteWebACLCommand";
-import {
-  DeleteXssMatchSetCommandInput,
-  DeleteXssMatchSetCommandOutput
-} from "./commands/DeleteXssMatchSetCommand";
-import {
-  DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput
-} from "./commands/DisassociateWebACLCommand";
-import {
-  GetByteMatchSetCommandInput,
-  GetByteMatchSetCommandOutput
-} from "./commands/GetByteMatchSetCommand";
-import {
-  GetChangeTokenCommandInput,
-  GetChangeTokenCommandOutput
-} from "./commands/GetChangeTokenCommand";
+import { DeleteWebACLCommandInput, DeleteWebACLCommandOutput } from "./commands/DeleteWebACLCommand";
+import { DeleteXssMatchSetCommandInput, DeleteXssMatchSetCommandOutput } from "./commands/DeleteXssMatchSetCommand";
+import { DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput } from "./commands/DisassociateWebACLCommand";
+import { GetByteMatchSetCommandInput, GetByteMatchSetCommandOutput } from "./commands/GetByteMatchSetCommand";
+import { GetChangeTokenCommandInput, GetChangeTokenCommandOutput } from "./commands/GetChangeTokenCommand";
 import {
   GetChangeTokenStatusCommandInput,
   GetChangeTokenStatusCommandOutput
 } from "./commands/GetChangeTokenStatusCommand";
-import {
-  GetGeoMatchSetCommandInput,
-  GetGeoMatchSetCommandOutput
-} from "./commands/GetGeoMatchSetCommand";
-import {
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand";
+import { GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput } from "./commands/GetGeoMatchSetCommand";
+import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput
@@ -138,34 +78,16 @@ import {
   GetPermissionPolicyCommandInput,
   GetPermissionPolicyCommandOutput
 } from "./commands/GetPermissionPolicyCommand";
-import {
-  GetRateBasedRuleCommandInput,
-  GetRateBasedRuleCommandOutput
-} from "./commands/GetRateBasedRuleCommand";
+import { GetRateBasedRuleCommandInput, GetRateBasedRuleCommandOutput } from "./commands/GetRateBasedRuleCommand";
 import {
   GetRateBasedRuleManagedKeysCommandInput,
   GetRateBasedRuleManagedKeysCommandOutput
 } from "./commands/GetRateBasedRuleManagedKeysCommand";
-import {
-  GetRegexMatchSetCommandInput,
-  GetRegexMatchSetCommandOutput
-} from "./commands/GetRegexMatchSetCommand";
-import {
-  GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput
-} from "./commands/GetRegexPatternSetCommand";
-import {
-  GetRuleCommandInput,
-  GetRuleCommandOutput
-} from "./commands/GetRuleCommand";
-import {
-  GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput
-} from "./commands/GetRuleGroupCommand";
-import {
-  GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput
-} from "./commands/GetSampledRequestsCommand";
+import { GetRegexMatchSetCommandInput, GetRegexMatchSetCommandOutput } from "./commands/GetRegexMatchSetCommand";
+import { GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput } from "./commands/GetRegexPatternSetCommand";
+import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
+import { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand";
+import { GetSampledRequestsCommandInput, GetSampledRequestsCommandOutput } from "./commands/GetSampledRequestsCommand";
 import {
   GetSizeConstraintSetCommandInput,
   GetSizeConstraintSetCommandOutput
@@ -174,46 +96,25 @@ import {
   GetSqlInjectionMatchSetCommandInput,
   GetSqlInjectionMatchSetCommandOutput
 } from "./commands/GetSqlInjectionMatchSetCommand";
-import {
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand";
+import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput
 } from "./commands/GetWebACLForResourceCommand";
-import {
-  GetXssMatchSetCommandInput,
-  GetXssMatchSetCommandOutput
-} from "./commands/GetXssMatchSetCommand";
+import { GetXssMatchSetCommandInput, GetXssMatchSetCommandOutput } from "./commands/GetXssMatchSetCommand";
 import {
   ListActivatedRulesInRuleGroupCommandInput,
   ListActivatedRulesInRuleGroupCommandOutput
 } from "./commands/ListActivatedRulesInRuleGroupCommand";
-import {
-  ListByteMatchSetsCommandInput,
-  ListByteMatchSetsCommandOutput
-} from "./commands/ListByteMatchSetsCommand";
-import {
-  ListGeoMatchSetsCommandInput,
-  ListGeoMatchSetsCommandOutput
-} from "./commands/ListGeoMatchSetsCommand";
-import {
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand";
+import { ListByteMatchSetsCommandInput, ListByteMatchSetsCommandOutput } from "./commands/ListByteMatchSetsCommand";
+import { ListGeoMatchSetsCommandInput, ListGeoMatchSetsCommandOutput } from "./commands/ListGeoMatchSetsCommand";
+import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommandInput,
   ListLoggingConfigurationsCommandOutput
 } from "./commands/ListLoggingConfigurationsCommand";
-import {
-  ListRateBasedRulesCommandInput,
-  ListRateBasedRulesCommandOutput
-} from "./commands/ListRateBasedRulesCommand";
-import {
-  ListRegexMatchSetsCommandInput,
-  ListRegexMatchSetsCommandOutput
-} from "./commands/ListRegexMatchSetsCommand";
+import { ListRateBasedRulesCommandInput, ListRateBasedRulesCommandOutput } from "./commands/ListRateBasedRulesCommand";
+import { ListRegexMatchSetsCommandInput, ListRegexMatchSetsCommandOutput } from "./commands/ListRegexMatchSetsCommand";
 import {
   ListRegexPatternSetsCommandInput,
   ListRegexPatternSetsCommandOutput
@@ -222,14 +123,8 @@ import {
   ListResourcesForWebACLCommandInput,
   ListResourcesForWebACLCommandOutput
 } from "./commands/ListResourcesForWebACLCommand";
-import {
-  ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput
-} from "./commands/ListRuleGroupsCommand";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand";
+import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSizeConstraintSetsCommandInput,
   ListSizeConstraintSetsCommandOutput
@@ -246,14 +141,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
-} from "./commands/ListWebACLsCommand";
-import {
-  ListXssMatchSetsCommandInput,
-  ListXssMatchSetsCommandOutput
-} from "./commands/ListXssMatchSetsCommand";
+import { ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand";
+import { ListXssMatchSetsCommandInput, ListXssMatchSetsCommandOutput } from "./commands/ListXssMatchSetsCommand";
 import {
   PutLoggingConfigurationCommandInput,
   PutLoggingConfigurationCommandOutput
@@ -262,26 +151,11 @@ import {
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput
 } from "./commands/PutPermissionPolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateByteMatchSetCommandInput,
-  UpdateByteMatchSetCommandOutput
-} from "./commands/UpdateByteMatchSetCommand";
-import {
-  UpdateGeoMatchSetCommandInput,
-  UpdateGeoMatchSetCommandOutput
-} from "./commands/UpdateGeoMatchSetCommand";
-import {
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateByteMatchSetCommandInput, UpdateByteMatchSetCommandOutput } from "./commands/UpdateByteMatchSetCommand";
+import { UpdateGeoMatchSetCommandInput, UpdateGeoMatchSetCommandOutput } from "./commands/UpdateGeoMatchSetCommand";
+import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
   UpdateRateBasedRuleCommandInput,
   UpdateRateBasedRuleCommandOutput
@@ -294,14 +168,8 @@ import {
   UpdateRegexPatternSetCommandInput,
   UpdateRegexPatternSetCommandOutput
 } from "./commands/UpdateRegexPatternSetCommand";
-import {
-  UpdateRuleCommandInput,
-  UpdateRuleCommandOutput
-} from "./commands/UpdateRuleCommand";
-import {
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput
-} from "./commands/UpdateRuleGroupCommand";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
+import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
 import {
   UpdateSizeConstraintSetCommandInput,
   UpdateSizeConstraintSetCommandOutput
@@ -310,14 +178,8 @@ import {
   UpdateSqlInjectionMatchSetCommandInput,
   UpdateSqlInjectionMatchSetCommandOutput
 } from "./commands/UpdateSqlInjectionMatchSetCommand";
-import {
-  UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput
-} from "./commands/UpdateWebACLCommand";
-import {
-  UpdateXssMatchSetCommandInput,
-  UpdateXssMatchSetCommandOutput
-} from "./commands/UpdateXssMatchSetCommand";
+import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "./commands/UpdateWebACLCommand";
+import { UpdateXssMatchSetCommandInput, UpdateXssMatchSetCommandOutput } from "./commands/UpdateXssMatchSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -334,12 +196,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -534,8 +391,7 @@ export type ServiceOutputTypes =
   | UpdateWebACLCommandOutput
   | UpdateXssMatchSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -619,9 +475,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WAFRegionalClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WAFRegionalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -630,9 +484,7 @@ export type WAFRegionalClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WAFRegionalClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

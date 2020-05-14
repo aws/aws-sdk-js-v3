@@ -26,14 +26,8 @@ import {
   DescribeEventDetailsForOrganizationCommandInput,
   DescribeEventDetailsForOrganizationCommandOutput
 } from "./commands/DescribeEventDetailsForOrganizationCommand";
-import {
-  DescribeEventTypesCommandInput,
-  DescribeEventTypesCommandOutput
-} from "./commands/DescribeEventTypesCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput } from "./commands/DescribeEventTypesCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeEventsForOrganizationCommandInput,
   DescribeEventsForOrganizationCommandOutput
@@ -66,12 +60,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +121,7 @@ export type ServiceOutputTypes =
   | DisableHealthServiceAccessForOrganizationCommandOutput
   | EnableHealthServiceAccessForOrganizationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +205,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type HealthClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type HealthClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +214,7 @@ export type HealthClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type HealthClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type HealthClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

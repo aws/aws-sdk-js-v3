@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  DescribeNotificationConfigurationsAnswer,
-  DescribeNotificationConfigurationsType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { DescribeNotificationConfigurationsAnswer, DescribeNotificationConfigurationsType } from "../models/index";
 import {
   deserializeAws_queryDescribeNotificationConfigurationsCommand,
   serializeAws_queryDescribeNotificationConfigurationsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeNotificationConfigurationsCommandInput,
-    DescribeNotificationConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeNotificationConfigurationsCommandInput, DescribeNotificationConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     input: DescribeNotificationConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeNotificationConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeNotificationConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeNotificationConfigurationsCommandOutput> {
-    return deserializeAws_queryDescribeNotificationConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeNotificationConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

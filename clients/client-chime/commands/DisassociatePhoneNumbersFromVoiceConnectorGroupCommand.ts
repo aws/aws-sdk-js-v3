@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput
-  ) {
+  constructor(readonly input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput> {
-    return deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

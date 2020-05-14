@@ -2,74 +2,38 @@ import {
   AcceptSharedDirectoryCommandInput,
   AcceptSharedDirectoryCommandOutput
 } from "./commands/AcceptSharedDirectoryCommand";
-import {
-  AddIpRoutesCommandInput,
-  AddIpRoutesCommandOutput
-} from "./commands/AddIpRoutesCommand";
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
+import { AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   CancelSchemaExtensionCommandInput,
   CancelSchemaExtensionCommandOutput
 } from "./commands/CancelSchemaExtensionCommand";
-import {
-  ConnectDirectoryCommandInput,
-  ConnectDirectoryCommandOutput
-} from "./commands/ConnectDirectoryCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
-import {
-  CreateComputerCommandInput,
-  CreateComputerCommandOutput
-} from "./commands/CreateComputerCommand";
+import { ConnectDirectoryCommandInput, ConnectDirectoryCommandOutput } from "./commands/ConnectDirectoryCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import { CreateComputerCommandInput, CreateComputerCommandOutput } from "./commands/CreateComputerCommand";
 import {
   CreateConditionalForwarderCommandInput,
   CreateConditionalForwarderCommandOutput
 } from "./commands/CreateConditionalForwarderCommand";
-import {
-  CreateDirectoryCommandInput,
-  CreateDirectoryCommandOutput
-} from "./commands/CreateDirectoryCommand";
+import { CreateDirectoryCommandInput, CreateDirectoryCommandOutput } from "./commands/CreateDirectoryCommand";
 import {
   CreateLogSubscriptionCommandInput,
   CreateLogSubscriptionCommandOutput
 } from "./commands/CreateLogSubscriptionCommand";
-import {
-  CreateMicrosoftADCommandInput,
-  CreateMicrosoftADCommandOutput
-} from "./commands/CreateMicrosoftADCommand";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand";
-import {
-  CreateTrustCommandInput,
-  CreateTrustCommandOutput
-} from "./commands/CreateTrustCommand";
+import { CreateMicrosoftADCommandInput, CreateMicrosoftADCommandOutput } from "./commands/CreateMicrosoftADCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import { CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand";
 import {
   DeleteConditionalForwarderCommandInput,
   DeleteConditionalForwarderCommandOutput
 } from "./commands/DeleteConditionalForwarderCommand";
-import {
-  DeleteDirectoryCommandInput,
-  DeleteDirectoryCommandOutput
-} from "./commands/DeleteDirectoryCommand";
+import { DeleteDirectoryCommandInput, DeleteDirectoryCommandOutput } from "./commands/DeleteDirectoryCommand";
 import {
   DeleteLogSubscriptionCommandInput,
   DeleteLogSubscriptionCommandOutput
 } from "./commands/DeleteLogSubscriptionCommand";
-import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand";
-import {
-  DeleteTrustCommandInput,
-  DeleteTrustCommandOutput
-} from "./commands/DeleteTrustCommand";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import { DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand";
 import {
   DeregisterCertificateCommandInput,
   DeregisterCertificateCommandOutput
@@ -106,54 +70,18 @@ import {
   DescribeSharedDirectoriesCommandInput,
   DescribeSharedDirectoriesCommandOutput
 } from "./commands/DescribeSharedDirectoriesCommand";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand";
-import {
-  DescribeTrustsCommandInput,
-  DescribeTrustsCommandOutput
-} from "./commands/DescribeTrustsCommand";
-import {
-  DisableLDAPSCommandInput,
-  DisableLDAPSCommandOutput
-} from "./commands/DisableLDAPSCommand";
-import {
-  DisableRadiusCommandInput,
-  DisableRadiusCommandOutput
-} from "./commands/DisableRadiusCommand";
-import {
-  DisableSsoCommandInput,
-  DisableSsoCommandOutput
-} from "./commands/DisableSsoCommand";
-import {
-  EnableLDAPSCommandInput,
-  EnableLDAPSCommandOutput
-} from "./commands/EnableLDAPSCommand";
-import {
-  EnableRadiusCommandInput,
-  EnableRadiusCommandOutput
-} from "./commands/EnableRadiusCommand";
-import {
-  EnableSsoCommandInput,
-  EnableSsoCommandOutput
-} from "./commands/EnableSsoCommand";
-import {
-  GetDirectoryLimitsCommandInput,
-  GetDirectoryLimitsCommandOutput
-} from "./commands/GetDirectoryLimitsCommand";
-import {
-  GetSnapshotLimitsCommandInput,
-  GetSnapshotLimitsCommandOutput
-} from "./commands/GetSnapshotLimitsCommand";
-import {
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
-} from "./commands/ListCertificatesCommand";
-import {
-  ListIpRoutesCommandInput,
-  ListIpRoutesCommandOutput
-} from "./commands/ListIpRoutesCommand";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
+import { DescribeTrustsCommandInput, DescribeTrustsCommandOutput } from "./commands/DescribeTrustsCommand";
+import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "./commands/DisableLDAPSCommand";
+import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "./commands/DisableRadiusCommand";
+import { DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand";
+import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand";
+import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "./commands/EnableRadiusCommand";
+import { EnableSsoCommandInput, EnableSsoCommandOutput } from "./commands/EnableSsoCommand";
+import { GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput } from "./commands/GetDirectoryLimitsCommand";
+import { GetSnapshotLimitsCommandInput, GetSnapshotLimitsCommandOutput } from "./commands/GetSnapshotLimitsCommand";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import { ListIpRoutesCommandInput, ListIpRoutesCommandOutput } from "./commands/ListIpRoutesCommand";
 import {
   ListLogSubscriptionsCommandInput,
   ListLogSubscriptionsCommandOutput
@@ -170,42 +98,27 @@ import {
   RegisterCertificateCommandInput,
   RegisterCertificateCommandOutput
 } from "./commands/RegisterCertificateCommand";
-import {
-  RegisterEventTopicCommandInput,
-  RegisterEventTopicCommandOutput
-} from "./commands/RegisterEventTopicCommand";
+import { RegisterEventTopicCommandInput, RegisterEventTopicCommandOutput } from "./commands/RegisterEventTopicCommand";
 import {
   RejectSharedDirectoryCommandInput,
   RejectSharedDirectoryCommandOutput
 } from "./commands/RejectSharedDirectoryCommand";
-import {
-  RemoveIpRoutesCommandInput,
-  RemoveIpRoutesCommandOutput
-} from "./commands/RemoveIpRoutesCommand";
+import { RemoveIpRoutesCommandInput, RemoveIpRoutesCommandOutput } from "./commands/RemoveIpRoutesCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
-  ResetUserPasswordCommandInput,
-  ResetUserPasswordCommandOutput
-} from "./commands/ResetUserPasswordCommand";
+import { ResetUserPasswordCommandInput, ResetUserPasswordCommandOutput } from "./commands/ResetUserPasswordCommand";
 import {
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput
 } from "./commands/RestoreFromSnapshotCommand";
-import {
-  ShareDirectoryCommandInput,
-  ShareDirectoryCommandOutput
-} from "./commands/ShareDirectoryCommand";
+import { ShareDirectoryCommandInput, ShareDirectoryCommandOutput } from "./commands/ShareDirectoryCommand";
 import {
   StartSchemaExtensionCommandInput,
   StartSchemaExtensionCommandOutput
 } from "./commands/StartSchemaExtensionCommand";
-import {
-  UnshareDirectoryCommandInput,
-  UnshareDirectoryCommandOutput
-} from "./commands/UnshareDirectoryCommand";
+import { UnshareDirectoryCommandInput, UnshareDirectoryCommandOutput } from "./commands/UnshareDirectoryCommand";
 import {
   UpdateConditionalForwarderCommandInput,
   UpdateConditionalForwarderCommandOutput
@@ -214,18 +127,9 @@ import {
   UpdateNumberOfDomainControllersCommandInput,
   UpdateNumberOfDomainControllersCommandOutput
 } from "./commands/UpdateNumberOfDomainControllersCommand";
-import {
-  UpdateRadiusCommandInput,
-  UpdateRadiusCommandOutput
-} from "./commands/UpdateRadiusCommand";
-import {
-  UpdateTrustCommandInput,
-  UpdateTrustCommandOutput
-} from "./commands/UpdateTrustCommand";
-import {
-  VerifyTrustCommandInput,
-  VerifyTrustCommandOutput
-} from "./commands/VerifyTrustCommand";
+import { UpdateRadiusCommandInput, UpdateRadiusCommandOutput } from "./commands/UpdateRadiusCommand";
+import { UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand";
+import { VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -242,12 +146,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -396,8 +295,7 @@ export type ServiceOutputTypes =
   | UpdateTrustCommandOutput
   | VerifyTrustCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -481,9 +379,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DirectoryServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DirectoryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -492,9 +388,7 @@ export type DirectoryServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DirectoryServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DirectoryServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  ListEmailIdentitiesRequest,
-  ListEmailIdentitiesResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListEmailIdentitiesCommand,
   serializeAws_restJson1_1ListEmailIdentitiesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEmailIdentitiesCommandInput = ListEmailIdentitiesRequest;
-export type ListEmailIdentitiesCommandOutput = ListEmailIdentitiesResponse &
-  __MetadataBearer;
+export type ListEmailIdentitiesCommandOutput = ListEmailIdentitiesResponse & __MetadataBearer;
 
 export class ListEmailIdentitiesCommand extends $Command<
   ListEmailIdentitiesCommandInput,
@@ -49,13 +38,8 @@ export class ListEmailIdentitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListEmailIdentitiesCommandInput,
-    ListEmailIdentitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListEmailIdentitiesCommandInput, ListEmailIdentitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListEmailIdentitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEmailIdentitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEmailIdentitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListEmailIdentitiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEmailIdentitiesCommandOutput> {
-    return deserializeAws_restJson1_1ListEmailIdentitiesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEmailIdentitiesCommandOutput> {
+    return deserializeAws_restJson1_1ListEmailIdentitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

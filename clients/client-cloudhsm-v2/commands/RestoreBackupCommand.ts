@@ -1,18 +1,11 @@
-import {
-  CloudHSMV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudHSMV2Client";
+import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
 import { RestoreBackupRequest, RestoreBackupResponse } from "../models/index";
 import {
   deserializeAws_json1_1RestoreBackupCommand,
   serializeAws_json1_1RestoreBackupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreBackupCommandInput = RestoreBackupRequest;
-export type RestoreBackupCommandOutput = RestoreBackupResponse &
-  __MetadataBearer;
+export type RestoreBackupCommandOutput = RestoreBackupResponse & __MetadataBearer;
 
 export class RestoreBackupCommand extends $Command<
   RestoreBackupCommandInput,
@@ -47,9 +39,7 @@ export class RestoreBackupCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreBackupCommandInput, RestoreBackupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class RestoreBackupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RestoreBackupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RestoreBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreBackupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreBackupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreBackupCommandOutput> {
     return deserializeAws_json1_1RestoreBackupCommand(output, context);
   }
 

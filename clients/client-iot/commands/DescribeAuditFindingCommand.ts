@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DescribeAuditFindingRequest,
-  DescribeAuditFindingResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeAuditFindingCommand,
   serializeAws_restJson1_1DescribeAuditFindingCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAuditFindingCommandInput = DescribeAuditFindingRequest;
-export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse &
-  __MetadataBearer;
+export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse & __MetadataBearer;
 
 export class DescribeAuditFindingCommand extends $Command<
   DescribeAuditFindingCommandInput,
@@ -49,13 +38,8 @@ export class DescribeAuditFindingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAuditFindingCommandInput,
-    DescribeAuditFindingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAuditFindingCommandInput, DescribeAuditFindingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DescribeAuditFindingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAuditFindingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAuditFindingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeAuditFindingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAuditFindingCommandOutput> {
-    return deserializeAws_restJson1_1DescribeAuditFindingCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAuditFindingCommandOutput> {
+    return deserializeAws_restJson1_1DescribeAuditFindingCommand(output, context);
   }
 
   // Start section: command_body_extra

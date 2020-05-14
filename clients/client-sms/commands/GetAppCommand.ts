@@ -1,18 +1,8 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
 import { GetAppRequest, GetAppResponse } from "../models/index";
-import {
-  deserializeAws_json1_1GetAppCommand,
-  serializeAws_json1_1GetAppCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1GetAppCommand, serializeAws_json1_1GetAppCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type GetAppCommandInput = GetAppRequest;
 export type GetAppCommandOutput = GetAppResponse & __MetadataBearer;
 
-export class GetAppCommand extends $Command<
-  GetAppCommandInput,
-  GetAppCommandOutput,
-  SMSClientResolvedConfig
-> {
+export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class GetAppCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAppCommandInput, GetAppCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class GetAppCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAppCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAppCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAppCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAppCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> {
     return deserializeAws_json1_1GetAppCommand(output, context);
   }
 

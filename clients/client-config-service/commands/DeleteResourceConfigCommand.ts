@@ -1,18 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteResourceConfigRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteResourceConfigCommand,
   serializeAws_json1_1DeleteResourceConfigCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteResourceConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteResourceConfigCommandInput,
-    DeleteResourceConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteResourceConfigCommandInput, DeleteResourceConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class DeleteResourceConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteResourceConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteResourceConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteResourceConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteResourceConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceConfigCommandOutput> {
     return deserializeAws_json1_1DeleteResourceConfigCommand(output, context);
   }
 

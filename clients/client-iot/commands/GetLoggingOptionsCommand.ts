@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  GetLoggingOptionsRequest,
-  GetLoggingOptionsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { GetLoggingOptionsRequest, GetLoggingOptionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLoggingOptionsCommand,
   serializeAws_restJson1_1GetLoggingOptionsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLoggingOptionsCommandInput = GetLoggingOptionsRequest;
-export type GetLoggingOptionsCommandOutput = GetLoggingOptionsResponse &
-  __MetadataBearer;
+export type GetLoggingOptionsCommandOutput = GetLoggingOptionsResponse & __MetadataBearer;
 
 export class GetLoggingOptionsCommand extends $Command<
   GetLoggingOptionsCommandInput,
@@ -50,9 +39,7 @@ export class GetLoggingOptionsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetLoggingOptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLoggingOptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetLoggingOptionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLoggingOptionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoggingOptionsCommandOutput> {
     return deserializeAws_restJson1_1GetLoggingOptionsCommand(output, context);
   }
 

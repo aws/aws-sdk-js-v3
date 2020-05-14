@@ -1,27 +1,15 @@
-import {
-  CreateAcceleratorCommandInput,
-  CreateAcceleratorCommandOutput
-} from "../commands/CreateAcceleratorCommand";
+import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "../commands/CreateAcceleratorCommand";
 import {
   CreateEndpointGroupCommandInput,
   CreateEndpointGroupCommandOutput
 } from "../commands/CreateEndpointGroupCommand";
-import {
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput
-} from "../commands/CreateListenerCommand";
-import {
-  DeleteAcceleratorCommandInput,
-  DeleteAcceleratorCommandOutput
-} from "../commands/DeleteAcceleratorCommand";
+import { CreateListenerCommandInput, CreateListenerCommandOutput } from "../commands/CreateListenerCommand";
+import { DeleteAcceleratorCommandInput, DeleteAcceleratorCommandOutput } from "../commands/DeleteAcceleratorCommand";
 import {
   DeleteEndpointGroupCommandInput,
   DeleteEndpointGroupCommandOutput
 } from "../commands/DeleteEndpointGroupCommand";
-import {
-  DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
-} from "../commands/DeleteListenerCommand";
+import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
 import {
   DescribeAcceleratorAttributesCommandInput,
   DescribeAcceleratorAttributesCommandOutput
@@ -34,38 +22,20 @@ import {
   DescribeEndpointGroupCommandInput,
   DescribeEndpointGroupCommandOutput
 } from "../commands/DescribeEndpointGroupCommand";
-import {
-  DescribeListenerCommandInput,
-  DescribeListenerCommandOutput
-} from "../commands/DescribeListenerCommand";
-import {
-  ListAcceleratorsCommandInput,
-  ListAcceleratorsCommandOutput
-} from "../commands/ListAcceleratorsCommand";
-import {
-  ListEndpointGroupsCommandInput,
-  ListEndpointGroupsCommandOutput
-} from "../commands/ListEndpointGroupsCommand";
-import {
-  ListListenersCommandInput,
-  ListListenersCommandOutput
-} from "../commands/ListListenersCommand";
+import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "../commands/DescribeListenerCommand";
+import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "../commands/ListAcceleratorsCommand";
+import { ListEndpointGroupsCommandInput, ListEndpointGroupsCommandOutput } from "../commands/ListEndpointGroupsCommand";
+import { ListListenersCommandInput, ListListenersCommandOutput } from "../commands/ListListenersCommand";
 import {
   UpdateAcceleratorAttributesCommandInput,
   UpdateAcceleratorAttributesCommandOutput
 } from "../commands/UpdateAcceleratorAttributesCommand";
-import {
-  UpdateAcceleratorCommandInput,
-  UpdateAcceleratorCommandOutput
-} from "../commands/UpdateAcceleratorCommand";
+import { UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput } from "../commands/UpdateAcceleratorCommand";
 import {
   UpdateEndpointGroupCommandInput,
   UpdateEndpointGroupCommandOutput
 } from "../commands/UpdateEndpointGroupCommand";
-import {
-  UpdateListenerCommandInput,
-  UpdateListenerCommandOutput
-} from "../commands/UpdateListenerCommand";
+import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "../commands/UpdateListenerCommand";
 import {
   Accelerator,
   AcceleratorAttributes,
@@ -120,10 +90,7 @@ import {
   UpdateListenerRequest,
   UpdateListenerResponse
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -142,9 +109,7 @@ export const serializeAws_json1_1CreateAcceleratorCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateAccelerator"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateAcceleratorRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -157,9 +122,7 @@ export const serializeAws_json1_1CreateEndpointGroupCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateEndpointGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateEndpointGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -172,9 +135,7 @@ export const serializeAws_json1_1CreateListenerCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateListener"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateListenerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -187,9 +148,7 @@ export const serializeAws_json1_1DeleteAcceleratorCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteAccelerator"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteAcceleratorRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -202,9 +161,7 @@ export const serializeAws_json1_1DeleteEndpointGroupCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteEndpointGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteEndpointGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -217,9 +174,7 @@ export const serializeAws_json1_1DeleteListenerCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteListener"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteListenerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -232,9 +187,7 @@ export const serializeAws_json1_1DescribeAcceleratorCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAccelerator"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAcceleratorRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -247,9 +200,7 @@ export const serializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -262,9 +213,7 @@ export const serializeAws_json1_1DescribeEndpointGroupCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeEndpointGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEndpointGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -277,9 +226,7 @@ export const serializeAws_json1_1DescribeListenerCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeListener"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeListenerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -292,9 +239,7 @@ export const serializeAws_json1_1ListAcceleratorsCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListAccelerators"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListAcceleratorsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListAcceleratorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -307,9 +252,7 @@ export const serializeAws_json1_1ListEndpointGroupsCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListEndpointGroups"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListEndpointGroupsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListEndpointGroupsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -322,9 +265,7 @@ export const serializeAws_json1_1ListListenersCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListListeners"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListListenersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListListenersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -337,9 +278,7 @@ export const serializeAws_json1_1UpdateAcceleratorCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAccelerator"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateAcceleratorRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateAcceleratorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -352,9 +291,7 @@ export const serializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -367,9 +304,7 @@ export const serializeAws_json1_1UpdateEndpointGroupCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateEndpointGroup"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateEndpointGroupRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateEndpointGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -382,9 +317,7 @@ export const serializeAws_json1_1UpdateListenerCommand = async (
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateListener"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateListenerRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateListenerRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -417,16 +350,12 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -434,10 +363,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -445,10 +371,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -475,10 +398,7 @@ export const deserializeAws_json1_1CreateEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateEndpointGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -502,16 +422,12 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -519,10 +435,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -530,10 +443,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     case "EndpointGroupAlreadyExistsException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupAlreadyExistsException":
       response = {
-        ...(await deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -541,10 +451,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -552,10 +459,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -563,10 +467,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -574,10 +475,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -628,16 +526,12 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -645,10 +539,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -656,10 +547,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -667,10 +555,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
     case "InvalidPortRangeException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -678,10 +563,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -728,16 +610,12 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotDisabledException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotDisabledException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -745,10 +623,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -756,10 +631,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
     case "AssociatedListenerFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AssociatedListenerFoundException":
       response = {
-        ...(await deserializeAws_json1_1AssociatedListenerFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AssociatedListenerFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -767,10 +639,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -778,10 +647,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -808,10 +674,7 @@ export const deserializeAws_json1_1DeleteEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteEndpointGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEndpointGroupCommandOutput = {
@@ -831,16 +694,12 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -848,10 +707,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -859,10 +715,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -909,16 +762,12 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AssociatedEndpointGroupFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AssociatedEndpointGroupFoundException":
       response = {
-        ...(await deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -926,10 +775,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -937,10 +783,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -948,10 +791,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -978,10 +818,7 @@ export const deserializeAws_json1_1DescribeAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAcceleratorCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAcceleratorCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAcceleratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1005,16 +842,12 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1022,10 +855,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1033,10 +863,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1063,17 +890,11 @@ export const deserializeAws_json1_1DescribeAcceleratorAttributesCommand = async 
   context: __SerdeContext
 ): Promise<DescribeAcceleratorAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAcceleratorAttributesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAcceleratorAttributesResponse(data, context);
   const response: DescribeAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAcceleratorAttributesResponse",
@@ -1093,16 +914,12 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1110,10 +927,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1121,10 +935,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1151,10 +962,7 @@ export const deserializeAws_json1_1DescribeEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEndpointGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1178,16 +986,12 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1195,10 +999,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1206,10 +1007,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1260,16 +1058,12 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1277,10 +1071,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1288,10 +1079,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1342,16 +1130,12 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1359,10 +1143,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1370,10 +1151,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1400,10 +1178,7 @@ export const deserializeAws_json1_1ListEndpointGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListEndpointGroupsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListEndpointGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListEndpointGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1427,16 +1202,12 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1444,10 +1215,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1455,10 +1223,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1466,10 +1231,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1520,16 +1282,12 @@ const deserializeAws_json1_1ListListenersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1537,10 +1295,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1548,10 +1303,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1559,10 +1311,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1613,16 +1362,12 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1630,10 +1375,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1641,10 +1383,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1671,17 +1410,11 @@ export const deserializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAcceleratorAttributesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAcceleratorAttributesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAcceleratorAttributesResponse(data, context);
   const response: UpdateAcceleratorAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAcceleratorAttributesResponse",
@@ -1701,16 +1434,12 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#AcceleratorNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1718,10 +1447,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1729,10 +1455,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1740,10 +1463,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1770,10 +1490,7 @@ export const deserializeAws_json1_1UpdateEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEndpointGroupCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateEndpointGroupCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateEndpointGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1797,16 +1514,12 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator.v20180706#AccessDeniedException":
       response = {
-        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1814,10 +1527,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#EndpointGroupNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1825,10 +1535,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1836,10 +1543,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1847,10 +1551,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1901,16 +1602,12 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator.v20180706#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1918,10 +1615,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidArgumentException":
       response = {
-        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1929,10 +1623,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
     case "InvalidPortRangeException":
     case "com.amazonaws.globalaccelerator.v20180706#InvalidPortRangeException":
       response = {
-        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidPortRangeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1940,10 +1631,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator.v20180706#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1951,10 +1639,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator.v20180706#ListenerNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ListenerNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1981,10 +1666,7 @@ const deserializeAws_json1_1AcceleratorNotDisabledExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AcceleratorNotDisabledException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AcceleratorNotDisabledException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AcceleratorNotDisabledException(body, context);
   const contents: AcceleratorNotDisabledException = {
     name: "AcceleratorNotDisabledException",
     $fault: "client",
@@ -1999,10 +1681,7 @@ const deserializeAws_json1_1AcceleratorNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AcceleratorNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AcceleratorNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AcceleratorNotFoundException(body, context);
   const contents: AcceleratorNotFoundException = {
     name: "AcceleratorNotFoundException",
     $fault: "client",
@@ -2017,10 +1696,7 @@ const deserializeAws_json1_1AccessDeniedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AccessDeniedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AccessDeniedException(body, context);
   const contents: AccessDeniedException = {
     name: "AccessDeniedException",
     $fault: "client",
@@ -2035,10 +1711,7 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<AssociatedEndpointGroupFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AssociatedEndpointGroupFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AssociatedEndpointGroupFoundException(body, context);
   const contents: AssociatedEndpointGroupFoundException = {
     name: "AssociatedEndpointGroupFoundException",
     $fault: "client",
@@ -2053,10 +1726,7 @@ const deserializeAws_json1_1AssociatedListenerFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<AssociatedListenerFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AssociatedListenerFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AssociatedListenerFoundException(body, context);
   const contents: AssociatedListenerFoundException = {
     name: "AssociatedListenerFoundException",
     $fault: "client",
@@ -2071,10 +1741,7 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsExceptionResponse = async 
   context: __SerdeContext
 ): Promise<EndpointGroupAlreadyExistsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EndpointGroupAlreadyExistsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EndpointGroupAlreadyExistsException(body, context);
   const contents: EndpointGroupAlreadyExistsException = {
     name: "EndpointGroupAlreadyExistsException",
     $fault: "client",
@@ -2089,10 +1756,7 @@ const deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<EndpointGroupNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1EndpointGroupNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1EndpointGroupNotFoundException(body, context);
   const contents: EndpointGroupNotFoundException = {
     name: "EndpointGroupNotFoundException",
     $fault: "client",
@@ -2107,10 +1771,7 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(body, context);
   const contents: InternalServiceErrorException = {
     name: "InternalServiceErrorException",
     $fault: "server",
@@ -2125,10 +1786,7 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(body, context);
   const contents: InvalidArgumentException = {
     name: "InvalidArgumentException",
     $fault: "client",
@@ -2143,10 +1801,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
@@ -2161,10 +1816,7 @@ const deserializeAws_json1_1InvalidPortRangeExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidPortRangeException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidPortRangeException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidPortRangeException(body, context);
   const contents: InvalidPortRangeException = {
     name: "InvalidPortRangeException",
     $fault: "client",
@@ -2179,10 +1831,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -2197,10 +1846,7 @@ const deserializeAws_json1_1ListenerNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ListenerNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ListenerNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ListenerNotFoundException(body, context);
   const contents: ListenerNotFoundException = {
     name: "ListenerNotFoundException",
     $fault: "client",
@@ -2232,10 +1878,7 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
 ): any => {
   return {
     ...(input.EndpointConfigurations !== undefined && {
-      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(
-        input.EndpointConfigurations,
-        context
-      )
+      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context)
     }),
     ...(input.EndpointGroupRegion !== undefined && {
       EndpointGroupRegion: input.EndpointGroupRegion
@@ -2265,10 +1908,7 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
   };
 };
 
-const serializeAws_json1_1CreateListenerRequest = (
-  input: CreateListenerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateListenerRequest = (input: CreateListenerRequest, context: __SerdeContext): any => {
   return {
     ...(input.AcceleratorArn !== undefined && {
       AcceleratorArn: input.AcceleratorArn
@@ -2308,10 +1948,7 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteListenerRequest = (
-  input: DeleteListenerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteListenerRequest = (input: DeleteListenerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn })
   };
@@ -2350,19 +1987,13 @@ const serializeAws_json1_1DescribeEndpointGroupRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeListenerRequest = (
-  input: DescribeListenerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeListenerRequest = (input: DescribeListenerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn })
   };
 };
 
-const serializeAws_json1_1EndpointConfiguration = (
-  input: EndpointConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EndpointConfiguration = (input: EndpointConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.ClientIPPreservationEnabled !== undefined && {
       ClientIPPreservationEnabled: input.ClientIPPreservationEnabled
@@ -2372,19 +2003,11 @@ const serializeAws_json1_1EndpointConfiguration = (
   };
 };
 
-const serializeAws_json1_1EndpointConfigurations = (
-  input: EndpointConfiguration[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1EndpointConfiguration(entry, context)
-  );
+const serializeAws_json1_1EndpointConfigurations = (input: EndpointConfiguration[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_1EndpointConfiguration(entry, context));
 };
 
-const serializeAws_json1_1ListAcceleratorsRequest = (
-  input: ListAcceleratorsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListAcceleratorsRequest = (input: ListAcceleratorsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken })
@@ -2402,10 +2025,7 @@ const serializeAws_json1_1ListEndpointGroupsRequest = (
   };
 };
 
-const serializeAws_json1_1ListListenersRequest = (
-  input: ListListenersRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListListenersRequest = (input: ListListenersRequest, context: __SerdeContext): any => {
   return {
     ...(input.AcceleratorArn !== undefined && {
       AcceleratorArn: input.AcceleratorArn
@@ -2415,20 +2035,14 @@ const serializeAws_json1_1ListListenersRequest = (
   };
 };
 
-const serializeAws_json1_1PortRange = (
-  input: PortRange,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
     ...(input.ToPort !== undefined && { ToPort: input.ToPort })
   };
 };
 
-const serializeAws_json1_1PortRanges = (
-  input: PortRange[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PortRanges = (input: PortRange[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1PortRange(entry, context));
 };
 
@@ -2474,10 +2088,7 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
 ): any => {
   return {
     ...(input.EndpointConfigurations !== undefined && {
-      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(
-        input.EndpointConfigurations,
-        context
-      )
+      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context)
     }),
     ...(input.EndpointGroupArn !== undefined && {
       EndpointGroupArn: input.EndpointGroupArn
@@ -2503,10 +2114,7 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateListenerRequest = (
-  input: UpdateListenerRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateListenerRequest = (input: UpdateListenerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ClientAffinity !== undefined && {
       ClientAffinity: input.ClientAffinity
@@ -2519,32 +2127,19 @@ const serializeAws_json1_1UpdateListenerRequest = (
   };
 };
 
-const deserializeAws_json1_1Accelerator = (
-  output: any,
-  context: __SerdeContext
-): Accelerator => {
+const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext): Accelerator => {
   return {
     __type: "Accelerator",
     AcceleratorArn:
-      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null
-        ? output.AcceleratorArn
-        : undefined,
+      output.AcceleratorArn !== undefined && output.AcceleratorArn !== null ? output.AcceleratorArn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DnsName:
-      output.DnsName !== undefined && output.DnsName !== null
-        ? output.DnsName
-        : undefined,
-    Enabled:
-      output.Enabled !== undefined && output.Enabled !== null
-        ? output.Enabled
-        : undefined,
+    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     IpAddressType:
-      output.IpAddressType !== undefined && output.IpAddressType !== null
-        ? output.IpAddressType
-        : undefined,
+      output.IpAddressType !== undefined && output.IpAddressType !== null ? output.IpAddressType : undefined,
     IpSets:
       output.IpSets !== undefined && output.IpSets !== null
         ? deserializeAws_json1_1IpSets(output.IpSets, context)
@@ -2553,35 +2148,20 @@ const deserializeAws_json1_1Accelerator = (
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AcceleratorAttributes = (
-  output: any,
-  context: __SerdeContext
-): AcceleratorAttributes => {
+const deserializeAws_json1_1AcceleratorAttributes = (output: any, context: __SerdeContext): AcceleratorAttributes => {
   return {
     __type: "AcceleratorAttributes",
     FlowLogsEnabled:
-      output.FlowLogsEnabled !== undefined && output.FlowLogsEnabled !== null
-        ? output.FlowLogsEnabled
-        : undefined,
+      output.FlowLogsEnabled !== undefined && output.FlowLogsEnabled !== null ? output.FlowLogsEnabled : undefined,
     FlowLogsS3Bucket:
-      output.FlowLogsS3Bucket !== undefined && output.FlowLogsS3Bucket !== null
-        ? output.FlowLogsS3Bucket
-        : undefined,
+      output.FlowLogsS3Bucket !== undefined && output.FlowLogsS3Bucket !== null ? output.FlowLogsS3Bucket : undefined,
     FlowLogsS3Prefix:
-      output.FlowLogsS3Prefix !== undefined && output.FlowLogsS3Prefix !== null
-        ? output.FlowLogsS3Prefix
-        : undefined
+      output.FlowLogsS3Prefix !== undefined && output.FlowLogsS3Prefix !== null ? output.FlowLogsS3Prefix : undefined
   } as any;
 };
 
@@ -2591,10 +2171,7 @@ const deserializeAws_json1_1AcceleratorNotDisabledException = (
 ): AcceleratorNotDisabledException => {
   return {
     __type: "AcceleratorNotDisabledException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2604,32 +2181,18 @@ const deserializeAws_json1_1AcceleratorNotFoundException = (
 ): AcceleratorNotFoundException => {
   return {
     __type: "AcceleratorNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Accelerators = (
-  output: any,
-  context: __SerdeContext
-): Accelerator[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Accelerator(entry, context)
-  );
+const deserializeAws_json1_1Accelerators = (output: any, context: __SerdeContext): Accelerator[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Accelerator(entry, context));
 };
 
-const deserializeAws_json1_1AccessDeniedException = (
-  output: any,
-  context: __SerdeContext
-): AccessDeniedException => {
+const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     __type: "AccessDeniedException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2639,10 +2202,7 @@ const deserializeAws_json1_1AssociatedEndpointGroupFoundException = (
 ): AssociatedEndpointGroupFoundException => {
   return {
     __type: "AssociatedEndpointGroupFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2652,10 +2212,7 @@ const deserializeAws_json1_1AssociatedListenerFoundException = (
 ): AssociatedListenerFoundException => {
   return {
     __type: "AssociatedListenerFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2685,10 +2242,7 @@ const deserializeAws_json1_1CreateEndpointGroupResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateListenerResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateListenerResponse => {
+const deserializeAws_json1_1CreateListenerResponse = (output: any, context: __SerdeContext): CreateListenerResponse => {
   return {
     __type: "CreateListenerResponse",
     Listener:
@@ -2705,12 +2259,8 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesResponse = (
   return {
     __type: "DescribeAcceleratorAttributesResponse",
     AcceleratorAttributes:
-      output.AcceleratorAttributes !== undefined &&
-      output.AcceleratorAttributes !== null
-        ? deserializeAws_json1_1AcceleratorAttributes(
-            output.AcceleratorAttributes,
-            context
-          )
+      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+        ? deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context)
         : undefined
   } as any;
 };
@@ -2754,93 +2304,53 @@ const deserializeAws_json1_1DescribeListenerResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1EndpointDescription = (
-  output: any,
-  context: __SerdeContext
-): EndpointDescription => {
+const deserializeAws_json1_1EndpointDescription = (output: any, context: __SerdeContext): EndpointDescription => {
   return {
     __type: "EndpointDescription",
     ClientIPPreservationEnabled:
-      output.ClientIPPreservationEnabled !== undefined &&
-      output.ClientIPPreservationEnabled !== null
+      output.ClientIPPreservationEnabled !== undefined && output.ClientIPPreservationEnabled !== null
         ? output.ClientIPPreservationEnabled
         : undefined,
-    EndpointId:
-      output.EndpointId !== undefined && output.EndpointId !== null
-        ? output.EndpointId
-        : undefined,
-    HealthReason:
-      output.HealthReason !== undefined && output.HealthReason !== null
-        ? output.HealthReason
-        : undefined,
-    HealthState:
-      output.HealthState !== undefined && output.HealthState !== null
-        ? output.HealthState
-        : undefined,
-    Weight:
-      output.Weight !== undefined && output.Weight !== null
-        ? output.Weight
-        : undefined
+    EndpointId: output.EndpointId !== undefined && output.EndpointId !== null ? output.EndpointId : undefined,
+    HealthReason: output.HealthReason !== undefined && output.HealthReason !== null ? output.HealthReason : undefined,
+    HealthState: output.HealthState !== undefined && output.HealthState !== null ? output.HealthState : undefined,
+    Weight: output.Weight !== undefined && output.Weight !== null ? output.Weight : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EndpointDescriptions = (
-  output: any,
-  context: __SerdeContext
-): EndpointDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EndpointDescription(entry, context)
-  );
+const deserializeAws_json1_1EndpointDescriptions = (output: any, context: __SerdeContext): EndpointDescription[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EndpointDescription(entry, context));
 };
 
-const deserializeAws_json1_1EndpointGroup = (
-  output: any,
-  context: __SerdeContext
-): EndpointGroup => {
+const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContext): EndpointGroup => {
   return {
     __type: "EndpointGroup",
     EndpointDescriptions:
-      output.EndpointDescriptions !== undefined &&
-      output.EndpointDescriptions !== null
-        ? deserializeAws_json1_1EndpointDescriptions(
-            output.EndpointDescriptions,
-            context
-          )
+      output.EndpointDescriptions !== undefined && output.EndpointDescriptions !== null
+        ? deserializeAws_json1_1EndpointDescriptions(output.EndpointDescriptions, context)
         : undefined,
     EndpointGroupArn:
-      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null
-        ? output.EndpointGroupArn
-        : undefined,
+      output.EndpointGroupArn !== undefined && output.EndpointGroupArn !== null ? output.EndpointGroupArn : undefined,
     EndpointGroupRegion:
-      output.EndpointGroupRegion !== undefined &&
-      output.EndpointGroupRegion !== null
+      output.EndpointGroupRegion !== undefined && output.EndpointGroupRegion !== null
         ? output.EndpointGroupRegion
         : undefined,
     HealthCheckIntervalSeconds:
-      output.HealthCheckIntervalSeconds !== undefined &&
-      output.HealthCheckIntervalSeconds !== null
+      output.HealthCheckIntervalSeconds !== undefined && output.HealthCheckIntervalSeconds !== null
         ? output.HealthCheckIntervalSeconds
         : undefined,
     HealthCheckPath:
-      output.HealthCheckPath !== undefined && output.HealthCheckPath !== null
-        ? output.HealthCheckPath
-        : undefined,
+      output.HealthCheckPath !== undefined && output.HealthCheckPath !== null ? output.HealthCheckPath : undefined,
     HealthCheckPort:
-      output.HealthCheckPort !== undefined && output.HealthCheckPort !== null
-        ? output.HealthCheckPort
-        : undefined,
+      output.HealthCheckPort !== undefined && output.HealthCheckPort !== null ? output.HealthCheckPort : undefined,
     HealthCheckProtocol:
-      output.HealthCheckProtocol !== undefined &&
-      output.HealthCheckProtocol !== null
+      output.HealthCheckProtocol !== undefined && output.HealthCheckProtocol !== null
         ? output.HealthCheckProtocol
         : undefined,
     ThresholdCount:
-      output.ThresholdCount !== undefined && output.ThresholdCount !== null
-        ? output.ThresholdCount
-        : undefined,
+      output.ThresholdCount !== undefined && output.ThresholdCount !== null ? output.ThresholdCount : undefined,
     TrafficDialPercentage:
-      output.TrafficDialPercentage !== undefined &&
-      output.TrafficDialPercentage !== null
+      output.TrafficDialPercentage !== undefined && output.TrafficDialPercentage !== null
         ? output.TrafficDialPercentage
         : undefined
   } as any;
@@ -2852,10 +2362,7 @@ const deserializeAws_json1_1EndpointGroupAlreadyExistsException = (
 ): EndpointGroupAlreadyExistsException => {
   return {
     __type: "EndpointGroupAlreadyExistsException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2865,20 +2372,12 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
 ): EndpointGroupNotFoundException => {
   return {
     __type: "EndpointGroupNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1EndpointGroups = (
-  output: any,
-  context: __SerdeContext
-): EndpointGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1EndpointGroup(entry, context)
-  );
+const deserializeAws_json1_1EndpointGroups = (output: any, context: __SerdeContext): EndpointGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EndpointGroup(entry, context));
 };
 
 const deserializeAws_json1_1InternalServiceErrorException = (
@@ -2887,10 +2386,7 @@ const deserializeAws_json1_1InternalServiceErrorException = (
 ): InternalServiceErrorException => {
   return {
     __type: "InternalServiceErrorException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2900,10 +2396,7 @@ const deserializeAws_json1_1InvalidArgumentException = (
 ): InvalidArgumentException => {
   return {
     __type: "InvalidArgumentException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2913,10 +2406,7 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   return {
     __type: "InvalidNextTokenException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2926,56 +2416,33 @@ const deserializeAws_json1_1InvalidPortRangeException = (
 ): InvalidPortRangeException => {
   return {
     __type: "InvalidPortRangeException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IpAddresses = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1IpAddresses = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1IpSet = (
-  output: any,
-  context: __SerdeContext
-): IpSet => {
+const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSet => {
   return {
     __type: "IpSet",
     IpAddresses:
       output.IpAddresses !== undefined && output.IpAddresses !== null
         ? deserializeAws_json1_1IpAddresses(output.IpAddresses, context)
         : undefined,
-    IpFamily:
-      output.IpFamily !== undefined && output.IpFamily !== null
-        ? output.IpFamily
-        : undefined
+    IpFamily: output.IpFamily !== undefined && output.IpFamily !== null ? output.IpFamily : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IpSets = (
-  output: any,
-  context: __SerdeContext
-): IpSet[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1IpSet(entry, context)
-  );
+const deserializeAws_json1_1IpSets = (output: any, context: __SerdeContext): IpSet[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1IpSet(entry, context));
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2989,10 +2456,7 @@ const deserializeAws_json1_1ListAcceleratorsResponse = (
       output.Accelerators !== undefined && output.Accelerators !== null
         ? deserializeAws_json1_1Accelerators(output.Accelerators, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
@@ -3006,52 +2470,32 @@ const deserializeAws_json1_1ListEndpointGroupsResponse = (
       output.EndpointGroups !== undefined && output.EndpointGroups !== null
         ? deserializeAws_json1_1EndpointGroups(output.EndpointGroups, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListListenersResponse = (
-  output: any,
-  context: __SerdeContext
-): ListListenersResponse => {
+const deserializeAws_json1_1ListListenersResponse = (output: any, context: __SerdeContext): ListListenersResponse => {
   return {
     __type: "ListListenersResponse",
     Listeners:
       output.Listeners !== undefined && output.Listeners !== null
         ? deserializeAws_json1_1Listeners(output.Listeners, context)
         : undefined,
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Listener = (
-  output: any,
-  context: __SerdeContext
-): Listener => {
+const deserializeAws_json1_1Listener = (output: any, context: __SerdeContext): Listener => {
   return {
     __type: "Listener",
     ClientAffinity:
-      output.ClientAffinity !== undefined && output.ClientAffinity !== null
-        ? output.ClientAffinity
-        : undefined,
-    ListenerArn:
-      output.ListenerArn !== undefined && output.ListenerArn !== null
-        ? output.ListenerArn
-        : undefined,
+      output.ClientAffinity !== undefined && output.ClientAffinity !== null ? output.ClientAffinity : undefined,
+    ListenerArn: output.ListenerArn !== undefined && output.ListenerArn !== null ? output.ListenerArn : undefined,
     PortRanges:
       output.PortRanges !== undefined && output.PortRanges !== null
         ? deserializeAws_json1_1PortRanges(output.PortRanges, context)
         : undefined,
-    Protocol:
-      output.Protocol !== undefined && output.Protocol !== null
-        ? output.Protocol
-        : undefined
+    Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined
   } as any;
 };
 
@@ -3061,46 +2505,24 @@ const deserializeAws_json1_1ListenerNotFoundException = (
 ): ListenerNotFoundException => {
   return {
     __type: "ListenerNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Listeners = (
-  output: any,
-  context: __SerdeContext
-): Listener[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Listener(entry, context)
-  );
+const deserializeAws_json1_1Listeners = (output: any, context: __SerdeContext): Listener[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Listener(entry, context));
 };
 
-const deserializeAws_json1_1PortRange = (
-  output: any,
-  context: __SerdeContext
-): PortRange => {
+const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
     __type: "PortRange",
-    FromPort:
-      output.FromPort !== undefined && output.FromPort !== null
-        ? output.FromPort
-        : undefined,
-    ToPort:
-      output.ToPort !== undefined && output.ToPort !== null
-        ? output.ToPort
-        : undefined
+    FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
+    ToPort: output.ToPort !== undefined && output.ToPort !== null ? output.ToPort : undefined
   } as any;
 };
 
-const deserializeAws_json1_1PortRanges = (
-  output: any,
-  context: __SerdeContext
-): PortRange[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1PortRange(entry, context)
-  );
+const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PortRange(entry, context));
 };
 
 const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
@@ -3110,12 +2532,8 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesResponse = (
   return {
     __type: "UpdateAcceleratorAttributesResponse",
     AcceleratorAttributes:
-      output.AcceleratorAttributes !== undefined &&
-      output.AcceleratorAttributes !== null
-        ? deserializeAws_json1_1AcceleratorAttributes(
-            output.AcceleratorAttributes,
-            context
-          )
+      output.AcceleratorAttributes !== undefined && output.AcceleratorAttributes !== null
+        ? deserializeAws_json1_1AcceleratorAttributes(output.AcceleratorAttributes, context)
         : undefined
   } as any;
 };
@@ -3146,10 +2564,7 @@ const deserializeAws_json1_1UpdateEndpointGroupResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateListenerResponse = (
-  output: any,
-  context: __SerdeContext
-): UpdateListenerResponse => {
+const deserializeAws_json1_1UpdateListenerResponse = (output: any, context: __SerdeContext): UpdateListenerResponse => {
   return {
     __type: "UpdateListenerResponse",
     Listener:
@@ -3166,23 +2581,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

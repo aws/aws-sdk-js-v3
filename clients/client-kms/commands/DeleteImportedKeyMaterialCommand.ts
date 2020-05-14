@@ -1,18 +1,11 @@
-import {
-  KMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KMSClient";
+import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import { DeleteImportedKeyMaterialRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteImportedKeyMaterialCommand,
   serializeAws_json1_1DeleteImportedKeyMaterialCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteImportedKeyMaterialCommandInput,
-    DeleteImportedKeyMaterialCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteImportedKeyMaterialCommandInput, DeleteImportedKeyMaterialCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,10 +54,7 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteImportedKeyMaterialCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteImportedKeyMaterialCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteImportedKeyMaterialCommand(input, context);
   }
 
@@ -77,10 +62,7 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteImportedKeyMaterialCommandOutput> {
-    return deserializeAws_json1_1DeleteImportedKeyMaterialCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteImportedKeyMaterialCommand(output, context);
   }
 
   // Start section: command_body_extra

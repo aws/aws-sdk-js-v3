@@ -1,21 +1,11 @@
-import {
-  LakeFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LakeFormationClient";
-import {
-  GrantPermissionsRequest,
-  GrantPermissionsResponse
-} from "../models/index";
+import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GrantPermissionsCommand,
   serializeAws_json1_1GrantPermissionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GrantPermissionsCommandInput = GrantPermissionsRequest;
-export type GrantPermissionsCommandOutput = GrantPermissionsResponse &
-  __MetadataBearer;
+export type GrantPermissionsCommandOutput = GrantPermissionsResponse & __MetadataBearer;
 
 export class GrantPermissionsCommand extends $Command<
   GrantPermissionsCommandInput,
@@ -50,9 +39,7 @@ export class GrantPermissionsCommand extends $Command<
     configuration: LakeFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GrantPermissionsCommandInput, GrantPermissionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GrantPermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GrantPermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GrantPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GrantPermissionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GrantPermissionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GrantPermissionsCommandOutput> {
     return deserializeAws_json1_1GrantPermissionsCommand(output, context);
   }
 

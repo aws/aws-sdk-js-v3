@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   SetIdentityFeedbackForwardingEnabledRequest,
   SetIdentityFeedbackForwardingEnabledResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_querySetIdentityFeedbackForwardingEnabledCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: SetIdentityFeedbackForwardingEnabledCommandInput
-  ) {
+  constructor(readonly input: SetIdentityFeedbackForwardingEnabledCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetIdentityFeedbackForwardingEnabledCommandInput,
-    SetIdentityFeedbackForwardingEnabledCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetIdentityFeedbackForwardingEnabledCommandInput, SetIdentityFeedbackForwardingEnabledCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
     input: SetIdentityFeedbackForwardingEnabledCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_querySetIdentityFeedbackForwardingEnabledCommand(
-      input,
-      context
-    );
+    return serializeAws_querySetIdentityFeedbackForwardingEnabledCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> {
-    return deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand(
-      output,
-      context
-    );
+    return deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand(output, context);
   }
 
   // Start section: command_body_extra

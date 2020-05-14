@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  GetPolicyVersionRequest,
-  GetPolicyVersionResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { GetPolicyVersionRequest, GetPolicyVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPolicyVersionCommand,
   serializeAws_restJson1_1GetPolicyVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPolicyVersionCommandInput = GetPolicyVersionRequest;
-export type GetPolicyVersionCommandOutput = GetPolicyVersionResponse &
-  __MetadataBearer;
+export type GetPolicyVersionCommandOutput = GetPolicyVersionResponse & __MetadataBearer;
 
 export class GetPolicyVersionCommand extends $Command<
   GetPolicyVersionCommandInput,
@@ -50,9 +39,7 @@ export class GetPolicyVersionCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetPolicyVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPolicyVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPolicyVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetPolicyVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPolicyVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPolicyVersionCommandOutput> {
     return deserializeAws_restJson1_1GetPolicyVersionCommand(output, context);
   }
 

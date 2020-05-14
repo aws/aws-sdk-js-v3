@@ -1,18 +1,11 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { DeletePermissionRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeletePermissionCommand,
   serializeAws_json1_1DeletePermissionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeletePermissionCommand extends $Command<
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePermissionCommandInput, DeletePermissionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeletePermissionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePermissionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeletePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeletePermissionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeletePermissionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePermissionCommandOutput> {
     return deserializeAws_json1_1DeletePermissionCommand(output, context);
   }
 

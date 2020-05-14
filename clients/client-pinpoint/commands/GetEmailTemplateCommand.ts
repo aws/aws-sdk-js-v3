@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetEmailTemplateRequest,
-  GetEmailTemplateResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetEmailTemplateCommand,
   serializeAws_restJson1_1GetEmailTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEmailTemplateCommandInput = GetEmailTemplateRequest;
-export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse &
-  __MetadataBearer;
+export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse & __MetadataBearer;
 
 export class GetEmailTemplateCommand extends $Command<
   GetEmailTemplateCommandInput,
@@ -50,9 +39,7 @@ export class GetEmailTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetEmailTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEmailTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetEmailTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEmailTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEmailTemplateCommandOutput> {
     return deserializeAws_restJson1_1GetEmailTemplateCommand(output, context);
   }
 

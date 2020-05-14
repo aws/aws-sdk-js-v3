@@ -1,13 +1,5 @@
-import {
-  createServer as createHttpServer,
-  Server as HttpServer,
-  IncomingMessage,
-  ServerResponse
-} from "http";
-import {
-  createServer as createHttpsServer,
-  Server as HttpsServer
-} from "https";
+import { createServer as createHttpServer, Server as HttpServer, IncomingMessage, ServerResponse } from "http";
+import { createServer as createHttpsServer, Server as HttpsServer } from "https";
 import { createServer as createHttp2Server, Http2Server } from "http2";
 import { readFileSync } from "fs";
 import { join } from "path";

@@ -1,18 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import { PutRolePermissionsBoundaryRequest } from "../models/index";
 import {
   deserializeAws_queryPutRolePermissionsBoundaryCommand,
   serializeAws_queryPutRolePermissionsBoundaryCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutRolePermissionsBoundaryCommandInput,
-    PutRolePermissionsBoundaryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutRolePermissionsBoundaryCommandInput, PutRolePermissionsBoundaryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,10 +54,7 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutRolePermissionsBoundaryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutRolePermissionsBoundaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryPutRolePermissionsBoundaryCommand(input, context);
   }
 
@@ -77,10 +62,7 @@ export class PutRolePermissionsBoundaryCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutRolePermissionsBoundaryCommandOutput> {
-    return deserializeAws_queryPutRolePermissionsBoundaryCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryPutRolePermissionsBoundaryCommand(output, context);
   }
 
   // Start section: command_body_extra

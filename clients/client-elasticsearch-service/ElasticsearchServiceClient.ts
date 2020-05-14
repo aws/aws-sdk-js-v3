@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput
@@ -46,18 +43,9 @@ import {
   GetCompatibleElasticsearchVersionsCommandInput,
   GetCompatibleElasticsearchVersionsCommandOutput
 } from "./commands/GetCompatibleElasticsearchVersionsCommand";
-import {
-  GetUpgradeHistoryCommandInput,
-  GetUpgradeHistoryCommandOutput
-} from "./commands/GetUpgradeHistoryCommand";
-import {
-  GetUpgradeStatusCommandInput,
-  GetUpgradeStatusCommandOutput
-} from "./commands/GetUpgradeStatusCommand";
-import {
-  ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput
-} from "./commands/ListDomainNamesCommand";
+import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
+import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import {
   ListElasticsearchInstanceTypesCommandInput,
   ListElasticsearchInstanceTypesCommandOutput
@@ -66,18 +54,12 @@ import {
   ListElasticsearchVersionsCommandInput,
   ListElasticsearchVersionsCommandOutput
 } from "./commands/ListElasticsearchVersionsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
   PurchaseReservedElasticsearchInstanceOfferingCommandOutput
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommandInput,
   StartElasticsearchServiceSoftwareUpdateCommandOutput
@@ -106,12 +88,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -192,8 +169,7 @@ export type ServiceOutputTypes =
   | UpdateElasticsearchDomainConfigCommandOutput
   | UpgradeElasticsearchDomainCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -277,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticsearchServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticsearchServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -288,9 +262,7 @@ export type ElasticsearchServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticsearchServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElasticsearchServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

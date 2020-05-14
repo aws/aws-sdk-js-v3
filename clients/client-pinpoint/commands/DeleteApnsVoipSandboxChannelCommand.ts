@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  DeleteApnsVoipSandboxChannelRequest,
-  DeleteApnsVoipSandboxChannelResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { DeleteApnsVoipSandboxChannelRequest, DeleteApnsVoipSandboxChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand,
   serializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteApnsVoipSandboxChannelCommandInput = DeleteApnsVoipSandboxChannelRequest;
-export type DeleteApnsVoipSandboxChannelCommandOutput = DeleteApnsVoipSandboxChannelResponse &
-  __MetadataBearer;
+export type DeleteApnsVoipSandboxChannelCommandOutput = DeleteApnsVoipSandboxChannelResponse & __MetadataBearer;
 
 export class DeleteApnsVoipSandboxChannelCommand extends $Command<
   DeleteApnsVoipSandboxChannelCommandInput,
@@ -49,13 +38,8 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteApnsVoipSandboxChannelCommandInput,
-    DeleteApnsVoipSandboxChannelCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteApnsVoipSandboxChannelCommandInput, DeleteApnsVoipSandboxChannelCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class DeleteApnsVoipSandboxChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteApnsVoipSandboxChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteApnsVoipSandboxChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> {
-    return deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteApnsVoipSandboxChannelCommand(output, context);
   }
 
   // Start section: command_body_extra

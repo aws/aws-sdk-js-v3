@@ -1,21 +1,11 @@
-import {
-  S3ControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3ControlClient";
-import {
-  GetPublicAccessBlockOutput,
-  GetPublicAccessBlockRequest
-} from "../models/index";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
+import { GetPublicAccessBlockOutput, GetPublicAccessBlockRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetPublicAccessBlockCommand,
   serializeAws_restXmlGetPublicAccessBlockCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPublicAccessBlockCommandInput = GetPublicAccessBlockRequest;
-export type GetPublicAccessBlockCommandOutput = GetPublicAccessBlockOutput &
-  __MetadataBearer;
+export type GetPublicAccessBlockCommandOutput = GetPublicAccessBlockOutput & __MetadataBearer;
 
 export class GetPublicAccessBlockCommand extends $Command<
   GetPublicAccessBlockCommandInput,
@@ -49,13 +38,8 @@ export class GetPublicAccessBlockCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPublicAccessBlockCommandInput,
-    GetPublicAccessBlockCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPublicAccessBlockCommandInput, GetPublicAccessBlockCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class GetPublicAccessBlockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPublicAccessBlockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetPublicAccessBlockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPublicAccessBlockCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicAccessBlockCommandOutput> {
     return deserializeAws_restXmlGetPublicAccessBlockCommand(output, context);
   }
 

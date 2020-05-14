@@ -1,18 +1,8 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { StopTaskRequest, StopTaskResponse } from "../models/index";
-import {
-  deserializeAws_json1_1StopTaskCommand,
-  serializeAws_json1_1StopTaskCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1StopTaskCommand, serializeAws_json1_1StopTaskCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type StopTaskCommandInput = StopTaskRequest;
 export type StopTaskCommandOutput = StopTaskResponse & __MetadataBearer;
 
-export class StopTaskCommand extends $Command<
-  StopTaskCommandInput,
-  StopTaskCommandOutput,
-  ECSClientResolvedConfig
-> {
+export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class StopTaskCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopTaskCommandInput, StopTaskCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class StopTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopTaskCommandOutput> {
     return deserializeAws_json1_1StopTaskCommand(output, context);
   }
 

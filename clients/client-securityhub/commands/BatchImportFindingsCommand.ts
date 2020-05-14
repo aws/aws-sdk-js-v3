@@ -1,21 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient";
-import {
-  BatchImportFindingsRequest,
-  BatchImportFindingsResponse
-} from "../models/index";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchImportFindingsCommand,
   serializeAws_restJson1_1BatchImportFindingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchImportFindingsCommandInput = BatchImportFindingsRequest;
-export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse &
-  __MetadataBearer;
+export type BatchImportFindingsCommandOutput = BatchImportFindingsResponse & __MetadataBearer;
 
 export class BatchImportFindingsCommand extends $Command<
   BatchImportFindingsCommandInput,
@@ -49,13 +38,8 @@ export class BatchImportFindingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchImportFindingsCommandInput,
-    BatchImportFindingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchImportFindingsCommandInput, BatchImportFindingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class BatchImportFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchImportFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchImportFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchImportFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchImportFindingsCommandOutput> {
-    return deserializeAws_restJson1_1BatchImportFindingsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchImportFindingsCommandOutput> {
+    return deserializeAws_restJson1_1BatchImportFindingsCommand(output, context);
   }
 
   // Start section: command_body_extra

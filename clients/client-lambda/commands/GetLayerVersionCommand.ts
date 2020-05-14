@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetLayerVersionRequest,
-  GetLayerVersionResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetLayerVersionRequest, GetLayerVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLayerVersionCommand,
   serializeAws_restJson1_1GetLayerVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLayerVersionCommandInput = GetLayerVersionRequest;
-export type GetLayerVersionCommandOutput = GetLayerVersionResponse &
-  __MetadataBearer;
+export type GetLayerVersionCommandOutput = GetLayerVersionResponse & __MetadataBearer;
 
 export class GetLayerVersionCommand extends $Command<
   GetLayerVersionCommandInput,
@@ -50,9 +39,7 @@ export class GetLayerVersionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLayerVersionCommandInput, GetLayerVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetLayerVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLayerVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLayerVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetLayerVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLayerVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionCommandOutput> {
     return deserializeAws_restJson1_1GetLayerVersionCommand(output, context);
   }
 

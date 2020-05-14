@@ -6,26 +6,11 @@ import {
   BatchDeleteImportDataCommandInput,
   BatchDeleteImportDataCommandOutput
 } from "./commands/BatchDeleteImportDataCommand";
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  DeleteApplicationsCommandInput,
-  DeleteApplicationsCommandOutput
-} from "./commands/DeleteApplicationsCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DescribeAgentsCommandInput,
-  DescribeAgentsCommandOutput
-} from "./commands/DescribeAgentsCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput } from "./commands/DeleteApplicationsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "./commands/DescribeAgentsCommand";
 import {
   DescribeConfigurationsCommandInput,
   DescribeConfigurationsCommandOutput
@@ -46,10 +31,7 @@ import {
   DescribeImportTasksCommandInput,
   DescribeImportTasksCommandOutput
 } from "./commands/DescribeImportTasksCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DisassociateConfigurationItemsFromApplicationCommandInput,
   DisassociateConfigurationItemsFromApplicationCommandOutput
@@ -62,10 +44,7 @@ import {
   GetDiscoverySummaryCommandInput,
   GetDiscoverySummaryCommandOutput
 } from "./commands/GetDiscoverySummaryCommand";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput
-} from "./commands/ListConfigurationsCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import {
   ListServerNeighborsCommandInput,
   ListServerNeighborsCommandOutput
@@ -78,14 +57,8 @@ import {
   StartDataCollectionByAgentIdsCommandInput,
   StartDataCollectionByAgentIdsCommandOutput
 } from "./commands/StartDataCollectionByAgentIdsCommand";
-import {
-  StartExportTaskCommandInput,
-  StartExportTaskCommandOutput
-} from "./commands/StartExportTaskCommand";
-import {
-  StartImportTaskCommandInput,
-  StartImportTaskCommandOutput
-} from "./commands/StartImportTaskCommand";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
+import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
 import {
   StopContinuousExportCommandInput,
   StopContinuousExportCommandOutput
@@ -94,10 +67,7 @@ import {
   StopDataCollectionByAgentIdsCommandInput,
   StopDataCollectionByAgentIdsCommandOutput
 } from "./commands/StopDataCollectionByAgentIdsCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -114,12 +84,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -204,8 +169,7 @@ export type ServiceOutputTypes =
   | StopDataCollectionByAgentIdsCommandOutput
   | UpdateApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -289,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApplicationDiscoveryServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApplicationDiscoveryServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -300,9 +262,7 @@ export type ApplicationDiscoveryServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApplicationDiscoveryServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApplicationDiscoveryServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

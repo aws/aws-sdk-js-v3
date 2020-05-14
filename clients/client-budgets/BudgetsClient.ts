@@ -1,39 +1,15 @@
-import {
-  CreateBudgetCommandInput,
-  CreateBudgetCommandOutput
-} from "./commands/CreateBudgetCommand";
-import {
-  CreateNotificationCommandInput,
-  CreateNotificationCommandOutput
-} from "./commands/CreateNotificationCommand";
-import {
-  CreateSubscriberCommandInput,
-  CreateSubscriberCommandOutput
-} from "./commands/CreateSubscriberCommand";
-import {
-  DeleteBudgetCommandInput,
-  DeleteBudgetCommandOutput
-} from "./commands/DeleteBudgetCommand";
-import {
-  DeleteNotificationCommandInput,
-  DeleteNotificationCommandOutput
-} from "./commands/DeleteNotificationCommand";
-import {
-  DeleteSubscriberCommandInput,
-  DeleteSubscriberCommandOutput
-} from "./commands/DeleteSubscriberCommand";
-import {
-  DescribeBudgetCommandInput,
-  DescribeBudgetCommandOutput
-} from "./commands/DescribeBudgetCommand";
+import { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "./commands/CreateBudgetCommand";
+import { CreateNotificationCommandInput, CreateNotificationCommandOutput } from "./commands/CreateNotificationCommand";
+import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "./commands/CreateSubscriberCommand";
+import { DeleteBudgetCommandInput, DeleteBudgetCommandOutput } from "./commands/DeleteBudgetCommand";
+import { DeleteNotificationCommandInput, DeleteNotificationCommandOutput } from "./commands/DeleteNotificationCommand";
+import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "./commands/DeleteSubscriberCommand";
+import { DescribeBudgetCommandInput, DescribeBudgetCommandOutput } from "./commands/DescribeBudgetCommand";
 import {
   DescribeBudgetPerformanceHistoryCommandInput,
   DescribeBudgetPerformanceHistoryCommandOutput
 } from "./commands/DescribeBudgetPerformanceHistoryCommand";
-import {
-  DescribeBudgetsCommandInput,
-  DescribeBudgetsCommandOutput
-} from "./commands/DescribeBudgetsCommand";
+import { DescribeBudgetsCommandInput, DescribeBudgetsCommandOutput } from "./commands/DescribeBudgetsCommand";
 import {
   DescribeNotificationsForBudgetCommandInput,
   DescribeNotificationsForBudgetCommandOutput
@@ -42,18 +18,9 @@ import {
   DescribeSubscribersForNotificationCommandInput,
   DescribeSubscribersForNotificationCommandOutput
 } from "./commands/DescribeSubscribersForNotificationCommand";
-import {
-  UpdateBudgetCommandInput,
-  UpdateBudgetCommandOutput
-} from "./commands/UpdateBudgetCommand";
-import {
-  UpdateNotificationCommandInput,
-  UpdateNotificationCommandOutput
-} from "./commands/UpdateNotificationCommand";
-import {
-  UpdateSubscriberCommandInput,
-  UpdateSubscriberCommandOutput
-} from "./commands/UpdateSubscriberCommand";
+import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "./commands/UpdateBudgetCommand";
+import { UpdateNotificationCommandInput, UpdateNotificationCommandOutput } from "./commands/UpdateNotificationCommand";
+import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "./commands/UpdateSubscriberCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -70,12 +37,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -138,8 +100,7 @@ export type ServiceOutputTypes =
   | UpdateNotificationCommandOutput
   | UpdateSubscriberCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -223,9 +184,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type BudgetsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type BudgetsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -234,9 +193,7 @@ export type BudgetsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type BudgetsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

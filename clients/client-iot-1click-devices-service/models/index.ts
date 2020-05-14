@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface Attributes {
@@ -21,8 +18,7 @@ export interface ClaimDevicesByClaimCodeRequest {
 }
 
 export namespace ClaimDevicesByClaimCodeRequest {
-  export const isa = (o: any): o is ClaimDevicesByClaimCodeRequest =>
-    __isa(o, "ClaimDevicesByClaimCodeRequest");
+  export const isa = (o: any): o is ClaimDevicesByClaimCodeRequest => __isa(o, "ClaimDevicesByClaimCodeRequest");
 }
 
 export interface ClaimDevicesByClaimCodeResponse {
@@ -40,8 +36,7 @@ export interface ClaimDevicesByClaimCodeResponse {
 }
 
 export namespace ClaimDevicesByClaimCodeResponse {
-  export const isa = (o: any): o is ClaimDevicesByClaimCodeResponse =>
-    __isa(o, "ClaimDevicesByClaimCodeResponse");
+  export const isa = (o: any): o is ClaimDevicesByClaimCodeResponse => __isa(o, "ClaimDevicesByClaimCodeResponse");
 }
 
 export interface DescribeDeviceRequest {
@@ -53,8 +48,7 @@ export interface DescribeDeviceRequest {
 }
 
 export namespace DescribeDeviceRequest {
-  export const isa = (o: any): o is DescribeDeviceRequest =>
-    __isa(o, "DescribeDeviceRequest");
+  export const isa = (o: any): o is DescribeDeviceRequest => __isa(o, "DescribeDeviceRequest");
 }
 
 export interface DescribeDeviceResponse {
@@ -66,8 +60,7 @@ export interface DescribeDeviceResponse {
 }
 
 export namespace DescribeDeviceResponse {
-  export const isa = (o: any): o is DescribeDeviceResponse =>
-    __isa(o, "DescribeDeviceResponse");
+  export const isa = (o: any): o is DescribeDeviceResponse => __isa(o, "DescribeDeviceResponse");
 }
 
 export interface Device {
@@ -133,8 +126,7 @@ export interface DeviceDescription {
 }
 
 export namespace DeviceDescription {
-  export const isa = (o: any): o is DeviceDescription =>
-    __isa(o, "DeviceDescription");
+  export const isa = (o: any): o is DeviceDescription => __isa(o, "DeviceDescription");
 }
 
 export interface DeviceEvent {
@@ -189,8 +181,7 @@ export interface FinalizeDeviceClaimRequest {
 }
 
 export namespace FinalizeDeviceClaimRequest {
-  export const isa = (o: any): o is FinalizeDeviceClaimRequest =>
-    __isa(o, "FinalizeDeviceClaimRequest");
+  export const isa = (o: any): o is FinalizeDeviceClaimRequest => __isa(o, "FinalizeDeviceClaimRequest");
 }
 
 export interface FinalizeDeviceClaimResponse {
@@ -202,8 +193,7 @@ export interface FinalizeDeviceClaimResponse {
 }
 
 export namespace FinalizeDeviceClaimResponse {
-  export const isa = (o: any): o is FinalizeDeviceClaimResponse =>
-    __isa(o, "FinalizeDeviceClaimResponse");
+  export const isa = (o: any): o is FinalizeDeviceClaimResponse => __isa(o, "FinalizeDeviceClaimResponse");
 }
 
 export interface ForbiddenException extends __SmithyException, $MetadataBearer {
@@ -221,8 +211,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetDeviceMethodsRequest {
@@ -234,8 +223,7 @@ export interface GetDeviceMethodsRequest {
 }
 
 export namespace GetDeviceMethodsRequest {
-  export const isa = (o: any): o is GetDeviceMethodsRequest =>
-    __isa(o, "GetDeviceMethodsRequest");
+  export const isa = (o: any): o is GetDeviceMethodsRequest => __isa(o, "GetDeviceMethodsRequest");
 }
 
 export interface GetDeviceMethodsResponse {
@@ -247,8 +235,7 @@ export interface GetDeviceMethodsResponse {
 }
 
 export namespace GetDeviceMethodsResponse {
-  export const isa = (o: any): o is GetDeviceMethodsResponse =>
-    __isa(o, "GetDeviceMethodsResponse");
+  export const isa = (o: any): o is GetDeviceMethodsResponse => __isa(o, "GetDeviceMethodsResponse");
 }
 
 export interface InitiateDeviceClaimRequest {
@@ -260,8 +247,7 @@ export interface InitiateDeviceClaimRequest {
 }
 
 export namespace InitiateDeviceClaimRequest {
-  export const isa = (o: any): o is InitiateDeviceClaimRequest =>
-    __isa(o, "InitiateDeviceClaimRequest");
+  export const isa = (o: any): o is InitiateDeviceClaimRequest => __isa(o, "InitiateDeviceClaimRequest");
 }
 
 export interface InitiateDeviceClaimResponse {
@@ -273,13 +259,10 @@ export interface InitiateDeviceClaimResponse {
 }
 
 export namespace InitiateDeviceClaimResponse {
-  export const isa = (o: any): o is InitiateDeviceClaimResponse =>
-    __isa(o, "InitiateDeviceClaimResponse");
+  export const isa = (o: any): o is InitiateDeviceClaimResponse => __isa(o, "InitiateDeviceClaimResponse");
 }
 
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   /**
@@ -294,13 +277,10 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -315,8 +295,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface InvokeDeviceMethodRequest {
@@ -338,8 +317,7 @@ export interface InvokeDeviceMethodRequest {
 }
 
 export namespace InvokeDeviceMethodRequest {
-  export const isa = (o: any): o is InvokeDeviceMethodRequest =>
-    __isa(o, "InvokeDeviceMethodRequest");
+  export const isa = (o: any): o is InvokeDeviceMethodRequest => __isa(o, "InvokeDeviceMethodRequest");
 }
 
 export interface InvokeDeviceMethodResponse {
@@ -351,8 +329,7 @@ export interface InvokeDeviceMethodResponse {
 }
 
 export namespace InvokeDeviceMethodResponse {
-  export const isa = (o: any): o is InvokeDeviceMethodResponse =>
-    __isa(o, "InvokeDeviceMethodResponse");
+  export const isa = (o: any): o is InvokeDeviceMethodResponse => __isa(o, "InvokeDeviceMethodResponse");
 }
 
 export interface ListDeviceEventsRequest {
@@ -389,8 +366,7 @@ export interface ListDeviceEventsRequest {
 }
 
 export namespace ListDeviceEventsRequest {
-  export const isa = (o: any): o is ListDeviceEventsRequest =>
-    __isa(o, "ListDeviceEventsRequest");
+  export const isa = (o: any): o is ListDeviceEventsRequest => __isa(o, "ListDeviceEventsRequest");
 }
 
 export interface ListDeviceEventsResponse {
@@ -408,8 +384,7 @@ export interface ListDeviceEventsResponse {
 }
 
 export namespace ListDeviceEventsResponse {
-  export const isa = (o: any): o is ListDeviceEventsResponse =>
-    __isa(o, "ListDeviceEventsResponse");
+  export const isa = (o: any): o is ListDeviceEventsResponse => __isa(o, "ListDeviceEventsResponse");
 }
 
 export interface ListDevicesRequest {
@@ -432,8 +407,7 @@ export interface ListDevicesRequest {
 }
 
 export namespace ListDevicesRequest {
-  export const isa = (o: any): o is ListDevicesRequest =>
-    __isa(o, "ListDevicesRequest");
+  export const isa = (o: any): o is ListDevicesRequest => __isa(o, "ListDevicesRequest");
 }
 
 export interface ListDevicesResponse {
@@ -450,8 +424,7 @@ export interface ListDevicesResponse {
 }
 
 export namespace ListDevicesResponse {
-  export const isa = (o: any): o is ListDevicesResponse =>
-    __isa(o, "ListDevicesResponse");
+  export const isa = (o: any): o is ListDevicesResponse => __isa(o, "ListDevicesResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -463,8 +436,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -480,13 +452,10 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
-export interface PreconditionFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
   name: "PreconditionFailedException";
   $fault: "client";
   /**
@@ -501,13 +470,10 @@ export interface PreconditionFailedException
 }
 
 export namespace PreconditionFailedException {
-  export const isa = (o: any): o is PreconditionFailedException =>
-    __isa(o, "PreconditionFailedException");
+  export const isa = (o: any): o is PreconditionFailedException => __isa(o, "PreconditionFailedException");
 }
 
-export interface RangeNotSatisfiableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RangeNotSatisfiableException extends __SmithyException, $MetadataBearer {
   name: "RangeNotSatisfiableException";
   $fault: "client";
   /**
@@ -523,13 +489,10 @@ export interface RangeNotSatisfiableException
 }
 
 export namespace RangeNotSatisfiableException {
-  export const isa = (o: any): o is RangeNotSatisfiableException =>
-    __isa(o, "RangeNotSatisfiableException");
+  export const isa = (o: any): o is RangeNotSatisfiableException => __isa(o, "RangeNotSatisfiableException");
 }
 
-export interface ResourceConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -544,13 +507,10 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
-  export const isa = (o: any): o is ResourceConflictException =>
-    __isa(o, "ResourceConflictException");
+  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -565,8 +525,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface TagResourceRequest {
@@ -587,8 +546,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface UnclaimDeviceRequest {
@@ -600,8 +558,7 @@ export interface UnclaimDeviceRequest {
 }
 
 export namespace UnclaimDeviceRequest {
-  export const isa = (o: any): o is UnclaimDeviceRequest =>
-    __isa(o, "UnclaimDeviceRequest");
+  export const isa = (o: any): o is UnclaimDeviceRequest => __isa(o, "UnclaimDeviceRequest");
 }
 
 export interface UnclaimDeviceResponse {
@@ -613,8 +570,7 @@ export interface UnclaimDeviceResponse {
 }
 
 export namespace UnclaimDeviceResponse {
-  export const isa = (o: any): o is UnclaimDeviceResponse =>
-    __isa(o, "UnclaimDeviceResponse");
+  export const isa = (o: any): o is UnclaimDeviceResponse => __isa(o, "UnclaimDeviceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -631,8 +587,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UpdateDeviceStateRequest {
@@ -650,8 +605,7 @@ export interface UpdateDeviceStateRequest {
 }
 
 export namespace UpdateDeviceStateRequest {
-  export const isa = (o: any): o is UpdateDeviceStateRequest =>
-    __isa(o, "UpdateDeviceStateRequest");
+  export const isa = (o: any): o is UpdateDeviceStateRequest => __isa(o, "UpdateDeviceStateRequest");
 }
 
 export interface UpdateDeviceStateResponse {
@@ -659,6 +613,5 @@ export interface UpdateDeviceStateResponse {
 }
 
 export namespace UpdateDeviceStateResponse {
-  export const isa = (o: any): o is UpdateDeviceStateResponse =>
-    __isa(o, "UpdateDeviceStateResponse");
+  export const isa = (o: any): o is UpdateDeviceStateResponse => __isa(o, "UpdateDeviceStateResponse");
 }

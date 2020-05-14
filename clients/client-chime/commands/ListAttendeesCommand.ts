@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { ListAttendeesRequest, ListAttendeesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAttendeesCommand,
   serializeAws_restJson1_1ListAttendeesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAttendeesCommandInput = ListAttendeesRequest;
-export type ListAttendeesCommandOutput = ListAttendeesResponse &
-  __MetadataBearer;
+export type ListAttendeesCommandOutput = ListAttendeesResponse & __MetadataBearer;
 
 export class ListAttendeesCommand extends $Command<
   ListAttendeesCommandInput,
@@ -47,9 +39,7 @@ export class ListAttendeesCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAttendeesCommandInput, ListAttendeesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListAttendeesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAttendeesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAttendeesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAttendeesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAttendeesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttendeesCommandOutput> {
     return deserializeAws_restJson1_1ListAttendeesCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import { DeleteParameterRequest, DeleteParameterResult } from "../models/index";
 import {
   deserializeAws_json1_1DeleteParameterCommand,
   serializeAws_json1_1DeleteParameterCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteParameterCommandInput = DeleteParameterRequest;
-export type DeleteParameterCommandOutput = DeleteParameterResult &
-  __MetadataBearer;
+export type DeleteParameterCommandOutput = DeleteParameterResult & __MetadataBearer;
 
 export class DeleteParameterCommand extends $Command<
   DeleteParameterCommandInput,
@@ -47,9 +39,7 @@ export class DeleteParameterCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteParameterCommandInput, DeleteParameterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteParameterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteParameterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteParameterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteParameterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteParameterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteParameterCommandOutput> {
     return deserializeAws_json1_1DeleteParameterCommand(output, context);
   }
 

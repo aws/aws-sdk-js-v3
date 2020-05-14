@@ -1,21 +1,11 @@
-import {
-  IoTJobsDataPlaneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTJobsDataPlaneClient";
-import {
-  StartNextPendingJobExecutionRequest,
-  StartNextPendingJobExecutionResponse
-} from "../models/index";
+import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
+import { StartNextPendingJobExecutionRequest, StartNextPendingJobExecutionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartNextPendingJobExecutionCommand,
   serializeAws_restJson1_1StartNextPendingJobExecutionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartNextPendingJobExecutionCommandInput = StartNextPendingJobExecutionRequest;
-export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse &
-  __MetadataBearer;
+export type StartNextPendingJobExecutionCommandOutput = StartNextPendingJobExecutionResponse & __MetadataBearer;
 
 export class StartNextPendingJobExecutionCommand extends $Command<
   StartNextPendingJobExecutionCommandInput,
@@ -49,13 +38,8 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartNextPendingJobExecutionCommandInput,
-    StartNextPendingJobExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartNextPendingJobExecutionCommandInput, StartNextPendingJobExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartNextPendingJobExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartNextPendingJobExecutionCommand(
-      input,
-      context
-    );
+  private serialize(input: StartNextPendingJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1StartNextPendingJobExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartNextPendingJobExecutionCommandOutput> {
-    return deserializeAws_restJson1_1StartNextPendingJobExecutionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartNextPendingJobExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

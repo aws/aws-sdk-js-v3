@@ -1,18 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { DeleteFunctionEventInvokeConfigRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand,
   serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteFunctionEventInvokeConfigCommandInput,
-    DeleteFunctionEventInvokeConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteFunctionEventInvokeConfigCommandInput, DeleteFunctionEventInvokeConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +58,14 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     input: DeleteFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

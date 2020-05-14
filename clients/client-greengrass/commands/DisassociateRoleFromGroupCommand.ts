@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  DisassociateRoleFromGroupRequest,
-  DisassociateRoleFromGroupResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { DisassociateRoleFromGroupRequest, DisassociateRoleFromGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateRoleFromGroupCommand,
   serializeAws_restJson1_1DisassociateRoleFromGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateRoleFromGroupCommandInput = DisassociateRoleFromGroupRequest;
-export type DisassociateRoleFromGroupCommandOutput = DisassociateRoleFromGroupResponse &
-  __MetadataBearer;
+export type DisassociateRoleFromGroupCommandOutput = DisassociateRoleFromGroupResponse & __MetadataBearer;
 
 export class DisassociateRoleFromGroupCommand extends $Command<
   DisassociateRoleFromGroupCommandInput,
@@ -49,13 +38,8 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateRoleFromGroupCommandInput,
-    DisassociateRoleFromGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateRoleFromGroupCommandInput, DisassociateRoleFromGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateRoleFromGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateRoleFromGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: DisassociateRoleFromGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DisassociateRoleFromGroupCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateRoleFromGroupCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateRoleFromGroupCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateRoleFromGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

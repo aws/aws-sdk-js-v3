@@ -1,21 +1,11 @@
-import {
-  ConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConnectClient";
-import {
-  ListHoursOfOperationsRequest,
-  ListHoursOfOperationsResponse
-} from "../models/index";
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListHoursOfOperationsCommand,
   serializeAws_restJson1_1ListHoursOfOperationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHoursOfOperationsCommandInput = ListHoursOfOperationsRequest;
-export type ListHoursOfOperationsCommandOutput = ListHoursOfOperationsResponse &
-  __MetadataBearer;
+export type ListHoursOfOperationsCommandOutput = ListHoursOfOperationsResponse & __MetadataBearer;
 
 export class ListHoursOfOperationsCommand extends $Command<
   ListHoursOfOperationsCommandInput,
@@ -49,13 +38,8 @@ export class ListHoursOfOperationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHoursOfOperationsCommandInput,
-    ListHoursOfOperationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHoursOfOperationsCommandInput, ListHoursOfOperationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListHoursOfOperationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHoursOfOperationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHoursOfOperationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListHoursOfOperationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHoursOfOperationsCommandOutput> {
-    return deserializeAws_restJson1_1ListHoursOfOperationsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHoursOfOperationsCommandOutput> {
+    return deserializeAws_restJson1_1ListHoursOfOperationsCommand(output, context);
   }
 
   // Start section: command_body_extra

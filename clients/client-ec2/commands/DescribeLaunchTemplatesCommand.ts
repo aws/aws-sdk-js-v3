@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeLaunchTemplatesRequest,
-  DescribeLaunchTemplatesResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeLaunchTemplatesCommand,
   serializeAws_ec2DescribeLaunchTemplatesCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLaunchTemplatesCommandInput = DescribeLaunchTemplatesRequest;
-export type DescribeLaunchTemplatesCommandOutput = DescribeLaunchTemplatesResult &
-  __MetadataBearer;
+export type DescribeLaunchTemplatesCommandOutput = DescribeLaunchTemplatesResult & __MetadataBearer;
 
 export class DescribeLaunchTemplatesCommand extends $Command<
   DescribeLaunchTemplatesCommandInput,
@@ -49,13 +38,8 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLaunchTemplatesCommandInput,
-    DescribeLaunchTemplatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLaunchTemplatesCommandInput, DescribeLaunchTemplatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DescribeLaunchTemplatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLaunchTemplatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLaunchTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeLaunchTemplatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLaunchTemplatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLaunchTemplatesCommandOutput> {
     return deserializeAws_ec2DescribeLaunchTemplatesCommand(output, context);
   }
 

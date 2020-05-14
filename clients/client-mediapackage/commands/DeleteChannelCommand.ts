@@ -1,18 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { DeleteChannelRequest, DeleteChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteChannelCommand,
   serializeAws_restJson1_1DeleteChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteChannelCommandInput = DeleteChannelRequest;
-export type DeleteChannelCommandOutput = DeleteChannelResponse &
-  __MetadataBearer;
+export type DeleteChannelCommandOutput = DeleteChannelResponse & __MetadataBearer;
 
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,
@@ -47,9 +39,7 @@ export class DeleteChannelCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteChannelCommandInput, DeleteChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteChannelCommandOutput> {
     return deserializeAws_restJson1_1DeleteChannelCommand(output, context);
   }
 

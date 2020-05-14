@@ -10,18 +10,12 @@ import {
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput
 } from "./commands/CreateResolverEndpointCommand";
-import {
-  CreateResolverRuleCommandInput,
-  CreateResolverRuleCommandOutput
-} from "./commands/CreateResolverRuleCommand";
+import { CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput } from "./commands/CreateResolverRuleCommand";
 import {
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput
 } from "./commands/DeleteResolverEndpointCommand";
-import {
-  DeleteResolverRuleCommandInput,
-  DeleteResolverRuleCommandOutput
-} from "./commands/DeleteResolverRuleCommand";
+import { DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput } from "./commands/DeleteResolverRuleCommand";
 import {
   DisassociateResolverEndpointIpAddressCommandInput,
   DisassociateResolverEndpointIpAddressCommandOutput
@@ -38,10 +32,7 @@ import {
   GetResolverRuleAssociationCommandInput,
   GetResolverRuleAssociationCommandOutput
 } from "./commands/GetResolverRuleAssociationCommand";
-import {
-  GetResolverRuleCommandInput,
-  GetResolverRuleCommandOutput
-} from "./commands/GetResolverRuleCommand";
+import { GetResolverRuleCommandInput, GetResolverRuleCommandOutput } from "./commands/GetResolverRuleCommand";
 import {
   GetResolverRulePolicyCommandInput,
   GetResolverRulePolicyCommandOutput
@@ -58,10 +49,7 @@ import {
   ListResolverRuleAssociationsCommandInput,
   ListResolverRuleAssociationsCommandOutput
 } from "./commands/ListResolverRuleAssociationsCommand";
-import {
-  ListResolverRulesCommandInput,
-  ListResolverRulesCommandOutput
-} from "./commands/ListResolverRulesCommand";
+import { ListResolverRulesCommandInput, ListResolverRulesCommandOutput } from "./commands/ListResolverRulesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -70,22 +58,13 @@ import {
   PutResolverRulePolicyCommandInput,
   PutResolverRulePolicyCommandOutput
 } from "./commands/PutResolverRulePolicyCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateResolverEndpointCommandInput,
   UpdateResolverEndpointCommandOutput
 } from "./commands/UpdateResolverEndpointCommand";
-import {
-  UpdateResolverRuleCommandInput,
-  UpdateResolverRuleCommandOutput
-} from "./commands/UpdateResolverRuleCommand";
+import { UpdateResolverRuleCommandInput, UpdateResolverRuleCommandOutput } from "./commands/UpdateResolverRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -102,12 +81,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -186,8 +160,7 @@ export type ServiceOutputTypes =
   | UpdateResolverEndpointCommandOutput
   | UpdateResolverRuleCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -271,9 +244,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53ResolverClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53ResolverClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -282,9 +253,7 @@ export type Route53ResolverClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

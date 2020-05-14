@@ -1,18 +1,11 @@
-import {
-  OutpostsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OutpostsClient";
+import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { ListOutpostsInput, ListOutpostsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListOutpostsCommand,
   serializeAws_restJson1_1ListOutpostsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ListOutpostsCommand extends $Command<
     configuration: OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOutpostsCommandInput, ListOutpostsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ListOutpostsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListOutpostsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListOutpostsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListOutpostsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListOutpostsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOutpostsCommandOutput> {
     return deserializeAws_restJson1_1ListOutpostsCommand(output, context);
   }
 

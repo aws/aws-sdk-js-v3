@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  UpdateBrokerCountRequest,
-  UpdateBrokerCountResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { UpdateBrokerCountRequest, UpdateBrokerCountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateBrokerCountCommand,
   serializeAws_restJson1_1UpdateBrokerCountCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateBrokerCountCommandInput = UpdateBrokerCountRequest;
-export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse &
-  __MetadataBearer;
+export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse & __MetadataBearer;
 
 export class UpdateBrokerCountCommand extends $Command<
   UpdateBrokerCountCommandInput,
@@ -50,9 +39,7 @@ export class UpdateBrokerCountCommand extends $Command<
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateBrokerCountCommandInput, UpdateBrokerCountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateBrokerCountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateBrokerCountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateBrokerCountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateBrokerCountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateBrokerCountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBrokerCountCommandOutput> {
     return deserializeAws_restJson1_1UpdateBrokerCountCommand(output, context);
   }
 

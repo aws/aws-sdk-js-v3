@@ -1,18 +1,8 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CopySnapshotMessage, CopySnapshotResult } from "../models/index";
-import {
-  deserializeAws_queryCopySnapshotCommand,
-  serializeAws_queryCopySnapshotCommand
-} from "../protocols/Aws_query";
+import { deserializeAws_queryCopySnapshotCommand, serializeAws_queryCopySnapshotCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +36,7 @@ export class CopySnapshotCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopySnapshotCommandInput, CopySnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +51,11 @@ export class CopySnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CopySnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CopySnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopySnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CopySnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopySnapshotCommandOutput> {
     return deserializeAws_queryCopySnapshotCommand(output, context);
   }
 

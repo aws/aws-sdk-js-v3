@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AmbiguousRoleResolutionType {
@@ -39,16 +36,13 @@ export interface CognitoIdentityProvider {
 }
 
 export namespace CognitoIdentityProvider {
-  export const isa = (o: any): o is CognitoIdentityProvider =>
-    __isa(o, "CognitoIdentityProvider");
+  export const isa = (o: any): o is CognitoIdentityProvider => __isa(o, "CognitoIdentityProvider");
 }
 
 /**
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -58,8 +52,7 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -124,8 +117,7 @@ export interface CreateIdentityPoolInput {
 }
 
 export namespace CreateIdentityPoolInput {
-  export const isa = (o: any): o is CreateIdentityPoolInput =>
-    __isa(o, "CreateIdentityPoolInput");
+  export const isa = (o: any): o is CreateIdentityPoolInput => __isa(o, "CreateIdentityPoolInput");
 }
 
 /**
@@ -170,8 +162,7 @@ export interface DeleteIdentitiesInput {
 }
 
 export namespace DeleteIdentitiesInput {
-  export const isa = (o: any): o is DeleteIdentitiesInput =>
-    __isa(o, "DeleteIdentitiesInput");
+  export const isa = (o: any): o is DeleteIdentitiesInput => __isa(o, "DeleteIdentitiesInput");
 }
 
 /**
@@ -188,8 +179,7 @@ export interface DeleteIdentitiesResponse {
 }
 
 export namespace DeleteIdentitiesResponse {
-  export const isa = (o: any): o is DeleteIdentitiesResponse =>
-    __isa(o, "DeleteIdentitiesResponse");
+  export const isa = (o: any): o is DeleteIdentitiesResponse => __isa(o, "DeleteIdentitiesResponse");
 }
 
 /**
@@ -204,8 +194,7 @@ export interface DeleteIdentityPoolInput {
 }
 
 export namespace DeleteIdentityPoolInput {
-  export const isa = (o: any): o is DeleteIdentityPoolInput =>
-    __isa(o, "DeleteIdentityPoolInput");
+  export const isa = (o: any): o is DeleteIdentityPoolInput => __isa(o, "DeleteIdentityPoolInput");
 }
 
 /**
@@ -220,8 +209,7 @@ export interface DescribeIdentityInput {
 }
 
 export namespace DescribeIdentityInput {
-  export const isa = (o: any): o is DescribeIdentityInput =>
-    __isa(o, "DescribeIdentityInput");
+  export const isa = (o: any): o is DescribeIdentityInput => __isa(o, "DescribeIdentityInput");
 }
 
 /**
@@ -236,17 +224,14 @@ export interface DescribeIdentityPoolInput {
 }
 
 export namespace DescribeIdentityPoolInput {
-  export const isa = (o: any): o is DescribeIdentityPoolInput =>
-    __isa(o, "DescribeIdentityPoolInput");
+  export const isa = (o: any): o is DescribeIdentityPoolInput => __isa(o, "DescribeIdentityPoolInput");
 }
 
 /**
  * <p>The provided developer user identifier is already registered with Cognito under a
  *          different identity ID.</p>
  */
-export interface DeveloperUserAlreadyRegisteredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DeveloperUserAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
   name: "DeveloperUserAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -269,9 +254,7 @@ export enum ErrorCode {
  * <p>An exception thrown when a dependent service such as Facebook or Twitter is not
  *          responding</p>
  */
-export interface ExternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExternalServiceException extends __SmithyException, $MetadataBearer {
   name: "ExternalServiceException";
   $fault: "client";
   /**
@@ -281,8 +264,7 @@ export interface ExternalServiceException
 }
 
 export namespace ExternalServiceException {
-  export const isa = (o: any): o is ExternalServiceException =>
-    __isa(o, "ExternalServiceException");
+  export const isa = (o: any): o is ExternalServiceException => __isa(o, "ExternalServiceException");
 }
 
 /**
@@ -318,8 +300,7 @@ export interface GetCredentialsForIdentityInput {
 }
 
 export namespace GetCredentialsForIdentityInput {
-  export const isa = (o: any): o is GetCredentialsForIdentityInput =>
-    __isa(o, "GetCredentialsForIdentityInput");
+  export const isa = (o: any): o is GetCredentialsForIdentityInput => __isa(o, "GetCredentialsForIdentityInput");
 }
 
 /**
@@ -340,8 +321,7 @@ export interface GetCredentialsForIdentityResponse {
 }
 
 export namespace GetCredentialsForIdentityResponse {
-  export const isa = (o: any): o is GetCredentialsForIdentityResponse =>
-    __isa(o, "GetCredentialsForIdentityResponse");
+  export const isa = (o: any): o is GetCredentialsForIdentityResponse => __isa(o, "GetCredentialsForIdentityResponse");
 }
 
 /**
@@ -425,8 +405,7 @@ export interface GetIdentityPoolRolesInput {
 }
 
 export namespace GetIdentityPoolRolesInput {
-  export const isa = (o: any): o is GetIdentityPoolRolesInput =>
-    __isa(o, "GetIdentityPoolRolesInput");
+  export const isa = (o: any): o is GetIdentityPoolRolesInput => __isa(o, "GetIdentityPoolRolesInput");
 }
 
 /**
@@ -456,8 +435,7 @@ export interface GetIdentityPoolRolesResponse {
 }
 
 export namespace GetIdentityPoolRolesResponse {
-  export const isa = (o: any): o is GetIdentityPoolRolesResponse =>
-    __isa(o, "GetIdentityPoolRolesResponse");
+  export const isa = (o: any): o is GetIdentityPoolRolesResponse => __isa(o, "GetIdentityPoolRolesResponse");
 }
 
 /**
@@ -525,9 +503,7 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
 }
 
 export namespace GetOpenIdTokenForDeveloperIdentityResponse {
-  export const isa = (
-    o: any
-  ): o is GetOpenIdTokenForDeveloperIdentityResponse =>
+  export const isa = (o: any): o is GetOpenIdTokenForDeveloperIdentityResponse =>
     __isa(o, "GetOpenIdTokenForDeveloperIdentityResponse");
 }
 
@@ -551,8 +527,7 @@ export interface GetOpenIdTokenInput {
 }
 
 export namespace GetOpenIdTokenInput {
-  export const isa = (o: any): o is GetOpenIdTokenInput =>
-    __isa(o, "GetOpenIdTokenInput");
+  export const isa = (o: any): o is GetOpenIdTokenInput => __isa(o, "GetOpenIdTokenInput");
 }
 
 /**
@@ -573,8 +548,7 @@ export interface GetOpenIdTokenResponse {
 }
 
 export namespace GetOpenIdTokenResponse {
-  export const isa = (o: any): o is GetOpenIdTokenResponse =>
-    __isa(o, "GetOpenIdTokenResponse");
+  export const isa = (o: any): o is GetOpenIdTokenResponse => __isa(o, "GetOpenIdTokenResponse");
 }
 
 /**
@@ -604,8 +578,7 @@ export interface IdentityDescription {
 }
 
 export namespace IdentityDescription {
-  export const isa = (o: any): o is IdentityDescription =>
-    __isa(o, "IdentityDescription");
+  export const isa = (o: any): o is IdentityDescription => __isa(o, "IdentityDescription");
 }
 
 /**
@@ -689,16 +662,13 @@ export interface IdentityPoolShortDescription {
 }
 
 export namespace IdentityPoolShortDescription {
-  export const isa = (o: any): o is IdentityPoolShortDescription =>
-    __isa(o, "IdentityPoolShortDescription");
+  export const isa = (o: any): o is IdentityPoolShortDescription => __isa(o, "IdentityPoolShortDescription");
 }
 
 /**
  * <p>Thrown when the service encounters an error during processing the request.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -708,17 +678,14 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>Thrown if the identity pool has no role associated for the given auth type
  *          (auth/unauth) or if the AssumeRole fails.</p>
  */
-export interface InvalidIdentityPoolConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidIdentityPoolConfigurationException extends __SmithyException, $MetadataBearer {
   name: "InvalidIdentityPoolConfigurationException";
   $fault: "client";
   /**
@@ -736,9 +703,7 @@ export namespace InvalidIdentityPoolConfigurationException {
 /**
  * <p>Thrown for missing or bad input parameter(s).</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -748,16 +713,13 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -767,8 +729,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -799,8 +760,7 @@ export interface ListIdentitiesInput {
 }
 
 export namespace ListIdentitiesInput {
-  export const isa = (o: any): o is ListIdentitiesInput =>
-    __isa(o, "ListIdentitiesInput");
+  export const isa = (o: any): o is ListIdentitiesInput => __isa(o, "ListIdentitiesInput");
 }
 
 /**
@@ -825,8 +785,7 @@ export interface ListIdentitiesResponse {
 }
 
 export namespace ListIdentitiesResponse {
-  export const isa = (o: any): o is ListIdentitiesResponse =>
-    __isa(o, "ListIdentitiesResponse");
+  export const isa = (o: any): o is ListIdentitiesResponse => __isa(o, "ListIdentitiesResponse");
 }
 
 /**
@@ -846,8 +805,7 @@ export interface ListIdentityPoolsInput {
 }
 
 export namespace ListIdentityPoolsInput {
-  export const isa = (o: any): o is ListIdentityPoolsInput =>
-    __isa(o, "ListIdentityPoolsInput");
+  export const isa = (o: any): o is ListIdentityPoolsInput => __isa(o, "ListIdentityPoolsInput");
 }
 
 /**
@@ -867,8 +825,7 @@ export interface ListIdentityPoolsResponse {
 }
 
 export namespace ListIdentityPoolsResponse {
-  export const isa = (o: any): o is ListIdentityPoolsResponse =>
-    __isa(o, "ListIdentityPoolsResponse");
+  export const isa = (o: any): o is ListIdentityPoolsResponse => __isa(o, "ListIdentityPoolsResponse");
 }
 
 export interface ListTagsForResourceInput {
@@ -881,8 +838,7 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 export interface ListTagsForResourceResponse {
@@ -894,8 +850,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -937,8 +892,7 @@ export interface LookupDeveloperIdentityInput {
 }
 
 export namespace LookupDeveloperIdentityInput {
-  export const isa = (o: any): o is LookupDeveloperIdentityInput =>
-    __isa(o, "LookupDeveloperIdentityInput");
+  export const isa = (o: any): o is LookupDeveloperIdentityInput => __isa(o, "LookupDeveloperIdentityInput");
 }
 
 /**
@@ -971,8 +925,7 @@ export interface LookupDeveloperIdentityResponse {
 }
 
 export namespace LookupDeveloperIdentityResponse {
-  export const isa = (o: any): o is LookupDeveloperIdentityResponse =>
-    __isa(o, "LookupDeveloperIdentityResponse");
+  export const isa = (o: any): o is LookupDeveloperIdentityResponse => __isa(o, "LookupDeveloperIdentityResponse");
 }
 
 /**
@@ -1048,8 +1001,7 @@ export interface MergeDeveloperIdentitiesInput {
 }
 
 export namespace MergeDeveloperIdentitiesInput {
-  export const isa = (o: any): o is MergeDeveloperIdentitiesInput =>
-    __isa(o, "MergeDeveloperIdentitiesInput");
+  export const isa = (o: any): o is MergeDeveloperIdentitiesInput => __isa(o, "MergeDeveloperIdentitiesInput");
 }
 
 /**
@@ -1065,16 +1017,13 @@ export interface MergeDeveloperIdentitiesResponse {
 }
 
 export namespace MergeDeveloperIdentitiesResponse {
-  export const isa = (o: any): o is MergeDeveloperIdentitiesResponse =>
-    __isa(o, "MergeDeveloperIdentitiesResponse");
+  export const isa = (o: any): o is MergeDeveloperIdentitiesResponse => __isa(o, "MergeDeveloperIdentitiesResponse");
 }
 
 /**
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -1084,17 +1033,14 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
  * <p>Thrown when a user tries to use a login which is already linked to another
  *          account.</p>
  */
-export interface ResourceConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -1104,17 +1050,14 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
-  export const isa = (o: any): o is ResourceConflictException =>
-    __isa(o, "ResourceConflictException");
+  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
  * <p>Thrown when the requested resource (for example, a dataset or record) does not
  *          exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1124,8 +1067,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1181,8 +1123,7 @@ export interface RulesConfigurationType {
 }
 
 export namespace RulesConfigurationType {
-  export const isa = (o: any): o is RulesConfigurationType =>
-    __isa(o, "RulesConfigurationType");
+  export const isa = (o: any): o is RulesConfigurationType => __isa(o, "RulesConfigurationType");
 }
 
 /**
@@ -1212,8 +1153,7 @@ export interface SetIdentityPoolRolesInput {
 }
 
 export namespace SetIdentityPoolRolesInput {
-  export const isa = (o: any): o is SetIdentityPoolRolesInput =>
-    __isa(o, "SetIdentityPoolRolesInput");
+  export const isa = (o: any): o is SetIdentityPoolRolesInput => __isa(o, "SetIdentityPoolRolesInput");
 }
 
 export interface TagResourceInput {
@@ -1230,8 +1170,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 export interface TagResourceResponse {
@@ -1239,16 +1178,13 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p>Thrown when a request is throttled.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1258,8 +1194,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1289,8 +1224,7 @@ export interface UnlinkDeveloperIdentityInput {
 }
 
 export namespace UnlinkDeveloperIdentityInput {
-  export const isa = (o: any): o is UnlinkDeveloperIdentityInput =>
-    __isa(o, "UnlinkDeveloperIdentityInput");
+  export const isa = (o: any): o is UnlinkDeveloperIdentityInput => __isa(o, "UnlinkDeveloperIdentityInput");
 }
 
 /**
@@ -1316,8 +1250,7 @@ export interface UnlinkIdentityInput {
 }
 
 export namespace UnlinkIdentityInput {
-  export const isa = (o: any): o is UnlinkIdentityInput =>
-    __isa(o, "UnlinkIdentityInput");
+  export const isa = (o: any): o is UnlinkIdentityInput => __isa(o, "UnlinkIdentityInput");
 }
 
 /**
@@ -1338,8 +1271,7 @@ export interface UnprocessedIdentityId {
 }
 
 export namespace UnprocessedIdentityId {
-  export const isa = (o: any): o is UnprocessedIdentityId =>
-    __isa(o, "UnprocessedIdentityId");
+  export const isa = (o: any): o is UnprocessedIdentityId => __isa(o, "UnprocessedIdentityId");
 }
 
 export interface UntagResourceInput {
@@ -1357,8 +1289,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 export interface UntagResourceResponse {
@@ -1366,6 +1297,5 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

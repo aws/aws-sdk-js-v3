@@ -1,21 +1,11 @@
-import {
-  GetSigningPlatformRequest,
-  GetSigningPlatformResponse
-} from "../models/index";
+import { GetSigningPlatformRequest, GetSigningPlatformResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSigningPlatformCommand,
   serializeAws_restJson1_1GetSigningPlatformCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  signerClientResolvedConfig
-} from "../signerClient";
+import { ServiceInputTypes, ServiceOutputTypes, signerClientResolvedConfig } from "../signerClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSigningPlatformCommandInput = GetSigningPlatformRequest;
-export type GetSigningPlatformCommandOutput = GetSigningPlatformResponse &
-  __MetadataBearer;
+export type GetSigningPlatformCommandOutput = GetSigningPlatformResponse & __MetadataBearer;
 
 export class GetSigningPlatformCommand extends $Command<
   GetSigningPlatformCommandInput,
@@ -50,9 +39,7 @@ export class GetSigningPlatformCommand extends $Command<
     configuration: signerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetSigningPlatformCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSigningPlatformCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSigningPlatformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSigningPlatformCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSigningPlatformCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSigningPlatformCommandOutput> {
     return deserializeAws_restJson1_1GetSigningPlatformCommand(output, context);
   }
 

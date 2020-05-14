@@ -1,18 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetStatisticsRequest, GetStatisticsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetStatisticsCommand,
   serializeAws_restJson1_1GetStatisticsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetStatisticsCommandInput = GetStatisticsRequest;
-export type GetStatisticsCommandOutput = GetStatisticsResponse &
-  __MetadataBearer;
+export type GetStatisticsCommandOutput = GetStatisticsResponse & __MetadataBearer;
 
 export class GetStatisticsCommand extends $Command<
   GetStatisticsCommandInput,
@@ -47,9 +39,7 @@ export class GetStatisticsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetStatisticsCommandInput, GetStatisticsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetStatisticsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetStatisticsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetStatisticsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetStatisticsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStatisticsCommandOutput> {
     return deserializeAws_restJson1_1GetStatisticsCommand(output, context);
   }
 

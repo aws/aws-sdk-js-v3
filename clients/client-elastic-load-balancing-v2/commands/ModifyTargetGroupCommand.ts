@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  ModifyTargetGroupInput,
-  ModifyTargetGroupOutput
-} from "../models/index";
+import { ModifyTargetGroupInput, ModifyTargetGroupOutput } from "../models/index";
 import {
   deserializeAws_queryModifyTargetGroupCommand,
   serializeAws_queryModifyTargetGroupCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyTargetGroupCommandInput = ModifyTargetGroupInput;
-export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput &
-  __MetadataBearer;
+export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput & __MetadataBearer;
 
 export class ModifyTargetGroupCommand extends $Command<
   ModifyTargetGroupCommandInput,
@@ -50,9 +43,7 @@ export class ModifyTargetGroupCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyTargetGroupCommandInput, ModifyTargetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class ModifyTargetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyTargetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyTargetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyTargetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyTargetGroupCommandOutput> {
     return deserializeAws_queryModifyTargetGroupCommand(output, context);
   }
 

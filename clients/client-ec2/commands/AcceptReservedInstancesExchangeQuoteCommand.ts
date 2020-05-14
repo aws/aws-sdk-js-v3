@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   AcceptReservedInstancesExchangeQuoteRequest,
   AcceptReservedInstancesExchangeQuoteResult
@@ -12,10 +8,7 @@ import {
   serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: AcceptReservedInstancesExchangeQuoteCommandInput
-  ) {
+  constructor(readonly input: AcceptReservedInstancesExchangeQuoteCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AcceptReservedInstancesExchangeQuoteCommandInput,
-    AcceptReservedInstancesExchangeQuoteCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AcceptReservedInstancesExchangeQuoteCommandInput, AcceptReservedInstancesExchangeQuoteCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
     input: AcceptReservedInstancesExchangeQuoteCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> {
-    return deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand(output, context);
   }
 
   // Start section: command_body_extra

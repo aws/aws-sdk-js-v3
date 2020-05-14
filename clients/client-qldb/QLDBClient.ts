@@ -1,35 +1,14 @@
-import {
-  CreateLedgerCommandInput,
-  CreateLedgerCommandOutput
-} from "./commands/CreateLedgerCommand";
-import {
-  DeleteLedgerCommandInput,
-  DeleteLedgerCommandOutput
-} from "./commands/DeleteLedgerCommand";
+import { CreateLedgerCommandInput, CreateLedgerCommandOutput } from "./commands/CreateLedgerCommand";
+import { DeleteLedgerCommandInput, DeleteLedgerCommandOutput } from "./commands/DeleteLedgerCommand";
 import {
   DescribeJournalS3ExportCommandInput,
   DescribeJournalS3ExportCommandOutput
 } from "./commands/DescribeJournalS3ExportCommand";
-import {
-  DescribeLedgerCommandInput,
-  DescribeLedgerCommandOutput
-} from "./commands/DescribeLedgerCommand";
-import {
-  ExportJournalToS3CommandInput,
-  ExportJournalToS3CommandOutput
-} from "./commands/ExportJournalToS3Command";
-import {
-  GetBlockCommandInput,
-  GetBlockCommandOutput
-} from "./commands/GetBlockCommand";
-import {
-  GetDigestCommandInput,
-  GetDigestCommandOutput
-} from "./commands/GetDigestCommand";
-import {
-  GetRevisionCommandInput,
-  GetRevisionCommandOutput
-} from "./commands/GetRevisionCommand";
+import { DescribeLedgerCommandInput, DescribeLedgerCommandOutput } from "./commands/DescribeLedgerCommand";
+import { ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput } from "./commands/ExportJournalToS3Command";
+import { GetBlockCommandInput, GetBlockCommandOutput } from "./commands/GetBlockCommand";
+import { GetDigestCommandInput, GetDigestCommandOutput } from "./commands/GetDigestCommand";
+import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
   ListJournalS3ExportsCommandInput,
   ListJournalS3ExportsCommandOutput
@@ -38,26 +17,14 @@ import {
   ListJournalS3ExportsForLedgerCommandInput,
   ListJournalS3ExportsForLedgerCommandOutput
 } from "./commands/ListJournalS3ExportsForLedgerCommand";
-import {
-  ListLedgersCommandInput,
-  ListLedgersCommandOutput
-} from "./commands/ListLedgersCommand";
+import { ListLedgersCommandInput, ListLedgersCommandOutput } from "./commands/ListLedgersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateLedgerCommandInput,
-  UpdateLedgerCommandOutput
-} from "./commands/UpdateLedgerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateLedgerCommandInput, UpdateLedgerCommandOutput } from "./commands/UpdateLedgerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -74,12 +41,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -144,8 +106,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateLedgerCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -229,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QLDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QLDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -240,9 +199,7 @@ export type QLDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QLDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

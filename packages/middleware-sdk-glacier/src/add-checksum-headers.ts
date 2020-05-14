@@ -9,12 +9,8 @@ import {
 } from "@aws-sdk/types";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
-export function addChecksumHeadersMiddleware(
-  options: ResolvedGlacierMiddlewareConfig
-): BuildMiddleware<any, any> {
-  return <Output extends MetadataBearer>(
-    next: BuildHandler<any, Output>
-  ): BuildHandler<any, Output> => async (
+export function addChecksumHeadersMiddleware(options: ResolvedGlacierMiddlewareConfig): BuildMiddleware<any, any> {
+  return <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> => async (
     args: BuildHandlerArguments<any>
   ): Promise<BuildHandlerOutput<Output>> => {
     let request = args.request;
@@ -22,10 +18,7 @@ export function addChecksumHeadersMiddleware(
       let headers = request.headers;
       const body = request.body;
       if (body) {
-        const [contentHash, treeHash] = await options.bodyChecksumGenerator(
-          request,
-          options
-        );
+        const [contentHash, treeHash] = await options.bodyChecksumGenerator(request, options);
 
         for (const [headerName, hash] of <Array<[string, string]>>[
           ["x-amz-content-sha256", contentHash],

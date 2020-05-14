@@ -1,55 +1,28 @@
-import {
-  CancelUpdateStackCommandInput,
-  CancelUpdateStackCommandOutput
-} from "./commands/CancelUpdateStackCommand";
+import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "./commands/CancelUpdateStackCommand";
 import {
   ContinueUpdateRollbackCommandInput,
   ContinueUpdateRollbackCommandOutput
 } from "./commands/ContinueUpdateRollbackCommand";
-import {
-  CreateChangeSetCommandInput,
-  CreateChangeSetCommandOutput
-} from "./commands/CreateChangeSetCommand";
-import {
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateChangeSetCommandInput, CreateChangeSetCommandOutput } from "./commands/CreateChangeSetCommand";
+import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStackInstancesCommandInput,
   CreateStackInstancesCommandOutput
 } from "./commands/CreateStackInstancesCommand";
-import {
-  CreateStackSetCommandInput,
-  CreateStackSetCommandOutput
-} from "./commands/CreateStackSetCommand";
-import {
-  DeleteChangeSetCommandInput,
-  DeleteChangeSetCommandOutput
-} from "./commands/DeleteChangeSetCommand";
-import {
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { CreateStackSetCommandInput, CreateStackSetCommandOutput } from "./commands/CreateStackSetCommand";
+import { DeleteChangeSetCommandInput, DeleteChangeSetCommandOutput } from "./commands/DeleteChangeSetCommand";
+import { DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommandInput,
   DeleteStackInstancesCommandOutput
 } from "./commands/DeleteStackInstancesCommand";
-import {
-  DeleteStackSetCommandInput,
-  DeleteStackSetCommandOutput
-} from "./commands/DeleteStackSetCommand";
-import {
-  DeregisterTypeCommandInput,
-  DeregisterTypeCommandOutput
-} from "./commands/DeregisterTypeCommand";
+import { DeleteStackSetCommandInput, DeleteStackSetCommandOutput } from "./commands/DeleteStackSetCommand";
+import { DeregisterTypeCommandInput, DeregisterTypeCommandOutput } from "./commands/DeregisterTypeCommand";
 import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput
 } from "./commands/DescribeAccountLimitsCommand";
-import {
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
-} from "./commands/DescribeChangeSetCommand";
+import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
   DescribeStackDriftDetectionStatusCommandOutput
@@ -74,30 +47,18 @@ import {
   DescribeStackResourcesCommandInput,
   DescribeStackResourcesCommandOutput
 } from "./commands/DescribeStackResourcesCommand";
-import {
-  DescribeStackSetCommandInput,
-  DescribeStackSetCommandOutput
-} from "./commands/DescribeStackSetCommand";
+import { DescribeStackSetCommandInput, DescribeStackSetCommandOutput } from "./commands/DescribeStackSetCommand";
 import {
   DescribeStackSetOperationCommandInput,
   DescribeStackSetOperationCommandOutput
 } from "./commands/DescribeStackSetOperationCommand";
-import {
-  DescribeStacksCommandInput,
-  DescribeStacksCommandOutput
-} from "./commands/DescribeStacksCommand";
-import {
-  DescribeTypeCommandInput,
-  DescribeTypeCommandOutput
-} from "./commands/DescribeTypeCommand";
+import { DescribeStacksCommandInput, DescribeStacksCommandOutput } from "./commands/DescribeStacksCommand";
+import { DescribeTypeCommandInput, DescribeTypeCommandOutput } from "./commands/DescribeTypeCommand";
 import {
   DescribeTypeRegistrationCommandInput,
   DescribeTypeRegistrationCommandOutput
 } from "./commands/DescribeTypeRegistrationCommand";
-import {
-  DetectStackDriftCommandInput,
-  DetectStackDriftCommandOutput
-} from "./commands/DetectStackDriftCommand";
+import { DetectStackDriftCommandInput, DetectStackDriftCommandOutput } from "./commands/DetectStackDriftCommand";
 import {
   DetectStackResourceDriftCommandInput,
   DetectStackResourceDriftCommandOutput
@@ -110,42 +71,15 @@ import {
   EstimateTemplateCostCommandInput,
   EstimateTemplateCostCommandOutput
 } from "./commands/EstimateTemplateCostCommand";
-import {
-  ExecuteChangeSetCommandInput,
-  ExecuteChangeSetCommandOutput
-} from "./commands/ExecuteChangeSetCommand";
-import {
-  GetStackPolicyCommandInput,
-  GetStackPolicyCommandOutput
-} from "./commands/GetStackPolicyCommand";
-import {
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand";
-import {
-  GetTemplateSummaryCommandInput,
-  GetTemplateSummaryCommandOutput
-} from "./commands/GetTemplateSummaryCommand";
-import {
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
-} from "./commands/ListChangeSetsCommand";
-import {
-  ListExportsCommandInput,
-  ListExportsCommandOutput
-} from "./commands/ListExportsCommand";
-import {
-  ListImportsCommandInput,
-  ListImportsCommandOutput
-} from "./commands/ListImportsCommand";
-import {
-  ListStackInstancesCommandInput,
-  ListStackInstancesCommandOutput
-} from "./commands/ListStackInstancesCommand";
-import {
-  ListStackResourcesCommandInput,
-  ListStackResourcesCommandOutput
-} from "./commands/ListStackResourcesCommand";
+import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand";
+import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand";
+import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
+import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "./commands/GetTemplateSummaryCommand";
+import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand";
+import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand";
 import {
   ListStackSetOperationResultsCommandInput,
   ListStackSetOperationResultsCommandOutput
@@ -154,70 +88,40 @@ import {
   ListStackSetOperationsCommandInput,
   ListStackSetOperationsCommandOutput
 } from "./commands/ListStackSetOperationsCommand";
-import {
-  ListStackSetsCommandInput,
-  ListStackSetsCommandOutput
-} from "./commands/ListStackSetsCommand";
-import {
-  ListStacksCommandInput,
-  ListStacksCommandOutput
-} from "./commands/ListStacksCommand";
+import { ListStackSetsCommandInput, ListStackSetsCommandOutput } from "./commands/ListStackSetsCommand";
+import { ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
   ListTypeRegistrationsCommandInput,
   ListTypeRegistrationsCommandOutput
 } from "./commands/ListTypeRegistrationsCommand";
-import {
-  ListTypeVersionsCommandInput,
-  ListTypeVersionsCommandOutput
-} from "./commands/ListTypeVersionsCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand";
+import { ListTypeVersionsCommandInput, ListTypeVersionsCommandOutput } from "./commands/ListTypeVersionsCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   RecordHandlerProgressCommandInput,
   RecordHandlerProgressCommandOutput
 } from "./commands/RecordHandlerProgressCommand";
-import {
-  RegisterTypeCommandInput,
-  RegisterTypeCommandOutput
-} from "./commands/RegisterTypeCommand";
-import {
-  SetStackPolicyCommandInput,
-  SetStackPolicyCommandOutput
-} from "./commands/SetStackPolicyCommand";
+import { RegisterTypeCommandInput, RegisterTypeCommandOutput } from "./commands/RegisterTypeCommand";
+import { SetStackPolicyCommandInput, SetStackPolicyCommandOutput } from "./commands/SetStackPolicyCommand";
 import {
   SetTypeDefaultVersionCommandInput,
   SetTypeDefaultVersionCommandOutput
 } from "./commands/SetTypeDefaultVersionCommand";
-import {
-  SignalResourceCommandInput,
-  SignalResourceCommandOutput
-} from "./commands/SignalResourceCommand";
+import { SignalResourceCommandInput, SignalResourceCommandOutput } from "./commands/SignalResourceCommand";
 import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput
 } from "./commands/StopStackSetOperationCommand";
-import {
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommandInput,
   UpdateStackInstancesCommandOutput
 } from "./commands/UpdateStackInstancesCommand";
-import {
-  UpdateStackSetCommandInput,
-  UpdateStackSetCommandOutput
-} from "./commands/UpdateStackSetCommand";
+import { UpdateStackSetCommandInput, UpdateStackSetCommandOutput } from "./commands/UpdateStackSetCommand";
 import {
   UpdateTerminationProtectionCommandInput,
   UpdateTerminationProtectionCommandOutput
 } from "./commands/UpdateTerminationProtectionCommand";
-import {
-  ValidateTemplateCommandInput,
-  ValidateTemplateCommandOutput
-} from "./commands/ValidateTemplateCommand";
+import { ValidateTemplateCommandInput, ValidateTemplateCommandOutput } from "./commands/ValidateTemplateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -234,12 +138,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -384,8 +283,7 @@ export type ServiceOutputTypes =
   | UpdateTerminationProtectionCommandOutput
   | ValidateTemplateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -469,9 +367,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudFormationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -480,9 +376,7 @@ export type CloudFormationClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudFormationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

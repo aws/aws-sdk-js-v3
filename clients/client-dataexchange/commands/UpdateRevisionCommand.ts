@@ -1,18 +1,11 @@
-import {
-  DataExchangeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataExchangeClient";
+import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
 import { UpdateRevisionRequest, UpdateRevisionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRevisionCommand,
   serializeAws_restJson1_1UpdateRevisionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRevisionCommandInput = UpdateRevisionRequest;
-export type UpdateRevisionCommandOutput = UpdateRevisionResponse &
-  __MetadataBearer;
+export type UpdateRevisionCommandOutput = UpdateRevisionResponse & __MetadataBearer;
 
 export class UpdateRevisionCommand extends $Command<
   UpdateRevisionCommandInput,
@@ -47,9 +39,7 @@ export class UpdateRevisionCommand extends $Command<
     configuration: DataExchangeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRevisionCommandInput, UpdateRevisionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateRevisionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRevisionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRevisionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateRevisionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRevisionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRevisionCommandOutput> {
     return deserializeAws_restJson1_1UpdateRevisionCommand(output, context);
   }
 

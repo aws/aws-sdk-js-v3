@@ -1,18 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { DeleteFileSystemRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteFileSystemCommand,
   serializeAws_restJson1_1DeleteFileSystemCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeleteFileSystemCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeleteFileSystemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteFileSystemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteFileSystemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteFileSystemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteFileSystemCommandOutput> {
     return deserializeAws_restJson1_1DeleteFileSystemCommand(output, context);
   }
 

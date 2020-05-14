@@ -1,21 +1,11 @@
-import {
-  RekognitionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RekognitionClient";
-import {
-  GetCelebrityInfoRequest,
-  GetCelebrityInfoResponse
-} from "../models/index";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { GetCelebrityInfoRequest, GetCelebrityInfoResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCelebrityInfoCommand,
   serializeAws_json1_1GetCelebrityInfoCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCelebrityInfoCommandInput = GetCelebrityInfoRequest;
-export type GetCelebrityInfoCommandOutput = GetCelebrityInfoResponse &
-  __MetadataBearer;
+export type GetCelebrityInfoCommandOutput = GetCelebrityInfoResponse & __MetadataBearer;
 
 export class GetCelebrityInfoCommand extends $Command<
   GetCelebrityInfoCommandInput,
@@ -50,9 +39,7 @@ export class GetCelebrityInfoCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetCelebrityInfoCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCelebrityInfoCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCelebrityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCelebrityInfoCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCelebrityInfoCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCelebrityInfoCommandOutput> {
     return deserializeAws_json1_1GetCelebrityInfoCommand(output, context);
   }
 

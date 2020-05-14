@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointServiceConfigurationsRequest,
   DescribeVpcEndpointServiceConfigurationsResult
@@ -12,10 +8,7 @@ import {
   serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput
-  ) {
+  constructor(readonly input: DescribeVpcEndpointServiceConfigurationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     DescribeVpcEndpointServiceConfigurationsCommandInput,
     DescribeVpcEndpointServiceConfigurationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
     input: DescribeVpcEndpointServiceConfigurationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

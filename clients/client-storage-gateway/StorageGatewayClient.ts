@@ -1,55 +1,19 @@
-import {
-  ActivateGatewayCommandInput,
-  ActivateGatewayCommandOutput
-} from "./commands/ActivateGatewayCommand";
-import {
-  AddCacheCommandInput,
-  AddCacheCommandOutput
-} from "./commands/AddCacheCommand";
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
-import {
-  AddUploadBufferCommandInput,
-  AddUploadBufferCommandOutput
-} from "./commands/AddUploadBufferCommand";
-import {
-  AddWorkingStorageCommandInput,
-  AddWorkingStorageCommandOutput
-} from "./commands/AddWorkingStorageCommand";
-import {
-  AssignTapePoolCommandInput,
-  AssignTapePoolCommandOutput
-} from "./commands/AssignTapePoolCommand";
-import {
-  AttachVolumeCommandInput,
-  AttachVolumeCommandOutput
-} from "./commands/AttachVolumeCommand";
-import {
-  CancelArchivalCommandInput,
-  CancelArchivalCommandOutput
-} from "./commands/CancelArchivalCommand";
-import {
-  CancelRetrievalCommandInput,
-  CancelRetrievalCommandOutput
-} from "./commands/CancelRetrievalCommand";
+import { ActivateGatewayCommandInput, ActivateGatewayCommandOutput } from "./commands/ActivateGatewayCommand";
+import { AddCacheCommandInput, AddCacheCommandOutput } from "./commands/AddCacheCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
+import { AddUploadBufferCommandInput, AddUploadBufferCommandOutput } from "./commands/AddUploadBufferCommand";
+import { AddWorkingStorageCommandInput, AddWorkingStorageCommandOutput } from "./commands/AddWorkingStorageCommand";
+import { AssignTapePoolCommandInput, AssignTapePoolCommandOutput } from "./commands/AssignTapePoolCommand";
+import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
+import { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "./commands/CancelArchivalCommand";
+import { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "./commands/CancelRetrievalCommand";
 import {
   CreateCachediSCSIVolumeCommandInput,
   CreateCachediSCSIVolumeCommandOutput
 } from "./commands/CreateCachediSCSIVolumeCommand";
-import {
-  CreateNFSFileShareCommandInput,
-  CreateNFSFileShareCommandOutput
-} from "./commands/CreateNFSFileShareCommand";
-import {
-  CreateSMBFileShareCommandInput,
-  CreateSMBFileShareCommandOutput
-} from "./commands/CreateSMBFileShareCommand";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand";
+import { CreateNFSFileShareCommandInput, CreateNFSFileShareCommandOutput } from "./commands/CreateNFSFileShareCommand";
+import { CreateSMBFileShareCommandInput, CreateSMBFileShareCommandOutput } from "./commands/CreateSMBFileShareCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import {
   CreateSnapshotFromVolumeRecoveryPointCommandInput,
   CreateSnapshotFromVolumeRecoveryPointCommandOutput
@@ -62,10 +26,7 @@ import {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput
 } from "./commands/CreateTapeWithBarcodeCommand";
-import {
-  CreateTapesCommandInput,
-  CreateTapesCommandOutput
-} from "./commands/CreateTapesCommand";
+import { CreateTapesCommandInput, CreateTapesCommandOutput } from "./commands/CreateTapesCommand";
 import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput
@@ -74,30 +35,15 @@ import {
   DeleteChapCredentialsCommandInput,
   DeleteChapCredentialsCommandOutput
 } from "./commands/DeleteChapCredentialsCommand";
-import {
-  DeleteFileShareCommandInput,
-  DeleteFileShareCommandOutput
-} from "./commands/DeleteFileShareCommand";
-import {
-  DeleteGatewayCommandInput,
-  DeleteGatewayCommandOutput
-} from "./commands/DeleteGatewayCommand";
+import { DeleteFileShareCommandInput, DeleteFileShareCommandOutput } from "./commands/DeleteFileShareCommand";
+import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import {
   DeleteSnapshotScheduleCommandInput,
   DeleteSnapshotScheduleCommandOutput
 } from "./commands/DeleteSnapshotScheduleCommand";
-import {
-  DeleteTapeArchiveCommandInput,
-  DeleteTapeArchiveCommandOutput
-} from "./commands/DeleteTapeArchiveCommand";
-import {
-  DeleteTapeCommandInput,
-  DeleteTapeCommandOutput
-} from "./commands/DeleteTapeCommand";
-import {
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput
-} from "./commands/DeleteVolumeCommand";
+import { DeleteTapeArchiveCommandInput, DeleteTapeArchiveCommandOutput } from "./commands/DeleteTapeArchiveCommand";
+import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand";
+import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
 import {
   DescribeAvailabilityMonitorTestCommandInput,
   DescribeAvailabilityMonitorTestCommandOutput
@@ -106,10 +52,7 @@ import {
   DescribeBandwidthRateLimitCommandInput,
   DescribeBandwidthRateLimitCommandOutput
 } from "./commands/DescribeBandwidthRateLimitCommand";
-import {
-  DescribeCacheCommandInput,
-  DescribeCacheCommandOutput
-} from "./commands/DescribeCacheCommand";
+import { DescribeCacheCommandInput, DescribeCacheCommandOutput } from "./commands/DescribeCacheCommand";
 import {
   DescribeCachediSCSIVolumesCommandInput,
   DescribeCachediSCSIVolumesCommandOutput
@@ -154,54 +97,27 @@ import {
   DescribeTapeRecoveryPointsCommandInput,
   DescribeTapeRecoveryPointsCommandOutput
 } from "./commands/DescribeTapeRecoveryPointsCommand";
-import {
-  DescribeTapesCommandInput,
-  DescribeTapesCommandOutput
-} from "./commands/DescribeTapesCommand";
+import { DescribeTapesCommandInput, DescribeTapesCommandOutput } from "./commands/DescribeTapesCommand";
 import {
   DescribeUploadBufferCommandInput,
   DescribeUploadBufferCommandOutput
 } from "./commands/DescribeUploadBufferCommand";
-import {
-  DescribeVTLDevicesCommandInput,
-  DescribeVTLDevicesCommandOutput
-} from "./commands/DescribeVTLDevicesCommand";
+import { DescribeVTLDevicesCommandInput, DescribeVTLDevicesCommandOutput } from "./commands/DescribeVTLDevicesCommand";
 import {
   DescribeWorkingStorageCommandInput,
   DescribeWorkingStorageCommandOutput
 } from "./commands/DescribeWorkingStorageCommand";
-import {
-  DetachVolumeCommandInput,
-  DetachVolumeCommandOutput
-} from "./commands/DetachVolumeCommand";
-import {
-  DisableGatewayCommandInput,
-  DisableGatewayCommandOutput
-} from "./commands/DisableGatewayCommand";
-import {
-  JoinDomainCommandInput,
-  JoinDomainCommandOutput
-} from "./commands/JoinDomainCommand";
-import {
-  ListFileSharesCommandInput,
-  ListFileSharesCommandOutput
-} from "./commands/ListFileSharesCommand";
-import {
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput
-} from "./commands/ListGatewaysCommand";
-import {
-  ListLocalDisksCommandInput,
-  ListLocalDisksCommandOutput
-} from "./commands/ListLocalDisksCommand";
+import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
+import { DisableGatewayCommandInput, DisableGatewayCommandOutput } from "./commands/DisableGatewayCommand";
+import { JoinDomainCommandInput, JoinDomainCommandOutput } from "./commands/JoinDomainCommand";
+import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "./commands/ListFileSharesCommand";
+import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
+import { ListLocalDisksCommandInput, ListLocalDisksCommandOutput } from "./commands/ListLocalDisksCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTapesCommandInput,
-  ListTapesCommandOutput
-} from "./commands/ListTapesCommand";
+import { ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand";
 import {
   ListVolumeInitiatorsCommandInput,
   ListVolumeInitiatorsCommandOutput
@@ -210,26 +126,14 @@ import {
   ListVolumeRecoveryPointsCommandInput,
   ListVolumeRecoveryPointsCommandOutput
 } from "./commands/ListVolumeRecoveryPointsCommand";
-import {
-  ListVolumesCommandInput,
-  ListVolumesCommandOutput
-} from "./commands/ListVolumesCommand";
-import {
-  NotifyWhenUploadedCommandInput,
-  NotifyWhenUploadedCommandOutput
-} from "./commands/NotifyWhenUploadedCommand";
-import {
-  RefreshCacheCommandInput,
-  RefreshCacheCommandOutput
-} from "./commands/RefreshCacheCommand";
+import { ListVolumesCommandInput, ListVolumesCommandOutput } from "./commands/ListVolumesCommand";
+import { NotifyWhenUploadedCommandInput, NotifyWhenUploadedCommandOutput } from "./commands/NotifyWhenUploadedCommand";
+import { RefreshCacheCommandInput, RefreshCacheCommandOutput } from "./commands/RefreshCacheCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput
 } from "./commands/RemoveTagsFromResourceCommand";
-import {
-  ResetCacheCommandInput,
-  ResetCacheCommandOutput
-} from "./commands/ResetCacheCommand";
+import { ResetCacheCommandInput, ResetCacheCommandOutput } from "./commands/ResetCacheCommand";
 import {
   RetrieveTapeArchiveCommandInput,
   RetrieveTapeArchiveCommandOutput
@@ -246,18 +150,12 @@ import {
   SetSMBGuestPasswordCommandInput,
   SetSMBGuestPasswordCommandOutput
 } from "./commands/SetSMBGuestPasswordCommand";
-import {
-  ShutdownGatewayCommandInput,
-  ShutdownGatewayCommandOutput
-} from "./commands/ShutdownGatewayCommand";
+import { ShutdownGatewayCommandInput, ShutdownGatewayCommandOutput } from "./commands/ShutdownGatewayCommand";
 import {
   StartAvailabilityMonitorTestCommandInput,
   StartAvailabilityMonitorTestCommandOutput
 } from "./commands/StartAvailabilityMonitorTestCommand";
-import {
-  StartGatewayCommandInput,
-  StartGatewayCommandOutput
-} from "./commands/StartGatewayCommand";
+import { StartGatewayCommandInput, StartGatewayCommandOutput } from "./commands/StartGatewayCommand";
 import {
   UpdateBandwidthRateLimitCommandInput,
   UpdateBandwidthRateLimitCommandOutput
@@ -278,14 +176,8 @@ import {
   UpdateMaintenanceStartTimeCommandInput,
   UpdateMaintenanceStartTimeCommandOutput
 } from "./commands/UpdateMaintenanceStartTimeCommand";
-import {
-  UpdateNFSFileShareCommandInput,
-  UpdateNFSFileShareCommandOutput
-} from "./commands/UpdateNFSFileShareCommand";
-import {
-  UpdateSMBFileShareCommandInput,
-  UpdateSMBFileShareCommandOutput
-} from "./commands/UpdateSMBFileShareCommand";
+import { UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput } from "./commands/UpdateNFSFileShareCommand";
+import { UpdateSMBFileShareCommandInput, UpdateSMBFileShareCommandOutput } from "./commands/UpdateSMBFileShareCommand";
 import {
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput
@@ -314,12 +206,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -504,8 +391,7 @@ export type ServiceOutputTypes =
   | UpdateSnapshotScheduleCommandOutput
   | UpdateVTLDeviceTypeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -589,9 +475,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type StorageGatewayClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type StorageGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -600,9 +484,7 @@ export type StorageGatewayClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

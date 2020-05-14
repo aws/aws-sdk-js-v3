@@ -1,63 +1,27 @@
-import {
-  BatchGetTracesCommandInput,
-  BatchGetTracesCommandOutput
-} from "../commands/BatchGetTracesCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "../commands/CreateGroupCommand";
-import {
-  CreateSamplingRuleCommandInput,
-  CreateSamplingRuleCommandOutput
-} from "../commands/CreateSamplingRuleCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "../commands/DeleteGroupCommand";
-import {
-  DeleteSamplingRuleCommandInput,
-  DeleteSamplingRuleCommandOutput
-} from "../commands/DeleteSamplingRuleCommand";
+import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "../commands/BatchGetTracesCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
+import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "../commands/CreateSamplingRuleCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
+import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "../commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommandInput,
   GetEncryptionConfigCommandOutput
 } from "../commands/GetEncryptionConfigCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "../commands/GetGroupCommand";
-import {
-  GetGroupsCommandInput,
-  GetGroupsCommandOutput
-} from "../commands/GetGroupsCommand";
-import {
-  GetSamplingRulesCommandInput,
-  GetSamplingRulesCommandOutput
-} from "../commands/GetSamplingRulesCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
+import { GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
+import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "../commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
   GetSamplingStatisticSummariesCommandOutput
 } from "../commands/GetSamplingStatisticSummariesCommand";
-import {
-  GetSamplingTargetsCommandInput,
-  GetSamplingTargetsCommandOutput
-} from "../commands/GetSamplingTargetsCommand";
-import {
-  GetServiceGraphCommandInput,
-  GetServiceGraphCommandOutput
-} from "../commands/GetServiceGraphCommand";
+import { GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput } from "../commands/GetSamplingTargetsCommand";
+import { GetServiceGraphCommandInput, GetServiceGraphCommandOutput } from "../commands/GetServiceGraphCommand";
 import {
   GetTimeSeriesServiceStatisticsCommandInput,
   GetTimeSeriesServiceStatisticsCommandOutput
 } from "../commands/GetTimeSeriesServiceStatisticsCommand";
-import {
-  GetTraceGraphCommandInput,
-  GetTraceGraphCommandOutput
-} from "../commands/GetTraceGraphCommand";
-import {
-  GetTraceSummariesCommandInput,
-  GetTraceSummariesCommandOutput
-} from "../commands/GetTraceSummariesCommand";
+import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "../commands/GetTraceGraphCommand";
+import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "../commands/GetTraceSummariesCommand";
 import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput
@@ -66,18 +30,9 @@ import {
   PutTelemetryRecordsCommandInput,
   PutTelemetryRecordsCommandOutput
 } from "../commands/PutTelemetryRecordsCommand";
-import {
-  PutTraceSegmentsCommandInput,
-  PutTraceSegmentsCommandOutput
-} from "../commands/PutTraceSegmentsCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "../commands/UpdateGroupCommand";
-import {
-  UpdateSamplingRuleCommandInput,
-  UpdateSamplingRuleCommandOutput
-} from "../commands/UpdateSamplingRuleCommand";
+import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "../commands/PutTraceSegmentsCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
+import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "../commands/UpdateSamplingRuleCommand";
 import {
   Alias,
   AnnotationValue,
@@ -127,10 +82,7 @@ import {
   UnprocessedTraceSegment,
   ValueWithServiceIds
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -204,10 +156,7 @@ export const serializeAws_restJson1_1CreateSamplingRuleCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.SamplingRule !== undefined && {
-      SamplingRule: serializeAws_restJson1_1SamplingRule(
-        input.SamplingRule,
-        context
-      )
+      SamplingRule: serializeAws_restJson1_1SamplingRule(input.SamplingRule, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -534,10 +483,7 @@ export const serializeAws_restJson1_1GetTraceSummariesCommand = async (
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.Sampling !== undefined && { Sampling: input.Sampling }),
     ...(input.SamplingStrategy !== undefined && {
-      SamplingStrategy: serializeAws_restJson1_1SamplingStrategy(
-        input.SamplingStrategy,
-        context
-      )
+      SamplingStrategy: serializeAws_restJson1_1SamplingStrategy(input.SamplingStrategy, context)
     }),
     ...(input.StartTime !== undefined && {
       StartTime: Math.round(input.StartTime.getTime() / 1000)
@@ -599,10 +545,7 @@ export const serializeAws_restJson1_1PutTelemetryRecordsCommand = async (
     ...(input.Hostname !== undefined && { Hostname: input.Hostname }),
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.TelemetryRecords !== undefined && {
-      TelemetryRecords: serializeAws_restJson1_1TelemetryRecordList(
-        input.TelemetryRecords,
-        context
-      )
+      TelemetryRecords: serializeAws_restJson1_1TelemetryRecordList(input.TelemetryRecords, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -628,10 +571,7 @@ export const serializeAws_restJson1_1PutTraceSegmentsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.TraceSegmentDocuments !== undefined && {
-      TraceSegmentDocuments: serializeAws_restJson1_1TraceSegmentDocumentList(
-        input.TraceSegmentDocuments,
-        context
-      )
+      TraceSegmentDocuments: serializeAws_restJson1_1TraceSegmentDocumentList(input.TraceSegmentDocuments, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -685,10 +625,7 @@ export const serializeAws_restJson1_1UpdateSamplingRuleCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.SamplingRuleUpdate !== undefined && {
-      SamplingRuleUpdate: serializeAws_restJson1_1SamplingRuleUpdate(
-        input.SamplingRuleUpdate,
-        context
-      )
+      SamplingRuleUpdate: serializeAws_restJson1_1SamplingRuleUpdate(input.SamplingRuleUpdate, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -708,10 +645,7 @@ export const deserializeAws_restJson1_1BatchGetTracesCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetTracesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1BatchGetTracesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1BatchGetTracesCommandError(output, context);
   }
   const contents: BatchGetTracesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -727,14 +661,8 @@ export const deserializeAws_restJson1_1BatchGetTracesCommand = async (
   if (data.Traces !== undefined && data.Traces !== null) {
     contents.Traces = deserializeAws_restJson1_1TraceList(data.Traces, context);
   }
-  if (
-    data.UnprocessedTraceIds !== undefined &&
-    data.UnprocessedTraceIds !== null
-  ) {
-    contents.UnprocessedTraceIds = deserializeAws_restJson1_1UnprocessedTraceIdList(
-      data.UnprocessedTraceIds,
-      context
-    );
+  if (data.UnprocessedTraceIds !== undefined && data.UnprocessedTraceIds !== null) {
+    contents.UnprocessedTraceIds = deserializeAws_restJson1_1UnprocessedTraceIdList(data.UnprocessedTraceIds, context);
   }
   return Promise.resolve(contents);
 };
@@ -754,10 +682,7 @@ const deserializeAws_restJson1_1BatchGetTracesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -765,10 +690,7 @@ const deserializeAws_restJson1_1BatchGetTracesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -824,10 +746,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -835,10 +754,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -865,10 +781,7 @@ export const deserializeAws_restJson1_1CreateSamplingRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateSamplingRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateSamplingRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSamplingRuleCommandError(output, context);
   }
   const contents: CreateSamplingRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -876,14 +789,8 @@ export const deserializeAws_restJson1_1CreateSamplingRuleCommand = async (
     SamplingRuleRecord: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.SamplingRuleRecord !== undefined &&
-    data.SamplingRuleRecord !== null
-  ) {
-    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(
-      data.SamplingRuleRecord,
-      context
-    );
+  if (data.SamplingRuleRecord !== undefined && data.SamplingRuleRecord !== null) {
+    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(data.SamplingRuleRecord, context);
   }
   return Promise.resolve(contents);
 };
@@ -903,10 +810,7 @@ const deserializeAws_restJson1_1CreateSamplingRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -914,10 +818,7 @@ const deserializeAws_restJson1_1CreateSamplingRuleCommandError = async (
     case "RuleLimitExceededException":
     case "com.amazonaws.tracing#RuleLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -925,10 +826,7 @@ const deserializeAws_restJson1_1CreateSamplingRuleCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -980,10 +878,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -991,10 +886,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1021,10 +913,7 @@ export const deserializeAws_restJson1_1DeleteSamplingRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSamplingRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteSamplingRuleCommandError(output, context);
   }
   const contents: DeleteSamplingRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1032,14 +921,8 @@ export const deserializeAws_restJson1_1DeleteSamplingRuleCommand = async (
     SamplingRuleRecord: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.SamplingRuleRecord !== undefined &&
-    data.SamplingRuleRecord !== null
-  ) {
-    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(
-      data.SamplingRuleRecord,
-      context
-    );
+  if (data.SamplingRuleRecord !== undefined && data.SamplingRuleRecord !== null) {
+    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(data.SamplingRuleRecord, context);
   }
   return Promise.resolve(contents);
 };
@@ -1059,10 +942,7 @@ const deserializeAws_restJson1_1DeleteSamplingRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1070,10 +950,7 @@ const deserializeAws_restJson1_1DeleteSamplingRuleCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1100,10 +977,7 @@ export const deserializeAws_restJson1_1GetEncryptionConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetEncryptionConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetEncryptionConfigCommandError(output, context);
   }
   const contents: GetEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1112,10 +986,7 @@ export const deserializeAws_restJson1_1GetEncryptionConfigCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.EncryptionConfig !== undefined && data.EncryptionConfig !== null) {
-    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(
-      data.EncryptionConfig,
-      context
-    );
+    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(data.EncryptionConfig, context);
   }
   return Promise.resolve(contents);
 };
@@ -1135,10 +1006,7 @@ const deserializeAws_restJson1_1GetEncryptionConfigCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1146,10 +1014,7 @@ const deserializeAws_restJson1_1GetEncryptionConfigCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1205,10 +1070,7 @@ const deserializeAws_restJson1_1GetGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1216,10 +1078,7 @@ const deserializeAws_restJson1_1GetGroupCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1256,10 +1115,7 @@ export const deserializeAws_restJson1_1GetGroupsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Groups !== undefined && data.Groups !== null) {
-    contents.Groups = deserializeAws_restJson1_1GroupSummaryList(
-      data.Groups,
-      context
-    );
+    contents.Groups = deserializeAws_restJson1_1GroupSummaryList(data.Groups, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -1282,10 +1138,7 @@ const deserializeAws_restJson1_1GetGroupsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1293,10 +1146,7 @@ const deserializeAws_restJson1_1GetGroupsCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1323,10 +1173,7 @@ export const deserializeAws_restJson1_1GetSamplingRulesCommand = async (
   context: __SerdeContext
 ): Promise<GetSamplingRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSamplingRulesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSamplingRulesCommandError(output, context);
   }
   const contents: GetSamplingRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1338,14 +1185,8 @@ export const deserializeAws_restJson1_1GetSamplingRulesCommand = async (
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (
-    data.SamplingRuleRecords !== undefined &&
-    data.SamplingRuleRecords !== null
-  ) {
-    contents.SamplingRuleRecords = deserializeAws_restJson1_1SamplingRuleRecordList(
-      data.SamplingRuleRecords,
-      context
-    );
+  if (data.SamplingRuleRecords !== undefined && data.SamplingRuleRecords !== null) {
+    contents.SamplingRuleRecords = deserializeAws_restJson1_1SamplingRuleRecordList(data.SamplingRuleRecords, context);
   }
   return Promise.resolve(contents);
 };
@@ -1365,10 +1206,7 @@ const deserializeAws_restJson1_1GetSamplingRulesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1376,10 +1214,7 @@ const deserializeAws_restJson1_1GetSamplingRulesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1406,10 +1241,7 @@ export const deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand = as
   context: __SerdeContext
 ): Promise<GetSamplingStatisticSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError(output, context);
   }
   const contents: GetSamplingStatisticSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1421,10 +1253,7 @@ export const deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand = as
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (
-    data.SamplingStatisticSummaries !== undefined &&
-    data.SamplingStatisticSummaries !== null
-  ) {
+  if (data.SamplingStatisticSummaries !== undefined && data.SamplingStatisticSummaries !== null) {
     contents.SamplingStatisticSummaries = deserializeAws_restJson1_1SamplingStatisticSummaryList(
       data.SamplingStatisticSummaries,
       context
@@ -1448,10 +1277,7 @@ const deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError = asyn
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1459,10 +1285,7 @@ const deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError = asyn
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1489,10 +1312,7 @@ export const deserializeAws_restJson1_1GetSamplingTargetsCommand = async (
   context: __SerdeContext
 ): Promise<GetSamplingTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSamplingTargetsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSamplingTargetsCommandError(output, context);
   }
   const contents: GetSamplingTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1502,27 +1322,16 @@ export const deserializeAws_restJson1_1GetSamplingTargetsCommand = async (
     UnprocessedStatistics: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.LastRuleModification !== undefined &&
-    data.LastRuleModification !== null
-  ) {
-    contents.LastRuleModification = new Date(
-      Math.round(data.LastRuleModification * 1000)
-    );
+  if (data.LastRuleModification !== undefined && data.LastRuleModification !== null) {
+    contents.LastRuleModification = new Date(Math.round(data.LastRuleModification * 1000));
   }
-  if (
-    data.SamplingTargetDocuments !== undefined &&
-    data.SamplingTargetDocuments !== null
-  ) {
+  if (data.SamplingTargetDocuments !== undefined && data.SamplingTargetDocuments !== null) {
     contents.SamplingTargetDocuments = deserializeAws_restJson1_1SamplingTargetDocumentList(
       data.SamplingTargetDocuments,
       context
     );
   }
-  if (
-    data.UnprocessedStatistics !== undefined &&
-    data.UnprocessedStatistics !== null
-  ) {
+  if (data.UnprocessedStatistics !== undefined && data.UnprocessedStatistics !== null) {
     contents.UnprocessedStatistics = deserializeAws_restJson1_1UnprocessedStatisticsList(
       data.UnprocessedStatistics,
       context
@@ -1546,10 +1355,7 @@ const deserializeAws_restJson1_1GetSamplingTargetsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1557,10 +1363,7 @@ const deserializeAws_restJson1_1GetSamplingTargetsCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1587,10 +1390,7 @@ export const deserializeAws_restJson1_1GetServiceGraphCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceGraphCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetServiceGraphCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetServiceGraphCommandError(output, context);
   }
   const contents: GetServiceGraphCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1602,10 +1402,7 @@ export const deserializeAws_restJson1_1GetServiceGraphCommand = async (
     StartTime: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ContainsOldGroupVersions !== undefined &&
-    data.ContainsOldGroupVersions !== null
-  ) {
+  if (data.ContainsOldGroupVersions !== undefined && data.ContainsOldGroupVersions !== null) {
     contents.ContainsOldGroupVersions = data.ContainsOldGroupVersions;
   }
   if (data.EndTime !== undefined && data.EndTime !== null) {
@@ -1615,10 +1412,7 @@ export const deserializeAws_restJson1_1GetServiceGraphCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Services !== undefined && data.Services !== null) {
-    contents.Services = deserializeAws_restJson1_1ServiceList(
-      data.Services,
-      context
-    );
+    contents.Services = deserializeAws_restJson1_1ServiceList(data.Services, context);
   }
   if (data.StartTime !== undefined && data.StartTime !== null) {
     contents.StartTime = new Date(Math.round(data.StartTime * 1000));
@@ -1641,10 +1435,7 @@ const deserializeAws_restJson1_1GetServiceGraphCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1652,10 +1443,7 @@ const deserializeAws_restJson1_1GetServiceGraphCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1682,10 +1470,7 @@ export const deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand = a
   context: __SerdeContext
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError(output, context);
   }
   const contents: GetTimeSeriesServiceStatisticsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1695,19 +1480,13 @@ export const deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand = a
     TimeSeriesServiceStatistics: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.ContainsOldGroupVersions !== undefined &&
-    data.ContainsOldGroupVersions !== null
-  ) {
+  if (data.ContainsOldGroupVersions !== undefined && data.ContainsOldGroupVersions !== null) {
     contents.ContainsOldGroupVersions = data.ContainsOldGroupVersions;
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
-  if (
-    data.TimeSeriesServiceStatistics !== undefined &&
-    data.TimeSeriesServiceStatistics !== null
-  ) {
+  if (data.TimeSeriesServiceStatistics !== undefined && data.TimeSeriesServiceStatistics !== null) {
     contents.TimeSeriesServiceStatistics = deserializeAws_restJson1_1TimeSeriesServiceStatisticsList(
       data.TimeSeriesServiceStatistics,
       context
@@ -1731,10 +1510,7 @@ const deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError = asy
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1742,10 +1518,7 @@ const deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError = asy
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1785,10 +1558,7 @@ export const deserializeAws_restJson1_1GetTraceGraphCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Services !== undefined && data.Services !== null) {
-    contents.Services = deserializeAws_restJson1_1ServiceList(
-      data.Services,
-      context
-    );
+    contents.Services = deserializeAws_restJson1_1ServiceList(data.Services, context);
   }
   return Promise.resolve(contents);
 };
@@ -1808,10 +1578,7 @@ const deserializeAws_restJson1_1GetTraceGraphCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1819,10 +1586,7 @@ const deserializeAws_restJson1_1GetTraceGraphCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1849,10 +1613,7 @@ export const deserializeAws_restJson1_1GetTraceSummariesCommand = async (
   context: __SerdeContext
 ): Promise<GetTraceSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetTraceSummariesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetTraceSummariesCommandError(output, context);
   }
   const contents: GetTraceSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1864,23 +1625,15 @@ export const deserializeAws_restJson1_1GetTraceSummariesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.ApproximateTime !== undefined && data.ApproximateTime !== null) {
-    contents.ApproximateTime = new Date(
-      Math.round(data.ApproximateTime * 1000)
-    );
+    contents.ApproximateTime = new Date(Math.round(data.ApproximateTime * 1000));
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.TraceSummaries !== undefined && data.TraceSummaries !== null) {
-    contents.TraceSummaries = deserializeAws_restJson1_1TraceSummaryList(
-      data.TraceSummaries,
-      context
-    );
+    contents.TraceSummaries = deserializeAws_restJson1_1TraceSummaryList(data.TraceSummaries, context);
   }
-  if (
-    data.TracesProcessedCount !== undefined &&
-    data.TracesProcessedCount !== null
-  ) {
+  if (data.TracesProcessedCount !== undefined && data.TracesProcessedCount !== null) {
     contents.TracesProcessedCount = data.TracesProcessedCount;
   }
   return Promise.resolve(contents);
@@ -1901,10 +1654,7 @@ const deserializeAws_restJson1_1GetTraceSummariesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1912,10 +1662,7 @@ const deserializeAws_restJson1_1GetTraceSummariesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1942,10 +1689,7 @@ export const deserializeAws_restJson1_1PutEncryptionConfigCommand = async (
   context: __SerdeContext
 ): Promise<PutEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutEncryptionConfigCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutEncryptionConfigCommandError(output, context);
   }
   const contents: PutEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1954,10 +1698,7 @@ export const deserializeAws_restJson1_1PutEncryptionConfigCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.EncryptionConfig !== undefined && data.EncryptionConfig !== null) {
-    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(
-      data.EncryptionConfig,
-      context
-    );
+    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(data.EncryptionConfig, context);
   }
   return Promise.resolve(contents);
 };
@@ -1977,10 +1718,7 @@ const deserializeAws_restJson1_1PutEncryptionConfigCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1988,10 +1726,7 @@ const deserializeAws_restJson1_1PutEncryptionConfigCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2018,10 +1753,7 @@ export const deserializeAws_restJson1_1PutTelemetryRecordsCommand = async (
   context: __SerdeContext
 ): Promise<PutTelemetryRecordsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutTelemetryRecordsCommandError(output, context);
   }
   const contents: PutTelemetryRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2046,10 +1778,7 @@ const deserializeAws_restJson1_1PutTelemetryRecordsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2057,10 +1786,7 @@ const deserializeAws_restJson1_1PutTelemetryRecordsCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2087,10 +1813,7 @@ export const deserializeAws_restJson1_1PutTraceSegmentsCommand = async (
   context: __SerdeContext
 ): Promise<PutTraceSegmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutTraceSegmentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutTraceSegmentsCommandError(output, context);
   }
   const contents: PutTraceSegmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2098,10 +1821,7 @@ export const deserializeAws_restJson1_1PutTraceSegmentsCommand = async (
     UnprocessedTraceSegments: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.UnprocessedTraceSegments !== undefined &&
-    data.UnprocessedTraceSegments !== null
-  ) {
+  if (data.UnprocessedTraceSegments !== undefined && data.UnprocessedTraceSegments !== null) {
     contents.UnprocessedTraceSegments = deserializeAws_restJson1_1UnprocessedTraceSegmentList(
       data.UnprocessedTraceSegments,
       context
@@ -2125,10 +1845,7 @@ const deserializeAws_restJson1_1PutTraceSegmentsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2136,10 +1853,7 @@ const deserializeAws_restJson1_1PutTraceSegmentsCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2195,10 +1909,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2206,10 +1917,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2236,10 +1944,7 @@ export const deserializeAws_restJson1_1UpdateSamplingRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSamplingRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateSamplingRuleCommandError(output, context);
   }
   const contents: UpdateSamplingRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2247,14 +1952,8 @@ export const deserializeAws_restJson1_1UpdateSamplingRuleCommand = async (
     SamplingRuleRecord: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.SamplingRuleRecord !== undefined &&
-    data.SamplingRuleRecord !== null
-  ) {
-    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(
-      data.SamplingRuleRecord,
-      context
-    );
+  if (data.SamplingRuleRecord !== undefined && data.SamplingRuleRecord !== null) {
+    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(data.SamplingRuleRecord, context);
   }
   return Promise.resolve(contents);
 };
@@ -2274,10 +1973,7 @@ const deserializeAws_restJson1_1UpdateSamplingRuleCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2285,10 +1981,7 @@ const deserializeAws_restJson1_1UpdateSamplingRuleCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2361,10 +2054,7 @@ const deserializeAws_restJson1_1ThrottledExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1AttributeMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AttributeMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2398,16 +2088,10 @@ const serializeAws_restJson1_1BackendConnectionErrors = (
   };
 };
 
-const serializeAws_restJson1_1SamplingRule = (
-  input: SamplingRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
   return {
     ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_restJson1_1AttributeMap(
-        input.Attributes,
-        context
-      )
+      Attributes: serializeAws_restJson1_1AttributeMap(input.Attributes, context)
     }),
     ...(input.FixedRate !== undefined && { FixedRate: input.FixedRate }),
     ...(input.HTTPMethod !== undefined && { HTTPMethod: input.HTTPMethod }),
@@ -2426,16 +2110,10 @@ const serializeAws_restJson1_1SamplingRule = (
   };
 };
 
-const serializeAws_restJson1_1SamplingRuleUpdate = (
-  input: SamplingRuleUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SamplingRuleUpdate = (input: SamplingRuleUpdate, context: __SerdeContext): any => {
   return {
     ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_restJson1_1AttributeMap(
-        input.Attributes,
-        context
-      )
+      Attributes: serializeAws_restJson1_1AttributeMap(input.Attributes, context)
     }),
     ...(input.FixedRate !== undefined && { FixedRate: input.FixedRate }),
     ...(input.HTTPMethod !== undefined && { HTTPMethod: input.HTTPMethod }),
@@ -2477,31 +2155,20 @@ const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
   input: SamplingStatisticsDocument[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1SamplingStatisticsDocument(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1SamplingStatisticsDocument(entry, context));
 };
 
-const serializeAws_restJson1_1SamplingStrategy = (
-  input: SamplingStrategy,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SamplingStrategy = (input: SamplingStrategy, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_restJson1_1TelemetryRecord = (
-  input: TelemetryRecord,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TelemetryRecord = (input: TelemetryRecord, context: __SerdeContext): any => {
   return {
     ...(input.BackendConnectionErrors !== undefined && {
-      BackendConnectionErrors: serializeAws_restJson1_1BackendConnectionErrors(
-        input.BackendConnectionErrors,
-        context
-      )
+      BackendConnectionErrors: serializeAws_restJson1_1BackendConnectionErrors(input.BackendConnectionErrors, context)
     }),
     ...(input.SegmentsReceivedCount !== undefined && {
       SegmentsReceivedCount: input.SegmentsReceivedCount
@@ -2521,84 +2188,44 @@ const serializeAws_restJson1_1TelemetryRecord = (
   };
 };
 
-const serializeAws_restJson1_1TelemetryRecordList = (
-  input: TelemetryRecord[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1TelemetryRecord(entry, context)
-  );
+const serializeAws_restJson1_1TelemetryRecordList = (input: TelemetryRecord[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1TelemetryRecord(entry, context));
 };
 
-const serializeAws_restJson1_1TraceIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TraceIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TraceSegmentDocumentList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TraceSegmentDocumentList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const deserializeAws_restJson1_1Alias = (
-  output: any,
-  context: __SerdeContext
-): Alias => {
+const deserializeAws_restJson1_1Alias = (output: any, context: __SerdeContext): Alias => {
   return {
     __type: "Alias",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_restJson1_1AliasNames(output.Names, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AliasList = (
-  output: any,
-  context: __SerdeContext
-): Alias[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Alias(entry, context)
-  );
+const deserializeAws_restJson1_1AliasList = (output: any, context: __SerdeContext): Alias[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Alias(entry, context));
 };
 
-const deserializeAws_restJson1_1AliasNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1AliasNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1AnnotationValue = (
-  output: any,
-  context: __SerdeContext
-): AnnotationValue => {
+const deserializeAws_restJson1_1AnnotationValue = (output: any, context: __SerdeContext): AnnotationValue => {
   return {
     __type: "AnnotationValue",
-    BooleanValue:
-      output.BooleanValue !== undefined && output.BooleanValue !== null
-        ? output.BooleanValue
-        : undefined,
-    NumberValue:
-      output.NumberValue !== undefined && output.NumberValue !== null
-        ? output.NumberValue
-        : undefined,
-    StringValue:
-      output.StringValue !== undefined && output.StringValue !== null
-        ? output.StringValue
-        : undefined
+    BooleanValue: output.BooleanValue !== undefined && output.BooleanValue !== null ? output.BooleanValue : undefined,
+    NumberValue: output.NumberValue !== undefined && output.NumberValue !== null ? output.NumberValue : undefined,
+    StringValue: output.StringValue !== undefined && output.StringValue !== null ? output.StringValue : undefined
   } as any;
 };
 
@@ -2607,10 +2234,7 @@ const deserializeAws_restJson1_1Annotations = (
   context: __SerdeContext
 ): { [key: string]: ValueWithServiceIds[] } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: ValueWithServiceIds[] },
-      [key, value]: [string, any]
-    ) => ({
+    (acc: { [key: string]: ValueWithServiceIds[] }, [key, value]: [string, any]) => ({
       ...acc,
       [key]: deserializeAws_restJson1_1ValuesWithServiceIds(value, context)
     }),
@@ -2618,10 +2242,7 @@ const deserializeAws_restJson1_1Annotations = (
   );
 };
 
-const deserializeAws_restJson1_1AttributeMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1AttributeMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2637,17 +2258,11 @@ const deserializeAws_restJson1_1AvailabilityZoneDetail = (
 ): AvailabilityZoneDetail => {
   return {
     __type: "AvailabilityZoneDetail",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Edge = (
-  output: any,
-  context: __SerdeContext
-): Edge => {
+const deserializeAws_restJson1_1Edge = (output: any, context: __SerdeContext): Edge => {
   return {
     __type: "Edge",
     Aliases:
@@ -2655,139 +2270,73 @@ const deserializeAws_restJson1_1Edge = (
         ? deserializeAws_restJson1_1AliasList(output.Aliases, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? new Date(Math.round(output.EndTime * 1000))
-        : undefined,
-    ReferenceId:
-      output.ReferenceId !== undefined && output.ReferenceId !== null
-        ? output.ReferenceId
-        : undefined,
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    ReferenceId: output.ReferenceId !== undefined && output.ReferenceId !== null ? output.ReferenceId : undefined,
     ResponseTimeHistogram:
-      output.ResponseTimeHistogram !== undefined &&
-      output.ResponseTimeHistogram !== null
-        ? deserializeAws_restJson1_1Histogram(
-            output.ResponseTimeHistogram,
-            context
-          )
+      output.ResponseTimeHistogram !== undefined && output.ResponseTimeHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(output.ResponseTimeHistogram, context)
         : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
     SummaryStatistics:
-      output.SummaryStatistics !== undefined &&
-      output.SummaryStatistics !== null
-        ? deserializeAws_restJson1_1EdgeStatistics(
-            output.SummaryStatistics,
-            context
-          )
+      output.SummaryStatistics !== undefined && output.SummaryStatistics !== null
+        ? deserializeAws_restJson1_1EdgeStatistics(output.SummaryStatistics, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1EdgeList = (
-  output: any,
-  context: __SerdeContext
-): Edge[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Edge(entry, context)
-  );
+const deserializeAws_restJson1_1EdgeList = (output: any, context: __SerdeContext): Edge[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Edge(entry, context));
 };
 
-const deserializeAws_restJson1_1EdgeStatistics = (
-  output: any,
-  context: __SerdeContext
-): EdgeStatistics => {
+const deserializeAws_restJson1_1EdgeStatistics = (output: any, context: __SerdeContext): EdgeStatistics => {
   return {
     __type: "EdgeStatistics",
     ErrorStatistics:
       output.ErrorStatistics !== undefined && output.ErrorStatistics !== null
-        ? deserializeAws_restJson1_1ErrorStatistics(
-            output.ErrorStatistics,
-            context
-          )
+        ? deserializeAws_restJson1_1ErrorStatistics(output.ErrorStatistics, context)
         : undefined,
     FaultStatistics:
       output.FaultStatistics !== undefined && output.FaultStatistics !== null
-        ? deserializeAws_restJson1_1FaultStatistics(
-            output.FaultStatistics,
-            context
-          )
+        ? deserializeAws_restJson1_1FaultStatistics(output.FaultStatistics, context)
         : undefined,
-    OkCount:
-      output.OkCount !== undefined && output.OkCount !== null
-        ? output.OkCount
-        : undefined,
-    TotalCount:
-      output.TotalCount !== undefined && output.TotalCount !== null
-        ? output.TotalCount
-        : undefined,
+    OkCount: output.OkCount !== undefined && output.OkCount !== null ? output.OkCount : undefined,
+    TotalCount: output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined,
     TotalResponseTime:
-      output.TotalResponseTime !== undefined &&
-      output.TotalResponseTime !== null
-        ? output.TotalResponseTime
-        : undefined
+      output.TotalResponseTime !== undefined && output.TotalResponseTime !== null ? output.TotalResponseTime : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1EncryptionConfig = (
-  output: any,
-  context: __SerdeContext
-): EncryptionConfig => {
+const deserializeAws_restJson1_1EncryptionConfig = (output: any, context: __SerdeContext): EncryptionConfig => {
   return {
     __type: "EncryptionConfig",
-    KeyId:
-      output.KeyId !== undefined && output.KeyId !== null
-        ? output.KeyId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ErrorRootCause = (
-  output: any,
-  context: __SerdeContext
-): ErrorRootCause => {
+const deserializeAws_restJson1_1ErrorRootCause = (output: any, context: __SerdeContext): ErrorRootCause => {
   return {
     __type: "ErrorRootCause",
     Services:
       output.Services !== undefined && output.Services !== null
-        ? deserializeAws_restJson1_1ErrorRootCauseServices(
-            output.Services,
-            context
-          )
+        ? deserializeAws_restJson1_1ErrorRootCauseServices(output.Services, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ErrorRootCauseEntity = (
-  output: any,
-  context: __SerdeContext
-): ErrorRootCauseEntity => {
+const deserializeAws_restJson1_1ErrorRootCauseEntity = (output: any, context: __SerdeContext): ErrorRootCauseEntity => {
   return {
     __type: "ErrorRootCauseEntity",
     Exceptions:
       output.Exceptions !== undefined && output.Exceptions !== null
-        ? deserializeAws_restJson1_1RootCauseExceptions(
-            output.Exceptions,
-            context
-          )
+        ? deserializeAws_restJson1_1RootCauseExceptions(output.Exceptions, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Remote:
-      output.Remote !== undefined && output.Remote !== null
-        ? output.Remote
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Remote: output.Remote !== undefined && output.Remote !== null ? output.Remote : undefined
   } as any;
 };
 
@@ -2795,9 +2344,7 @@ const deserializeAws_restJson1_1ErrorRootCauseEntityPath = (
   output: any,
   context: __SerdeContext
 ): ErrorRootCauseEntity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ErrorRootCauseEntity(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ErrorRootCauseEntity(entry, context));
 };
 
 const deserializeAws_restJson1_1ErrorRootCauseService = (
@@ -2806,33 +2353,18 @@ const deserializeAws_restJson1_1ErrorRootCauseService = (
 ): ErrorRootCauseService => {
   return {
     __type: "ErrorRootCauseService",
-    AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     EntityPath:
       output.EntityPath !== undefined && output.EntityPath !== null
-        ? deserializeAws_restJson1_1ErrorRootCauseEntityPath(
-            output.EntityPath,
-            context
-          )
+        ? deserializeAws_restJson1_1ErrorRootCauseEntityPath(output.EntityPath, context)
         : undefined,
-    Inferred:
-      output.Inferred !== undefined && output.Inferred !== null
-        ? output.Inferred
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Inferred: output.Inferred !== undefined && output.Inferred !== null ? output.Inferred : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2840,78 +2372,42 @@ const deserializeAws_restJson1_1ErrorRootCauseServices = (
   output: any,
   context: __SerdeContext
 ): ErrorRootCauseService[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ErrorRootCauseService(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ErrorRootCauseService(entry, context));
 };
 
-const deserializeAws_restJson1_1ErrorRootCauses = (
-  output: any,
-  context: __SerdeContext
-): ErrorRootCause[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ErrorRootCause(entry, context)
-  );
+const deserializeAws_restJson1_1ErrorRootCauses = (output: any, context: __SerdeContext): ErrorRootCause[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ErrorRootCause(entry, context));
 };
 
-const deserializeAws_restJson1_1ErrorStatistics = (
-  output: any,
-  context: __SerdeContext
-): ErrorStatistics => {
+const deserializeAws_restJson1_1ErrorStatistics = (output: any, context: __SerdeContext): ErrorStatistics => {
   return {
     __type: "ErrorStatistics",
-    OtherCount:
-      output.OtherCount !== undefined && output.OtherCount !== null
-        ? output.OtherCount
-        : undefined,
+    OtherCount: output.OtherCount !== undefined && output.OtherCount !== null ? output.OtherCount : undefined,
     ThrottleCount:
-      output.ThrottleCount !== undefined && output.ThrottleCount !== null
-        ? output.ThrottleCount
-        : undefined,
-    TotalCount:
-      output.TotalCount !== undefined && output.TotalCount !== null
-        ? output.TotalCount
-        : undefined
+      output.ThrottleCount !== undefined && output.ThrottleCount !== null ? output.ThrottleCount : undefined,
+    TotalCount: output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1FaultRootCause = (
-  output: any,
-  context: __SerdeContext
-): FaultRootCause => {
+const deserializeAws_restJson1_1FaultRootCause = (output: any, context: __SerdeContext): FaultRootCause => {
   return {
     __type: "FaultRootCause",
     Services:
       output.Services !== undefined && output.Services !== null
-        ? deserializeAws_restJson1_1FaultRootCauseServices(
-            output.Services,
-            context
-          )
+        ? deserializeAws_restJson1_1FaultRootCauseServices(output.Services, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1FaultRootCauseEntity = (
-  output: any,
-  context: __SerdeContext
-): FaultRootCauseEntity => {
+const deserializeAws_restJson1_1FaultRootCauseEntity = (output: any, context: __SerdeContext): FaultRootCauseEntity => {
   return {
     __type: "FaultRootCauseEntity",
     Exceptions:
       output.Exceptions !== undefined && output.Exceptions !== null
-        ? deserializeAws_restJson1_1RootCauseExceptions(
-            output.Exceptions,
-            context
-          )
+        ? deserializeAws_restJson1_1RootCauseExceptions(output.Exceptions, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Remote:
-      output.Remote !== undefined && output.Remote !== null
-        ? output.Remote
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Remote: output.Remote !== undefined && output.Remote !== null ? output.Remote : undefined
   } as any;
 };
 
@@ -2919,9 +2415,7 @@ const deserializeAws_restJson1_1FaultRootCauseEntityPath = (
   output: any,
   context: __SerdeContext
 ): FaultRootCauseEntity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1FaultRootCauseEntity(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1FaultRootCauseEntity(entry, context));
 };
 
 const deserializeAws_restJson1_1FaultRootCauseService = (
@@ -2930,33 +2424,18 @@ const deserializeAws_restJson1_1FaultRootCauseService = (
 ): FaultRootCauseService => {
   return {
     __type: "FaultRootCauseService",
-    AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     EntityPath:
       output.EntityPath !== undefined && output.EntityPath !== null
-        ? deserializeAws_restJson1_1FaultRootCauseEntityPath(
-            output.EntityPath,
-            context
-          )
+        ? deserializeAws_restJson1_1FaultRootCauseEntityPath(output.EntityPath, context)
         : undefined,
-    Inferred:
-      output.Inferred !== undefined && output.Inferred !== null
-        ? output.Inferred
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Inferred: output.Inferred !== undefined && output.Inferred !== null ? output.Inferred : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -2964,161 +2443,79 @@ const deserializeAws_restJson1_1FaultRootCauseServices = (
   output: any,
   context: __SerdeContext
 ): FaultRootCauseService[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1FaultRootCauseService(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1FaultRootCauseService(entry, context));
 };
 
-const deserializeAws_restJson1_1FaultRootCauses = (
-  output: any,
-  context: __SerdeContext
-): FaultRootCause[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1FaultRootCause(entry, context)
-  );
+const deserializeAws_restJson1_1FaultRootCauses = (output: any, context: __SerdeContext): FaultRootCause[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1FaultRootCause(entry, context));
 };
 
-const deserializeAws_restJson1_1FaultStatistics = (
-  output: any,
-  context: __SerdeContext
-): FaultStatistics => {
+const deserializeAws_restJson1_1FaultStatistics = (output: any, context: __SerdeContext): FaultStatistics => {
   return {
     __type: "FaultStatistics",
-    OtherCount:
-      output.OtherCount !== undefined && output.OtherCount !== null
-        ? output.OtherCount
-        : undefined,
-    TotalCount:
-      output.TotalCount !== undefined && output.TotalCount !== null
-        ? output.TotalCount
-        : undefined
+    OtherCount: output.OtherCount !== undefined && output.OtherCount !== null ? output.OtherCount : undefined,
+    TotalCount: output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Group = (
-  output: any,
-  context: __SerdeContext
-): Group => {
+const deserializeAws_restJson1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
     __type: "Group",
     FilterExpression:
-      output.FilterExpression !== undefined && output.FilterExpression !== null
-        ? output.FilterExpression
-        : undefined,
-    GroupARN:
-      output.GroupARN !== undefined && output.GroupARN !== null
-        ? output.GroupARN
-        : undefined,
-    GroupName:
-      output.GroupName !== undefined && output.GroupName !== null
-        ? output.GroupName
-        : undefined
+      output.FilterExpression !== undefined && output.FilterExpression !== null ? output.FilterExpression : undefined,
+    GroupARN: output.GroupARN !== undefined && output.GroupARN !== null ? output.GroupARN : undefined,
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1GroupSummary = (
-  output: any,
-  context: __SerdeContext
-): GroupSummary => {
+const deserializeAws_restJson1_1GroupSummary = (output: any, context: __SerdeContext): GroupSummary => {
   return {
     __type: "GroupSummary",
     FilterExpression:
-      output.FilterExpression !== undefined && output.FilterExpression !== null
-        ? output.FilterExpression
-        : undefined,
-    GroupARN:
-      output.GroupARN !== undefined && output.GroupARN !== null
-        ? output.GroupARN
-        : undefined,
-    GroupName:
-      output.GroupName !== undefined && output.GroupName !== null
-        ? output.GroupName
-        : undefined
+      output.FilterExpression !== undefined && output.FilterExpression !== null ? output.FilterExpression : undefined,
+    GroupARN: output.GroupARN !== undefined && output.GroupARN !== null ? output.GroupARN : undefined,
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1GroupSummaryList = (
-  output: any,
-  context: __SerdeContext
-): GroupSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1GroupSummary(entry, context)
-  );
+const deserializeAws_restJson1_1GroupSummaryList = (output: any, context: __SerdeContext): GroupSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1GroupSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1Histogram = (
-  output: any,
-  context: __SerdeContext
-): HistogramEntry[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1HistogramEntry(entry, context)
-  );
+const deserializeAws_restJson1_1Histogram = (output: any, context: __SerdeContext): HistogramEntry[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1HistogramEntry(entry, context));
 };
 
-const deserializeAws_restJson1_1HistogramEntry = (
-  output: any,
-  context: __SerdeContext
-): HistogramEntry => {
+const deserializeAws_restJson1_1HistogramEntry = (output: any, context: __SerdeContext): HistogramEntry => {
   return {
     __type: "HistogramEntry",
-    Count:
-      output.Count !== undefined && output.Count !== null
-        ? output.Count
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Http = (
-  output: any,
-  context: __SerdeContext
-): Http => {
+const deserializeAws_restJson1_1Http = (output: any, context: __SerdeContext): Http => {
   return {
     __type: "Http",
-    ClientIp:
-      output.ClientIp !== undefined && output.ClientIp !== null
-        ? output.ClientIp
-        : undefined,
-    HttpMethod:
-      output.HttpMethod !== undefined && output.HttpMethod !== null
-        ? output.HttpMethod
-        : undefined,
-    HttpStatus:
-      output.HttpStatus !== undefined && output.HttpStatus !== null
-        ? output.HttpStatus
-        : undefined,
-    HttpURL:
-      output.HttpURL !== undefined && output.HttpURL !== null
-        ? output.HttpURL
-        : undefined,
-    UserAgent:
-      output.UserAgent !== undefined && output.UserAgent !== null
-        ? output.UserAgent
-        : undefined
+    ClientIp: output.ClientIp !== undefined && output.ClientIp !== null ? output.ClientIp : undefined,
+    HttpMethod: output.HttpMethod !== undefined && output.HttpMethod !== null ? output.HttpMethod : undefined,
+    HttpStatus: output.HttpStatus !== undefined && output.HttpStatus !== null ? output.HttpStatus : undefined,
+    HttpURL: output.HttpURL !== undefined && output.HttpURL !== null ? output.HttpURL : undefined,
+    UserAgent: output.UserAgent !== undefined && output.UserAgent !== null ? output.UserAgent : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1InstanceIdDetail = (
-  output: any,
-  context: __SerdeContext
-): InstanceIdDetail => {
+const deserializeAws_restJson1_1InstanceIdDetail = (output: any, context: __SerdeContext): InstanceIdDetail => {
   return {
     __type: "InstanceIdDetail",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ResourceARNDetail = (
-  output: any,
-  context: __SerdeContext
-): ResourceARNDetail => {
+const deserializeAws_restJson1_1ResourceARNDetail = (output: any, context: __SerdeContext): ResourceARNDetail => {
   return {
     __type: "ResourceARNDetail",
-    ARN:
-      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined
+    ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined
   } as any;
 };
 
@@ -3130,10 +2527,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCause = (
     __type: "ResponseTimeRootCause",
     Services:
       output.Services !== undefined && output.Services !== null
-        ? deserializeAws_restJson1_1ResponseTimeRootCauseServices(
-            output.Services,
-            context
-          )
+        ? deserializeAws_restJson1_1ResponseTimeRootCauseServices(output.Services, context)
         : undefined
   } as any;
 };
@@ -3144,18 +2538,9 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseEntity = (
 ): ResponseTimeRootCauseEntity => {
   return {
     __type: "ResponseTimeRootCauseEntity",
-    Coverage:
-      output.Coverage !== undefined && output.Coverage !== null
-        ? output.Coverage
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Remote:
-      output.Remote !== undefined && output.Remote !== null
-        ? output.Remote
-        : undefined
+    Coverage: output.Coverage !== undefined && output.Coverage !== null ? output.Coverage : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Remote: output.Remote !== undefined && output.Remote !== null ? output.Remote : undefined
   } as any;
 };
 
@@ -3163,9 +2548,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath = (
   output: any,
   context: __SerdeContext
 ): ResponseTimeRootCauseEntity[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ResponseTimeRootCauseEntity(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ResponseTimeRootCauseEntity(entry, context));
 };
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseService = (
@@ -3174,33 +2557,18 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseService = (
 ): ResponseTimeRootCauseService => {
   return {
     __type: "ResponseTimeRootCauseService",
-    AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     EntityPath:
       output.EntityPath !== undefined && output.EntityPath !== null
-        ? deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath(
-            output.EntityPath,
-            context
-          )
+        ? deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath(output.EntityPath, context)
         : undefined,
-    Inferred:
-      output.Inferred !== undefined && output.Inferred !== null
-        ? output.Inferred
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Inferred: output.Inferred !== undefined && output.Inferred !== null ? output.Inferred : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
@@ -3208,111 +2576,52 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseServices = (
   output: any,
   context: __SerdeContext
 ): ResponseTimeRootCauseService[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ResponseTimeRootCauseService(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ResponseTimeRootCauseService(entry, context));
 };
 
 const deserializeAws_restJson1_1ResponseTimeRootCauses = (
   output: any,
   context: __SerdeContext
 ): ResponseTimeRootCause[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ResponseTimeRootCause(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ResponseTimeRootCause(entry, context));
 };
 
-const deserializeAws_restJson1_1RootCauseException = (
-  output: any,
-  context: __SerdeContext
-): RootCauseException => {
+const deserializeAws_restJson1_1RootCauseException = (output: any, context: __SerdeContext): RootCauseException => {
   return {
     __type: "RootCauseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RootCauseExceptions = (
-  output: any,
-  context: __SerdeContext
-): RootCauseException[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1RootCauseException(entry, context)
-  );
+const deserializeAws_restJson1_1RootCauseExceptions = (output: any, context: __SerdeContext): RootCauseException[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1RootCauseException(entry, context));
 };
 
-const deserializeAws_restJson1_1SamplingRule = (
-  output: any,
-  context: __SerdeContext
-): SamplingRule => {
+const deserializeAws_restJson1_1SamplingRule = (output: any, context: __SerdeContext): SamplingRule => {
   return {
     __type: "SamplingRule",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1_1AttributeMap(output.Attributes, context)
         : undefined,
-    FixedRate:
-      output.FixedRate !== undefined && output.FixedRate !== null
-        ? output.FixedRate
-        : undefined,
-    HTTPMethod:
-      output.HTTPMethod !== undefined && output.HTTPMethod !== null
-        ? output.HTTPMethod
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Priority:
-      output.Priority !== undefined && output.Priority !== null
-        ? output.Priority
-        : undefined,
+    FixedRate: output.FixedRate !== undefined && output.FixedRate !== null ? output.FixedRate : undefined,
+    HTTPMethod: output.HTTPMethod !== undefined && output.HTTPMethod !== null ? output.HTTPMethod : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
     ReservoirSize:
-      output.ReservoirSize !== undefined && output.ReservoirSize !== null
-        ? output.ReservoirSize
-        : undefined,
-    ResourceARN:
-      output.ResourceARN !== undefined && output.ResourceARN !== null
-        ? output.ResourceARN
-        : undefined,
-    RuleARN:
-      output.RuleARN !== undefined && output.RuleARN !== null
-        ? output.RuleARN
-        : undefined,
-    RuleName:
-      output.RuleName !== undefined && output.RuleName !== null
-        ? output.RuleName
-        : undefined,
-    ServiceName:
-      output.ServiceName !== undefined && output.ServiceName !== null
-        ? output.ServiceName
-        : undefined,
-    ServiceType:
-      output.ServiceType !== undefined && output.ServiceType !== null
-        ? output.ServiceType
-        : undefined,
-    URLPath:
-      output.URLPath !== undefined && output.URLPath !== null
-        ? output.URLPath
-        : undefined,
-    Version:
-      output.Version !== undefined && output.Version !== null
-        ? output.Version
-        : undefined
+      output.ReservoirSize !== undefined && output.ReservoirSize !== null ? output.ReservoirSize : undefined,
+    ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
+    RuleARN: output.RuleARN !== undefined && output.RuleARN !== null ? output.RuleARN : undefined,
+    RuleName: output.RuleName !== undefined && output.RuleName !== null ? output.RuleName : undefined,
+    ServiceName: output.ServiceName !== undefined && output.ServiceName !== null ? output.ServiceName : undefined,
+    ServiceType: output.ServiceType !== undefined && output.ServiceType !== null ? output.ServiceType : undefined,
+    URLPath: output.URLPath !== undefined && output.URLPath !== null ? output.URLPath : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SamplingRuleRecord = (
-  output: any,
-  context: __SerdeContext
-): SamplingRuleRecord => {
+const deserializeAws_restJson1_1SamplingRuleRecord = (output: any, context: __SerdeContext): SamplingRuleRecord => {
   return {
     __type: "SamplingRuleRecord",
     CreatedAt:
@@ -3334,9 +2643,7 @@ const deserializeAws_restJson1_1SamplingRuleRecordList = (
   output: any,
   context: __SerdeContext
 ): SamplingRuleRecord[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SamplingRuleRecord(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SamplingRuleRecord(entry, context));
 };
 
 const deserializeAws_restJson1_1SamplingStatisticSummary = (
@@ -3345,22 +2652,10 @@ const deserializeAws_restJson1_1SamplingStatisticSummary = (
 ): SamplingStatisticSummary => {
   return {
     __type: "SamplingStatisticSummary",
-    BorrowCount:
-      output.BorrowCount !== undefined && output.BorrowCount !== null
-        ? output.BorrowCount
-        : undefined,
-    RequestCount:
-      output.RequestCount !== undefined && output.RequestCount !== null
-        ? output.RequestCount
-        : undefined,
-    RuleName:
-      output.RuleName !== undefined && output.RuleName !== null
-        ? output.RuleName
-        : undefined,
-    SampledCount:
-      output.SampledCount !== undefined && output.SampledCount !== null
-        ? output.SampledCount
-        : undefined,
+    BorrowCount: output.BorrowCount !== undefined && output.BorrowCount !== null ? output.BorrowCount : undefined,
+    RequestCount: output.RequestCount !== undefined && output.RequestCount !== null ? output.RequestCount : undefined,
+    RuleName: output.RuleName !== undefined && output.RuleName !== null ? output.RuleName : undefined,
+    SampledCount: output.SampledCount !== undefined && output.SampledCount !== null ? output.SampledCount : undefined,
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -3372,9 +2667,7 @@ const deserializeAws_restJson1_1SamplingStatisticSummaryList = (
   output: any,
   context: __SerdeContext
 ): SamplingStatisticSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SamplingStatisticSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SamplingStatisticSummary(entry, context));
 };
 
 const deserializeAws_restJson1_1SamplingTargetDocument = (
@@ -3383,27 +2676,15 @@ const deserializeAws_restJson1_1SamplingTargetDocument = (
 ): SamplingTargetDocument => {
   return {
     __type: "SamplingTargetDocument",
-    FixedRate:
-      output.FixedRate !== undefined && output.FixedRate !== null
-        ? output.FixedRate
-        : undefined,
-    Interval:
-      output.Interval !== undefined && output.Interval !== null
-        ? output.Interval
-        : undefined,
+    FixedRate: output.FixedRate !== undefined && output.FixedRate !== null ? output.FixedRate : undefined,
+    Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
     ReservoirQuota:
-      output.ReservoirQuota !== undefined && output.ReservoirQuota !== null
-        ? output.ReservoirQuota
-        : undefined,
+      output.ReservoirQuota !== undefined && output.ReservoirQuota !== null ? output.ReservoirQuota : undefined,
     ReservoirQuotaTTL:
-      output.ReservoirQuotaTTL !== undefined &&
-      output.ReservoirQuotaTTL !== null
+      output.ReservoirQuotaTTL !== undefined && output.ReservoirQuotaTTL !== null
         ? new Date(Math.round(output.ReservoirQuotaTTL * 1000))
         : undefined,
-    RuleName:
-      output.RuleName !== undefined && output.RuleName !== null
-        ? output.RuleName
-        : undefined
+    RuleName: output.RuleName !== undefined && output.RuleName !== null ? output.RuleName : undefined
   } as any;
 };
 
@@ -3411,47 +2692,27 @@ const deserializeAws_restJson1_1SamplingTargetDocumentList = (
   output: any,
   context: __SerdeContext
 ): SamplingTargetDocument[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SamplingTargetDocument(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SamplingTargetDocument(entry, context));
 };
 
-const deserializeAws_restJson1_1Segment = (
-  output: any,
-  context: __SerdeContext
-): Segment => {
+const deserializeAws_restJson1_1Segment = (output: any, context: __SerdeContext): Segment => {
   return {
     __type: "Segment",
-    Document:
-      output.Document !== undefined && output.Document !== null
-        ? output.Document
-        : undefined,
+    Document: output.Document !== undefined && output.Document !== null ? output.Document : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SegmentList = (
-  output: any,
-  context: __SerdeContext
-): Segment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Segment(entry, context)
-  );
+const deserializeAws_restJson1_1SegmentList = (output: any, context: __SerdeContext): Segment[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Segment(entry, context));
 };
 
-const deserializeAws_restJson1_1Service = (
-  output: any,
-  context: __SerdeContext
-): Service => {
+const deserializeAws_restJson1_1Service = (output: any, context: __SerdeContext): Service => {
   return {
     __type: "Service",
-    AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     DurationHistogram:
-      output.DurationHistogram !== undefined &&
-      output.DurationHistogram !== null
+      output.DurationHistogram !== undefined && output.DurationHistogram !== null
         ? deserializeAws_restJson1_1Histogram(output.DurationHistogram, context)
         : undefined,
     Edges:
@@ -3459,139 +2720,71 @@ const deserializeAws_restJson1_1Service = (
         ? deserializeAws_restJson1_1EdgeList(output.Edges, context)
         : undefined,
     EndTime:
-      output.EndTime !== undefined && output.EndTime !== null
-        ? new Date(Math.round(output.EndTime * 1000))
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
         : undefined,
-    ReferenceId:
-      output.ReferenceId !== undefined && output.ReferenceId !== null
-        ? output.ReferenceId
-        : undefined,
+    ReferenceId: output.ReferenceId !== undefined && output.ReferenceId !== null ? output.ReferenceId : undefined,
     ResponseTimeHistogram:
-      output.ResponseTimeHistogram !== undefined &&
-      output.ResponseTimeHistogram !== null
-        ? deserializeAws_restJson1_1Histogram(
-            output.ResponseTimeHistogram,
-            context
-          )
+      output.ResponseTimeHistogram !== undefined && output.ResponseTimeHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(output.ResponseTimeHistogram, context)
         : undefined,
-    Root:
-      output.Root !== undefined && output.Root !== null
-        ? output.Root
-        : undefined,
+    Root: output.Root !== undefined && output.Root !== null ? output.Root : undefined,
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
     SummaryStatistics:
-      output.SummaryStatistics !== undefined &&
-      output.SummaryStatistics !== null
-        ? deserializeAws_restJson1_1ServiceStatistics(
-            output.SummaryStatistics,
-            context
-          )
+      output.SummaryStatistics !== undefined && output.SummaryStatistics !== null
+        ? deserializeAws_restJson1_1ServiceStatistics(output.SummaryStatistics, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ServiceId = (
-  output: any,
-  context: __SerdeContext
-): ServiceId => {
+const deserializeAws_restJson1_1ServiceId = (output: any, context: __SerdeContext): ServiceId => {
   return {
     __type: "ServiceId",
-    AccountId:
-      output.AccountId !== undefined && output.AccountId !== null
-        ? output.AccountId
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ServiceIds = (
-  output: any,
-  context: __SerdeContext
-): ServiceId[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ServiceId(entry, context)
-  );
+const deserializeAws_restJson1_1ServiceIds = (output: any, context: __SerdeContext): ServiceId[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ServiceId(entry, context));
 };
 
-const deserializeAws_restJson1_1ServiceList = (
-  output: any,
-  context: __SerdeContext
-): Service[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Service(entry, context)
-  );
+const deserializeAws_restJson1_1ServiceList = (output: any, context: __SerdeContext): Service[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Service(entry, context));
 };
 
-const deserializeAws_restJson1_1ServiceNames = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ServiceNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1ServiceStatistics = (
-  output: any,
-  context: __SerdeContext
-): ServiceStatistics => {
+const deserializeAws_restJson1_1ServiceStatistics = (output: any, context: __SerdeContext): ServiceStatistics => {
   return {
     __type: "ServiceStatistics",
     ErrorStatistics:
       output.ErrorStatistics !== undefined && output.ErrorStatistics !== null
-        ? deserializeAws_restJson1_1ErrorStatistics(
-            output.ErrorStatistics,
-            context
-          )
+        ? deserializeAws_restJson1_1ErrorStatistics(output.ErrorStatistics, context)
         : undefined,
     FaultStatistics:
       output.FaultStatistics !== undefined && output.FaultStatistics !== null
-        ? deserializeAws_restJson1_1FaultStatistics(
-            output.FaultStatistics,
-            context
-          )
+        ? deserializeAws_restJson1_1FaultStatistics(output.FaultStatistics, context)
         : undefined,
-    OkCount:
-      output.OkCount !== undefined && output.OkCount !== null
-        ? output.OkCount
-        : undefined,
-    TotalCount:
-      output.TotalCount !== undefined && output.TotalCount !== null
-        ? output.TotalCount
-        : undefined,
+    OkCount: output.OkCount !== undefined && output.OkCount !== null ? output.OkCount : undefined,
+    TotalCount: output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined,
     TotalResponseTime:
-      output.TotalResponseTime !== undefined &&
-      output.TotalResponseTime !== null
-        ? output.TotalResponseTime
-        : undefined
+      output.TotalResponseTime !== undefined && output.TotalResponseTime !== null ? output.TotalResponseTime : undefined
   } as any;
 };
 
@@ -3602,28 +2795,16 @@ const deserializeAws_restJson1_1TimeSeriesServiceStatistics = (
   return {
     __type: "TimeSeriesServiceStatistics",
     EdgeSummaryStatistics:
-      output.EdgeSummaryStatistics !== undefined &&
-      output.EdgeSummaryStatistics !== null
-        ? deserializeAws_restJson1_1EdgeStatistics(
-            output.EdgeSummaryStatistics,
-            context
-          )
+      output.EdgeSummaryStatistics !== undefined && output.EdgeSummaryStatistics !== null
+        ? deserializeAws_restJson1_1EdgeStatistics(output.EdgeSummaryStatistics, context)
         : undefined,
     ResponseTimeHistogram:
-      output.ResponseTimeHistogram !== undefined &&
-      output.ResponseTimeHistogram !== null
-        ? deserializeAws_restJson1_1Histogram(
-            output.ResponseTimeHistogram,
-            context
-          )
+      output.ResponseTimeHistogram !== undefined && output.ResponseTimeHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(output.ResponseTimeHistogram, context)
         : undefined,
     ServiceSummaryStatistics:
-      output.ServiceSummaryStatistics !== undefined &&
-      output.ServiceSummaryStatistics !== null
-        ? deserializeAws_restJson1_1ServiceStatistics(
-            output.ServiceSummaryStatistics,
-            context
-          )
+      output.ServiceSummaryStatistics !== undefined && output.ServiceSummaryStatistics !== null
+        ? deserializeAws_restJson1_1ServiceStatistics(output.ServiceSummaryStatistics, context)
         : undefined,
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
@@ -3636,21 +2817,13 @@ const deserializeAws_restJson1_1TimeSeriesServiceStatisticsList = (
   output: any,
   context: __SerdeContext
 ): TimeSeriesServiceStatistics[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TimeSeriesServiceStatistics(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TimeSeriesServiceStatistics(entry, context));
 };
 
-const deserializeAws_restJson1_1Trace = (
-  output: any,
-  context: __SerdeContext
-): Trace => {
+const deserializeAws_restJson1_1Trace = (output: any, context: __SerdeContext): Trace => {
   return {
     __type: "Trace",
-    Duration:
-      output.Duration !== undefined && output.Duration !== null
-        ? output.Duration
-        : undefined,
+    Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Segments:
       output.Segments !== undefined && output.Segments !== null
@@ -3663,42 +2836,22 @@ const deserializeAws_restJson1_1TraceAvailabilityZones = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZoneDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AvailabilityZoneDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AvailabilityZoneDetail(entry, context));
 };
 
-const deserializeAws_restJson1_1TraceInstanceIds = (
-  output: any,
-  context: __SerdeContext
-): InstanceIdDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1InstanceIdDetail(entry, context)
-  );
+const deserializeAws_restJson1_1TraceInstanceIds = (output: any, context: __SerdeContext): InstanceIdDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1InstanceIdDetail(entry, context));
 };
 
-const deserializeAws_restJson1_1TraceList = (
-  output: any,
-  context: __SerdeContext
-): Trace[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Trace(entry, context)
-  );
+const deserializeAws_restJson1_1TraceList = (output: any, context: __SerdeContext): Trace[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Trace(entry, context));
 };
 
-const deserializeAws_restJson1_1TraceResourceARNs = (
-  output: any,
-  context: __SerdeContext
-): ResourceARNDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ResourceARNDetail(entry, context)
-  );
+const deserializeAws_restJson1_1TraceResourceARNs = (output: any, context: __SerdeContext): ResourceARNDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ResourceARNDetail(entry, context));
 };
 
-const deserializeAws_restJson1_1TraceSummary = (
-  output: any,
-  context: __SerdeContext
-): TraceSummary => {
+const deserializeAws_restJson1_1TraceSummary = (output: any, context: __SerdeContext): TraceSummary => {
   return {
     __type: "TraceSummary",
     Annotations:
@@ -3706,47 +2859,25 @@ const deserializeAws_restJson1_1TraceSummary = (
         ? deserializeAws_restJson1_1Annotations(output.Annotations, context)
         : undefined,
     AvailabilityZones:
-      output.AvailabilityZones !== undefined &&
-      output.AvailabilityZones !== null
-        ? deserializeAws_restJson1_1TraceAvailabilityZones(
-            output.AvailabilityZones,
-            context
-          )
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1_1TraceAvailabilityZones(output.AvailabilityZones, context)
         : undefined,
-    Duration:
-      output.Duration !== undefined && output.Duration !== null
-        ? output.Duration
-        : undefined,
+    Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     EntryPoint:
       output.EntryPoint !== undefined && output.EntryPoint !== null
         ? deserializeAws_restJson1_1ServiceId(output.EntryPoint, context)
         : undefined,
     ErrorRootCauses:
       output.ErrorRootCauses !== undefined && output.ErrorRootCauses !== null
-        ? deserializeAws_restJson1_1ErrorRootCauses(
-            output.ErrorRootCauses,
-            context
-          )
+        ? deserializeAws_restJson1_1ErrorRootCauses(output.ErrorRootCauses, context)
         : undefined,
     FaultRootCauses:
       output.FaultRootCauses !== undefined && output.FaultRootCauses !== null
-        ? deserializeAws_restJson1_1FaultRootCauses(
-            output.FaultRootCauses,
-            context
-          )
+        ? deserializeAws_restJson1_1FaultRootCauses(output.FaultRootCauses, context)
         : undefined,
-    HasError:
-      output.HasError !== undefined && output.HasError !== null
-        ? output.HasError
-        : undefined,
-    HasFault:
-      output.HasFault !== undefined && output.HasFault !== null
-        ? output.HasFault
-        : undefined,
-    HasThrottle:
-      output.HasThrottle !== undefined && output.HasThrottle !== null
-        ? output.HasThrottle
-        : undefined,
+    HasError: output.HasError !== undefined && output.HasError !== null ? output.HasError : undefined,
+    HasFault: output.HasFault !== undefined && output.HasFault !== null ? output.HasFault : undefined,
+    HasThrottle: output.HasThrottle !== undefined && output.HasThrottle !== null ? output.HasThrottle : undefined,
     Http:
       output.Http !== undefined && output.Http !== null
         ? deserializeAws_restJson1_1Http(output.Http, context)
@@ -3754,42 +2885,23 @@ const deserializeAws_restJson1_1TraceSummary = (
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceIds:
       output.InstanceIds !== undefined && output.InstanceIds !== null
-        ? deserializeAws_restJson1_1TraceInstanceIds(
-            output.InstanceIds,
-            context
-          )
+        ? deserializeAws_restJson1_1TraceInstanceIds(output.InstanceIds, context)
         : undefined,
-    IsPartial:
-      output.IsPartial !== undefined && output.IsPartial !== null
-        ? output.IsPartial
-        : undefined,
+    IsPartial: output.IsPartial !== undefined && output.IsPartial !== null ? output.IsPartial : undefined,
     MatchedEventTime:
       output.MatchedEventTime !== undefined && output.MatchedEventTime !== null
         ? new Date(Math.round(output.MatchedEventTime * 1000))
         : undefined,
     ResourceARNs:
       output.ResourceARNs !== undefined && output.ResourceARNs !== null
-        ? deserializeAws_restJson1_1TraceResourceARNs(
-            output.ResourceARNs,
-            context
-          )
+        ? deserializeAws_restJson1_1TraceResourceARNs(output.ResourceARNs, context)
         : undefined,
-    ResponseTime:
-      output.ResponseTime !== undefined && output.ResponseTime !== null
-        ? output.ResponseTime
-        : undefined,
+    ResponseTime: output.ResponseTime !== undefined && output.ResponseTime !== null ? output.ResponseTime : undefined,
     ResponseTimeRootCauses:
-      output.ResponseTimeRootCauses !== undefined &&
-      output.ResponseTimeRootCauses !== null
-        ? deserializeAws_restJson1_1ResponseTimeRootCauses(
-            output.ResponseTimeRootCauses,
-            context
-          )
+      output.ResponseTimeRootCauses !== undefined && output.ResponseTimeRootCauses !== null
+        ? deserializeAws_restJson1_1ResponseTimeRootCauses(output.ResponseTimeRootCauses, context)
         : undefined,
-    Revision:
-      output.Revision !== undefined && output.Revision !== null
-        ? output.Revision
-        : undefined,
+    Revision: output.Revision !== undefined && output.Revision !== null ? output.Revision : undefined,
     ServiceIds:
       output.ServiceIds !== undefined && output.ServiceIds !== null
         ? deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context)
@@ -3801,39 +2913,23 @@ const deserializeAws_restJson1_1TraceSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1_1TraceSummaryList = (
-  output: any,
-  context: __SerdeContext
-): TraceSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TraceSummary(entry, context)
-  );
+const deserializeAws_restJson1_1TraceSummaryList = (output: any, context: __SerdeContext): TraceSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TraceSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1TraceUser = (
-  output: any,
-  context: __SerdeContext
-): TraceUser => {
+const deserializeAws_restJson1_1TraceUser = (output: any, context: __SerdeContext): TraceUser => {
   return {
     __type: "TraceUser",
     ServiceIds:
       output.ServiceIds !== undefined && output.ServiceIds !== null
         ? deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context)
         : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TraceUsers = (
-  output: any,
-  context: __SerdeContext
-): TraceUser[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TraceUser(entry, context)
-  );
+const deserializeAws_restJson1_1TraceUsers = (output: any, context: __SerdeContext): TraceUser[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TraceUser(entry, context));
 };
 
 const deserializeAws_restJson1_1UnprocessedStatistics = (
@@ -3842,18 +2938,9 @@ const deserializeAws_restJson1_1UnprocessedStatistics = (
 ): UnprocessedStatistics => {
   return {
     __type: "UnprocessedStatistics",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    RuleName:
-      output.RuleName !== undefined && output.RuleName !== null
-        ? output.RuleName
-        : undefined
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    RuleName: output.RuleName !== undefined && output.RuleName !== null ? output.RuleName : undefined
   } as any;
 };
 
@@ -3861,15 +2948,10 @@ const deserializeAws_restJson1_1UnprocessedStatisticsList = (
   output: any,
   context: __SerdeContext
 ): UnprocessedStatistics[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1UnprocessedStatistics(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1UnprocessedStatistics(entry, context));
 };
 
-const deserializeAws_restJson1_1UnprocessedTraceIdList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1UnprocessedTraceIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3879,15 +2961,9 @@ const deserializeAws_restJson1_1UnprocessedTraceSegment = (
 ): UnprocessedTraceSegment => {
   return {
     __type: "UnprocessedTraceSegment",
-    ErrorCode:
-      output.ErrorCode !== undefined && output.ErrorCode !== null
-        ? output.ErrorCode
-        : undefined,
+    ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -3895,23 +2971,15 @@ const deserializeAws_restJson1_1UnprocessedTraceSegmentList = (
   output: any,
   context: __SerdeContext
 ): UnprocessedTraceSegment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1UnprocessedTraceSegment(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1UnprocessedTraceSegment(entry, context));
 };
 
-const deserializeAws_restJson1_1ValueWithServiceIds = (
-  output: any,
-  context: __SerdeContext
-): ValueWithServiceIds => {
+const deserializeAws_restJson1_1ValueWithServiceIds = (output: any, context: __SerdeContext): ValueWithServiceIds => {
   return {
     __type: "ValueWithServiceIds",
     AnnotationValue:
       output.AnnotationValue !== undefined && output.AnnotationValue !== null
-        ? deserializeAws_restJson1_1AnnotationValue(
-            output.AnnotationValue,
-            context
-          )
+        ? deserializeAws_restJson1_1AnnotationValue(output.AnnotationValue, context)
         : undefined,
     ServiceIds:
       output.ServiceIds !== undefined && output.ServiceIds !== null
@@ -3924,9 +2992,7 @@ const deserializeAws_restJson1_1ValuesWithServiceIds = (
   output: any,
   context: __SerdeContext
 ): ValueWithServiceIds[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ValueWithServiceIds(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ValueWithServiceIds(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3936,30 +3002,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -3974,8 +3031,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

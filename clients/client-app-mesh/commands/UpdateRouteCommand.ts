@@ -1,18 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
 import { UpdateRouteInput, UpdateRouteOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRouteCommand,
   serializeAws_restJson1_1UpdateRouteCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class UpdateRouteCommand extends $Command<
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRouteCommandInput, UpdateRouteCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class UpdateRouteCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRouteCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRouteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateRouteCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRouteCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteCommandOutput> {
     return deserializeAws_restJson1_1UpdateRouteCommand(output, context);
   }
 

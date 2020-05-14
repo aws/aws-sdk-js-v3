@@ -1,21 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient";
-import {
-  DescribeScheduleRequest,
-  DescribeScheduleResponse
-} from "../models/index";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeScheduleCommand,
   serializeAws_restJson1_1DescribeScheduleCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeScheduleCommandInput = DescribeScheduleRequest;
-export type DescribeScheduleCommandOutput = DescribeScheduleResponse &
-  __MetadataBearer;
+export type DescribeScheduleCommandOutput = DescribeScheduleResponse & __MetadataBearer;
 
 export class DescribeScheduleCommand extends $Command<
   DescribeScheduleCommandInput,
@@ -50,9 +39,7 @@ export class DescribeScheduleCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeScheduleCommandInput, DescribeScheduleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeScheduleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduleCommandOutput> {
     return deserializeAws_restJson1_1DescribeScheduleCommand(output, context);
   }
 

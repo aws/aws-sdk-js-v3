@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeVolumeStatusRequest,
-  DescribeVolumeStatusResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVolumeStatusRequest, DescribeVolumeStatusResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeVolumeStatusCommand,
   serializeAws_ec2DescribeVolumeStatusCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVolumeStatusCommandInput = DescribeVolumeStatusRequest;
-export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult &
-  __MetadataBearer;
+export type DescribeVolumeStatusCommandOutput = DescribeVolumeStatusResult & __MetadataBearer;
 
 export class DescribeVolumeStatusCommand extends $Command<
   DescribeVolumeStatusCommandInput,
@@ -49,13 +38,8 @@ export class DescribeVolumeStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVolumeStatusCommandInput,
-    DescribeVolumeStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVolumeStatusCommandInput, DescribeVolumeStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DescribeVolumeStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeVolumeStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeVolumeStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeVolumeStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeVolumeStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVolumeStatusCommandOutput> {
     return deserializeAws_ec2DescribeVolumeStatusCommand(output, context);
   }
 

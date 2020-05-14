@@ -4,15 +4,9 @@ import {
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
 import { CreateRuleInput, CreateRuleOutput } from "../models/index";
-import {
-  deserializeAws_queryCreateRuleCommand,
-  serializeAws_queryCreateRuleCommand
-} from "../protocols/Aws_query";
+import { deserializeAws_queryCreateRuleCommand, serializeAws_queryCreateRuleCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +40,7 @@ export class CreateRuleCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRuleCommandInput, CreateRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +55,11 @@ export class CreateRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
     return deserializeAws_queryCreateRuleCommand(output, context);
   }
 

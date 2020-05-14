@@ -1,21 +1,11 @@
-import {
-  SMSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SMSClient";
-import {
-  GetReplicationJobsRequest,
-  GetReplicationJobsResponse
-} from "../models/index";
+import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient";
+import { GetReplicationJobsRequest, GetReplicationJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetReplicationJobsCommand,
   serializeAws_json1_1GetReplicationJobsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetReplicationJobsCommandInput = GetReplicationJobsRequest;
-export type GetReplicationJobsCommandOutput = GetReplicationJobsResponse &
-  __MetadataBearer;
+export type GetReplicationJobsCommandOutput = GetReplicationJobsResponse & __MetadataBearer;
 
 export class GetReplicationJobsCommand extends $Command<
   GetReplicationJobsCommandInput,
@@ -50,9 +39,7 @@ export class GetReplicationJobsCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetReplicationJobsCommandInput, GetReplicationJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetReplicationJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetReplicationJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetReplicationJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetReplicationJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetReplicationJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReplicationJobsCommandOutput> {
     return deserializeAws_json1_1GetReplicationJobsCommand(output, context);
   }
 

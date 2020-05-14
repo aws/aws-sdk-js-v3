@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListAuthorizersRequest,
-  ListAuthorizersResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAuthorizersCommand,
   serializeAws_restJson1_1ListAuthorizersCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAuthorizersCommandInput = ListAuthorizersRequest;
-export type ListAuthorizersCommandOutput = ListAuthorizersResponse &
-  __MetadataBearer;
+export type ListAuthorizersCommandOutput = ListAuthorizersResponse & __MetadataBearer;
 
 export class ListAuthorizersCommand extends $Command<
   ListAuthorizersCommandInput,
@@ -50,9 +39,7 @@ export class ListAuthorizersCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAuthorizersCommandInput, ListAuthorizersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListAuthorizersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAuthorizersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAuthorizersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAuthorizersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAuthorizersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuthorizersCommandOutput> {
     return deserializeAws_restJson1_1ListAuthorizersCommand(output, context);
   }
 

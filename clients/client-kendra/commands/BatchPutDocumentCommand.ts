@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  kendraClientResolvedConfig
-} from "../kendraClient";
-import {
-  BatchPutDocumentRequest,
-  BatchPutDocumentResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, kendraClientResolvedConfig } from "../kendraClient";
+import { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchPutDocumentCommand,
   serializeAws_json1_1BatchPutDocumentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchPutDocumentCommandInput = BatchPutDocumentRequest;
-export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse &
-  __MetadataBearer;
+export type BatchPutDocumentCommandOutput = BatchPutDocumentResponse & __MetadataBearer;
 
 export class BatchPutDocumentCommand extends $Command<
   BatchPutDocumentCommandInput,
@@ -50,9 +39,7 @@ export class BatchPutDocumentCommand extends $Command<
     configuration: kendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class BatchPutDocumentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchPutDocumentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchPutDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchPutDocumentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchPutDocumentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutDocumentCommandOutput> {
     return deserializeAws_json1_1BatchPutDocumentCommand(output, context);
   }
 

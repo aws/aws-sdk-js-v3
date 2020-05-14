@@ -1,18 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { CreateStackSetInput, CreateStackSetOutput } from "../models/index";
 import {
   deserializeAws_queryCreateStackSetCommand,
   serializeAws_queryCreateStackSetCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateStackSetCommandInput = CreateStackSetInput;
-export type CreateStackSetCommandOutput = CreateStackSetOutput &
-  __MetadataBearer;
+export type CreateStackSetCommandOutput = CreateStackSetOutput & __MetadataBearer;
 
 export class CreateStackSetCommand extends $Command<
   CreateStackSetCommandInput,
@@ -47,9 +39,7 @@ export class CreateStackSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateStackSetCommandInput, CreateStackSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateStackSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateStackSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateStackSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateStackSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateStackSetCommandOutput> {
     return deserializeAws_queryCreateStackSetCommand(output, context);
   }
 

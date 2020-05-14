@@ -6,26 +6,14 @@ import {
   AddCommunicationToCaseCommandInput,
   AddCommunicationToCaseCommandOutput
 } from "../commands/AddCommunicationToCaseCommand";
-import {
-  CreateCaseCommandInput,
-  CreateCaseCommandOutput
-} from "../commands/CreateCaseCommand";
-import {
-  DescribeAttachmentCommandInput,
-  DescribeAttachmentCommandOutput
-} from "../commands/DescribeAttachmentCommand";
-import {
-  DescribeCasesCommandInput,
-  DescribeCasesCommandOutput
-} from "../commands/DescribeCasesCommand";
+import { CreateCaseCommandInput, CreateCaseCommandOutput } from "../commands/CreateCaseCommand";
+import { DescribeAttachmentCommandInput, DescribeAttachmentCommandOutput } from "../commands/DescribeAttachmentCommand";
+import { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "../commands/DescribeCasesCommand";
 import {
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput
 } from "../commands/DescribeCommunicationsCommand";
-import {
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
-} from "../commands/DescribeServicesCommand";
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "../commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput
@@ -50,10 +38,7 @@ import {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput
 } from "../commands/RefreshTrustedAdvisorCheckCommand";
-import {
-  ResolveCaseCommandInput,
-  ResolveCaseCommandOutput
-} from "../commands/ResolveCaseCommand";
+import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "../commands/ResolveCaseCommand";
 import {
   AddAttachmentsToSetRequest,
   AddAttachmentsToSetResponse,
@@ -109,10 +94,7 @@ import {
   TrustedAdvisorResourceDetail,
   TrustedAdvisorResourcesSummary
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -131,9 +113,7 @@ export const serializeAws_json1_1AddAttachmentsToSetCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.AddAttachmentsToSet"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddAttachmentsToSetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddAttachmentsToSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -146,9 +126,7 @@ export const serializeAws_json1_1AddCommunicationToCaseCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.AddCommunicationToCase"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1AddCommunicationToCaseRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1AddCommunicationToCaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -174,9 +152,7 @@ export const serializeAws_json1_1DescribeAttachmentCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.DescribeAttachment"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeAttachmentRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeAttachmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -189,9 +165,7 @@ export const serializeAws_json1_1DescribeCasesCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.DescribeCases"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeCasesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeCasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -204,9 +178,7 @@ export const serializeAws_json1_1DescribeCommunicationsCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.DescribeCommunications"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeCommunicationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeCommunicationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -219,9 +191,7 @@ export const serializeAws_json1_1DescribeServicesCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.DescribeServices"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeServicesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeServicesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -234,9 +204,7 @@ export const serializeAws_json1_1DescribeSeverityLevelsCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.DescribeSeverityLevels"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeSeverityLevelsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeSeverityLevelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -259,16 +227,10 @@ export const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses"
+    "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -281,9 +243,7 @@ export const serializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = asyn
     "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -296,12 +256,7 @@ export const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand = a
     "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -314,9 +269,7 @@ export const serializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.DescribeTrustedAdvisorChecks"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeTrustedAdvisorChecksRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -329,9 +282,7 @@ export const serializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
     "X-Amz-Target": "AWSSupport_20130415.RefreshTrustedAdvisorCheck"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RefreshTrustedAdvisorCheckRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -340,10 +291,7 @@ export const deserializeAws_json1_1AddAttachmentsToSetCommand = async (
   context: __SerdeContext
 ): Promise<AddAttachmentsToSetCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddAttachmentsToSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddAttachmentsToSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -367,16 +315,12 @@ const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AttachmentLimitExceeded":
     case "com.amazon.awssupportapi.error#AttachmentLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1AttachmentLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -384,10 +328,7 @@ const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
     case "AttachmentSetExpired":
     case "com.amazon.awssupportapi.error#AttachmentSetExpired":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -395,10 +336,7 @@ const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
     case "AttachmentSetIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentSetIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -406,10 +344,7 @@ const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
     case "AttachmentSetSizeLimitExceeded":
     case "com.amazon.awssupportapi.error#AttachmentSetSizeLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -417,10 +352,7 @@ const deserializeAws_json1_1AddAttachmentsToSetCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -447,17 +379,11 @@ export const deserializeAws_json1_1AddCommunicationToCaseCommand = async (
   context: __SerdeContext
 ): Promise<AddCommunicationToCaseCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AddCommunicationToCaseCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AddCommunicationToCaseCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddCommunicationToCaseResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1AddCommunicationToCaseResponse(data, context);
   const response: AddCommunicationToCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddCommunicationToCaseResponse",
@@ -477,16 +403,12 @@ const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AttachmentSetExpired":
     case "com.amazon.awssupportapi.error#AttachmentSetExpired":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -494,10 +416,7 @@ const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
     case "AttachmentSetIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentSetIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -505,10 +424,7 @@ const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -516,10 +432,7 @@ const deserializeAws_json1_1AddCommunicationToCaseCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -570,16 +483,12 @@ const deserializeAws_json1_1CreateCaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AttachmentSetExpired":
     case "com.amazon.awssupportapi.error#AttachmentSetExpired":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetExpiredResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -587,10 +496,7 @@ const deserializeAws_json1_1CreateCaseCommandError = async (
     case "AttachmentSetIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentSetIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentSetIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -598,10 +504,7 @@ const deserializeAws_json1_1CreateCaseCommandError = async (
     case "CaseCreationLimitExceeded":
     case "com.amazon.awssupportapi.error#CaseCreationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1CaseCreationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CaseCreationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -609,10 +512,7 @@ const deserializeAws_json1_1CreateCaseCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -639,10 +539,7 @@ export const deserializeAws_json1_1DescribeAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAttachmentCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeAttachmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeAttachmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -666,16 +563,12 @@ const deserializeAws_json1_1DescribeAttachmentCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "AttachmentIdNotFound":
     case "com.amazon.awssupportapi.error#AttachmentIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1AttachmentIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1AttachmentIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -683,10 +576,7 @@ const deserializeAws_json1_1DescribeAttachmentCommandError = async (
     case "DescribeAttachmentLimitExceeded":
     case "com.amazon.awssupportapi.error#DescribeAttachmentLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1DescribeAttachmentLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DescribeAttachmentLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -694,10 +584,7 @@ const deserializeAws_json1_1DescribeAttachmentCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -748,16 +635,12 @@ const deserializeAws_json1_1DescribeCasesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -765,10 +648,7 @@ const deserializeAws_json1_1DescribeCasesCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -795,17 +675,11 @@ export const deserializeAws_json1_1DescribeCommunicationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCommunicationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeCommunicationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeCommunicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCommunicationsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCommunicationsResponse(data, context);
   const response: DescribeCommunicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCommunicationsResponse",
@@ -825,16 +699,12 @@ const deserializeAws_json1_1DescribeCommunicationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -842,10 +712,7 @@ const deserializeAws_json1_1DescribeCommunicationsCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -896,16 +763,12 @@ const deserializeAws_json1_1DescribeServicesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -932,17 +795,11 @@ export const deserializeAws_json1_1DescribeSeverityLevelsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSeverityLevelsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSeverityLevelsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeSeverityLevelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSeverityLevelsResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSeverityLevelsResponse(data, context);
   const response: DescribeSeverityLevelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSeverityLevelsResponse",
@@ -962,16 +819,12 @@ const deserializeAws_json1_1DescribeSeverityLevelsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1022,16 +875,12 @@ const deserializeAws_json1_1ResolveCaseCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CaseIdNotFound":
     case "com.amazon.awssupportapi.error#CaseIdNotFound":
       response = {
-        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CaseIdNotFoundResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1039,10 +888,7 @@ const deserializeAws_json1_1ResolveCaseCommandError = async (
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1069,17 +915,11 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCom
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse(data, context);
   const response: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrustedAdvisorCheckRefreshStatusesResponse",
@@ -1099,16 +939,12 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandErr
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1135,17 +971,11 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand = as
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse(data, context);
   const response: DescribeTrustedAdvisorCheckResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrustedAdvisorCheckResultResponse",
@@ -1165,16 +995,12 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError = asyn
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1201,17 +1027,11 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand =
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse(data, context);
   const response: DescribeTrustedAdvisorCheckSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrustedAdvisorCheckSummariesResponse",
@@ -1231,16 +1051,12 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError = a
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1267,17 +1083,11 @@ export const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustedAdvisorChecksResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrustedAdvisorChecksResponse(data, context);
   const response: DescribeTrustedAdvisorChecksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrustedAdvisorChecksResponse",
@@ -1297,16 +1107,12 @@ const deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1333,17 +1139,11 @@ export const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand = async (
   context: __SerdeContext
 ): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse(data, context);
   const response: RefreshTrustedAdvisorCheckCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RefreshTrustedAdvisorCheckResponse",
@@ -1363,16 +1163,12 @@ const deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazon.awssupportapi.error#InternalServerError":
       response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1399,10 +1195,7 @@ const deserializeAws_json1_1AttachmentIdNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<AttachmentIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentIdNotFound(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AttachmentIdNotFound(body, context);
   const contents: AttachmentIdNotFound = {
     name: "AttachmentIdNotFound",
     $fault: "client",
@@ -1417,10 +1210,7 @@ const deserializeAws_json1_1AttachmentLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<AttachmentLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AttachmentLimitExceeded(body, context);
   const contents: AttachmentLimitExceeded = {
     name: "AttachmentLimitExceeded",
     $fault: "client",
@@ -1435,10 +1225,7 @@ const deserializeAws_json1_1AttachmentSetExpiredResponse = async (
   context: __SerdeContext
 ): Promise<AttachmentSetExpired> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentSetExpired(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AttachmentSetExpired(body, context);
   const contents: AttachmentSetExpired = {
     name: "AttachmentSetExpired",
     $fault: "client",
@@ -1453,10 +1240,7 @@ const deserializeAws_json1_1AttachmentSetIdNotFoundResponse = async (
   context: __SerdeContext
 ): Promise<AttachmentSetIdNotFound> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentSetIdNotFound(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AttachmentSetIdNotFound(body, context);
   const contents: AttachmentSetIdNotFound = {
     name: "AttachmentSetIdNotFound",
     $fault: "client",
@@ -1471,10 +1255,7 @@ const deserializeAws_json1_1AttachmentSetSizeLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<AttachmentSetSizeLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1AttachmentSetSizeLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1AttachmentSetSizeLimitExceeded(body, context);
   const contents: AttachmentSetSizeLimitExceeded = {
     name: "AttachmentSetSizeLimitExceeded",
     $fault: "client",
@@ -1489,10 +1270,7 @@ const deserializeAws_json1_1CaseCreationLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<CaseCreationLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CaseCreationLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CaseCreationLimitExceeded(body, context);
   const contents: CaseCreationLimitExceeded = {
     name: "CaseCreationLimitExceeded",
     $fault: "client",
@@ -1522,10 +1300,7 @@ const deserializeAws_json1_1DescribeAttachmentLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<DescribeAttachmentLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DescribeAttachmentLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DescribeAttachmentLimitExceeded(body, context);
   const contents: DescribeAttachmentLimitExceeded = {
     name: "DescribeAttachmentLimitExceeded",
     $fault: "client",
@@ -1540,10 +1315,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerError(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
   const contents: InternalServerError = {
     name: "InternalServerError",
     $fault: "server",
@@ -1553,10 +1325,7 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1Attachment = (
-  input: Attachment,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Attachment = (input: Attachment, context: __SerdeContext): any => {
   return {
     ...(input.data !== undefined && {
       data: context.base64Encoder(input.data)
@@ -1565,10 +1334,7 @@ const serializeAws_json1_1Attachment = (
   };
 };
 
-const serializeAws_json1_1Attachments = (
-  input: Attachment[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Attachments = (input: Attachment[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Attachment(entry, context));
 };
 
@@ -1596,10 +1362,7 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
     }),
     ...(input.caseId !== undefined && { caseId: input.caseId }),
     ...(input.ccEmailAddresses !== undefined && {
-      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(
-        input.ccEmailAddresses,
-        context
-      )
+      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context)
     }),
     ...(input.communicationBody !== undefined && {
       communicationBody: input.communicationBody
@@ -1607,24 +1370,15 @@ const serializeAws_json1_1AddCommunicationToCaseRequest = (
   };
 };
 
-const serializeAws_json1_1CaseIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CaseIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CcEmailAddressList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CcEmailAddressList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CreateCaseRequest = (
-  input: CreateCaseRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateCaseRequest = (input: CreateCaseRequest, context: __SerdeContext): any => {
   return {
     ...(input.attachmentSetId !== undefined && {
       attachmentSetId: input.attachmentSetId
@@ -1633,10 +1387,7 @@ const serializeAws_json1_1CreateCaseRequest = (
       categoryCode: input.categoryCode
     }),
     ...(input.ccEmailAddresses !== undefined && {
-      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(
-        input.ccEmailAddresses,
-        context
-      )
+      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(input.ccEmailAddresses, context)
     }),
     ...(input.communicationBody !== undefined && {
       communicationBody: input.communicationBody
@@ -1662,10 +1413,7 @@ const serializeAws_json1_1DescribeAttachmentRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeCasesRequest = (
-  input: DescribeCasesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeCasesRequest = (input: DescribeCasesRequest, context: __SerdeContext): any => {
   return {
     ...(input.afterTime !== undefined && { afterTime: input.afterTime }),
     ...(input.beforeTime !== undefined && { beforeTime: input.beforeTime }),
@@ -1698,17 +1446,11 @@ const serializeAws_json1_1DescribeCommunicationsRequest = (
   };
 };
 
-const serializeAws_json1_1DescribeServicesRequest = (
-  input: DescribeServicesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeServicesRequest = (input: DescribeServicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.language !== undefined && { language: input.language }),
     ...(input.serviceCodeList !== undefined && {
-      serviceCodeList: serializeAws_json1_1ServiceCodeList(
-        input.serviceCodeList,
-        context
-      )
+      serviceCodeList: serializeAws_json1_1ServiceCodeList(input.serviceCodeList, context)
     })
   };
 };
@@ -1722,19 +1464,13 @@ const serializeAws_json1_1DescribeSeverityLevelsRequest = (
   };
 };
 
-const serializeAws_json1_1ResolveCaseRequest = (
-  input: ResolveCaseRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ResolveCaseRequest = (input: ResolveCaseRequest, context: __SerdeContext): any => {
   return {
     ...(input.caseId !== undefined && { caseId: input.caseId })
   };
 };
 
-const serializeAws_json1_1ServiceCodeList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ServiceCodeList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1788,179 +1524,81 @@ const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
   };
 };
 
-const serializeAws_json1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const deserializeAws_json1_1Attachment = (
-  output: any,
-  context: __SerdeContext
-): Attachment => {
+const deserializeAws_json1_1Attachment = (output: any, context: __SerdeContext): Attachment => {
   return {
     __type: "Attachment",
-    data:
-      output.data !== undefined && output.data !== null
-        ? context.base64Decoder(output.data)
-        : undefined,
-    fileName:
-      output.fileName !== undefined && output.fileName !== null
-        ? output.fileName
-        : undefined
+    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
+    fileName: output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AttachmentDetails = (
-  output: any,
-  context: __SerdeContext
-): AttachmentDetails => {
+const deserializeAws_json1_1AttachmentDetails = (output: any, context: __SerdeContext): AttachmentDetails => {
   return {
     __type: "AttachmentDetails",
-    attachmentId:
-      output.attachmentId !== undefined && output.attachmentId !== null
-        ? output.attachmentId
-        : undefined,
-    fileName:
-      output.fileName !== undefined && output.fileName !== null
-        ? output.fileName
-        : undefined
+    attachmentId: output.attachmentId !== undefined && output.attachmentId !== null ? output.attachmentId : undefined,
+    fileName: output.fileName !== undefined && output.fileName !== null ? output.fileName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AttachmentSet = (
-  output: any,
-  context: __SerdeContext
-): AttachmentDetails[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AttachmentDetails(entry, context)
-  );
+const deserializeAws_json1_1AttachmentSet = (output: any, context: __SerdeContext): AttachmentDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AttachmentDetails(entry, context));
 };
 
-const deserializeAws_json1_1CaseDetails = (
-  output: any,
-  context: __SerdeContext
-): CaseDetails => {
+const deserializeAws_json1_1CaseDetails = (output: any, context: __SerdeContext): CaseDetails => {
   return {
     __type: "CaseDetails",
-    caseId:
-      output.caseId !== undefined && output.caseId !== null
-        ? output.caseId
-        : undefined,
-    categoryCode:
-      output.categoryCode !== undefined && output.categoryCode !== null
-        ? output.categoryCode
-        : undefined,
+    caseId: output.caseId !== undefined && output.caseId !== null ? output.caseId : undefined,
+    categoryCode: output.categoryCode !== undefined && output.categoryCode !== null ? output.categoryCode : undefined,
     ccEmailAddresses:
       output.ccEmailAddresses !== undefined && output.ccEmailAddresses !== null
-        ? deserializeAws_json1_1CcEmailAddressList(
-            output.ccEmailAddresses,
-            context
-          )
+        ? deserializeAws_json1_1CcEmailAddressList(output.ccEmailAddresses, context)
         : undefined,
-    displayId:
-      output.displayId !== undefined && output.displayId !== null
-        ? output.displayId
-        : undefined,
-    language:
-      output.language !== undefined && output.language !== null
-        ? output.language
-        : undefined,
+    displayId: output.displayId !== undefined && output.displayId !== null ? output.displayId : undefined,
+    language: output.language !== undefined && output.language !== null ? output.language : undefined,
     recentCommunications:
-      output.recentCommunications !== undefined &&
-      output.recentCommunications !== null
-        ? deserializeAws_json1_1RecentCaseCommunications(
-            output.recentCommunications,
-            context
-          )
+      output.recentCommunications !== undefined && output.recentCommunications !== null
+        ? deserializeAws_json1_1RecentCaseCommunications(output.recentCommunications, context)
         : undefined,
-    serviceCode:
-      output.serviceCode !== undefined && output.serviceCode !== null
-        ? output.serviceCode
-        : undefined,
-    severityCode:
-      output.severityCode !== undefined && output.severityCode !== null
-        ? output.severityCode
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    subject:
-      output.subject !== undefined && output.subject !== null
-        ? output.subject
-        : undefined,
-    submittedBy:
-      output.submittedBy !== undefined && output.submittedBy !== null
-        ? output.submittedBy
-        : undefined,
-    timeCreated:
-      output.timeCreated !== undefined && output.timeCreated !== null
-        ? output.timeCreated
-        : undefined
+    serviceCode: output.serviceCode !== undefined && output.serviceCode !== null ? output.serviceCode : undefined,
+    severityCode: output.severityCode !== undefined && output.severityCode !== null ? output.severityCode : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    subject: output.subject !== undefined && output.subject !== null ? output.subject : undefined,
+    submittedBy: output.submittedBy !== undefined && output.submittedBy !== null ? output.submittedBy : undefined,
+    timeCreated: output.timeCreated !== undefined && output.timeCreated !== null ? output.timeCreated : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Category = (
-  output: any,
-  context: __SerdeContext
-): Category => {
+const deserializeAws_json1_1Category = (output: any, context: __SerdeContext): Category => {
   return {
     __type: "Category",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CategoryList = (
-  output: any,
-  context: __SerdeContext
-): Category[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Category(entry, context)
-  );
+const deserializeAws_json1_1CategoryList = (output: any, context: __SerdeContext): Category[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Category(entry, context));
 };
 
-const deserializeAws_json1_1CcEmailAddressList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1CcEmailAddressList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Communication = (
-  output: any,
-  context: __SerdeContext
-): Communication => {
+const deserializeAws_json1_1Communication = (output: any, context: __SerdeContext): Communication => {
   return {
     __type: "Communication",
     attachmentSet:
       output.attachmentSet !== undefined && output.attachmentSet !== null
         ? deserializeAws_json1_1AttachmentSet(output.attachmentSet, context)
         : undefined,
-    body:
-      output.body !== undefined && output.body !== null
-        ? output.body
-        : undefined,
-    caseId:
-      output.caseId !== undefined && output.caseId !== null
-        ? output.caseId
-        : undefined,
-    submittedBy:
-      output.submittedBy !== undefined && output.submittedBy !== null
-        ? output.submittedBy
-        : undefined,
-    timeCreated:
-      output.timeCreated !== undefined && output.timeCreated !== null
-        ? output.timeCreated
-        : undefined
+    body: output.body !== undefined && output.body !== null ? output.body : undefined,
+    caseId: output.caseId !== undefined && output.caseId !== null ? output.caseId : undefined,
+    submittedBy: output.submittedBy !== undefined && output.submittedBy !== null ? output.submittedBy : undefined,
+    timeCreated: output.timeCreated !== undefined && output.timeCreated !== null ? output.timeCreated : undefined
   } as any;
 };
 
@@ -1972,49 +1610,28 @@ const deserializeAws_json1_1RecentCaseCommunications = (
     __type: "RecentCaseCommunications",
     communications:
       output.communications !== undefined && output.communications !== null
-        ? deserializeAws_json1_1CommunicationList(
-            output.communications,
-            context
-          )
+        ? deserializeAws_json1_1CommunicationList(output.communications, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Service = (
-  output: any,
-  context: __SerdeContext
-): Service => {
+const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
   return {
     __type: "Service",
     categories:
       output.categories !== undefined && output.categories !== null
         ? deserializeAws_json1_1CategoryList(output.categories, context)
         : undefined,
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AttachmentIdNotFound = (
-  output: any,
-  context: __SerdeContext
-): AttachmentIdNotFound => {
+const deserializeAws_json1_1AttachmentIdNotFound = (output: any, context: __SerdeContext): AttachmentIdNotFound => {
   return {
     __type: "AttachmentIdNotFound",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2024,23 +1641,14 @@ const deserializeAws_json1_1AttachmentLimitExceeded = (
 ): AttachmentLimitExceeded => {
   return {
     __type: "AttachmentLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AttachmentSetExpired = (
-  output: any,
-  context: __SerdeContext
-): AttachmentSetExpired => {
+const deserializeAws_json1_1AttachmentSetExpired = (output: any, context: __SerdeContext): AttachmentSetExpired => {
   return {
     __type: "AttachmentSetExpired",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2050,10 +1658,7 @@ const deserializeAws_json1_1AttachmentSetIdNotFound = (
 ): AttachmentSetIdNotFound => {
   return {
     __type: "AttachmentSetIdNotFound",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2063,10 +1668,7 @@ const deserializeAws_json1_1AttachmentSetSizeLimitExceeded = (
 ): AttachmentSetSizeLimitExceeded => {
   return {
     __type: "AttachmentSetSizeLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2076,23 +1678,14 @@ const deserializeAws_json1_1CaseCreationLimitExceeded = (
 ): CaseCreationLimitExceeded => {
   return {
     __type: "CaseCreationLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CaseIdNotFound = (
-  output: any,
-  context: __SerdeContext
-): CaseIdNotFound => {
+const deserializeAws_json1_1CaseIdNotFound = (output: any, context: __SerdeContext): CaseIdNotFound => {
   return {
     __type: "CaseIdNotFound",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2102,23 +1695,14 @@ const deserializeAws_json1_1DescribeAttachmentLimitExceeded = (
 ): DescribeAttachmentLimitExceeded => {
   return {
     __type: "DescribeAttachmentLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1InternalServerError = (
-  output: any,
-  context: __SerdeContext
-): InternalServerError => {
+const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
     __type: "InternalServerError",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -2129,13 +1713,8 @@ const deserializeAws_json1_1AddAttachmentsToSetResponse = (
   return {
     __type: "AddAttachmentsToSetResponse",
     attachmentSetId:
-      output.attachmentSetId !== undefined && output.attachmentSetId !== null
-        ? output.attachmentSetId
-        : undefined,
-    expiryTime:
-      output.expiryTime !== undefined && output.expiryTime !== null
-        ? output.expiryTime
-        : undefined
+      output.attachmentSetId !== undefined && output.attachmentSetId !== null ? output.attachmentSetId : undefined,
+    expiryTime: output.expiryTime !== undefined && output.expiryTime !== null ? output.expiryTime : undefined
   } as any;
 };
 
@@ -2145,41 +1724,22 @@ const deserializeAws_json1_1AddCommunicationToCaseResponse = (
 ): AddCommunicationToCaseResponse => {
   return {
     __type: "AddCommunicationToCaseResponse",
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined
+    result: output.result !== undefined && output.result !== null ? output.result : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CaseList = (
-  output: any,
-  context: __SerdeContext
-): CaseDetails[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1CaseDetails(entry, context)
-  );
+const deserializeAws_json1_1CaseList = (output: any, context: __SerdeContext): CaseDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CaseDetails(entry, context));
 };
 
-const deserializeAws_json1_1CommunicationList = (
-  output: any,
-  context: __SerdeContext
-): Communication[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Communication(entry, context)
-  );
+const deserializeAws_json1_1CommunicationList = (output: any, context: __SerdeContext): Communication[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Communication(entry, context));
 };
 
-const deserializeAws_json1_1CreateCaseResponse = (
-  output: any,
-  context: __SerdeContext
-): CreateCaseResponse => {
+const deserializeAws_json1_1CreateCaseResponse = (output: any, context: __SerdeContext): CreateCaseResponse => {
   return {
     __type: "CreateCaseResponse",
-    caseId:
-      output.caseId !== undefined && output.caseId !== null
-        ? output.caseId
-        : undefined
+    caseId: output.caseId !== undefined && output.caseId !== null ? output.caseId : undefined
   } as any;
 };
 
@@ -2196,20 +1756,14 @@ const deserializeAws_json1_1DescribeAttachmentResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeCasesResponse = (
-  output: any,
-  context: __SerdeContext
-): DescribeCasesResponse => {
+const deserializeAws_json1_1DescribeCasesResponse = (output: any, context: __SerdeContext): DescribeCasesResponse => {
   return {
     __type: "DescribeCasesResponse",
     cases:
       output.cases !== undefined && output.cases !== null
         ? deserializeAws_json1_1CaseList(output.cases, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -2221,15 +1775,9 @@ const deserializeAws_json1_1DescribeCommunicationsResponse = (
     __type: "DescribeCommunicationsResponse",
     communications:
       output.communications !== undefined && output.communications !== null
-        ? deserializeAws_json1_1CommunicationList(
-            output.communications,
-            context
-          )
+        ? deserializeAws_json1_1CommunicationList(output.communications, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -2254,65 +1802,35 @@ const deserializeAws_json1_1DescribeSeverityLevelsResponse = (
     __type: "DescribeSeverityLevelsResponse",
     severityLevels:
       output.severityLevels !== undefined && output.severityLevels !== null
-        ? deserializeAws_json1_1SeverityLevelsList(
-            output.severityLevels,
-            context
-          )
+        ? deserializeAws_json1_1SeverityLevelsList(output.severityLevels, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ResolveCaseResponse = (
-  output: any,
-  context: __SerdeContext
-): ResolveCaseResponse => {
+const deserializeAws_json1_1ResolveCaseResponse = (output: any, context: __SerdeContext): ResolveCaseResponse => {
   return {
     __type: "ResolveCaseResponse",
     finalCaseStatus:
-      output.finalCaseStatus !== undefined && output.finalCaseStatus !== null
-        ? output.finalCaseStatus
-        : undefined,
+      output.finalCaseStatus !== undefined && output.finalCaseStatus !== null ? output.finalCaseStatus : undefined,
     initialCaseStatus:
-      output.initialCaseStatus !== undefined &&
-      output.initialCaseStatus !== null
-        ? output.initialCaseStatus
-        : undefined
+      output.initialCaseStatus !== undefined && output.initialCaseStatus !== null ? output.initialCaseStatus : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ServiceList = (
-  output: any,
-  context: __SerdeContext
-): Service[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Service(entry, context)
-  );
+const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext): Service[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Service(entry, context));
 };
 
-const deserializeAws_json1_1SeverityLevel = (
-  output: any,
-  context: __SerdeContext
-): SeverityLevel => {
+const deserializeAws_json1_1SeverityLevel = (output: any, context: __SerdeContext): SeverityLevel => {
   return {
     __type: "SeverityLevel",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1SeverityLevelsList = (
-  output: any,
-  context: __SerdeContext
-): SeverityLevel[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SeverityLevel(entry, context)
-  );
+const deserializeAws_json1_1SeverityLevelsList = (output: any, context: __SerdeContext): SeverityLevel[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1SeverityLevel(entry, context));
 };
 
 const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse = (
@@ -2323,10 +1841,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesResponse =
     __type: "DescribeTrustedAdvisorCheckRefreshStatusesResponse",
     statuses:
       output.statuses !== undefined && output.statuses !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList(
-            output.statuses,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList(output.statuses, context)
         : undefined
   } as any;
 };
@@ -2339,10 +1854,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckResultResponse = (
     __type: "DescribeTrustedAdvisorCheckResultResponse",
     result:
       output.result !== undefined && output.result !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckResult(
-            output.result,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorCheckResult(output.result, context)
         : undefined
   } as any;
 };
@@ -2355,10 +1867,7 @@ const deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesResponse = (
     __type: "DescribeTrustedAdvisorCheckSummariesResponse",
     summaries:
       output.summaries !== undefined && output.summaries !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckSummaryList(
-            output.summaries,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorCheckSummaryList(output.summaries, context)
         : undefined
   } as any;
 };
@@ -2384,18 +1893,12 @@ const deserializeAws_json1_1RefreshTrustedAdvisorCheckResponse = (
     __type: "RefreshTrustedAdvisorCheckResponse",
     status:
       output.status !== undefined && output.status !== null
-        ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(
-            output.status,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(output.status, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -2407,10 +1910,7 @@ const deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary = (
     __type: "TrustedAdvisorCategorySpecificSummary",
     costOptimizing:
       output.costOptimizing !== undefined && output.costOptimizing !== null
-        ? deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary(
-            output.costOptimizing,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary(output.costOptimizing, context)
         : undefined
   } as any;
 };
@@ -2421,23 +1921,14 @@ const deserializeAws_json1_1TrustedAdvisorCheckDescription = (
 ): TrustedAdvisorCheckDescription => {
   return {
     __type: "TrustedAdvisorCheckDescription",
-    category:
-      output.category !== undefined && output.category !== null
-        ? output.category
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    category: output.category !== undefined && output.category !== null ? output.category : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_json1_1StringList(output.metadata, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -2445,9 +1936,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckList = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCheckDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TrustedAdvisorCheckDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TrustedAdvisorCheckDescription(entry, context));
 };
 
 const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
@@ -2456,19 +1945,12 @@ const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus = (
 ): TrustedAdvisorCheckRefreshStatus => {
   return {
     __type: "TrustedAdvisorCheckRefreshStatus",
-    checkId:
-      output.checkId !== undefined && output.checkId !== null
-        ? output.checkId
-        : undefined,
+    checkId: output.checkId !== undefined && output.checkId !== null ? output.checkId : undefined,
     millisUntilNextRefreshable:
-      output.millisUntilNextRefreshable !== undefined &&
-      output.millisUntilNextRefreshable !== null
+      output.millisUntilNextRefreshable !== undefined && output.millisUntilNextRefreshable !== null
         ? output.millisUntilNextRefreshable
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -2476,9 +1958,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckRefreshStatusList = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCheckRefreshStatus[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TrustedAdvisorCheckRefreshStatus(entry, context));
 };
 
 const deserializeAws_json1_1TrustedAdvisorCheckResult = (
@@ -2488,39 +1968,20 @@ const deserializeAws_json1_1TrustedAdvisorCheckResult = (
   return {
     __type: "TrustedAdvisorCheckResult",
     categorySpecificSummary:
-      output.categorySpecificSummary !== undefined &&
-      output.categorySpecificSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(
-            output.categorySpecificSummary,
-            context
-          )
+      output.categorySpecificSummary !== undefined && output.categorySpecificSummary !== null
+        ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
         : undefined,
-    checkId:
-      output.checkId !== undefined && output.checkId !== null
-        ? output.checkId
-        : undefined,
+    checkId: output.checkId !== undefined && output.checkId !== null ? output.checkId : undefined,
     flaggedResources:
       output.flaggedResources !== undefined && output.flaggedResources !== null
-        ? deserializeAws_json1_1TrustedAdvisorResourceDetailList(
-            output.flaggedResources,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorResourceDetailList(output.flaggedResources, context)
         : undefined,
     resourcesSummary:
       output.resourcesSummary !== undefined && output.resourcesSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(
-            output.resourcesSummary,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(output.resourcesSummary, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    timestamp:
-      output.timestamp !== undefined && output.timestamp !== null
-        ? output.timestamp
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    timestamp: output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined
   } as any;
 };
 
@@ -2531,37 +1992,20 @@ const deserializeAws_json1_1TrustedAdvisorCheckSummary = (
   return {
     __type: "TrustedAdvisorCheckSummary",
     categorySpecificSummary:
-      output.categorySpecificSummary !== undefined &&
-      output.categorySpecificSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(
-            output.categorySpecificSummary,
-            context
-          )
+      output.categorySpecificSummary !== undefined && output.categorySpecificSummary !== null
+        ? deserializeAws_json1_1TrustedAdvisorCategorySpecificSummary(output.categorySpecificSummary, context)
         : undefined,
-    checkId:
-      output.checkId !== undefined && output.checkId !== null
-        ? output.checkId
-        : undefined,
+    checkId: output.checkId !== undefined && output.checkId !== null ? output.checkId : undefined,
     hasFlaggedResources:
-      output.hasFlaggedResources !== undefined &&
-      output.hasFlaggedResources !== null
+      output.hasFlaggedResources !== undefined && output.hasFlaggedResources !== null
         ? output.hasFlaggedResources
         : undefined,
     resourcesSummary:
       output.resourcesSummary !== undefined && output.resourcesSummary !== null
-        ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(
-            output.resourcesSummary,
-            context
-          )
+        ? deserializeAws_json1_1TrustedAdvisorResourcesSummary(output.resourcesSummary, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    timestamp:
-      output.timestamp !== undefined && output.timestamp !== null
-        ? output.timestamp
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    timestamp: output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined
   } as any;
 };
 
@@ -2569,9 +2013,7 @@ const deserializeAws_json1_1TrustedAdvisorCheckSummaryList = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorCheckSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TrustedAdvisorCheckSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TrustedAdvisorCheckSummary(entry, context));
 };
 
 const deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary = (
@@ -2581,13 +2023,11 @@ const deserializeAws_json1_1TrustedAdvisorCostOptimizingSummary = (
   return {
     __type: "TrustedAdvisorCostOptimizingSummary",
     estimatedMonthlySavings:
-      output.estimatedMonthlySavings !== undefined &&
-      output.estimatedMonthlySavings !== null
+      output.estimatedMonthlySavings !== undefined && output.estimatedMonthlySavings !== null
         ? output.estimatedMonthlySavings
         : undefined,
     estimatedPercentMonthlySavings:
-      output.estimatedPercentMonthlySavings !== undefined &&
-      output.estimatedPercentMonthlySavings !== null
+      output.estimatedPercentMonthlySavings !== undefined && output.estimatedPercentMonthlySavings !== null
         ? output.estimatedPercentMonthlySavings
         : undefined
   } as any;
@@ -2599,26 +2039,14 @@ const deserializeAws_json1_1TrustedAdvisorResourceDetail = (
 ): TrustedAdvisorResourceDetail => {
   return {
     __type: "TrustedAdvisorResourceDetail",
-    isSuppressed:
-      output.isSuppressed !== undefined && output.isSuppressed !== null
-        ? output.isSuppressed
-        : undefined,
+    isSuppressed: output.isSuppressed !== undefined && output.isSuppressed !== null ? output.isSuppressed : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_json1_1StringList(output.metadata, context)
         : undefined,
-    region:
-      output.region !== undefined && output.region !== null
-        ? output.region
-        : undefined,
-    resourceId:
-      output.resourceId !== undefined && output.resourceId !== null
-        ? output.resourceId
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    region: output.region !== undefined && output.region !== null ? output.region : undefined,
+    resourceId: output.resourceId !== undefined && output.resourceId !== null ? output.resourceId : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -2626,9 +2054,7 @@ const deserializeAws_json1_1TrustedAdvisorResourceDetailList = (
   output: any,
   context: __SerdeContext
 ): TrustedAdvisorResourceDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TrustedAdvisorResourceDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TrustedAdvisorResourceDetail(entry, context));
 };
 
 const deserializeAws_json1_1TrustedAdvisorResourcesSummary = (
@@ -2638,21 +2064,15 @@ const deserializeAws_json1_1TrustedAdvisorResourcesSummary = (
   return {
     __type: "TrustedAdvisorResourcesSummary",
     resourcesFlagged:
-      output.resourcesFlagged !== undefined && output.resourcesFlagged !== null
-        ? output.resourcesFlagged
-        : undefined,
+      output.resourcesFlagged !== undefined && output.resourcesFlagged !== null ? output.resourcesFlagged : undefined,
     resourcesIgnored:
-      output.resourcesIgnored !== undefined && output.resourcesIgnored !== null
-        ? output.resourcesIgnored
-        : undefined,
+      output.resourcesIgnored !== undefined && output.resourcesIgnored !== null ? output.resourcesIgnored : undefined,
     resourcesProcessed:
-      output.resourcesProcessed !== undefined &&
-      output.resourcesProcessed !== null
+      output.resourcesProcessed !== undefined && output.resourcesProcessed !== null
         ? output.resourcesProcessed
         : undefined,
     resourcesSuppressed:
-      output.resourcesSuppressed !== undefined &&
-      output.resourcesSuppressed !== null
+      output.resourcesSuppressed !== undefined && output.resourcesSuppressed !== null
         ? output.resourcesSuppressed
         : undefined
   } as any;
@@ -2665,23 +2085,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  DeleteEmailIdentityRequest,
-  DeleteEmailIdentityResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { DeleteEmailIdentityRequest, DeleteEmailIdentityResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteEmailIdentityCommand,
   serializeAws_restJson1_1DeleteEmailIdentityCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEmailIdentityCommandInput = DeleteEmailIdentityRequest;
-export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse &
-  __MetadataBearer;
+export type DeleteEmailIdentityCommandOutput = DeleteEmailIdentityResponse & __MetadataBearer;
 
 export class DeleteEmailIdentityCommand extends $Command<
   DeleteEmailIdentityCommandInput,
@@ -49,13 +38,8 @@ export class DeleteEmailIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteEmailIdentityCommandInput,
-    DeleteEmailIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteEmailIdentityCommandInput, DeleteEmailIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DeleteEmailIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteEmailIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteEmailIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteEmailIdentityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1_1DeleteEmailIdentityCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailIdentityCommandOutput> {
+    return deserializeAws_restJson1_1DeleteEmailIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

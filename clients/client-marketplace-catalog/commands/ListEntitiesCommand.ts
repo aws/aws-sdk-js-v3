@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1ListEntitiesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +43,7 @@ export class ListEntitiesCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEntitiesCommandInput, ListEntitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +58,11 @@ export class ListEntitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEntitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListEntitiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEntitiesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEntitiesCommandOutput> {
     return deserializeAws_restJson1_1ListEntitiesCommand(output, context);
   }
 

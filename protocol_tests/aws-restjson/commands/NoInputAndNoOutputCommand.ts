@@ -1,17 +1,10 @@
-import {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestJsonProtocolClient";
+import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 import {
   deserializeAws_restJson1_1NoInputAndNoOutputCommand,
   serializeAws_restJson1_1NoInputAndNoOutputCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,9 +38,7 @@ export class NoInputAndNoOutputCommand extends $Command<
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -62,17 +53,11 @@ export class NoInputAndNoOutputCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: NoInputAndNoOutputCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: NoInputAndNoOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1NoInputAndNoOutputCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<NoInputAndNoOutputCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NoInputAndNoOutputCommandOutput> {
     return deserializeAws_restJson1_1NoInputAndNoOutputCommand(output, context);
   }
 

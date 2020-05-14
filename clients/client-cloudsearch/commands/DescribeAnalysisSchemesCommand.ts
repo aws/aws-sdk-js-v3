@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient";
-import {
-  DescribeAnalysisSchemesRequest,
-  DescribeAnalysisSchemesResponse
-} from "../models/index";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DescribeAnalysisSchemesRequest, DescribeAnalysisSchemesResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeAnalysisSchemesCommand,
   serializeAws_queryDescribeAnalysisSchemesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAnalysisSchemesCommandInput = DescribeAnalysisSchemesRequest;
-export type DescribeAnalysisSchemesCommandOutput = DescribeAnalysisSchemesResponse &
-  __MetadataBearer;
+export type DescribeAnalysisSchemesCommandOutput = DescribeAnalysisSchemesResponse & __MetadataBearer;
 
 export class DescribeAnalysisSchemesCommand extends $Command<
   DescribeAnalysisSchemesCommandInput,
@@ -49,13 +38,8 @@ export class DescribeAnalysisSchemesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAnalysisSchemesCommandInput,
-    DescribeAnalysisSchemesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAnalysisSchemesCommandInput, DescribeAnalysisSchemesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DescribeAnalysisSchemesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAnalysisSchemesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAnalysisSchemesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAnalysisSchemesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAnalysisSchemesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAnalysisSchemesCommandOutput> {
     return deserializeAws_queryDescribeAnalysisSchemesCommand(output, context);
   }
 

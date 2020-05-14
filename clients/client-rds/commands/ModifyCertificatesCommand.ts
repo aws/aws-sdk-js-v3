@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ModifyCertificatesMessage,
-  ModifyCertificatesResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/index";
 import {
   deserializeAws_queryModifyCertificatesCommand,
   serializeAws_queryModifyCertificatesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyCertificatesCommandInput = ModifyCertificatesMessage;
-export type ModifyCertificatesCommandOutput = ModifyCertificatesResult &
-  __MetadataBearer;
+export type ModifyCertificatesCommandOutput = ModifyCertificatesResult & __MetadataBearer;
 
 export class ModifyCertificatesCommand extends $Command<
   ModifyCertificatesCommandInput,
@@ -50,9 +39,7 @@ export class ModifyCertificatesCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyCertificatesCommandInput, ModifyCertificatesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ModifyCertificatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyCertificatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyCertificatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyCertificatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyCertificatesCommandOutput> {
     return deserializeAws_queryModifyCertificatesCommand(output, context);
   }
 

@@ -79,13 +79,7 @@ describe("getCanonicalHeaders", () => {
       hostname: "foo.us-east-1.amazonaws.com"
     });
 
-    expect(
-      getCanonicalHeaders(
-        request,
-        new Set(["foo"]),
-        new Set(["foo", "user-agent"])
-      )
-    ).toEqual({
+    expect(getCanonicalHeaders(request, new Set(["foo"]), new Set(["foo", "user-agent"]))).toEqual({
       host: "foo.us-east-1.amazonaws.com",
       foo: "bar",
       "user-agent": "foo-user"

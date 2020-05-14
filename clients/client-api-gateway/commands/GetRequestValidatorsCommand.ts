@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
-import {
-  GetRequestValidatorsRequest,
-  RequestValidators
-} from "../models/index";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import { GetRequestValidatorsRequest, RequestValidators } from "../models/index";
 import {
   deserializeAws_restJson1_1GetRequestValidatorsCommand,
   serializeAws_restJson1_1GetRequestValidatorsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRequestValidatorsCommandInput = GetRequestValidatorsRequest;
-export type GetRequestValidatorsCommandOutput = RequestValidators &
-  __MetadataBearer;
+export type GetRequestValidatorsCommandOutput = RequestValidators & __MetadataBearer;
 
 export class GetRequestValidatorsCommand extends $Command<
   GetRequestValidatorsCommandInput,
@@ -49,13 +38,8 @@ export class GetRequestValidatorsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetRequestValidatorsCommandInput,
-    GetRequestValidatorsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetRequestValidatorsCommandInput, GetRequestValidatorsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetRequestValidatorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRequestValidatorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRequestValidatorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetRequestValidatorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRequestValidatorsCommandOutput> {
-    return deserializeAws_restJson1_1GetRequestValidatorsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRequestValidatorsCommandOutput> {
+    return deserializeAws_restJson1_1GetRequestValidatorsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,27 +1,15 @@
-import {
-  CreateAcceleratorCommandInput,
-  CreateAcceleratorCommandOutput
-} from "./commands/CreateAcceleratorCommand";
+import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "./commands/CreateAcceleratorCommand";
 import {
   CreateEndpointGroupCommandInput,
   CreateEndpointGroupCommandOutput
 } from "./commands/CreateEndpointGroupCommand";
-import {
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput
-} from "./commands/CreateListenerCommand";
-import {
-  DeleteAcceleratorCommandInput,
-  DeleteAcceleratorCommandOutput
-} from "./commands/DeleteAcceleratorCommand";
+import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
+import { DeleteAcceleratorCommandInput, DeleteAcceleratorCommandOutput } from "./commands/DeleteAcceleratorCommand";
 import {
   DeleteEndpointGroupCommandInput,
   DeleteEndpointGroupCommandOutput
 } from "./commands/DeleteEndpointGroupCommand";
-import {
-  DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
-} from "./commands/DeleteListenerCommand";
+import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
 import {
   DescribeAcceleratorAttributesCommandInput,
   DescribeAcceleratorAttributesCommandOutput
@@ -34,38 +22,20 @@ import {
   DescribeEndpointGroupCommandInput,
   DescribeEndpointGroupCommandOutput
 } from "./commands/DescribeEndpointGroupCommand";
-import {
-  DescribeListenerCommandInput,
-  DescribeListenerCommandOutput
-} from "./commands/DescribeListenerCommand";
-import {
-  ListAcceleratorsCommandInput,
-  ListAcceleratorsCommandOutput
-} from "./commands/ListAcceleratorsCommand";
-import {
-  ListEndpointGroupsCommandInput,
-  ListEndpointGroupsCommandOutput
-} from "./commands/ListEndpointGroupsCommand";
-import {
-  ListListenersCommandInput,
-  ListListenersCommandOutput
-} from "./commands/ListListenersCommand";
+import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "./commands/DescribeListenerCommand";
+import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "./commands/ListAcceleratorsCommand";
+import { ListEndpointGroupsCommandInput, ListEndpointGroupsCommandOutput } from "./commands/ListEndpointGroupsCommand";
+import { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
 import {
   UpdateAcceleratorAttributesCommandInput,
   UpdateAcceleratorAttributesCommandOutput
 } from "./commands/UpdateAcceleratorAttributesCommand";
-import {
-  UpdateAcceleratorCommandInput,
-  UpdateAcceleratorCommandOutput
-} from "./commands/UpdateAcceleratorCommand";
+import { UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput } from "./commands/UpdateAcceleratorCommand";
 import {
   UpdateEndpointGroupCommandInput,
   UpdateEndpointGroupCommandOutput
 } from "./commands/UpdateEndpointGroupCommand";
-import {
-  UpdateListenerCommandInput,
-  UpdateListenerCommandOutput
-} from "./commands/UpdateListenerCommand";
+import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "./commands/UpdateListenerCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -82,12 +52,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -156,8 +121,7 @@ export type ServiceOutputTypes =
   | UpdateEndpointGroupCommandOutput
   | UpdateListenerCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -241,9 +205,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GlobalAcceleratorClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GlobalAcceleratorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +214,7 @@ export type GlobalAcceleratorClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

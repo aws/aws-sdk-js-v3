@@ -1,15 +1,6 @@
-import {
-  CreateMeshCommandInput,
-  CreateMeshCommandOutput
-} from "./commands/CreateMeshCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
-import {
-  CreateVirtualNodeCommandInput,
-  CreateVirtualNodeCommandOutput
-} from "./commands/CreateVirtualNodeCommand";
+import { CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import { CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput } from "./commands/CreateVirtualNodeCommand";
 import {
   CreateVirtualRouterCommandInput,
   CreateVirtualRouterCommandOutput
@@ -18,18 +9,9 @@ import {
   CreateVirtualServiceCommandInput,
   CreateVirtualServiceCommandOutput
 } from "./commands/CreateVirtualServiceCommand";
-import {
-  DeleteMeshCommandInput,
-  DeleteMeshCommandOutput
-} from "./commands/DeleteMeshCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
-import {
-  DeleteVirtualNodeCommandInput,
-  DeleteVirtualNodeCommandOutput
-} from "./commands/DeleteVirtualNodeCommand";
+import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import { DeleteVirtualNodeCommandInput, DeleteVirtualNodeCommandOutput } from "./commands/DeleteVirtualNodeCommand";
 import {
   DeleteVirtualRouterCommandInput,
   DeleteVirtualRouterCommandOutput
@@ -38,14 +20,8 @@ import {
   DeleteVirtualServiceCommandInput,
   DeleteVirtualServiceCommandOutput
 } from "./commands/DeleteVirtualServiceCommand";
-import {
-  DescribeMeshCommandInput,
-  DescribeMeshCommandOutput
-} from "./commands/DescribeMeshCommand";
-import {
-  DescribeRouteCommandInput,
-  DescribeRouteCommandOutput
-} from "./commands/DescribeRouteCommand";
+import { DescribeMeshCommandInput, DescribeMeshCommandOutput } from "./commands/DescribeMeshCommand";
+import { DescribeRouteCommandInput, DescribeRouteCommandOutput } from "./commands/DescribeRouteCommand";
 import {
   DescribeVirtualNodeCommandInput,
   DescribeVirtualNodeCommandOutput
@@ -58,50 +34,23 @@ import {
   DescribeVirtualServiceCommandInput,
   DescribeVirtualServiceCommandOutput
 } from "./commands/DescribeVirtualServiceCommand";
-import {
-  ListMeshesCommandInput,
-  ListMeshesCommandOutput
-} from "./commands/ListMeshesCommand";
-import {
-  ListRoutesCommandInput,
-  ListRoutesCommandOutput
-} from "./commands/ListRoutesCommand";
+import { ListMeshesCommandInput, ListMeshesCommandOutput } from "./commands/ListMeshesCommand";
+import { ListRoutesCommandInput, ListRoutesCommandOutput } from "./commands/ListRoutesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListVirtualNodesCommandInput,
-  ListVirtualNodesCommandOutput
-} from "./commands/ListVirtualNodesCommand";
-import {
-  ListVirtualRoutersCommandInput,
-  ListVirtualRoutersCommandOutput
-} from "./commands/ListVirtualRoutersCommand";
+import { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "./commands/ListVirtualNodesCommand";
+import { ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput } from "./commands/ListVirtualRoutersCommand";
 import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput
 } from "./commands/ListVirtualServicesCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateMeshCommandInput,
-  UpdateMeshCommandOutput
-} from "./commands/UpdateMeshCommand";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "./commands/UpdateRouteCommand";
-import {
-  UpdateVirtualNodeCommandInput,
-  UpdateVirtualNodeCommandOutput
-} from "./commands/UpdateVirtualNodeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
+import { UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput } from "./commands/UpdateVirtualNodeCommand";
 import {
   UpdateVirtualRouterCommandInput,
   UpdateVirtualRouterCommandOutput
@@ -126,12 +75,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -222,8 +166,7 @@ export type ServiceOutputTypes =
   | UpdateVirtualRouterCommandOutput
   | UpdateVirtualServiceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -307,9 +250,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppMeshClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppMeshClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -318,9 +259,7 @@ export type AppMeshClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppMeshClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

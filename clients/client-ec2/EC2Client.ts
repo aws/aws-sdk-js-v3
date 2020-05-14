@@ -18,18 +18,9 @@ import {
   AcceptVpcPeeringConnectionCommandInput,
   AcceptVpcPeeringConnectionCommandOutput
 } from "./commands/AcceptVpcPeeringConnectionCommand";
-import {
-  AdvertiseByoipCidrCommandInput,
-  AdvertiseByoipCidrCommandOutput
-} from "./commands/AdvertiseByoipCidrCommand";
-import {
-  AllocateAddressCommandInput,
-  AllocateAddressCommandOutput
-} from "./commands/AllocateAddressCommand";
-import {
-  AllocateHostsCommandInput,
-  AllocateHostsCommandOutput
-} from "./commands/AllocateHostsCommand";
+import { AdvertiseByoipCidrCommandInput, AdvertiseByoipCidrCommandOutput } from "./commands/AdvertiseByoipCidrCommand";
+import { AllocateAddressCommandInput, AllocateAddressCommandOutput } from "./commands/AllocateAddressCommand";
+import { AllocateHostsCommandInput, AllocateHostsCommandOutput } from "./commands/AllocateHostsCommand";
 import {
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,
   ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
@@ -42,10 +33,7 @@ import {
   AssignPrivateIpAddressesCommandInput,
   AssignPrivateIpAddressesCommandOutput
 } from "./commands/AssignPrivateIpAddressesCommand";
-import {
-  AssociateAddressCommandInput,
-  AssociateAddressCommandOutput
-} from "./commands/AssociateAddressCommand";
+import { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "./commands/AssociateAddressCommand";
 import {
   AssociateClientVpnTargetNetworkCommandInput,
   AssociateClientVpnTargetNetworkCommandOutput
@@ -90,14 +78,8 @@ import {
   AttachNetworkInterfaceCommandInput,
   AttachNetworkInterfaceCommandOutput
 } from "./commands/AttachNetworkInterfaceCommand";
-import {
-  AttachVolumeCommandInput,
-  AttachVolumeCommandOutput
-} from "./commands/AttachVolumeCommand";
-import {
-  AttachVpnGatewayCommandInput,
-  AttachVpnGatewayCommandOutput
-} from "./commands/AttachVpnGatewayCommand";
+import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
+import { AttachVpnGatewayCommandInput, AttachVpnGatewayCommandOutput } from "./commands/AttachVpnGatewayCommand";
 import {
   AuthorizeClientVpnIngressCommandInput,
   AuthorizeClientVpnIngressCommandOutput
@@ -110,14 +92,8 @@ import {
   AuthorizeSecurityGroupIngressCommandInput,
   AuthorizeSecurityGroupIngressCommandOutput
 } from "./commands/AuthorizeSecurityGroupIngressCommand";
-import {
-  BundleInstanceCommandInput,
-  BundleInstanceCommandOutput
-} from "./commands/BundleInstanceCommand";
-import {
-  CancelBundleTaskCommandInput,
-  CancelBundleTaskCommandOutput
-} from "./commands/CancelBundleTaskCommand";
+import { BundleInstanceCommandInput, BundleInstanceCommandOutput } from "./commands/BundleInstanceCommand";
+import { CancelBundleTaskCommandInput, CancelBundleTaskCommandOutput } from "./commands/CancelBundleTaskCommand";
 import {
   CancelCapacityReservationCommandInput,
   CancelCapacityReservationCommandOutput
@@ -126,14 +102,8 @@ import {
   CancelConversionTaskCommandInput,
   CancelConversionTaskCommandOutput
 } from "./commands/CancelConversionTaskCommand";
-import {
-  CancelExportTaskCommandInput,
-  CancelExportTaskCommandOutput
-} from "./commands/CancelExportTaskCommand";
-import {
-  CancelImportTaskCommandInput,
-  CancelImportTaskCommandOutput
-} from "./commands/CancelImportTaskCommand";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
 import {
   CancelReservedInstancesListingCommandInput,
   CancelReservedInstancesListingCommandOutput
@@ -150,18 +120,9 @@ import {
   ConfirmProductInstanceCommandInput,
   ConfirmProductInstanceCommandOutput
 } from "./commands/ConfirmProductInstanceCommand";
-import {
-  CopyFpgaImageCommandInput,
-  CopyFpgaImageCommandOutput
-} from "./commands/CopyFpgaImageCommand";
-import {
-  CopyImageCommandInput,
-  CopyImageCommandOutput
-} from "./commands/CopyImageCommand";
-import {
-  CopySnapshotCommandInput,
-  CopySnapshotCommandOutput
-} from "./commands/CopySnapshotCommand";
+import { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "./commands/CopyFpgaImageCommand";
+import { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
+import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
 import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput
@@ -182,34 +143,16 @@ import {
   CreateDefaultSubnetCommandInput,
   CreateDefaultSubnetCommandOutput
 } from "./commands/CreateDefaultSubnetCommand";
-import {
-  CreateDefaultVpcCommandInput,
-  CreateDefaultVpcCommandOutput
-} from "./commands/CreateDefaultVpcCommand";
-import {
-  CreateDhcpOptionsCommandInput,
-  CreateDhcpOptionsCommandOutput
-} from "./commands/CreateDhcpOptionsCommand";
+import { CreateDefaultVpcCommandInput, CreateDefaultVpcCommandOutput } from "./commands/CreateDefaultVpcCommand";
+import { CreateDhcpOptionsCommandInput, CreateDhcpOptionsCommandOutput } from "./commands/CreateDhcpOptionsCommand";
 import {
   CreateEgressOnlyInternetGatewayCommandInput,
   CreateEgressOnlyInternetGatewayCommandOutput
 } from "./commands/CreateEgressOnlyInternetGatewayCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
-import {
-  CreateFlowLogsCommandInput,
-  CreateFlowLogsCommandOutput
-} from "./commands/CreateFlowLogsCommand";
-import {
-  CreateFpgaImageCommandInput,
-  CreateFpgaImageCommandOutput
-} from "./commands/CreateFpgaImageCommand";
-import {
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import { CreateFlowLogsCommandInput, CreateFlowLogsCommandOutput } from "./commands/CreateFlowLogsCommand";
+import { CreateFpgaImageCommandInput, CreateFpgaImageCommandOutput } from "./commands/CreateFpgaImageCommand";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
   CreateInstanceExportTaskCommandInput,
   CreateInstanceExportTaskCommandOutput
@@ -218,10 +161,7 @@ import {
   CreateInternetGatewayCommandInput,
   CreateInternetGatewayCommandOutput
 } from "./commands/CreateInternetGatewayCommand";
-import {
-  CreateKeyPairCommandInput,
-  CreateKeyPairCommandOutput
-} from "./commands/CreateKeyPairCommand";
+import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand";
 import {
   CreateLaunchTemplateCommandInput,
   CreateLaunchTemplateCommandOutput
@@ -238,14 +178,8 @@ import {
   CreateLocalGatewayRouteTableVpcAssociationCommandInput,
   CreateLocalGatewayRouteTableVpcAssociationCommandOutput
 } from "./commands/CreateLocalGatewayRouteTableVpcAssociationCommand";
-import {
-  CreateNatGatewayCommandInput,
-  CreateNatGatewayCommandOutput
-} from "./commands/CreateNatGatewayCommand";
-import {
-  CreateNetworkAclCommandInput,
-  CreateNetworkAclCommandOutput
-} from "./commands/CreateNetworkAclCommand";
+import { CreateNatGatewayCommandInput, CreateNatGatewayCommandOutput } from "./commands/CreateNatGatewayCommand";
+import { CreateNetworkAclCommandInput, CreateNetworkAclCommandOutput } from "./commands/CreateNetworkAclCommand";
 import {
   CreateNetworkAclEntryCommandInput,
   CreateNetworkAclEntryCommandOutput
@@ -266,38 +200,20 @@ import {
   CreateReservedInstancesListingCommandInput,
   CreateReservedInstancesListingCommandOutput
 } from "./commands/CreateReservedInstancesListingCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
-import {
-  CreateRouteTableCommandInput,
-  CreateRouteTableCommandOutput
-} from "./commands/CreateRouteTableCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
+import { CreateRouteTableCommandInput, CreateRouteTableCommandOutput } from "./commands/CreateRouteTableCommand";
 import {
   CreateSecurityGroupCommandInput,
   CreateSecurityGroupCommandOutput
 } from "./commands/CreateSecurityGroupCommand";
-import {
-  CreateSnapshotCommandInput,
-  CreateSnapshotCommandOutput
-} from "./commands/CreateSnapshotCommand";
-import {
-  CreateSnapshotsCommandInput,
-  CreateSnapshotsCommandOutput
-} from "./commands/CreateSnapshotsCommand";
+import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import { CreateSnapshotsCommandInput, CreateSnapshotsCommandOutput } from "./commands/CreateSnapshotsCommand";
 import {
   CreateSpotDatafeedSubscriptionCommandInput,
   CreateSpotDatafeedSubscriptionCommandOutput
 } from "./commands/CreateSpotDatafeedSubscriptionCommand";
-import {
-  CreateSubnetCommandInput,
-  CreateSubnetCommandOutput
-} from "./commands/CreateSubnetCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
+import { CreateSubnetCommandInput, CreateSubnetCommandOutput } from "./commands/CreateSubnetCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   CreateTrafficMirrorFilterCommandInput,
   CreateTrafficMirrorFilterCommandOutput
@@ -338,18 +254,9 @@ import {
   CreateTransitGatewayVpcAttachmentCommandInput,
   CreateTransitGatewayVpcAttachmentCommandOutput
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand";
-import {
-  CreateVolumeCommandInput,
-  CreateVolumeCommandOutput
-} from "./commands/CreateVolumeCommand";
-import {
-  CreateVpcCommandInput,
-  CreateVpcCommandOutput
-} from "./commands/CreateVpcCommand";
-import {
-  CreateVpcEndpointCommandInput,
-  CreateVpcEndpointCommandOutput
-} from "./commands/CreateVpcEndpointCommand";
+import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand";
+import { CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
+import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import {
   CreateVpcEndpointConnectionNotificationCommandInput,
   CreateVpcEndpointConnectionNotificationCommandOutput
@@ -370,10 +277,7 @@ import {
   CreateVpnConnectionRouteCommandInput,
   CreateVpnConnectionRouteCommandOutput
 } from "./commands/CreateVpnConnectionRouteCommand";
-import {
-  CreateVpnGatewayCommandInput,
-  CreateVpnGatewayCommandOutput
-} from "./commands/CreateVpnGatewayCommand";
+import { CreateVpnGatewayCommandInput, CreateVpnGatewayCommandOutput } from "./commands/CreateVpnGatewayCommand";
 import {
   DeleteClientVpnEndpointCommandInput,
   DeleteClientVpnEndpointCommandOutput
@@ -386,34 +290,19 @@ import {
   DeleteCustomerGatewayCommandInput,
   DeleteCustomerGatewayCommandOutput
 } from "./commands/DeleteCustomerGatewayCommand";
-import {
-  DeleteDhcpOptionsCommandInput,
-  DeleteDhcpOptionsCommandOutput
-} from "./commands/DeleteDhcpOptionsCommand";
+import { DeleteDhcpOptionsCommandInput, DeleteDhcpOptionsCommandOutput } from "./commands/DeleteDhcpOptionsCommand";
 import {
   DeleteEgressOnlyInternetGatewayCommandInput,
   DeleteEgressOnlyInternetGatewayCommandOutput
 } from "./commands/DeleteEgressOnlyInternetGatewayCommand";
-import {
-  DeleteFleetsCommandInput,
-  DeleteFleetsCommandOutput
-} from "./commands/DeleteFleetsCommand";
-import {
-  DeleteFlowLogsCommandInput,
-  DeleteFlowLogsCommandOutput
-} from "./commands/DeleteFlowLogsCommand";
-import {
-  DeleteFpgaImageCommandInput,
-  DeleteFpgaImageCommandOutput
-} from "./commands/DeleteFpgaImageCommand";
+import { DeleteFleetsCommandInput, DeleteFleetsCommandOutput } from "./commands/DeleteFleetsCommand";
+import { DeleteFlowLogsCommandInput, DeleteFlowLogsCommandOutput } from "./commands/DeleteFlowLogsCommand";
+import { DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput } from "./commands/DeleteFpgaImageCommand";
 import {
   DeleteInternetGatewayCommandInput,
   DeleteInternetGatewayCommandOutput
 } from "./commands/DeleteInternetGatewayCommand";
-import {
-  DeleteKeyPairCommandInput,
-  DeleteKeyPairCommandOutput
-} from "./commands/DeleteKeyPairCommand";
+import { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "./commands/DeleteKeyPairCommand";
 import {
   DeleteLaunchTemplateCommandInput,
   DeleteLaunchTemplateCommandOutput
@@ -430,14 +319,8 @@ import {
   DeleteLocalGatewayRouteTableVpcAssociationCommandInput,
   DeleteLocalGatewayRouteTableVpcAssociationCommandOutput
 } from "./commands/DeleteLocalGatewayRouteTableVpcAssociationCommand";
-import {
-  DeleteNatGatewayCommandInput,
-  DeleteNatGatewayCommandOutput
-} from "./commands/DeleteNatGatewayCommand";
-import {
-  DeleteNetworkAclCommandInput,
-  DeleteNetworkAclCommandOutput
-} from "./commands/DeleteNetworkAclCommand";
+import { DeleteNatGatewayCommandInput, DeleteNatGatewayCommandOutput } from "./commands/DeleteNatGatewayCommand";
+import { DeleteNetworkAclCommandInput, DeleteNetworkAclCommandOutput } from "./commands/DeleteNetworkAclCommand";
 import {
   DeleteNetworkAclEntryCommandInput,
   DeleteNetworkAclEntryCommandOutput
@@ -458,34 +341,19 @@ import {
   DeleteQueuedReservedInstancesCommandInput,
   DeleteQueuedReservedInstancesCommandOutput
 } from "./commands/DeleteQueuedReservedInstancesCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
-import {
-  DeleteRouteTableCommandInput,
-  DeleteRouteTableCommandOutput
-} from "./commands/DeleteRouteTableCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
+import { DeleteRouteTableCommandInput, DeleteRouteTableCommandOutput } from "./commands/DeleteRouteTableCommand";
 import {
   DeleteSecurityGroupCommandInput,
   DeleteSecurityGroupCommandOutput
 } from "./commands/DeleteSecurityGroupCommand";
-import {
-  DeleteSnapshotCommandInput,
-  DeleteSnapshotCommandOutput
-} from "./commands/DeleteSnapshotCommand";
+import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import {
   DeleteSpotDatafeedSubscriptionCommandInput,
   DeleteSpotDatafeedSubscriptionCommandOutput
 } from "./commands/DeleteSpotDatafeedSubscriptionCommand";
-import {
-  DeleteSubnetCommandInput,
-  DeleteSubnetCommandOutput
-} from "./commands/DeleteSubnetCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteSubnetCommandInput, DeleteSubnetCommandOutput } from "./commands/DeleteSubnetCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DeleteTrafficMirrorFilterCommandInput,
   DeleteTrafficMirrorFilterCommandOutput
@@ -526,14 +394,8 @@ import {
   DeleteTransitGatewayVpcAttachmentCommandInput,
   DeleteTransitGatewayVpcAttachmentCommandOutput
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand";
-import {
-  DeleteVolumeCommandInput,
-  DeleteVolumeCommandOutput
-} from "./commands/DeleteVolumeCommand";
-import {
-  DeleteVpcCommandInput,
-  DeleteVpcCommandOutput
-} from "./commands/DeleteVpcCommand";
+import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
+import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
   DeleteVpcEndpointConnectionNotificationsCommandOutput
@@ -542,10 +404,7 @@ import {
   DeleteVpcEndpointServiceConfigurationsCommandInput,
   DeleteVpcEndpointServiceConfigurationsCommandOutput
 } from "./commands/DeleteVpcEndpointServiceConfigurationsCommand";
-import {
-  DeleteVpcEndpointsCommandInput,
-  DeleteVpcEndpointsCommandOutput
-} from "./commands/DeleteVpcEndpointsCommand";
+import { DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput } from "./commands/DeleteVpcEndpointsCommand";
 import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput
@@ -558,18 +417,12 @@ import {
   DeleteVpnConnectionRouteCommandInput,
   DeleteVpnConnectionRouteCommandOutput
 } from "./commands/DeleteVpnConnectionRouteCommand";
-import {
-  DeleteVpnGatewayCommandInput,
-  DeleteVpnGatewayCommandOutput
-} from "./commands/DeleteVpnGatewayCommand";
+import { DeleteVpnGatewayCommandInput, DeleteVpnGatewayCommandOutput } from "./commands/DeleteVpnGatewayCommand";
 import {
   DeprovisionByoipCidrCommandInput,
   DeprovisionByoipCidrCommandOutput
 } from "./commands/DeprovisionByoipCidrCommand";
-import {
-  DeregisterImageCommandInput,
-  DeregisterImageCommandOutput
-} from "./commands/DeregisterImageCommand";
+import { DeregisterImageCommandInput, DeregisterImageCommandOutput } from "./commands/DeregisterImageCommand";
 import {
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,
   DeregisterTransitGatewayMulticastGroupMembersCommandOutput
@@ -582,10 +435,7 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput
 } from "./commands/DescribeAccountAttributesCommand";
-import {
-  DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput
-} from "./commands/DescribeAddressesCommand";
+import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand";
 import {
   DescribeAggregateIdFormatCommandInput,
   DescribeAggregateIdFormatCommandOutput
@@ -598,10 +448,7 @@ import {
   DescribeBundleTasksCommandInput,
   DescribeBundleTasksCommandOutput
 } from "./commands/DescribeBundleTasksCommand";
-import {
-  DescribeByoipCidrsCommandInput,
-  DescribeByoipCidrsCommandOutput
-} from "./commands/DescribeByoipCidrsCommand";
+import { DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput } from "./commands/DescribeByoipCidrsCommand";
 import {
   DescribeCapacityReservationsCommandInput,
   DescribeCapacityReservationsCommandOutput
@@ -630,10 +477,7 @@ import {
   DescribeClientVpnTargetNetworksCommandInput,
   DescribeClientVpnTargetNetworksCommandOutput
 } from "./commands/DescribeClientVpnTargetNetworksCommand";
-import {
-  DescribeCoipPoolsCommandInput,
-  DescribeCoipPoolsCommandOutput
-} from "./commands/DescribeCoipPoolsCommand";
+import { DescribeCoipPoolsCommandInput, DescribeCoipPoolsCommandOutput } from "./commands/DescribeCoipPoolsCommand";
 import {
   DescribeConversionTasksCommandInput,
   DescribeConversionTasksCommandOutput
@@ -674,22 +518,13 @@ import {
   DescribeFleetInstancesCommandInput,
   DescribeFleetInstancesCommandOutput
 } from "./commands/DescribeFleetInstancesCommand";
-import {
-  DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput
-} from "./commands/DescribeFleetsCommand";
-import {
-  DescribeFlowLogsCommandInput,
-  DescribeFlowLogsCommandOutput
-} from "./commands/DescribeFlowLogsCommand";
+import { DescribeFleetsCommandInput, DescribeFleetsCommandOutput } from "./commands/DescribeFleetsCommand";
+import { DescribeFlowLogsCommandInput, DescribeFlowLogsCommandOutput } from "./commands/DescribeFlowLogsCommand";
 import {
   DescribeFpgaImageAttributeCommandInput,
   DescribeFpgaImageAttributeCommandOutput
 } from "./commands/DescribeFpgaImageAttributeCommand";
-import {
-  DescribeFpgaImagesCommandInput,
-  DescribeFpgaImagesCommandOutput
-} from "./commands/DescribeFpgaImagesCommand";
+import { DescribeFpgaImagesCommandInput, DescribeFpgaImagesCommandOutput } from "./commands/DescribeFpgaImagesCommand";
 import {
   DescribeHostReservationOfferingsCommandInput,
   DescribeHostReservationOfferingsCommandOutput
@@ -698,18 +533,12 @@ import {
   DescribeHostReservationsCommandInput,
   DescribeHostReservationsCommandOutput
 } from "./commands/DescribeHostReservationsCommand";
-import {
-  DescribeHostsCommandInput,
-  DescribeHostsCommandOutput
-} from "./commands/DescribeHostsCommand";
+import { DescribeHostsCommandInput, DescribeHostsCommandOutput } from "./commands/DescribeHostsCommand";
 import {
   DescribeIamInstanceProfileAssociationsCommandInput,
   DescribeIamInstanceProfileAssociationsCommandOutput
 } from "./commands/DescribeIamInstanceProfileAssociationsCommand";
-import {
-  DescribeIdFormatCommandInput,
-  DescribeIdFormatCommandOutput
-} from "./commands/DescribeIdFormatCommand";
+import { DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput } from "./commands/DescribeIdFormatCommand";
 import {
   DescribeIdentityIdFormatCommandInput,
   DescribeIdentityIdFormatCommandOutput
@@ -718,10 +547,7 @@ import {
   DescribeImageAttributeCommandInput,
   DescribeImageAttributeCommandOutput
 } from "./commands/DescribeImageAttributeCommand";
-import {
-  DescribeImagesCommandInput,
-  DescribeImagesCommandOutput
-} from "./commands/DescribeImagesCommand";
+import { DescribeImagesCommandInput, DescribeImagesCommandOutput } from "./commands/DescribeImagesCommand";
 import {
   DescribeImportImageTasksCommandInput,
   DescribeImportImageTasksCommandOutput
@@ -750,22 +576,13 @@ import {
   DescribeInstanceTypesCommandInput,
   DescribeInstanceTypesCommandOutput
 } from "./commands/DescribeInstanceTypesCommand";
-import {
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
-} from "./commands/DescribeInstancesCommand";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
 import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput
 } from "./commands/DescribeInternetGatewaysCommand";
-import {
-  DescribeIpv6PoolsCommandInput,
-  DescribeIpv6PoolsCommandOutput
-} from "./commands/DescribeIpv6PoolsCommand";
-import {
-  DescribeKeyPairsCommandInput,
-  DescribeKeyPairsCommandOutput
-} from "./commands/DescribeKeyPairsCommand";
+import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "./commands/DescribeIpv6PoolsCommand";
+import { DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput } from "./commands/DescribeKeyPairsCommand";
 import {
   DescribeLaunchTemplateVersionsCommandInput,
   DescribeLaunchTemplateVersionsCommandOutput
@@ -838,10 +655,7 @@ import {
   DescribePublicIpv4PoolsCommandInput,
   DescribePublicIpv4PoolsCommandOutput
 } from "./commands/DescribePublicIpv4PoolsCommand";
-import {
-  DescribeRegionsCommandInput,
-  DescribeRegionsCommandOutput
-} from "./commands/DescribeRegionsCommand";
+import { DescribeRegionsCommandInput, DescribeRegionsCommandOutput } from "./commands/DescribeRegionsCommand";
 import {
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput
@@ -882,10 +696,7 @@ import {
   DescribeSnapshotAttributeCommandInput,
   DescribeSnapshotAttributeCommandOutput
 } from "./commands/DescribeSnapshotAttributeCommand";
-import {
-  DescribeSnapshotsCommandInput,
-  DescribeSnapshotsCommandOutput
-} from "./commands/DescribeSnapshotsCommand";
+import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeSpotDatafeedSubscriptionCommandInput,
   DescribeSpotDatafeedSubscriptionCommandOutput
@@ -914,14 +725,8 @@ import {
   DescribeStaleSecurityGroupsCommandInput,
   DescribeStaleSecurityGroupsCommandOutput
 } from "./commands/DescribeStaleSecurityGroupsCommand";
-import {
-  DescribeSubnetsCommandInput,
-  DescribeSubnetsCommandOutput
-} from "./commands/DescribeSubnetsCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeSubnetsCommandInput, DescribeSubnetsCommandOutput } from "./commands/DescribeSubnetsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DescribeTrafficMirrorFiltersCommandInput,
   DescribeTrafficMirrorFiltersCommandOutput
@@ -966,10 +771,7 @@ import {
   DescribeVolumeStatusCommandInput,
   DescribeVolumeStatusCommandOutput
 } from "./commands/DescribeVolumeStatusCommand";
-import {
-  DescribeVolumesCommandInput,
-  DescribeVolumesCommandOutput
-} from "./commands/DescribeVolumesCommand";
+import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "./commands/DescribeVolumesCommand";
 import {
   DescribeVolumesModificationsCommandInput,
   DescribeVolumesModificationsCommandOutput
@@ -1014,10 +816,7 @@ import {
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput
 } from "./commands/DescribeVpcPeeringConnectionsCommand";
-import {
-  DescribeVpcsCommandInput,
-  DescribeVpcsCommandOutput
-} from "./commands/DescribeVpcsCommand";
+import { DescribeVpcsCommandInput, DescribeVpcsCommandOutput } from "./commands/DescribeVpcsCommand";
 import {
   DescribeVpnConnectionsCommandInput,
   DescribeVpnConnectionsCommandOutput
@@ -1038,14 +837,8 @@ import {
   DetachNetworkInterfaceCommandInput,
   DetachNetworkInterfaceCommandOutput
 } from "./commands/DetachNetworkInterfaceCommand";
-import {
-  DetachVolumeCommandInput,
-  DetachVolumeCommandOutput
-} from "./commands/DetachVolumeCommand";
-import {
-  DetachVpnGatewayCommandInput,
-  DetachVpnGatewayCommandOutput
-} from "./commands/DetachVpnGatewayCommand";
+import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
+import { DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput } from "./commands/DetachVpnGatewayCommand";
 import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput
@@ -1118,10 +911,7 @@ import {
   EnableVgwRoutePropagationCommandInput,
   EnableVgwRoutePropagationCommandOutput
 } from "./commands/EnableVgwRoutePropagationCommand";
-import {
-  EnableVolumeIOCommandInput,
-  EnableVolumeIOCommandOutput
-} from "./commands/EnableVolumeIOCommand";
+import { EnableVolumeIOCommandInput, EnableVolumeIOCommandOutput } from "./commands/EnableVolumeIOCommand";
 import {
   EnableVpcClassicLinkCommandInput,
   EnableVpcClassicLinkCommandOutput
@@ -1138,10 +928,7 @@ import {
   ExportClientVpnClientConfigurationCommandInput,
   ExportClientVpnClientConfigurationCommandOutput
 } from "./commands/ExportClientVpnClientConfigurationCommand";
-import {
-  ExportImageCommandInput,
-  ExportImageCommandOutput
-} from "./commands/ExportImageCommand";
+import { ExportImageCommandInput, ExportImageCommandOutput } from "./commands/ExportImageCommand";
 import {
   ExportTransitGatewayRoutesCommandInput,
   ExportTransitGatewayRoutesCommandOutput
@@ -1154,14 +941,8 @@ import {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput
 } from "./commands/GetCapacityReservationUsageCommand";
-import {
-  GetCoipPoolUsageCommandInput,
-  GetCoipPoolUsageCommandOutput
-} from "./commands/GetCoipPoolUsageCommand";
-import {
-  GetConsoleOutputCommandInput,
-  GetConsoleOutputCommandOutput
-} from "./commands/GetConsoleOutputCommand";
+import { GetCoipPoolUsageCommandInput, GetCoipPoolUsageCommandOutput } from "./commands/GetCoipPoolUsageCommand";
+import { GetConsoleOutputCommandInput, GetConsoleOutputCommandOutput } from "./commands/GetConsoleOutputCommand";
 import {
   GetConsoleScreenshotCommandInput,
   GetConsoleScreenshotCommandOutput
@@ -1186,10 +967,7 @@ import {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput
 } from "./commands/GetLaunchTemplateDataCommand";
-import {
-  GetPasswordDataCommandInput,
-  GetPasswordDataCommandOutput
-} from "./commands/GetPasswordDataCommand";
+import { GetPasswordDataCommandInput, GetPasswordDataCommandOutput } from "./commands/GetPasswordDataCommand";
 import {
   GetReservedInstancesExchangeQuoteCommandInput,
   GetReservedInstancesExchangeQuoteCommandOutput
@@ -1214,26 +992,11 @@ import {
   ImportClientVpnClientCertificateRevocationListCommandInput,
   ImportClientVpnClientCertificateRevocationListCommandOutput
 } from "./commands/ImportClientVpnClientCertificateRevocationListCommand";
-import {
-  ImportImageCommandInput,
-  ImportImageCommandOutput
-} from "./commands/ImportImageCommand";
-import {
-  ImportInstanceCommandInput,
-  ImportInstanceCommandOutput
-} from "./commands/ImportInstanceCommand";
-import {
-  ImportKeyPairCommandInput,
-  ImportKeyPairCommandOutput
-} from "./commands/ImportKeyPairCommand";
-import {
-  ImportSnapshotCommandInput,
-  ImportSnapshotCommandOutput
-} from "./commands/ImportSnapshotCommand";
-import {
-  ImportVolumeCommandInput,
-  ImportVolumeCommandOutput
-} from "./commands/ImportVolumeCommand";
+import { ImportImageCommandInput, ImportImageCommandOutput } from "./commands/ImportImageCommand";
+import { ImportInstanceCommandInput, ImportInstanceCommandOutput } from "./commands/ImportInstanceCommand";
+import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand";
+import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand";
+import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand";
 import {
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput
@@ -1250,22 +1013,13 @@ import {
   ModifyEbsDefaultKmsKeyIdCommandInput,
   ModifyEbsDefaultKmsKeyIdCommandOutput
 } from "./commands/ModifyEbsDefaultKmsKeyIdCommand";
-import {
-  ModifyFleetCommandInput,
-  ModifyFleetCommandOutput
-} from "./commands/ModifyFleetCommand";
+import { ModifyFleetCommandInput, ModifyFleetCommandOutput } from "./commands/ModifyFleetCommand";
 import {
   ModifyFpgaImageAttributeCommandInput,
   ModifyFpgaImageAttributeCommandOutput
 } from "./commands/ModifyFpgaImageAttributeCommand";
-import {
-  ModifyHostsCommandInput,
-  ModifyHostsCommandOutput
-} from "./commands/ModifyHostsCommand";
-import {
-  ModifyIdFormatCommandInput,
-  ModifyIdFormatCommandOutput
-} from "./commands/ModifyIdFormatCommand";
+import { ModifyHostsCommandInput, ModifyHostsCommandOutput } from "./commands/ModifyHostsCommand";
+import { ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput } from "./commands/ModifyIdFormatCommand";
 import {
   ModifyIdentityIdFormatCommandInput,
   ModifyIdentityIdFormatCommandOutput
@@ -1342,18 +1096,9 @@ import {
   ModifyVolumeAttributeCommandInput,
   ModifyVolumeAttributeCommandOutput
 } from "./commands/ModifyVolumeAttributeCommand";
-import {
-  ModifyVolumeCommandInput,
-  ModifyVolumeCommandOutput
-} from "./commands/ModifyVolumeCommand";
-import {
-  ModifyVpcAttributeCommandInput,
-  ModifyVpcAttributeCommandOutput
-} from "./commands/ModifyVpcAttributeCommand";
-import {
-  ModifyVpcEndpointCommandInput,
-  ModifyVpcEndpointCommandOutput
-} from "./commands/ModifyVpcEndpointCommand";
+import { ModifyVolumeCommandInput, ModifyVolumeCommandOutput } from "./commands/ModifyVolumeCommand";
+import { ModifyVpcAttributeCommandInput, ModifyVpcAttributeCommandOutput } from "./commands/ModifyVpcAttributeCommand";
+import { ModifyVpcEndpointCommandInput, ModifyVpcEndpointCommandOutput } from "./commands/ModifyVpcEndpointCommand";
 import {
   ModifyVpcEndpointConnectionNotificationCommandInput,
   ModifyVpcEndpointConnectionNotificationCommandOutput
@@ -1370,10 +1115,7 @@ import {
   ModifyVpcPeeringConnectionOptionsCommandInput,
   ModifyVpcPeeringConnectionOptionsCommandOutput
 } from "./commands/ModifyVpcPeeringConnectionOptionsCommand";
-import {
-  ModifyVpcTenancyCommandInput,
-  ModifyVpcTenancyCommandOutput
-} from "./commands/ModifyVpcTenancyCommand";
+import { ModifyVpcTenancyCommandInput, ModifyVpcTenancyCommandOutput } from "./commands/ModifyVpcTenancyCommand";
 import {
   ModifyVpnConnectionCommandInput,
   ModifyVpnConnectionCommandOutput
@@ -1386,18 +1128,9 @@ import {
   ModifyVpnTunnelOptionsCommandInput,
   ModifyVpnTunnelOptionsCommandOutput
 } from "./commands/ModifyVpnTunnelOptionsCommand";
-import {
-  MonitorInstancesCommandInput,
-  MonitorInstancesCommandOutput
-} from "./commands/MonitorInstancesCommand";
-import {
-  MoveAddressToVpcCommandInput,
-  MoveAddressToVpcCommandOutput
-} from "./commands/MoveAddressToVpcCommand";
-import {
-  ProvisionByoipCidrCommandInput,
-  ProvisionByoipCidrCommandOutput
-} from "./commands/ProvisionByoipCidrCommand";
+import { MonitorInstancesCommandInput, MonitorInstancesCommandOutput } from "./commands/MonitorInstancesCommand";
+import { MoveAddressToVpcCommandInput, MoveAddressToVpcCommandOutput } from "./commands/MoveAddressToVpcCommand";
+import { ProvisionByoipCidrCommandInput, ProvisionByoipCidrCommandOutput } from "./commands/ProvisionByoipCidrCommand";
 import {
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput
@@ -1410,14 +1143,8 @@ import {
   PurchaseScheduledInstancesCommandInput,
   PurchaseScheduledInstancesCommandOutput
 } from "./commands/PurchaseScheduledInstancesCommand";
-import {
-  RebootInstancesCommandInput,
-  RebootInstancesCommandOutput
-} from "./commands/RebootInstancesCommand";
-import {
-  RegisterImageCommandInput,
-  RegisterImageCommandOutput
-} from "./commands/RegisterImageCommand";
+import { RebootInstancesCommandInput, RebootInstancesCommandOutput } from "./commands/RebootInstancesCommand";
+import { RegisterImageCommandInput, RegisterImageCommandOutput } from "./commands/RegisterImageCommand";
 import {
   RegisterTransitGatewayMulticastGroupMembersCommandInput,
   RegisterTransitGatewayMulticastGroupMembersCommandOutput
@@ -1442,14 +1169,8 @@ import {
   RejectVpcPeeringConnectionCommandInput,
   RejectVpcPeeringConnectionCommandOutput
 } from "./commands/RejectVpcPeeringConnectionCommand";
-import {
-  ReleaseAddressCommandInput,
-  ReleaseAddressCommandOutput
-} from "./commands/ReleaseAddressCommand";
-import {
-  ReleaseHostsCommandInput,
-  ReleaseHostsCommandOutput
-} from "./commands/ReleaseHostsCommand";
+import { ReleaseAddressCommandInput, ReleaseAddressCommandOutput } from "./commands/ReleaseAddressCommand";
+import { ReleaseHostsCommandInput, ReleaseHostsCommandOutput } from "./commands/ReleaseHostsCommand";
 import {
   ReplaceIamInstanceProfileAssociationCommandInput,
   ReplaceIamInstanceProfileAssociationCommandOutput
@@ -1462,10 +1183,7 @@ import {
   ReplaceNetworkAclEntryCommandInput,
   ReplaceNetworkAclEntryCommandOutput
 } from "./commands/ReplaceNetworkAclEntryCommand";
-import {
-  ReplaceRouteCommandInput,
-  ReplaceRouteCommandOutput
-} from "./commands/ReplaceRouteCommand";
+import { ReplaceRouteCommandInput, ReplaceRouteCommandOutput } from "./commands/ReplaceRouteCommand";
 import {
   ReplaceRouteTableAssociationCommandInput,
   ReplaceRouteTableAssociationCommandOutput
@@ -1478,10 +1196,7 @@ import {
   ReportInstanceStatusCommandInput,
   ReportInstanceStatusCommandOutput
 } from "./commands/ReportInstanceStatusCommand";
-import {
-  RequestSpotFleetCommandInput,
-  RequestSpotFleetCommandOutput
-} from "./commands/RequestSpotFleetCommand";
+import { RequestSpotFleetCommandInput, RequestSpotFleetCommandOutput } from "./commands/RequestSpotFleetCommand";
 import {
   RequestSpotInstancesCommandInput,
   RequestSpotInstancesCommandOutput
@@ -1526,10 +1241,7 @@ import {
   RevokeSecurityGroupIngressCommandInput,
   RevokeSecurityGroupIngressCommandOutput
 } from "./commands/RevokeSecurityGroupIngressCommand";
-import {
-  RunInstancesCommandInput,
-  RunInstancesCommandOutput
-} from "./commands/RunInstancesCommand";
+import { RunInstancesCommandInput, RunInstancesCommandOutput } from "./commands/RunInstancesCommand";
 import {
   RunScheduledInstancesCommandInput,
   RunScheduledInstancesCommandOutput
@@ -1550,26 +1262,17 @@ import {
   SendDiagnosticInterruptCommandInput,
   SendDiagnosticInterruptCommandOutput
 } from "./commands/SendDiagnosticInterruptCommand";
-import {
-  StartInstancesCommandInput,
-  StartInstancesCommandOutput
-} from "./commands/StartInstancesCommand";
+import { StartInstancesCommandInput, StartInstancesCommandOutput } from "./commands/StartInstancesCommand";
 import {
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,
   StartVpcEndpointServicePrivateDnsVerificationCommandOutput
 } from "./commands/StartVpcEndpointServicePrivateDnsVerificationCommand";
-import {
-  StopInstancesCommandInput,
-  StopInstancesCommandOutput
-} from "./commands/StopInstancesCommand";
+import { StopInstancesCommandInput, StopInstancesCommandOutput } from "./commands/StopInstancesCommand";
 import {
   TerminateClientVpnConnectionsCommandInput,
   TerminateClientVpnConnectionsCommandOutput
 } from "./commands/TerminateClientVpnConnectionsCommand";
-import {
-  TerminateInstancesCommandInput,
-  TerminateInstancesCommandOutput
-} from "./commands/TerminateInstancesCommand";
+import { TerminateInstancesCommandInput, TerminateInstancesCommandOutput } from "./commands/TerminateInstancesCommand";
 import {
   UnassignIpv6AddressesCommandInput,
   UnassignIpv6AddressesCommandOutput
@@ -1578,10 +1281,7 @@ import {
   UnassignPrivateIpAddressesCommandInput,
   UnassignPrivateIpAddressesCommandOutput
 } from "./commands/UnassignPrivateIpAddressesCommand";
-import {
-  UnmonitorInstancesCommandInput,
-  UnmonitorInstancesCommandOutput
-} from "./commands/UnmonitorInstancesCommand";
+import { UnmonitorInstancesCommandInput, UnmonitorInstancesCommandOutput } from "./commands/UnmonitorInstancesCommand";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
   UpdateSecurityGroupRuleDescriptionsEgressCommandOutput
@@ -1590,10 +1290,7 @@ import {
   UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
   UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
 } from "./commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
-import {
-  WithdrawByoipCidrCommandInput,
-  WithdrawByoipCidrCommandOutput
-} from "./commands/WithdrawByoipCidrCommand";
+import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "./commands/WithdrawByoipCidrCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -1610,12 +1307,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -2448,8 +2140,7 @@ export type ServiceOutputTypes =
   | UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
   | WithdrawByoipCidrCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -2533,9 +2224,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EC2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EC2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -2544,9 +2233,7 @@ export type EC2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EC2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

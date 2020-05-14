@@ -1,8 +1,4 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
 import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/index";
 import {
   deserializeAws_queryReceiveMessageCommand,
@@ -10,10 +6,7 @@ import {
 } from "../protocols/Aws_query";
 import { getReceiveMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -26,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ReceiveMessageCommandInput = ReceiveMessageRequest;
-export type ReceiveMessageCommandOutput = ReceiveMessageResult &
-  __MetadataBearer;
+export type ReceiveMessageCommandOutput = ReceiveMessageResult & __MetadataBearer;
 
 export class ReceiveMessageCommand extends $Command<
   ReceiveMessageCommandInput,
@@ -48,9 +40,7 @@ export class ReceiveMessageCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReceiveMessageCommandInput, ReceiveMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getReceiveMessagePlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -66,17 +56,11 @@ export class ReceiveMessageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ReceiveMessageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ReceiveMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryReceiveMessageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ReceiveMessageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReceiveMessageCommandOutput> {
     return deserializeAws_queryReceiveMessageCommand(output, context);
   }
 

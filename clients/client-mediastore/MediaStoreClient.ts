@@ -1,75 +1,30 @@
-import {
-  CreateContainerCommandInput,
-  CreateContainerCommandOutput
-} from "./commands/CreateContainerCommand";
-import {
-  DeleteContainerCommandInput,
-  DeleteContainerCommandOutput
-} from "./commands/DeleteContainerCommand";
+import { CreateContainerCommandInput, CreateContainerCommandOutput } from "./commands/CreateContainerCommand";
+import { DeleteContainerCommandInput, DeleteContainerCommandOutput } from "./commands/DeleteContainerCommand";
 import {
   DeleteContainerPolicyCommandInput,
   DeleteContainerPolicyCommandOutput
 } from "./commands/DeleteContainerPolicyCommand";
-import {
-  DeleteCorsPolicyCommandInput,
-  DeleteCorsPolicyCommandOutput
-} from "./commands/DeleteCorsPolicyCommand";
+import { DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput } from "./commands/DeleteCorsPolicyCommand";
 import {
   DeleteLifecyclePolicyCommandInput,
   DeleteLifecyclePolicyCommandOutput
 } from "./commands/DeleteLifecyclePolicyCommand";
-import {
-  DescribeContainerCommandInput,
-  DescribeContainerCommandOutput
-} from "./commands/DescribeContainerCommand";
-import {
-  GetContainerPolicyCommandInput,
-  GetContainerPolicyCommandOutput
-} from "./commands/GetContainerPolicyCommand";
-import {
-  GetCorsPolicyCommandInput,
-  GetCorsPolicyCommandOutput
-} from "./commands/GetCorsPolicyCommand";
-import {
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput
-} from "./commands/GetLifecyclePolicyCommand";
-import {
-  ListContainersCommandInput,
-  ListContainersCommandOutput
-} from "./commands/ListContainersCommand";
+import { DescribeContainerCommandInput, DescribeContainerCommandOutput } from "./commands/DescribeContainerCommand";
+import { GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput } from "./commands/GetContainerPolicyCommand";
+import { GetCorsPolicyCommandInput, GetCorsPolicyCommandOutput } from "./commands/GetCorsPolicyCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
+import { ListContainersCommandInput, ListContainersCommandOutput } from "./commands/ListContainersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutContainerPolicyCommandInput,
-  PutContainerPolicyCommandOutput
-} from "./commands/PutContainerPolicyCommand";
-import {
-  PutCorsPolicyCommandInput,
-  PutCorsPolicyCommandOutput
-} from "./commands/PutCorsPolicyCommand";
-import {
-  PutLifecyclePolicyCommandInput,
-  PutLifecyclePolicyCommandOutput
-} from "./commands/PutLifecyclePolicyCommand";
-import {
-  StartAccessLoggingCommandInput,
-  StartAccessLoggingCommandOutput
-} from "./commands/StartAccessLoggingCommand";
-import {
-  StopAccessLoggingCommandInput,
-  StopAccessLoggingCommandOutput
-} from "./commands/StopAccessLoggingCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { PutContainerPolicyCommandInput, PutContainerPolicyCommandOutput } from "./commands/PutContainerPolicyCommand";
+import { PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput } from "./commands/PutCorsPolicyCommand";
+import { PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput } from "./commands/PutLifecyclePolicyCommand";
+import { StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput } from "./commands/StartAccessLoggingCommand";
+import { StopAccessLoggingCommandInput, StopAccessLoggingCommandOutput } from "./commands/StopAccessLoggingCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -86,12 +41,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -162,8 +112,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -247,9 +196,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaStoreClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaStoreClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +205,7 @@ export type MediaStoreClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaStoreClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaStoreClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  CloudHSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudHSMClient";
-import {
-  DeleteLunaClientRequest,
-  DeleteLunaClientResponse
-} from "../models/index";
+import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
+import { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLunaClientCommand,
   serializeAws_json1_1DeleteLunaClientCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLunaClientCommandInput = DeleteLunaClientRequest;
-export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse &
-  __MetadataBearer;
+export type DeleteLunaClientCommandOutput = DeleteLunaClientResponse & __MetadataBearer;
 
 export class DeleteLunaClientCommand extends $Command<
   DeleteLunaClientCommandInput,
@@ -50,9 +39,7 @@ export class DeleteLunaClientCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLunaClientCommandInput, DeleteLunaClientCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteLunaClientCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLunaClientCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLunaClientCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLunaClientCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLunaClientCommandOutput> {
     return deserializeAws_json1_1DeleteLunaClientCommand(output, context);
   }
 

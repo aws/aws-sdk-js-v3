@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 import { CheckCapacityRequest, CheckCapacityResponse } from "../models/index";
 import {
   deserializeAws_json1_1CheckCapacityCommand,
   serializeAws_json1_1CheckCapacityCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CheckCapacityCommandInput = CheckCapacityRequest;
-export type CheckCapacityCommandOutput = CheckCapacityResponse &
-  __MetadataBearer;
+export type CheckCapacityCommandOutput = CheckCapacityResponse & __MetadataBearer;
 
 export class CheckCapacityCommand extends $Command<
   CheckCapacityCommandInput,
@@ -47,9 +39,7 @@ export class CheckCapacityCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CheckCapacityCommandInput, CheckCapacityCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CheckCapacityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CheckCapacityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CheckCapacityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CheckCapacityCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CheckCapacityCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckCapacityCommandOutput> {
     return deserializeAws_json1_1CheckCapacityCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateBillingGroupRequest,
-  CreateBillingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateBillingGroupRequest, CreateBillingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateBillingGroupCommand,
   serializeAws_restJson1_1CreateBillingGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateBillingGroupCommandInput = CreateBillingGroupRequest;
-export type CreateBillingGroupCommandOutput = CreateBillingGroupResponse &
-  __MetadataBearer;
+export type CreateBillingGroupCommandOutput = CreateBillingGroupResponse & __MetadataBearer;
 
 export class CreateBillingGroupCommand extends $Command<
   CreateBillingGroupCommandInput,
@@ -50,9 +39,7 @@ export class CreateBillingGroupCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateBillingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateBillingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateBillingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateBillingGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBillingGroupCommandOutput> {
     return deserializeAws_restJson1_1CreateBillingGroupCommand(output, context);
   }
 

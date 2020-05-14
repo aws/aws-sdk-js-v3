@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
-import {
-  DescribeForecastRequest,
-  DescribeForecastResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { DescribeForecastRequest, DescribeForecastResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeForecastCommand,
   serializeAws_json1_1DescribeForecastCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeForecastCommandInput = DescribeForecastRequest;
-export type DescribeForecastCommandOutput = DescribeForecastResponse &
-  __MetadataBearer;
+export type DescribeForecastCommandOutput = DescribeForecastResponse & __MetadataBearer;
 
 export class DescribeForecastCommand extends $Command<
   DescribeForecastCommandInput,
@@ -50,9 +39,7 @@ export class DescribeForecastCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeForecastCommandInput, DescribeForecastCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeForecastCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeForecastCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeForecastCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeForecastCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeForecastCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeForecastCommandOutput> {
     return deserializeAws_json1_1DescribeForecastCommand(output, context);
   }
 

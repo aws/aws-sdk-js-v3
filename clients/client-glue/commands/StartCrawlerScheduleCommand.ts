@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  StartCrawlerScheduleRequest,
-  StartCrawlerScheduleResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { StartCrawlerScheduleRequest, StartCrawlerScheduleResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartCrawlerScheduleCommand,
   serializeAws_json1_1StartCrawlerScheduleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartCrawlerScheduleCommandInput = StartCrawlerScheduleRequest;
-export type StartCrawlerScheduleCommandOutput = StartCrawlerScheduleResponse &
-  __MetadataBearer;
+export type StartCrawlerScheduleCommandOutput = StartCrawlerScheduleResponse & __MetadataBearer;
 
 export class StartCrawlerScheduleCommand extends $Command<
   StartCrawlerScheduleCommandInput,
@@ -49,13 +38,8 @@ export class StartCrawlerScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartCrawlerScheduleCommandInput,
-    StartCrawlerScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartCrawlerScheduleCommandInput, StartCrawlerScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class StartCrawlerScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartCrawlerScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartCrawlerScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartCrawlerScheduleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1StartCrawlerScheduleCommand(output, context);
   }
 

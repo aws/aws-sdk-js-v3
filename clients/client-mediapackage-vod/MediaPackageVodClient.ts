@@ -1,7 +1,4 @@
-import {
-  CreateAssetCommandInput,
-  CreateAssetCommandOutput
-} from "./commands/CreateAssetCommand";
+import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import {
   CreatePackagingConfigurationCommandInput,
   CreatePackagingConfigurationCommandOutput
@@ -10,10 +7,7 @@ import {
   CreatePackagingGroupCommandInput,
   CreatePackagingGroupCommandOutput
 } from "./commands/CreatePackagingGroupCommand";
-import {
-  DeleteAssetCommandInput,
-  DeleteAssetCommandOutput
-} from "./commands/DeleteAssetCommand";
+import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import {
   DeletePackagingConfigurationCommandInput,
   DeletePackagingConfigurationCommandOutput
@@ -22,10 +16,7 @@ import {
   DeletePackagingGroupCommandInput,
   DeletePackagingGroupCommandOutput
 } from "./commands/DeletePackagingGroupCommand";
-import {
-  DescribeAssetCommandInput,
-  DescribeAssetCommandOutput
-} from "./commands/DescribeAssetCommand";
+import { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
 import {
   DescribePackagingConfigurationCommandInput,
   DescribePackagingConfigurationCommandOutput
@@ -34,10 +25,7 @@ import {
   DescribePackagingGroupCommandInput,
   DescribePackagingGroupCommandOutput
 } from "./commands/DescribePackagingGroupCommand";
-import {
-  ListAssetsCommandInput,
-  ListAssetsCommandOutput
-} from "./commands/ListAssetsCommand";
+import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
 import {
   ListPackagingConfigurationsCommandInput,
   ListPackagingConfigurationsCommandOutput
@@ -62,12 +50,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -126,8 +109,7 @@ export type ServiceOutputTypes =
   | ListPackagingConfigurationsCommandOutput
   | ListPackagingGroupsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -211,9 +193,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaPackageVodClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaPackageVodClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -222,9 +202,7 @@ export type MediaPackageVodClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaPackageVodClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaPackageVodClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

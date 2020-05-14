@@ -1,18 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryStartDBInstanceCommand,
   serializeAws_queryStartDBInstanceCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDBInstanceCommandInput = StartDBInstanceMessage;
-export type StartDBInstanceCommandOutput = StartDBInstanceResult &
-  __MetadataBearer;
+export type StartDBInstanceCommandOutput = StartDBInstanceResult & __MetadataBearer;
 
 export class StartDBInstanceCommand extends $Command<
   StartDBInstanceCommandInput,
@@ -47,9 +39,7 @@ export class StartDBInstanceCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartDBInstanceCommandInput, StartDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class StartDBInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDBInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStartDBInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDBInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDBInstanceCommandOutput> {
     return deserializeAws_queryStartDBInstanceCommand(output, context);
   }
 

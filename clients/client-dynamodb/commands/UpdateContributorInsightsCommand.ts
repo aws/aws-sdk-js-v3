@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
-import {
-  UpdateContributorInsightsInput,
-  UpdateContributorInsightsOutput
-} from "../models/index";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { UpdateContributorInsightsInput, UpdateContributorInsightsOutput } from "../models/index";
 import {
   deserializeAws_json1_0UpdateContributorInsightsCommand,
   serializeAws_json1_0UpdateContributorInsightsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateContributorInsightsCommandInput = UpdateContributorInsightsInput;
-export type UpdateContributorInsightsCommandOutput = UpdateContributorInsightsOutput &
-  __MetadataBearer;
+export type UpdateContributorInsightsCommandOutput = UpdateContributorInsightsOutput & __MetadataBearer;
 
 export class UpdateContributorInsightsCommand extends $Command<
   UpdateContributorInsightsCommandInput,
@@ -49,13 +38,8 @@ export class UpdateContributorInsightsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateContributorInsightsCommandInput,
-    UpdateContributorInsightsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateContributorInsightsCommandInput, UpdateContributorInsightsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class UpdateContributorInsightsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateContributorInsightsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateContributorInsightsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateContributorInsightsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class UpdateContributorInsightsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateContributorInsightsCommandOutput> {
-    return deserializeAws_json1_0UpdateContributorInsightsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateContributorInsightsCommand(output, context);
   }
 
   // Start section: command_body_extra

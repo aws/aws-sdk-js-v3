@@ -6,26 +6,14 @@ import {
   AddCommunicationToCaseCommandInput,
   AddCommunicationToCaseCommandOutput
 } from "./commands/AddCommunicationToCaseCommand";
-import {
-  CreateCaseCommandInput,
-  CreateCaseCommandOutput
-} from "./commands/CreateCaseCommand";
-import {
-  DescribeAttachmentCommandInput,
-  DescribeAttachmentCommandOutput
-} from "./commands/DescribeAttachmentCommand";
-import {
-  DescribeCasesCommandInput,
-  DescribeCasesCommandOutput
-} from "./commands/DescribeCasesCommand";
+import { CreateCaseCommandInput, CreateCaseCommandOutput } from "./commands/CreateCaseCommand";
+import { DescribeAttachmentCommandInput, DescribeAttachmentCommandOutput } from "./commands/DescribeAttachmentCommand";
+import { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "./commands/DescribeCasesCommand";
 import {
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput
 } from "./commands/DescribeCommunicationsCommand";
-import {
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
-} from "./commands/DescribeServicesCommand";
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeSeverityLevelsCommandInput,
   DescribeSeverityLevelsCommandOutput
@@ -50,10 +38,7 @@ import {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput
 } from "./commands/RefreshTrustedAdvisorCheckCommand";
-import {
-  ResolveCaseCommandInput,
-  ResolveCaseCommandOutput
-} from "./commands/ResolveCaseCommand";
+import { ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -70,12 +55,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -138,8 +118,7 @@ export type ServiceOutputTypes =
   | RefreshTrustedAdvisorCheckCommandOutput
   | ResolveCaseCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -223,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SupportClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SupportClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -234,9 +211,7 @@ export type SupportClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SupportClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

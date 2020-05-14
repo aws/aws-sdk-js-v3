@@ -3,19 +3,13 @@ import {
   ServiceOutputTypes,
   TranscribeStreamingClientResolvedConfig
 } from "../TranscribeStreamingClient";
-import {
-  StartStreamTranscriptionRequest,
-  StartStreamTranscriptionResponse
-} from "../models/index";
+import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartStreamTranscriptionCommand,
   serializeAws_restJson1_1StartStreamTranscriptionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -29,8 +23,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartStreamTranscriptionCommandInput = StartStreamTranscriptionRequest;
-export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse &
-  __MetadataBearer;
+export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse & __MetadataBearer;
 
 export class StartStreamTranscriptionCommand extends $Command<
   StartStreamTranscriptionCommandInput,
@@ -50,13 +43,8 @@ export class StartStreamTranscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeStreamingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartStreamTranscriptionCommandInput,
-    StartStreamTranscriptionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartStreamTranscriptionCommandInput, StartStreamTranscriptionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -75,20 +63,14 @@ export class StartStreamTranscriptionCommand extends $Command<
     input: StartStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartStreamTranscriptionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1StartStreamTranscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<StartStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1_1StartStreamTranscriptionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "../commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import {
   CreateBatchPredictionCommandInput,
   CreateBatchPredictionCommandOutput
@@ -18,14 +15,8 @@ import {
   CreateDataSourceFromS3CommandInput,
   CreateDataSourceFromS3CommandOutput
 } from "../commands/CreateDataSourceFromS3Command";
-import {
-  CreateEvaluationCommandInput,
-  CreateEvaluationCommandOutput
-} from "../commands/CreateEvaluationCommand";
-import {
-  CreateMLModelCommandInput,
-  CreateMLModelCommandOutput
-} from "../commands/CreateMLModelCommand";
+import { CreateEvaluationCommandInput, CreateEvaluationCommandOutput } from "../commands/CreateEvaluationCommand";
+import { CreateMLModelCommandInput, CreateMLModelCommandOutput } from "../commands/CreateMLModelCommand";
 import {
   CreateRealtimeEndpointCommandInput,
   CreateRealtimeEndpointCommandOutput
@@ -34,26 +25,14 @@ import {
   DeleteBatchPredictionCommandInput,
   DeleteBatchPredictionCommandOutput
 } from "../commands/DeleteBatchPredictionCommand";
-import {
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
-} from "../commands/DeleteDataSourceCommand";
-import {
-  DeleteEvaluationCommandInput,
-  DeleteEvaluationCommandOutput
-} from "../commands/DeleteEvaluationCommand";
-import {
-  DeleteMLModelCommandInput,
-  DeleteMLModelCommandOutput
-} from "../commands/DeleteMLModelCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import { DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput } from "../commands/DeleteEvaluationCommand";
+import { DeleteMLModelCommandInput, DeleteMLModelCommandOutput } from "../commands/DeleteMLModelCommand";
 import {
   DeleteRealtimeEndpointCommandInput,
   DeleteRealtimeEndpointCommandOutput
 } from "../commands/DeleteRealtimeEndpointCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import {
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput
@@ -66,50 +45,20 @@ import {
   DescribeEvaluationsCommandInput,
   DescribeEvaluationsCommandOutput
 } from "../commands/DescribeEvaluationsCommand";
-import {
-  DescribeMLModelsCommandInput,
-  DescribeMLModelsCommandOutput
-} from "../commands/DescribeMLModelsCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "../commands/DescribeTagsCommand";
-import {
-  GetBatchPredictionCommandInput,
-  GetBatchPredictionCommandOutput
-} from "../commands/GetBatchPredictionCommand";
-import {
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput
-} from "../commands/GetDataSourceCommand";
-import {
-  GetEvaluationCommandInput,
-  GetEvaluationCommandOutput
-} from "../commands/GetEvaluationCommand";
-import {
-  GetMLModelCommandInput,
-  GetMLModelCommandOutput
-} from "../commands/GetMLModelCommand";
-import {
-  PredictCommandInput,
-  PredictCommandOutput
-} from "../commands/PredictCommand";
+import { DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput } from "../commands/DescribeMLModelsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "../commands/DescribeTagsCommand";
+import { GetBatchPredictionCommandInput, GetBatchPredictionCommandOutput } from "../commands/GetBatchPredictionCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
+import { GetEvaluationCommandInput, GetEvaluationCommandOutput } from "../commands/GetEvaluationCommand";
+import { GetMLModelCommandInput, GetMLModelCommandOutput } from "../commands/GetMLModelCommand";
+import { PredictCommandInput, PredictCommandOutput } from "../commands/PredictCommand";
 import {
   UpdateBatchPredictionCommandInput,
   UpdateBatchPredictionCommandOutput
 } from "../commands/UpdateBatchPredictionCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "../commands/UpdateDataSourceCommand";
-import {
-  UpdateEvaluationCommandInput,
-  UpdateEvaluationCommandOutput
-} from "../commands/UpdateEvaluationCommand";
-import {
-  UpdateMLModelCommandInput,
-  UpdateMLModelCommandOutput
-} from "../commands/UpdateMLModelCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
+import { UpdateEvaluationCommandInput, UpdateEvaluationCommandOutput } from "../commands/UpdateEvaluationCommand";
+import { UpdateMLModelCommandInput, UpdateMLModelCommandOutput } from "../commands/UpdateMLModelCommand";
 import {
   AddTagsInput,
   AddTagsOutput,
@@ -194,10 +143,7 @@ import {
   UpdateMLModelInput,
   UpdateMLModelOutput
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -229,9 +175,7 @@ export const serializeAws_json1_1CreateBatchPredictionCommand = async (
     "X-Amz-Target": "AmazonML_20141212.CreateBatchPrediction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateBatchPredictionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -244,9 +188,7 @@ export const serializeAws_json1_1CreateDataSourceFromRDSCommand = async (
     "X-Amz-Target": "AmazonML_20141212.CreateDataSourceFromRDS"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDataSourceFromRDSInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDataSourceFromRDSInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -259,9 +201,7 @@ export const serializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
     "X-Amz-Target": "AmazonML_20141212.CreateDataSourceFromRedshift"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDataSourceFromRedshiftInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDataSourceFromRedshiftInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -274,9 +214,7 @@ export const serializeAws_json1_1CreateDataSourceFromS3Command = async (
     "X-Amz-Target": "AmazonML_20141212.CreateDataSourceFromS3"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDataSourceFromS3Input(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDataSourceFromS3Input(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -289,9 +227,7 @@ export const serializeAws_json1_1CreateEvaluationCommand = async (
     "X-Amz-Target": "AmazonML_20141212.CreateEvaluation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateEvaluationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -317,9 +253,7 @@ export const serializeAws_json1_1CreateRealtimeEndpointCommand = async (
     "X-Amz-Target": "AmazonML_20141212.CreateRealtimeEndpoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateRealtimeEndpointInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateRealtimeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -332,9 +266,7 @@ export const serializeAws_json1_1DeleteBatchPredictionCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DeleteBatchPrediction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteBatchPredictionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -347,9 +279,7 @@ export const serializeAws_json1_1DeleteDataSourceCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DeleteDataSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDataSourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -362,9 +292,7 @@ export const serializeAws_json1_1DeleteEvaluationCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DeleteEvaluation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteEvaluationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -390,9 +318,7 @@ export const serializeAws_json1_1DeleteRealtimeEndpointCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DeleteRealtimeEndpoint"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteRealtimeEndpointInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteRealtimeEndpointInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -418,9 +344,7 @@ export const serializeAws_json1_1DescribeBatchPredictionsCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DescribeBatchPredictions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeBatchPredictionsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeBatchPredictionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -433,9 +357,7 @@ export const serializeAws_json1_1DescribeDataSourcesCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DescribeDataSources"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeDataSourcesInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeDataSourcesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -448,9 +370,7 @@ export const serializeAws_json1_1DescribeEvaluationsCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DescribeEvaluations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeEvaluationsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeEvaluationsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -463,9 +383,7 @@ export const serializeAws_json1_1DescribeMLModelsCommand = async (
     "X-Amz-Target": "AmazonML_20141212.DescribeMLModels"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeMLModelsInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeMLModelsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -491,9 +409,7 @@ export const serializeAws_json1_1GetBatchPredictionCommand = async (
     "X-Amz-Target": "AmazonML_20141212.GetBatchPrediction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetBatchPredictionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -558,9 +474,7 @@ export const serializeAws_json1_1UpdateBatchPredictionCommand = async (
     "X-Amz-Target": "AmazonML_20141212.UpdateBatchPrediction"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateBatchPredictionInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateBatchPredictionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -573,9 +487,7 @@ export const serializeAws_json1_1UpdateDataSourceCommand = async (
     "X-Amz-Target": "AmazonML_20141212.UpdateDataSource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDataSourceInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDataSourceInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -588,9 +500,7 @@ export const serializeAws_json1_1UpdateEvaluationCommand = async (
     "X-Amz-Target": "AmazonML_20141212.UpdateEvaluation"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateEvaluationInput(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateEvaluationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -636,16 +546,12 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -653,10 +559,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -664,10 +567,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "InvalidTagException":
     case "com.amazon.eml.v20141212#InvalidTagException":
       response = {
-        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -675,10 +575,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -686,10 +583,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
     case "TagLimitExceededException":
     case "com.amazon.eml.v20141212#TagLimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -716,10 +610,7 @@ export const deserializeAws_json1_1CreateBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<CreateBatchPredictionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -743,16 +634,12 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -760,10 +647,7 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -771,10 +655,7 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -801,10 +682,7 @@ export const deserializeAws_json1_1CreateDataSourceFromRDSCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRDSCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataSourceFromRDSCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromRDSCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -828,16 +706,12 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -845,10 +719,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -856,10 +727,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -886,17 +754,11 @@ export const deserializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceFromRedshiftCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDataSourceFromRedshiftOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDataSourceFromRedshiftOutput(data, context);
   const response: CreateDataSourceFromRedshiftCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDataSourceFromRedshiftOutput",
@@ -916,16 +778,12 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -933,10 +791,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -944,10 +799,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -974,10 +826,7 @@ export const deserializeAws_json1_1CreateDataSourceFromS3Command = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceFromS3CommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateDataSourceFromS3CommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDataSourceFromS3CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1001,16 +850,12 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1018,10 +863,7 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1029,10 +871,7 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1083,16 +922,12 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1100,10 +935,7 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1111,10 +943,7 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1165,16 +994,12 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazon.eml.v20141212#IdempotentParameterMismatchException":
       response = {
-        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1182,10 +1007,7 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1193,10 +1015,7 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1223,10 +1042,7 @@ export const deserializeAws_json1_1CreateRealtimeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateRealtimeEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateRealtimeEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateRealtimeEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1250,16 +1066,12 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1267,10 +1079,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1278,10 +1087,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1308,10 +1114,7 @@ export const deserializeAws_json1_1DeleteBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBatchPredictionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1335,16 +1138,12 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1352,10 +1151,7 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1363,10 +1159,7 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1417,16 +1210,12 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1434,10 +1223,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1445,10 +1231,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1499,16 +1282,12 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1516,10 +1295,7 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1527,10 +1303,7 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1581,16 +1354,12 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1598,10 +1367,7 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1609,10 +1375,7 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1639,10 +1402,7 @@ export const deserializeAws_json1_1DeleteRealtimeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRealtimeEndpointCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRealtimeEndpointCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRealtimeEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1666,16 +1426,12 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1683,10 +1439,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1694,10 +1447,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1748,16 +1498,12 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1765,10 +1511,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1776,10 +1519,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "InvalidTagException":
     case "com.amazon.eml.v20141212#InvalidTagException":
       response = {
-        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1787,10 +1527,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1817,17 +1554,11 @@ export const deserializeAws_json1_1DescribeBatchPredictionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBatchPredictionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeBatchPredictionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeBatchPredictionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBatchPredictionsOutput(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBatchPredictionsOutput(data, context);
   const response: DescribeBatchPredictionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBatchPredictionsOutput",
@@ -1847,16 +1578,12 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1864,10 +1591,7 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1894,10 +1618,7 @@ export const deserializeAws_json1_1DescribeDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSourcesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeDataSourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDataSourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1921,16 +1642,12 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1938,10 +1655,7 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1968,10 +1682,7 @@ export const deserializeAws_json1_1DescribeEvaluationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEvaluationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeEvaluationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEvaluationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1995,16 +1706,12 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2012,10 +1719,7 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2066,16 +1770,12 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2083,10 +1783,7 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2137,16 +1834,12 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2154,10 +1847,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2165,10 +1855,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2195,10 +1882,7 @@ export const deserializeAws_json1_1GetBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<GetBatchPredictionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2222,16 +1906,12 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2239,10 +1919,7 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2250,10 +1927,7 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2304,16 +1978,12 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2321,10 +1991,7 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2332,10 +1999,7 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2386,16 +2050,12 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2403,10 +2063,7 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2414,10 +2071,7 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2468,16 +2122,12 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2485,10 +2135,7 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2496,10 +2143,7 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2550,16 +2194,12 @@ const deserializeAws_json1_1PredictCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2567,10 +2207,7 @@ const deserializeAws_json1_1PredictCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2578,10 +2215,7 @@ const deserializeAws_json1_1PredictCommandError = async (
     case "LimitExceededException":
     case "com.amazon.eml.v20141212#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2589,10 +2223,7 @@ const deserializeAws_json1_1PredictCommandError = async (
     case "PredictorNotMountedException":
     case "com.amazon.eml.v20141212#PredictorNotMountedException":
       response = {
-        ...(await deserializeAws_json1_1PredictorNotMountedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1PredictorNotMountedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2600,10 +2231,7 @@ const deserializeAws_json1_1PredictCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2630,10 +2258,7 @@ export const deserializeAws_json1_1UpdateBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBatchPredictionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateBatchPredictionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateBatchPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2657,16 +2282,12 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2674,10 +2295,7 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2685,10 +2303,7 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2739,16 +2354,12 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2756,10 +2367,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2767,10 +2375,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2821,16 +2426,12 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2838,10 +2439,7 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2849,10 +2447,7 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2903,16 +2498,12 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.eml.v20141212#InternalServerException":
       response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2920,10 +2511,7 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
     case "InvalidInputException":
     case "com.amazon.eml.v20141212#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2931,10 +2519,7 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.eml.v20141212#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2961,10 +2546,7 @@ const deserializeAws_json1_1IdempotentParameterMismatchExceptionResponse = async
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IdempotentParameterMismatchException(body, context);
   const contents: IdempotentParameterMismatchException = {
     name: "IdempotentParameterMismatchException",
     $fault: "client",
@@ -2979,10 +2561,7 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServerException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
@@ -2997,10 +2576,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
   const contents: InvalidInputException = {
     name: "InvalidInputException",
     $fault: "client",
@@ -3015,10 +2591,7 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidTagException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
   const contents: InvalidTagException = {
     name: "InvalidTagException",
     $fault: "client",
@@ -3033,10 +2606,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -3051,10 +2621,7 @@ const deserializeAws_json1_1PredictorNotMountedExceptionResponse = async (
   context: __SerdeContext
 ): Promise<PredictorNotMountedException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1PredictorNotMountedException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1PredictorNotMountedException(body, context);
   const contents: PredictorNotMountedException = {
     name: "PredictorNotMountedException",
     $fault: "client",
@@ -3069,10 +2636,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -3087,10 +2651,7 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagLimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TagLimitExceededException(body, context);
   const contents: TagLimitExceededException = {
     name: "TagLimitExceededException",
     $fault: "client",
@@ -3100,10 +2661,7 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AddTagsInput = (
-  input: AddTagsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
     ...(input.ResourceType !== undefined && {
@@ -3196,10 +2754,7 @@ const serializeAws_json1_1CreateDataSourceFromS3Input = (
   };
 };
 
-const serializeAws_json1_1CreateEvaluationInput = (
-  input: CreateEvaluationInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationDataSourceId !== undefined && {
       EvaluationDataSourceId: input.EvaluationDataSourceId
@@ -3214,19 +2769,13 @@ const serializeAws_json1_1CreateEvaluationInput = (
   };
 };
 
-const serializeAws_json1_1CreateMLModelInput = (
-  input: CreateMLModelInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateMLModelInput = (input: CreateMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
     ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
     ...(input.MLModelType !== undefined && { MLModelType: input.MLModelType }),
     ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1TrainingParameters(
-        input.Parameters,
-        context
-      )
+      Parameters: serializeAws_json1_1TrainingParameters(input.Parameters, context)
     }),
     ...(input.Recipe !== undefined && { Recipe: input.Recipe }),
     ...(input.RecipeUri !== undefined && { RecipeUri: input.RecipeUri }),
@@ -3256,10 +2805,7 @@ const serializeAws_json1_1DeleteBatchPredictionInput = (
   };
 };
 
-const serializeAws_json1_1DeleteDataSourceInput = (
-  input: DeleteDataSourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceId !== undefined && {
       DataSourceId: input.DataSourceId
@@ -3267,10 +2813,7 @@ const serializeAws_json1_1DeleteDataSourceInput = (
   };
 };
 
-const serializeAws_json1_1DeleteEvaluationInput = (
-  input: DeleteEvaluationInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationId !== undefined && {
       EvaluationId: input.EvaluationId
@@ -3278,10 +2821,7 @@ const serializeAws_json1_1DeleteEvaluationInput = (
   };
 };
 
-const serializeAws_json1_1DeleteMLModelInput = (
-  input: DeleteMLModelInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteMLModelInput = (input: DeleteMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId })
   };
@@ -3296,10 +2836,7 @@ const serializeAws_json1_1DeleteRealtimeEndpointInput = (
   };
 };
 
-const serializeAws_json1_1DeleteTagsInput = (
-  input: DeleteTagsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
     ...(input.ResourceType !== undefined && {
@@ -3374,10 +2911,7 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
   };
 };
 
-const serializeAws_json1_1DescribeMLModelsInput = (
-  input: DescribeMLModelsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
   return {
     ...(input.EQ !== undefined && { EQ: input.EQ }),
     ...(input.FilterVariable !== undefined && {
@@ -3395,10 +2929,7 @@ const serializeAws_json1_1DescribeMLModelsInput = (
   };
 };
 
-const serializeAws_json1_1DescribeTagsInput = (
-  input: DescribeTagsInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   return {
     ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
     ...(input.ResourceType !== undefined && {
@@ -3407,17 +2938,11 @@ const serializeAws_json1_1DescribeTagsInput = (
   };
 };
 
-const serializeAws_json1_1EDPSecurityGroupIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1EDPSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1GetBatchPredictionInput = (
-  input: GetBatchPredictionInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
   return {
     ...(input.BatchPredictionId !== undefined && {
       BatchPredictionId: input.BatchPredictionId
@@ -3425,10 +2950,7 @@ const serializeAws_json1_1GetBatchPredictionInput = (
   };
 };
 
-const serializeAws_json1_1GetDataSourceInput = (
-  input: GetDataSourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceId !== undefined && {
       DataSourceId: input.DataSourceId
@@ -3437,10 +2959,7 @@ const serializeAws_json1_1GetDataSourceInput = (
   };
 };
 
-const serializeAws_json1_1GetEvaluationInput = (
-  input: GetEvaluationInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationId !== undefined && {
       EvaluationId: input.EvaluationId
@@ -3448,20 +2967,14 @@ const serializeAws_json1_1GetEvaluationInput = (
   };
 };
 
-const serializeAws_json1_1GetMLModelInput = (
-  input: GetMLModelInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetMLModelInput = (input: GetMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
     ...(input.Verbose !== undefined && { Verbose: input.Verbose })
   };
 };
 
-const serializeAws_json1_1PredictInput = (
-  input: PredictInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PredictInput = (input: PredictInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
     ...(input.PredictEndpoint !== undefined && {
@@ -3473,10 +2986,7 @@ const serializeAws_json1_1PredictInput = (
   };
 };
 
-const serializeAws_json1_1RDSDataSpec = (
-  input: RDSDataSpec,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
   return {
     ...(input.DataRearrangement !== undefined && {
       DataRearrangement: input.DataRearrangement
@@ -3486,16 +2996,10 @@ const serializeAws_json1_1RDSDataSpec = (
       DataSchemaUri: input.DataSchemaUri
     }),
     ...(input.DatabaseCredentials !== undefined && {
-      DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(
-        input.DatabaseCredentials,
-        context
-      )
+      DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context)
     }),
     ...(input.DatabaseInformation !== undefined && {
-      DatabaseInformation: serializeAws_json1_1RDSDatabase(
-        input.DatabaseInformation,
-        context
-      )
+      DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context)
     }),
     ...(input.ResourceRole !== undefined && {
       ResourceRole: input.ResourceRole
@@ -3504,10 +3008,7 @@ const serializeAws_json1_1RDSDataSpec = (
       S3StagingLocation: input.S3StagingLocation
     }),
     ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(
-        input.SecurityGroupIds,
-        context
-      )
+      SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context)
     }),
     ...(input.SelectSqlQuery !== undefined && {
       SelectSqlQuery: input.SelectSqlQuery
@@ -3517,10 +3018,7 @@ const serializeAws_json1_1RDSDataSpec = (
   };
 };
 
-const serializeAws_json1_1RDSDatabase = (
-  input: RDSDatabase,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseName !== undefined && {
       DatabaseName: input.DatabaseName
@@ -3531,20 +3029,14 @@ const serializeAws_json1_1RDSDatabase = (
   };
 };
 
-const serializeAws_json1_1RDSDatabaseCredentials = (
-  input: RDSDatabaseCredentials,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RDSDatabaseCredentials = (input: RDSDatabaseCredentials, context: __SerdeContext): any => {
   return {
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Username !== undefined && { Username: input.Username })
   };
 };
 
-const serializeAws_json1_1Record = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Record = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3554,10 +3046,7 @@ const serializeAws_json1_1Record = (
   );
 };
 
-const serializeAws_json1_1RedshiftDataSpec = (
-  input: RedshiftDataSpec,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
   return {
     ...(input.DataRearrangement !== undefined && {
       DataRearrangement: input.DataRearrangement
@@ -3567,16 +3056,10 @@ const serializeAws_json1_1RedshiftDataSpec = (
       DataSchemaUri: input.DataSchemaUri
     }),
     ...(input.DatabaseCredentials !== undefined && {
-      DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(
-        input.DatabaseCredentials,
-        context
-      )
+      DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context)
     }),
     ...(input.DatabaseInformation !== undefined && {
-      DatabaseInformation: serializeAws_json1_1RedshiftDatabase(
-        input.DatabaseInformation,
-        context
-      )
+      DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context)
     }),
     ...(input.S3StagingLocation !== undefined && {
       S3StagingLocation: input.S3StagingLocation
@@ -3587,10 +3070,7 @@ const serializeAws_json1_1RedshiftDataSpec = (
   };
 };
 
-const serializeAws_json1_1RedshiftDatabase = (
-  input: RedshiftDatabase,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
   return {
     ...(input.ClusterIdentifier !== undefined && {
       ClusterIdentifier: input.ClusterIdentifier
@@ -3611,10 +3091,7 @@ const serializeAws_json1_1RedshiftDatabaseCredentials = (
   };
 };
 
-const serializeAws_json1_1S3DataSpec = (
-  input: S3DataSpec,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
   return {
     ...(input.DataLocationS3 !== undefined && {
       DataLocationS3: input.DataLocationS3
@@ -3636,24 +3113,15 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const serializeAws_json1_1TrainingParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3677,10 +3145,7 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
   };
 };
 
-const serializeAws_json1_1UpdateDataSourceInput = (
-  input: UpdateDataSourceInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceId !== undefined && {
       DataSourceId: input.DataSourceId
@@ -3691,10 +3156,7 @@ const serializeAws_json1_1UpdateDataSourceInput = (
   };
 };
 
-const serializeAws_json1_1UpdateEvaluationInput = (
-  input: UpdateEvaluationInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
   return {
     ...(input.EvaluationId !== undefined && {
       EvaluationId: input.EvaluationId
@@ -3705,10 +3167,7 @@ const serializeAws_json1_1UpdateEvaluationInput = (
   };
 };
 
-const serializeAws_json1_1UpdateMLModelInput = (
-  input: UpdateMLModelInput,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContext): any => {
   return {
     ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
     ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
@@ -3718,107 +3177,64 @@ const serializeAws_json1_1UpdateMLModelInput = (
   };
 };
 
-const deserializeAws_json1_1AddTagsOutput = (
-  output: any,
-  context: __SerdeContext
-): AddTagsOutput => {
+const deserializeAws_json1_1AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
   return {
     __type: "AddTagsOutput",
-    ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
-    ResourceType:
-      output.ResourceType !== undefined && output.ResourceType !== null
-        ? output.ResourceType
-        : undefined
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined
   } as any;
 };
 
-const deserializeAws_json1_1BatchPrediction = (
-  output: any,
-  context: __SerdeContext
-): BatchPrediction => {
+const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeContext): BatchPrediction => {
   return {
     __type: "BatchPrediction",
     BatchPredictionDataSourceId:
-      output.BatchPredictionDataSourceId !== undefined &&
-      output.BatchPredictionDataSourceId !== null
+      output.BatchPredictionDataSourceId !== undefined && output.BatchPredictionDataSourceId !== null
         ? output.BatchPredictionDataSourceId
         : undefined,
     BatchPredictionId:
-      output.BatchPredictionId !== undefined &&
-      output.BatchPredictionId !== null
+      output.BatchPredictionId !== undefined && output.BatchPredictionId !== null
         ? output.BatchPredictionId
         : undefined,
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3:
-      output.InputDataLocationS3 !== undefined &&
-      output.InputDataLocationS3 !== null
+      output.InputDataLocationS3 !== undefined && output.InputDataLocationS3 !== null
         ? output.InputDataLocationS3
         : undefined,
     InvalidRecordCount:
-      output.InvalidRecordCount !== undefined &&
-      output.InvalidRecordCount !== null
+      output.InvalidRecordCount !== undefined && output.InvalidRecordCount !== null
         ? output.InvalidRecordCount
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    OutputUri:
-      output.OutputUri !== undefined && output.OutputUri !== null
-        ? output.OutputUri
-        : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    OutputUri: output.OutputUri !== undefined && output.OutputUri !== null ? output.OutputUri : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TotalRecordCount:
-      output.TotalRecordCount !== undefined && output.TotalRecordCount !== null
-        ? output.TotalRecordCount
-        : undefined
+      output.TotalRecordCount !== undefined && output.TotalRecordCount !== null ? output.TotalRecordCount : undefined
   } as any;
 };
 
-const deserializeAws_json1_1BatchPredictions = (
-  output: any,
-  context: __SerdeContext
-): BatchPrediction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BatchPrediction(entry, context)
-  );
+const deserializeAws_json1_1BatchPredictions = (output: any, context: __SerdeContext): BatchPrediction[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1BatchPrediction(entry, context));
 };
 
 const deserializeAws_json1_1CreateBatchPredictionOutput = (
@@ -3828,10 +3244,7 @@ const deserializeAws_json1_1CreateBatchPredictionOutput = (
   return {
     __type: "CreateBatchPredictionOutput",
     BatchPredictionId:
-      output.BatchPredictionId !== undefined &&
-      output.BatchPredictionId !== null
-        ? output.BatchPredictionId
-        : undefined
+      output.BatchPredictionId !== undefined && output.BatchPredictionId !== null ? output.BatchPredictionId : undefined
   } as any;
 };
 
@@ -3841,10 +3254,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSOutput = (
 ): CreateDataSourceFromRDSOutput => {
   return {
     __type: "CreateDataSourceFromRDSOutput",
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined
   } as any;
 };
 
@@ -3854,10 +3264,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftOutput = (
 ): CreateDataSourceFromRedshiftOutput => {
   return {
     __type: "CreateDataSourceFromRedshiftOutput",
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined
   } as any;
 };
 
@@ -3867,36 +3274,21 @@ const deserializeAws_json1_1CreateDataSourceFromS3Output = (
 ): CreateDataSourceFromS3Output => {
   return {
     __type: "CreateDataSourceFromS3Output",
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateEvaluationOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateEvaluationOutput => {
+const deserializeAws_json1_1CreateEvaluationOutput = (output: any, context: __SerdeContext): CreateEvaluationOutput => {
   return {
     __type: "CreateEvaluationOutput",
-    EvaluationId:
-      output.EvaluationId !== undefined && output.EvaluationId !== null
-        ? output.EvaluationId
-        : undefined
+    EvaluationId: output.EvaluationId !== undefined && output.EvaluationId !== null ? output.EvaluationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateMLModelOutput = (
-  output: any,
-  context: __SerdeContext
-): CreateMLModelOutput => {
+const deserializeAws_json1_1CreateMLModelOutput = (output: any, context: __SerdeContext): CreateMLModelOutput => {
   return {
     __type: "CreateMLModelOutput",
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined
   } as any;
 };
 
@@ -3906,61 +3298,37 @@ const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
 ): CreateRealtimeEndpointOutput => {
   return {
     __type: "CreateRealtimeEndpointOutput",
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
     RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo !== undefined &&
-      output.RealtimeEndpointInfo !== null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(
-            output.RealtimeEndpointInfo,
-            context
-          )
+      output.RealtimeEndpointInfo !== undefined && output.RealtimeEndpointInfo !== null
+        ? deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DataSource = (
-  output: any,
-  context: __SerdeContext
-): DataSource => {
+const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     __type: "DataSource",
     ComputeStatistics:
-      output.ComputeStatistics !== undefined &&
-      output.ComputeStatistics !== null
+      output.ComputeStatistics !== undefined && output.ComputeStatistics !== null
         ? output.ComputeStatistics
         : undefined,
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     DataLocationS3:
-      output.DataLocationS3 !== undefined && output.DataLocationS3 !== null
-        ? output.DataLocationS3
-        : undefined,
+      output.DataLocationS3 !== undefined && output.DataLocationS3 !== null ? output.DataLocationS3 : undefined,
     DataRearrangement:
-      output.DataRearrangement !== undefined &&
-      output.DataRearrangement !== null
+      output.DataRearrangement !== undefined && output.DataRearrangement !== null
         ? output.DataRearrangement
         : undefined,
     DataSizeInBytes:
-      output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null
-        ? output.DataSizeInBytes
-        : undefined,
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined,
+      output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null ? output.DataSizeInBytes : undefined,
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
@@ -3969,51 +3337,29 @@ const deserializeAws_json1_1DataSource = (
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NumberOfFiles:
-      output.NumberOfFiles !== undefined && output.NumberOfFiles !== null
-        ? output.NumberOfFiles
-        : undefined,
+      output.NumberOfFiles !== undefined && output.NumberOfFiles !== null ? output.NumberOfFiles : undefined,
     RDSMetadata:
       output.RDSMetadata !== undefined && output.RDSMetadata !== null
         ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
         : undefined,
     RedshiftMetadata:
       output.RedshiftMetadata !== undefined && output.RedshiftMetadata !== null
-        ? deserializeAws_json1_1RedshiftMetadata(
-            output.RedshiftMetadata,
-            context
-          )
+        ? deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context)
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined,
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DataSources = (
-  output: any,
-  context: __SerdeContext
-): DataSource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DataSource(entry, context)
-  );
+const deserializeAws_json1_1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DataSource(entry, context));
 };
 
 const deserializeAws_json1_1DeleteBatchPredictionOutput = (
@@ -4023,49 +3369,28 @@ const deserializeAws_json1_1DeleteBatchPredictionOutput = (
   return {
     __type: "DeleteBatchPredictionOutput",
     BatchPredictionId:
-      output.BatchPredictionId !== undefined &&
-      output.BatchPredictionId !== null
-        ? output.BatchPredictionId
-        : undefined
+      output.BatchPredictionId !== undefined && output.BatchPredictionId !== null ? output.BatchPredictionId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DeleteDataSourceOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteDataSourceOutput => {
+const deserializeAws_json1_1DeleteDataSourceOutput = (output: any, context: __SerdeContext): DeleteDataSourceOutput => {
   return {
     __type: "DeleteDataSourceOutput",
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DeleteEvaluationOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteEvaluationOutput => {
+const deserializeAws_json1_1DeleteEvaluationOutput = (output: any, context: __SerdeContext): DeleteEvaluationOutput => {
   return {
     __type: "DeleteEvaluationOutput",
-    EvaluationId:
-      output.EvaluationId !== undefined && output.EvaluationId !== null
-        ? output.EvaluationId
-        : undefined
+    EvaluationId: output.EvaluationId !== undefined && output.EvaluationId !== null ? output.EvaluationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DeleteMLModelOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteMLModelOutput => {
+const deserializeAws_json1_1DeleteMLModelOutput = (output: any, context: __SerdeContext): DeleteMLModelOutput => {
   return {
     __type: "DeleteMLModelOutput",
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined
   } as any;
 };
 
@@ -4075,35 +3400,19 @@ const deserializeAws_json1_1DeleteRealtimeEndpointOutput = (
 ): DeleteRealtimeEndpointOutput => {
   return {
     __type: "DeleteRealtimeEndpointOutput",
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
     RealtimeEndpointInfo:
-      output.RealtimeEndpointInfo !== undefined &&
-      output.RealtimeEndpointInfo !== null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(
-            output.RealtimeEndpointInfo,
-            context
-          )
+      output.RealtimeEndpointInfo !== undefined && output.RealtimeEndpointInfo !== null
+        ? deserializeAws_json1_1RealtimeEndpointInfo(output.RealtimeEndpointInfo, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DeleteTagsOutput = (
-  output: any,
-  context: __SerdeContext
-): DeleteTagsOutput => {
+const deserializeAws_json1_1DeleteTagsOutput = (output: any, context: __SerdeContext): DeleteTagsOutput => {
   return {
     __type: "DeleteTagsOutput",
-    ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
-    ResourceType:
-      output.ResourceType !== undefined && output.ResourceType !== null
-        ? output.ResourceType
-        : undefined
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined
   } as any;
 };
 
@@ -4113,10 +3422,7 @@ const deserializeAws_json1_1DescribeBatchPredictionsOutput = (
 ): DescribeBatchPredictionsOutput => {
   return {
     __type: "DescribeBatchPredictionsOutput",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Results:
       output.Results !== undefined && output.Results !== null
         ? deserializeAws_json1_1BatchPredictions(output.Results, context)
@@ -4130,10 +3436,7 @@ const deserializeAws_json1_1DescribeDataSourcesOutput = (
 ): DescribeDataSourcesOutput => {
   return {
     __type: "DescribeDataSourcesOutput",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Results:
       output.Results !== undefined && output.Results !== null
         ? deserializeAws_json1_1DataSources(output.Results, context)
@@ -4147,10 +3450,7 @@ const deserializeAws_json1_1DescribeEvaluationsOutput = (
 ): DescribeEvaluationsOutput => {
   return {
     __type: "DescribeEvaluationsOutput",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Results:
       output.Results !== undefined && output.Results !== null
         ? deserializeAws_json1_1Evaluations(output.Results, context)
@@ -4158,16 +3458,10 @@ const deserializeAws_json1_1DescribeEvaluationsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeMLModelsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeMLModelsOutput => {
+const deserializeAws_json1_1DescribeMLModelsOutput = (output: any, context: __SerdeContext): DescribeMLModelsOutput => {
   return {
     __type: "DescribeMLModelsOutput",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Results:
       output.Results !== undefined && output.Results !== null
         ? deserializeAws_json1_1MLModels(output.Results, context)
@@ -4175,20 +3469,11 @@ const deserializeAws_json1_1DescribeMLModelsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DescribeTagsOutput = (
-  output: any,
-  context: __SerdeContext
-): DescribeTagsOutput => {
+const deserializeAws_json1_1DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   return {
     __type: "DescribeTagsOutput",
-    ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
-    ResourceType:
-      output.ResourceType !== undefined && output.ResourceType !== null
-        ? output.ResourceType
-        : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -4196,15 +3481,9 @@ const deserializeAws_json1_1DescribeTagsOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1DetailsMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: string },
-      [key, value]: [DetailsAttributes | string, any]
-    ) => ({
+    (acc: { [key: string]: string }, [key, value]: [DetailsAttributes | string, any]) => ({
       ...acc,
       [key]: value
     }),
@@ -4212,84 +3491,50 @@ const deserializeAws_json1_1DetailsMap = (
   );
 };
 
-const deserializeAws_json1_1Evaluation = (
-  output: any,
-  context: __SerdeContext
-): Evaluation => {
+const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext): Evaluation => {
   return {
     __type: "Evaluation",
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     EvaluationDataSourceId:
-      output.EvaluationDataSourceId !== undefined &&
-      output.EvaluationDataSourceId !== null
+      output.EvaluationDataSourceId !== undefined && output.EvaluationDataSourceId !== null
         ? output.EvaluationDataSourceId
         : undefined,
-    EvaluationId:
-      output.EvaluationId !== undefined && output.EvaluationId !== null
-        ? output.EvaluationId
-        : undefined,
+    EvaluationId: output.EvaluationId !== undefined && output.EvaluationId !== null ? output.EvaluationId : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3:
-      output.InputDataLocationS3 !== undefined &&
-      output.InputDataLocationS3 !== null
+      output.InputDataLocationS3 !== undefined && output.InputDataLocationS3 !== null
         ? output.InputDataLocationS3
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PerformanceMetrics:
-      output.PerformanceMetrics !== undefined &&
-      output.PerformanceMetrics !== null
-        ? deserializeAws_json1_1PerformanceMetrics(
-            output.PerformanceMetrics,
-            context
-          )
+      output.PerformanceMetrics !== undefined && output.PerformanceMetrics !== null
+        ? deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context)
         : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Evaluations = (
-  output: any,
-  context: __SerdeContext
-): Evaluation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Evaluation(entry, context)
-  );
+const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Evaluation(entry, context));
 };
 
 const deserializeAws_json1_1GetBatchPredictionOutput = (
@@ -4299,124 +3544,76 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
   return {
     __type: "GetBatchPredictionOutput",
     BatchPredictionDataSourceId:
-      output.BatchPredictionDataSourceId !== undefined &&
-      output.BatchPredictionDataSourceId !== null
+      output.BatchPredictionDataSourceId !== undefined && output.BatchPredictionDataSourceId !== null
         ? output.BatchPredictionDataSourceId
         : undefined,
     BatchPredictionId:
-      output.BatchPredictionId !== undefined &&
-      output.BatchPredictionId !== null
+      output.BatchPredictionId !== undefined && output.BatchPredictionId !== null
         ? output.BatchPredictionId
         : undefined,
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3:
-      output.InputDataLocationS3 !== undefined &&
-      output.InputDataLocationS3 !== null
+      output.InputDataLocationS3 !== undefined && output.InputDataLocationS3 !== null
         ? output.InputDataLocationS3
         : undefined,
     InvalidRecordCount:
-      output.InvalidRecordCount !== undefined &&
-      output.InvalidRecordCount !== null
+      output.InvalidRecordCount !== undefined && output.InvalidRecordCount !== null
         ? output.InvalidRecordCount
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    OutputUri:
-      output.OutputUri !== undefined && output.OutputUri !== null
-        ? output.OutputUri
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    OutputUri: output.OutputUri !== undefined && output.OutputUri !== null ? output.OutputUri : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TotalRecordCount:
-      output.TotalRecordCount !== undefined && output.TotalRecordCount !== null
-        ? output.TotalRecordCount
-        : undefined
+      output.TotalRecordCount !== undefined && output.TotalRecordCount !== null ? output.TotalRecordCount : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetDataSourceOutput = (
-  output: any,
-  context: __SerdeContext
-): GetDataSourceOutput => {
+const deserializeAws_json1_1GetDataSourceOutput = (output: any, context: __SerdeContext): GetDataSourceOutput => {
   return {
     __type: "GetDataSourceOutput",
     ComputeStatistics:
-      output.ComputeStatistics !== undefined &&
-      output.ComputeStatistics !== null
+      output.ComputeStatistics !== undefined && output.ComputeStatistics !== null
         ? output.ComputeStatistics
         : undefined,
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     DataLocationS3:
-      output.DataLocationS3 !== undefined && output.DataLocationS3 !== null
-        ? output.DataLocationS3
-        : undefined,
+      output.DataLocationS3 !== undefined && output.DataLocationS3 !== null ? output.DataLocationS3 : undefined,
     DataRearrangement:
-      output.DataRearrangement !== undefined &&
-      output.DataRearrangement !== null
+      output.DataRearrangement !== undefined && output.DataRearrangement !== null
         ? output.DataRearrangement
         : undefined,
     DataSizeInBytes:
-      output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null
-        ? output.DataSizeInBytes
-        : undefined,
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined,
+      output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null ? output.DataSizeInBytes : undefined,
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined,
     DataSourceSchema:
-      output.DataSourceSchema !== undefined && output.DataSourceSchema !== null
-        ? output.DataSourceSchema
-        : undefined,
+      output.DataSourceSchema !== undefined && output.DataSourceSchema !== null ? output.DataSourceSchema : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
@@ -4425,222 +3622,123 @@ const deserializeAws_json1_1GetDataSourceOutput = (
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NumberOfFiles:
-      output.NumberOfFiles !== undefined && output.NumberOfFiles !== null
-        ? output.NumberOfFiles
-        : undefined,
+      output.NumberOfFiles !== undefined && output.NumberOfFiles !== null ? output.NumberOfFiles : undefined,
     RDSMetadata:
       output.RDSMetadata !== undefined && output.RDSMetadata !== null
         ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
         : undefined,
     RedshiftMetadata:
       output.RedshiftMetadata !== undefined && output.RedshiftMetadata !== null
-        ? deserializeAws_json1_1RedshiftMetadata(
-            output.RedshiftMetadata,
-            context
-          )
+        ? deserializeAws_json1_1RedshiftMetadata(output.RedshiftMetadata, context)
         : undefined,
-    RoleARN:
-      output.RoleARN !== undefined && output.RoleARN !== null
-        ? output.RoleARN
-        : undefined,
+    RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetEvaluationOutput = (
-  output: any,
-  context: __SerdeContext
-): GetEvaluationOutput => {
+const deserializeAws_json1_1GetEvaluationOutput = (output: any, context: __SerdeContext): GetEvaluationOutput => {
   return {
     __type: "GetEvaluationOutput",
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     EvaluationDataSourceId:
-      output.EvaluationDataSourceId !== undefined &&
-      output.EvaluationDataSourceId !== null
+      output.EvaluationDataSourceId !== undefined && output.EvaluationDataSourceId !== null
         ? output.EvaluationDataSourceId
         : undefined,
-    EvaluationId:
-      output.EvaluationId !== undefined && output.EvaluationId !== null
-        ? output.EvaluationId
-        : undefined,
+    EvaluationId: output.EvaluationId !== undefined && output.EvaluationId !== null ? output.EvaluationId : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3:
-      output.InputDataLocationS3 !== undefined &&
-      output.InputDataLocationS3 !== null
+      output.InputDataLocationS3 !== undefined && output.InputDataLocationS3 !== null
         ? output.InputDataLocationS3
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PerformanceMetrics:
-      output.PerformanceMetrics !== undefined &&
-      output.PerformanceMetrics !== null
-        ? deserializeAws_json1_1PerformanceMetrics(
-            output.PerformanceMetrics,
-            context
-          )
+      output.PerformanceMetrics !== undefined && output.PerformanceMetrics !== null
+        ? deserializeAws_json1_1PerformanceMetrics(output.PerformanceMetrics, context)
         : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetMLModelOutput = (
-  output: any,
-  context: __SerdeContext
-): GetMLModelOutput => {
+const deserializeAws_json1_1GetMLModelOutput = (output: any, context: __SerdeContext): GetMLModelOutput => {
   return {
     __type: "GetMLModelOutput",
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     EndpointInfo:
       output.EndpointInfo !== undefined && output.EndpointInfo !== null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(
-            output.EndpointInfo,
-            context
-          )
+        ? deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context)
         : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3:
-      output.InputDataLocationS3 !== undefined &&
-      output.InputDataLocationS3 !== null
+      output.InputDataLocationS3 !== undefined && output.InputDataLocationS3 !== null
         ? output.InputDataLocationS3
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    LogUri:
-      output.LogUri !== undefined && output.LogUri !== null
-        ? output.LogUri
-        : undefined,
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
-    MLModelType:
-      output.MLModelType !== undefined && output.MLModelType !== null
-        ? output.MLModelType
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Recipe:
-      output.Recipe !== undefined && output.Recipe !== null
-        ? output.Recipe
-        : undefined,
-    Schema:
-      output.Schema !== undefined && output.Schema !== null
-        ? output.Schema
-        : undefined,
+    LogUri: output.LogUri !== undefined && output.LogUri !== null ? output.LogUri : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
+    MLModelType: output.MLModelType !== undefined && output.MLModelType !== null ? output.MLModelType : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Recipe: output.Recipe !== undefined && output.Recipe !== null ? output.Recipe : undefined,
+    Schema: output.Schema !== undefined && output.Schema !== null ? output.Schema : undefined,
     ScoreThreshold:
-      output.ScoreThreshold !== undefined && output.ScoreThreshold !== null
-        ? output.ScoreThreshold
-        : undefined,
+      output.ScoreThreshold !== undefined && output.ScoreThreshold !== null ? output.ScoreThreshold : undefined,
     ScoreThresholdLastUpdatedAt:
-      output.ScoreThresholdLastUpdatedAt !== undefined &&
-      output.ScoreThresholdLastUpdatedAt !== null
+      output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
         ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
         : undefined,
-    SizeInBytes:
-      output.SizeInBytes !== undefined && output.SizeInBytes !== null
-        ? output.SizeInBytes
-        : undefined,
+    SizeInBytes: output.SizeInBytes !== undefined && output.SizeInBytes !== null ? output.SizeInBytes : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TrainingDataSourceId:
-      output.TrainingDataSourceId !== undefined &&
-      output.TrainingDataSourceId !== null
+      output.TrainingDataSourceId !== undefined && output.TrainingDataSourceId !== null
         ? output.TrainingDataSourceId
         : undefined,
     TrainingParameters:
-      output.TrainingParameters !== undefined &&
-      output.TrainingParameters !== null
-        ? deserializeAws_json1_1TrainingParameters(
-            output.TrainingParameters,
-            context
-          )
+      output.TrainingParameters !== undefined && output.TrainingParameters !== null
+        ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
         : undefined
   } as any;
 };
@@ -4651,14 +3749,8 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 ): IdempotentParameterMismatchException => {
   return {
     __type: "IdempotentParameterMismatchException",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -4668,180 +3760,98 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   return {
     __type: "InternalServerException",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInputException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInputException => {
+const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     __type: "InvalidInputException",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1InvalidTagException = (
-  output: any,
-  context: __SerdeContext
-): InvalidTagException => {
+const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
     __type: "InvalidTagException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MLModel = (
-  output: any,
-  context: __SerdeContext
-): MLModel => {
+const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): MLModel => {
   return {
     __type: "MLModel",
-    Algorithm:
-      output.Algorithm !== undefined && output.Algorithm !== null
-        ? output.Algorithm
-        : undefined,
-    ComputeTime:
-      output.ComputeTime !== undefined && output.ComputeTime !== null
-        ? output.ComputeTime
-        : undefined,
+    Algorithm: output.Algorithm !== undefined && output.Algorithm !== null ? output.Algorithm : undefined,
+    ComputeTime: output.ComputeTime !== undefined && output.ComputeTime !== null ? output.ComputeTime : undefined,
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     CreatedByIamUser:
-      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
-        ? output.CreatedByIamUser
-        : undefined,
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null ? output.CreatedByIamUser : undefined,
     EndpointInfo:
       output.EndpointInfo !== undefined && output.EndpointInfo !== null
-        ? deserializeAws_json1_1RealtimeEndpointInfo(
-            output.EndpointInfo,
-            context
-          )
+        ? deserializeAws_json1_1RealtimeEndpointInfo(output.EndpointInfo, context)
         : undefined,
     FinishedAt:
       output.FinishedAt !== undefined && output.FinishedAt !== null
         ? new Date(Math.round(output.FinishedAt * 1000))
         : undefined,
     InputDataLocationS3:
-      output.InputDataLocationS3 !== undefined &&
-      output.InputDataLocationS3 !== null
+      output.InputDataLocationS3 !== undefined && output.InputDataLocationS3 !== null
         ? output.InputDataLocationS3
         : undefined,
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? new Date(Math.round(output.LastUpdatedAt * 1000))
         : undefined,
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined,
-    MLModelType:
-      output.MLModelType !== undefined && output.MLModelType !== null
-        ? output.MLModelType
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined,
+    MLModelType: output.MLModelType !== undefined && output.MLModelType !== null ? output.MLModelType : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ScoreThreshold:
-      output.ScoreThreshold !== undefined && output.ScoreThreshold !== null
-        ? output.ScoreThreshold
-        : undefined,
+      output.ScoreThreshold !== undefined && output.ScoreThreshold !== null ? output.ScoreThreshold : undefined,
     ScoreThresholdLastUpdatedAt:
-      output.ScoreThresholdLastUpdatedAt !== undefined &&
-      output.ScoreThresholdLastUpdatedAt !== null
+      output.ScoreThresholdLastUpdatedAt !== undefined && output.ScoreThresholdLastUpdatedAt !== null
         ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
         : undefined,
-    SizeInBytes:
-      output.SizeInBytes !== undefined && output.SizeInBytes !== null
-        ? output.SizeInBytes
-        : undefined,
+    SizeInBytes: output.SizeInBytes !== undefined && output.SizeInBytes !== null ? output.SizeInBytes : undefined,
     StartedAt:
       output.StartedAt !== undefined && output.StartedAt !== null
         ? new Date(Math.round(output.StartedAt * 1000))
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TrainingDataSourceId:
-      output.TrainingDataSourceId !== undefined &&
-      output.TrainingDataSourceId !== null
+      output.TrainingDataSourceId !== undefined && output.TrainingDataSourceId !== null
         ? output.TrainingDataSourceId
         : undefined,
     TrainingParameters:
-      output.TrainingParameters !== undefined &&
-      output.TrainingParameters !== null
-        ? deserializeAws_json1_1TrainingParameters(
-            output.TrainingParameters,
-            context
-          )
+      output.TrainingParameters !== undefined && output.TrainingParameters !== null
+        ? deserializeAws_json1_1TrainingParameters(output.TrainingParameters, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MLModels = (
-  output: any,
-  context: __SerdeContext
-): MLModel[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MLModel(entry, context)
-  );
+const deserializeAws_json1_1MLModels = (output: any, context: __SerdeContext): MLModel[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1MLModel(entry, context));
 };
 
-const deserializeAws_json1_1PerformanceMetrics = (
-  output: any,
-  context: __SerdeContext
-): PerformanceMetrics => {
+const deserializeAws_json1_1PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
   return {
     __type: "PerformanceMetrics",
     Properties:
       output.Properties !== undefined && output.Properties !== null
-        ? deserializeAws_json1_1PerformanceMetricsProperties(
-            output.Properties,
-            context
-          )
+        ? deserializeAws_json1_1PerformanceMetricsProperties(output.Properties, context)
         : undefined
   } as any;
 };
@@ -4859,10 +3869,7 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
   );
 };
 
-const deserializeAws_json1_1PredictOutput = (
-  output: any,
-  context: __SerdeContext
-): PredictOutput => {
+const deserializeAws_json1_1PredictOutput = (output: any, context: __SerdeContext): PredictOutput => {
   return {
     __type: "PredictOutput",
     Prediction:
@@ -4872,10 +3879,7 @@ const deserializeAws_json1_1PredictOutput = (
   } as any;
 };
 
-const deserializeAws_json1_1Prediction = (
-  output: any,
-  context: __SerdeContext
-): Prediction => {
+const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext): Prediction => {
   return {
     __type: "Prediction",
     details:
@@ -4883,20 +3887,13 @@ const deserializeAws_json1_1Prediction = (
         ? deserializeAws_json1_1DetailsMap(output.details, context)
         : undefined,
     predictedLabel:
-      output.predictedLabel !== undefined && output.predictedLabel !== null
-        ? output.predictedLabel
-        : undefined,
+      output.predictedLabel !== undefined && output.predictedLabel !== null ? output.predictedLabel : undefined,
     predictedScores:
       output.predictedScores !== undefined && output.predictedScores !== null
-        ? deserializeAws_json1_1ScoreValuePerLabelMap(
-            output.predictedScores,
-            context
-          )
+        ? deserializeAws_json1_1ScoreValuePerLabelMap(output.predictedScores, context)
         : undefined,
     predictedValue:
-      output.predictedValue !== undefined && output.predictedValue !== null
-        ? output.predictedValue
-        : undefined
+      output.predictedValue !== undefined && output.predictedValue !== null ? output.predictedValue : undefined
   } as any;
 };
 
@@ -4906,68 +3903,40 @@ const deserializeAws_json1_1PredictorNotMountedException = (
 ): PredictorNotMountedException => {
   return {
     __type: "PredictorNotMountedException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RDSDatabase = (
-  output: any,
-  context: __SerdeContext
-): RDSDatabase => {
+const deserializeAws_json1_1RDSDatabase = (output: any, context: __SerdeContext): RDSDatabase => {
   return {
     __type: "RDSDatabase",
-    DatabaseName:
-      output.DatabaseName !== undefined && output.DatabaseName !== null
-        ? output.DatabaseName
-        : undefined,
+    DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     InstanceIdentifier:
-      output.InstanceIdentifier !== undefined &&
-      output.InstanceIdentifier !== null
+      output.InstanceIdentifier !== undefined && output.InstanceIdentifier !== null
         ? output.InstanceIdentifier
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RDSMetadata = (
-  output: any,
-  context: __SerdeContext
-): RDSMetadata => {
+const deserializeAws_json1_1RDSMetadata = (output: any, context: __SerdeContext): RDSMetadata => {
   return {
     __type: "RDSMetadata",
     DataPipelineId:
-      output.DataPipelineId !== undefined && output.DataPipelineId !== null
-        ? output.DataPipelineId
-        : undefined,
+      output.DataPipelineId !== undefined && output.DataPipelineId !== null ? output.DataPipelineId : undefined,
     Database:
       output.Database !== undefined && output.Database !== null
         ? deserializeAws_json1_1RDSDatabase(output.Database, context)
         : undefined,
     DatabaseUserName:
-      output.DatabaseUserName !== undefined && output.DatabaseUserName !== null
-        ? output.DatabaseUserName
-        : undefined,
-    ResourceRole:
-      output.ResourceRole !== undefined && output.ResourceRole !== null
-        ? output.ResourceRole
-        : undefined,
+      output.DatabaseUserName !== undefined && output.DatabaseUserName !== null ? output.DatabaseUserName : undefined,
+    ResourceRole: output.ResourceRole !== undefined && output.ResourceRole !== null ? output.ResourceRole : undefined,
     SelectSqlQuery:
-      output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null
-        ? output.SelectSqlQuery
-        : undefined,
-    ServiceRole:
-      output.ServiceRole !== undefined && output.ServiceRole !== null
-        ? output.ServiceRole
-        : undefined
+      output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null ? output.SelectSqlQuery : undefined,
+    ServiceRole: output.ServiceRole !== undefined && output.ServiceRole !== null ? output.ServiceRole : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RealtimeEndpointInfo = (
-  output: any,
-  context: __SerdeContext
-): RealtimeEndpointInfo => {
+const deserializeAws_json1_1RealtimeEndpointInfo = (output: any, context: __SerdeContext): RealtimeEndpointInfo => {
   return {
     __type: "RealtimeEndpointInfo",
     CreatedAt:
@@ -4975,60 +3944,37 @@ const deserializeAws_json1_1RealtimeEndpointInfo = (
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
     EndpointStatus:
-      output.EndpointStatus !== undefined && output.EndpointStatus !== null
-        ? output.EndpointStatus
-        : undefined,
-    EndpointUrl:
-      output.EndpointUrl !== undefined && output.EndpointUrl !== null
-        ? output.EndpointUrl
-        : undefined,
+      output.EndpointStatus !== undefined && output.EndpointStatus !== null ? output.EndpointStatus : undefined,
+    EndpointUrl: output.EndpointUrl !== undefined && output.EndpointUrl !== null ? output.EndpointUrl : undefined,
     PeakRequestsPerSecond:
-      output.PeakRequestsPerSecond !== undefined &&
-      output.PeakRequestsPerSecond !== null
+      output.PeakRequestsPerSecond !== undefined && output.PeakRequestsPerSecond !== null
         ? output.PeakRequestsPerSecond
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RedshiftDatabase = (
-  output: any,
-  context: __SerdeContext
-): RedshiftDatabase => {
+const deserializeAws_json1_1RedshiftDatabase = (output: any, context: __SerdeContext): RedshiftDatabase => {
   return {
     __type: "RedshiftDatabase",
     ClusterIdentifier:
-      output.ClusterIdentifier !== undefined &&
-      output.ClusterIdentifier !== null
+      output.ClusterIdentifier !== undefined && output.ClusterIdentifier !== null
         ? output.ClusterIdentifier
         : undefined,
-    DatabaseName:
-      output.DatabaseName !== undefined && output.DatabaseName !== null
-        ? output.DatabaseName
-        : undefined
+    DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RedshiftMetadata = (
-  output: any,
-  context: __SerdeContext
-): RedshiftMetadata => {
+const deserializeAws_json1_1RedshiftMetadata = (output: any, context: __SerdeContext): RedshiftMetadata => {
   return {
     __type: "RedshiftMetadata",
     DatabaseUserName:
-      output.DatabaseUserName !== undefined && output.DatabaseUserName !== null
-        ? output.DatabaseUserName
-        : undefined,
+      output.DatabaseUserName !== undefined && output.DatabaseUserName !== null ? output.DatabaseUserName : undefined,
     RedshiftDatabase:
       output.RedshiftDatabase !== undefined && output.RedshiftDatabase !== null
-        ? deserializeAws_json1_1RedshiftDatabase(
-            output.RedshiftDatabase,
-            context
-          )
+        ? deserializeAws_json1_1RedshiftDatabase(output.RedshiftDatabase, context)
         : undefined,
     SelectSqlQuery:
-      output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null
-        ? output.SelectSqlQuery
-        : undefined
+      output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null ? output.SelectSqlQuery : undefined
   } as any;
 };
 
@@ -5038,14 +3984,8 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    code:
-      output.code !== undefined && output.code !== null
-        ? output.code
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -5062,18 +4002,11 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (
   );
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
@@ -5083,26 +4016,15 @@ const deserializeAws_json1_1TagLimitExceededException = (
 ): TagLimitExceededException => {
   return {
     __type: "TagLimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
-const deserializeAws_json1_1TrainingParameters = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -5119,49 +4041,28 @@ const deserializeAws_json1_1UpdateBatchPredictionOutput = (
   return {
     __type: "UpdateBatchPredictionOutput",
     BatchPredictionId:
-      output.BatchPredictionId !== undefined &&
-      output.BatchPredictionId !== null
-        ? output.BatchPredictionId
-        : undefined
+      output.BatchPredictionId !== undefined && output.BatchPredictionId !== null ? output.BatchPredictionId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UpdateDataSourceOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateDataSourceOutput => {
+const deserializeAws_json1_1UpdateDataSourceOutput = (output: any, context: __SerdeContext): UpdateDataSourceOutput => {
   return {
     __type: "UpdateDataSourceOutput",
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UpdateEvaluationOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateEvaluationOutput => {
+const deserializeAws_json1_1UpdateEvaluationOutput = (output: any, context: __SerdeContext): UpdateEvaluationOutput => {
   return {
     __type: "UpdateEvaluationOutput",
-    EvaluationId:
-      output.EvaluationId !== undefined && output.EvaluationId !== null
-        ? output.EvaluationId
-        : undefined
+    EvaluationId: output.EvaluationId !== undefined && output.EvaluationId !== null ? output.EvaluationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UpdateMLModelOutput = (
-  output: any,
-  context: __SerdeContext
-): UpdateMLModelOutput => {
+const deserializeAws_json1_1UpdateMLModelOutput = (output: any, context: __SerdeContext): UpdateMLModelOutput => {
   return {
     __type: "UpdateMLModelOutput",
-    MLModelId:
-      output.MLModelId !== undefined && output.MLModelId !== null
-        ? output.MLModelId
-        : undefined
+    MLModelId: output.MLModelId !== undefined && output.MLModelId !== null ? output.MLModelId : undefined
   } as any;
 };
 
@@ -5172,23 +4073,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

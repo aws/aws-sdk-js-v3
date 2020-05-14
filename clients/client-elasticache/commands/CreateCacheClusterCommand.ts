@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  CreateCacheClusterMessage,
-  CreateCacheClusterResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/index";
 import {
   deserializeAws_queryCreateCacheClusterCommand,
   serializeAws_queryCreateCacheClusterCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCacheClusterCommandInput = CreateCacheClusterMessage;
-export type CreateCacheClusterCommandOutput = CreateCacheClusterResult &
-  __MetadataBearer;
+export type CreateCacheClusterCommandOutput = CreateCacheClusterResult & __MetadataBearer;
 
 export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandInput,
@@ -50,9 +39,7 @@ export class CreateCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateCacheClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCacheClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateCacheClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCacheClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCacheClusterCommandOutput> {
     return deserializeAws_queryCreateCacheClusterCommand(output, context);
   }
 

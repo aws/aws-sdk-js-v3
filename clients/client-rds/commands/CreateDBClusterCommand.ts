@@ -1,8 +1,4 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/index";
 import {
   deserializeAws_queryCreateDBClusterCommand,
@@ -10,10 +6,7 @@ import {
 } from "../protocols/Aws_query";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -26,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDBClusterCommandInput = CreateDBClusterMessage;
-export type CreateDBClusterCommandOutput = CreateDBClusterResult &
-  __MetadataBearer;
+export type CreateDBClusterCommandOutput = CreateDBClusterResult & __MetadataBearer;
 
 export class CreateDBClusterCommand extends $Command<
   CreateDBClusterCommandInput,
@@ -48,9 +40,7 @@ export class CreateDBClusterCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDBClusterCommandInput, CreateDBClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -66,17 +56,11 @@ export class CreateDBClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDBClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateDBClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDBClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
     return deserializeAws_queryCreateDBClusterCommand(output, context);
   }
 

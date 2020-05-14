@@ -1,21 +1,11 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53ResolverClient";
-import {
-  ListResolverRulesRequest,
-  ListResolverRulesResponse
-} from "../models/index";
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
+import { ListResolverRulesRequest, ListResolverRulesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListResolverRulesCommand,
   serializeAws_json1_1ListResolverRulesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListResolverRulesCommandInput = ListResolverRulesRequest;
-export type ListResolverRulesCommandOutput = ListResolverRulesResponse &
-  __MetadataBearer;
+export type ListResolverRulesCommandOutput = ListResolverRulesResponse & __MetadataBearer;
 
 export class ListResolverRulesCommand extends $Command<
   ListResolverRulesCommandInput,
@@ -50,9 +39,7 @@ export class ListResolverRulesCommand extends $Command<
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResolverRulesCommandInput, ListResolverRulesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListResolverRulesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListResolverRulesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListResolverRulesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListResolverRulesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListResolverRulesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResolverRulesCommandOutput> {
     return deserializeAws_json1_1ListResolverRulesCommand(output, context);
   }
 

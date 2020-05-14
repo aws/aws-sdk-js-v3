@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  AttachThingPrincipalRequest,
-  AttachThingPrincipalResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { AttachThingPrincipalRequest, AttachThingPrincipalResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AttachThingPrincipalCommand,
   serializeAws_restJson1_1AttachThingPrincipalCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachThingPrincipalCommandInput = AttachThingPrincipalRequest;
-export type AttachThingPrincipalCommandOutput = AttachThingPrincipalResponse &
-  __MetadataBearer;
+export type AttachThingPrincipalCommandOutput = AttachThingPrincipalResponse & __MetadataBearer;
 
 export class AttachThingPrincipalCommand extends $Command<
   AttachThingPrincipalCommandInput,
@@ -49,13 +38,8 @@ export class AttachThingPrincipalCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachThingPrincipalCommandInput,
-    AttachThingPrincipalCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachThingPrincipalCommandInput, AttachThingPrincipalCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class AttachThingPrincipalCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachThingPrincipalCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AttachThingPrincipalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AttachThingPrincipalCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AttachThingPrincipalCommandOutput> {
-    return deserializeAws_restJson1_1AttachThingPrincipalCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachThingPrincipalCommandOutput> {
+    return deserializeAws_restJson1_1AttachThingPrincipalCommand(output, context);
   }
 
   // Start section: command_body_extra

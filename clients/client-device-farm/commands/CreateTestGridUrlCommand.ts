@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient";
-import {
-  CreateTestGridUrlRequest,
-  CreateTestGridUrlResult
-} from "../models/index";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import { CreateTestGridUrlRequest, CreateTestGridUrlResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateTestGridUrlCommand,
   serializeAws_json1_1CreateTestGridUrlCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTestGridUrlCommandInput = CreateTestGridUrlRequest;
-export type CreateTestGridUrlCommandOutput = CreateTestGridUrlResult &
-  __MetadataBearer;
+export type CreateTestGridUrlCommandOutput = CreateTestGridUrlResult & __MetadataBearer;
 
 export class CreateTestGridUrlCommand extends $Command<
   CreateTestGridUrlCommandInput,
@@ -50,9 +39,7 @@ export class CreateTestGridUrlCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTestGridUrlCommandInput, CreateTestGridUrlCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateTestGridUrlCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateTestGridUrlCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateTestGridUrlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateTestGridUrlCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateTestGridUrlCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTestGridUrlCommandOutput> {
     return deserializeAws_json1_1CreateTestGridUrlCommand(output, context);
   }
 

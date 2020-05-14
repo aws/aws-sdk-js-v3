@@ -1,23 +1,11 @@
-import {
-  DeleteTerminologyCommandInput,
-  DeleteTerminologyCommandOutput
-} from "./commands/DeleteTerminologyCommand";
+import { DeleteTerminologyCommandInput, DeleteTerminologyCommandOutput } from "./commands/DeleteTerminologyCommand";
 import {
   DescribeTextTranslationJobCommandInput,
   DescribeTextTranslationJobCommandOutput
 } from "./commands/DescribeTextTranslationJobCommand";
-import {
-  GetTerminologyCommandInput,
-  GetTerminologyCommandOutput
-} from "./commands/GetTerminologyCommand";
-import {
-  ImportTerminologyCommandInput,
-  ImportTerminologyCommandOutput
-} from "./commands/ImportTerminologyCommand";
-import {
-  ListTerminologiesCommandInput,
-  ListTerminologiesCommandOutput
-} from "./commands/ListTerminologiesCommand";
+import { GetTerminologyCommandInput, GetTerminologyCommandOutput } from "./commands/GetTerminologyCommand";
+import { ImportTerminologyCommandInput, ImportTerminologyCommandOutput } from "./commands/ImportTerminologyCommand";
+import { ListTerminologiesCommandInput, ListTerminologiesCommandOutput } from "./commands/ListTerminologiesCommand";
 import {
   ListTextTranslationJobsCommandInput,
   ListTextTranslationJobsCommandOutput
@@ -30,10 +18,7 @@ import {
   StopTextTranslationJobCommandInput,
   StopTextTranslationJobCommandOutput
 } from "./commands/StopTextTranslationJobCommand";
-import {
-  TranslateTextCommandInput,
-  TranslateTextCommandOutput
-} from "./commands/TranslateTextCommand";
+import { TranslateTextCommandInput, TranslateTextCommandOutput } from "./commands/TranslateTextCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -50,12 +35,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -108,8 +88,7 @@ export type ServiceOutputTypes =
   | StopTextTranslationJobCommandOutput
   | TranslateTextCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -193,9 +172,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type TranslateClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type TranslateClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +181,7 @@ export type TranslateClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type TranslateClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  RAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RAMClient";
-import {
-  DeleteResourceShareRequest,
-  DeleteResourceShareResponse
-} from "../models/index";
+import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
+import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteResourceShareCommand,
   serializeAws_restJson1_1DeleteResourceShareCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteResourceShareCommandInput = DeleteResourceShareRequest;
-export type DeleteResourceShareCommandOutput = DeleteResourceShareResponse &
-  __MetadataBearer;
+export type DeleteResourceShareCommandOutput = DeleteResourceShareResponse & __MetadataBearer;
 
 export class DeleteResourceShareCommand extends $Command<
   DeleteResourceShareCommandInput,
@@ -49,13 +38,8 @@ export class DeleteResourceShareCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteResourceShareCommandInput,
-    DeleteResourceShareCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteResourceShareCommandInput, DeleteResourceShareCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DeleteResourceShareCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteResourceShareCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteResourceShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteResourceShareCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteResourceShareCommandOutput> {
-    return deserializeAws_restJson1_1DeleteResourceShareCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourceShareCommandOutput> {
+    return deserializeAws_restJson1_1DeleteResourceShareCommand(output, context);
   }
 
   // Start section: command_body_extra

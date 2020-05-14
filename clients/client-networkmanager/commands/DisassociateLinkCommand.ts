@@ -1,21 +1,11 @@
-import {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NetworkManagerClient";
-import {
-  DisassociateLinkRequest,
-  DisassociateLinkResponse
-} from "../models/index";
+import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
+import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateLinkCommand,
   serializeAws_restJson1_1DisassociateLinkCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateLinkCommandInput = DisassociateLinkRequest;
-export type DisassociateLinkCommandOutput = DisassociateLinkResponse &
-  __MetadataBearer;
+export type DisassociateLinkCommandOutput = DisassociateLinkResponse & __MetadataBearer;
 
 export class DisassociateLinkCommand extends $Command<
   DisassociateLinkCommandInput,
@@ -50,9 +39,7 @@ export class DisassociateLinkCommand extends $Command<
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateLinkCommandInput, DisassociateLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DisassociateLinkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateLinkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisassociateLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DisassociateLinkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateLinkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateLinkCommandOutput> {
     return deserializeAws_restJson1_1DisassociateLinkCommand(output, context);
   }
 

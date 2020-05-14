@@ -1,21 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
-import {
-  DescribeTaskSetsRequest,
-  DescribeTaskSetsResponse
-} from "../models/index";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { DescribeTaskSetsRequest, DescribeTaskSetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeTaskSetsCommand,
   serializeAws_json1_1DescribeTaskSetsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTaskSetsCommandInput = DescribeTaskSetsRequest;
-export type DescribeTaskSetsCommandOutput = DescribeTaskSetsResponse &
-  __MetadataBearer;
+export type DescribeTaskSetsCommandOutput = DescribeTaskSetsResponse & __MetadataBearer;
 
 export class DescribeTaskSetsCommand extends $Command<
   DescribeTaskSetsCommandInput,
@@ -50,9 +39,7 @@ export class DescribeTaskSetsCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTaskSetsCommandInput, DescribeTaskSetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeTaskSetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTaskSetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTaskSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeTaskSetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTaskSetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTaskSetsCommandOutput> {
     return deserializeAws_json1_1DescribeTaskSetsCommand(output, context);
   }
 

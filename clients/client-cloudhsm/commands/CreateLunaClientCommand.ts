@@ -1,21 +1,11 @@
-import {
-  CloudHSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudHSMClient";
-import {
-  CreateLunaClientRequest,
-  CreateLunaClientResponse
-} from "../models/index";
+import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
+import { CreateLunaClientRequest, CreateLunaClientResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateLunaClientCommand,
   serializeAws_json1_1CreateLunaClientCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLunaClientCommandInput = CreateLunaClientRequest;
-export type CreateLunaClientCommandOutput = CreateLunaClientResponse &
-  __MetadataBearer;
+export type CreateLunaClientCommandOutput = CreateLunaClientResponse & __MetadataBearer;
 
 export class CreateLunaClientCommand extends $Command<
   CreateLunaClientCommandInput,
@@ -50,9 +39,7 @@ export class CreateLunaClientCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLunaClientCommandInput, CreateLunaClientCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateLunaClientCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLunaClientCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLunaClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateLunaClientCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLunaClientCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLunaClientCommandOutput> {
     return deserializeAws_json1_1CreateLunaClientCommand(output, context);
   }
 

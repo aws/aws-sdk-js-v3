@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  DescribeHsmClientCertificatesMessage,
-  HsmClientCertificateMessage
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DescribeHsmClientCertificatesMessage, HsmClientCertificateMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeHsmClientCertificatesCommand,
   serializeAws_queryDescribeHsmClientCertificatesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeHsmClientCertificatesCommandInput = DescribeHsmClientCertificatesMessage;
-export type DescribeHsmClientCertificatesCommandOutput = HsmClientCertificateMessage &
-  __MetadataBearer;
+export type DescribeHsmClientCertificatesCommandOutput = HsmClientCertificateMessage & __MetadataBearer;
 
 export class DescribeHsmClientCertificatesCommand extends $Command<
   DescribeHsmClientCertificatesCommandInput,
@@ -49,13 +38,8 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeHsmClientCertificatesCommandInput,
-    DescribeHsmClientCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeHsmClientCertificatesCommandInput, DescribeHsmClientCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class DescribeHsmClientCertificatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeHsmClientCertificatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeHsmClientCertificatesCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeHsmClientCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDescribeHsmClientCertificatesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHsmClientCertificatesCommandOutput> {
-    return deserializeAws_queryDescribeHsmClientCertificatesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeHsmClientCertificatesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,71 +1,32 @@
-import {
-  AddFlowOutputsCommandInput,
-  AddFlowOutputsCommandOutput
-} from "./commands/AddFlowOutputsCommand";
-import {
-  CreateFlowCommandInput,
-  CreateFlowCommandOutput
-} from "./commands/CreateFlowCommand";
-import {
-  DeleteFlowCommandInput,
-  DeleteFlowCommandOutput
-} from "./commands/DeleteFlowCommand";
-import {
-  DescribeFlowCommandInput,
-  DescribeFlowCommandOutput
-} from "./commands/DescribeFlowCommand";
+import { AddFlowOutputsCommandInput, AddFlowOutputsCommandOutput } from "./commands/AddFlowOutputsCommand";
+import { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
+import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
+import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
 import {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput
 } from "./commands/GrantFlowEntitlementsCommand";
-import {
-  ListEntitlementsCommandInput,
-  ListEntitlementsCommandOutput
-} from "./commands/ListEntitlementsCommand";
-import {
-  ListFlowsCommandInput,
-  ListFlowsCommandOutput
-} from "./commands/ListFlowsCommand";
+import { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "./commands/ListEntitlementsCommand";
+import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  RemoveFlowOutputCommandInput,
-  RemoveFlowOutputCommandOutput
-} from "./commands/RemoveFlowOutputCommand";
+import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "./commands/RemoveFlowOutputCommand";
 import {
   RevokeFlowEntitlementCommandInput,
   RevokeFlowEntitlementCommandOutput
 } from "./commands/RevokeFlowEntitlementCommand";
-import {
-  StartFlowCommandInput,
-  StartFlowCommandOutput
-} from "./commands/StartFlowCommand";
-import {
-  StopFlowCommandInput,
-  StopFlowCommandOutput
-} from "./commands/StopFlowCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
+import { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateFlowEntitlementCommandInput,
   UpdateFlowEntitlementCommandOutput
 } from "./commands/UpdateFlowEntitlementCommand";
-import {
-  UpdateFlowOutputCommandInput,
-  UpdateFlowOutputCommandOutput
-} from "./commands/UpdateFlowOutputCommand";
-import {
-  UpdateFlowSourceCommandInput,
-  UpdateFlowSourceCommandOutput
-} from "./commands/UpdateFlowSourceCommand";
+import { UpdateFlowOutputCommandInput, UpdateFlowOutputCommandOutput } from "./commands/UpdateFlowOutputCommand";
+import { UpdateFlowSourceCommandInput, UpdateFlowSourceCommandOutput } from "./commands/UpdateFlowSourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -82,12 +43,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -156,8 +112,7 @@ export type ServiceOutputTypes =
   | UpdateFlowOutputCommandOutput
   | UpdateFlowSourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -241,9 +196,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +205,7 @@ export type MediaConnectClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaConnectClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

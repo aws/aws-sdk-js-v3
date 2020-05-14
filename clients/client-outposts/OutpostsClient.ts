@@ -1,23 +1,11 @@
-import {
-  CreateOutpostCommandInput,
-  CreateOutpostCommandOutput
-} from "./commands/CreateOutpostCommand";
-import {
-  GetOutpostCommandInput,
-  GetOutpostCommandOutput
-} from "./commands/GetOutpostCommand";
+import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import { GetOutpostCommandInput, GetOutpostCommandOutput } from "./commands/GetOutpostCommand";
 import {
   GetOutpostInstanceTypesCommandInput,
   GetOutpostInstanceTypesCommandOutput
 } from "./commands/GetOutpostInstanceTypesCommand";
-import {
-  ListOutpostsCommandInput,
-  ListOutpostsCommandOutput
-} from "./commands/ListOutpostsCommand";
-import {
-  ListSitesCommandInput,
-  ListSitesCommandOutput
-} from "./commands/ListSitesCommand";
+import { ListOutpostsCommandInput, ListOutpostsCommandOutput } from "./commands/ListOutpostsCommand";
+import { ListSitesCommandInput, ListSitesCommandOutput } from "./commands/ListSitesCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -34,12 +22,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -84,8 +67,7 @@ export type ServiceOutputTypes =
   | ListOutpostsCommandOutput
   | ListSitesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -169,9 +151,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OutpostsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OutpostsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -180,9 +160,7 @@ export type OutpostsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OutpostsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  DescribeDashboardRequest,
-  DescribeDashboardResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeDashboardRequest, DescribeDashboardResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDashboardCommand,
   serializeAws_restJson1_1DescribeDashboardCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDashboardCommandInput = DescribeDashboardRequest;
-export type DescribeDashboardCommandOutput = DescribeDashboardResponse &
-  __MetadataBearer;
+export type DescribeDashboardCommandOutput = DescribeDashboardResponse & __MetadataBearer;
 
 export class DescribeDashboardCommand extends $Command<
   DescribeDashboardCommandInput,
@@ -50,9 +39,7 @@ export class DescribeDashboardCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDashboardCommandInput, DescribeDashboardCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeDashboardCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDashboardCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDashboardCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeDashboardCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDashboardCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDashboardCommandOutput> {
     return deserializeAws_restJson1_1DescribeDashboardCommand(output, context);
   }
 

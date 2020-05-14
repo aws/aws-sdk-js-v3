@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  ImportCatalogToGlueRequest,
-  ImportCatalogToGlueResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { ImportCatalogToGlueRequest, ImportCatalogToGlueResponse } from "../models/index";
 import {
   deserializeAws_json1_1ImportCatalogToGlueCommand,
   serializeAws_json1_1ImportCatalogToGlueCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ImportCatalogToGlueCommandInput = ImportCatalogToGlueRequest;
-export type ImportCatalogToGlueCommandOutput = ImportCatalogToGlueResponse &
-  __MetadataBearer;
+export type ImportCatalogToGlueCommandOutput = ImportCatalogToGlueResponse & __MetadataBearer;
 
 export class ImportCatalogToGlueCommand extends $Command<
   ImportCatalogToGlueCommandInput,
@@ -49,13 +38,8 @@ export class ImportCatalogToGlueCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ImportCatalogToGlueCommandInput,
-    ImportCatalogToGlueCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ImportCatalogToGlueCommandInput, ImportCatalogToGlueCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ImportCatalogToGlueCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ImportCatalogToGlueCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ImportCatalogToGlueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ImportCatalogToGlueCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ImportCatalogToGlueCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ImportCatalogToGlueCommandOutput> {
     return deserializeAws_json1_1ImportCatalogToGlueCommand(output, context);
   }
 

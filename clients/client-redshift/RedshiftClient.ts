@@ -18,18 +18,12 @@ import {
   BatchModifyClusterSnapshotsCommandInput,
   BatchModifyClusterSnapshotsCommandOutput
 } from "./commands/BatchModifyClusterSnapshotsCommand";
-import {
-  CancelResizeCommandInput,
-  CancelResizeCommandOutput
-} from "./commands/CancelResizeCommand";
+import { CancelResizeCommandInput, CancelResizeCommandOutput } from "./commands/CancelResizeCommand";
 import {
   CopyClusterSnapshotCommandInput,
   CopyClusterSnapshotCommandOutput
 } from "./commands/CopyClusterSnapshotCommand";
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateClusterParameterGroupCommandInput,
   CreateClusterParameterGroupCommandOutput
@@ -70,14 +64,8 @@ import {
   CreateSnapshotScheduleCommandInput,
   CreateSnapshotScheduleCommandOutput
 } from "./commands/CreateSnapshotScheduleCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteClusterParameterGroupCommandInput,
   DeleteClusterParameterGroupCommandOutput
@@ -118,10 +106,7 @@ import {
   DeleteSnapshotScheduleCommandInput,
   DeleteSnapshotScheduleCommandOutput
 } from "./commands/DeleteSnapshotScheduleCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput
@@ -158,10 +143,7 @@ import {
   DescribeClusterVersionsCommandInput,
   DescribeClusterVersionsCommandOutput
 } from "./commands/DescribeClusterVersionsCommand";
-import {
-  DescribeClustersCommandInput,
-  DescribeClustersCommandOutput
-} from "./commands/DescribeClustersCommand";
+import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "./commands/DescribeClustersCommand";
 import {
   DescribeDefaultClusterParametersCommandInput,
   DescribeDefaultClusterParametersCommandOutput
@@ -174,10 +156,7 @@ import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput
 } from "./commands/DescribeEventSubscriptionsCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeHsmClientCertificatesCommandInput,
   DescribeHsmClientCertificatesCommandOutput
@@ -206,10 +185,7 @@ import {
   DescribeReservedNodesCommandInput,
   DescribeReservedNodesCommandOutput
 } from "./commands/DescribeReservedNodesCommand";
-import {
-  DescribeResizeCommandInput,
-  DescribeResizeCommandOutput
-} from "./commands/DescribeResizeCommand";
+import { DescribeResizeCommandInput, DescribeResizeCommandOutput } from "./commands/DescribeResizeCommand";
 import {
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput
@@ -222,34 +198,19 @@ import {
   DescribeSnapshotSchedulesCommandInput,
   DescribeSnapshotSchedulesCommandOutput
 } from "./commands/DescribeSnapshotSchedulesCommand";
-import {
-  DescribeStorageCommandInput,
-  DescribeStorageCommandOutput
-} from "./commands/DescribeStorageCommand";
+import { DescribeStorageCommandInput, DescribeStorageCommandOutput } from "./commands/DescribeStorageCommand";
 import {
   DescribeTableRestoreStatusCommandInput,
   DescribeTableRestoreStatusCommandOutput
 } from "./commands/DescribeTableRestoreStatusCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
-import {
-  DisableLoggingCommandInput,
-  DisableLoggingCommandOutput
-} from "./commands/DisableLoggingCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import { DisableLoggingCommandInput, DisableLoggingCommandOutput } from "./commands/DisableLoggingCommand";
 import {
   DisableSnapshotCopyCommandInput,
   DisableSnapshotCopyCommandOutput
 } from "./commands/DisableSnapshotCopyCommand";
-import {
-  EnableLoggingCommandInput,
-  EnableLoggingCommandOutput
-} from "./commands/EnableLoggingCommand";
-import {
-  EnableSnapshotCopyCommandInput,
-  EnableSnapshotCopyCommandOutput
-} from "./commands/EnableSnapshotCopyCommand";
+import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "./commands/EnableLoggingCommand";
+import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "./commands/EnableSnapshotCopyCommand";
 import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput
@@ -258,10 +219,7 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
-import {
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput
-} from "./commands/ModifyClusterCommand";
+import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "./commands/ModifyClusterCommand";
 import {
   ModifyClusterDbRevisionCommandInput,
   ModifyClusterDbRevisionCommandOutput
@@ -310,18 +268,12 @@ import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput
 } from "./commands/PurchaseReservedNodeOfferingCommand";
-import {
-  RebootClusterCommandInput,
-  RebootClusterCommandOutput
-} from "./commands/RebootClusterCommand";
+import { RebootClusterCommandInput, RebootClusterCommandOutput } from "./commands/RebootClusterCommand";
 import {
   ResetClusterParameterGroupCommandInput,
   ResetClusterParameterGroupCommandOutput
 } from "./commands/ResetClusterParameterGroupCommand";
-import {
-  ResizeClusterCommandInput,
-  ResizeClusterCommandOutput
-} from "./commands/ResizeClusterCommand";
+import { ResizeClusterCommandInput, ResizeClusterCommandOutput } from "./commands/ResizeClusterCommand";
 import {
   RestoreFromClusterSnapshotCommandInput,
   RestoreFromClusterSnapshotCommandOutput
@@ -358,12 +310,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -570,8 +517,7 @@ export type ServiceOutputTypes =
   | RevokeSnapshotAccessCommandOutput
   | RotateEncryptionKeyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -655,9 +601,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RedshiftClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RedshiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -666,9 +610,7 @@ export type RedshiftClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RedshiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

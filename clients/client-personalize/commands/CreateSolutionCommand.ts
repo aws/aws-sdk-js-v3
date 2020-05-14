@@ -1,18 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { CreateSolutionRequest, CreateSolutionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSolutionCommand,
   serializeAws_json1_1CreateSolutionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSolutionCommandInput = CreateSolutionRequest;
-export type CreateSolutionCommandOutput = CreateSolutionResponse &
-  __MetadataBearer;
+export type CreateSolutionCommandOutput = CreateSolutionResponse & __MetadataBearer;
 
 export class CreateSolutionCommand extends $Command<
   CreateSolutionCommandInput,
@@ -47,9 +39,7 @@ export class CreateSolutionCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSolutionCommandInput, CreateSolutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateSolutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSolutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSolutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSolutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSolutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSolutionCommandOutput> {
     return deserializeAws_json1_1CreateSolutionCommand(output, context);
   }
 

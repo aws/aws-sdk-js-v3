@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient";
-import {
-  CancelSimulationJobRequest,
-  CancelSimulationJobResponse
-} from "../models/index";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { CancelSimulationJobRequest, CancelSimulationJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CancelSimulationJobCommand,
   serializeAws_restJson1_1CancelSimulationJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelSimulationJobCommandInput = CancelSimulationJobRequest;
-export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse &
-  __MetadataBearer;
+export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse & __MetadataBearer;
 
 export class CancelSimulationJobCommand extends $Command<
   CancelSimulationJobCommandInput,
@@ -49,13 +38,8 @@ export class CancelSimulationJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelSimulationJobCommandInput,
-    CancelSimulationJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelSimulationJobCommandInput, CancelSimulationJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class CancelSimulationJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelSimulationJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CancelSimulationJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CancelSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1CancelSimulationJobCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelSimulationJobCommandOutput> {
+    return deserializeAws_restJson1_1CancelSimulationJobCommand(output, context);
   }
 
   // Start section: command_body_extra

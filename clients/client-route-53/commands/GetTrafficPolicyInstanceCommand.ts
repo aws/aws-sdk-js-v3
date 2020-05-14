@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  GetTrafficPolicyInstanceRequest,
-  GetTrafficPolicyInstanceResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetTrafficPolicyInstanceRequest, GetTrafficPolicyInstanceResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetTrafficPolicyInstanceCommand,
   serializeAws_restXmlGetTrafficPolicyInstanceCommand
 } from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -29,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetTrafficPolicyInstanceCommandInput = GetTrafficPolicyInstanceRequest;
-export type GetTrafficPolicyInstanceCommandOutput = GetTrafficPolicyInstanceResponse &
-  __MetadataBearer;
+export type GetTrafficPolicyInstanceCommandOutput = GetTrafficPolicyInstanceResponse & __MetadataBearer;
 
 export class GetTrafficPolicyInstanceCommand extends $Command<
   GetTrafficPolicyInstanceCommandInput,
@@ -50,13 +39,8 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetTrafficPolicyInstanceCommandInput,
-    GetTrafficPolicyInstanceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetTrafficPolicyInstanceCommandInput, GetTrafficPolicyInstanceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,21 +56,12 @@ export class GetTrafficPolicyInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetTrafficPolicyInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetTrafficPolicyInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetTrafficPolicyInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetTrafficPolicyInstanceCommandOutput> {
-    return deserializeAws_restXmlGetTrafficPolicyInstanceCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTrafficPolicyInstanceCommandOutput> {
+    return deserializeAws_restXmlGetTrafficPolicyInstanceCommand(output, context);
   }
 
   // Start section: command_body_extra

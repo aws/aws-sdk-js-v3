@@ -1,43 +1,22 @@
-import {
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput
-} from "./commands/CreateChannelCommand";
-import {
-  CreateHarvestJobCommandInput,
-  CreateHarvestJobCommandOutput
-} from "./commands/CreateHarvestJobCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand";
 import {
   CreateOriginEndpointCommandInput,
   CreateOriginEndpointCommandOutput
 } from "./commands/CreateOriginEndpointCommand";
-import {
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
-} from "./commands/DeleteChannelCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
 import {
   DeleteOriginEndpointCommandInput,
   DeleteOriginEndpointCommandOutput
 } from "./commands/DeleteOriginEndpointCommand";
-import {
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
-} from "./commands/DescribeChannelCommand";
-import {
-  DescribeHarvestJobCommandInput,
-  DescribeHarvestJobCommandOutput
-} from "./commands/DescribeHarvestJobCommand";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import { DescribeHarvestJobCommandInput, DescribeHarvestJobCommandOutput } from "./commands/DescribeHarvestJobCommand";
 import {
   DescribeOriginEndpointCommandInput,
   DescribeOriginEndpointCommandOutput
 } from "./commands/DescribeOriginEndpointCommand";
-import {
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput
-} from "./commands/ListChannelsCommand";
-import {
-  ListHarvestJobsCommandInput,
-  ListHarvestJobsCommandOutput
-} from "./commands/ListHarvestJobsCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import { ListHarvestJobsCommandInput, ListHarvestJobsCommandOutput } from "./commands/ListHarvestJobsCommand";
 import {
   ListOriginEndpointsCommandInput,
   ListOriginEndpointsCommandOutput
@@ -54,18 +33,9 @@ import {
   RotateIngestEndpointCredentialsCommandInput,
   RotateIngestEndpointCredentialsCommandOutput
 } from "./commands/RotateIngestEndpointCredentialsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
-} from "./commands/UpdateChannelCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import {
   UpdateOriginEndpointCommandInput,
   UpdateOriginEndpointCommandOutput
@@ -86,12 +56,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -162,8 +127,7 @@ export type ServiceOutputTypes =
   | UpdateChannelCommandOutput
   | UpdateOriginEndpointCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -247,9 +211,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MediaPackageClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MediaPackageClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +220,7 @@ export type MediaPackageClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MediaPackageClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MediaPackageClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

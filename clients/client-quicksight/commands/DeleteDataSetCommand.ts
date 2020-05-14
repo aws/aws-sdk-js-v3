@@ -1,18 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteDataSetRequest, DeleteDataSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDataSetCommand,
   serializeAws_restJson1_1DeleteDataSetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDataSetCommandInput = DeleteDataSetRequest;
-export type DeleteDataSetCommandOutput = DeleteDataSetResponse &
-  __MetadataBearer;
+export type DeleteDataSetCommandOutput = DeleteDataSetResponse & __MetadataBearer;
 
 export class DeleteDataSetCommand extends $Command<
   DeleteDataSetCommandInput,
@@ -47,9 +39,7 @@ export class DeleteDataSetCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSetCommandInput, DeleteDataSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteDataSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDataSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDataSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteDataSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDataSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSetCommandOutput> {
     return deserializeAws_restJson1_1DeleteDataSetCommand(output, context);
   }
 

@@ -1,7 +1,4 @@
-import {
-  CreateDevicePoolCommandInput,
-  CreateDevicePoolCommandOutput
-} from "./commands/CreateDevicePoolCommand";
+import { CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput } from "./commands/CreateDevicePoolCommand";
 import {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput
@@ -10,10 +7,7 @@ import {
   CreateNetworkProfileCommandInput,
   CreateNetworkProfileCommandOutput
 } from "./commands/CreateNetworkProfileCommand";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import {
   CreateRemoteAccessSessionCommandInput,
   CreateRemoteAccessSessionCommandOutput
@@ -22,22 +16,13 @@ import {
   CreateTestGridProjectCommandInput,
   CreateTestGridProjectCommandOutput
 } from "./commands/CreateTestGridProjectCommand";
-import {
-  CreateTestGridUrlCommandInput,
-  CreateTestGridUrlCommandOutput
-} from "./commands/CreateTestGridUrlCommand";
-import {
-  CreateUploadCommandInput,
-  CreateUploadCommandOutput
-} from "./commands/CreateUploadCommand";
+import { CreateTestGridUrlCommandInput, CreateTestGridUrlCommandOutput } from "./commands/CreateTestGridUrlCommand";
+import { CreateUploadCommandInput, CreateUploadCommandOutput } from "./commands/CreateUploadCommand";
 import {
   CreateVPCEConfigurationCommandInput,
   CreateVPCEConfigurationCommandOutput
 } from "./commands/CreateVPCEConfigurationCommand";
-import {
-  DeleteDevicePoolCommandInput,
-  DeleteDevicePoolCommandOutput
-} from "./commands/DeleteDevicePoolCommand";
+import { DeleteDevicePoolCommandInput, DeleteDevicePoolCommandOutput } from "./commands/DeleteDevicePoolCommand";
 import {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput
@@ -46,98 +31,44 @@ import {
   DeleteNetworkProfileCommandInput,
   DeleteNetworkProfileCommandOutput
 } from "./commands/DeleteNetworkProfileCommand";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "./commands/DeleteProjectCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import {
   DeleteRemoteAccessSessionCommandInput,
   DeleteRemoteAccessSessionCommandOutput
 } from "./commands/DeleteRemoteAccessSessionCommand";
-import {
-  DeleteRunCommandInput,
-  DeleteRunCommandOutput
-} from "./commands/DeleteRunCommand";
+import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import {
   DeleteTestGridProjectCommandInput,
   DeleteTestGridProjectCommandOutput
 } from "./commands/DeleteTestGridProjectCommand";
-import {
-  DeleteUploadCommandInput,
-  DeleteUploadCommandOutput
-} from "./commands/DeleteUploadCommand";
+import { DeleteUploadCommandInput, DeleteUploadCommandOutput } from "./commands/DeleteUploadCommand";
 import {
   DeleteVPCEConfigurationCommandInput,
   DeleteVPCEConfigurationCommandOutput
 } from "./commands/DeleteVPCEConfigurationCommand";
-import {
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
-} from "./commands/GetAccountSettingsCommand";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand";
-import {
-  GetDeviceInstanceCommandInput,
-  GetDeviceInstanceCommandOutput
-} from "./commands/GetDeviceInstanceCommand";
-import {
-  GetDevicePoolCommandInput,
-  GetDevicePoolCommandOutput
-} from "./commands/GetDevicePoolCommand";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import { GetDeviceInstanceCommandInput, GetDeviceInstanceCommandOutput } from "./commands/GetDeviceInstanceCommand";
+import { GetDevicePoolCommandInput, GetDevicePoolCommandOutput } from "./commands/GetDevicePoolCommand";
 import {
   GetDevicePoolCompatibilityCommandInput,
   GetDevicePoolCompatibilityCommandOutput
 } from "./commands/GetDevicePoolCompatibilityCommand";
-import {
-  GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
-} from "./commands/GetInstanceProfileCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "./commands/GetJobCommand";
-import {
-  GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
-} from "./commands/GetNetworkProfileCommand";
-import {
-  GetOfferingStatusCommandInput,
-  GetOfferingStatusCommandOutput
-} from "./commands/GetOfferingStatusCommand";
-import {
-  GetProjectCommandInput,
-  GetProjectCommandOutput
-} from "./commands/GetProjectCommand";
+import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
+import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "./commands/GetNetworkProfileCommand";
+import { GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput } from "./commands/GetOfferingStatusCommand";
+import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
 import {
   GetRemoteAccessSessionCommandInput,
   GetRemoteAccessSessionCommandOutput
 } from "./commands/GetRemoteAccessSessionCommand";
-import {
-  GetRunCommandInput,
-  GetRunCommandOutput
-} from "./commands/GetRunCommand";
-import {
-  GetSuiteCommandInput,
-  GetSuiteCommandOutput
-} from "./commands/GetSuiteCommand";
-import {
-  GetTestCommandInput,
-  GetTestCommandOutput
-} from "./commands/GetTestCommand";
-import {
-  GetTestGridProjectCommandInput,
-  GetTestGridProjectCommandOutput
-} from "./commands/GetTestGridProjectCommand";
-import {
-  GetTestGridSessionCommandInput,
-  GetTestGridSessionCommandOutput
-} from "./commands/GetTestGridSessionCommand";
-import {
-  GetUploadCommandInput,
-  GetUploadCommandOutput
-} from "./commands/GetUploadCommand";
+import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
+import { GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand";
+import { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand";
+import { GetTestGridProjectCommandInput, GetTestGridProjectCommandOutput } from "./commands/GetTestGridProjectCommand";
+import { GetTestGridSessionCommandInput, GetTestGridSessionCommandOutput } from "./commands/GetTestGridSessionCommand";
+import { GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand";
 import {
   GetVPCEConfigurationCommandInput,
   GetVPCEConfigurationCommandOutput
@@ -146,30 +77,18 @@ import {
   InstallToRemoteAccessSessionCommandInput,
   InstallToRemoteAccessSessionCommandOutput
 } from "./commands/InstallToRemoteAccessSessionCommand";
-import {
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
-} from "./commands/ListArtifactsCommand";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "./commands/ListArtifactsCommand";
 import {
   ListDeviceInstancesCommandInput,
   ListDeviceInstancesCommandOutput
 } from "./commands/ListDeviceInstancesCommand";
-import {
-  ListDevicePoolsCommandInput,
-  ListDevicePoolsCommandOutput
-} from "./commands/ListDevicePoolsCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
+import { ListDevicePoolsCommandInput, ListDevicePoolsCommandOutput } from "./commands/ListDevicePoolsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput
 } from "./commands/ListInstanceProfilesCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListNetworkProfilesCommandInput,
   ListNetworkProfilesCommandOutput
@@ -182,30 +101,15 @@ import {
   ListOfferingTransactionsCommandInput,
   ListOfferingTransactionsCommandOutput
 } from "./commands/ListOfferingTransactionsCommand";
-import {
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
-} from "./commands/ListOfferingsCommand";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "./commands/ListProjectsCommand";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
 import {
   ListRemoteAccessSessionsCommandInput,
   ListRemoteAccessSessionsCommandOutput
 } from "./commands/ListRemoteAccessSessionsCommand";
-import {
-  ListRunsCommandInput,
-  ListRunsCommandOutput
-} from "./commands/ListRunsCommand";
-import {
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput
-} from "./commands/ListSamplesCommand";
-import {
-  ListSuitesCommandInput,
-  ListSuitesCommandOutput
-} from "./commands/ListSuitesCommand";
+import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
+import { ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand";
+import { ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -226,62 +130,29 @@ import {
   ListTestGridSessionsCommandInput,
   ListTestGridSessionsCommandOutput
 } from "./commands/ListTestGridSessionsCommand";
-import {
-  ListTestsCommandInput,
-  ListTestsCommandOutput
-} from "./commands/ListTestsCommand";
-import {
-  ListUniqueProblemsCommandInput,
-  ListUniqueProblemsCommandOutput
-} from "./commands/ListUniqueProblemsCommand";
-import {
-  ListUploadsCommandInput,
-  ListUploadsCommandOutput
-} from "./commands/ListUploadsCommand";
+import { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand";
+import { ListUniqueProblemsCommandInput, ListUniqueProblemsCommandOutput } from "./commands/ListUniqueProblemsCommand";
+import { ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand";
 import {
   ListVPCEConfigurationsCommandInput,
   ListVPCEConfigurationsCommandOutput
 } from "./commands/ListVPCEConfigurationsCommand";
-import {
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
-} from "./commands/PurchaseOfferingCommand";
-import {
-  RenewOfferingCommandInput,
-  RenewOfferingCommandOutput
-} from "./commands/RenewOfferingCommand";
-import {
-  ScheduleRunCommandInput,
-  ScheduleRunCommandOutput
-} from "./commands/ScheduleRunCommand";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "./commands/StopJobCommand";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand";
+import { RenewOfferingCommandInput, RenewOfferingCommandOutput } from "./commands/RenewOfferingCommand";
+import { ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand";
+import { StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand";
 import {
   StopRemoteAccessSessionCommandInput,
   StopRemoteAccessSessionCommandOutput
 } from "./commands/StopRemoteAccessSessionCommand";
-import {
-  StopRunCommandInput,
-  StopRunCommandOutput
-} from "./commands/StopRunCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDeviceInstanceCommandInput,
   UpdateDeviceInstanceCommandOutput
 } from "./commands/UpdateDeviceInstanceCommand";
-import {
-  UpdateDevicePoolCommandInput,
-  UpdateDevicePoolCommandOutput
-} from "./commands/UpdateDevicePoolCommand";
+import { UpdateDevicePoolCommandInput, UpdateDevicePoolCommandOutput } from "./commands/UpdateDevicePoolCommand";
 import {
   UpdateInstanceProfileCommandInput,
   UpdateInstanceProfileCommandOutput
@@ -290,18 +161,12 @@ import {
   UpdateNetworkProfileCommandInput,
   UpdateNetworkProfileCommandOutput
 } from "./commands/UpdateNetworkProfileCommand";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "./commands/UpdateProjectCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import {
   UpdateTestGridProjectCommandInput,
   UpdateTestGridProjectCommandOutput
 } from "./commands/UpdateTestGridProjectCommand";
-import {
-  UpdateUploadCommandInput,
-  UpdateUploadCommandOutput
-} from "./commands/UpdateUploadCommand";
+import { UpdateUploadCommandInput, UpdateUploadCommandOutput } from "./commands/UpdateUploadCommand";
 import {
   UpdateVPCEConfigurationCommandInput,
   UpdateVPCEConfigurationCommandOutput
@@ -322,12 +187,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -516,8 +376,7 @@ export type ServiceOutputTypes =
   | UpdateUploadCommandOutput
   | UpdateVPCEConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -601,9 +460,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DeviceFarmClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DeviceFarmClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -612,9 +469,7 @@ export type DeviceFarmClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DeviceFarmClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

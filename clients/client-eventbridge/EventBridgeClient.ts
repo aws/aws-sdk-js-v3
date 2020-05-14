@@ -2,10 +2,7 @@ import {
   ActivateEventSourceCommandInput,
   ActivateEventSourceCommandOutput
 } from "./commands/ActivateEventSourceCommand";
-import {
-  CreateEventBusCommandInput,
-  CreateEventBusCommandOutput
-} from "./commands/CreateEventBusCommand";
+import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand";
 import {
   CreatePartnerEventSourceCommandInput,
   CreatePartnerEventSourceCommandOutput
@@ -14,22 +11,13 @@ import {
   DeactivateEventSourceCommandInput,
   DeactivateEventSourceCommandOutput
 } from "./commands/DeactivateEventSourceCommand";
-import {
-  DeleteEventBusCommandInput,
-  DeleteEventBusCommandOutput
-} from "./commands/DeleteEventBusCommand";
+import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand";
 import {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput
 } from "./commands/DeletePartnerEventSourceCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
-import {
-  DescribeEventBusCommandInput,
-  DescribeEventBusCommandOutput
-} from "./commands/DescribeEventBusCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand";
 import {
   DescribeEventSourceCommandInput,
   DescribeEventSourceCommandOutput
@@ -38,26 +26,11 @@ import {
   DescribePartnerEventSourceCommandInput,
   DescribePartnerEventSourceCommandOutput
 } from "./commands/DescribePartnerEventSourceCommand";
-import {
-  DescribeRuleCommandInput,
-  DescribeRuleCommandOutput
-} from "./commands/DescribeRuleCommand";
-import {
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput
-} from "./commands/DisableRuleCommand";
-import {
-  EnableRuleCommandInput,
-  EnableRuleCommandOutput
-} from "./commands/EnableRuleCommand";
-import {
-  ListEventBusesCommandInput,
-  ListEventBusesCommandOutput
-} from "./commands/ListEventBusesCommand";
-import {
-  ListEventSourcesCommandInput,
-  ListEventSourcesCommandOutput
-} from "./commands/ListEventSourcesCommand";
+import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand";
+import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
+import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
+import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand";
+import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand";
 import {
   ListPartnerEventSourceAccountsCommandInput,
   ListPartnerEventSourceAccountsCommandOutput
@@ -70,58 +43,22 @@ import {
   ListRuleNamesByTargetCommandInput,
   ListRuleNamesByTargetCommandOutput
 } from "./commands/ListRuleNamesByTargetCommand";
-import {
-  ListRulesCommandInput,
-  ListRulesCommandOutput
-} from "./commands/ListRulesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTargetsByRuleCommandInput,
-  ListTargetsByRuleCommandOutput
-} from "./commands/ListTargetsByRuleCommand";
-import {
-  PutEventsCommandInput,
-  PutEventsCommandOutput
-} from "./commands/PutEventsCommand";
-import {
-  PutPartnerEventsCommandInput,
-  PutPartnerEventsCommandOutput
-} from "./commands/PutPartnerEventsCommand";
-import {
-  PutPermissionCommandInput,
-  PutPermissionCommandOutput
-} from "./commands/PutPermissionCommand";
-import {
-  PutRuleCommandInput,
-  PutRuleCommandOutput
-} from "./commands/PutRuleCommand";
-import {
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput
-} from "./commands/PutTargetsCommand";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "./commands/RemovePermissionCommand";
-import {
-  RemoveTargetsCommandInput,
-  RemoveTargetsCommandOutput
-} from "./commands/RemoveTargetsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TestEventPatternCommandInput,
-  TestEventPatternCommandOutput
-} from "./commands/TestEventPatternCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { ListTargetsByRuleCommandInput, ListTargetsByRuleCommandOutput } from "./commands/ListTargetsByRuleCommand";
+import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
+import { PutPartnerEventsCommandInput, PutPartnerEventsCommandOutput } from "./commands/PutPartnerEventsCommand";
+import { PutPermissionCommandInput, PutPermissionCommandOutput } from "./commands/PutPermissionCommand";
+import { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCommand";
+import { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import { RemoveTargetsCommandInput, RemoveTargetsCommandOutput } from "./commands/RemoveTargetsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -138,12 +75,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -240,8 +172,7 @@ export type ServiceOutputTypes =
   | TestEventPatternCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -325,9 +256,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EventBridgeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EventBridgeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -336,9 +265,7 @@ export type EventBridgeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EventBridgeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

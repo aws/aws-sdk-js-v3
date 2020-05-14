@@ -2,22 +2,10 @@ import {
   CancelSigningProfileCommandInput,
   CancelSigningProfileCommandOutput
 } from "../commands/CancelSigningProfileCommand";
-import {
-  DescribeSigningJobCommandInput,
-  DescribeSigningJobCommandOutput
-} from "../commands/DescribeSigningJobCommand";
-import {
-  GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput
-} from "../commands/GetSigningPlatformCommand";
-import {
-  GetSigningProfileCommandInput,
-  GetSigningProfileCommandOutput
-} from "../commands/GetSigningProfileCommand";
-import {
-  ListSigningJobsCommandInput,
-  ListSigningJobsCommandOutput
-} from "../commands/ListSigningJobsCommand";
+import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "../commands/DescribeSigningJobCommand";
+import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "../commands/GetSigningPlatformCommand";
+import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "../commands/GetSigningProfileCommand";
+import { ListSigningJobsCommandInput, ListSigningJobsCommandOutput } from "../commands/ListSigningJobsCommand";
 import {
   ListSigningPlatformsCommandInput,
   ListSigningPlatformsCommandOutput
@@ -30,22 +18,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  PutSigningProfileCommandInput,
-  PutSigningProfileCommandOutput
-} from "../commands/PutSigningProfileCommand";
-import {
-  StartSigningJobCommandInput,
-  StartSigningJobCommandOutput
-} from "../commands/StartSigningJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { PutSigningProfileCommandInput, PutSigningProfileCommandOutput } from "../commands/PutSigningProfileCommand";
+import { StartSigningJobCommandInput, StartSigningJobCommandOutput } from "../commands/StartSigningJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   AccessDeniedException,
   BadRequestException,
@@ -74,10 +50,7 @@ import {
   ThrottlingException,
   ValidationException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -101,14 +74,9 @@ export const serializeAws_restJson1_1CancelSigningProfileCommand = async (
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profileName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profileName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
@@ -138,10 +106,7 @@ export const serializeAws_restJson1_1DescribeSigningJobCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -171,10 +136,7 @@ export const serializeAws_restJson1_1GetSigningPlatformCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: platformId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{platformId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{platformId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: platformId.");
   }
@@ -202,14 +164,9 @@ export const serializeAws_restJson1_1GetSigningProfileCommand = async (
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profileName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profileName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
@@ -330,14 +287,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -365,37 +317,23 @@ export const serializeAws_restJson1_1PutSigningProfileCommand = async (
   if (input.profileName !== undefined) {
     const labelValue: string = input.profileName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: profileName."
-      );
+      throw new Error("Empty value provided for input HTTP label: profileName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{profileName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{profileName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: profileName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.overrides !== undefined && {
-      overrides: serializeAws_restJson1_1SigningPlatformOverrides(
-        input.overrides,
-        context
-      )
+      overrides: serializeAws_restJson1_1SigningPlatformOverrides(input.overrides, context)
     }),
     ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.signingMaterial !== undefined && {
-      signingMaterial: serializeAws_restJson1_1SigningMaterial(
-        input.signingMaterial,
-        context
-      )
+      signingMaterial: serializeAws_restJson1_1SigningMaterial(input.signingMaterial, context)
     }),
     ...(input.signingParameters !== undefined && {
-      signingParameters: serializeAws_restJson1_1SigningParameters(
-        input.signingParameters,
-        context
-      )
+      signingParameters: serializeAws_restJson1_1SigningParameters(input.signingParameters, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_restJson1_1TagMap(input.tags, context)
@@ -425,10 +363,7 @@ export const serializeAws_restJson1_1StartSigningJobCommand = async (
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.destination !== undefined && {
-      destination: serializeAws_restJson1_1Destination(
-        input.destination,
-        context
-      )
+      destination: serializeAws_restJson1_1Destination(input.destination, context)
     }),
     ...(input.profileName !== undefined && { profileName: input.profileName }),
     ...(input.source !== undefined && {
@@ -458,14 +393,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -498,14 +428,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -533,10 +458,7 @@ export const deserializeAws_restJson1_1CancelSigningProfileCommand = async (
   context: __SerdeContext
 ): Promise<CancelSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CancelSigningProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelSigningProfileCommandError(output, context);
   }
   const contents: CancelSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -560,10 +482,7 @@ const deserializeAws_restJson1_1CancelSigningProfileCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -571,10 +490,7 @@ const deserializeAws_restJson1_1CancelSigningProfileCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -582,10 +498,7 @@ const deserializeAws_restJson1_1CancelSigningProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -593,10 +506,7 @@ const deserializeAws_restJson1_1CancelSigningProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -623,10 +533,7 @@ export const deserializeAws_restJson1_1DescribeSigningJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSigningJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeSigningJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeSigningJobCommandError(output, context);
   }
   const contents: DescribeSigningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -656,10 +563,7 @@ export const deserializeAws_restJson1_1DescribeSigningJobCommand = async (
     contents.jobId = data.jobId;
   }
   if (data.overrides !== undefined && data.overrides !== null) {
-    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(
-      data.overrides,
-      context
-    );
+    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(data.overrides, context);
   }
   if (data.platformId !== undefined && data.platformId !== null) {
     contents.platformId = data.platformId;
@@ -671,22 +575,13 @@ export const deserializeAws_restJson1_1DescribeSigningJobCommand = async (
     contents.requestedBy = data.requestedBy;
   }
   if (data.signedObject !== undefined && data.signedObject !== null) {
-    contents.signedObject = deserializeAws_restJson1_1SignedObject(
-      data.signedObject,
-      context
-    );
+    contents.signedObject = deserializeAws_restJson1_1SignedObject(data.signedObject, context);
   }
   if (data.signingMaterial !== undefined && data.signingMaterial !== null) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      data.signingMaterial,
-      context
-    );
+    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(data.signingMaterial, context);
   }
   if (data.signingParameters !== undefined && data.signingParameters !== null) {
-    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
-      data.signingParameters,
-      context
-    );
+    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(data.signingParameters, context);
   }
   if (data.source !== undefined && data.source !== null) {
     contents.source = deserializeAws_restJson1_1Source(data.source, context);
@@ -715,10 +610,7 @@ const deserializeAws_restJson1_1DescribeSigningJobCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -726,10 +618,7 @@ const deserializeAws_restJson1_1DescribeSigningJobCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -737,10 +626,7 @@ const deserializeAws_restJson1_1DescribeSigningJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -767,10 +653,7 @@ export const deserializeAws_restJson1_1GetSigningPlatformCommand = async (
   context: __SerdeContext
 ): Promise<GetSigningPlatformCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSigningPlatformCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSigningPlatformCommandError(output, context);
   }
   const contents: GetSigningPlatformCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -800,23 +683,11 @@ export const deserializeAws_restJson1_1GetSigningPlatformCommand = async (
   if (data.platformId !== undefined && data.platformId !== null) {
     contents.platformId = data.platformId;
   }
-  if (
-    data.signingConfiguration !== undefined &&
-    data.signingConfiguration !== null
-  ) {
-    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(
-      data.signingConfiguration,
-      context
-    );
+  if (data.signingConfiguration !== undefined && data.signingConfiguration !== null) {
+    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(data.signingConfiguration, context);
   }
-  if (
-    data.signingImageFormat !== undefined &&
-    data.signingImageFormat !== null
-  ) {
-    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(
-      data.signingImageFormat,
-      context
-    );
+  if (data.signingImageFormat !== undefined && data.signingImageFormat !== null) {
+    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(data.signingImageFormat, context);
   }
   if (data.target !== undefined && data.target !== null) {
     contents.target = data.target;
@@ -839,10 +710,7 @@ const deserializeAws_restJson1_1GetSigningPlatformCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -850,10 +718,7 @@ const deserializeAws_restJson1_1GetSigningPlatformCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -861,10 +726,7 @@ const deserializeAws_restJson1_1GetSigningPlatformCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -891,10 +753,7 @@ export const deserializeAws_restJson1_1GetSigningProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSigningProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSigningProfileCommandError(output, context);
   }
   const contents: GetSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -913,10 +772,7 @@ export const deserializeAws_restJson1_1GetSigningProfileCommand = async (
     contents.arn = data.arn;
   }
   if (data.overrides !== undefined && data.overrides !== null) {
-    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(
-      data.overrides,
-      context
-    );
+    contents.overrides = deserializeAws_restJson1_1SigningPlatformOverrides(data.overrides, context);
   }
   if (data.platformId !== undefined && data.platformId !== null) {
     contents.platformId = data.platformId;
@@ -925,16 +781,10 @@ export const deserializeAws_restJson1_1GetSigningProfileCommand = async (
     contents.profileName = data.profileName;
   }
   if (data.signingMaterial !== undefined && data.signingMaterial !== null) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      data.signingMaterial,
-      context
-    );
+    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(data.signingMaterial, context);
   }
   if (data.signingParameters !== undefined && data.signingParameters !== null) {
-    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
-      data.signingParameters,
-      context
-    );
+    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(data.signingParameters, context);
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
@@ -960,10 +810,7 @@ const deserializeAws_restJson1_1GetSigningProfileCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -971,10 +818,7 @@ const deserializeAws_restJson1_1GetSigningProfileCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -982,10 +826,7 @@ const deserializeAws_restJson1_1GetSigningProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -993,10 +834,7 @@ const deserializeAws_restJson1_1GetSigningProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1023,10 +861,7 @@ export const deserializeAws_restJson1_1ListSigningJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListSigningJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSigningJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningJobsCommandError(output, context);
   }
   const contents: ListSigningJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1059,10 +894,7 @@ const deserializeAws_restJson1_1ListSigningJobsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1070,10 +902,7 @@ const deserializeAws_restJson1_1ListSigningJobsCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1081,10 +910,7 @@ const deserializeAws_restJson1_1ListSigningJobsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1092,10 +918,7 @@ const deserializeAws_restJson1_1ListSigningJobsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1122,10 +945,7 @@ export const deserializeAws_restJson1_1ListSigningPlatformsCommand = async (
   context: __SerdeContext
 ): Promise<ListSigningPlatformsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSigningPlatformsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningPlatformsCommandError(output, context);
   }
   const contents: ListSigningPlatformsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1138,10 +958,7 @@ export const deserializeAws_restJson1_1ListSigningPlatformsCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.platforms !== undefined && data.platforms !== null) {
-    contents.platforms = deserializeAws_restJson1_1SigningPlatforms(
-      data.platforms,
-      context
-    );
+    contents.platforms = deserializeAws_restJson1_1SigningPlatforms(data.platforms, context);
   }
   return Promise.resolve(contents);
 };
@@ -1161,10 +978,7 @@ const deserializeAws_restJson1_1ListSigningPlatformsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1172,10 +986,7 @@ const deserializeAws_restJson1_1ListSigningPlatformsCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1183,10 +994,7 @@ const deserializeAws_restJson1_1ListSigningPlatformsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1194,10 +1002,7 @@ const deserializeAws_restJson1_1ListSigningPlatformsCommandError = async (
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1224,10 +1029,7 @@ export const deserializeAws_restJson1_1ListSigningProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListSigningProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListSigningProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListSigningProfilesCommandError(output, context);
   }
   const contents: ListSigningProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1240,10 +1042,7 @@ export const deserializeAws_restJson1_1ListSigningProfilesCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.profiles !== undefined && data.profiles !== null) {
-    contents.profiles = deserializeAws_restJson1_1SigningProfiles(
-      data.profiles,
-      context
-    );
+    contents.profiles = deserializeAws_restJson1_1SigningProfiles(data.profiles, context);
   }
   return Promise.resolve(contents);
 };
@@ -1263,10 +1062,7 @@ const deserializeAws_restJson1_1ListSigningProfilesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1274,10 +1070,7 @@ const deserializeAws_restJson1_1ListSigningProfilesCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1285,10 +1078,7 @@ const deserializeAws_restJson1_1ListSigningProfilesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1315,10 +1105,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1347,10 +1134,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1358,10 +1142,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1369,10 +1150,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.wallaby#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1399,10 +1177,7 @@ export const deserializeAws_restJson1_1PutSigningProfileCommand = async (
   context: __SerdeContext
 ): Promise<PutSigningProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutSigningProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutSigningProfileCommandError(output, context);
   }
   const contents: PutSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1431,10 +1206,7 @@ const deserializeAws_restJson1_1PutSigningProfileCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1442,10 +1214,7 @@ const deserializeAws_restJson1_1PutSigningProfileCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1453,10 +1222,7 @@ const deserializeAws_restJson1_1PutSigningProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1464,10 +1230,7 @@ const deserializeAws_restJson1_1PutSigningProfileCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1475,10 +1238,7 @@ const deserializeAws_restJson1_1PutSigningProfileCommandError = async (
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1505,10 +1265,7 @@ export const deserializeAws_restJson1_1StartSigningJobCommand = async (
   context: __SerdeContext
 ): Promise<StartSigningJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartSigningJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartSigningJobCommandError(output, context);
   }
   const contents: StartSigningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1537,10 +1294,7 @@ const deserializeAws_restJson1_1StartSigningJobCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1548,10 +1302,7 @@ const deserializeAws_restJson1_1StartSigningJobCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1559,10 +1310,7 @@ const deserializeAws_restJson1_1StartSigningJobCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wallaby#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1570,10 +1318,7 @@ const deserializeAws_restJson1_1StartSigningJobCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.wallaby#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1581,10 +1326,7 @@ const deserializeAws_restJson1_1StartSigningJobCommandError = async (
     case "ValidationException":
     case "com.amazonaws.wallaby#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1636,10 +1378,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1647,10 +1386,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1658,10 +1394,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.wallaby#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1713,10 +1446,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1724,10 +1454,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.wallaby#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1735,10 +1462,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.wallaby#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1879,10 +1603,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Destination = (
-  input: Destination,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Destination = (input: Destination, context: __SerdeContext): any => {
   return {
     ...(input.s3 !== undefined && {
       s3: serializeAws_restJson1_1S3Destination(input.s3, context)
@@ -1890,20 +1611,14 @@ const serializeAws_restJson1_1Destination = (
   };
 };
 
-const serializeAws_restJson1_1S3Destination = (
-  input: S3Destination,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1S3Destination = (input: S3Destination, context: __SerdeContext): any => {
   return {
     ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
     ...(input.prefix !== undefined && { prefix: input.prefix })
   };
 };
 
-const serializeAws_restJson1_1S3Source = (
-  input: S3Source,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1S3Source = (input: S3Source, context: __SerdeContext): any => {
   return {
     ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
     ...(input.key !== undefined && { key: input.key }),
@@ -1925,10 +1640,7 @@ const serializeAws_restJson1_1SigningConfigurationOverrides = (
   };
 };
 
-const serializeAws_restJson1_1SigningMaterial = (
-  input: SigningMaterial,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SigningMaterial = (input: SigningMaterial, context: __SerdeContext): any => {
   return {
     ...(input.certificateArn !== undefined && {
       certificateArn: input.certificateArn
@@ -1936,10 +1648,7 @@ const serializeAws_restJson1_1SigningMaterial = (
   };
 };
 
-const serializeAws_restJson1_1SigningParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SigningParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -1955,18 +1664,12 @@ const serializeAws_restJson1_1SigningPlatformOverrides = (
 ): any => {
   return {
     ...(input.signingConfiguration !== undefined && {
-      signingConfiguration: serializeAws_restJson1_1SigningConfigurationOverrides(
-        input.signingConfiguration,
-        context
-      )
+      signingConfiguration: serializeAws_restJson1_1SigningConfigurationOverrides(input.signingConfiguration, context)
     })
   };
 };
 
-const serializeAws_restJson1_1Source = (
-  input: Source,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Source = (input: Source, context: __SerdeContext): any => {
   return {
     ...(input.s3 !== undefined && {
       s3: serializeAws_restJson1_1S3Source(input.s3, context)
@@ -1974,10 +1677,7 @@ const serializeAws_restJson1_1Source = (
   };
 };
 
-const serializeAws_restJson1_1TagMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -1995,15 +1695,9 @@ const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
     __type: "EncryptionAlgorithmOptions",
     allowedValues:
       output.allowedValues !== undefined && output.allowedValues !== null
-        ? deserializeAws_restJson1_1EncryptionAlgorithms(
-            output.allowedValues,
-            context
-          )
+        ? deserializeAws_restJson1_1EncryptionAlgorithms(output.allowedValues, context)
         : undefined,
-    defaultValue:
-      output.defaultValue !== undefined && output.defaultValue !== null
-        ? output.defaultValue
-        : undefined
+    defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined
   } as any;
 };
 
@@ -2014,78 +1708,43 @@ const deserializeAws_restJson1_1EncryptionAlgorithms = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1HashAlgorithmOptions = (
-  output: any,
-  context: __SerdeContext
-): HashAlgorithmOptions => {
+const deserializeAws_restJson1_1HashAlgorithmOptions = (output: any, context: __SerdeContext): HashAlgorithmOptions => {
   return {
     __type: "HashAlgorithmOptions",
     allowedValues:
       output.allowedValues !== undefined && output.allowedValues !== null
-        ? deserializeAws_restJson1_1HashAlgorithms(
-            output.allowedValues,
-            context
-          )
+        ? deserializeAws_restJson1_1HashAlgorithms(output.allowedValues, context)
         : undefined,
-    defaultValue:
-      output.defaultValue !== undefined && output.defaultValue !== null
-        ? output.defaultValue
-        : undefined
+    defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1HashAlgorithms = (
-  output: any,
-  context: __SerdeContext
-): (HashAlgorithm | string)[] => {
+const deserializeAws_restJson1_1HashAlgorithms = (output: any, context: __SerdeContext): (HashAlgorithm | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1ImageFormats = (
-  output: any,
-  context: __SerdeContext
-): (ImageFormat | string)[] => {
+const deserializeAws_restJson1_1ImageFormats = (output: any, context: __SerdeContext): (ImageFormat | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1S3SignedObject = (
-  output: any,
-  context: __SerdeContext
-): S3SignedObject => {
+const deserializeAws_restJson1_1S3SignedObject = (output: any, context: __SerdeContext): S3SignedObject => {
   return {
     __type: "S3SignedObject",
-    bucketName:
-      output.bucketName !== undefined && output.bucketName !== null
-        ? output.bucketName
-        : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined
+    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1S3Source = (
-  output: any,
-  context: __SerdeContext
-): S3Source => {
+const deserializeAws_restJson1_1S3Source = (output: any, context: __SerdeContext): S3Source => {
   return {
     __type: "S3Source",
-    bucketName:
-      output.bucketName !== undefined && output.bucketName !== null
-        ? output.bucketName
-        : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SignedObject = (
-  output: any,
-  context: __SerdeContext
-): SignedObject => {
+const deserializeAws_restJson1_1SignedObject = (output: any, context: __SerdeContext): SignedObject => {
   return {
     __type: "SignedObject",
     s3:
@@ -2095,27 +1754,16 @@ const deserializeAws_restJson1_1SignedObject = (
   } as any;
 };
 
-const deserializeAws_restJson1_1SigningConfiguration = (
-  output: any,
-  context: __SerdeContext
-): SigningConfiguration => {
+const deserializeAws_restJson1_1SigningConfiguration = (output: any, context: __SerdeContext): SigningConfiguration => {
   return {
     __type: "SigningConfiguration",
     encryptionAlgorithmOptions:
-      output.encryptionAlgorithmOptions !== undefined &&
-      output.encryptionAlgorithmOptions !== null
-        ? deserializeAws_restJson1_1EncryptionAlgorithmOptions(
-            output.encryptionAlgorithmOptions,
-            context
-          )
+      output.encryptionAlgorithmOptions !== undefined && output.encryptionAlgorithmOptions !== null
+        ? deserializeAws_restJson1_1EncryptionAlgorithmOptions(output.encryptionAlgorithmOptions, context)
         : undefined,
     hashAlgorithmOptions:
-      output.hashAlgorithmOptions !== undefined &&
-      output.hashAlgorithmOptions !== null
-        ? deserializeAws_restJson1_1HashAlgorithmOptions(
-            output.hashAlgorithmOptions,
-            context
-          )
+      output.hashAlgorithmOptions !== undefined && output.hashAlgorithmOptions !== null
+        ? deserializeAws_restJson1_1HashAlgorithmOptions(output.hashAlgorithmOptions, context)
         : undefined
   } as any;
 };
@@ -2127,92 +1775,59 @@ const deserializeAws_restJson1_1SigningConfigurationOverrides = (
   return {
     __type: "SigningConfigurationOverrides",
     encryptionAlgorithm:
-      output.encryptionAlgorithm !== undefined &&
-      output.encryptionAlgorithm !== null
+      output.encryptionAlgorithm !== undefined && output.encryptionAlgorithm !== null
         ? output.encryptionAlgorithm
         : undefined,
     hashAlgorithm:
-      output.hashAlgorithm !== undefined && output.hashAlgorithm !== null
-        ? output.hashAlgorithm
-        : undefined
+      output.hashAlgorithm !== undefined && output.hashAlgorithm !== null ? output.hashAlgorithm : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SigningImageFormat = (
-  output: any,
-  context: __SerdeContext
-): SigningImageFormat => {
+const deserializeAws_restJson1_1SigningImageFormat = (output: any, context: __SerdeContext): SigningImageFormat => {
   return {
     __type: "SigningImageFormat",
     defaultFormat:
-      output.defaultFormat !== undefined && output.defaultFormat !== null
-        ? output.defaultFormat
-        : undefined,
+      output.defaultFormat !== undefined && output.defaultFormat !== null ? output.defaultFormat : undefined,
     supportedFormats:
       output.supportedFormats !== undefined && output.supportedFormats !== null
-        ? deserializeAws_restJson1_1ImageFormats(
-            output.supportedFormats,
-            context
-          )
+        ? deserializeAws_restJson1_1ImageFormats(output.supportedFormats, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SigningJob = (
-  output: any,
-  context: __SerdeContext
-): SigningJob => {
+const deserializeAws_restJson1_1SigningJob = (output: any, context: __SerdeContext): SigningJob => {
   return {
     __type: "SigningJob",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
         : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     signedObject:
       output.signedObject !== undefined && output.signedObject !== null
         ? deserializeAws_restJson1_1SignedObject(output.signedObject, context)
         : undefined,
     signingMaterial:
       output.signingMaterial !== undefined && output.signingMaterial !== null
-        ? deserializeAws_restJson1_1SigningMaterial(
-            output.signingMaterial,
-            context
-          )
+        ? deserializeAws_restJson1_1SigningMaterial(output.signingMaterial, context)
         : undefined,
     source:
       output.source !== undefined && output.source !== null
         ? deserializeAws_restJson1_1Source(output.source, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SigningJobs = (
-  output: any,
-  context: __SerdeContext
-): SigningJob[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SigningJob(entry, context)
-  );
+const deserializeAws_restJson1_1SigningJobs = (output: any, context: __SerdeContext): SigningJob[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SigningJob(entry, context));
 };
 
-const deserializeAws_restJson1_1SigningMaterial = (
-  output: any,
-  context: __SerdeContext
-): SigningMaterial => {
+const deserializeAws_restJson1_1SigningMaterial = (output: any, context: __SerdeContext): SigningMaterial => {
   return {
     __type: "SigningMaterial",
     certificateArn:
-      output.certificateArn !== undefined && output.certificateArn !== null
-        ? output.certificateArn
-        : undefined
+      output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined
   } as any;
 };
 
@@ -2229,52 +1844,23 @@ const deserializeAws_restJson1_1SigningParameters = (
   );
 };
 
-const deserializeAws_restJson1_1SigningPlatform = (
-  output: any,
-  context: __SerdeContext
-): SigningPlatform => {
+const deserializeAws_restJson1_1SigningPlatform = (output: any, context: __SerdeContext): SigningPlatform => {
   return {
     __type: "SigningPlatform",
-    category:
-      output.category !== undefined && output.category !== null
-        ? output.category
-        : undefined,
-    displayName:
-      output.displayName !== undefined && output.displayName !== null
-        ? output.displayName
-        : undefined,
-    maxSizeInMB:
-      output.maxSizeInMB !== undefined && output.maxSizeInMB !== null
-        ? output.maxSizeInMB
-        : undefined,
-    partner:
-      output.partner !== undefined && output.partner !== null
-        ? output.partner
-        : undefined,
-    platformId:
-      output.platformId !== undefined && output.platformId !== null
-        ? output.platformId
-        : undefined,
+    category: output.category !== undefined && output.category !== null ? output.category : undefined,
+    displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
+    maxSizeInMB: output.maxSizeInMB !== undefined && output.maxSizeInMB !== null ? output.maxSizeInMB : undefined,
+    partner: output.partner !== undefined && output.partner !== null ? output.partner : undefined,
+    platformId: output.platformId !== undefined && output.platformId !== null ? output.platformId : undefined,
     signingConfiguration:
-      output.signingConfiguration !== undefined &&
-      output.signingConfiguration !== null
-        ? deserializeAws_restJson1_1SigningConfiguration(
-            output.signingConfiguration,
-            context
-          )
+      output.signingConfiguration !== undefined && output.signingConfiguration !== null
+        ? deserializeAws_restJson1_1SigningConfiguration(output.signingConfiguration, context)
         : undefined,
     signingImageFormat:
-      output.signingImageFormat !== undefined &&
-      output.signingImageFormat !== null
-        ? deserializeAws_restJson1_1SigningImageFormat(
-            output.signingImageFormat,
-            context
-          )
+      output.signingImageFormat !== undefined && output.signingImageFormat !== null
+        ? deserializeAws_restJson1_1SigningImageFormat(output.signingImageFormat, context)
         : undefined,
-    target:
-      output.target !== undefined && output.target !== null
-        ? output.target
-        : undefined
+    target: output.target !== undefined && output.target !== null ? output.target : undefined
   } as any;
 };
 
@@ -2285,60 +1871,31 @@ const deserializeAws_restJson1_1SigningPlatformOverrides = (
   return {
     __type: "SigningPlatformOverrides",
     signingConfiguration:
-      output.signingConfiguration !== undefined &&
-      output.signingConfiguration !== null
-        ? deserializeAws_restJson1_1SigningConfigurationOverrides(
-            output.signingConfiguration,
-            context
-          )
+      output.signingConfiguration !== undefined && output.signingConfiguration !== null
+        ? deserializeAws_restJson1_1SigningConfigurationOverrides(output.signingConfiguration, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SigningPlatforms = (
-  output: any,
-  context: __SerdeContext
-): SigningPlatform[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SigningPlatform(entry, context)
-  );
+const deserializeAws_restJson1_1SigningPlatforms = (output: any, context: __SerdeContext): SigningPlatform[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SigningPlatform(entry, context));
 };
 
-const deserializeAws_restJson1_1SigningProfile = (
-  output: any,
-  context: __SerdeContext
-): SigningProfile => {
+const deserializeAws_restJson1_1SigningProfile = (output: any, context: __SerdeContext): SigningProfile => {
   return {
     __type: "SigningProfile",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    platformId:
-      output.platformId !== undefined && output.platformId !== null
-        ? output.platformId
-        : undefined,
-    profileName:
-      output.profileName !== undefined && output.profileName !== null
-        ? output.profileName
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    platformId: output.platformId !== undefined && output.platformId !== null ? output.platformId : undefined,
+    profileName: output.profileName !== undefined && output.profileName !== null ? output.profileName : undefined,
     signingMaterial:
       output.signingMaterial !== undefined && output.signingMaterial !== null
-        ? deserializeAws_restJson1_1SigningMaterial(
-            output.signingMaterial,
-            context
-          )
+        ? deserializeAws_restJson1_1SigningMaterial(output.signingMaterial, context)
         : undefined,
     signingParameters:
-      output.signingParameters !== undefined &&
-      output.signingParameters !== null
-        ? deserializeAws_restJson1_1SigningParameters(
-            output.signingParameters,
-            context
-          )
+      output.signingParameters !== undefined && output.signingParameters !== null
+        ? deserializeAws_restJson1_1SigningParameters(output.signingParameters, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1TagMap(output.tags, context)
@@ -2346,32 +1903,19 @@ const deserializeAws_restJson1_1SigningProfile = (
   } as any;
 };
 
-const deserializeAws_restJson1_1SigningProfiles = (
-  output: any,
-  context: __SerdeContext
-): SigningProfile[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SigningProfile(entry, context)
-  );
+const deserializeAws_restJson1_1SigningProfiles = (output: any, context: __SerdeContext): SigningProfile[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SigningProfile(entry, context));
 };
 
-const deserializeAws_restJson1_1Source = (
-  output: any,
-  context: __SerdeContext
-): Source => {
+const deserializeAws_restJson1_1Source = (output: any, context: __SerdeContext): Source => {
   return {
     __type: "Source",
     s3:
-      output.s3 !== undefined && output.s3 !== null
-        ? deserializeAws_restJson1_1S3Source(output.s3, context)
-        : undefined
+      output.s3 !== undefined && output.s3 !== null ? deserializeAws_restJson1_1S3Source(output.s3, context) : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2388,30 +1932,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -2426,8 +1961,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

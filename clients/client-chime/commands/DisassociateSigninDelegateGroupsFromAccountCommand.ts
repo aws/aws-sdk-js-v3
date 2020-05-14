@@ -1,8 +1,4 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DisassociateSigninDelegateGroupsFromAccountRequest,
   DisassociateSigninDelegateGroupsFromAccountResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput
-  ) {
+  constructor(readonly input: DisassociateSigninDelegateGroupsFromAccountCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     DisassociateSigninDelegateGroupsFromAccountCommandInput,
     DisassociateSigninDelegateGroupsFromAccountCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
     input: DisassociateSigninDelegateGroupsFromAccountCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisassociateSigninDelegateGroupsFromAccountCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -14,22 +14,13 @@ import {
   BatchDetectSentimentCommandInput,
   BatchDetectSentimentCommandOutput
 } from "./commands/BatchDetectSentimentCommand";
-import {
-  BatchDetectSyntaxCommandInput,
-  BatchDetectSyntaxCommandOutput
-} from "./commands/BatchDetectSyntaxCommand";
-import {
-  ClassifyDocumentCommandInput,
-  ClassifyDocumentCommandOutput
-} from "./commands/ClassifyDocumentCommand";
+import { BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput } from "./commands/BatchDetectSyntaxCommand";
+import { ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput } from "./commands/ClassifyDocumentCommand";
 import {
   CreateDocumentClassifierCommandInput,
   CreateDocumentClassifierCommandOutput
 } from "./commands/CreateDocumentClassifierCommand";
-import {
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
-} from "./commands/CreateEndpointCommand";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
   CreateEntityRecognizerCommandInput,
   CreateEntityRecognizerCommandOutput
@@ -38,10 +29,7 @@ import {
   DeleteDocumentClassifierCommandInput,
   DeleteDocumentClassifierCommandOutput
 } from "./commands/DeleteDocumentClassifierCommand";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEntityRecognizerCommandInput,
   DeleteEntityRecognizerCommandOutput
@@ -58,10 +46,7 @@ import {
   DescribeDominantLanguageDetectionJobCommandInput,
   DescribeDominantLanguageDetectionJobCommandOutput
 } from "./commands/DescribeDominantLanguageDetectionJobCommand";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEntitiesDetectionJobCommandInput,
   DescribeEntitiesDetectionJobCommandOutput
@@ -86,22 +71,10 @@ import {
   DetectDominantLanguageCommandInput,
   DetectDominantLanguageCommandOutput
 } from "./commands/DetectDominantLanguageCommand";
-import {
-  DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput
-} from "./commands/DetectEntitiesCommand";
-import {
-  DetectKeyPhrasesCommandInput,
-  DetectKeyPhrasesCommandOutput
-} from "./commands/DetectKeyPhrasesCommand";
-import {
-  DetectSentimentCommandInput,
-  DetectSentimentCommandOutput
-} from "./commands/DetectSentimentCommand";
-import {
-  DetectSyntaxCommandInput,
-  DetectSyntaxCommandOutput
-} from "./commands/DetectSyntaxCommand";
+import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
+import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./commands/DetectKeyPhrasesCommand";
+import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand";
+import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput
@@ -114,10 +87,7 @@ import {
   ListDominantLanguageDetectionJobsCommandInput,
   ListDominantLanguageDetectionJobsCommandOutput
 } from "./commands/ListDominantLanguageDetectionJobsCommand";
-import {
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput
-} from "./commands/ListEndpointsCommand";
+import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
 import {
   ListEntitiesDetectionJobsCommandInput,
   ListEntitiesDetectionJobsCommandOutput
@@ -190,18 +160,9 @@ import {
   StopTrainingEntityRecognizerCommandInput,
   StopTrainingEntityRecognizerCommandOutput
 } from "./commands/StopTrainingEntityRecognizerCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
-} from "./commands/UpdateEndpointCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -218,12 +179,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -360,8 +316,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateEndpointCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -445,9 +400,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ComprehendClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ComprehendClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -456,9 +409,7 @@ export type ComprehendClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

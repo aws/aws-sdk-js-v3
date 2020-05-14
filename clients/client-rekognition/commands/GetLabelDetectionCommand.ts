@@ -1,21 +1,11 @@
-import {
-  RekognitionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RekognitionClient";
-import {
-  GetLabelDetectionRequest,
-  GetLabelDetectionResponse
-} from "../models/index";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
+import { GetLabelDetectionRequest, GetLabelDetectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetLabelDetectionCommand,
   serializeAws_json1_1GetLabelDetectionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLabelDetectionCommandInput = GetLabelDetectionRequest;
-export type GetLabelDetectionCommandOutput = GetLabelDetectionResponse &
-  __MetadataBearer;
+export type GetLabelDetectionCommandOutput = GetLabelDetectionResponse & __MetadataBearer;
 
 export class GetLabelDetectionCommand extends $Command<
   GetLabelDetectionCommandInput,
@@ -50,9 +39,7 @@ export class GetLabelDetectionCommand extends $Command<
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetLabelDetectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLabelDetectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLabelDetectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLabelDetectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLabelDetectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLabelDetectionCommandOutput> {
     return deserializeAws_json1_1GetLabelDetectionCommand(output, context);
   }
 

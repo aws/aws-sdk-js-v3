@@ -1,18 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { UpdateAccountRequest, UpdateAccountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateAccountCommand,
   serializeAws_restJson1_1UpdateAccountCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateAccountCommandInput = UpdateAccountRequest;
-export type UpdateAccountCommandOutput = UpdateAccountResponse &
-  __MetadataBearer;
+export type UpdateAccountCommandOutput = UpdateAccountResponse & __MetadataBearer;
 
 export class UpdateAccountCommand extends $Command<
   UpdateAccountCommandInput,
@@ -47,9 +39,7 @@ export class UpdateAccountCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAccountCommandInput, UpdateAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateAccountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAccountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateAccountCommandOutput> {
     return deserializeAws_restJson1_1UpdateAccountCommand(output, context);
   }
 

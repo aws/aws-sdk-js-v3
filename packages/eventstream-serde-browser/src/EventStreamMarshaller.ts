@@ -1,10 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import {
-  Encoder,
-  Decoder,
-  Message,
-  EventStreamMarshaller as IEventStreamMarshaller
-} from "@aws-sdk/types";
+import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
 import { ReadableStreamtoIterable } from "./utils";
 import { getChunkedStream } from "./getChunkedStream";
 import { getEventMessageStream } from "./getEventMessageStream";
@@ -23,19 +18,10 @@ export class EventStreamMarshaller {
     this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
   }
 
-  deserialize<T>(
-    body: ReadableStream,
-    deserializer: (input: { [event: string]: Message }) => T
-  ): AsyncIterable<T> {
+  deserialize<T>(body: ReadableStream, deserializer: (input: { [event: string]: Message }) => T): AsyncIterable<T> {
     const chunkedStream = getChunkedStream(body);
-    const messageStream = getEventMessageStream(
-      chunkedStream,
-      this.eventMarshaller
-    );
-    const deserialingStream = getDeserializingStream(
-      messageStream,
-      deserializer
-    );
+    const messageStream = getEventMessageStream(chunkedStream, this.eventMarshaller);
+    const deserialingStream = getDeserializingStream(messageStream, deserializer);
     return ReadableStreamtoIterable(deserialingStream);
   }
 
@@ -51,10 +37,7 @@ export class EventStreamMarshaller {
    * * https://bugzilla.mozilla.org/show_bug.cgi?id=1387483
    *
    */
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): ReadableStream {
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): ReadableStream {
     throw new Error(`event stream request in browser is not supported
 Reference: https://bugs.chromium.org/p/chromium/issues/detail?id=688906`);
   }

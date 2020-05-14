@@ -1,21 +1,11 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
-import {
-  CreateDataRepositoryTaskRequest,
-  CreateDataRepositoryTaskResponse
-} from "../models/index";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateDataRepositoryTaskCommand,
   serializeAws_json1_1CreateDataRepositoryTaskCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDataRepositoryTaskCommandInput = CreateDataRepositoryTaskRequest;
-export type CreateDataRepositoryTaskCommandOutput = CreateDataRepositoryTaskResponse &
-  __MetadataBearer;
+export type CreateDataRepositoryTaskCommandOutput = CreateDataRepositoryTaskResponse & __MetadataBearer;
 
 export class CreateDataRepositoryTaskCommand extends $Command<
   CreateDataRepositoryTaskCommandInput,
@@ -49,13 +38,8 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDataRepositoryTaskCommandInput,
-    CreateDataRepositoryTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDataRepositoryTaskCommandInput, CreateDataRepositoryTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class CreateDataRepositoryTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDataRepositoryTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDataRepositoryTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateDataRepositoryTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDataRepositoryTaskCommandOutput> {
-    return deserializeAws_json1_1CreateDataRepositoryTaskCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDataRepositoryTaskCommandOutput> {
+    return deserializeAws_json1_1CreateDataRepositoryTaskCommand(output, context);
   }
 
   // Start section: command_body_extra

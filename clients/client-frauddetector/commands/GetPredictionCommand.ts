@@ -1,18 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import { GetPredictionRequest, GetPredictionResult } from "../models/index";
 import {
   deserializeAws_json1_1GetPredictionCommand,
   serializeAws_json1_1GetPredictionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class GetPredictionCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPredictionCommandInput, GetPredictionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class GetPredictionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPredictionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPredictionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPredictionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPredictionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPredictionCommandOutput> {
     return deserializeAws_json1_1GetPredictionCommand(output, context);
   }
 

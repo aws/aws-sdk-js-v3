@@ -51,9 +51,7 @@ describe("httpGet", () => {
     const expectedResponse = "foo bar baz";
     addMatcher("/", expectedResponse);
 
-    expect(
-      (await httpGet(`http://localhost:${port}/`)).toString("utf8")
-    ).toEqual(expectedResponse);
+    expect((await httpGet(`http://localhost:${port}/`)).toString("utf8")).toEqual(expectedResponse);
   });
 
   it("should reject the promise with a non-terminal error if a 404 status code is received", async () => {

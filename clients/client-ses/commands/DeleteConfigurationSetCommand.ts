@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  DeleteConfigurationSetRequest,
-  DeleteConfigurationSetResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { DeleteConfigurationSetRequest, DeleteConfigurationSetResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteConfigurationSetCommand,
   serializeAws_queryDeleteConfigurationSetCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConfigurationSetCommandInput = DeleteConfigurationSetRequest;
-export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse &
-  __MetadataBearer;
+export type DeleteConfigurationSetCommandOutput = DeleteConfigurationSetResponse & __MetadataBearer;
 
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,
@@ -49,13 +38,8 @@ export class DeleteConfigurationSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteConfigurationSetCommandInput,
-    DeleteConfigurationSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteConfigurationSetCommandInput, DeleteConfigurationSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DeleteConfigurationSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConfigurationSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteConfigurationSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteConfigurationSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteConfigurationSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConfigurationSetCommandOutput> {
     return deserializeAws_queryDeleteConfigurationSetCommand(output, context);
   }
 

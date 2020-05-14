@@ -1,18 +1,11 @@
-import {
-  ConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConnectClient";
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateUserRoutingProfileRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateUserRoutingProfileCommand,
   serializeAws_restJson1_1UpdateUserRoutingProfileCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserRoutingProfileCommandInput,
-    UpdateUserRoutingProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserRoutingProfileCommandInput, UpdateUserRoutingProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,24 +54,12 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateUserRoutingProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserRoutingProfileCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateUserRoutingProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateUserRoutingProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateUserRoutingProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserRoutingProfileCommandOutput> {
+    return deserializeAws_restJson1_1UpdateUserRoutingProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  ListDevelopmentSchemaArnsRequest,
-  ListDevelopmentSchemaArnsResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { ListDevelopmentSchemaArnsRequest, ListDevelopmentSchemaArnsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand,
   serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDevelopmentSchemaArnsCommandInput = ListDevelopmentSchemaArnsRequest;
-export type ListDevelopmentSchemaArnsCommandOutput = ListDevelopmentSchemaArnsResponse &
-  __MetadataBearer;
+export type ListDevelopmentSchemaArnsCommandOutput = ListDevelopmentSchemaArnsResponse & __MetadataBearer;
 
 export class ListDevelopmentSchemaArnsCommand extends $Command<
   ListDevelopmentSchemaArnsCommandInput,
@@ -49,13 +38,8 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDevelopmentSchemaArnsCommandInput,
-    ListDevelopmentSchemaArnsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDevelopmentSchemaArnsCommandInput, ListDevelopmentSchemaArnsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class ListDevelopmentSchemaArnsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDevelopmentSchemaArnsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListDevelopmentSchemaArnsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDevelopmentSchemaArnsCommandOutput> {
-    return deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommand(output, context);
   }
 
   // Start section: command_body_extra

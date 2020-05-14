@@ -1,18 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { ListThingTypesRequest, ListThingTypesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListThingTypesCommand,
   serializeAws_restJson1_1ListThingTypesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListThingTypesCommandInput = ListThingTypesRequest;
-export type ListThingTypesCommandOutput = ListThingTypesResponse &
-  __MetadataBearer;
+export type ListThingTypesCommandOutput = ListThingTypesResponse & __MetadataBearer;
 
 export class ListThingTypesCommand extends $Command<
   ListThingTypesCommandInput,
@@ -47,9 +39,7 @@ export class ListThingTypesCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListThingTypesCommandInput, ListThingTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListThingTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListThingTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListThingTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListThingTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListThingTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListThingTypesCommandOutput> {
     return deserializeAws_restJson1_1ListThingTypesCommand(output, context);
   }
 

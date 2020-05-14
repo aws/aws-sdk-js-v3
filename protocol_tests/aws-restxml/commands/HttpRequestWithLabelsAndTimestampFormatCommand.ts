@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { HttpRequestWithLabelsAndTimestampFormatInput } from "../models/index";
 import {
   deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand,
   serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -35,9 +28,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: HttpRequestWithLabelsAndTimestampFormatCommandInput
-  ) {
+  constructor(readonly input: HttpRequestWithLabelsAndTimestampFormatCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,9 +42,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     HttpRequestWithLabelsAndTimestampFormatCommandInput,
     HttpRequestWithLabelsAndTimestampFormatCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -72,20 +61,14 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
     input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> {
-    return deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand(output, context);
   }
 
   // Start section: command_body_extra

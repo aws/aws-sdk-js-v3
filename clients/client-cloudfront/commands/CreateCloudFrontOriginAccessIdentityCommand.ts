@@ -1,8 +1,4 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   CreateCloudFrontOriginAccessIdentityRequest,
   CreateCloudFrontOriginAccessIdentityResult
@@ -12,10 +8,7 @@ import {
   serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateCloudFrontOriginAccessIdentityCommandInput
-  ) {
+  constructor(readonly input: CreateCloudFrontOriginAccessIdentityCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCloudFrontOriginAccessIdentityCommandInput,
-    CreateCloudFrontOriginAccessIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCloudFrontOriginAccessIdentityCommandInput, CreateCloudFrontOriginAccessIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class CreateCloudFrontOriginAccessIdentityCommand extends $Command<
     input: CreateCloudFrontOriginAccessIdentityCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFrontOriginAccessIdentityCommandOutput> {
-    return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

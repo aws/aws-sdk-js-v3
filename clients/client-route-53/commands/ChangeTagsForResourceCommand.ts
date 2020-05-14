@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  ChangeTagsForResourceRequest,
-  ChangeTagsForResourceResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/index";
 import {
   deserializeAws_restXmlChangeTagsForResourceCommand,
   serializeAws_restXmlChangeTagsForResourceCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ChangeTagsForResourceCommandInput = ChangeTagsForResourceRequest;
-export type ChangeTagsForResourceCommandOutput = ChangeTagsForResourceResponse &
-  __MetadataBearer;
+export type ChangeTagsForResourceCommandOutput = ChangeTagsForResourceResponse & __MetadataBearer;
 
 export class ChangeTagsForResourceCommand extends $Command<
   ChangeTagsForResourceCommandInput,
@@ -49,13 +38,8 @@ export class ChangeTagsForResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ChangeTagsForResourceCommandInput,
-    ChangeTagsForResourceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ChangeTagsForResourceCommandInput, ChangeTagsForResourceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ChangeTagsForResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ChangeTagsForResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ChangeTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlChangeTagsForResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ChangeTagsForResourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ChangeTagsForResourceCommandOutput> {
     return deserializeAws_restXmlChangeTagsForResourceCommand(output, context);
   }
 

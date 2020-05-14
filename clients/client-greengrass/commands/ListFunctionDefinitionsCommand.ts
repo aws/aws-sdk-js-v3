@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  ListFunctionDefinitionsRequest,
-  ListFunctionDefinitionsResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListFunctionDefinitionsRequest, ListFunctionDefinitionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFunctionDefinitionsCommand,
   serializeAws_restJson1_1ListFunctionDefinitionsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListFunctionDefinitionsCommandInput = ListFunctionDefinitionsRequest;
-export type ListFunctionDefinitionsCommandOutput = ListFunctionDefinitionsResponse &
-  __MetadataBearer;
+export type ListFunctionDefinitionsCommandOutput = ListFunctionDefinitionsResponse & __MetadataBearer;
 
 export class ListFunctionDefinitionsCommand extends $Command<
   ListFunctionDefinitionsCommandInput,
@@ -49,13 +38,8 @@ export class ListFunctionDefinitionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListFunctionDefinitionsCommandInput,
-    ListFunctionDefinitionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListFunctionDefinitionsCommandInput, ListFunctionDefinitionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class ListFunctionDefinitionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListFunctionDefinitionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFunctionDefinitionsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListFunctionDefinitionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ListFunctionDefinitionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListFunctionDefinitionsCommandOutput> {
-    return deserializeAws_restJson1_1ListFunctionDefinitionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionDefinitionsCommandOutput> {
+    return deserializeAws_restJson1_1ListFunctionDefinitionsCommand(output, context);
   }
 
   // Start section: command_body_extra

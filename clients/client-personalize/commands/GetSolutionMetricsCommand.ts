@@ -1,21 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient";
-import {
-  GetSolutionMetricsRequest,
-  GetSolutionMetricsResponse
-} from "../models/index";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import { GetSolutionMetricsRequest, GetSolutionMetricsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSolutionMetricsCommand,
   serializeAws_json1_1GetSolutionMetricsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSolutionMetricsCommandInput = GetSolutionMetricsRequest;
-export type GetSolutionMetricsCommandOutput = GetSolutionMetricsResponse &
-  __MetadataBearer;
+export type GetSolutionMetricsCommandOutput = GetSolutionMetricsResponse & __MetadataBearer;
 
 export class GetSolutionMetricsCommand extends $Command<
   GetSolutionMetricsCommandInput,
@@ -50,9 +39,7 @@ export class GetSolutionMetricsCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSolutionMetricsCommandInput, GetSolutionMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetSolutionMetricsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSolutionMetricsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSolutionMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetSolutionMetricsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSolutionMetricsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSolutionMetricsCommandOutput> {
     return deserializeAws_json1_1GetSolutionMetricsCommand(output, context);
   }
 

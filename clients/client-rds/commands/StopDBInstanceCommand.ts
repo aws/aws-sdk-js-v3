@@ -1,18 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryStopDBInstanceCommand,
   serializeAws_queryStopDBInstanceCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDBInstanceCommandInput = StopDBInstanceMessage;
-export type StopDBInstanceCommandOutput = StopDBInstanceResult &
-  __MetadataBearer;
+export type StopDBInstanceCommandOutput = StopDBInstanceResult & __MetadataBearer;
 
 export class StopDBInstanceCommand extends $Command<
   StopDBInstanceCommandInput,
@@ -47,9 +39,7 @@ export class StopDBInstanceCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopDBInstanceCommandInput, StopDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class StopDBInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopDBInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopDBInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopDBInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBInstanceCommandOutput> {
     return deserializeAws_queryStopDBInstanceCommand(output, context);
   }
 

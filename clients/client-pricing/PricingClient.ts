@@ -1,15 +1,6 @@
-import {
-  DescribeServicesCommandInput,
-  DescribeServicesCommandOutput
-} from "./commands/DescribeServicesCommand";
-import {
-  GetAttributeValuesCommandInput,
-  GetAttributeValuesCommandOutput
-} from "./commands/GetAttributeValuesCommand";
-import {
-  GetProductsCommandInput,
-  GetProductsCommandOutput
-} from "./commands/GetProductsCommand";
+import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
+import { GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput } from "./commands/GetAttributeValuesCommand";
+import { GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -26,12 +17,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -62,18 +48,14 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | DescribeServicesCommandInput
-  | GetAttributeValuesCommandInput
-  | GetProductsCommandInput;
+export type ServiceInputTypes = DescribeServicesCommandInput | GetAttributeValuesCommandInput | GetProductsCommandInput;
 
 export type ServiceOutputTypes =
   | DescribeServicesCommandOutput
   | GetAttributeValuesCommandOutput
   | GetProductsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -157,9 +139,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PricingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PricingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -168,9 +148,7 @@ export type PricingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PricingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

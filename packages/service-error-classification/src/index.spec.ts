@@ -1,13 +1,5 @@
-import {
-  CLOCK_SKEW_ERROR_CODES,
-  STILL_PROCESSING_ERROR_CODES,
-  THROTTLING_ERROR_CODES
-} from "./constants";
-import {
-  isClockSkewError,
-  isStillProcessingError,
-  isThrottlingError
-} from "./index";
+import { CLOCK_SKEW_ERROR_CODES, STILL_PROCESSING_ERROR_CODES, THROTTLING_ERROR_CODES } from "./constants";
+import { isClockSkewError, isStillProcessingError, isThrottlingError } from "./index";
 
 describe("isClockSkewError", () => {
   for (const name of Object.keys(CLOCK_SKEW_ERROR_CODES)) {

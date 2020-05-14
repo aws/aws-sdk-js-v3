@@ -1,18 +1,11 @@
-import {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AccessAnalyzerClient";
+import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetArchiveRuleCommand,
   serializeAws_restJson1_1GetArchiveRuleCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetArchiveRuleCommandInput = GetArchiveRuleRequest;
-export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse &
-  __MetadataBearer;
+export type GetArchiveRuleCommandOutput = GetArchiveRuleResponse & __MetadataBearer;
 
 export class GetArchiveRuleCommand extends $Command<
   GetArchiveRuleCommandInput,
@@ -47,9 +39,7 @@ export class GetArchiveRuleCommand extends $Command<
     configuration: AccessAnalyzerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetArchiveRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetArchiveRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetArchiveRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetArchiveRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetArchiveRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetArchiveRuleCommandOutput> {
     return deserializeAws_restJson1_1GetArchiveRuleCommand(output, context);
   }
 

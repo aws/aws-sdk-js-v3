@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Two or more incompatible parameters were specified.</p>
  */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -26,9 +21,7 @@ export namespace InvalidParameterCombinationException {
 /**
  * <p>The value for a parameter is invalid.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -38,16 +31,13 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>The customer has exceeded the allowed rate of API calls.</p>
  */
-export interface APICallRateForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface APICallRateForCustomerExceededFault extends __SmithyException, $MetadataBearer {
   name: "APICallRateForCustomerExceededFault";
   $fault: "client";
   message?: string;
@@ -61,73 +51,59 @@ export namespace APICallRateForCustomerExceededFault {
 /**
  * <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
  */
-export interface AuthorizationAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationAlreadyExistsFault {
-  export const isa = (o: any): o is AuthorizationAlreadyExistsFault =>
-    __isa(o, "AuthorizationAlreadyExistsFault");
+  export const isa = (o: any): o is AuthorizationAlreadyExistsFault => __isa(o, "AuthorizationAlreadyExistsFault");
 }
 
 /**
  * <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
  */
-export interface AuthorizationNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationNotFoundFault {
-  export const isa = (o: any): o is AuthorizationNotFoundFault =>
-    __isa(o, "AuthorizationNotFoundFault");
+  export const isa = (o: any): o is AuthorizationNotFoundFault => __isa(o, "AuthorizationNotFoundFault");
 }
 
 /**
  * <p>You already have a cluster with the given identifier.</p>
  */
-export interface CacheClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "CacheClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheClusterAlreadyExistsFault {
-  export const isa = (o: any): o is CacheClusterAlreadyExistsFault =>
-    __isa(o, "CacheClusterAlreadyExistsFault");
+  export const isa = (o: any): o is CacheClusterAlreadyExistsFault => __isa(o, "CacheClusterAlreadyExistsFault");
 }
 
 /**
  * <p>The requested cluster ID does not refer to an existing cluster.</p>
  */
-export interface CacheClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheClusterNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "CacheClusterNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheClusterNotFoundFault {
-  export const isa = (o: any): o is CacheClusterNotFoundFault =>
-    __isa(o, "CacheClusterNotFoundFault");
+  export const isa = (o: any): o is CacheClusterNotFoundFault => __isa(o, "CacheClusterNotFoundFault");
 }
 
 /**
  * <p>A cache parameter group with the requested name already exists.</p>
  */
-export interface CacheParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "CacheParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -141,25 +117,20 @@ export namespace CacheParameterGroupAlreadyExistsFault {
 /**
  * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
  */
-export interface CacheParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "CacheParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheParameterGroupNotFoundFault {
-  export const isa = (o: any): o is CacheParameterGroupNotFoundFault =>
-    __isa(o, "CacheParameterGroupNotFoundFault");
+  export const isa = (o: any): o is CacheParameterGroupNotFoundFault => __isa(o, "CacheParameterGroupNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
  */
-export interface CacheParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "CacheParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -173,9 +144,7 @@ export namespace CacheParameterGroupQuotaExceededFault {
 /**
  * <p>A cache security group with the specified name already exists.</p>
  */
-export interface CacheSecurityGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSecurityGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "CacheSecurityGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -189,25 +158,20 @@ export namespace CacheSecurityGroupAlreadyExistsFault {
 /**
  * <p>The requested cache security group name does not refer to an existing cache security group.</p>
  */
-export interface CacheSecurityGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSecurityGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "CacheSecurityGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheSecurityGroupNotFoundFault {
-  export const isa = (o: any): o is CacheSecurityGroupNotFoundFault =>
-    __isa(o, "CacheSecurityGroupNotFoundFault");
+  export const isa = (o: any): o is CacheSecurityGroupNotFoundFault => __isa(o, "CacheSecurityGroupNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
  */
-export interface CacheSecurityGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSecurityGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "CacheSecurityGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -221,9 +185,7 @@ export namespace CacheSecurityGroupQuotaExceededFault {
 /**
  * <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>
  */
-export interface CacheSubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "CacheSubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -237,41 +199,33 @@ export namespace CacheSubnetGroupAlreadyExistsFault {
 /**
  * <p>The requested cache subnet group is currently in use.</p>
  */
-export interface CacheSubnetGroupInUse
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSubnetGroupInUse extends __SmithyException, $MetadataBearer {
   name: "CacheSubnetGroupInUse";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheSubnetGroupInUse {
-  export const isa = (o: any): o is CacheSubnetGroupInUse =>
-    __isa(o, "CacheSubnetGroupInUse");
+  export const isa = (o: any): o is CacheSubnetGroupInUse => __isa(o, "CacheSubnetGroupInUse");
 }
 
 /**
  * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  */
-export interface CacheSubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "CacheSubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheSubnetGroupNotFoundFault {
-  export const isa = (o: any): o is CacheSubnetGroupNotFoundFault =>
-    __isa(o, "CacheSubnetGroupNotFoundFault");
+  export const isa = (o: any): o is CacheSubnetGroupNotFoundFault => __isa(o, "CacheSubnetGroupNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
  */
-export interface CacheSubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "CacheSubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -285,25 +239,20 @@ export namespace CacheSubnetGroupQuotaExceededFault {
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
  */
-export interface CacheSubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CacheSubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "CacheSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace CacheSubnetQuotaExceededFault {
-  export const isa = (o: any): o is CacheSubnetQuotaExceededFault =>
-    __isa(o, "CacheSubnetQuotaExceededFault");
+  export const isa = (o: any): o is CacheSubnetQuotaExceededFault => __isa(o, "CacheSubnetQuotaExceededFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
  */
-export interface ClusterQuotaForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
@@ -318,9 +267,7 @@ export namespace ClusterQuotaForCustomerExceededFault {
  * <p>The requested cache node type is not available in the specified Availability Zone.
  *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  */
-export interface InsufficientCacheClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientCacheClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientCacheClusterCapacityFault";
   $fault: "client";
   message?: string;
@@ -341,32 +288,26 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidARNFault {
-  export const isa = (o: any): o is InvalidARNFault =>
-    __isa(o, "InvalidARNFault");
+  export const isa = (o: any): o is InvalidARNFault => __isa(o, "InvalidARNFault");
 }
 
 /**
  * <p>The requested cluster is not in the <code>available</code> state.</p>
  */
-export interface InvalidCacheClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCacheClusterStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidCacheClusterStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidCacheClusterStateFault {
-  export const isa = (o: any): o is InvalidCacheClusterStateFault =>
-    __isa(o, "InvalidCacheClusterStateFault");
+  export const isa = (o: any): o is InvalidCacheClusterStateFault => __isa(o, "InvalidCacheClusterStateFault");
 }
 
 /**
  * <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
  */
-export interface InvalidCacheParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCacheParameterGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidCacheParameterGroupStateFault";
   $fault: "client";
   message?: string;
@@ -380,9 +321,7 @@ export namespace InvalidCacheParameterGroupStateFault {
 /**
  * <p>The current state of the cache security group does not allow deletion.</p>
  */
-export interface InvalidCacheSecurityGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidCacheSecurityGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidCacheSecurityGroupStateFault";
   $fault: "client";
   message?: string;
@@ -403,40 +342,33 @@ export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidKMSKeyFault {
-  export const isa = (o: any): o is InvalidKMSKeyFault =>
-    __isa(o, "InvalidKMSKeyFault");
+  export const isa = (o: any): o is InvalidKMSKeyFault => __isa(o, "InvalidKMSKeyFault");
 }
 
 /**
  * <p>The requested replication group is not in the <code>available</code> state.</p>
  */
-export interface InvalidReplicationGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidReplicationGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidReplicationGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidReplicationGroupStateFault {
-  export const isa = (o: any): o is InvalidReplicationGroupStateFault =>
-    __isa(o, "InvalidReplicationGroupStateFault");
+  export const isa = (o: any): o is InvalidReplicationGroupStateFault => __isa(o, "InvalidReplicationGroupStateFault");
 }
 
 /**
  * <p>The current state of the snapshot does not allow the requested operation to occur.</p>
  */
-export interface InvalidSnapshotStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSnapshotStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidSnapshotStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidSnapshotStateFault {
-  export const isa = (o: any): o is InvalidSnapshotStateFault =>
-    __isa(o, "InvalidSnapshotStateFault");
+  export const isa = (o: any): o is InvalidSnapshotStateFault => __isa(o, "InvalidSnapshotStateFault");
 }
 
 /**
@@ -455,17 +387,14 @@ export namespace InvalidSubnet {
 /**
  * <p>The VPC network is in an invalid state.</p>
  */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
-    __isa(o, "InvalidVPCNetworkStateFault");
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
@@ -478,84 +407,68 @@ export interface NoOperationFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoOperationFault {
-  export const isa = (o: any): o is NoOperationFault =>
-    __isa(o, "NoOperationFault");
+  export const isa = (o: any): o is NoOperationFault => __isa(o, "NoOperationFault");
 }
 
 /**
  * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
  *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
  */
-export interface NodeGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NodeGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "NodeGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NodeGroupNotFoundFault {
-  export const isa = (o: any): o is NodeGroupNotFoundFault =>
-    __isa(o, "NodeGroupNotFoundFault");
+  export const isa = (o: any): o is NodeGroupNotFoundFault => __isa(o, "NodeGroupNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the maximum allowed number
  *             of node groups (shards) in a single replication group. The default maximum is 90</p>
  */
-export interface NodeGroupsPerReplicationGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NodeGroupsPerReplicationGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "NodeGroupsPerReplicationGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
-  export const isa = (
-    o: any
-  ): o is NodeGroupsPerReplicationGroupQuotaExceededFault =>
+  export const isa = (o: any): o is NodeGroupsPerReplicationGroupQuotaExceededFault =>
     __isa(o, "NodeGroupsPerReplicationGroupQuotaExceededFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>
  */
-export interface NodeQuotaForClusterExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NodeQuotaForClusterExceededFault extends __SmithyException, $MetadataBearer {
   name: "NodeQuotaForClusterExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NodeQuotaForClusterExceededFault {
-  export const isa = (o: any): o is NodeQuotaForClusterExceededFault =>
-    __isa(o, "NodeQuotaForClusterExceededFault");
+  export const isa = (o: any): o is NodeQuotaForClusterExceededFault => __isa(o, "NodeQuotaForClusterExceededFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
  */
-export interface NodeQuotaForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
   name: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NodeQuotaForCustomerExceededFault {
-  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault =>
-    __isa(o, "NodeQuotaForCustomerExceededFault");
+  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault => __isa(o, "NodeQuotaForCustomerExceededFault");
 }
 
 /**
  * <p>The specified replication group already exists.</p>
  */
-export interface ReplicationGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ReplicationGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -569,43 +482,34 @@ export namespace ReplicationGroupAlreadyExistsFault {
 /**
  * <p>The targeted replication group is not available. </p>
  */
-export interface ReplicationGroupAlreadyUnderMigrationFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationGroupAlreadyUnderMigrationFault extends __SmithyException, $MetadataBearer {
   name: "ReplicationGroupAlreadyUnderMigrationFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReplicationGroupAlreadyUnderMigrationFault {
-  export const isa = (
-    o: any
-  ): o is ReplicationGroupAlreadyUnderMigrationFault =>
+  export const isa = (o: any): o is ReplicationGroupAlreadyUnderMigrationFault =>
     __isa(o, "ReplicationGroupAlreadyUnderMigrationFault");
 }
 
 /**
  * <p>The specified replication group does not exist.</p>
  */
-export interface ReplicationGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ReplicationGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReplicationGroupNotFoundFault {
-  export const isa = (o: any): o is ReplicationGroupNotFoundFault =>
-    __isa(o, "ReplicationGroupNotFoundFault");
+  export const isa = (o: any): o is ReplicationGroupNotFoundFault => __isa(o, "ReplicationGroupNotFoundFault");
 }
 
 /**
  * <p>The designated replication group is not available for data migration.</p>
  */
-export interface ReplicationGroupNotUnderMigrationFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationGroupNotUnderMigrationFault extends __SmithyException, $MetadataBearer {
   name: "ReplicationGroupNotUnderMigrationFault";
   $fault: "client";
   message?: string;
@@ -619,9 +523,7 @@ export namespace ReplicationGroupNotUnderMigrationFault {
 /**
  * <p>You already have a reservation with the given identifier.</p>
  */
-export interface ReservedCacheNodeAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedCacheNodeAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ReservedCacheNodeAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -635,25 +537,20 @@ export namespace ReservedCacheNodeAlreadyExistsFault {
 /**
  * <p>The requested reserved cache node was not found.</p>
  */
-export interface ReservedCacheNodeNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedCacheNodeNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ReservedCacheNodeNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReservedCacheNodeNotFoundFault {
-  export const isa = (o: any): o is ReservedCacheNodeNotFoundFault =>
-    __isa(o, "ReservedCacheNodeNotFoundFault");
+  export const isa = (o: any): o is ReservedCacheNodeNotFoundFault => __isa(o, "ReservedCacheNodeNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
  */
-export interface ReservedCacheNodeQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedCacheNodeQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ReservedCacheNodeQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -667,9 +564,7 @@ export namespace ReservedCacheNodeQuotaExceededFault {
 /**
  * <p>The requested cache node offering does not exist.</p>
  */
-export interface ReservedCacheNodesOfferingNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReservedCacheNodesOfferingNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ReservedCacheNodesOfferingNotFoundFault";
   $fault: "client";
   message?: string;
@@ -683,49 +578,40 @@ export namespace ReservedCacheNodesOfferingNotFoundFault {
 /**
  * <p>The specified service linked role (SLR) was not found.</p>
  */
-export interface ServiceLinkedRoleNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ServiceLinkedRoleNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ServiceLinkedRoleNotFoundFault {
-  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault =>
-    __isa(o, "ServiceLinkedRoleNotFoundFault");
+  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault => __isa(o, "ServiceLinkedRoleNotFoundFault");
 }
 
 /**
  * <p>The service update doesn't exist</p>
  */
-export interface ServiceUpdateNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUpdateNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ServiceUpdateNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ServiceUpdateNotFoundFault {
-  export const isa = (o: any): o is ServiceUpdateNotFoundFault =>
-    __isa(o, "ServiceUpdateNotFoundFault");
+  export const isa = (o: any): o is ServiceUpdateNotFoundFault => __isa(o, "ServiceUpdateNotFoundFault");
 }
 
 /**
  * <p>You already have a snapshot with the given name.</p>
  */
-export interface SnapshotAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotAlreadyExistsFault {
-  export const isa = (o: any): o is SnapshotAlreadyExistsFault =>
-    __isa(o, "SnapshotAlreadyExistsFault");
+  export const isa = (o: any): o is SnapshotAlreadyExistsFault => __isa(o, "SnapshotAlreadyExistsFault");
 }
 
 /**
@@ -741,49 +627,40 @@ export namespace SnapshotAlreadyExistsFault {
  *          </ul>
  *         <p>Neither of these are supported by ElastiCache.</p>
  */
-export interface SnapshotFeatureNotSupportedFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotFeatureNotSupportedFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotFeatureNotSupportedFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotFeatureNotSupportedFault {
-  export const isa = (o: any): o is SnapshotFeatureNotSupportedFault =>
-    __isa(o, "SnapshotFeatureNotSupportedFault");
+  export const isa = (o: any): o is SnapshotFeatureNotSupportedFault => __isa(o, "SnapshotFeatureNotSupportedFault");
 }
 
 /**
  * <p>The requested snapshot name does not refer to an existing snapshot.</p>
  */
-export interface SnapshotNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotNotFoundFault {
-  export const isa = (o: any): o is SnapshotNotFoundFault =>
-    __isa(o, "SnapshotNotFoundFault");
+  export const isa = (o: any): o is SnapshotNotFoundFault => __isa(o, "SnapshotNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
  */
-export interface SnapshotQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SnapshotQuotaExceededFault {
-  export const isa = (o: any): o is SnapshotQuotaExceededFault =>
-    __isa(o, "SnapshotQuotaExceededFault");
+  export const isa = (o: any): o is SnapshotQuotaExceededFault => __isa(o, "SnapshotQuotaExceededFault");
 }
 
 /**
@@ -809,40 +686,33 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagNotFoundFault {
-  export const isa = (o: any): o is TagNotFoundFault =>
-    __isa(o, "TagNotFoundFault");
+  export const isa = (o: any): o is TagNotFoundFault => __isa(o, "TagNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  */
-export interface TagQuotaPerResourceExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagQuotaPerResourceExceeded extends __SmithyException, $MetadataBearer {
   name: "TagQuotaPerResourceExceeded";
   $fault: "client";
   message?: string;
 }
 
 export namespace TagQuotaPerResourceExceeded {
-  export const isa = (o: any): o is TagQuotaPerResourceExceeded =>
-    __isa(o, "TagQuotaPerResourceExceeded");
+  export const isa = (o: any): o is TagQuotaPerResourceExceeded => __isa(o, "TagQuotaPerResourceExceeded");
 }
 
 /**
  * <p>The <code>TestFailover</code> action is not available.</p>
  */
-export interface TestFailoverNotAvailableFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TestFailoverNotAvailableFault extends __SmithyException, $MetadataBearer {
   name: "TestFailoverNotAvailableFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace TestFailoverNotAvailableFault {
-  export const isa = (o: any): o is TestFailoverNotAvailableFault =>
-    __isa(o, "TestFailoverNotAvailableFault");
+  export const isa = (o: any): o is TestFailoverNotAvailableFault => __isa(o, "TestFailoverNotAvailableFault");
 }
 
 export enum AZMode {
@@ -872,8 +742,7 @@ export interface AddTagsToResourceMessage {
 }
 
 export namespace AddTagsToResourceMessage {
-  export const isa = (o: any): o is AddTagsToResourceMessage =>
-    __isa(o, "AddTagsToResourceMessage");
+  export const isa = (o: any): o is AddTagsToResourceMessage => __isa(o, "AddTagsToResourceMessage");
 }
 
 /**
@@ -986,8 +855,7 @@ export interface AvailabilityZone {
 }
 
 export namespace AvailabilityZone {
-  export const isa = (o: any): o is AvailabilityZone =>
-    __isa(o, "AvailabilityZone");
+  export const isa = (o: any): o is AvailabilityZone => __isa(o, "AvailabilityZone");
 }
 
 export interface BatchApplyUpdateActionMessage {
@@ -1009,8 +877,7 @@ export interface BatchApplyUpdateActionMessage {
 }
 
 export namespace BatchApplyUpdateActionMessage {
-  export const isa = (o: any): o is BatchApplyUpdateActionMessage =>
-    __isa(o, "BatchApplyUpdateActionMessage");
+  export const isa = (o: any): o is BatchApplyUpdateActionMessage => __isa(o, "BatchApplyUpdateActionMessage");
 }
 
 export interface BatchStopUpdateActionMessage {
@@ -1032,8 +899,7 @@ export interface BatchStopUpdateActionMessage {
 }
 
 export namespace BatchStopUpdateActionMessage {
-  export const isa = (o: any): o is BatchStopUpdateActionMessage =>
-    __isa(o, "BatchStopUpdateActionMessage");
+  export const isa = (o: any): o is BatchStopUpdateActionMessage => __isa(o, "BatchStopUpdateActionMessage");
 }
 
 /**
@@ -1449,8 +1315,7 @@ export interface CacheClusterMessage {
 }
 
 export namespace CacheClusterMessage {
-  export const isa = (o: any): o is CacheClusterMessage =>
-    __isa(o, "CacheClusterMessage");
+  export const isa = (o: any): o is CacheClusterMessage => __isa(o, "CacheClusterMessage");
 }
 
 /**
@@ -1494,8 +1359,7 @@ export interface CacheEngineVersion {
 }
 
 export namespace CacheEngineVersion {
-  export const isa = (o: any): o is CacheEngineVersion =>
-    __isa(o, "CacheEngineVersion");
+  export const isa = (o: any): o is CacheEngineVersion => __isa(o, "CacheEngineVersion");
 }
 
 /**
@@ -1516,8 +1380,7 @@ export interface CacheEngineVersionMessage {
 }
 
 export namespace CacheEngineVersionMessage {
-  export const isa = (o: any): o is CacheEngineVersionMessage =>
-    __isa(o, "CacheEngineVersionMessage");
+  export const isa = (o: any): o is CacheEngineVersionMessage => __isa(o, "CacheEngineVersionMessage");
 }
 
 /**
@@ -1789,8 +1652,7 @@ export interface CacheNodeTypeSpecificParameter {
 }
 
 export namespace CacheNodeTypeSpecificParameter {
-  export const isa = (o: any): o is CacheNodeTypeSpecificParameter =>
-    __isa(o, "CacheNodeTypeSpecificParameter");
+  export const isa = (o: any): o is CacheNodeTypeSpecificParameter => __isa(o, "CacheNodeTypeSpecificParameter");
 }
 
 /**
@@ -1810,8 +1672,7 @@ export interface CacheNodeTypeSpecificValue {
 }
 
 export namespace CacheNodeTypeSpecificValue {
-  export const isa = (o: any): o is CacheNodeTypeSpecificValue =>
-    __isa(o, "CacheNodeTypeSpecificValue");
+  export const isa = (o: any): o is CacheNodeTypeSpecificValue => __isa(o, "CacheNodeTypeSpecificValue");
 }
 
 /**
@@ -1861,8 +1722,7 @@ export interface CacheNodeUpdateStatus {
 }
 
 export namespace CacheNodeUpdateStatus {
-  export const isa = (o: any): o is CacheNodeUpdateStatus =>
-    __isa(o, "CacheNodeUpdateStatus");
+  export const isa = (o: any): o is CacheNodeUpdateStatus => __isa(o, "CacheNodeUpdateStatus");
 }
 
 /**
@@ -1896,8 +1756,7 @@ export interface CacheParameterGroup {
 }
 
 export namespace CacheParameterGroup {
-  export const isa = (o: any): o is CacheParameterGroup =>
-    __isa(o, "CacheParameterGroup");
+  export const isa = (o: any): o is CacheParameterGroup => __isa(o, "CacheParameterGroup");
 }
 
 /**
@@ -1923,8 +1782,7 @@ export interface CacheParameterGroupDetails {
 }
 
 export namespace CacheParameterGroupDetails {
-  export const isa = (o: any): o is CacheParameterGroupDetails =>
-    __isa(o, "CacheParameterGroupDetails");
+  export const isa = (o: any): o is CacheParameterGroupDetails => __isa(o, "CacheParameterGroupDetails");
 }
 
 /**
@@ -1951,8 +1809,7 @@ export interface CacheParameterGroupNameMessage {
 }
 
 export namespace CacheParameterGroupNameMessage {
-  export const isa = (o: any): o is CacheParameterGroupNameMessage =>
-    __isa(o, "CacheParameterGroupNameMessage");
+  export const isa = (o: any): o is CacheParameterGroupNameMessage => __isa(o, "CacheParameterGroupNameMessage");
 }
 
 /**
@@ -1978,8 +1835,7 @@ export interface CacheParameterGroupStatus {
 }
 
 export namespace CacheParameterGroupStatus {
-  export const isa = (o: any): o is CacheParameterGroupStatus =>
-    __isa(o, "CacheParameterGroupStatus");
+  export const isa = (o: any): o is CacheParameterGroupStatus => __isa(o, "CacheParameterGroupStatus");
 }
 
 /**
@@ -2000,8 +1856,7 @@ export interface CacheParameterGroupsMessage {
 }
 
 export namespace CacheParameterGroupsMessage {
-  export const isa = (o: any): o is CacheParameterGroupsMessage =>
-    __isa(o, "CacheParameterGroupsMessage");
+  export const isa = (o: any): o is CacheParameterGroupsMessage => __isa(o, "CacheParameterGroupsMessage");
 }
 
 /**
@@ -2048,8 +1903,7 @@ export interface CacheSecurityGroup {
 }
 
 export namespace CacheSecurityGroup {
-  export const isa = (o: any): o is CacheSecurityGroup =>
-    __isa(o, "CacheSecurityGroup");
+  export const isa = (o: any): o is CacheSecurityGroup => __isa(o, "CacheSecurityGroup");
 }
 
 /**
@@ -2069,8 +1923,7 @@ export interface CacheSecurityGroupMembership {
 }
 
 export namespace CacheSecurityGroupMembership {
-  export const isa = (o: any): o is CacheSecurityGroupMembership =>
-    __isa(o, "CacheSecurityGroupMembership");
+  export const isa = (o: any): o is CacheSecurityGroupMembership => __isa(o, "CacheSecurityGroupMembership");
 }
 
 /**
@@ -2090,8 +1943,7 @@ export interface CacheSecurityGroupMessage {
 }
 
 export namespace CacheSecurityGroupMessage {
-  export const isa = (o: any): o is CacheSecurityGroupMessage =>
-    __isa(o, "CacheSecurityGroupMessage");
+  export const isa = (o: any): o is CacheSecurityGroupMessage => __isa(o, "CacheSecurityGroupMessage");
 }
 
 /**
@@ -2133,8 +1985,7 @@ export interface CacheSubnetGroup {
 }
 
 export namespace CacheSubnetGroup {
-  export const isa = (o: any): o is CacheSubnetGroup =>
-    __isa(o, "CacheSubnetGroup");
+  export const isa = (o: any): o is CacheSubnetGroup => __isa(o, "CacheSubnetGroup");
 }
 
 /**
@@ -2154,8 +2005,7 @@ export interface CacheSubnetGroupMessage {
 }
 
 export namespace CacheSubnetGroupMessage {
-  export const isa = (o: any): o is CacheSubnetGroupMessage =>
-    __isa(o, "CacheSubnetGroupMessage");
+  export const isa = (o: any): o is CacheSubnetGroupMessage => __isa(o, "CacheSubnetGroupMessage");
 }
 
 export type ChangeType = "immediate" | "requires-reboot";
@@ -2174,8 +2024,7 @@ export interface CompleteMigrationMessage {
 }
 
 export namespace CompleteMigrationMessage {
-  export const isa = (o: any): o is CompleteMigrationMessage =>
-    __isa(o, "CompleteMigrationMessage");
+  export const isa = (o: any): o is CompleteMigrationMessage => __isa(o, "CompleteMigrationMessage");
 }
 
 export interface CompleteMigrationResponse {
@@ -2187,8 +2036,7 @@ export interface CompleteMigrationResponse {
 }
 
 export namespace CompleteMigrationResponse {
-  export const isa = (o: any): o is CompleteMigrationResponse =>
-    __isa(o, "CompleteMigrationResponse");
+  export const isa = (o: any): o is CompleteMigrationResponse => __isa(o, "CompleteMigrationResponse");
 }
 
 /**
@@ -2239,8 +2087,7 @@ export interface ConfigureShard {
 }
 
 export namespace ConfigureShard {
-  export const isa = (o: any): o is ConfigureShard =>
-    __isa(o, "ConfigureShard");
+  export const isa = (o: any): o is ConfigureShard => __isa(o, "ConfigureShard");
 }
 
 /**
@@ -2278,8 +2125,7 @@ export interface CopySnapshotMessage {
 }
 
 export namespace CopySnapshotMessage {
-  export const isa = (o: any): o is CopySnapshotMessage =>
-    __isa(o, "CopySnapshotMessage");
+  export const isa = (o: any): o is CopySnapshotMessage => __isa(o, "CopySnapshotMessage");
 }
 
 export interface CopySnapshotResult {
@@ -2291,8 +2137,7 @@ export interface CopySnapshotResult {
 }
 
 export namespace CopySnapshotResult {
-  export const isa = (o: any): o is CopySnapshotResult =>
-    __isa(o, "CopySnapshotResult");
+  export const isa = (o: any): o is CopySnapshotResult => __isa(o, "CopySnapshotResult");
 }
 
 /**
@@ -2726,8 +2571,7 @@ export interface CreateCacheClusterMessage {
 }
 
 export namespace CreateCacheClusterMessage {
-  export const isa = (o: any): o is CreateCacheClusterMessage =>
-    __isa(o, "CreateCacheClusterMessage");
+  export const isa = (o: any): o is CreateCacheClusterMessage => __isa(o, "CreateCacheClusterMessage");
 }
 
 export interface CreateCacheClusterResult {
@@ -2739,8 +2583,7 @@ export interface CreateCacheClusterResult {
 }
 
 export namespace CreateCacheClusterResult {
-  export const isa = (o: any): o is CreateCacheClusterResult =>
-    __isa(o, "CreateCacheClusterResult");
+  export const isa = (o: any): o is CreateCacheClusterResult => __isa(o, "CreateCacheClusterResult");
 }
 
 /**
@@ -2774,8 +2617,7 @@ export interface CreateCacheParameterGroupMessage {
 }
 
 export namespace CreateCacheParameterGroupMessage {
-  export const isa = (o: any): o is CreateCacheParameterGroupMessage =>
-    __isa(o, "CreateCacheParameterGroupMessage");
+  export const isa = (o: any): o is CreateCacheParameterGroupMessage => __isa(o, "CreateCacheParameterGroupMessage");
 }
 
 export interface CreateCacheParameterGroupResult {
@@ -2787,8 +2629,7 @@ export interface CreateCacheParameterGroupResult {
 }
 
 export namespace CreateCacheParameterGroupResult {
-  export const isa = (o: any): o is CreateCacheParameterGroupResult =>
-    __isa(o, "CreateCacheParameterGroupResult");
+  export const isa = (o: any): o is CreateCacheParameterGroupResult => __isa(o, "CreateCacheParameterGroupResult");
 }
 
 /**
@@ -2811,8 +2652,7 @@ export interface CreateCacheSecurityGroupMessage {
 }
 
 export namespace CreateCacheSecurityGroupMessage {
-  export const isa = (o: any): o is CreateCacheSecurityGroupMessage =>
-    __isa(o, "CreateCacheSecurityGroupMessage");
+  export const isa = (o: any): o is CreateCacheSecurityGroupMessage => __isa(o, "CreateCacheSecurityGroupMessage");
 }
 
 export interface CreateCacheSecurityGroupResult {
@@ -2841,8 +2681,7 @@ export interface CreateCacheSecurityGroupResult {
 }
 
 export namespace CreateCacheSecurityGroupResult {
-  export const isa = (o: any): o is CreateCacheSecurityGroupResult =>
-    __isa(o, "CreateCacheSecurityGroupResult");
+  export const isa = (o: any): o is CreateCacheSecurityGroupResult => __isa(o, "CreateCacheSecurityGroupResult");
 }
 
 /**
@@ -2870,8 +2709,7 @@ export interface CreateCacheSubnetGroupMessage {
 }
 
 export namespace CreateCacheSubnetGroupMessage {
-  export const isa = (o: any): o is CreateCacheSubnetGroupMessage =>
-    __isa(o, "CreateCacheSubnetGroupMessage");
+  export const isa = (o: any): o is CreateCacheSubnetGroupMessage => __isa(o, "CreateCacheSubnetGroupMessage");
 }
 
 export interface CreateCacheSubnetGroupResult {
@@ -2895,8 +2733,7 @@ export interface CreateCacheSubnetGroupResult {
 }
 
 export namespace CreateCacheSubnetGroupResult {
-  export const isa = (o: any): o is CreateCacheSubnetGroupResult =>
-    __isa(o, "CreateCacheSubnetGroupResult");
+  export const isa = (o: any): o is CreateCacheSubnetGroupResult => __isa(o, "CreateCacheSubnetGroupResult");
 }
 
 /**
@@ -3424,8 +3261,7 @@ export interface CreateReplicationGroupMessage {
 }
 
 export namespace CreateReplicationGroupMessage {
-  export const isa = (o: any): o is CreateReplicationGroupMessage =>
-    __isa(o, "CreateReplicationGroupMessage");
+  export const isa = (o: any): o is CreateReplicationGroupMessage => __isa(o, "CreateReplicationGroupMessage");
 }
 
 export interface CreateReplicationGroupResult {
@@ -3437,8 +3273,7 @@ export interface CreateReplicationGroupResult {
 }
 
 export namespace CreateReplicationGroupResult {
-  export const isa = (o: any): o is CreateReplicationGroupResult =>
-    __isa(o, "CreateReplicationGroupResult");
+  export const isa = (o: any): o is CreateReplicationGroupResult => __isa(o, "CreateReplicationGroupResult");
 }
 
 /**
@@ -3468,8 +3303,7 @@ export interface CreateSnapshotMessage {
 }
 
 export namespace CreateSnapshotMessage {
-  export const isa = (o: any): o is CreateSnapshotMessage =>
-    __isa(o, "CreateSnapshotMessage");
+  export const isa = (o: any): o is CreateSnapshotMessage => __isa(o, "CreateSnapshotMessage");
 }
 
 export interface CreateSnapshotResult {
@@ -3481,8 +3315,7 @@ export interface CreateSnapshotResult {
 }
 
 export namespace CreateSnapshotResult {
-  export const isa = (o: any): o is CreateSnapshotResult =>
-    __isa(o, "CreateSnapshotResult");
+  export const isa = (o: any): o is CreateSnapshotResult => __isa(o, "CreateSnapshotResult");
 }
 
 /**
@@ -3502,8 +3335,7 @@ export interface CustomerNodeEndpoint {
 }
 
 export namespace CustomerNodeEndpoint {
-  export const isa = (o: any): o is CustomerNodeEndpoint =>
-    __isa(o, "CustomerNodeEndpoint");
+  export const isa = (o: any): o is CustomerNodeEndpoint => __isa(o, "CustomerNodeEndpoint");
 }
 
 export interface DecreaseReplicaCountMessage {
@@ -3559,8 +3391,7 @@ export interface DecreaseReplicaCountMessage {
 }
 
 export namespace DecreaseReplicaCountMessage {
-  export const isa = (o: any): o is DecreaseReplicaCountMessage =>
-    __isa(o, "DecreaseReplicaCountMessage");
+  export const isa = (o: any): o is DecreaseReplicaCountMessage => __isa(o, "DecreaseReplicaCountMessage");
 }
 
 export interface DecreaseReplicaCountResult {
@@ -3572,8 +3403,7 @@ export interface DecreaseReplicaCountResult {
 }
 
 export namespace DecreaseReplicaCountResult {
-  export const isa = (o: any): o is DecreaseReplicaCountResult =>
-    __isa(o, "DecreaseReplicaCountResult");
+  export const isa = (o: any): o is DecreaseReplicaCountResult => __isa(o, "DecreaseReplicaCountResult");
 }
 
 /**
@@ -3594,8 +3424,7 @@ export interface DeleteCacheClusterMessage {
 }
 
 export namespace DeleteCacheClusterMessage {
-  export const isa = (o: any): o is DeleteCacheClusterMessage =>
-    __isa(o, "DeleteCacheClusterMessage");
+  export const isa = (o: any): o is DeleteCacheClusterMessage => __isa(o, "DeleteCacheClusterMessage");
 }
 
 export interface DeleteCacheClusterResult {
@@ -3607,8 +3436,7 @@ export interface DeleteCacheClusterResult {
 }
 
 export namespace DeleteCacheClusterResult {
-  export const isa = (o: any): o is DeleteCacheClusterResult =>
-    __isa(o, "DeleteCacheClusterResult");
+  export const isa = (o: any): o is DeleteCacheClusterResult => __isa(o, "DeleteCacheClusterResult");
 }
 
 /**
@@ -3626,8 +3454,7 @@ export interface DeleteCacheParameterGroupMessage {
 }
 
 export namespace DeleteCacheParameterGroupMessage {
-  export const isa = (o: any): o is DeleteCacheParameterGroupMessage =>
-    __isa(o, "DeleteCacheParameterGroupMessage");
+  export const isa = (o: any): o is DeleteCacheParameterGroupMessage => __isa(o, "DeleteCacheParameterGroupMessage");
 }
 
 /**
@@ -3645,8 +3472,7 @@ export interface DeleteCacheSecurityGroupMessage {
 }
 
 export namespace DeleteCacheSecurityGroupMessage {
-  export const isa = (o: any): o is DeleteCacheSecurityGroupMessage =>
-    __isa(o, "DeleteCacheSecurityGroupMessage");
+  export const isa = (o: any): o is DeleteCacheSecurityGroupMessage => __isa(o, "DeleteCacheSecurityGroupMessage");
 }
 
 /**
@@ -3662,8 +3488,7 @@ export interface DeleteCacheSubnetGroupMessage {
 }
 
 export namespace DeleteCacheSubnetGroupMessage {
-  export const isa = (o: any): o is DeleteCacheSubnetGroupMessage =>
-    __isa(o, "DeleteCacheSubnetGroupMessage");
+  export const isa = (o: any): o is DeleteCacheSubnetGroupMessage => __isa(o, "DeleteCacheSubnetGroupMessage");
 }
 
 /**
@@ -3692,8 +3517,7 @@ export interface DeleteReplicationGroupMessage {
 }
 
 export namespace DeleteReplicationGroupMessage {
-  export const isa = (o: any): o is DeleteReplicationGroupMessage =>
-    __isa(o, "DeleteReplicationGroupMessage");
+  export const isa = (o: any): o is DeleteReplicationGroupMessage => __isa(o, "DeleteReplicationGroupMessage");
 }
 
 export interface DeleteReplicationGroupResult {
@@ -3705,8 +3529,7 @@ export interface DeleteReplicationGroupResult {
 }
 
 export namespace DeleteReplicationGroupResult {
-  export const isa = (o: any): o is DeleteReplicationGroupResult =>
-    __isa(o, "DeleteReplicationGroupResult");
+  export const isa = (o: any): o is DeleteReplicationGroupResult => __isa(o, "DeleteReplicationGroupResult");
 }
 
 /**
@@ -3721,8 +3544,7 @@ export interface DeleteSnapshotMessage {
 }
 
 export namespace DeleteSnapshotMessage {
-  export const isa = (o: any): o is DeleteSnapshotMessage =>
-    __isa(o, "DeleteSnapshotMessage");
+  export const isa = (o: any): o is DeleteSnapshotMessage => __isa(o, "DeleteSnapshotMessage");
 }
 
 export interface DeleteSnapshotResult {
@@ -3734,8 +3556,7 @@ export interface DeleteSnapshotResult {
 }
 
 export namespace DeleteSnapshotResult {
-  export const isa = (o: any): o is DeleteSnapshotResult =>
-    __isa(o, "DeleteSnapshotResult");
+  export const isa = (o: any): o is DeleteSnapshotResult => __isa(o, "DeleteSnapshotResult");
 }
 
 /**
@@ -3782,8 +3603,7 @@ export interface DescribeCacheClustersMessage {
 }
 
 export namespace DescribeCacheClustersMessage {
-  export const isa = (o: any): o is DescribeCacheClustersMessage =>
-    __isa(o, "DescribeCacheClustersMessage");
+  export const isa = (o: any): o is DescribeCacheClustersMessage => __isa(o, "DescribeCacheClustersMessage");
 }
 
 /**
@@ -3929,8 +3749,7 @@ export interface DescribeCacheParametersMessage {
 }
 
 export namespace DescribeCacheParametersMessage {
-  export const isa = (o: any): o is DescribeCacheParametersMessage =>
-    __isa(o, "DescribeCacheParametersMessage");
+  export const isa = (o: any): o is DescribeCacheParametersMessage => __isa(o, "DescribeCacheParametersMessage");
 }
 
 /**
@@ -3996,8 +3815,7 @@ export interface DescribeCacheSubnetGroupsMessage {
 }
 
 export namespace DescribeCacheSubnetGroupsMessage {
-  export const isa = (o: any): o is DescribeCacheSubnetGroupsMessage =>
-    __isa(o, "DescribeCacheSubnetGroupsMessage");
+  export const isa = (o: any): o is DescribeCacheSubnetGroupsMessage => __isa(o, "DescribeCacheSubnetGroupsMessage");
 }
 
 /**
@@ -4111,8 +3929,7 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
-  export const isa = (o: any): o is DescribeEventsMessage =>
-    __isa(o, "DescribeEventsMessage");
+  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
@@ -4145,8 +3962,7 @@ export interface DescribeReplicationGroupsMessage {
 }
 
 export namespace DescribeReplicationGroupsMessage {
-  export const isa = (o: any): o is DescribeReplicationGroupsMessage =>
-    __isa(o, "DescribeReplicationGroupsMessage");
+  export const isa = (o: any): o is DescribeReplicationGroupsMessage => __isa(o, "DescribeReplicationGroupsMessage");
 }
 
 /**
@@ -4375,8 +4191,7 @@ export interface DescribeReservedCacheNodesMessage {
 }
 
 export namespace DescribeReservedCacheNodesMessage {
-  export const isa = (o: any): o is DescribeReservedCacheNodesMessage =>
-    __isa(o, "DescribeReservedCacheNodesMessage");
+  export const isa = (o: any): o is DescribeReservedCacheNodesMessage => __isa(o, "DescribeReservedCacheNodesMessage");
 }
 
 /**
@@ -4602,9 +4417,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
 }
 
 export namespace DescribeReservedCacheNodesOfferingsMessage {
-  export const isa = (
-    o: any
-  ): o is DescribeReservedCacheNodesOfferingsMessage =>
+  export const isa = (o: any): o is DescribeReservedCacheNodesOfferingsMessage =>
     __isa(o, "DescribeReservedCacheNodesOfferingsMessage");
 }
 
@@ -4635,8 +4448,7 @@ export interface DescribeServiceUpdatesMessage {
 }
 
 export namespace DescribeServiceUpdatesMessage {
-  export const isa = (o: any): o is DescribeServiceUpdatesMessage =>
-    __isa(o, "DescribeServiceUpdatesMessage");
+  export const isa = (o: any): o is DescribeServiceUpdatesMessage => __isa(o, "DescribeServiceUpdatesMessage");
 }
 
 /**
@@ -4659,8 +4471,7 @@ export interface DescribeSnapshotsListMessage {
 }
 
 export namespace DescribeSnapshotsListMessage {
-  export const isa = (o: any): o is DescribeSnapshotsListMessage =>
-    __isa(o, "DescribeSnapshotsListMessage");
+  export const isa = (o: any): o is DescribeSnapshotsListMessage => __isa(o, "DescribeSnapshotsListMessage");
 }
 
 /**
@@ -4717,8 +4528,7 @@ export interface DescribeSnapshotsMessage {
 }
 
 export namespace DescribeSnapshotsMessage {
-  export const isa = (o: any): o is DescribeSnapshotsMessage =>
-    __isa(o, "DescribeSnapshotsMessage");
+  export const isa = (o: any): o is DescribeSnapshotsMessage => __isa(o, "DescribeSnapshotsMessage");
 }
 
 export interface DescribeUpdateActionsMessage {
@@ -4778,8 +4588,7 @@ export interface DescribeUpdateActionsMessage {
 }
 
 export namespace DescribeUpdateActionsMessage {
-  export const isa = (o: any): o is DescribeUpdateActionsMessage =>
-    __isa(o, "DescribeUpdateActionsMessage");
+  export const isa = (o: any): o is DescribeUpdateActionsMessage => __isa(o, "DescribeUpdateActionsMessage");
 }
 
 /**
@@ -4804,8 +4613,7 @@ export interface EC2SecurityGroup {
 }
 
 export namespace EC2SecurityGroup {
-  export const isa = (o: any): o is EC2SecurityGroup =>
-    __isa(o, "EC2SecurityGroup");
+  export const isa = (o: any): o is EC2SecurityGroup => __isa(o, "EC2SecurityGroup");
 }
 
 /**
@@ -4864,8 +4672,7 @@ export interface EngineDefaults {
 }
 
 export namespace EngineDefaults {
-  export const isa = (o: any): o is EngineDefaults =>
-    __isa(o, "EngineDefaults");
+  export const isa = (o: any): o is EngineDefaults => __isa(o, "EngineDefaults");
 }
 
 /**
@@ -4952,8 +4759,7 @@ export interface IncreaseReplicaCountMessage {
 }
 
 export namespace IncreaseReplicaCountMessage {
-  export const isa = (o: any): o is IncreaseReplicaCountMessage =>
-    __isa(o, "IncreaseReplicaCountMessage");
+  export const isa = (o: any): o is IncreaseReplicaCountMessage => __isa(o, "IncreaseReplicaCountMessage");
 }
 
 export interface IncreaseReplicaCountResult {
@@ -4965,8 +4771,7 @@ export interface IncreaseReplicaCountResult {
 }
 
 export namespace IncreaseReplicaCountResult {
-  export const isa = (o: any): o is IncreaseReplicaCountResult =>
-    __isa(o, "IncreaseReplicaCountResult");
+  export const isa = (o: any): o is IncreaseReplicaCountResult => __isa(o, "IncreaseReplicaCountResult");
 }
 
 /**
@@ -5018,8 +4823,7 @@ export interface ListTagsForResourceMessage {
 }
 
 export namespace ListTagsForResourceMessage {
-  export const isa = (o: any): o is ListTagsForResourceMessage =>
-    __isa(o, "ListTagsForResourceMessage");
+  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 /**
@@ -5373,8 +5177,7 @@ export interface ModifyCacheClusterMessage {
 }
 
 export namespace ModifyCacheClusterMessage {
-  export const isa = (o: any): o is ModifyCacheClusterMessage =>
-    __isa(o, "ModifyCacheClusterMessage");
+  export const isa = (o: any): o is ModifyCacheClusterMessage => __isa(o, "ModifyCacheClusterMessage");
 }
 
 export interface ModifyCacheClusterResult {
@@ -5386,8 +5189,7 @@ export interface ModifyCacheClusterResult {
 }
 
 export namespace ModifyCacheClusterResult {
-  export const isa = (o: any): o is ModifyCacheClusterResult =>
-    __isa(o, "ModifyCacheClusterResult");
+  export const isa = (o: any): o is ModifyCacheClusterResult => __isa(o, "ModifyCacheClusterResult");
 }
 
 /**
@@ -5407,8 +5209,7 @@ export interface ModifyCacheParameterGroupMessage {
 }
 
 export namespace ModifyCacheParameterGroupMessage {
-  export const isa = (o: any): o is ModifyCacheParameterGroupMessage =>
-    __isa(o, "ModifyCacheParameterGroupMessage");
+  export const isa = (o: any): o is ModifyCacheParameterGroupMessage => __isa(o, "ModifyCacheParameterGroupMessage");
 }
 
 /**
@@ -5436,8 +5237,7 @@ export interface ModifyCacheSubnetGroupMessage {
 }
 
 export namespace ModifyCacheSubnetGroupMessage {
-  export const isa = (o: any): o is ModifyCacheSubnetGroupMessage =>
-    __isa(o, "ModifyCacheSubnetGroupMessage");
+  export const isa = (o: any): o is ModifyCacheSubnetGroupMessage => __isa(o, "ModifyCacheSubnetGroupMessage");
 }
 
 export interface ModifyCacheSubnetGroupResult {
@@ -5461,8 +5261,7 @@ export interface ModifyCacheSubnetGroupResult {
 }
 
 export namespace ModifyCacheSubnetGroupResult {
-  export const isa = (o: any): o is ModifyCacheSubnetGroupResult =>
-    __isa(o, "ModifyCacheSubnetGroupResult");
+  export const isa = (o: any): o is ModifyCacheSubnetGroupResult => __isa(o, "ModifyCacheSubnetGroupResult");
 }
 
 /**
@@ -5694,8 +5493,7 @@ export interface ModifyReplicationGroupMessage {
 }
 
 export namespace ModifyReplicationGroupMessage {
-  export const isa = (o: any): o is ModifyReplicationGroupMessage =>
-    __isa(o, "ModifyReplicationGroupMessage");
+  export const isa = (o: any): o is ModifyReplicationGroupMessage => __isa(o, "ModifyReplicationGroupMessage");
 }
 
 export interface ModifyReplicationGroupResult {
@@ -5707,8 +5505,7 @@ export interface ModifyReplicationGroupResult {
 }
 
 export namespace ModifyReplicationGroupResult {
-  export const isa = (o: any): o is ModifyReplicationGroupResult =>
-    __isa(o, "ModifyReplicationGroupResult");
+  export const isa = (o: any): o is ModifyReplicationGroupResult => __isa(o, "ModifyReplicationGroupResult");
 }
 
 /**
@@ -5770,9 +5567,7 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
 }
 
 export namespace ModifyReplicationGroupShardConfigurationMessage {
-  export const isa = (
-    o: any
-  ): o is ModifyReplicationGroupShardConfigurationMessage =>
+  export const isa = (o: any): o is ModifyReplicationGroupShardConfigurationMessage =>
     __isa(o, "ModifyReplicationGroupShardConfigurationMessage");
 }
 
@@ -5785,9 +5580,7 @@ export interface ModifyReplicationGroupShardConfigurationResult {
 }
 
 export namespace ModifyReplicationGroupShardConfigurationResult {
-  export const isa = (
-    o: any
-  ): o is ModifyReplicationGroupShardConfigurationResult =>
+  export const isa = (o: any): o is ModifyReplicationGroupShardConfigurationResult =>
     __isa(o, "ModifyReplicationGroupShardConfigurationResult");
 }
 
@@ -5876,8 +5669,7 @@ export interface NodeGroupConfiguration {
 }
 
 export namespace NodeGroupConfiguration {
-  export const isa = (o: any): o is NodeGroupConfiguration =>
-    __isa(o, "NodeGroupConfiguration");
+  export const isa = (o: any): o is NodeGroupConfiguration => __isa(o, "NodeGroupConfiguration");
 }
 
 /**
@@ -5915,8 +5707,7 @@ export interface NodeGroupMember {
 }
 
 export namespace NodeGroupMember {
-  export const isa = (o: any): o is NodeGroupMember =>
-    __isa(o, "NodeGroupMember");
+  export const isa = (o: any): o is NodeGroupMember => __isa(o, "NodeGroupMember");
 }
 
 /**
@@ -5971,8 +5762,7 @@ export interface NodeGroupMemberUpdateStatus {
 }
 
 export namespace NodeGroupMemberUpdateStatus {
-  export const isa = (o: any): o is NodeGroupMemberUpdateStatus =>
-    __isa(o, "NodeGroupMemberUpdateStatus");
+  export const isa = (o: any): o is NodeGroupMemberUpdateStatus => __isa(o, "NodeGroupMemberUpdateStatus");
 }
 
 /**
@@ -5992,8 +5782,7 @@ export interface NodeGroupUpdateStatus {
 }
 
 export namespace NodeGroupUpdateStatus {
-  export const isa = (o: any): o is NodeGroupUpdateStatus =>
-    __isa(o, "NodeGroupUpdateStatus");
+  export const isa = (o: any): o is NodeGroupUpdateStatus => __isa(o, "NodeGroupUpdateStatus");
 }
 
 /**
@@ -6074,8 +5863,7 @@ export interface NotificationConfiguration {
 }
 
 export namespace NotificationConfiguration {
-  export const isa = (o: any): o is NotificationConfiguration =>
-    __isa(o, "NotificationConfiguration");
+  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 /**
@@ -6154,8 +5942,7 @@ export interface ParameterNameValue {
 }
 
 export namespace ParameterNameValue {
-  export const isa = (o: any): o is ParameterNameValue =>
-    __isa(o, "ParameterNameValue");
+  export const isa = (o: any): o is ParameterNameValue => __isa(o, "ParameterNameValue");
 }
 
 export enum PendingAutomaticFailoverStatus {
@@ -6199,8 +5986,7 @@ export interface PendingModifiedValues {
 }
 
 export namespace PendingModifiedValues {
-  export const isa = (o: any): o is PendingModifiedValues =>
-    __isa(o, "PendingModifiedValues");
+  export const isa = (o: any): o is PendingModifiedValues => __isa(o, "PendingModifiedValues");
 }
 
 /**
@@ -6230,8 +6016,7 @@ export interface ProcessedUpdateAction {
 }
 
 export namespace ProcessedUpdateAction {
-  export const isa = (o: any): o is ProcessedUpdateAction =>
-    __isa(o, "ProcessedUpdateAction");
+  export const isa = (o: any): o is ProcessedUpdateAction => __isa(o, "ProcessedUpdateAction");
 }
 
 /**
@@ -6300,8 +6085,7 @@ export interface RebootCacheClusterMessage {
 }
 
 export namespace RebootCacheClusterMessage {
-  export const isa = (o: any): o is RebootCacheClusterMessage =>
-    __isa(o, "RebootCacheClusterMessage");
+  export const isa = (o: any): o is RebootCacheClusterMessage => __isa(o, "RebootCacheClusterMessage");
 }
 
 export interface RebootCacheClusterResult {
@@ -6313,8 +6097,7 @@ export interface RebootCacheClusterResult {
 }
 
 export namespace RebootCacheClusterResult {
-  export const isa = (o: any): o is RebootCacheClusterResult =>
-    __isa(o, "RebootCacheClusterResult");
+  export const isa = (o: any): o is RebootCacheClusterResult => __isa(o, "RebootCacheClusterResult");
 }
 
 /**
@@ -6335,8 +6118,7 @@ export interface RecurringCharge {
 }
 
 export namespace RecurringCharge {
-  export const isa = (o: any): o is RecurringCharge =>
-    __isa(o, "RecurringCharge");
+  export const isa = (o: any): o is RecurringCharge => __isa(o, "RecurringCharge");
 }
 
 /**
@@ -6359,8 +6141,7 @@ export interface RemoveTagsFromResourceMessage {
 }
 
 export namespace RemoveTagsFromResourceMessage {
-  export const isa = (o: any): o is RemoveTagsFromResourceMessage =>
-    __isa(o, "RemoveTagsFromResourceMessage");
+  export const isa = (o: any): o is RemoveTagsFromResourceMessage => __isa(o, "RemoveTagsFromResourceMessage");
 }
 
 /**
@@ -6519,8 +6300,7 @@ export interface ReplicationGroup {
 }
 
 export namespace ReplicationGroup {
-  export const isa = (o: any): o is ReplicationGroup =>
-    __isa(o, "ReplicationGroup");
+  export const isa = (o: any): o is ReplicationGroup => __isa(o, "ReplicationGroup");
 }
 
 /**
@@ -6540,8 +6320,7 @@ export interface ReplicationGroupMessage {
 }
 
 export namespace ReplicationGroupMessage {
-  export const isa = (o: any): o is ReplicationGroupMessage =>
-    __isa(o, "ReplicationGroupMessage");
+  export const isa = (o: any): o is ReplicationGroupMessage => __isa(o, "ReplicationGroupMessage");
 }
 
 /**
@@ -6825,8 +6604,7 @@ export interface ReservedCacheNode {
 }
 
 export namespace ReservedCacheNode {
-  export const isa = (o: any): o is ReservedCacheNode =>
-    __isa(o, "ReservedCacheNode");
+  export const isa = (o: any): o is ReservedCacheNode => __isa(o, "ReservedCacheNode");
 }
 
 /**
@@ -6846,8 +6624,7 @@ export interface ReservedCacheNodeMessage {
 }
 
 export namespace ReservedCacheNodeMessage {
-  export const isa = (o: any): o is ReservedCacheNodeMessage =>
-    __isa(o, "ReservedCacheNodeMessage");
+  export const isa = (o: any): o is ReservedCacheNodeMessage => __isa(o, "ReservedCacheNodeMessage");
 }
 
 /**
@@ -7058,8 +6835,7 @@ export interface ReservedCacheNodesOffering {
 }
 
 export namespace ReservedCacheNodesOffering {
-  export const isa = (o: any): o is ReservedCacheNodesOffering =>
-    __isa(o, "ReservedCacheNodesOffering");
+  export const isa = (o: any): o is ReservedCacheNodesOffering => __isa(o, "ReservedCacheNodesOffering");
 }
 
 /**
@@ -7079,8 +6855,7 @@ export interface ReservedCacheNodesOfferingMessage {
 }
 
 export namespace ReservedCacheNodesOfferingMessage {
-  export const isa = (o: any): o is ReservedCacheNodesOfferingMessage =>
-    __isa(o, "ReservedCacheNodesOfferingMessage");
+  export const isa = (o: any): o is ReservedCacheNodesOfferingMessage => __isa(o, "ReservedCacheNodesOfferingMessage");
 }
 
 /**
@@ -7114,8 +6889,7 @@ export interface ResetCacheParameterGroupMessage {
 }
 
 export namespace ResetCacheParameterGroupMessage {
-  export const isa = (o: any): o is ResetCacheParameterGroupMessage =>
-    __isa(o, "ResetCacheParameterGroupMessage");
+  export const isa = (o: any): o is ResetCacheParameterGroupMessage => __isa(o, "ResetCacheParameterGroupMessage");
 }
 
 /**
@@ -7137,8 +6911,7 @@ export interface ReshardingConfiguration {
 }
 
 export namespace ReshardingConfiguration {
-  export const isa = (o: any): o is ReshardingConfiguration =>
-    __isa(o, "ReshardingConfiguration");
+  export const isa = (o: any): o is ReshardingConfiguration => __isa(o, "ReshardingConfiguration");
 }
 
 /**
@@ -7153,8 +6926,7 @@ export interface ReshardingStatus {
 }
 
 export namespace ReshardingStatus {
-  export const isa = (o: any): o is ReshardingStatus =>
-    __isa(o, "ReshardingStatus");
+  export const isa = (o: any): o is ReshardingStatus => __isa(o, "ReshardingStatus");
 }
 
 /**
@@ -7234,8 +7006,7 @@ export interface SecurityGroupMembership {
 }
 
 export namespace SecurityGroupMembership {
-  export const isa = (o: any): o is SecurityGroupMembership =>
-    __isa(o, "SecurityGroupMembership");
+  export const isa = (o: any): o is SecurityGroupMembership => __isa(o, "SecurityGroupMembership");
 }
 
 /**
@@ -7342,8 +7113,7 @@ export interface ServiceUpdatesMessage {
 }
 
 export namespace ServiceUpdatesMessage {
-  export const isa = (o: any): o is ServiceUpdatesMessage =>
-    __isa(o, "ServiceUpdatesMessage");
+  export const isa = (o: any): o is ServiceUpdatesMessage => __isa(o, "ServiceUpdatesMessage");
 }
 
 export enum SlaMet {
@@ -7756,8 +7526,7 @@ export interface StartMigrationMessage {
 }
 
 export namespace StartMigrationMessage {
-  export const isa = (o: any): o is StartMigrationMessage =>
-    __isa(o, "StartMigrationMessage");
+  export const isa = (o: any): o is StartMigrationMessage => __isa(o, "StartMigrationMessage");
 }
 
 export interface StartMigrationResponse {
@@ -7769,8 +7538,7 @@ export interface StartMigrationResponse {
 }
 
 export namespace StartMigrationResponse {
-  export const isa = (o: any): o is StartMigrationResponse =>
-    __isa(o, "StartMigrationResponse");
+  export const isa = (o: any): o is StartMigrationResponse => __isa(o, "StartMigrationResponse");
 }
 
 /**
@@ -7828,8 +7596,7 @@ export interface TagListMessage {
 }
 
 export namespace TagListMessage {
-  export const isa = (o: any): o is TagListMessage =>
-    __isa(o, "TagListMessage");
+  export const isa = (o: any): o is TagListMessage => __isa(o, "TagListMessage");
 }
 
 export interface TestFailoverMessage {
@@ -7849,8 +7616,7 @@ export interface TestFailoverMessage {
 }
 
 export namespace TestFailoverMessage {
-  export const isa = (o: any): o is TestFailoverMessage =>
-    __isa(o, "TestFailoverMessage");
+  export const isa = (o: any): o is TestFailoverMessage => __isa(o, "TestFailoverMessage");
 }
 
 export interface TestFailoverResult {
@@ -7862,8 +7628,7 @@ export interface TestFailoverResult {
 }
 
 export namespace TestFailoverResult {
-  export const isa = (o: any): o is TestFailoverResult =>
-    __isa(o, "TestFailoverResult");
+  export const isa = (o: any): o is TestFailoverResult => __isa(o, "TestFailoverResult");
 }
 
 /**
@@ -7883,8 +7648,7 @@ export interface TimeRangeFilter {
 }
 
 export namespace TimeRangeFilter {
-  export const isa = (o: any): o is TimeRangeFilter =>
-    __isa(o, "TimeRangeFilter");
+  export const isa = (o: any): o is TimeRangeFilter => __isa(o, "TimeRangeFilter");
 }
 
 /**
@@ -7919,8 +7683,7 @@ export interface UnprocessedUpdateAction {
 }
 
 export namespace UnprocessedUpdateAction {
-  export const isa = (o: any): o is UnprocessedUpdateAction =>
-    __isa(o, "UnprocessedUpdateAction");
+  export const isa = (o: any): o is UnprocessedUpdateAction => __isa(o, "UnprocessedUpdateAction");
 }
 
 /**
@@ -8033,8 +7796,7 @@ export interface UpdateActionResultsMessage {
 }
 
 export namespace UpdateActionResultsMessage {
-  export const isa = (o: any): o is UpdateActionResultsMessage =>
-    __isa(o, "UpdateActionResultsMessage");
+  export const isa = (o: any): o is UpdateActionResultsMessage => __isa(o, "UpdateActionResultsMessage");
 }
 
 export enum UpdateActionStatus {
@@ -8063,6 +7825,5 @@ export interface UpdateActionsMessage {
 }
 
 export namespace UpdateActionsMessage {
-  export const isa = (o: any): o is UpdateActionsMessage =>
-    __isa(o, "UpdateActionsMessage");
+  export const isa = (o: any): o is UpdateActionsMessage => __isa(o, "UpdateActionsMessage");
 }

@@ -34,14 +34,8 @@ export function getSerdePlugin<
 ): Pluggable<InputType, OutputType> {
   return {
     applyToStack: (commandStack: MiddlewareStack<InputType, OutputType>) => {
-      commandStack.add(
-        deserializerMiddleware(config, deserializer),
-        deserializerMiddlewareOption
-      );
-      commandStack.add(
-        serializerMiddleware(config, serializer),
-        serializerMiddlewareOption
-      );
+      commandStack.add(deserializerMiddleware(config, deserializer), deserializerMiddlewareOption);
+      commandStack.add(serializerMiddleware(config, serializer), serializerMiddlewareOption);
     }
   };
 }

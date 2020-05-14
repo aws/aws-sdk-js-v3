@@ -54,10 +54,7 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR {
  * request. The thrown exception contains the serialized request.
  */
 class RequestSerializationTestHandler implements HttpHandler {
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
 }
@@ -71,12 +68,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
   headers: HeaderBag;
   body: String;
 
-  constructor(
-    isSuccess: boolean,
-    code: number,
-    headers?: HeaderBag,
-    body?: String
-  ) {
+  constructor(isSuccess: boolean, code: number, headers?: HeaderBag, body?: String) {
     this.isSuccess = isSuccess;
     this.code = code;
     if (headers === undefined) {
@@ -90,10 +82,7 @@ class ResponseDeserializationTestHandler implements HttpHandler {
     this.body = body;
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.resolve({
       response: {
         statusCode: this.code,
@@ -111,10 +100,7 @@ interface comparableParts {
 /**
  * Generates a standard map of un-equal values given input parts.
  */
-const compareParts = (
-  expectedParts: comparableParts,
-  generatedParts: comparableParts
-) => {
+const compareParts = (expectedParts: comparableParts, generatedParts: comparableParts) => {
   const unequalParts: any = {};
   Object.keys(expectedParts).forEach(key => {
     if (generatedParts[key] === undefined) {
@@ -160,12 +146,8 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
-  Object.keys(localExpected).forEach(
-    key => localExpected[key] === undefined && delete localExpected[key]
-  );
-  Object.keys(generated).forEach(
-    key => generated[key] === undefined && delete generated[key]
-  );
+  Object.keys(localExpected).forEach(key => localExpected[key] === undefined && delete localExpected[key]);
+  Object.keys(generated).forEach(key => generated[key] === undefined && delete generated[key]);
 
   const expectedProperties = Object.getOwnPropertyNames(localExpected);
   const generatedProperties = Object.getOwnPropertyNames(generated);
@@ -178,9 +160,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // Compare properties directly.
   for (var index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
-    if (
-      !equivalentContents(localExpected[propertyName], generated[propertyName])
-    ) {
+    if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
     }
   }
@@ -418,12 +398,7 @@ it("EmptyInputAndEmptyOutput:Request", async () => {
  */
 it("EmptyInputAndEmptyOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      ``
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``)
   });
 
   const params: any = {};
@@ -481,10 +456,7 @@ it("FlattenedXmlMap:Request", async () => {
             <value>Baz</value>
         </myMap>
     </FlattenedXmlMapInputOutput>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -581,10 +553,7 @@ it("FlattenedXmlMapWithXmlName:Request", async () => {
             <V>B</V>
         </KVP>
     </FlattenedXmlMapWithXmlNameInputOutput>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -815,9 +784,7 @@ it("HttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(
-      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    );
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)));
   }
 });
 
@@ -960,9 +927,7 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["X-Foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(
-      Uint8Array.from("blobby blob blob", c => c.charCodeAt(0))
-    );
+    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", c => c.charCodeAt(0)));
   }
 });
 
@@ -1043,10 +1008,7 @@ it("HttpPayloadWithStructure:Request", async () => {
         <name>Phreddy</name>
     </NestedPayload>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1127,10 +1089,7 @@ it("HttpPayloadWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `<Hello><name>Phreddy</name></Hello>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1207,10 +1166,7 @@ it("HttpPayloadWithXmlNamespace:Request", async () => {
     const bodyString = `<PayloadWithXmlNamespace xmlns=\"http://foo.com\">
         <name>Phreddy</name>
     </PayloadWithXmlNamespace>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1289,10 +1245,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Request", async () => {
     const bodyString = `<PayloadWithXmlNamespaceAndPrefix xmlns:baz=\"http://foo.com\">
         <name>Phreddy</name>
     </PayloadWithXmlNamespaceAndPrefix>`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1520,9 +1473,7 @@ it("HttpRequestWithGreedyLabelInPath:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe(
-      "/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy"
-    );
+    expect(r.path).toBe("/HttpRequestWithGreedyLabelInPath/foo/hello/baz/there/guy");
 
     expect(r.body).toBeFalsy();
   }
@@ -1564,9 +1515,7 @@ it("InputWithHeadersAndAllParams:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("GET");
-    expect(r.path).toBe(
-      "/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z"
-    );
+    expect(r.path).toBe("/HttpRequestWithLabels/string/1/2/3/4.0/5.0/true/2019-12-16T23%3A48%3A18Z");
 
     expect(r.body).toBeFalsy();
   }
@@ -1809,9 +1758,7 @@ it("InputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
     expect(r.headers["X-TimestampList"]).toBeDefined();
-    expect(r.headers["X-TimestampList"]).toBe(
-      "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
-    );
+    expect(r.headers["X-TimestampList"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(r.body).toBeFalsy();
   }
@@ -2002,8 +1949,7 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
       true,
       200,
       {
-        "x-timestamplist":
-          "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
+        "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT"
       },
       ``
     )
@@ -2102,12 +2048,7 @@ it("NoInputAndNoOutput:Request", async () => {
  */
 it("NoInputAndNoOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      ``
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``)
   });
 
   const params: any = {};
@@ -2154,12 +2095,7 @@ it("NoInputAndOutput:Request", async () => {
  */
 it("NoInputAndOutput:Response", async () => {
   const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      ``
-    )
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``)
   });
 
   const params: any = {};
@@ -2363,10 +2299,7 @@ it("RecursiveShapes:Request", async () => {
         </nested>
     </RecursiveShapesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2496,10 +2429,7 @@ it("SimpleScalarProperties:Request", async () => {
         <DoubleDribble>6.5</DoubleDribble>
     </SimpleScalarPropertiesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2715,10 +2645,7 @@ it("XmlAttributes:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2801,10 +2728,7 @@ it("XmlAttributesOnPayload:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2885,10 +2809,7 @@ it("XmlBlobs:Request", async () => {
         <data>dmFsdWU=</data>
     </XmlBlobsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2999,10 +2920,7 @@ it("XmlEnums:Request", async () => {
         </fooEnumMap>
     </XmlEnumsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3200,10 +3118,7 @@ it("XmlLists:Request", async () => {
         </myStructureList>
     </XmlListsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3388,10 +3303,7 @@ it("XmlMaps:Request", async () => {
         </myMap>
     </XmlMapsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3510,10 +3422,7 @@ it("XmlMapsXmlName:Request", async () => {
         </myMap>
     </XmlMapsXmlNameInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3621,10 +3530,7 @@ it("XmlNamespaces:Request", async () => {
         </nested>
     </XmlNamespacesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3711,10 +3617,7 @@ it("XmlTimestamps:Request", async () => {
         <normal>2014-04-29T18:30:38Z</normal>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3751,10 +3654,7 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
         <dateTime>2014-04-29T18:30:38Z</dateTime>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3791,10 +3691,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
         <epochSeconds>1398796238</epochSeconds>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3831,10 +3728,7 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
         <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
+    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4003,10 +3897,7 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (
-  expectedBody: string,
-  generatedBody: string
-): Object => {
+const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
   const decodeEscapedXml = (str: string) => {
     return str
       .replace(/&amp;/g, "&")

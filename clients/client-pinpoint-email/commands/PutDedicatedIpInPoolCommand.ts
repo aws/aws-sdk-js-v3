@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient";
-import {
-  PutDedicatedIpInPoolRequest,
-  PutDedicatedIpInPoolResponse
-} from "../models/index";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
+import { PutDedicatedIpInPoolRequest, PutDedicatedIpInPoolResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutDedicatedIpInPoolCommand,
   serializeAws_restJson1_1PutDedicatedIpInPoolCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutDedicatedIpInPoolCommandInput = PutDedicatedIpInPoolRequest;
-export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse &
-  __MetadataBearer;
+export type PutDedicatedIpInPoolCommandOutput = PutDedicatedIpInPoolResponse & __MetadataBearer;
 
 export class PutDedicatedIpInPoolCommand extends $Command<
   PutDedicatedIpInPoolCommandInput,
@@ -49,13 +38,8 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDedicatedIpInPoolCommandInput,
-    PutDedicatedIpInPoolCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDedicatedIpInPoolCommandInput, PutDedicatedIpInPoolCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutDedicatedIpInPoolCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutDedicatedIpInPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutDedicatedIpInPoolCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutDedicatedIpInPoolCommandOutput> {
-    return deserializeAws_restJson1_1PutDedicatedIpInPoolCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDedicatedIpInPoolCommandOutput> {
+    return deserializeAws_restJson1_1PutDedicatedIpInPoolCommand(output, context);
   }
 
   // Start section: command_body_extra

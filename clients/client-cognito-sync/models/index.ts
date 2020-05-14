@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.</p>
  */
-export interface AlreadyStreamedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyStreamedException extends __SmithyException, $MetadataBearer {
   name: "AlreadyStreamedException";
   $fault: "client";
   /**
@@ -19,8 +14,7 @@ export interface AlreadyStreamedException
 }
 
 export namespace AlreadyStreamedException {
-  export const isa = (o: any): o is AlreadyStreamedException =>
-    __isa(o, "AlreadyStreamedException");
+  export const isa = (o: any): o is AlreadyStreamedException => __isa(o, "AlreadyStreamedException");
 }
 
 /**
@@ -35,8 +29,7 @@ export interface BulkPublishRequest {
 }
 
 export namespace BulkPublishRequest {
-  export const isa = (o: any): o is BulkPublishRequest =>
-    __isa(o, "BulkPublishRequest");
+  export const isa = (o: any): o is BulkPublishRequest => __isa(o, "BulkPublishRequest");
 }
 
 /**
@@ -51,8 +44,7 @@ export interface BulkPublishResponse {
 }
 
 export namespace BulkPublishResponse {
-  export const isa = (o: any): o is BulkPublishResponse =>
-    __isa(o, "BulkPublishResponse");
+  export const isa = (o: any): o is BulkPublishResponse => __isa(o, "BulkPublishResponse");
 }
 
 export enum BulkPublishStatus {
@@ -97,16 +89,13 @@ export interface CognitoStreams {
 }
 
 export namespace CognitoStreams {
-  export const isa = (o: any): o is CognitoStreams =>
-    __isa(o, "CognitoStreams");
+  export const isa = (o: any): o is CognitoStreams => __isa(o, "CognitoStreams");
 }
 
 /**
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -116,8 +105,7 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
@@ -194,8 +182,7 @@ export interface DeleteDatasetRequest {
 }
 
 export namespace DeleteDatasetRequest {
-  export const isa = (o: any): o is DeleteDatasetRequest =>
-    __isa(o, "DeleteDatasetRequest");
+  export const isa = (o: any): o is DeleteDatasetRequest => __isa(o, "DeleteDatasetRequest");
 }
 
 /**
@@ -213,8 +200,7 @@ export interface DeleteDatasetResponse {
 }
 
 export namespace DeleteDatasetResponse {
-  export const isa = (o: any): o is DeleteDatasetResponse =>
-    __isa(o, "DeleteDatasetResponse");
+  export const isa = (o: any): o is DeleteDatasetResponse => __isa(o, "DeleteDatasetResponse");
 }
 
 /**
@@ -243,8 +229,7 @@ export interface DescribeDatasetRequest {
 }
 
 export namespace DescribeDatasetRequest {
-  export const isa = (o: any): o is DescribeDatasetRequest =>
-    __isa(o, "DescribeDatasetRequest");
+  export const isa = (o: any): o is DescribeDatasetRequest => __isa(o, "DescribeDatasetRequest");
 }
 
 /**
@@ -262,8 +247,7 @@ export interface DescribeDatasetResponse {
 }
 
 export namespace DescribeDatasetResponse {
-  export const isa = (o: any): o is DescribeDatasetResponse =>
-    __isa(o, "DescribeDatasetResponse");
+  export const isa = (o: any): o is DescribeDatasetResponse => __isa(o, "DescribeDatasetResponse");
 }
 
 /**
@@ -279,8 +263,7 @@ export interface DescribeIdentityPoolUsageRequest {
 }
 
 export namespace DescribeIdentityPoolUsageRequest {
-  export const isa = (o: any): o is DescribeIdentityPoolUsageRequest =>
-    __isa(o, "DescribeIdentityPoolUsageRequest");
+  export const isa = (o: any): o is DescribeIdentityPoolUsageRequest => __isa(o, "DescribeIdentityPoolUsageRequest");
 }
 
 /**
@@ -295,8 +278,7 @@ export interface DescribeIdentityPoolUsageResponse {
 }
 
 export namespace DescribeIdentityPoolUsageResponse {
-  export const isa = (o: any): o is DescribeIdentityPoolUsageResponse =>
-    __isa(o, "DescribeIdentityPoolUsageResponse");
+  export const isa = (o: any): o is DescribeIdentityPoolUsageResponse => __isa(o, "DescribeIdentityPoolUsageResponse");
 }
 
 /**
@@ -318,8 +300,7 @@ export interface DescribeIdentityUsageRequest {
 }
 
 export namespace DescribeIdentityUsageRequest {
-  export const isa = (o: any): o is DescribeIdentityUsageRequest =>
-    __isa(o, "DescribeIdentityUsageRequest");
+  export const isa = (o: any): o is DescribeIdentityUsageRequest => __isa(o, "DescribeIdentityUsageRequest");
 }
 
 /**
@@ -334,16 +315,13 @@ export interface DescribeIdentityUsageResponse {
 }
 
 export namespace DescribeIdentityUsageResponse {
-  export const isa = (o: any): o is DescribeIdentityUsageResponse =>
-    __isa(o, "DescribeIdentityUsageResponse");
+  export const isa = (o: any): o is DescribeIdentityUsageResponse => __isa(o, "DescribeIdentityUsageResponse");
 }
 
 /**
  * <p>An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.</p>
  */
-export interface DuplicateRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateRequestException extends __SmithyException, $MetadataBearer {
   name: "DuplicateRequestException";
   $fault: "client";
   /**
@@ -353,8 +331,7 @@ export interface DuplicateRequestException
 }
 
 export namespace DuplicateRequestException {
-  export const isa = (o: any): o is DuplicateRequestException =>
-    __isa(o, "DuplicateRequestException");
+  export const isa = (o: any): o is DuplicateRequestException => __isa(o, "DuplicateRequestException");
 }
 
 /**
@@ -369,8 +346,7 @@ export interface GetBulkPublishDetailsRequest {
 }
 
 export namespace GetBulkPublishDetailsRequest {
-  export const isa = (o: any): o is GetBulkPublishDetailsRequest =>
-    __isa(o, "GetBulkPublishDetailsRequest");
+  export const isa = (o: any): o is GetBulkPublishDetailsRequest => __isa(o, "GetBulkPublishDetailsRequest");
 }
 
 /**
@@ -419,8 +395,7 @@ export interface GetBulkPublishDetailsResponse {
 }
 
 export namespace GetBulkPublishDetailsResponse {
-  export const isa = (o: any): o is GetBulkPublishDetailsResponse =>
-    __isa(o, "GetBulkPublishDetailsResponse");
+  export const isa = (o: any): o is GetBulkPublishDetailsResponse => __isa(o, "GetBulkPublishDetailsResponse");
 }
 
 /**
@@ -435,8 +410,7 @@ export interface GetCognitoEventsRequest {
 }
 
 export namespace GetCognitoEventsRequest {
-  export const isa = (o: any): o is GetCognitoEventsRequest =>
-    __isa(o, "GetCognitoEventsRequest");
+  export const isa = (o: any): o is GetCognitoEventsRequest => __isa(o, "GetCognitoEventsRequest");
 }
 
 /**
@@ -451,8 +425,7 @@ export interface GetCognitoEventsResponse {
 }
 
 export namespace GetCognitoEventsResponse {
-  export const isa = (o: any): o is GetCognitoEventsResponse =>
-    __isa(o, "GetCognitoEventsResponse");
+  export const isa = (o: any): o is GetCognitoEventsResponse => __isa(o, "GetCognitoEventsResponse");
 }
 
 /**
@@ -525,8 +498,7 @@ export interface IdentityPoolUsage {
 }
 
 export namespace IdentityPoolUsage {
-  export const isa = (o: any): o is IdentityPoolUsage =>
-    __isa(o, "IdentityPoolUsage");
+  export const isa = (o: any): o is IdentityPoolUsage => __isa(o, "IdentityPoolUsage");
 }
 
 /**
@@ -569,9 +541,7 @@ export namespace IdentityUsage {
 /**
  * <p>Indicates an internal service error.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -581,16 +551,13 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>This exception is thrown when Amazon Cognito detects an invalid configuration.</p>
  */
-export interface InvalidConfigurationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidConfigurationException extends __SmithyException, $MetadataBearer {
   name: "InvalidConfigurationException";
   $fault: "client";
   /**
@@ -600,16 +567,13 @@ export interface InvalidConfigurationException
 }
 
 export namespace InvalidConfigurationException {
-  export const isa = (o: any): o is InvalidConfigurationException =>
-    __isa(o, "InvalidConfigurationException");
+  export const isa = (o: any): o is InvalidConfigurationException => __isa(o, "InvalidConfigurationException");
 }
 
 /**
  * <p>The AWS Lambda function returned invalid output or an exception.</p>
  */
-export interface InvalidLambdaFunctionOutputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidLambdaFunctionOutputException extends __SmithyException, $MetadataBearer {
   name: "InvalidLambdaFunctionOutputException";
   $fault: "client";
   /**
@@ -626,9 +590,7 @@ export namespace InvalidLambdaFunctionOutputException {
 /**
  * <p>Thrown when a request parameter does not comply with the associated constraints.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   /**
@@ -638,8 +600,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -647,25 +608,20 @@ export namespace InvalidParameterException {
  *       For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-events.html">Amazon
  *         Cognito Events</a>.</p>
  */
-export interface LambdaSocketTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LambdaSocketTimeoutException extends __SmithyException, $MetadataBearer {
   name: "LambdaSocketTimeoutException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace LambdaSocketTimeoutException {
-  export const isa = (o: any): o is LambdaSocketTimeoutException =>
-    __isa(o, "LambdaSocketTimeoutException");
+  export const isa = (o: any): o is LambdaSocketTimeoutException => __isa(o, "LambdaSocketTimeoutException");
 }
 
 /**
  * <p>AWS Lambda throttled your account, please contact AWS Support</p>
  */
-export interface LambdaThrottledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LambdaThrottledException extends __SmithyException, $MetadataBearer {
   name: "LambdaThrottledException";
   $fault: "client";
   /**
@@ -675,16 +631,13 @@ export interface LambdaThrottledException
 }
 
 export namespace LambdaThrottledException {
-  export const isa = (o: any): o is LambdaThrottledException =>
-    __isa(o, "LambdaThrottledException");
+  export const isa = (o: any): o is LambdaThrottledException => __isa(o, "LambdaThrottledException");
 }
 
 /**
  * <p>Thrown when the limit on the number of objects or operations has been exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -694,8 +647,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -725,8 +677,7 @@ export interface ListDatasetsRequest {
 }
 
 export namespace ListDatasetsRequest {
-  export const isa = (o: any): o is ListDatasetsRequest =>
-    __isa(o, "ListDatasetsRequest");
+  export const isa = (o: any): o is ListDatasetsRequest => __isa(o, "ListDatasetsRequest");
 }
 
 /**
@@ -751,8 +702,7 @@ export interface ListDatasetsResponse {
 }
 
 export namespace ListDatasetsResponse {
-  export const isa = (o: any): o is ListDatasetsResponse =>
-    __isa(o, "ListDatasetsResponse");
+  export const isa = (o: any): o is ListDatasetsResponse => __isa(o, "ListDatasetsResponse");
 }
 
 /**
@@ -772,8 +722,7 @@ export interface ListIdentityPoolUsageRequest {
 }
 
 export namespace ListIdentityPoolUsageRequest {
-  export const isa = (o: any): o is ListIdentityPoolUsageRequest =>
-    __isa(o, "ListIdentityPoolUsageRequest");
+  export const isa = (o: any): o is ListIdentityPoolUsageRequest => __isa(o, "ListIdentityPoolUsageRequest");
 }
 
 /**
@@ -803,8 +752,7 @@ export interface ListIdentityPoolUsageResponse {
 }
 
 export namespace ListIdentityPoolUsageResponse {
-  export const isa = (o: any): o is ListIdentityPoolUsageResponse =>
-    __isa(o, "ListIdentityPoolUsageResponse");
+  export const isa = (o: any): o is ListIdentityPoolUsageResponse => __isa(o, "ListIdentityPoolUsageResponse");
 }
 
 /**
@@ -849,8 +797,7 @@ export interface ListRecordsRequest {
 }
 
 export namespace ListRecordsRequest {
-  export const isa = (o: any): o is ListRecordsRequest =>
-    __isa(o, "ListRecordsRequest");
+  export const isa = (o: any): o is ListRecordsRequest => __isa(o, "ListRecordsRequest");
 }
 
 /**
@@ -905,16 +852,13 @@ export interface ListRecordsResponse {
 }
 
 export namespace ListRecordsResponse {
-  export const isa = (o: any): o is ListRecordsResponse =>
-    __isa(o, "ListRecordsResponse");
+  export const isa = (o: any): o is ListRecordsResponse => __isa(o, "ListRecordsResponse");
 }
 
 /**
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -924,8 +868,7 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 export type Operation = "remove" | "replace";
@@ -1054,8 +997,7 @@ export interface RegisterDeviceRequest {
 }
 
 export namespace RegisterDeviceRequest {
-  export const isa = (o: any): o is RegisterDeviceRequest =>
-    __isa(o, "RegisterDeviceRequest");
+  export const isa = (o: any): o is RegisterDeviceRequest => __isa(o, "RegisterDeviceRequest");
 }
 
 /**
@@ -1070,16 +1012,13 @@ export interface RegisterDeviceResponse {
 }
 
 export namespace RegisterDeviceResponse {
-  export const isa = (o: any): o is RegisterDeviceResponse =>
-    __isa(o, "RegisterDeviceResponse");
+  export const isa = (o: any): o is RegisterDeviceResponse => __isa(o, "RegisterDeviceResponse");
 }
 
 /**
  * <p>Thrown if an update can't be applied because the resource was changed by another call and this would result in a conflict.</p>
  */
-export interface ResourceConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
   /**
@@ -1089,16 +1028,13 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
-  export const isa = (o: any): o is ResourceConflictException =>
-    __isa(o, "ResourceConflictException");
+  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
  * <p>Thrown if the resource doesn't exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1108,8 +1044,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1129,8 +1064,7 @@ export interface SetCognitoEventsRequest {
 }
 
 export namespace SetCognitoEventsRequest {
-  export const isa = (o: any): o is SetCognitoEventsRequest =>
-    __isa(o, "SetCognitoEventsRequest");
+  export const isa = (o: any): o is SetCognitoEventsRequest => __isa(o, "SetCognitoEventsRequest");
 }
 
 /**
@@ -1214,8 +1148,7 @@ export interface SubscribeToDatasetRequest {
 }
 
 export namespace SubscribeToDatasetRequest {
-  export const isa = (o: any): o is SubscribeToDatasetRequest =>
-    __isa(o, "SubscribeToDatasetRequest");
+  export const isa = (o: any): o is SubscribeToDatasetRequest => __isa(o, "SubscribeToDatasetRequest");
 }
 
 /**
@@ -1226,16 +1159,13 @@ export interface SubscribeToDatasetResponse {
 }
 
 export namespace SubscribeToDatasetResponse {
-  export const isa = (o: any): o is SubscribeToDatasetResponse =>
-    __isa(o, "SubscribeToDatasetResponse");
+  export const isa = (o: any): o is SubscribeToDatasetResponse => __isa(o, "SubscribeToDatasetResponse");
 }
 
 /**
  * <p>Thrown if the request is throttled.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1245,8 +1175,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1276,8 +1205,7 @@ export interface UnsubscribeFromDatasetRequest {
 }
 
 export namespace UnsubscribeFromDatasetRequest {
-  export const isa = (o: any): o is UnsubscribeFromDatasetRequest =>
-    __isa(o, "UnsubscribeFromDatasetRequest");
+  export const isa = (o: any): o is UnsubscribeFromDatasetRequest => __isa(o, "UnsubscribeFromDatasetRequest");
 }
 
 /**
@@ -1288,8 +1216,7 @@ export interface UnsubscribeFromDatasetResponse {
 }
 
 export namespace UnsubscribeFromDatasetResponse {
-  export const isa = (o: any): o is UnsubscribeFromDatasetResponse =>
-    __isa(o, "UnsubscribeFromDatasetResponse");
+  export const isa = (o: any): o is UnsubscribeFromDatasetResponse => __isa(o, "UnsubscribeFromDatasetResponse");
 }
 
 /**
@@ -1334,8 +1261,7 @@ export interface UpdateRecordsRequest {
 }
 
 export namespace UpdateRecordsRequest {
-  export const isa = (o: any): o is UpdateRecordsRequest =>
-    __isa(o, "UpdateRecordsRequest");
+  export const isa = (o: any): o is UpdateRecordsRequest => __isa(o, "UpdateRecordsRequest");
 }
 
 /**
@@ -1350,6 +1276,5 @@ export interface UpdateRecordsResponse {
 }
 
 export namespace UpdateRecordsResponse {
-  export const isa = (o: any): o is UpdateRecordsResponse =>
-    __isa(o, "UpdateRecordsResponse");
+  export const isa = (o: any): o is UpdateRecordsResponse => __isa(o, "UpdateRecordsResponse");
 }

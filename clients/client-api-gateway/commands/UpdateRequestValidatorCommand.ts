@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
-import {
-  RequestValidator,
-  UpdateRequestValidatorRequest
-} from "../models/index";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import { RequestValidator, UpdateRequestValidatorRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRequestValidatorCommand,
   serializeAws_restJson1_1UpdateRequestValidatorCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRequestValidatorCommandInput = UpdateRequestValidatorRequest;
-export type UpdateRequestValidatorCommandOutput = RequestValidator &
-  __MetadataBearer;
+export type UpdateRequestValidatorCommandOutput = RequestValidator & __MetadataBearer;
 
 export class UpdateRequestValidatorCommand extends $Command<
   UpdateRequestValidatorCommandInput,
@@ -49,13 +38,8 @@ export class UpdateRequestValidatorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRequestValidatorCommandInput,
-    UpdateRequestValidatorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRequestValidatorCommandInput, UpdateRequestValidatorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class UpdateRequestValidatorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRequestValidatorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateRequestValidatorCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateRequestValidatorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRequestValidatorCommandOutput> {
-    return deserializeAws_restJson1_1UpdateRequestValidatorCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRequestValidatorCommandOutput> {
+    return deserializeAws_restJson1_1UpdateRequestValidatorCommand(output, context);
   }
 
   // Start section: command_body_extra

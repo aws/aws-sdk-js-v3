@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeRuntimeClient";
-import {
-  GetPersonalizedRankingRequest,
-  GetPersonalizedRankingResponse
-} from "../models/index";
+import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetPersonalizedRankingCommand,
   serializeAws_restJson1_1GetPersonalizedRankingCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPersonalizedRankingCommandInput = GetPersonalizedRankingRequest;
-export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse &
-  __MetadataBearer;
+export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse & __MetadataBearer;
 
 export class GetPersonalizedRankingCommand extends $Command<
   GetPersonalizedRankingCommandInput,
@@ -49,13 +42,8 @@ export class GetPersonalizedRankingCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PersonalizeRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetPersonalizedRankingCommandInput,
-    GetPersonalizedRankingCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetPersonalizedRankingCommandInput, GetPersonalizedRankingCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +58,12 @@ export class GetPersonalizedRankingCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPersonalizedRankingCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetPersonalizedRankingCommand(
-      input,
-      context
-    );
+  private serialize(input: GetPersonalizedRankingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetPersonalizedRankingCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPersonalizedRankingCommandOutput> {
-    return deserializeAws_restJson1_1GetPersonalizedRankingCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPersonalizedRankingCommandOutput> {
+    return deserializeAws_restJson1_1GetPersonalizedRankingCommand(output, context);
   }
 
   // Start section: command_body_extra

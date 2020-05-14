@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  CreateHealthCheckRequest,
-  CreateHealthCheckResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { CreateHealthCheckRequest, CreateHealthCheckResponse } from "../models/index";
 import {
   deserializeAws_restXmlCreateHealthCheckCommand,
   serializeAws_restXmlCreateHealthCheckCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateHealthCheckCommandInput = CreateHealthCheckRequest;
-export type CreateHealthCheckCommandOutput = CreateHealthCheckResponse &
-  __MetadataBearer;
+export type CreateHealthCheckCommandOutput = CreateHealthCheckResponse & __MetadataBearer;
 
 export class CreateHealthCheckCommand extends $Command<
   CreateHealthCheckCommandInput,
@@ -50,9 +39,7 @@ export class CreateHealthCheckCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateHealthCheckCommandInput, CreateHealthCheckCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateHealthCheckCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateHealthCheckCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateHealthCheckCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateHealthCheckCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateHealthCheckCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateHealthCheckCommandOutput> {
     return deserializeAws_restXmlCreateHealthCheckCommand(output, context);
   }
 

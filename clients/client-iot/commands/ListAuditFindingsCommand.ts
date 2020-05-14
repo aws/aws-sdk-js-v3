@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListAuditFindingsRequest,
-  ListAuditFindingsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListAuditFindingsRequest, ListAuditFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAuditFindingsCommand,
   serializeAws_restJson1_1ListAuditFindingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAuditFindingsCommandInput = ListAuditFindingsRequest;
-export type ListAuditFindingsCommandOutput = ListAuditFindingsResponse &
-  __MetadataBearer;
+export type ListAuditFindingsCommandOutput = ListAuditFindingsResponse & __MetadataBearer;
 
 export class ListAuditFindingsCommand extends $Command<
   ListAuditFindingsCommandInput,
@@ -50,9 +39,7 @@ export class ListAuditFindingsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListAuditFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAuditFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAuditFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAuditFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAuditFindingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAuditFindingsCommandOutput> {
     return deserializeAws_restJson1_1ListAuditFindingsCommand(output, context);
   }
 

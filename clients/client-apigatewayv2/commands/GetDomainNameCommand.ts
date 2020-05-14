@@ -1,18 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { GetDomainNameRequest, GetDomainNameResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDomainNameCommand,
   serializeAws_restJson1_1GetDomainNameCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDomainNameCommandInput = GetDomainNameRequest;
-export type GetDomainNameCommandOutput = GetDomainNameResponse &
-  __MetadataBearer;
+export type GetDomainNameCommandOutput = GetDomainNameResponse & __MetadataBearer;
 
 export class GetDomainNameCommand extends $Command<
   GetDomainNameCommandInput,
@@ -47,9 +39,7 @@ export class GetDomainNameCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDomainNameCommandInput, GetDomainNameCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetDomainNameCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDomainNameCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDomainNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDomainNameCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDomainNameCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDomainNameCommandOutput> {
     return deserializeAws_restJson1_1GetDomainNameCommand(output, context);
   }
 

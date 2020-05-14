@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateCertificateFromCsrRequest,
-  CreateCertificateFromCsrResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateCertificateFromCsrRequest, CreateCertificateFromCsrResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateCertificateFromCsrCommand,
   serializeAws_restJson1_1CreateCertificateFromCsrCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCertificateFromCsrCommandInput = CreateCertificateFromCsrRequest;
-export type CreateCertificateFromCsrCommandOutput = CreateCertificateFromCsrResponse &
-  __MetadataBearer;
+export type CreateCertificateFromCsrCommandOutput = CreateCertificateFromCsrResponse & __MetadataBearer;
 
 export class CreateCertificateFromCsrCommand extends $Command<
   CreateCertificateFromCsrCommandInput,
@@ -49,13 +38,8 @@ export class CreateCertificateFromCsrCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCertificateFromCsrCommandInput,
-    CreateCertificateFromCsrCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCertificateFromCsrCommandInput, CreateCertificateFromCsrCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class CreateCertificateFromCsrCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCertificateFromCsrCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateCertificateFromCsrCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateCertificateFromCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateCertificateFromCsrCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCertificateFromCsrCommandOutput> {
-    return deserializeAws_restJson1_1CreateCertificateFromCsrCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateFromCsrCommandOutput> {
+    return deserializeAws_restJson1_1CreateCertificateFromCsrCommand(output, context);
   }
 
   // Start section: command_body_extra

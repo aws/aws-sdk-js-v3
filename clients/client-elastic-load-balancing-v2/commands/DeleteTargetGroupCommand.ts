@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DeleteTargetGroupInput,
-  DeleteTargetGroupOutput
-} from "../models/index";
+import { DeleteTargetGroupInput, DeleteTargetGroupOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteTargetGroupCommand,
   serializeAws_queryDeleteTargetGroupCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteTargetGroupCommandInput = DeleteTargetGroupInput;
-export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput &
-  __MetadataBearer;
+export type DeleteTargetGroupCommandOutput = DeleteTargetGroupOutput & __MetadataBearer;
 
 export class DeleteTargetGroupCommand extends $Command<
   DeleteTargetGroupCommandInput,
@@ -50,9 +43,7 @@ export class DeleteTargetGroupCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeleteTargetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteTargetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteTargetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteTargetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteTargetGroupCommandOutput> {
     return deserializeAws_queryDeleteTargetGroupCommand(output, context);
   }
 

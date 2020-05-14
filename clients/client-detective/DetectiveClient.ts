@@ -1,47 +1,17 @@
-import {
-  AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput
-} from "./commands/AcceptInvitationCommand";
-import {
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput
-} from "./commands/CreateGraphCommand";
-import {
-  CreateMembersCommandInput,
-  CreateMembersCommandOutput
-} from "./commands/CreateMembersCommand";
-import {
-  DeleteGraphCommandInput,
-  DeleteGraphCommandOutput
-} from "./commands/DeleteGraphCommand";
-import {
-  DeleteMembersCommandInput,
-  DeleteMembersCommandOutput
-} from "./commands/DeleteMembersCommand";
+import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
+import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
+import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
+import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
 import {
   DisassociateMembershipCommandInput,
   DisassociateMembershipCommandOutput
 } from "./commands/DisassociateMembershipCommand";
-import {
-  GetMembersCommandInput,
-  GetMembersCommandOutput
-} from "./commands/GetMembersCommand";
-import {
-  ListGraphsCommandInput,
-  ListGraphsCommandOutput
-} from "./commands/ListGraphsCommand";
-import {
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
-} from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
-import {
-  RejectInvitationCommandInput,
-  RejectInvitationCommandOutput
-} from "./commands/RejectInvitationCommand";
+import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
+import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -58,12 +28,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -120,8 +85,7 @@ export type ServiceOutputTypes =
   | ListMembersCommandOutput
   | RejectInvitationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -205,9 +169,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DetectiveClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DetectiveClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -216,9 +178,7 @@ export type DetectiveClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DetectiveClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

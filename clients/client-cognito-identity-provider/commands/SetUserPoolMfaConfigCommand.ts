@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  SetUserPoolMfaConfigRequest,
-  SetUserPoolMfaConfigResponse
-} from "../models/index";
+import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/index";
 import {
   deserializeAws_json1_1SetUserPoolMfaConfigCommand,
   serializeAws_json1_1SetUserPoolMfaConfigCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SetUserPoolMfaConfigCommandInput = SetUserPoolMfaConfigRequest;
-export type SetUserPoolMfaConfigCommandOutput = SetUserPoolMfaConfigResponse &
-  __MetadataBearer;
+export type SetUserPoolMfaConfigCommandOutput = SetUserPoolMfaConfigResponse & __MetadataBearer;
 
 export class SetUserPoolMfaConfigCommand extends $Command<
   SetUserPoolMfaConfigCommandInput,
@@ -49,13 +42,8 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SetUserPoolMfaConfigCommandInput,
-    SetUserPoolMfaConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SetUserPoolMfaConfigCommandInput, SetUserPoolMfaConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class SetUserPoolMfaConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetUserPoolMfaConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetUserPoolMfaConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetUserPoolMfaConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetUserPoolMfaConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetUserPoolMfaConfigCommandOutput> {
     return deserializeAws_json1_1SetUserPoolMfaConfigCommand(output, context);
   }
 

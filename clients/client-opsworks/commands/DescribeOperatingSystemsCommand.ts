@@ -1,18 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import { DescribeOperatingSystemsResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeOperatingSystemsCommand,
   serializeAws_json1_1DescribeOperatingSystemsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeOperatingSystemsCommandInput = {};
-export type DescribeOperatingSystemsCommandOutput = DescribeOperatingSystemsResponse &
-  __MetadataBearer;
+export type DescribeOperatingSystemsCommandOutput = DescribeOperatingSystemsResponse & __MetadataBearer;
 
 export class DescribeOperatingSystemsCommand extends $Command<
   DescribeOperatingSystemsCommandInput,
@@ -46,13 +38,8 @@ export class DescribeOperatingSystemsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeOperatingSystemsCommandInput,
-    DescribeOperatingSystemsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeOperatingSystemsCommandInput, DescribeOperatingSystemsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,21 +54,12 @@ export class DescribeOperatingSystemsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeOperatingSystemsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeOperatingSystemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeOperatingSystemsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeOperatingSystemsCommandOutput> {
-    return deserializeAws_json1_1DescribeOperatingSystemsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOperatingSystemsCommandOutput> {
+    return deserializeAws_json1_1DescribeOperatingSystemsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateDeviceWithPlacementRequest {
@@ -63,8 +60,7 @@ export interface CreatePlacementRequest {
 }
 
 export namespace CreatePlacementRequest {
-  export const isa = (o: any): o is CreatePlacementRequest =>
-    __isa(o, "CreatePlacementRequest");
+  export const isa = (o: any): o is CreatePlacementRequest => __isa(o, "CreatePlacementRequest");
 }
 
 export interface CreatePlacementResponse {
@@ -72,8 +68,7 @@ export interface CreatePlacementResponse {
 }
 
 export namespace CreatePlacementResponse {
-  export const isa = (o: any): o is CreatePlacementResponse =>
-    __isa(o, "CreatePlacementResponse");
+  export const isa = (o: any): o is CreatePlacementResponse => __isa(o, "CreatePlacementResponse");
 }
 
 export interface CreateProjectRequest {
@@ -105,8 +100,7 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
-  export const isa = (o: any): o is CreateProjectRequest =>
-    __isa(o, "CreateProjectRequest");
+  export const isa = (o: any): o is CreateProjectRequest => __isa(o, "CreateProjectRequest");
 }
 
 export interface CreateProjectResponse {
@@ -114,8 +108,7 @@ export interface CreateProjectResponse {
 }
 
 export namespace CreateProjectResponse {
-  export const isa = (o: any): o is CreateProjectResponse =>
-    __isa(o, "CreateProjectResponse");
+  export const isa = (o: any): o is CreateProjectResponse => __isa(o, "CreateProjectResponse");
 }
 
 export interface DeletePlacementRequest {
@@ -132,8 +125,7 @@ export interface DeletePlacementRequest {
 }
 
 export namespace DeletePlacementRequest {
-  export const isa = (o: any): o is DeletePlacementRequest =>
-    __isa(o, "DeletePlacementRequest");
+  export const isa = (o: any): o is DeletePlacementRequest => __isa(o, "DeletePlacementRequest");
 }
 
 export interface DeletePlacementResponse {
@@ -141,8 +133,7 @@ export interface DeletePlacementResponse {
 }
 
 export namespace DeletePlacementResponse {
-  export const isa = (o: any): o is DeletePlacementResponse =>
-    __isa(o, "DeletePlacementResponse");
+  export const isa = (o: any): o is DeletePlacementResponse => __isa(o, "DeletePlacementResponse");
 }
 
 export interface DeleteProjectRequest {
@@ -154,8 +145,7 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
-  export const isa = (o: any): o is DeleteProjectRequest =>
-    __isa(o, "DeleteProjectRequest");
+  export const isa = (o: any): o is DeleteProjectRequest => __isa(o, "DeleteProjectRequest");
 }
 
 export interface DeleteProjectResponse {
@@ -163,8 +153,7 @@ export interface DeleteProjectResponse {
 }
 
 export namespace DeleteProjectResponse {
-  export const isa = (o: any): o is DeleteProjectResponse =>
-    __isa(o, "DeleteProjectResponse");
+  export const isa = (o: any): o is DeleteProjectResponse => __isa(o, "DeleteProjectResponse");
 }
 
 export interface DescribePlacementRequest {
@@ -181,8 +170,7 @@ export interface DescribePlacementRequest {
 }
 
 export namespace DescribePlacementRequest {
-  export const isa = (o: any): o is DescribePlacementRequest =>
-    __isa(o, "DescribePlacementRequest");
+  export const isa = (o: any): o is DescribePlacementRequest => __isa(o, "DescribePlacementRequest");
 }
 
 export interface DescribePlacementResponse {
@@ -194,8 +182,7 @@ export interface DescribePlacementResponse {
 }
 
 export namespace DescribePlacementResponse {
-  export const isa = (o: any): o is DescribePlacementResponse =>
-    __isa(o, "DescribePlacementResponse");
+  export const isa = (o: any): o is DescribePlacementResponse => __isa(o, "DescribePlacementResponse");
 }
 
 export interface DescribeProjectRequest {
@@ -207,8 +194,7 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
-  export const isa = (o: any): o is DescribeProjectRequest =>
-    __isa(o, "DescribeProjectRequest");
+  export const isa = (o: any): o is DescribeProjectRequest => __isa(o, "DescribeProjectRequest");
 }
 
 export interface DescribeProjectResponse {
@@ -220,8 +206,7 @@ export interface DescribeProjectResponse {
 }
 
 export namespace DescribeProjectResponse {
-  export const isa = (o: any): o is DescribeProjectResponse =>
-    __isa(o, "DescribeProjectResponse");
+  export const isa = (o: any): o is DescribeProjectResponse => __isa(o, "DescribeProjectResponse");
 }
 
 /**
@@ -242,8 +227,7 @@ export interface DeviceTemplate {
 }
 
 export namespace DeviceTemplate {
-  export const isa = (o: any): o is DeviceTemplate =>
-    __isa(o, "DeviceTemplate");
+  export const isa = (o: any): o is DeviceTemplate => __isa(o, "DeviceTemplate");
 }
 
 export interface DisassociateDeviceFromPlacementRequest {
@@ -292,8 +276,7 @@ export interface GetDevicesInPlacementRequest {
 }
 
 export namespace GetDevicesInPlacementRequest {
-  export const isa = (o: any): o is GetDevicesInPlacementRequest =>
-    __isa(o, "GetDevicesInPlacementRequest");
+  export const isa = (o: any): o is GetDevicesInPlacementRequest => __isa(o, "GetDevicesInPlacementRequest");
 }
 
 export interface GetDevicesInPlacementResponse {
@@ -305,16 +288,13 @@ export interface GetDevicesInPlacementResponse {
 }
 
 export namespace GetDevicesInPlacementResponse {
-  export const isa = (o: any): o is GetDevicesInPlacementResponse =>
-    __isa(o, "GetDevicesInPlacementResponse");
+  export const isa = (o: any): o is GetDevicesInPlacementResponse => __isa(o, "GetDevicesInPlacementResponse");
 }
 
 /**
  * <p></p>
  */
-export interface InternalFailureException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
   code: string | undefined;
@@ -322,16 +302,13 @@ export interface InternalFailureException
 }
 
 export namespace InternalFailureException {
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p></p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   code: string | undefined;
@@ -339,8 +316,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 export interface ListPlacementsRequest {
@@ -363,8 +339,7 @@ export interface ListPlacementsRequest {
 }
 
 export namespace ListPlacementsRequest {
-  export const isa = (o: any): o is ListPlacementsRequest =>
-    __isa(o, "ListPlacementsRequest");
+  export const isa = (o: any): o is ListPlacementsRequest => __isa(o, "ListPlacementsRequest");
 }
 
 export interface ListPlacementsResponse {
@@ -382,8 +357,7 @@ export interface ListPlacementsResponse {
 }
 
 export namespace ListPlacementsResponse {
-  export const isa = (o: any): o is ListPlacementsResponse =>
-    __isa(o, "ListPlacementsResponse");
+  export const isa = (o: any): o is ListPlacementsResponse => __isa(o, "ListPlacementsResponse");
 }
 
 export interface ListProjectsRequest {
@@ -401,8 +375,7 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
-  export const isa = (o: any): o is ListProjectsRequest =>
-    __isa(o, "ListProjectsRequest");
+  export const isa = (o: any): o is ListProjectsRequest => __isa(o, "ListProjectsRequest");
 }
 
 export interface ListProjectsResponse {
@@ -420,8 +393,7 @@ export interface ListProjectsResponse {
 }
 
 export namespace ListProjectsResponse {
-  export const isa = (o: any): o is ListProjectsResponse =>
-    __isa(o, "ListProjectsResponse");
+  export const isa = (o: any): o is ListProjectsResponse => __isa(o, "ListProjectsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -433,8 +405,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -446,8 +417,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -484,8 +454,7 @@ export interface PlacementDescription {
 }
 
 export namespace PlacementDescription {
-  export const isa = (o: any): o is PlacementDescription =>
-    __isa(o, "PlacementDescription");
+  export const isa = (o: any): o is PlacementDescription => __isa(o, "PlacementDescription");
 }
 
 /**
@@ -517,8 +486,7 @@ export interface PlacementSummary {
 }
 
 export namespace PlacementSummary {
-  export const isa = (o: any): o is PlacementSummary =>
-    __isa(o, "PlacementSummary");
+  export const isa = (o: any): o is PlacementSummary => __isa(o, "PlacementSummary");
 }
 
 /**
@@ -540,8 +508,7 @@ export interface PlacementTemplate {
 }
 
 export namespace PlacementTemplate {
-  export const isa = (o: any): o is PlacementTemplate =>
-    __isa(o, "PlacementTemplate");
+  export const isa = (o: any): o is PlacementTemplate => __isa(o, "PlacementTemplate");
 }
 
 /**
@@ -588,8 +555,7 @@ export interface ProjectDescription {
 }
 
 export namespace ProjectDescription {
-  export const isa = (o: any): o is ProjectDescription =>
-    __isa(o, "ProjectDescription");
+  export const isa = (o: any): o is ProjectDescription => __isa(o, "ProjectDescription");
 }
 
 /**
@@ -626,16 +592,13 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
-  export const isa = (o: any): o is ProjectSummary =>
-    __isa(o, "ProjectSummary");
+  export const isa = (o: any): o is ProjectSummary => __isa(o, "ProjectSummary");
 }
 
 /**
  * <p></p>
  */
-export interface ResourceConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
   code: string | undefined;
@@ -643,16 +606,13 @@ export interface ResourceConflictException
 }
 
 export namespace ResourceConflictException {
-  export const isa = (o: any): o is ResourceConflictException =>
-    __isa(o, "ResourceConflictException");
+  export const isa = (o: any): o is ResourceConflictException => __isa(o, "ResourceConflictException");
 }
 
 /**
  * <p></p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   code: string | undefined;
@@ -660,8 +620,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export interface TagResourceRequest {
@@ -679,8 +638,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -688,16 +646,13 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
  * <p></p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   code: string | undefined;
@@ -705,8 +660,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 export interface UntagResourceRequest {
@@ -723,8 +677,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -732,8 +685,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdatePlacementRequest {
@@ -756,8 +708,7 @@ export interface UpdatePlacementRequest {
 }
 
 export namespace UpdatePlacementRequest {
-  export const isa = (o: any): o is UpdatePlacementRequest =>
-    __isa(o, "UpdatePlacementRequest");
+  export const isa = (o: any): o is UpdatePlacementRequest => __isa(o, "UpdatePlacementRequest");
 }
 
 export interface UpdatePlacementResponse {
@@ -765,8 +716,7 @@ export interface UpdatePlacementResponse {
 }
 
 export namespace UpdatePlacementResponse {
-  export const isa = (o: any): o is UpdatePlacementResponse =>
-    __isa(o, "UpdatePlacementResponse");
+  export const isa = (o: any): o is UpdatePlacementResponse => __isa(o, "UpdatePlacementResponse");
 }
 
 export interface UpdateProjectRequest {
@@ -791,8 +741,7 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
-  export const isa = (o: any): o is UpdateProjectRequest =>
-    __isa(o, "UpdateProjectRequest");
+  export const isa = (o: any): o is UpdateProjectRequest => __isa(o, "UpdateProjectRequest");
 }
 
 export interface UpdateProjectResponse {
@@ -800,6 +749,5 @@ export interface UpdateProjectResponse {
 }
 
 export namespace UpdateProjectResponse {
-  export const isa = (o: any): o is UpdateProjectResponse =>
-    __isa(o, "UpdateProjectResponse");
+  export const isa = (o: any): o is UpdateProjectResponse => __isa(o, "UpdateProjectResponse");
 }

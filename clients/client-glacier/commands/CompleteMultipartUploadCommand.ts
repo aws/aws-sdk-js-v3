@@ -1,21 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient";
-import {
-  ArchiveCreationOutput,
-  CompleteMultipartUploadInput
-} from "../models/index";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { ArchiveCreationOutput, CompleteMultipartUploadInput } from "../models/index";
 import {
   deserializeAws_restJson1_1CompleteMultipartUploadCommand,
   serializeAws_restJson1_1CompleteMultipartUploadCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadInput;
-export type CompleteMultipartUploadCommandOutput = ArchiveCreationOutput &
-  __MetadataBearer;
+export type CompleteMultipartUploadCommandOutput = ArchiveCreationOutput & __MetadataBearer;
 
 export class CompleteMultipartUploadCommand extends $Command<
   CompleteMultipartUploadCommandInput,
@@ -49,13 +38,8 @@ export class CompleteMultipartUploadCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CompleteMultipartUploadCommandInput,
-    CompleteMultipartUploadCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class CompleteMultipartUploadCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CompleteMultipartUploadCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CompleteMultipartUploadCommand(
-      input,
-      context
-    );
+  private serialize(input: CompleteMultipartUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CompleteMultipartUploadCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CompleteMultipartUploadCommandOutput> {
-    return deserializeAws_restJson1_1CompleteMultipartUploadCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteMultipartUploadCommandOutput> {
+    return deserializeAws_restJson1_1CompleteMultipartUploadCommand(output, context);
   }
 
   // Start section: command_body_extra

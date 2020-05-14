@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  ListGroupCertificateAuthoritiesRequest,
-  ListGroupCertificateAuthoritiesResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListGroupCertificateAuthoritiesRequest, ListGroupCertificateAuthoritiesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand,
   serializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroupCertificateAuthoritiesCommandInput = ListGroupCertificateAuthoritiesRequest;
-export type ListGroupCertificateAuthoritiesCommandOutput = ListGroupCertificateAuthoritiesResponse &
-  __MetadataBearer;
+export type ListGroupCertificateAuthoritiesCommandOutput = ListGroupCertificateAuthoritiesResponse & __MetadataBearer;
 
 export class ListGroupCertificateAuthoritiesCommand extends $Command<
   ListGroupCertificateAuthoritiesCommandInput,
@@ -49,13 +38,8 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListGroupCertificateAuthoritiesCommandInput,
-    ListGroupCertificateAuthoritiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListGroupCertificateAuthoritiesCommandInput, ListGroupCertificateAuthoritiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class ListGroupCertificateAuthoritiesCommand extends $Command<
     input: ListGroupCertificateAuthoritiesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListGroupCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListGroupCertificateAuthoritiesCommand(output, context);
   }
 
   // Start section: command_body_extra

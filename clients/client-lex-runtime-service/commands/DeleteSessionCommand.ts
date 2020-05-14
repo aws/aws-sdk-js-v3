@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1DeleteSessionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSessionCommandInput = DeleteSessionRequest;
-export type DeleteSessionCommandOutput = DeleteSessionResponse &
-  __MetadataBearer;
+export type DeleteSessionCommandOutput = DeleteSessionResponse & __MetadataBearer;
 
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,
@@ -47,9 +43,7 @@ export class DeleteSessionCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSessionCommandInput, DeleteSessionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class DeleteSessionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSessionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteSessionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSessionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSessionCommandOutput> {
     return deserializeAws_restJson1_1DeleteSessionCommand(output, context);
   }
 

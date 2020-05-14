@@ -1,18 +1,8 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import { DeleteLagRequest, Lag } from "../models/index";
-import {
-  deserializeAws_json1_1DeleteLagCommand,
-  serializeAws_json1_1DeleteLagCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +36,7 @@ export class DeleteLagCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLagCommandInput, DeleteLagCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +51,11 @@ export class DeleteLagCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLagCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLagCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLagCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLagCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLagCommandOutput> {
     return deserializeAws_json1_1DeleteLagCommand(output, context);
   }
 

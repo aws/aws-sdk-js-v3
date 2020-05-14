@@ -1,21 +1,11 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  GetAccountLimitRequest,
-  GetAccountLimitResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetAccountLimitRequest, GetAccountLimitResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetAccountLimitCommand,
   serializeAws_restXmlGetAccountLimitCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountLimitCommandInput = GetAccountLimitRequest;
-export type GetAccountLimitCommandOutput = GetAccountLimitResponse &
-  __MetadataBearer;
+export type GetAccountLimitCommandOutput = GetAccountLimitResponse & __MetadataBearer;
 
 export class GetAccountLimitCommand extends $Command<
   GetAccountLimitCommandInput,
@@ -50,9 +39,7 @@ export class GetAccountLimitCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAccountLimitCommandInput, GetAccountLimitCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetAccountLimitCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccountLimitCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAccountLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetAccountLimitCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAccountLimitCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountLimitCommandOutput> {
     return deserializeAws_restXmlGetAccountLimitCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DescribeInputRequest, DescribeInputResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeInputCommand,
   serializeAws_restJson1_1DescribeInputCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInputCommandInput = DescribeInputRequest;
-export type DescribeInputCommandOutput = DescribeInputResponse &
-  __MetadataBearer;
+export type DescribeInputCommandOutput = DescribeInputResponse & __MetadataBearer;
 
 export class DescribeInputCommand extends $Command<
   DescribeInputCommandInput,
@@ -47,9 +39,7 @@ export class DescribeInputCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeInputCommandInput, DescribeInputCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DescribeInputCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeInputCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeInputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeInputCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeInputCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInputCommandOutput> {
     return deserializeAws_restJson1_1DescribeInputCommand(output, context);
   }
 

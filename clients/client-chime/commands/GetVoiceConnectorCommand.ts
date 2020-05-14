@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetVoiceConnectorRequest,
-  GetVoiceConnectorResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetVoiceConnectorRequest, GetVoiceConnectorResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceConnectorCommand,
   serializeAws_restJson1_1GetVoiceConnectorCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVoiceConnectorCommandInput = GetVoiceConnectorRequest;
-export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse &
-  __MetadataBearer;
+export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse & __MetadataBearer;
 
 export class GetVoiceConnectorCommand extends $Command<
   GetVoiceConnectorCommandInput,
@@ -50,9 +39,7 @@ export class GetVoiceConnectorCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVoiceConnectorCommandInput, GetVoiceConnectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetVoiceConnectorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetVoiceConnectorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetVoiceConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetVoiceConnectorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetVoiceConnectorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceConnectorCommandOutput> {
     return deserializeAws_restJson1_1GetVoiceConnectorCommand(output, context);
   }
 

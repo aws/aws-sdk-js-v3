@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   UpdateConfigurationSetTrackingOptionsRequest,
   UpdateConfigurationSetTrackingOptionsResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: UpdateConfigurationSetTrackingOptionsCommandInput
-  ) {
+  constructor(readonly input: UpdateConfigurationSetTrackingOptionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConfigurationSetTrackingOptionsCommandInput,
-    UpdateConfigurationSetTrackingOptionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConfigurationSetTrackingOptionsCommandInput, UpdateConfigurationSetTrackingOptionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     input: UpdateConfigurationSetTrackingOptionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> {
-    return deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient";
-import {
-  GetBlacklistReportsRequest,
-  GetBlacklistReportsResponse
-} from "../models/index";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
+import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBlacklistReportsCommand,
   serializeAws_restJson1_1GetBlacklistReportsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBlacklistReportsCommandInput = GetBlacklistReportsRequest;
-export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse &
-  __MetadataBearer;
+export type GetBlacklistReportsCommandOutput = GetBlacklistReportsResponse & __MetadataBearer;
 
 export class GetBlacklistReportsCommand extends $Command<
   GetBlacklistReportsCommandInput,
@@ -49,13 +38,8 @@ export class GetBlacklistReportsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBlacklistReportsCommandInput,
-    GetBlacklistReportsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBlacklistReportsCommandInput, GetBlacklistReportsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetBlacklistReportsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBlacklistReportsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBlacklistReportsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetBlacklistReportsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBlacklistReportsCommandOutput> {
-    return deserializeAws_restJson1_1GetBlacklistReportsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBlacklistReportsCommandOutput> {
+    return deserializeAws_restJson1_1GetBlacklistReportsCommand(output, context);
   }
 
   // Start section: command_body_extra

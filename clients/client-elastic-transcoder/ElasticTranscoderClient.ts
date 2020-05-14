@@ -1,63 +1,18 @@
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
-import {
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
-} from "./commands/CreatePipelineCommand";
-import {
-  CreatePresetCommandInput,
-  CreatePresetCommandOutput
-} from "./commands/CreatePresetCommand";
-import {
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
-} from "./commands/DeletePipelineCommand";
-import {
-  DeletePresetCommandInput,
-  DeletePresetCommandOutput
-} from "./commands/DeletePresetCommand";
-import {
-  ListJobsByPipelineCommandInput,
-  ListJobsByPipelineCommandOutput
-} from "./commands/ListJobsByPipelineCommand";
-import {
-  ListJobsByStatusCommandInput,
-  ListJobsByStatusCommandOutput
-} from "./commands/ListJobsByStatusCommand";
-import {
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
-} from "./commands/ListPipelinesCommand";
-import {
-  ListPresetsCommandInput,
-  ListPresetsCommandOutput
-} from "./commands/ListPresetsCommand";
-import {
-  ReadJobCommandInput,
-  ReadJobCommandOutput
-} from "./commands/ReadJobCommand";
-import {
-  ReadPipelineCommandInput,
-  ReadPipelineCommandOutput
-} from "./commands/ReadPipelineCommand";
-import {
-  ReadPresetCommandInput,
-  ReadPresetCommandOutput
-} from "./commands/ReadPresetCommand";
-import {
-  TestRoleCommandInput,
-  TestRoleCommandOutput
-} from "./commands/TestRoleCommand";
-import {
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
-} from "./commands/UpdatePipelineCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
+import { CreatePresetCommandInput, CreatePresetCommandOutput } from "./commands/CreatePresetCommand";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import { DeletePresetCommandInput, DeletePresetCommandOutput } from "./commands/DeletePresetCommand";
+import { ListJobsByPipelineCommandInput, ListJobsByPipelineCommandOutput } from "./commands/ListJobsByPipelineCommand";
+import { ListJobsByStatusCommandInput, ListJobsByStatusCommandOutput } from "./commands/ListJobsByStatusCommand";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import { ListPresetsCommandInput, ListPresetsCommandOutput } from "./commands/ListPresetsCommand";
+import { ReadJobCommandInput, ReadJobCommandOutput } from "./commands/ReadJobCommand";
+import { ReadPipelineCommandInput, ReadPipelineCommandOutput } from "./commands/ReadPipelineCommand";
+import { ReadPresetCommandInput, ReadPresetCommandOutput } from "./commands/ReadPresetCommand";
+import { TestRoleCommandInput, TestRoleCommandOutput } from "./commands/TestRoleCommand";
+import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
 import {
   UpdatePipelineNotificationsCommandInput,
   UpdatePipelineNotificationsCommandOutput
@@ -82,12 +37,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -156,8 +106,7 @@ export type ServiceOutputTypes =
   | UpdatePipelineNotificationsCommandOutput
   | UpdatePipelineStatusCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -241,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticTranscoderClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticTranscoderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -252,9 +199,7 @@ export type ElasticTranscoderClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticTranscoderClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElasticTranscoderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

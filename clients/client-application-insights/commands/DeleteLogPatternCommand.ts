@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DeleteLogPatternRequest,
-  DeleteLogPatternResponse
-} from "../models/index";
+import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLogPatternCommand,
   serializeAws_json1_1DeleteLogPatternCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLogPatternCommandInput = DeleteLogPatternRequest;
-export type DeleteLogPatternCommandOutput = DeleteLogPatternResponse &
-  __MetadataBearer;
+export type DeleteLogPatternCommandOutput = DeleteLogPatternResponse & __MetadataBearer;
 
 export class DeleteLogPatternCommand extends $Command<
   DeleteLogPatternCommandInput,
@@ -50,9 +43,7 @@ export class DeleteLogPatternCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLogPatternCommandInput, DeleteLogPatternCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeleteLogPatternCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLogPatternCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLogPatternCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteLogPatternCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLogPatternCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLogPatternCommandOutput> {
     return deserializeAws_json1_1DeleteLogPatternCommand(output, context);
   }
 

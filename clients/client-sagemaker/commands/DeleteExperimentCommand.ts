@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  DeleteExperimentRequest,
-  DeleteExperimentResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteExperimentCommand,
   serializeAws_json1_1DeleteExperimentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteExperimentCommandInput = DeleteExperimentRequest;
-export type DeleteExperimentCommandOutput = DeleteExperimentResponse &
-  __MetadataBearer;
+export type DeleteExperimentCommandOutput = DeleteExperimentResponse & __MetadataBearer;
 
 export class DeleteExperimentCommand extends $Command<
   DeleteExperimentCommandInput,
@@ -50,9 +39,7 @@ export class DeleteExperimentCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteExperimentCommandInput, DeleteExperimentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteExperimentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteExperimentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteExperimentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteExperimentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteExperimentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteExperimentCommandOutput> {
     return deserializeAws_json1_1DeleteExperimentCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  KinesisClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KinesisClient";
-import {
-  ListStreamConsumersInput,
-  ListStreamConsumersOutput
-} from "../models/index";
+import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { ListStreamConsumersInput, ListStreamConsumersOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListStreamConsumersCommand,
   serializeAws_json1_1ListStreamConsumersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListStreamConsumersCommandInput = ListStreamConsumersInput;
-export type ListStreamConsumersCommandOutput = ListStreamConsumersOutput &
-  __MetadataBearer;
+export type ListStreamConsumersCommandOutput = ListStreamConsumersOutput & __MetadataBearer;
 
 export class ListStreamConsumersCommand extends $Command<
   ListStreamConsumersCommandInput,
@@ -49,13 +38,8 @@ export class ListStreamConsumersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListStreamConsumersCommandInput,
-    ListStreamConsumersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListStreamConsumersCommandInput, ListStreamConsumersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ListStreamConsumersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListStreamConsumersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListStreamConsumersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListStreamConsumersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListStreamConsumersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStreamConsumersCommandOutput> {
     return deserializeAws_json1_1ListStreamConsumersCommand(output, context);
   }
 

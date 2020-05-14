@@ -1,18 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { ListFacetNamesRequest, ListFacetNamesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFacetNamesCommand,
   serializeAws_restJson1_1ListFacetNamesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListFacetNamesCommandInput = ListFacetNamesRequest;
-export type ListFacetNamesCommandOutput = ListFacetNamesResponse &
-  __MetadataBearer;
+export type ListFacetNamesCommandOutput = ListFacetNamesResponse & __MetadataBearer;
 
 export class ListFacetNamesCommand extends $Command<
   ListFacetNamesCommandInput,
@@ -47,9 +39,7 @@ export class ListFacetNamesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFacetNamesCommandInput, ListFacetNamesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListFacetNamesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListFacetNamesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListFacetNamesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListFacetNamesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListFacetNamesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFacetNamesCommandOutput> {
     return deserializeAws_restJson1_1ListFacetNamesCommand(output, context);
   }
 

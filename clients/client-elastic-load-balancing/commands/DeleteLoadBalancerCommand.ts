@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  DeleteAccessPointInput,
-  DeleteAccessPointOutput
-} from "../models/index";
+import { DeleteAccessPointInput, DeleteAccessPointOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteLoadBalancerCommand,
   serializeAws_queryDeleteLoadBalancerCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteLoadBalancerCommandInput = DeleteAccessPointInput;
-export type DeleteLoadBalancerCommandOutput = DeleteAccessPointOutput &
-  __MetadataBearer;
+export type DeleteLoadBalancerCommandOutput = DeleteAccessPointOutput & __MetadataBearer;
 
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,
@@ -50,9 +43,7 @@ export class DeleteLoadBalancerCommand extends $Command<
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeleteLoadBalancerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLoadBalancerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteLoadBalancerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLoadBalancerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLoadBalancerCommandOutput> {
     return deserializeAws_queryDeleteLoadBalancerCommand(output, context);
   }
 

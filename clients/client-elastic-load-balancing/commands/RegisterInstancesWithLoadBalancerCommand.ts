@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  RegisterEndPointsInput,
-  RegisterEndPointsOutput
-} from "../models/index";
+import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/index";
 import {
   deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
   serializeAws_queryRegisterInstancesWithLoadBalancerCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterInstancesWithLoadBalancerCommandInput = RegisterEndPointsInput;
-export type RegisterInstancesWithLoadBalancerCommandOutput = RegisterEndPointsOutput &
-  __MetadataBearer;
+export type RegisterInstancesWithLoadBalancerCommandOutput = RegisterEndPointsOutput & __MetadataBearer;
 
 export class RegisterInstancesWithLoadBalancerCommand extends $Command<
   RegisterInstancesWithLoadBalancerCommandInput,
@@ -49,13 +42,8 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RegisterInstancesWithLoadBalancerCommandInput,
-    RegisterInstancesWithLoadBalancerCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RegisterInstancesWithLoadBalancerCommandInput, RegisterInstancesWithLoadBalancerCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     input: RegisterInstancesWithLoadBalancerCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRegisterInstancesWithLoadBalancerCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> {
-    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRegisterInstancesWithLoadBalancerCommand(output, context);
   }
 
   // Start section: command_body_extra

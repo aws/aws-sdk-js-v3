@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  ArchiveFindingsRequest,
-  ArchiveFindingsResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ArchiveFindingsCommand,
   serializeAws_restJson1_1ArchiveFindingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ArchiveFindingsCommandInput = ArchiveFindingsRequest;
-export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse &
-  __MetadataBearer;
+export type ArchiveFindingsCommandOutput = ArchiveFindingsResponse & __MetadataBearer;
 
 export class ArchiveFindingsCommand extends $Command<
   ArchiveFindingsCommandInput,
@@ -50,9 +39,7 @@ export class ArchiveFindingsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ArchiveFindingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ArchiveFindingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ArchiveFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ArchiveFindingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ArchiveFindingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ArchiveFindingsCommandOutput> {
     return deserializeAws_restJson1_1ArchiveFindingsCommand(output, context);
   }
 

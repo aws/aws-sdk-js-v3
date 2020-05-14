@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetSegmentVersionRequest,
-  GetSegmentVersionResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetSegmentVersionRequest, GetSegmentVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSegmentVersionCommand,
   serializeAws_restJson1_1GetSegmentVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSegmentVersionCommandInput = GetSegmentVersionRequest;
-export type GetSegmentVersionCommandOutput = GetSegmentVersionResponse &
-  __MetadataBearer;
+export type GetSegmentVersionCommandOutput = GetSegmentVersionResponse & __MetadataBearer;
 
 export class GetSegmentVersionCommand extends $Command<
   GetSegmentVersionCommandInput,
@@ -50,9 +39,7 @@ export class GetSegmentVersionCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSegmentVersionCommandInput, GetSegmentVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetSegmentVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSegmentVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSegmentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSegmentVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSegmentVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentVersionCommandOutput> {
     return deserializeAws_restJson1_1GetSegmentVersionCommand(output, context);
   }
 

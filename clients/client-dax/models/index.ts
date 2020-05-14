@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>Two or more incompatible parameters were specified.</p>
  */
-export interface InvalidParameterCombinationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterCombinationException";
   $fault: "client";
   message?: string;
@@ -23,17 +18,14 @@ export namespace InvalidParameterCombinationException {
 /**
  * <p>The value for a parameter is invalid.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidParameterValueException {
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
@@ -300,8 +292,7 @@ export interface CreateClusterRequest {
 }
 
 export namespace CreateClusterRequest {
-  export const isa = (o: any): o is CreateClusterRequest =>
-    __isa(o, "CreateClusterRequest");
+  export const isa = (o: any): o is CreateClusterRequest => __isa(o, "CreateClusterRequest");
 }
 
 export interface CreateClusterResponse {
@@ -313,8 +304,7 @@ export interface CreateClusterResponse {
 }
 
 export namespace CreateClusterResponse {
-  export const isa = (o: any): o is CreateClusterResponse =>
-    __isa(o, "CreateClusterResponse");
+  export const isa = (o: any): o is CreateClusterResponse => __isa(o, "CreateClusterResponse");
 }
 
 export interface CreateParameterGroupRequest {
@@ -332,8 +322,7 @@ export interface CreateParameterGroupRequest {
 }
 
 export namespace CreateParameterGroupRequest {
-  export const isa = (o: any): o is CreateParameterGroupRequest =>
-    __isa(o, "CreateParameterGroupRequest");
+  export const isa = (o: any): o is CreateParameterGroupRequest => __isa(o, "CreateParameterGroupRequest");
 }
 
 export interface CreateParameterGroupResponse {
@@ -346,8 +335,7 @@ export interface CreateParameterGroupResponse {
 }
 
 export namespace CreateParameterGroupResponse {
-  export const isa = (o: any): o is CreateParameterGroupResponse =>
-    __isa(o, "CreateParameterGroupResponse");
+  export const isa = (o: any): o is CreateParameterGroupResponse => __isa(o, "CreateParameterGroupResponse");
 }
 
 export interface CreateSubnetGroupRequest {
@@ -369,8 +357,7 @@ export interface CreateSubnetGroupRequest {
 }
 
 export namespace CreateSubnetGroupRequest {
-  export const isa = (o: any): o is CreateSubnetGroupRequest =>
-    __isa(o, "CreateSubnetGroupRequest");
+  export const isa = (o: any): o is CreateSubnetGroupRequest => __isa(o, "CreateSubnetGroupRequest");
 }
 
 export interface CreateSubnetGroupResponse {
@@ -383,8 +370,7 @@ export interface CreateSubnetGroupResponse {
 }
 
 export namespace CreateSubnetGroupResponse {
-  export const isa = (o: any): o is CreateSubnetGroupResponse =>
-    __isa(o, "CreateSubnetGroupResponse");
+  export const isa = (o: any): o is CreateSubnetGroupResponse => __isa(o, "CreateSubnetGroupResponse");
 }
 
 export interface DecreaseReplicationFactorRequest {
@@ -411,8 +397,7 @@ export interface DecreaseReplicationFactorRequest {
 }
 
 export namespace DecreaseReplicationFactorRequest {
-  export const isa = (o: any): o is DecreaseReplicationFactorRequest =>
-    __isa(o, "DecreaseReplicationFactorRequest");
+  export const isa = (o: any): o is DecreaseReplicationFactorRequest => __isa(o, "DecreaseReplicationFactorRequest");
 }
 
 export interface DecreaseReplicationFactorResponse {
@@ -425,8 +410,7 @@ export interface DecreaseReplicationFactorResponse {
 }
 
 export namespace DecreaseReplicationFactorResponse {
-  export const isa = (o: any): o is DecreaseReplicationFactorResponse =>
-    __isa(o, "DecreaseReplicationFactorResponse");
+  export const isa = (o: any): o is DecreaseReplicationFactorResponse => __isa(o, "DecreaseReplicationFactorResponse");
 }
 
 export interface DeleteClusterRequest {
@@ -438,8 +422,7 @@ export interface DeleteClusterRequest {
 }
 
 export namespace DeleteClusterRequest {
-  export const isa = (o: any): o is DeleteClusterRequest =>
-    __isa(o, "DeleteClusterRequest");
+  export const isa = (o: any): o is DeleteClusterRequest => __isa(o, "DeleteClusterRequest");
 }
 
 export interface DeleteClusterResponse {
@@ -451,8 +434,7 @@ export interface DeleteClusterResponse {
 }
 
 export namespace DeleteClusterResponse {
-  export const isa = (o: any): o is DeleteClusterResponse =>
-    __isa(o, "DeleteClusterResponse");
+  export const isa = (o: any): o is DeleteClusterResponse => __isa(o, "DeleteClusterResponse");
 }
 
 export interface DeleteParameterGroupRequest {
@@ -464,8 +446,7 @@ export interface DeleteParameterGroupRequest {
 }
 
 export namespace DeleteParameterGroupRequest {
-  export const isa = (o: any): o is DeleteParameterGroupRequest =>
-    __isa(o, "DeleteParameterGroupRequest");
+  export const isa = (o: any): o is DeleteParameterGroupRequest => __isa(o, "DeleteParameterGroupRequest");
 }
 
 export interface DeleteParameterGroupResponse {
@@ -478,8 +459,7 @@ export interface DeleteParameterGroupResponse {
 }
 
 export namespace DeleteParameterGroupResponse {
-  export const isa = (o: any): o is DeleteParameterGroupResponse =>
-    __isa(o, "DeleteParameterGroupResponse");
+  export const isa = (o: any): o is DeleteParameterGroupResponse => __isa(o, "DeleteParameterGroupResponse");
 }
 
 export interface DeleteSubnetGroupRequest {
@@ -491,8 +471,7 @@ export interface DeleteSubnetGroupRequest {
 }
 
 export namespace DeleteSubnetGroupRequest {
-  export const isa = (o: any): o is DeleteSubnetGroupRequest =>
-    __isa(o, "DeleteSubnetGroupRequest");
+  export const isa = (o: any): o is DeleteSubnetGroupRequest => __isa(o, "DeleteSubnetGroupRequest");
 }
 
 export interface DeleteSubnetGroupResponse {
@@ -505,8 +484,7 @@ export interface DeleteSubnetGroupResponse {
 }
 
 export namespace DeleteSubnetGroupResponse {
-  export const isa = (o: any): o is DeleteSubnetGroupResponse =>
-    __isa(o, "DeleteSubnetGroupResponse");
+  export const isa = (o: any): o is DeleteSubnetGroupResponse => __isa(o, "DeleteSubnetGroupResponse");
 }
 
 export interface DescribeClustersRequest {
@@ -534,8 +512,7 @@ export interface DescribeClustersRequest {
 }
 
 export namespace DescribeClustersRequest {
-  export const isa = (o: any): o is DescribeClustersRequest =>
-    __isa(o, "DescribeClustersRequest");
+  export const isa = (o: any): o is DescribeClustersRequest => __isa(o, "DescribeClustersRequest");
 }
 
 export interface DescribeClustersResponse {
@@ -553,8 +530,7 @@ export interface DescribeClustersResponse {
 }
 
 export namespace DescribeClustersResponse {
-  export const isa = (o: any): o is DescribeClustersResponse =>
-    __isa(o, "DescribeClustersResponse");
+  export const isa = (o: any): o is DescribeClustersResponse => __isa(o, "DescribeClustersResponse");
 }
 
 export interface DescribeDefaultParametersRequest {
@@ -577,8 +553,7 @@ export interface DescribeDefaultParametersRequest {
 }
 
 export namespace DescribeDefaultParametersRequest {
-  export const isa = (o: any): o is DescribeDefaultParametersRequest =>
-    __isa(o, "DescribeDefaultParametersRequest");
+  export const isa = (o: any): o is DescribeDefaultParametersRequest => __isa(o, "DescribeDefaultParametersRequest");
 }
 
 export interface DescribeDefaultParametersResponse {
@@ -595,8 +570,7 @@ export interface DescribeDefaultParametersResponse {
 }
 
 export namespace DescribeDefaultParametersResponse {
-  export const isa = (o: any): o is DescribeDefaultParametersResponse =>
-    __isa(o, "DescribeDefaultParametersResponse");
+  export const isa = (o: any): o is DescribeDefaultParametersResponse => __isa(o, "DescribeDefaultParametersResponse");
 }
 
 export interface DescribeEventsRequest {
@@ -648,8 +622,7 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
-  export const isa = (o: any): o is DescribeEventsRequest =>
-    __isa(o, "DescribeEventsRequest");
+  export const isa = (o: any): o is DescribeEventsRequest => __isa(o, "DescribeEventsRequest");
 }
 
 export interface DescribeEventsResponse {
@@ -666,8 +639,7 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
-  export const isa = (o: any): o is DescribeEventsResponse =>
-    __isa(o, "DescribeEventsResponse");
+  export const isa = (o: any): o is DescribeEventsResponse => __isa(o, "DescribeEventsResponse");
 }
 
 export interface DescribeParameterGroupsRequest {
@@ -695,8 +667,7 @@ export interface DescribeParameterGroupsRequest {
 }
 
 export namespace DescribeParameterGroupsRequest {
-  export const isa = (o: any): o is DescribeParameterGroupsRequest =>
-    __isa(o, "DescribeParameterGroupsRequest");
+  export const isa = (o: any): o is DescribeParameterGroupsRequest => __isa(o, "DescribeParameterGroupsRequest");
 }
 
 export interface DescribeParameterGroupsResponse {
@@ -713,8 +684,7 @@ export interface DescribeParameterGroupsResponse {
 }
 
 export namespace DescribeParameterGroupsResponse {
-  export const isa = (o: any): o is DescribeParameterGroupsResponse =>
-    __isa(o, "DescribeParameterGroupsResponse");
+  export const isa = (o: any): o is DescribeParameterGroupsResponse => __isa(o, "DescribeParameterGroupsResponse");
 }
 
 export interface DescribeParametersRequest {
@@ -748,8 +718,7 @@ export interface DescribeParametersRequest {
 }
 
 export namespace DescribeParametersRequest {
-  export const isa = (o: any): o is DescribeParametersRequest =>
-    __isa(o, "DescribeParametersRequest");
+  export const isa = (o: any): o is DescribeParametersRequest => __isa(o, "DescribeParametersRequest");
 }
 
 export interface DescribeParametersResponse {
@@ -766,8 +735,7 @@ export interface DescribeParametersResponse {
 }
 
 export namespace DescribeParametersResponse {
-  export const isa = (o: any): o is DescribeParametersResponse =>
-    __isa(o, "DescribeParametersResponse");
+  export const isa = (o: any): o is DescribeParametersResponse => __isa(o, "DescribeParametersResponse");
 }
 
 export interface DescribeSubnetGroupsRequest {
@@ -795,8 +763,7 @@ export interface DescribeSubnetGroupsRequest {
 }
 
 export namespace DescribeSubnetGroupsRequest {
-  export const isa = (o: any): o is DescribeSubnetGroupsRequest =>
-    __isa(o, "DescribeSubnetGroupsRequest");
+  export const isa = (o: any): o is DescribeSubnetGroupsRequest => __isa(o, "DescribeSubnetGroupsRequest");
 }
 
 export interface DescribeSubnetGroupsResponse {
@@ -813,8 +780,7 @@ export interface DescribeSubnetGroupsResponse {
 }
 
 export namespace DescribeSubnetGroupsResponse {
-  export const isa = (o: any): o is DescribeSubnetGroupsResponse =>
-    __isa(o, "DescribeSubnetGroupsResponse");
+  export const isa = (o: any): o is DescribeSubnetGroupsResponse => __isa(o, "DescribeSubnetGroupsResponse");
 }
 
 /**
@@ -894,8 +860,7 @@ export interface IncreaseReplicationFactorRequest {
 }
 
 export namespace IncreaseReplicationFactorRequest {
-  export const isa = (o: any): o is IncreaseReplicationFactorRequest =>
-    __isa(o, "IncreaseReplicationFactorRequest");
+  export const isa = (o: any): o is IncreaseReplicationFactorRequest => __isa(o, "IncreaseReplicationFactorRequest");
 }
 
 export interface IncreaseReplicationFactorResponse {
@@ -907,8 +872,7 @@ export interface IncreaseReplicationFactorResponse {
 }
 
 export namespace IncreaseReplicationFactorResponse {
-  export const isa = (o: any): o is IncreaseReplicationFactorResponse =>
-    __isa(o, "IncreaseReplicationFactorResponse");
+  export const isa = (o: any): o is IncreaseReplicationFactorResponse => __isa(o, "IncreaseReplicationFactorResponse");
 }
 
 export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
@@ -929,8 +893,7 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
-  export const isa = (o: any): o is ListTagsRequest =>
-    __isa(o, "ListTagsRequest");
+  export const isa = (o: any): o is ListTagsRequest => __isa(o, "ListTagsRequest");
 }
 
 export interface ListTagsResponse {
@@ -948,8 +911,7 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
-  export const isa = (o: any): o is ListTagsResponse =>
-    __isa(o, "ListTagsResponse");
+  export const isa = (o: any): o is ListTagsResponse => __isa(o, "ListTagsResponse");
 }
 
 /**
@@ -1014,8 +976,7 @@ export interface NodeTypeSpecificValue {
 }
 
 export namespace NodeTypeSpecificValue {
-  export const isa = (o: any): o is NodeTypeSpecificValue =>
-    __isa(o, "NodeTypeSpecificValue");
+  export const isa = (o: any): o is NodeTypeSpecificValue => __isa(o, "NodeTypeSpecificValue");
 }
 
 /**
@@ -1037,8 +998,7 @@ export interface NotificationConfiguration {
 }
 
 export namespace NotificationConfiguration {
-  export const isa = (o: any): o is NotificationConfiguration =>
-    __isa(o, "NotificationConfiguration");
+  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 /**
@@ -1124,8 +1084,7 @@ export interface ParameterGroup {
 }
 
 export namespace ParameterGroup {
-  export const isa = (o: any): o is ParameterGroup =>
-    __isa(o, "ParameterGroup");
+  export const isa = (o: any): o is ParameterGroup => __isa(o, "ParameterGroup");
 }
 
 /**
@@ -1150,8 +1109,7 @@ export interface ParameterGroupStatus {
 }
 
 export namespace ParameterGroupStatus {
-  export const isa = (o: any): o is ParameterGroupStatus =>
-    __isa(o, "ParameterGroupStatus");
+  export const isa = (o: any): o is ParameterGroupStatus => __isa(o, "ParameterGroupStatus");
 }
 
 /**
@@ -1171,8 +1129,7 @@ export interface ParameterNameValue {
 }
 
 export namespace ParameterNameValue {
-  export const isa = (o: any): o is ParameterNameValue =>
-    __isa(o, "ParameterNameValue");
+  export const isa = (o: any): o is ParameterNameValue => __isa(o, "ParameterNameValue");
 }
 
 export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
@@ -1191,8 +1148,7 @@ export interface RebootNodeRequest {
 }
 
 export namespace RebootNodeRequest {
-  export const isa = (o: any): o is RebootNodeRequest =>
-    __isa(o, "RebootNodeRequest");
+  export const isa = (o: any): o is RebootNodeRequest => __isa(o, "RebootNodeRequest");
 }
 
 export interface RebootNodeResponse {
@@ -1204,8 +1160,7 @@ export interface RebootNodeResponse {
 }
 
 export namespace RebootNodeResponse {
-  export const isa = (o: any): o is RebootNodeResponse =>
-    __isa(o, "RebootNodeResponse");
+  export const isa = (o: any): o is RebootNodeResponse => __isa(o, "RebootNodeResponse");
 }
 
 /**
@@ -1238,8 +1193,7 @@ export interface SSEDescription {
 }
 
 export namespace SSEDescription {
-  export const isa = (o: any): o is SSEDescription =>
-    __isa(o, "SSEDescription");
+  export const isa = (o: any): o is SSEDescription => __isa(o, "SSEDescription");
 }
 
 /**
@@ -1254,8 +1208,7 @@ export interface SSESpecification {
 }
 
 export namespace SSESpecification {
-  export const isa = (o: any): o is SSESpecification =>
-    __isa(o, "SSESpecification");
+  export const isa = (o: any): o is SSESpecification => __isa(o, "SSESpecification");
 }
 
 export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
@@ -1277,8 +1230,7 @@ export interface SecurityGroupMembership {
 }
 
 export namespace SecurityGroupMembership {
-  export const isa = (o: any): o is SecurityGroupMembership =>
-    __isa(o, "SecurityGroupMembership");
+  export const isa = (o: any): o is SecurityGroupMembership => __isa(o, "SecurityGroupMembership");
 }
 
 export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
@@ -1388,8 +1340,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -1401,8 +1352,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -1419,8 +1369,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -1432,8 +1381,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateClusterRequest {
@@ -1478,8 +1426,7 @@ export interface UpdateClusterRequest {
 }
 
 export namespace UpdateClusterRequest {
-  export const isa = (o: any): o is UpdateClusterRequest =>
-    __isa(o, "UpdateClusterRequest");
+  export const isa = (o: any): o is UpdateClusterRequest => __isa(o, "UpdateClusterRequest");
 }
 
 export interface UpdateClusterResponse {
@@ -1491,8 +1438,7 @@ export interface UpdateClusterResponse {
 }
 
 export namespace UpdateClusterResponse {
-  export const isa = (o: any): o is UpdateClusterResponse =>
-    __isa(o, "UpdateClusterResponse");
+  export const isa = (o: any): o is UpdateClusterResponse => __isa(o, "UpdateClusterResponse");
 }
 
 export interface UpdateParameterGroupRequest {
@@ -1510,8 +1456,7 @@ export interface UpdateParameterGroupRequest {
 }
 
 export namespace UpdateParameterGroupRequest {
-  export const isa = (o: any): o is UpdateParameterGroupRequest =>
-    __isa(o, "UpdateParameterGroupRequest");
+  export const isa = (o: any): o is UpdateParameterGroupRequest => __isa(o, "UpdateParameterGroupRequest");
 }
 
 export interface UpdateParameterGroupResponse {
@@ -1523,8 +1468,7 @@ export interface UpdateParameterGroupResponse {
 }
 
 export namespace UpdateParameterGroupResponse {
-  export const isa = (o: any): o is UpdateParameterGroupResponse =>
-    __isa(o, "UpdateParameterGroupResponse");
+  export const isa = (o: any): o is UpdateParameterGroupResponse => __isa(o, "UpdateParameterGroupResponse");
 }
 
 export interface UpdateSubnetGroupRequest {
@@ -1546,8 +1490,7 @@ export interface UpdateSubnetGroupRequest {
 }
 
 export namespace UpdateSubnetGroupRequest {
-  export const isa = (o: any): o is UpdateSubnetGroupRequest =>
-    __isa(o, "UpdateSubnetGroupRequest");
+  export const isa = (o: any): o is UpdateSubnetGroupRequest => __isa(o, "UpdateSubnetGroupRequest");
 }
 
 export interface UpdateSubnetGroupResponse {
@@ -1559,49 +1502,40 @@ export interface UpdateSubnetGroupResponse {
 }
 
 export namespace UpdateSubnetGroupResponse {
-  export const isa = (o: any): o is UpdateSubnetGroupResponse =>
-    __isa(o, "UpdateSubnetGroupResponse");
+  export const isa = (o: any): o is UpdateSubnetGroupResponse => __isa(o, "UpdateSubnetGroupResponse");
 }
 
 /**
  * <p>You already have a DAX cluster with the given identifier.</p>
  */
-export interface ClusterAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterAlreadyExistsFault {
-  export const isa = (o: any): o is ClusterAlreadyExistsFault =>
-    __isa(o, "ClusterAlreadyExistsFault");
+  export const isa = (o: any): o is ClusterAlreadyExistsFault => __isa(o, "ClusterAlreadyExistsFault");
 }
 
 /**
  * <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
  */
-export interface ClusterNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ClusterNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ClusterNotFoundFault {
-  export const isa = (o: any): o is ClusterNotFoundFault =>
-    __isa(o, "ClusterNotFoundFault");
+  export const isa = (o: any): o is ClusterNotFoundFault => __isa(o, "ClusterNotFoundFault");
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of DAX clusters for your AWS
  *             account.</p>
  */
-export interface ClusterQuotaForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ClusterQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
   name: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
@@ -1616,17 +1550,14 @@ export namespace ClusterQuotaForCustomerExceededFault {
  * <p>There are not enough system resources to create the cluster you requested (or to
  *             resize an already-existing cluster). </p>
  */
-export interface InsufficientClusterCapacityFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientClusterCapacityFault extends __SmithyException, $MetadataBearer {
   name: "InsufficientClusterCapacityFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InsufficientClusterCapacityFault {
-  export const isa = (o: any): o is InsufficientClusterCapacityFault =>
-    __isa(o, "InsufficientClusterCapacityFault");
+  export const isa = (o: any): o is InsufficientClusterCapacityFault => __isa(o, "InsufficientClusterCapacityFault");
 }
 
 /**
@@ -1639,41 +1570,34 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidARNFault {
-  export const isa = (o: any): o is InvalidARNFault =>
-    __isa(o, "InvalidARNFault");
+  export const isa = (o: any): o is InvalidARNFault => __isa(o, "InvalidARNFault");
 }
 
 /**
  * <p>The requested DAX cluster is not in the <i>available</i>
  *             state.</p>
  */
-export interface InvalidClusterStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidClusterStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidClusterStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidClusterStateFault {
-  export const isa = (o: any): o is InvalidClusterStateFault =>
-    __isa(o, "InvalidClusterStateFault");
+  export const isa = (o: any): o is InvalidClusterStateFault => __isa(o, "InvalidClusterStateFault");
 }
 
 /**
  * <p>One or more parameters in a parameter group are in an invalid state.</p>
  */
-export interface InvalidParameterGroupStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterGroupStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterGroupStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidParameterGroupStateFault {
-  export const isa = (o: any): o is InvalidParameterGroupStateFault =>
-    __isa(o, "InvalidParameterGroupStateFault");
+  export const isa = (o: any): o is InvalidParameterGroupStateFault => __isa(o, "InvalidParameterGroupStateFault");
 }
 
 /**
@@ -1692,17 +1616,14 @@ export namespace InvalidSubnet {
 /**
  * <p>The VPC network is in an invalid state.</p>
  */
-export interface InvalidVPCNetworkStateFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidVPCNetworkStateFault {
-  export const isa = (o: any): o is InvalidVPCNetworkStateFault =>
-    __isa(o, "InvalidVPCNetworkStateFault");
+  export const isa = (o: any): o is InvalidVPCNetworkStateFault => __isa(o, "InvalidVPCNetworkStateFault");
 }
 
 /**
@@ -1715,172 +1636,141 @@ export interface NodeNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NodeNotFoundFault {
-  export const isa = (o: any): o is NodeNotFoundFault =>
-    __isa(o, "NodeNotFoundFault");
+  export const isa = (o: any): o is NodeNotFoundFault => __isa(o, "NodeNotFoundFault");
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of nodes for a DAX
  *             cluster.</p>
  */
-export interface NodeQuotaForClusterExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NodeQuotaForClusterExceededFault extends __SmithyException, $MetadataBearer {
   name: "NodeQuotaForClusterExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NodeQuotaForClusterExceededFault {
-  export const isa = (o: any): o is NodeQuotaForClusterExceededFault =>
-    __isa(o, "NodeQuotaForClusterExceededFault");
+  export const isa = (o: any): o is NodeQuotaForClusterExceededFault => __isa(o, "NodeQuotaForClusterExceededFault");
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of nodes for your AWS
  *             account.</p>
  */
-export interface NodeQuotaForCustomerExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
   name: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace NodeQuotaForCustomerExceededFault {
-  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault =>
-    __isa(o, "NodeQuotaForCustomerExceededFault");
+  export const isa = (o: any): o is NodeQuotaForCustomerExceededFault => __isa(o, "NodeQuotaForCustomerExceededFault");
 }
 
 /**
  * <p>The specified parameter group already exists.</p>
  */
-export interface ParameterGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "ParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ParameterGroupAlreadyExistsFault {
-  export const isa = (o: any): o is ParameterGroupAlreadyExistsFault =>
-    __isa(o, "ParameterGroupAlreadyExistsFault");
+  export const isa = (o: any): o is ParameterGroupAlreadyExistsFault => __isa(o, "ParameterGroupAlreadyExistsFault");
 }
 
 /**
  * <p>The specified parameter group does not exist.</p>
  */
-export interface ParameterGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ParameterGroupNotFoundFault {
-  export const isa = (o: any): o is ParameterGroupNotFoundFault =>
-    __isa(o, "ParameterGroupNotFoundFault");
+  export const isa = (o: any): o is ParameterGroupNotFoundFault => __isa(o, "ParameterGroupNotFoundFault");
 }
 
 /**
  * <p>You have attempted to exceed the maximum number of parameter groups.</p>
  */
-export interface ParameterGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "ParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ParameterGroupQuotaExceededFault {
-  export const isa = (o: any): o is ParameterGroupQuotaExceededFault =>
-    __isa(o, "ParameterGroupQuotaExceededFault");
+  export const isa = (o: any): o is ParameterGroupQuotaExceededFault => __isa(o, "ParameterGroupQuotaExceededFault");
 }
 
 /**
  * <p>The specified service linked role (SLR) was not found.</p>
  */
-export interface ServiceLinkedRoleNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "ServiceLinkedRoleNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace ServiceLinkedRoleNotFoundFault {
-  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault =>
-    __isa(o, "ServiceLinkedRoleNotFoundFault");
+  export const isa = (o: any): o is ServiceLinkedRoleNotFoundFault => __isa(o, "ServiceLinkedRoleNotFoundFault");
 }
 
 /**
  * <p>The specified subnet group already exists.</p>
  */
-export interface SubnetGroupAlreadyExistsFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
   name: "SubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubnetGroupAlreadyExistsFault {
-  export const isa = (o: any): o is SubnetGroupAlreadyExistsFault =>
-    __isa(o, "SubnetGroupAlreadyExistsFault");
+  export const isa = (o: any): o is SubnetGroupAlreadyExistsFault => __isa(o, "SubnetGroupAlreadyExistsFault");
 }
 
 /**
  * <p>The specified subnet group is currently in use.</p>
  */
-export interface SubnetGroupInUseFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetGroupInUseFault extends __SmithyException, $MetadataBearer {
   name: "SubnetGroupInUseFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubnetGroupInUseFault {
-  export const isa = (o: any): o is SubnetGroupInUseFault =>
-    __isa(o, "SubnetGroupInUseFault");
+  export const isa = (o: any): o is SubnetGroupInUseFault => __isa(o, "SubnetGroupInUseFault");
 }
 
 /**
  * <p>The requested subnet group name does not refer to an existing subnet
  *             group.</p>
  */
-export interface SubnetGroupNotFoundFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "SubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubnetGroupNotFoundFault {
-  export const isa = (o: any): o is SubnetGroupNotFoundFault =>
-    __isa(o, "SubnetGroupNotFoundFault");
+  export const isa = (o: any): o is SubnetGroupNotFoundFault => __isa(o, "SubnetGroupNotFoundFault");
 }
 
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  */
-export interface SubnetGroupQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubnetGroupQuotaExceededFault {
-  export const isa = (o: any): o is SubnetGroupQuotaExceededFault =>
-    __isa(o, "SubnetGroupQuotaExceededFault");
+  export const isa = (o: any): o is SubnetGroupQuotaExceededFault => __isa(o, "SubnetGroupQuotaExceededFault");
 }
 
 /**
@@ -1900,17 +1790,14 @@ export namespace SubnetInUse {
  * <p>The request cannot be processed because it would exceed the allowed number of
  *             subnets in a subnet group.</p>
  */
-export interface SubnetQuotaExceededFault
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
   name: "SubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
 }
 
 export namespace SubnetQuotaExceededFault {
-  export const isa = (o: any): o is SubnetQuotaExceededFault =>
-    __isa(o, "SubnetQuotaExceededFault");
+  export const isa = (o: any): o is SubnetQuotaExceededFault => __isa(o, "SubnetQuotaExceededFault");
 }
 
 /**
@@ -1923,22 +1810,18 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagNotFoundFault {
-  export const isa = (o: any): o is TagNotFoundFault =>
-    __isa(o, "TagNotFoundFault");
+  export const isa = (o: any): o is TagNotFoundFault => __isa(o, "TagNotFoundFault");
 }
 
 /**
  * <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
  */
-export interface TagQuotaPerResourceExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagQuotaPerResourceExceeded extends __SmithyException, $MetadataBearer {
   name: "TagQuotaPerResourceExceeded";
   $fault: "client";
   message?: string;
 }
 
 export namespace TagQuotaPerResourceExceeded {
-  export const isa = (o: any): o is TagQuotaPerResourceExceeded =>
-    __isa(o, "TagQuotaPerResourceExceeded");
+  export const isa = (o: any): o is TagQuotaPerResourceExceeded => __isa(o, "TagQuotaPerResourceExceeded");
 }

@@ -1,18 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { StartMultiplexRequest, StartMultiplexResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartMultiplexCommand,
   serializeAws_restJson1_1StartMultiplexCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartMultiplexCommandInput = StartMultiplexRequest;
-export type StartMultiplexCommandOutput = StartMultiplexResponse &
-  __MetadataBearer;
+export type StartMultiplexCommandOutput = StartMultiplexResponse & __MetadataBearer;
 
 export class StartMultiplexCommand extends $Command<
   StartMultiplexCommandInput,
@@ -47,9 +39,7 @@ export class StartMultiplexCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMultiplexCommandInput, StartMultiplexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class StartMultiplexCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartMultiplexCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartMultiplexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StartMultiplexCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartMultiplexCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartMultiplexCommandOutput> {
     return deserializeAws_restJson1_1StartMultiplexCommand(output, context);
   }
 

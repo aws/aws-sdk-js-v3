@@ -2,19 +2,9 @@ import {
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput
 } from "../commands/GetPersonalizedRankingCommand";
-import {
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput
-} from "../commands/GetRecommendationsCommand";
-import {
-  InvalidInputException,
-  PredictedItem,
-  ResourceNotFoundException
-} from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
+import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/index";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -89,10 +79,7 @@ export const deserializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   context: __SerdeContext
 ): Promise<GetPersonalizedRankingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPersonalizedRankingCommandError(output, context);
   }
   const contents: GetPersonalizedRankingCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -100,14 +87,8 @@ export const deserializeAws_restJson1_1GetPersonalizedRankingCommand = async (
     personalizedRanking: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.personalizedRanking !== undefined &&
-    data.personalizedRanking !== null
-  ) {
-    contents.personalizedRanking = deserializeAws_restJson1_1ItemList(
-      data.personalizedRanking,
-      context
-    );
+  if (data.personalizedRanking !== undefined && data.personalizedRanking !== null) {
+    contents.personalizedRanking = deserializeAws_restJson1_1ItemList(data.personalizedRanking, context);
   }
   return Promise.resolve(contents);
 };
@@ -127,10 +108,7 @@ const deserializeAws_restJson1_1GetPersonalizedRankingCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.runtime.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -138,10 +116,7 @@ const deserializeAws_restJson1_1GetPersonalizedRankingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.personalize.runtime.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -168,10 +143,7 @@ export const deserializeAws_restJson1_1GetRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetRecommendationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetRecommendationsCommandError(output, context);
   }
   const contents: GetRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -180,10 +152,7 @@ export const deserializeAws_restJson1_1GetRecommendationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.itemList !== undefined && data.itemList !== null) {
-    contents.itemList = deserializeAws_restJson1_1ItemList(
-      data.itemList,
-      context
-    );
+    contents.itemList = deserializeAws_restJson1_1ItemList(data.itemList, context);
   }
   return Promise.resolve(contents);
 };
@@ -203,10 +172,7 @@ const deserializeAws_restJson1_1GetRecommendationsCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.runtime.exceptions#InvalidInputException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -214,10 +180,7 @@ const deserializeAws_restJson1_1GetRecommendationsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.personalize.runtime.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -273,10 +236,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Context = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Context = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -286,32 +246,18 @@ const serializeAws_restJson1_1Context = (
   );
 };
 
-const serializeAws_restJson1_1InputList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1InputList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const deserializeAws_restJson1_1ItemList = (
-  output: any,
-  context: __SerdeContext
-): PredictedItem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1PredictedItem(entry, context)
-  );
+const deserializeAws_restJson1_1ItemList = (output: any, context: __SerdeContext): PredictedItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1PredictedItem(entry, context));
 };
 
-const deserializeAws_restJson1_1PredictedItem = (
-  output: any,
-  context: __SerdeContext
-): PredictedItem => {
+const deserializeAws_restJson1_1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
     __type: "PredictedItem",
-    itemId:
-      output.itemId !== undefined && output.itemId !== null
-        ? output.itemId
-        : undefined
+    itemId: output.itemId !== undefined && output.itemId !== null ? output.itemId : undefined
   } as any;
 };
 
@@ -322,30 +268,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -360,8 +297,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

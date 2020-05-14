@@ -2,46 +2,16 @@ import {
   AddListenerCertificatesCommandInput,
   AddListenerCertificatesCommandOutput
 } from "./commands/AddListenerCertificatesCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
-import {
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput
-} from "./commands/CreateListenerCommand";
-import {
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput
-} from "./commands/CreateLoadBalancerCommand";
-import {
-  CreateRuleCommandInput,
-  CreateRuleCommandOutput
-} from "./commands/CreateRuleCommand";
-import {
-  CreateTargetGroupCommandInput,
-  CreateTargetGroupCommandOutput
-} from "./commands/CreateTargetGroupCommand";
-import {
-  DeleteListenerCommandInput,
-  DeleteListenerCommandOutput
-} from "./commands/DeleteListenerCommand";
-import {
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput
-} from "./commands/DeleteLoadBalancerCommand";
-import {
-  DeleteRuleCommandInput,
-  DeleteRuleCommandOutput
-} from "./commands/DeleteRuleCommand";
-import {
-  DeleteTargetGroupCommandInput,
-  DeleteTargetGroupCommandOutput
-} from "./commands/DeleteTargetGroupCommand";
-import {
-  DeregisterTargetsCommandInput,
-  DeregisterTargetsCommandOutput
-} from "./commands/DeregisterTargetsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
+import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "./commands/CreateLoadBalancerCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
+import { CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput } from "./commands/CreateTargetGroupCommand";
+import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
+import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "./commands/DeleteLoadBalancerCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "./commands/DeleteTargetGroupCommand";
+import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "./commands/DeregisterTargetsCommand";
 import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput
@@ -50,10 +20,7 @@ import {
   DescribeListenerCertificatesCommandInput,
   DescribeListenerCertificatesCommandOutput
 } from "./commands/DescribeListenerCertificatesCommand";
-import {
-  DescribeListenersCommandInput,
-  DescribeListenersCommandOutput
-} from "./commands/DescribeListenersCommand";
+import { DescribeListenersCommandInput, DescribeListenersCommandOutput } from "./commands/DescribeListenersCommand";
 import {
   DescribeLoadBalancerAttributesCommandInput,
   DescribeLoadBalancerAttributesCommandOutput
@@ -62,18 +29,12 @@ import {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput
 } from "./commands/DescribeLoadBalancersCommand";
-import {
-  DescribeRulesCommandInput,
-  DescribeRulesCommandOutput
-} from "./commands/DescribeRulesCommand";
+import { DescribeRulesCommandInput, DescribeRulesCommandOutput } from "./commands/DescribeRulesCommand";
 import {
   DescribeSSLPoliciesCommandInput,
   DescribeSSLPoliciesCommandOutput
 } from "./commands/DescribeSSLPoliciesCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DescribeTargetGroupAttributesCommandInput,
   DescribeTargetGroupAttributesCommandOutput
@@ -86,54 +47,27 @@ import {
   DescribeTargetHealthCommandInput,
   DescribeTargetHealthCommandOutput
 } from "./commands/DescribeTargetHealthCommand";
-import {
-  ModifyListenerCommandInput,
-  ModifyListenerCommandOutput
-} from "./commands/ModifyListenerCommand";
+import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "./commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommandInput,
   ModifyLoadBalancerAttributesCommandOutput
 } from "./commands/ModifyLoadBalancerAttributesCommand";
-import {
-  ModifyRuleCommandInput,
-  ModifyRuleCommandOutput
-} from "./commands/ModifyRuleCommand";
+import { ModifyRuleCommandInput, ModifyRuleCommandOutput } from "./commands/ModifyRuleCommand";
 import {
   ModifyTargetGroupAttributesCommandInput,
   ModifyTargetGroupAttributesCommandOutput
 } from "./commands/ModifyTargetGroupAttributesCommand";
-import {
-  ModifyTargetGroupCommandInput,
-  ModifyTargetGroupCommandOutput
-} from "./commands/ModifyTargetGroupCommand";
-import {
-  RegisterTargetsCommandInput,
-  RegisterTargetsCommandOutput
-} from "./commands/RegisterTargetsCommand";
+import { ModifyTargetGroupCommandInput, ModifyTargetGroupCommandOutput } from "./commands/ModifyTargetGroupCommand";
+import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
 import {
   RemoveListenerCertificatesCommandInput,
   RemoveListenerCertificatesCommandOutput
 } from "./commands/RemoveListenerCertificatesCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
-import {
-  SetIpAddressTypeCommandInput,
-  SetIpAddressTypeCommandOutput
-} from "./commands/SetIpAddressTypeCommand";
-import {
-  SetRulePrioritiesCommandInput,
-  SetRulePrioritiesCommandOutput
-} from "./commands/SetRulePrioritiesCommand";
-import {
-  SetSecurityGroupsCommandInput,
-  SetSecurityGroupsCommandOutput
-} from "./commands/SetSecurityGroupsCommand";
-import {
-  SetSubnetsCommandInput,
-  SetSubnetsCommandOutput
-} from "./commands/SetSubnetsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "./commands/SetIpAddressTypeCommand";
+import { SetRulePrioritiesCommandInput, SetRulePrioritiesCommandOutput } from "./commands/SetRulePrioritiesCommand";
+import { SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput } from "./commands/SetSecurityGroupsCommand";
+import { SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -150,12 +84,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -258,8 +187,7 @@ export type ServiceOutputTypes =
   | SetSecurityGroupsCommandOutput
   | SetSubnetsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -343,9 +271,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticLoadBalancingv2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticLoadBalancingv2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -354,9 +280,7 @@ export type ElasticLoadBalancingv2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticLoadBalancingv2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElasticLoadBalancingv2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

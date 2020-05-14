@@ -1,35 +1,17 @@
-import {
-  CancelKeyDeletionCommandInput,
-  CancelKeyDeletionCommandOutput
-} from "./commands/CancelKeyDeletionCommand";
+import { CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput } from "./commands/CancelKeyDeletionCommand";
 import {
   ConnectCustomKeyStoreCommandInput,
   ConnectCustomKeyStoreCommandOutput
 } from "./commands/ConnectCustomKeyStoreCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import {
   CreateCustomKeyStoreCommandInput,
   CreateCustomKeyStoreCommandOutput
 } from "./commands/CreateCustomKeyStoreCommand";
-import {
-  CreateGrantCommandInput,
-  CreateGrantCommandOutput
-} from "./commands/CreateGrantCommand";
-import {
-  CreateKeyCommandInput,
-  CreateKeyCommandOutput
-} from "./commands/CreateKeyCommand";
-import {
-  DecryptCommandInput,
-  DecryptCommandOutput
-} from "./commands/DecryptCommand";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand";
+import { CreateGrantCommandInput, CreateGrantCommandOutput } from "./commands/CreateGrantCommand";
+import { CreateKeyCommandInput, CreateKeyCommandOutput } from "./commands/CreateKeyCommand";
+import { DecryptCommandInput, DecryptCommandOutput } from "./commands/DecryptCommand";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import {
   DeleteCustomKeyStoreCommandInput,
   DeleteCustomKeyStoreCommandOutput
@@ -42,38 +24,17 @@ import {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput
 } from "./commands/DescribeCustomKeyStoresCommand";
-import {
-  DescribeKeyCommandInput,
-  DescribeKeyCommandOutput
-} from "./commands/DescribeKeyCommand";
-import {
-  DisableKeyCommandInput,
-  DisableKeyCommandOutput
-} from "./commands/DisableKeyCommand";
-import {
-  DisableKeyRotationCommandInput,
-  DisableKeyRotationCommandOutput
-} from "./commands/DisableKeyRotationCommand";
+import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "./commands/DescribeKeyCommand";
+import { DisableKeyCommandInput, DisableKeyCommandOutput } from "./commands/DisableKeyCommand";
+import { DisableKeyRotationCommandInput, DisableKeyRotationCommandOutput } from "./commands/DisableKeyRotationCommand";
 import {
   DisconnectCustomKeyStoreCommandInput,
   DisconnectCustomKeyStoreCommandOutput
 } from "./commands/DisconnectCustomKeyStoreCommand";
-import {
-  EnableKeyCommandInput,
-  EnableKeyCommandOutput
-} from "./commands/EnableKeyCommand";
-import {
-  EnableKeyRotationCommandInput,
-  EnableKeyRotationCommandOutput
-} from "./commands/EnableKeyRotationCommand";
-import {
-  EncryptCommandInput,
-  EncryptCommandOutput
-} from "./commands/EncryptCommand";
-import {
-  GenerateDataKeyCommandInput,
-  GenerateDataKeyCommandOutput
-} from "./commands/GenerateDataKeyCommand";
+import { EnableKeyCommandInput, EnableKeyCommandOutput } from "./commands/EnableKeyCommand";
+import { EnableKeyRotationCommandInput, EnableKeyRotationCommandOutput } from "./commands/EnableKeyRotationCommand";
+import { EncryptCommandInput, EncryptCommandOutput } from "./commands/EncryptCommand";
+import { GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput } from "./commands/GenerateDataKeyCommand";
 import {
   GenerateDataKeyPairCommandInput,
   GenerateDataKeyPairCommandOutput
@@ -86,14 +47,8 @@ import {
   GenerateDataKeyWithoutPlaintextCommandInput,
   GenerateDataKeyWithoutPlaintextCommandOutput
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand";
-import {
-  GenerateRandomCommandInput,
-  GenerateRandomCommandOutput
-} from "./commands/GenerateRandomCommand";
-import {
-  GetKeyPolicyCommandInput,
-  GetKeyPolicyCommandOutput
-} from "./commands/GetKeyPolicyCommand";
+import { GenerateRandomCommandInput, GenerateRandomCommandOutput } from "./commands/GenerateRandomCommand";
+import { GetKeyPolicyCommandInput, GetKeyPolicyCommandOutput } from "./commands/GetKeyPolicyCommand";
 import {
   GetKeyRotationStatusCommandInput,
   GetKeyRotationStatusCommandOutput
@@ -102,71 +57,29 @@ import {
   GetParametersForImportCommandInput,
   GetParametersForImportCommandOutput
 } from "./commands/GetParametersForImportCommand";
-import {
-  GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput
-} from "./commands/GetPublicKeyCommand";
-import {
-  ImportKeyMaterialCommandInput,
-  ImportKeyMaterialCommandOutput
-} from "./commands/ImportKeyMaterialCommand";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand";
-import {
-  ListGrantsCommandInput,
-  ListGrantsCommandOutput
-} from "./commands/ListGrantsCommand";
-import {
-  ListKeyPoliciesCommandInput,
-  ListKeyPoliciesCommandOutput
-} from "./commands/ListKeyPoliciesCommand";
-import {
-  ListKeysCommandInput,
-  ListKeysCommandOutput
-} from "./commands/ListKeysCommand";
-import {
-  ListResourceTagsCommandInput,
-  ListResourceTagsCommandOutput
-} from "./commands/ListResourceTagsCommand";
+import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
+import { ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput } from "./commands/ImportKeyMaterialCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import { ListGrantsCommandInput, ListGrantsCommandOutput } from "./commands/ListGrantsCommand";
+import { ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput } from "./commands/ListKeyPoliciesCommand";
+import { ListKeysCommandInput, ListKeysCommandOutput } from "./commands/ListKeysCommand";
+import { ListResourceTagsCommandInput, ListResourceTagsCommandOutput } from "./commands/ListResourceTagsCommand";
 import {
   ListRetirableGrantsCommandInput,
   ListRetirableGrantsCommandOutput
 } from "./commands/ListRetirableGrantsCommand";
-import {
-  PutKeyPolicyCommandInput,
-  PutKeyPolicyCommandOutput
-} from "./commands/PutKeyPolicyCommand";
-import {
-  ReEncryptCommandInput,
-  ReEncryptCommandOutput
-} from "./commands/ReEncryptCommand";
-import {
-  RetireGrantCommandInput,
-  RetireGrantCommandOutput
-} from "./commands/RetireGrantCommand";
-import {
-  RevokeGrantCommandInput,
-  RevokeGrantCommandOutput
-} from "./commands/RevokeGrantCommand";
+import { PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput } from "./commands/PutKeyPolicyCommand";
+import { ReEncryptCommandInput, ReEncryptCommandOutput } from "./commands/ReEncryptCommand";
+import { RetireGrantCommandInput, RetireGrantCommandOutput } from "./commands/RetireGrantCommand";
+import { RevokeGrantCommandInput, RevokeGrantCommandOutput } from "./commands/RevokeGrantCommand";
 import {
   ScheduleKeyDeletionCommandInput,
   ScheduleKeyDeletionCommandOutput
 } from "./commands/ScheduleKeyDeletionCommand";
 import { SignCommandInput, SignCommandOutput } from "./commands/SignCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import {
   UpdateCustomKeyStoreCommandInput,
   UpdateCustomKeyStoreCommandOutput
@@ -175,10 +88,7 @@ import {
   UpdateKeyDescriptionCommandInput,
   UpdateKeyDescriptionCommandOutput
 } from "./commands/UpdateKeyDescriptionCommand";
-import {
-  VerifyCommandInput,
-  VerifyCommandOutput
-} from "./commands/VerifyCommand";
+import { VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -195,12 +105,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -327,8 +232,7 @@ export type ServiceOutputTypes =
   | UpdateKeyDescriptionCommandOutput
   | VerifyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -412,9 +316,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KMSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KMSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -423,9 +325,7 @@ export type KMSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

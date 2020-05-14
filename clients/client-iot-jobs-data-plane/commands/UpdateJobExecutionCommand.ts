@@ -1,21 +1,11 @@
-import {
-  IoTJobsDataPlaneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTJobsDataPlaneClient";
-import {
-  UpdateJobExecutionRequest,
-  UpdateJobExecutionResponse
-} from "../models/index";
+import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
+import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateJobExecutionCommand,
   serializeAws_restJson1_1UpdateJobExecutionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJobExecutionCommandInput = UpdateJobExecutionRequest;
-export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse &
-  __MetadataBearer;
+export type UpdateJobExecutionCommandOutput = UpdateJobExecutionResponse & __MetadataBearer;
 
 export class UpdateJobExecutionCommand extends $Command<
   UpdateJobExecutionCommandInput,
@@ -50,9 +39,7 @@ export class UpdateJobExecutionCommand extends $Command<
     configuration: IoTJobsDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateJobExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateJobExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateJobExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateJobExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateJobExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJobExecutionCommandOutput> {
     return deserializeAws_restJson1_1UpdateJobExecutionCommand(output, context);
   }
 

@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBotChannelAssociationsRequest,
-  GetBotChannelAssociationsResponse
-} from "../models/index";
+import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBotChannelAssociationsCommand,
   serializeAws_restJson1_1GetBotChannelAssociationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBotChannelAssociationsCommandInput = GetBotChannelAssociationsRequest;
-export type GetBotChannelAssociationsCommandOutput = GetBotChannelAssociationsResponse &
-  __MetadataBearer;
+export type GetBotChannelAssociationsCommandOutput = GetBotChannelAssociationsResponse & __MetadataBearer;
 
 export class GetBotChannelAssociationsCommand extends $Command<
   GetBotChannelAssociationsCommandInput,
@@ -49,13 +42,8 @@ export class GetBotChannelAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBotChannelAssociationsCommandInput,
-    GetBotChannelAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBotChannelAssociationsCommandInput, GetBotChannelAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +58,15 @@ export class GetBotChannelAssociationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBotChannelAssociationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBotChannelAssociationsCommand(
-      input,
-      context
-    );
+  private serialize(input: GetBotChannelAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetBotChannelAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBotChannelAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetBotChannelAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBotChannelAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

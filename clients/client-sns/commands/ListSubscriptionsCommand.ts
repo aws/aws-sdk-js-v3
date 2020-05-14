@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  ListSubscriptionsInput,
-  ListSubscriptionsResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { ListSubscriptionsInput, ListSubscriptionsResponse } from "../models/index";
 import {
   deserializeAws_queryListSubscriptionsCommand,
   serializeAws_queryListSubscriptionsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSubscriptionsCommandInput = ListSubscriptionsInput;
-export type ListSubscriptionsCommandOutput = ListSubscriptionsResponse &
-  __MetadataBearer;
+export type ListSubscriptionsCommandOutput = ListSubscriptionsResponse & __MetadataBearer;
 
 export class ListSubscriptionsCommand extends $Command<
   ListSubscriptionsCommandInput,
@@ -50,9 +39,7 @@ export class ListSubscriptionsCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListSubscriptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSubscriptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSubscriptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSubscriptionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSubscriptionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSubscriptionsCommandOutput> {
     return deserializeAws_queryListSubscriptionsCommand(output, context);
   }
 

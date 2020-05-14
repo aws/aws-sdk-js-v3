@@ -171,10 +171,7 @@ describe("httpHandler", () => {
       requestTimeout: 5
     });
 
-    await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty(
-      "name",
-      "TimeoutError"
-    );
+    await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty("name", "TimeoutError");
     expect(mockFetch.mock.calls.length).toBe(1);
   });
 

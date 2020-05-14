@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  GetSamplingTargetsRequest,
-  GetSamplingTargetsResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSamplingTargetsCommand,
   serializeAws_restJson1_1GetSamplingTargetsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSamplingTargetsCommandInput = GetSamplingTargetsRequest;
-export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult &
-  __MetadataBearer;
+export type GetSamplingTargetsCommandOutput = GetSamplingTargetsResult & __MetadataBearer;
 
 export class GetSamplingTargetsCommand extends $Command<
   GetSamplingTargetsCommandInput,
@@ -50,9 +39,7 @@ export class GetSamplingTargetsCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetSamplingTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSamplingTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSamplingTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSamplingTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSamplingTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSamplingTargetsCommandOutput> {
     return deserializeAws_restJson1_1GetSamplingTargetsCommand(output, context);
   }
 

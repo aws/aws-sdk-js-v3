@@ -1,7 +1,4 @@
-import {
-  GenerateDataSetCommandInput,
-  GenerateDataSetCommandOutput
-} from "../commands/GenerateDataSetCommand";
+import { GenerateDataSetCommandInput, GenerateDataSetCommandOutput } from "../commands/GenerateDataSetCommand";
 import {
   StartSupportDataExportCommandInput,
   StartSupportDataExportCommandOutput
@@ -13,10 +10,7 @@ import {
   StartSupportDataExportRequest,
   StartSupportDataExportResult
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -35,9 +29,7 @@ export const serializeAws_json1_1GenerateDataSetCommand = async (
     "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GenerateDataSetRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GenerateDataSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -47,13 +39,10 @@ export const serializeAws_json1_1StartSupportDataExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
+    "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartSupportDataExportRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartSupportDataExportRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -86,16 +75,12 @@ const deserializeAws_json1_1GenerateDataSetCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
       response = {
-        ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -122,10 +107,7 @@ export const deserializeAws_json1_1StartSupportDataExportCommand = async (
   context: __SerdeContext
 ): Promise<StartSupportDataExportCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartSupportDataExportCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartSupportDataExportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -149,16 +131,12 @@ const deserializeAws_json1_1StartSupportDataExportCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "MarketplaceCommerceAnalyticsException":
     case "com.amazon.aws.marketplace.businessintelligenceservice.v20150701#MarketplaceCommerceAnalyticsException":
       response = {
-        ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -185,10 +163,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
   context: __SerdeContext
 ): Promise<MarketplaceCommerceAnalyticsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1MarketplaceCommerceAnalyticsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1MarketplaceCommerceAnalyticsException(body, context);
   const contents: MarketplaceCommerceAnalyticsException = {
     name: "MarketplaceCommerceAnalyticsException",
     $fault: "server",
@@ -198,10 +173,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsExceptionResponse = asyn
   return contents;
 };
 
-const serializeAws_json1_1CustomerDefinedValues = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CustomerDefinedValues = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -211,21 +183,13 @@ const serializeAws_json1_1CustomerDefinedValues = (
   );
 };
 
-const serializeAws_json1_1GenerateDataSetRequest = (
-  input: GenerateDataSetRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GenerateDataSetRequest = (input: GenerateDataSetRequest, context: __SerdeContext): any => {
   return {
     ...(input.customerDefinedValues !== undefined && {
-      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(
-        input.customerDefinedValues,
-        context
-      )
+      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context)
     }),
     ...(input.dataSetPublicationDate !== undefined && {
-      dataSetPublicationDate: Math.round(
-        input.dataSetPublicationDate.getTime() / 1000
-      )
+      dataSetPublicationDate: Math.round(input.dataSetPublicationDate.getTime() / 1000)
     }),
     ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
     ...(input.destinationS3BucketName !== undefined && {
@@ -245,10 +209,7 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
 ): any => {
   return {
     ...(input.customerDefinedValues !== undefined && {
-      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(
-        input.customerDefinedValues,
-        context
-      )
+      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(input.customerDefinedValues, context)
     }),
     ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
     ...(input.destinationS3BucketName !== undefined && {
@@ -265,16 +226,11 @@ const serializeAws_json1_1StartSupportDataExportRequest = (
   };
 };
 
-const deserializeAws_json1_1GenerateDataSetResult = (
-  output: any,
-  context: __SerdeContext
-): GenerateDataSetResult => {
+const deserializeAws_json1_1GenerateDataSetResult = (output: any, context: __SerdeContext): GenerateDataSetResult => {
   return {
     __type: "GenerateDataSetResult",
     dataSetRequestId:
-      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null
-        ? output.dataSetRequestId
-        : undefined
+      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined
   } as any;
 };
 
@@ -284,10 +240,7 @@ const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
 ): MarketplaceCommerceAnalyticsException => {
   return {
     __type: "MarketplaceCommerceAnalyticsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -298,9 +251,7 @@ const deserializeAws_json1_1StartSupportDataExportResult = (
   return {
     __type: "StartSupportDataExportResult",
     dataSetRequestId:
-      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null
-        ? output.dataSetRequestId
-        : undefined
+      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null ? output.dataSetRequestId : undefined
   } as any;
 };
 
@@ -311,23 +262,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

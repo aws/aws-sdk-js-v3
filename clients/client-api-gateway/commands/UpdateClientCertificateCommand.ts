@@ -1,21 +1,11 @@
-import {
-  APIGatewayClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../APIGatewayClient";
-import {
-  ClientCertificate,
-  UpdateClientCertificateRequest
-} from "../models/index";
+import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import { ClientCertificate, UpdateClientCertificateRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateClientCertificateCommand,
   serializeAws_restJson1_1UpdateClientCertificateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateClientCertificateCommandInput = UpdateClientCertificateRequest;
-export type UpdateClientCertificateCommandOutput = ClientCertificate &
-  __MetadataBearer;
+export type UpdateClientCertificateCommandOutput = ClientCertificate & __MetadataBearer;
 
 export class UpdateClientCertificateCommand extends $Command<
   UpdateClientCertificateCommandInput,
@@ -49,13 +38,8 @@ export class UpdateClientCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateClientCertificateCommandInput,
-    UpdateClientCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateClientCertificateCommandInput, UpdateClientCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class UpdateClientCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateClientCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateClientCertificateCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateClientCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateClientCertificateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateClientCertificateCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClientCertificateCommandOutput> {
+    return deserializeAws_restJson1_1UpdateClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

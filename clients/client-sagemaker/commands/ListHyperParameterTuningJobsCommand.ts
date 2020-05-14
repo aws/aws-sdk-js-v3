@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  ListHyperParameterTuningJobsRequest,
-  ListHyperParameterTuningJobsResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListHyperParameterTuningJobsRequest, ListHyperParameterTuningJobsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListHyperParameterTuningJobsCommand,
   serializeAws_json1_1ListHyperParameterTuningJobsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHyperParameterTuningJobsCommandInput = ListHyperParameterTuningJobsRequest;
-export type ListHyperParameterTuningJobsCommandOutput = ListHyperParameterTuningJobsResponse &
-  __MetadataBearer;
+export type ListHyperParameterTuningJobsCommandOutput = ListHyperParameterTuningJobsResponse & __MetadataBearer;
 
 export class ListHyperParameterTuningJobsCommand extends $Command<
   ListHyperParameterTuningJobsCommandInput,
@@ -49,13 +38,8 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHyperParameterTuningJobsCommandInput,
-    ListHyperParameterTuningJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHyperParameterTuningJobsCommandInput, ListHyperParameterTuningJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHyperParameterTuningJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListHyperParameterTuningJobsCommand(
-      input,
-      context
-    );
+  private serialize(input: ListHyperParameterTuningJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListHyperParameterTuningJobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListHyperParameterTuningJobsCommandOutput> {
-    return deserializeAws_json1_1ListHyperParameterTuningJobsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListHyperParameterTuningJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

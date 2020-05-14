@@ -55,9 +55,7 @@ describe("fromCognitoIdentityPool", () => {
     });
 
     expect(send.mock.calls.length).toBe(1);
-    expect(send.mock.calls[0][0]).toEqual(
-      new GetIdCommand({ IdentityPoolId: identityPoolId })
-    );
+    expect(send.mock.calls[0][0]).toEqual(new GetIdCommand({ IdentityPoolId: identityPoolId }));
 
     expect((fromCognitoIdentity as any).mock.calls.length).toBe(1);
     expect((fromCognitoIdentity as any).mock.calls[0][0]).toEqual({
@@ -126,9 +124,7 @@ describe("fromCognitoIdentityPool", () => {
         client: mockClient,
         identityPoolId
       })()
-    ).rejects.toMatchObject(
-      new ProviderError("Response from Amazon Cognito contained no identity ID")
-    );
+    ).rejects.toMatchObject(new ProviderError("Response from Amazon Cognito contained no identity ID"));
   });
 
   it("should allow injecting a custom cache", async () => {
@@ -140,11 +136,7 @@ describe("fromCognitoIdentityPool", () => {
       cache
     })();
 
-    expect(
-      cache.getItem(
-        `aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`
-      )
-    ).toBe(identityId);
+    expect(cache.getItem(`aws:cognito-identity-credentials:${identityPoolId}:ANONYMOUS`)).toBe(identityId);
   });
 
   it("should not call `GetId` if the IdentityId is in cache", async () => {
@@ -172,9 +164,7 @@ describe("fromCognitoIdentityPool", () => {
     const cache = new InMemoryStorage({
       [cacheKey]: identityId
     });
-    (fromCognitoIdentity({} as any) as any).mockImplementationOnce(() =>
-      Promise.reject(new Error("PANIC"))
-    );
+    (fromCognitoIdentity({} as any) as any).mockImplementationOnce(() => Promise.reject(new Error("PANIC")));
 
     await expect(
       fromCognitoIdentityPool({
@@ -200,9 +190,7 @@ describe("fromCognitoIdentityPool", () => {
   });
 
   it("should not attempt to remove the entry from cache when an error is encountered if logins are provided without a separate identifier", async () => {
-    (fromCognitoIdentity({} as any) as any).mockImplementationOnce(() =>
-      Promise.reject(new Error("PANIC"))
-    );
+    (fromCognitoIdentity({} as any) as any).mockImplementationOnce(() => Promise.reject(new Error("PANIC")));
 
     await expect(
       fromCognitoIdentityPool({

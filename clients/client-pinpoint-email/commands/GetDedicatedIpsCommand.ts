@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient";
-import {
-  GetDedicatedIpsRequest,
-  GetDedicatedIpsResponse
-} from "../models/index";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
+import { GetDedicatedIpsRequest, GetDedicatedIpsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDedicatedIpsCommand,
   serializeAws_restJson1_1GetDedicatedIpsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDedicatedIpsCommandInput = GetDedicatedIpsRequest;
-export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse &
-  __MetadataBearer;
+export type GetDedicatedIpsCommandOutput = GetDedicatedIpsResponse & __MetadataBearer;
 
 export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandInput,
@@ -50,9 +39,7 @@ export class GetDedicatedIpsCommand extends $Command<
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetDedicatedIpsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDedicatedIpsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDedicatedIpsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDedicatedIpsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDedicatedIpsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDedicatedIpsCommandOutput> {
     return deserializeAws_restJson1_1GetDedicatedIpsCommand(output, context);
   }
 

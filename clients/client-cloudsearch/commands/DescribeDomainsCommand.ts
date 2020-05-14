@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient";
-import {
-  DescribeDomainsRequest,
-  DescribeDomainsResponse
-} from "../models/index";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/index";
 import {
   deserializeAws_queryDescribeDomainsCommand,
   serializeAws_queryDescribeDomainsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDomainsCommandInput = DescribeDomainsRequest;
-export type DescribeDomainsCommandOutput = DescribeDomainsResponse &
-  __MetadataBearer;
+export type DescribeDomainsCommandOutput = DescribeDomainsResponse & __MetadataBearer;
 
 export class DescribeDomainsCommand extends $Command<
   DescribeDomainsCommandInput,
@@ -50,9 +39,7 @@ export class DescribeDomainsCommand extends $Command<
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainsCommandInput, DescribeDomainsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeDomainsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDomainsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDomainsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeDomainsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDomainsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDomainsCommandOutput> {
     return deserializeAws_queryDescribeDomainsCommand(output, context);
   }
 

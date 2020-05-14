@@ -1,18 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import { DescribeTerminationPolicyTypesAnswer } from "../models/index";
 import {
   deserializeAws_queryDescribeTerminationPolicyTypesCommand,
   serializeAws_queryDescribeTerminationPolicyTypesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTerminationPolicyTypesCommandInput = {};
-export type DescribeTerminationPolicyTypesCommandOutput = DescribeTerminationPolicyTypesAnswer &
-  __MetadataBearer;
+export type DescribeTerminationPolicyTypesCommandOutput = DescribeTerminationPolicyTypesAnswer & __MetadataBearer;
 
 export class DescribeTerminationPolicyTypesCommand extends $Command<
   DescribeTerminationPolicyTypesCommandInput,
@@ -46,13 +38,8 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTerminationPolicyTypesCommandInput,
-    DescribeTerminationPolicyTypesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTerminationPolicyTypesCommandInput, DescribeTerminationPolicyTypesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +58,14 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
     input: DescribeTerminationPolicyTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeTerminationPolicyTypesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeTerminationPolicyTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTerminationPolicyTypesCommandOutput> {
-    return deserializeAws_queryDescribeTerminationPolicyTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeTerminationPolicyTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

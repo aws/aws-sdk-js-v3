@@ -1,22 +1,12 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
-import {
-  GetObjectTorrentOutput,
-  GetObjectTorrentRequest
-} from "../models/index";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
+import { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/index";
 import {
   deserializeAws_restXmlGetObjectTorrentCommand,
   serializeAws_restXmlGetObjectTorrentCommand
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -29,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetObjectTorrentCommandInput = GetObjectTorrentRequest;
-export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput &
-  __MetadataBearer;
+export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput & __MetadataBearer;
 
 export class GetObjectTorrentCommand extends $Command<
   GetObjectTorrentCommandInput,
@@ -51,9 +40,7 @@ export class GetObjectTorrentCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -69,17 +56,11 @@ export class GetObjectTorrentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetObjectTorrentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetObjectTorrentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetObjectTorrentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetObjectTorrentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectTorrentCommandOutput> {
     return deserializeAws_restXmlGetObjectTorrentCommand(output, context);
   }
 

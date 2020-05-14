@@ -1,8 +1,4 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
 import {
   DescribeEffectiveInstanceAssociationsRequest,
   DescribeEffectiveInstanceAssociationsResult
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeEffectiveInstanceAssociationsCommandInput
-  ) {
+  constructor(readonly input: DescribeEffectiveInstanceAssociationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEffectiveInstanceAssociationsCommandInput,
-    DescribeEffectiveInstanceAssociationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEffectiveInstanceAssociationsCommandInput, DescribeEffectiveInstanceAssociationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
     input: DescribeEffectiveInstanceAssociationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand(output, context);
   }
 
   // Start section: command_body_extra

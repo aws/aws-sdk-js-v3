@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  ModifyDBSnapshotMessage,
-  ModifyDBSnapshotResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { ModifyDBSnapshotMessage, ModifyDBSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryModifyDBSnapshotCommand,
   serializeAws_queryModifyDBSnapshotCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBSnapshotCommandInput = ModifyDBSnapshotMessage;
-export type ModifyDBSnapshotCommandOutput = ModifyDBSnapshotResult &
-  __MetadataBearer;
+export type ModifyDBSnapshotCommandOutput = ModifyDBSnapshotResult & __MetadataBearer;
 
 export class ModifyDBSnapshotCommand extends $Command<
   ModifyDBSnapshotCommandInput,
@@ -50,9 +39,7 @@ export class ModifyDBSnapshotCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBSnapshotCommandInput, ModifyDBSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ModifyDBSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyDBSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyDBSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBSnapshotCommandOutput> {
     return deserializeAws_queryModifyDBSnapshotCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import { ModifyMountTargetSecurityGroupsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand,
   serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyMountTargetSecurityGroupsCommandInput,
-    ModifyMountTargetSecurityGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyMountTargetSecurityGroupsCommandInput, ModifyMountTargetSecurityGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +58,14 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
     input: ModifyMountTargetSecurityGroupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ModifyMountTargetSecurityGroupsCommandOutput> {
-    return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
-import {
-  ModifyDBInstanceMessage,
-  ModifyDBInstanceResult
-} from "../models/index";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
-export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult &
-  __MetadataBearer;
+export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
 
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,
@@ -50,9 +39,7 @@ export class ModifyDBInstanceCommand extends $Command<
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ModifyDBInstanceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyDBInstanceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyDBInstanceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyDBInstanceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyDBInstanceCommandOutput> {
     return deserializeAws_queryModifyDBInstanceCommand(output, context);
   }
 

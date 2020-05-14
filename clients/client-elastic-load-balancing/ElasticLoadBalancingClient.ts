@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   ApplySecurityGroupsToLoadBalancerCommandInput,
   ApplySecurityGroupsToLoadBalancerCommandOutput
@@ -22,10 +19,7 @@ import {
   CreateLBCookieStickinessPolicyCommandInput,
   CreateLBCookieStickinessPolicyCommandOutput
 } from "./commands/CreateLBCookieStickinessPolicyCommand";
-import {
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput
-} from "./commands/CreateLoadBalancerCommand";
+import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "./commands/CreateLoadBalancerCommand";
 import {
   CreateLoadBalancerListenersCommandInput,
   CreateLoadBalancerListenersCommandOutput
@@ -34,10 +28,7 @@ import {
   CreateLoadBalancerPolicyCommandInput,
   CreateLoadBalancerPolicyCommandOutput
 } from "./commands/CreateLoadBalancerPolicyCommand";
-import {
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput
-} from "./commands/DeleteLoadBalancerCommand";
+import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "./commands/DeleteLoadBalancerCommand";
 import {
   DeleteLoadBalancerListenersCommandInput,
   DeleteLoadBalancerListenersCommandOutput
@@ -74,10 +65,7 @@ import {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput
 } from "./commands/DescribeLoadBalancersCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DetachLoadBalancerFromSubnetsCommandInput,
   DetachLoadBalancerFromSubnetsCommandOutput
@@ -98,10 +86,7 @@ import {
   RegisterInstancesWithLoadBalancerCommandInput,
   RegisterInstancesWithLoadBalancerCommandOutput
 } from "./commands/RegisterInstancesWithLoadBalancerCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   SetLoadBalancerListenerSSLCertificateCommandInput,
   SetLoadBalancerListenerSSLCertificateCommandOutput
@@ -130,12 +115,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -228,8 +208,7 @@ export type ServiceOutputTypes =
   | SetLoadBalancerPoliciesForBackendServerCommandOutput
   | SetLoadBalancerPoliciesOfListenerCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -313,9 +292,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ElasticLoadBalancingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ElasticLoadBalancingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -324,9 +301,7 @@ export type ElasticLoadBalancingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ElasticLoadBalancingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ElasticLoadBalancingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

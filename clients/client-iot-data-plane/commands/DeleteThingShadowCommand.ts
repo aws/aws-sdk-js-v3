@@ -1,21 +1,11 @@
-import {
-  IoTDataPlaneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTDataPlaneClient";
-import {
-  DeleteThingShadowRequest,
-  DeleteThingShadowResponse
-} from "../models/index";
+import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteThingShadowCommand,
   serializeAws_restJson1_1DeleteThingShadowCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteThingShadowCommandInput = DeleteThingShadowRequest;
-export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse &
-  __MetadataBearer;
+export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse & __MetadataBearer;
 
 export class DeleteThingShadowCommand extends $Command<
   DeleteThingShadowCommandInput,
@@ -50,9 +39,7 @@ export class DeleteThingShadowCommand extends $Command<
     configuration: IoTDataPlaneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteThingShadowCommandInput, DeleteThingShadowCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteThingShadowCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteThingShadowCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteThingShadowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteThingShadowCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteThingShadowCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteThingShadowCommandOutput> {
     return deserializeAws_restJson1_1DeleteThingShadowCommand(output, context);
   }
 

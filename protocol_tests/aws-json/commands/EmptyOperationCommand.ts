@@ -1,17 +1,10 @@
-import {
-  JsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../JsonProtocolClient";
+import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import {
   deserializeAws_json1_1EmptyOperationCommand,
   serializeAws_json1_1EmptyOperationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,9 +38,7 @@ export class EmptyOperationCommand extends $Command<
     configuration: JsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EmptyOperationCommandInput, EmptyOperationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -62,17 +53,11 @@ export class EmptyOperationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EmptyOperationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: EmptyOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1EmptyOperationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EmptyOperationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EmptyOperationCommandOutput> {
     return deserializeAws_json1_1EmptyOperationCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
-import {
-  UpdateDatasetGroupRequest,
-  UpdateDatasetGroupResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDatasetGroupCommand,
   serializeAws_json1_1UpdateDatasetGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDatasetGroupCommandInput = UpdateDatasetGroupRequest;
-export type UpdateDatasetGroupCommandOutput = UpdateDatasetGroupResponse &
-  __MetadataBearer;
+export type UpdateDatasetGroupCommandOutput = UpdateDatasetGroupResponse & __MetadataBearer;
 
 export class UpdateDatasetGroupCommand extends $Command<
   UpdateDatasetGroupCommandInput,
@@ -50,9 +39,7 @@ export class UpdateDatasetGroupCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateDatasetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDatasetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDatasetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDatasetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDatasetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetGroupCommandOutput> {
     return deserializeAws_json1_1UpdateDatasetGroupCommand(output, context);
   }
 

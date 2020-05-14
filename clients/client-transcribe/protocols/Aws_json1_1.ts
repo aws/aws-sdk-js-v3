@@ -1,7 +1,4 @@
-import {
-  CreateVocabularyCommandInput,
-  CreateVocabularyCommandOutput
-} from "../commands/CreateVocabularyCommand";
+import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "../commands/CreateVocabularyCommand";
 import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput
@@ -10,10 +7,7 @@ import {
   DeleteTranscriptionJobCommandInput,
   DeleteTranscriptionJobCommandOutput
 } from "../commands/DeleteTranscriptionJobCommand";
-import {
-  DeleteVocabularyCommandInput,
-  DeleteVocabularyCommandOutput
-} from "../commands/DeleteVocabularyCommand";
+import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "../commands/DeleteVocabularyCommand";
 import {
   DeleteVocabularyFilterCommandInput,
   DeleteVocabularyFilterCommandOutput
@@ -22,10 +16,7 @@ import {
   GetTranscriptionJobCommandInput,
   GetTranscriptionJobCommandOutput
 } from "../commands/GetTranscriptionJobCommand";
-import {
-  GetVocabularyCommandInput,
-  GetVocabularyCommandOutput
-} from "../commands/GetVocabularyCommand";
+import { GetVocabularyCommandInput, GetVocabularyCommandOutput } from "../commands/GetVocabularyCommand";
 import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput
@@ -34,10 +25,7 @@ import {
   ListTranscriptionJobsCommandInput,
   ListTranscriptionJobsCommandOutput
 } from "../commands/ListTranscriptionJobsCommand";
-import {
-  ListVocabulariesCommandInput,
-  ListVocabulariesCommandOutput
-} from "../commands/ListVocabulariesCommand";
+import { ListVocabulariesCommandInput, ListVocabulariesCommandOutput } from "../commands/ListVocabulariesCommand";
 import {
   ListVocabularyFiltersCommandInput,
   ListVocabularyFiltersCommandOutput
@@ -46,10 +34,7 @@ import {
   StartTranscriptionJobCommandInput,
   StartTranscriptionJobCommandOutput
 } from "../commands/StartTranscriptionJobCommand";
-import {
-  UpdateVocabularyCommandInput,
-  UpdateVocabularyCommandOutput
-} from "../commands/UpdateVocabularyCommand";
+import { UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput } from "../commands/UpdateVocabularyCommand";
 import {
   UpdateVocabularyFilterCommandInput,
   UpdateVocabularyFilterCommandOutput
@@ -94,10 +79,7 @@ import {
   VocabularyFilterInfo,
   VocabularyInfo
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -116,9 +98,7 @@ export const serializeAws_json1_1CreateVocabularyCommand = async (
     "X-Amz-Target": "Transcribe.CreateVocabulary"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateVocabularyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -131,9 +111,7 @@ export const serializeAws_json1_1CreateVocabularyFilterCommand = async (
     "X-Amz-Target": "Transcribe.CreateVocabularyFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateVocabularyFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -146,9 +124,7 @@ export const serializeAws_json1_1DeleteTranscriptionJobCommand = async (
     "X-Amz-Target": "Transcribe.DeleteTranscriptionJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteTranscriptionJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -161,9 +137,7 @@ export const serializeAws_json1_1DeleteVocabularyCommand = async (
     "X-Amz-Target": "Transcribe.DeleteVocabulary"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteVocabularyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -176,9 +150,7 @@ export const serializeAws_json1_1DeleteVocabularyFilterCommand = async (
     "X-Amz-Target": "Transcribe.DeleteVocabularyFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteVocabularyFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -191,9 +163,7 @@ export const serializeAws_json1_1GetTranscriptionJobCommand = async (
     "X-Amz-Target": "Transcribe.GetTranscriptionJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetTranscriptionJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -206,9 +176,7 @@ export const serializeAws_json1_1GetVocabularyCommand = async (
     "X-Amz-Target": "Transcribe.GetVocabulary"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetVocabularyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -221,9 +189,7 @@ export const serializeAws_json1_1GetVocabularyFilterCommand = async (
     "X-Amz-Target": "Transcribe.GetVocabularyFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetVocabularyFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -236,9 +202,7 @@ export const serializeAws_json1_1ListTranscriptionJobsCommand = async (
     "X-Amz-Target": "Transcribe.ListTranscriptionJobs"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTranscriptionJobsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTranscriptionJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -251,9 +215,7 @@ export const serializeAws_json1_1ListVocabulariesCommand = async (
     "X-Amz-Target": "Transcribe.ListVocabularies"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListVocabulariesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListVocabulariesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -266,9 +228,7 @@ export const serializeAws_json1_1ListVocabularyFiltersCommand = async (
     "X-Amz-Target": "Transcribe.ListVocabularyFilters"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListVocabularyFiltersRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListVocabularyFiltersRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -281,9 +241,7 @@ export const serializeAws_json1_1StartTranscriptionJobCommand = async (
     "X-Amz-Target": "Transcribe.StartTranscriptionJob"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StartTranscriptionJobRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StartTranscriptionJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -296,9 +254,7 @@ export const serializeAws_json1_1UpdateVocabularyCommand = async (
     "X-Amz-Target": "Transcribe.UpdateVocabulary"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateVocabularyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateVocabularyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -311,9 +267,7 @@ export const serializeAws_json1_1UpdateVocabularyFilterCommand = async (
     "X-Amz-Target": "Transcribe.UpdateVocabularyFilter"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateVocabularyFilterRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateVocabularyFilterRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -346,16 +300,12 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -363,10 +313,7 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -374,10 +321,7 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -385,10 +329,7 @@ const deserializeAws_json1_1CreateVocabularyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -415,17 +356,11 @@ export const deserializeAws_json1_1CreateVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<CreateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateVocabularyFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVocabularyFilterResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateVocabularyFilterResponse(data, context);
   const response: CreateVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateVocabularyFilterResponse",
@@ -445,16 +380,12 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -462,10 +393,7 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -473,10 +401,7 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -484,10 +409,7 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -514,10 +436,7 @@ export const deserializeAws_json1_1DeleteTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteTranscriptionJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTranscriptionJobCommandOutput = {
@@ -537,16 +456,12 @@ const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -554,10 +469,7 @@ const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -565,10 +477,7 @@ const deserializeAws_json1_1DeleteTranscriptionJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -615,16 +524,12 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -632,10 +537,7 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -643,10 +545,7 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -654,10 +553,7 @@ const deserializeAws_json1_1DeleteVocabularyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -684,10 +580,7 @@ export const deserializeAws_json1_1DeleteVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteVocabularyFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteVocabularyFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVocabularyFilterCommandOutput = {
@@ -707,16 +600,12 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -724,10 +613,7 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -735,10 +621,7 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -746,10 +629,7 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -776,10 +656,7 @@ export const deserializeAws_json1_1GetTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<GetTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetTranscriptionJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -803,16 +680,12 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -820,10 +693,7 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -831,10 +701,7 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -842,10 +709,7 @@ const deserializeAws_json1_1GetTranscriptionJobCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -896,16 +760,12 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -913,10 +773,7 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -924,10 +781,7 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -935,10 +789,7 @@ const deserializeAws_json1_1GetVocabularyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -965,10 +816,7 @@ export const deserializeAws_json1_1GetVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<GetVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetVocabularyFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -992,16 +840,12 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1009,10 +853,7 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1020,10 +861,7 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1031,10 +869,7 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1061,10 +896,7 @@ export const deserializeAws_json1_1ListTranscriptionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListTranscriptionJobsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTranscriptionJobsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1088,16 +920,12 @@ const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1105,10 +933,7 @@ const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1116,10 +941,7 @@ const deserializeAws_json1_1ListTranscriptionJobsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1170,16 +992,12 @@ const deserializeAws_json1_1ListVocabulariesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1187,10 +1005,7 @@ const deserializeAws_json1_1ListVocabulariesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1198,10 +1013,7 @@ const deserializeAws_json1_1ListVocabulariesCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1228,10 +1040,7 @@ export const deserializeAws_json1_1ListVocabularyFiltersCommand = async (
   context: __SerdeContext
 ): Promise<ListVocabularyFiltersCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListVocabularyFiltersCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListVocabularyFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1255,16 +1064,12 @@ const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1272,10 +1077,7 @@ const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1283,10 +1085,7 @@ const deserializeAws_json1_1ListVocabularyFiltersCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1313,10 +1112,7 @@ export const deserializeAws_json1_1StartTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<StartTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartTranscriptionJobCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StartTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1340,16 +1136,12 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1357,10 +1149,7 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1368,10 +1157,7 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1379,10 +1165,7 @@ const deserializeAws_json1_1StartTranscriptionJobCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1433,16 +1216,12 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1450,10 +1229,7 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
     case "ConflictException":
     case "com.amazonaws.transcribe#ConflictException":
       response = {
-        ...(await deserializeAws_json1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1461,10 +1237,7 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1472,10 +1245,7 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1483,10 +1253,7 @@ const deserializeAws_json1_1UpdateVocabularyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1513,17 +1280,11 @@ export const deserializeAws_json1_1UpdateVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateVocabularyFilterCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVocabularyFilterResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateVocabularyFilterResponse(data, context);
   const response: UpdateVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateVocabularyFilterResponse",
@@ -1543,16 +1304,12 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       response = {
-        ...(await deserializeAws_json1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1560,10 +1317,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       response = {
-        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1571,10 +1325,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.transcribe#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1582,10 +1333,7 @@ const deserializeAws_json1_1UpdateVocabularyFilterCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.transcribe#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1612,10 +1360,7 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   context: __SerdeContext
 ): Promise<BadRequestException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1BadRequestException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1BadRequestException(body, context);
   const contents: BadRequestException = {
     name: "BadRequestException",
     $fault: "client",
@@ -1630,10 +1375,7 @@ const deserializeAws_json1_1ConflictExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConflictException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConflictException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
   const contents: ConflictException = {
     name: "ConflictException",
     $fault: "client",
@@ -1648,10 +1390,7 @@ const deserializeAws_json1_1InternalFailureExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalFailureException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalFailureException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalFailureException(body, context);
   const contents: InternalFailureException = {
     name: "InternalFailureException",
     $fault: "server",
@@ -1666,10 +1405,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -1684,10 +1420,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
@@ -1717,10 +1450,7 @@ const serializeAws_json1_1CreateVocabularyFilterRequest = (
   };
 };
 
-const serializeAws_json1_1CreateVocabularyRequest = (
-  input: CreateVocabularyRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequest, context: __SerdeContext): any => {
   return {
     ...(input.LanguageCode !== undefined && {
       LanguageCode: input.LanguageCode
@@ -1759,10 +1489,7 @@ const serializeAws_json1_1DeleteVocabularyFilterRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteVocabularyRequest = (
-  input: DeleteVocabularyRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteVocabularyRequest = (input: DeleteVocabularyRequest, context: __SerdeContext): any => {
   return {
     ...(input.VocabularyName !== undefined && {
       VocabularyName: input.VocabularyName
@@ -1792,10 +1519,7 @@ const serializeAws_json1_1GetVocabularyFilterRequest = (
   };
 };
 
-const serializeAws_json1_1GetVocabularyRequest = (
-  input: GetVocabularyRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetVocabularyRequest = (input: GetVocabularyRequest, context: __SerdeContext): any => {
   return {
     ...(input.VocabularyName !== undefined && {
       VocabularyName: input.VocabularyName
@@ -1803,10 +1527,7 @@ const serializeAws_json1_1GetVocabularyRequest = (
   };
 };
 
-const serializeAws_json1_1JobExecutionSettings = (
-  input: JobExecutionSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
   return {
     ...(input.AllowDeferredExecution !== undefined && {
       AllowDeferredExecution: input.AllowDeferredExecution
@@ -1831,10 +1552,7 @@ const serializeAws_json1_1ListTranscriptionJobsRequest = (
   };
 };
 
-const serializeAws_json1_1ListVocabulariesRequest = (
-  input: ListVocabulariesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListVocabulariesRequest = (input: ListVocabulariesRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NameContains !== undefined && {
@@ -1858,10 +1576,7 @@ const serializeAws_json1_1ListVocabularyFiltersRequest = (
   };
 };
 
-const serializeAws_json1_1Media = (
-  input: Media,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Media = (input: Media, context: __SerdeContext): any => {
   return {
     ...(input.MediaFileUri !== undefined && {
       MediaFileUri: input.MediaFileUri
@@ -1869,17 +1584,11 @@ const serializeAws_json1_1Media = (
   };
 };
 
-const serializeAws_json1_1Phrases = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1Settings = (
-  input: Settings,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Settings = (input: Settings, context: __SerdeContext): any => {
   return {
     ...(input.ChannelIdentification !== undefined && {
       ChannelIdentification: input.ChannelIdentification
@@ -1914,10 +1623,7 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
 ): any => {
   return {
     ...(input.JobExecutionSettings !== undefined && {
-      JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(
-        input.JobExecutionSettings,
-        context
-      )
+      JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context)
     }),
     ...(input.LanguageCode !== undefined && {
       LanguageCode: input.LanguageCode
@@ -1961,10 +1667,7 @@ const serializeAws_json1_1UpdateVocabularyFilterRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateVocabularyRequest = (
-  input: UpdateVocabularyRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateVocabularyRequest = (input: UpdateVocabularyRequest, context: __SerdeContext): any => {
   return {
     ...(input.LanguageCode !== undefined && {
       LanguageCode: input.LanguageCode
@@ -1981,36 +1684,21 @@ const serializeAws_json1_1UpdateVocabularyRequest = (
   };
 };
 
-const serializeAws_json1_1Words = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Words = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const deserializeAws_json1_1BadRequestException = (
-  output: any,
-  context: __SerdeContext
-): BadRequestException => {
+const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
     __type: "BadRequestException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ConflictException = (
-  output: any,
-  context: __SerdeContext
-): ConflictException => {
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     __type: "ConflictException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2020,17 +1708,13 @@ const deserializeAws_json1_1CreateVocabularyFilterResponse = (
 ): CreateVocabularyFilterResponse => {
   return {
     __type: "CreateVocabularyFilterResponse",
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyFilterName:
-      output.VocabularyFilterName !== undefined &&
-      output.VocabularyFilterName !== null
+      output.VocabularyFilterName !== undefined && output.VocabularyFilterName !== null
         ? output.VocabularyFilterName
         : undefined
   } as any;
@@ -2043,25 +1727,16 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
   return {
     __type: "CreateVocabularyResponse",
     FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null
-        ? output.FailureReason
-        : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyName:
-      output.VocabularyName !== undefined && output.VocabularyName !== null
-        ? output.VocabularyName
-        : undefined,
+      output.VocabularyName !== undefined && output.VocabularyName !== null ? output.VocabularyName : undefined,
     VocabularyState:
-      output.VocabularyState !== undefined && output.VocabularyState !== null
-        ? output.VocabularyState
-        : undefined
+      output.VocabularyState !== undefined && output.VocabularyState !== null ? output.VocabularyState : undefined
   } as any;
 };
 
@@ -2073,10 +1748,7 @@ const deserializeAws_json1_1GetTranscriptionJobResponse = (
     __type: "GetTranscriptionJobResponse",
     TranscriptionJob:
       output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
-        ? deserializeAws_json1_1TranscriptionJob(
-            output.TranscriptionJob,
-            context
-          )
+        ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
         : undefined
   } as any;
 };
@@ -2087,56 +1759,34 @@ const deserializeAws_json1_1GetVocabularyFilterResponse = (
 ): GetVocabularyFilterResponse => {
   return {
     __type: "GetVocabularyFilterResponse",
-    DownloadUri:
-      output.DownloadUri !== undefined && output.DownloadUri !== null
-        ? output.DownloadUri
-        : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    DownloadUri: output.DownloadUri !== undefined && output.DownloadUri !== null ? output.DownloadUri : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyFilterName:
-      output.VocabularyFilterName !== undefined &&
-      output.VocabularyFilterName !== null
+      output.VocabularyFilterName !== undefined && output.VocabularyFilterName !== null
         ? output.VocabularyFilterName
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetVocabularyResponse = (
-  output: any,
-  context: __SerdeContext
-): GetVocabularyResponse => {
+const deserializeAws_json1_1GetVocabularyResponse = (output: any, context: __SerdeContext): GetVocabularyResponse => {
   return {
     __type: "GetVocabularyResponse",
-    DownloadUri:
-      output.DownloadUri !== undefined && output.DownloadUri !== null
-        ? output.DownloadUri
-        : undefined,
+    DownloadUri: output.DownloadUri !== undefined && output.DownloadUri !== null ? output.DownloadUri : undefined,
     FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null
-        ? output.FailureReason
-        : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyName:
-      output.VocabularyName !== undefined && output.VocabularyName !== null
-        ? output.VocabularyName
-        : undefined,
+      output.VocabularyName !== undefined && output.VocabularyName !== null ? output.VocabularyName : undefined,
     VocabularyState:
-      output.VocabularyState !== undefined && output.VocabularyState !== null
-        ? output.VocabularyState
-        : undefined
+      output.VocabularyState !== undefined && output.VocabularyState !== null ? output.VocabularyState : undefined
   } as any;
 };
 
@@ -2146,42 +1796,26 @@ const deserializeAws_json1_1InternalFailureException = (
 ): InternalFailureException => {
   return {
     __type: "InternalFailureException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1JobExecutionSettings = (
-  output: any,
-  context: __SerdeContext
-): JobExecutionSettings => {
+const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __SerdeContext): JobExecutionSettings => {
   return {
     __type: "JobExecutionSettings",
     AllowDeferredExecution:
-      output.AllowDeferredExecution !== undefined &&
-      output.AllowDeferredExecution !== null
+      output.AllowDeferredExecution !== undefined && output.AllowDeferredExecution !== null
         ? output.AllowDeferredExecution
         : undefined,
     DataAccessRoleArn:
-      output.DataAccessRoleArn !== undefined &&
-      output.DataAccessRoleArn !== null
-        ? output.DataAccessRoleArn
-        : undefined
+      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null ? output.DataAccessRoleArn : undefined
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -2191,21 +1825,11 @@ const deserializeAws_json1_1ListTranscriptionJobsResponse = (
 ): ListTranscriptionJobsResponse => {
   return {
     __type: "ListTranscriptionJobsResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TranscriptionJobSummaries:
-      output.TranscriptionJobSummaries !== undefined &&
-      output.TranscriptionJobSummaries !== null
-        ? deserializeAws_json1_1TranscriptionJobSummaries(
-            output.TranscriptionJobSummaries,
-            context
-          )
+      output.TranscriptionJobSummaries !== undefined && output.TranscriptionJobSummaries !== null
+        ? deserializeAws_json1_1TranscriptionJobSummaries(output.TranscriptionJobSummaries, context)
         : undefined
   } as any;
 };
@@ -2216,14 +1840,8 @@ const deserializeAws_json1_1ListVocabulariesResponse = (
 ): ListVocabulariesResponse => {
   return {
     __type: "ListVocabulariesResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Vocabularies:
       output.Vocabularies !== undefined && output.Vocabularies !== null
         ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context)
@@ -2237,89 +1855,55 @@ const deserializeAws_json1_1ListVocabularyFiltersResponse = (
 ): ListVocabularyFiltersResponse => {
   return {
     __type: "ListVocabularyFiltersResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     VocabularyFilters:
-      output.VocabularyFilters !== undefined &&
-      output.VocabularyFilters !== null
-        ? deserializeAws_json1_1VocabularyFilters(
-            output.VocabularyFilters,
-            context
-          )
+      output.VocabularyFilters !== undefined && output.VocabularyFilters !== null
+        ? deserializeAws_json1_1VocabularyFilters(output.VocabularyFilters, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Media = (
-  output: any,
-  context: __SerdeContext
-): Media => {
+const deserializeAws_json1_1Media = (output: any, context: __SerdeContext): Media => {
   return {
     __type: "Media",
-    MediaFileUri:
-      output.MediaFileUri !== undefined && output.MediaFileUri !== null
-        ? output.MediaFileUri
-        : undefined
+    MediaFileUri: output.MediaFileUri !== undefined && output.MediaFileUri !== null ? output.MediaFileUri : undefined
   } as any;
 };
 
-const deserializeAws_json1_1NotFoundException = (
-  output: any,
-  context: __SerdeContext
-): NotFoundException => {
+const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     __type: "NotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Settings = (
-  output: any,
-  context: __SerdeContext
-): Settings => {
+const deserializeAws_json1_1Settings = (output: any, context: __SerdeContext): Settings => {
   return {
     __type: "Settings",
     ChannelIdentification:
-      output.ChannelIdentification !== undefined &&
-      output.ChannelIdentification !== null
+      output.ChannelIdentification !== undefined && output.ChannelIdentification !== null
         ? output.ChannelIdentification
         : undefined,
     MaxAlternatives:
-      output.MaxAlternatives !== undefined && output.MaxAlternatives !== null
-        ? output.MaxAlternatives
-        : undefined,
+      output.MaxAlternatives !== undefined && output.MaxAlternatives !== null ? output.MaxAlternatives : undefined,
     MaxSpeakerLabels:
-      output.MaxSpeakerLabels !== undefined && output.MaxSpeakerLabels !== null
-        ? output.MaxSpeakerLabels
-        : undefined,
+      output.MaxSpeakerLabels !== undefined && output.MaxSpeakerLabels !== null ? output.MaxSpeakerLabels : undefined,
     ShowAlternatives:
-      output.ShowAlternatives !== undefined && output.ShowAlternatives !== null
-        ? output.ShowAlternatives
-        : undefined,
+      output.ShowAlternatives !== undefined && output.ShowAlternatives !== null ? output.ShowAlternatives : undefined,
     ShowSpeakerLabels:
-      output.ShowSpeakerLabels !== undefined &&
-      output.ShowSpeakerLabels !== null
+      output.ShowSpeakerLabels !== undefined && output.ShowSpeakerLabels !== null
         ? output.ShowSpeakerLabels
         : undefined,
     VocabularyFilterMethod:
-      output.VocabularyFilterMethod !== undefined &&
-      output.VocabularyFilterMethod !== null
+      output.VocabularyFilterMethod !== undefined && output.VocabularyFilterMethod !== null
         ? output.VocabularyFilterMethod
         : undefined,
     VocabularyFilterName:
-      output.VocabularyFilterName !== undefined &&
-      output.VocabularyFilterName !== null
+      output.VocabularyFilterName !== undefined && output.VocabularyFilterName !== null
         ? output.VocabularyFilterName
         : undefined,
     VocabularyName:
-      output.VocabularyName !== undefined && output.VocabularyName !== null
-        ? output.VocabularyName
-        : undefined
+      output.VocabularyName !== undefined && output.VocabularyName !== null ? output.VocabularyName : undefined
   } as any;
 };
 
@@ -2331,32 +1915,20 @@ const deserializeAws_json1_1StartTranscriptionJobResponse = (
     __type: "StartTranscriptionJobResponse",
     TranscriptionJob:
       output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
-        ? deserializeAws_json1_1TranscriptionJob(
-            output.TranscriptionJob,
-            context
-          )
+        ? deserializeAws_json1_1TranscriptionJob(output.TranscriptionJob, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Transcript = (
-  output: any,
-  context: __SerdeContext
-): Transcript => {
+const deserializeAws_json1_1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
     __type: "Transcript",
     TranscriptFileUri:
-      output.TranscriptFileUri !== undefined &&
-      output.TranscriptFileUri !== null
-        ? output.TranscriptFileUri
-        : undefined
+      output.TranscriptFileUri !== undefined && output.TranscriptFileUri !== null ? output.TranscriptFileUri : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TranscriptionJob = (
-  output: any,
-  context: __SerdeContext
-): TranscriptionJob => {
+const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeContext): TranscriptionJob => {
   return {
     __type: "TranscriptionJob",
     CompletionTime:
@@ -2368,32 +1940,19 @@ const deserializeAws_json1_1TranscriptionJob = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null
-        ? output.FailureReason
-        : undefined,
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
     JobExecutionSettings:
-      output.JobExecutionSettings !== undefined &&
-      output.JobExecutionSettings !== null
-        ? deserializeAws_json1_1JobExecutionSettings(
-            output.JobExecutionSettings,
-            context
-          )
+      output.JobExecutionSettings !== undefined && output.JobExecutionSettings !== null
+        ? deserializeAws_json1_1JobExecutionSettings(output.JobExecutionSettings, context)
         : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     Media:
       output.Media !== undefined && output.Media !== null
         ? deserializeAws_json1_1Media(output.Media, context)
         : undefined,
-    MediaFormat:
-      output.MediaFormat !== undefined && output.MediaFormat !== null
-        ? output.MediaFormat
-        : undefined,
+    MediaFormat: output.MediaFormat !== undefined && output.MediaFormat !== null ? output.MediaFormat : undefined,
     MediaSampleRateHertz:
-      output.MediaSampleRateHertz !== undefined &&
-      output.MediaSampleRateHertz !== null
+      output.MediaSampleRateHertz !== undefined && output.MediaSampleRateHertz !== null
         ? output.MediaSampleRateHertz
         : undefined,
     Settings:
@@ -2409,13 +1968,11 @@ const deserializeAws_json1_1TranscriptionJob = (
         ? deserializeAws_json1_1Transcript(output.Transcript, context)
         : undefined,
     TranscriptionJobName:
-      output.TranscriptionJobName !== undefined &&
-      output.TranscriptionJobName !== null
+      output.TranscriptionJobName !== undefined && output.TranscriptionJobName !== null
         ? output.TranscriptionJobName
         : undefined,
     TranscriptionJobStatus:
-      output.TranscriptionJobStatus !== undefined &&
-      output.TranscriptionJobStatus !== null
+      output.TranscriptionJobStatus !== undefined && output.TranscriptionJobStatus !== null
         ? output.TranscriptionJobStatus
         : undefined
   } as any;
@@ -2425,9 +1982,7 @@ const deserializeAws_json1_1TranscriptionJobSummaries = (
   output: any,
   context: __SerdeContext
 ): TranscriptionJobSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TranscriptionJobSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TranscriptionJobSummary(entry, context));
 };
 
 const deserializeAws_json1_1TranscriptionJobSummary = (
@@ -2445,16 +2000,10 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     FailureReason:
-      output.FailureReason !== undefined && output.FailureReason !== null
-        ? output.FailureReason
-        : undefined,
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     OutputLocationType:
-      output.OutputLocationType !== undefined &&
-      output.OutputLocationType !== null
+      output.OutputLocationType !== undefined && output.OutputLocationType !== null
         ? output.OutputLocationType
         : undefined,
     StartTime:
@@ -2462,13 +2011,11 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
     TranscriptionJobName:
-      output.TranscriptionJobName !== undefined &&
-      output.TranscriptionJobName !== null
+      output.TranscriptionJobName !== undefined && output.TranscriptionJobName !== null
         ? output.TranscriptionJobName
         : undefined,
     TranscriptionJobStatus:
-      output.TranscriptionJobStatus !== undefined &&
-      output.TranscriptionJobStatus !== null
+      output.TranscriptionJobStatus !== undefined && output.TranscriptionJobStatus !== null
         ? output.TranscriptionJobStatus
         : undefined
   } as any;
@@ -2480,17 +2027,13 @@ const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
 ): UpdateVocabularyFilterResponse => {
   return {
     __type: "UpdateVocabularyFilterResponse",
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyFilterName:
-      output.VocabularyFilterName !== undefined &&
-      output.VocabularyFilterName !== null
+      output.VocabularyFilterName !== undefined && output.VocabularyFilterName !== null
         ? output.VocabularyFilterName
         : undefined
   } as any;
@@ -2502,87 +2045,53 @@ const deserializeAws_json1_1UpdateVocabularyResponse = (
 ): UpdateVocabularyResponse => {
   return {
     __type: "UpdateVocabularyResponse",
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyName:
-      output.VocabularyName !== undefined && output.VocabularyName !== null
-        ? output.VocabularyName
-        : undefined,
+      output.VocabularyName !== undefined && output.VocabularyName !== null ? output.VocabularyName : undefined,
     VocabularyState:
-      output.VocabularyState !== undefined && output.VocabularyState !== null
-        ? output.VocabularyState
-        : undefined
+      output.VocabularyState !== undefined && output.VocabularyState !== null ? output.VocabularyState : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Vocabularies = (
-  output: any,
-  context: __SerdeContext
-): VocabularyInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1VocabularyInfo(entry, context)
-  );
+const deserializeAws_json1_1Vocabularies = (output: any, context: __SerdeContext): VocabularyInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VocabularyInfo(entry, context));
 };
 
-const deserializeAws_json1_1VocabularyFilterInfo = (
-  output: any,
-  context: __SerdeContext
-): VocabularyFilterInfo => {
+const deserializeAws_json1_1VocabularyFilterInfo = (output: any, context: __SerdeContext): VocabularyFilterInfo => {
   return {
     __type: "VocabularyFilterInfo",
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyFilterName:
-      output.VocabularyFilterName !== undefined &&
-      output.VocabularyFilterName !== null
+      output.VocabularyFilterName !== undefined && output.VocabularyFilterName !== null
         ? output.VocabularyFilterName
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1VocabularyFilters = (
-  output: any,
-  context: __SerdeContext
-): VocabularyFilterInfo[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1VocabularyFilterInfo(entry, context)
-  );
+const deserializeAws_json1_1VocabularyFilters = (output: any, context: __SerdeContext): VocabularyFilterInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VocabularyFilterInfo(entry, context));
 };
 
-const deserializeAws_json1_1VocabularyInfo = (
-  output: any,
-  context: __SerdeContext
-): VocabularyInfo => {
+const deserializeAws_json1_1VocabularyInfo = (output: any, context: __SerdeContext): VocabularyInfo => {
   return {
     __type: "VocabularyInfo",
-    LanguageCode:
-      output.LanguageCode !== undefined && output.LanguageCode !== null
-        ? output.LanguageCode
-        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
     VocabularyName:
-      output.VocabularyName !== undefined && output.VocabularyName !== null
-        ? output.VocabularyName
-        : undefined,
+      output.VocabularyName !== undefined && output.VocabularyName !== null ? output.VocabularyName : undefined,
     VocabularyState:
-      output.VocabularyState !== undefined && output.VocabularyState !== null
-        ? output.VocabularyState
-        : undefined
+      output.VocabularyState !== undefined && output.VocabularyState !== null ? output.VocabularyState : undefined
   } as any;
 };
 
@@ -2593,23 +2102,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

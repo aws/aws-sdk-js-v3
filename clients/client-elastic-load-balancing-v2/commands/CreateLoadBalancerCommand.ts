@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  CreateLoadBalancerInput,
-  CreateLoadBalancerOutput
-} from "../models/index";
+import { CreateLoadBalancerInput, CreateLoadBalancerOutput } from "../models/index";
 import {
   deserializeAws_queryCreateLoadBalancerCommand,
   serializeAws_queryCreateLoadBalancerCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateLoadBalancerCommandInput = CreateLoadBalancerInput;
-export type CreateLoadBalancerCommandOutput = CreateLoadBalancerOutput &
-  __MetadataBearer;
+export type CreateLoadBalancerCommandOutput = CreateLoadBalancerOutput & __MetadataBearer;
 
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,
@@ -50,9 +43,7 @@ export class CreateLoadBalancerCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class CreateLoadBalancerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLoadBalancerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLoadBalancerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateLoadBalancerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLoadBalancerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLoadBalancerCommandOutput> {
     return deserializeAws_queryCreateLoadBalancerCommand(output, context);
   }
 

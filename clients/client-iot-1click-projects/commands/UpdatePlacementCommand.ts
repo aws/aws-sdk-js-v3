@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickProjectsClient";
-import {
-  UpdatePlacementRequest,
-  UpdatePlacementResponse
-} from "../models/index";
+import { UpdatePlacementRequest, UpdatePlacementResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdatePlacementCommand,
   serializeAws_restJson1_1UpdatePlacementCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdatePlacementCommandInput = UpdatePlacementRequest;
-export type UpdatePlacementCommandOutput = UpdatePlacementResponse &
-  __MetadataBearer;
+export type UpdatePlacementCommandOutput = UpdatePlacementResponse & __MetadataBearer;
 
 export class UpdatePlacementCommand extends $Command<
   UpdatePlacementCommandInput,
@@ -50,9 +43,7 @@ export class UpdatePlacementCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdatePlacementCommandInput, UpdatePlacementCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class UpdatePlacementCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdatePlacementCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdatePlacementCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdatePlacementCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdatePlacementCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePlacementCommandOutput> {
     return deserializeAws_restJson1_1UpdatePlacementCommand(output, context);
   }
 

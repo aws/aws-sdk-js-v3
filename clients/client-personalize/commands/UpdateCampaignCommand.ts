@@ -1,18 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateCampaignCommand,
   serializeAws_json1_1UpdateCampaignCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateCampaignCommandInput = UpdateCampaignRequest;
-export type UpdateCampaignCommandOutput = UpdateCampaignResponse &
-  __MetadataBearer;
+export type UpdateCampaignCommandOutput = UpdateCampaignResponse & __MetadataBearer;
 
 export class UpdateCampaignCommand extends $Command<
   UpdateCampaignCommandInput,
@@ -47,9 +39,7 @@ export class UpdateCampaignCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateCampaignCommandInput, UpdateCampaignCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateCampaignCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateCampaignCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateCampaignCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateCampaignCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignCommandOutput> {
     return deserializeAws_json1_1UpdateCampaignCommand(output, context);
   }
 

@@ -1,18 +1,8 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
 import { ListTagsRequest, ListTagsResponse } from "../models/index";
-import {
-  deserializeAws_json1_1ListTagsCommand,
-  serializeAws_json1_1ListTagsCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type ListTagsCommandInput = ListTagsRequest;
 export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
 
-export class ListTagsCommand extends $Command<
-  ListTagsCommandInput,
-  ListTagsCommandOutput,
-  DAXClientResolvedConfig
-> {
+export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, DAXClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class ListTagsCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsCommandInput, ListTagsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class ListTagsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTagsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListTagsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTagsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsCommandOutput> {
     return deserializeAws_json1_1ListTagsCommand(output, context);
   }
 

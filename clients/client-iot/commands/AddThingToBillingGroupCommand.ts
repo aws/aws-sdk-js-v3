@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  AddThingToBillingGroupRequest,
-  AddThingToBillingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { AddThingToBillingGroupRequest, AddThingToBillingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AddThingToBillingGroupCommand,
   serializeAws_restJson1_1AddThingToBillingGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddThingToBillingGroupCommandInput = AddThingToBillingGroupRequest;
-export type AddThingToBillingGroupCommandOutput = AddThingToBillingGroupResponse &
-  __MetadataBearer;
+export type AddThingToBillingGroupCommandOutput = AddThingToBillingGroupResponse & __MetadataBearer;
 
 export class AddThingToBillingGroupCommand extends $Command<
   AddThingToBillingGroupCommandInput,
@@ -49,13 +38,8 @@ export class AddThingToBillingGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddThingToBillingGroupCommandInput,
-    AddThingToBillingGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddThingToBillingGroupCommandInput, AddThingToBillingGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class AddThingToBillingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddThingToBillingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AddThingToBillingGroupCommand(
-      input,
-      context
-    );
+  private serialize(input: AddThingToBillingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1AddThingToBillingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddThingToBillingGroupCommandOutput> {
-    return deserializeAws_restJson1_1AddThingToBillingGroupCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddThingToBillingGroupCommandOutput> {
+    return deserializeAws_restJson1_1AddThingToBillingGroupCommand(output, context);
   }
 
   // Start section: command_body_extra

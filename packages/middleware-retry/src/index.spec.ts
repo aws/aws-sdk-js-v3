@@ -1,7 +1,4 @@
-import {
-  DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE
-} from "./constants";
+import { DEFAULT_RETRY_DELAY_BASE, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { retryMiddleware } from "./retryMiddleware";
 import { resolveRetryConfig } from "./configurations";
 import * as delayDeciderModule from "./delayDecider";
@@ -12,9 +9,7 @@ import { SdkError } from "@aws-sdk/types";
 describe("retryMiddleware", () => {
   it("should not retry when the handler completes successfully", async () => {
     const next = jest.fn().mockResolvedValue({ output: { $metadata: {} } });
-    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries: 0 }))(
-      next
-    );
+    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries: 0 }))(next);
 
     const {
       output: { $metadata }
@@ -30,13 +25,9 @@ describe("retryMiddleware", () => {
     const error = new Error();
     error.name = "ProvisionedThroughputExceededException";
     const next = jest.fn().mockRejectedValue(error);
-    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries }))(
-      next
-    );
+    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries }))(next);
 
-    await expect(
-      retryHandler({ input: {}, request: new HttpRequest({}) })
-    ).rejects.toMatchObject(error);
+    await expect(retryHandler({ input: {}, request: new HttpRequest({}) })).rejects.toMatchObject(error);
 
     expect(next.mock.calls.length).toBe(maxRetries + 1);
   });
@@ -45,13 +36,9 @@ describe("retryMiddleware", () => {
     const error = new Error();
     error.name = "ValidationException";
     const next = jest.fn().mockRejectedValue(error);
-    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries: 3 }))(
-      next
-    );
+    const retryHandler = retryMiddleware(resolveRetryConfig({ maxRetries: 3 }))(next);
 
-    await expect(
-      retryHandler({ input: {}, request: new HttpRequest({}) })
-    ).rejects.toMatchObject(error);
+    await expect(retryHandler({ input: {}, request: new HttpRequest({}) })).rejects.toMatchObject(error);
 
     expect(next.mock.calls.length).toBe(1);
   });
@@ -70,10 +57,7 @@ describe("retryMiddleware", () => {
     jest.mock("./delayDecider");
 
     const maxRetries = 3;
-    const delayDeciderMock = jest.spyOn(
-      delayDeciderModule,
-      "defaultDelayDecider"
-    );
+    const delayDeciderMock = jest.spyOn(delayDeciderModule, "defaultDelayDecider");
     const retryDecider: RetryDecider = (error: SdkError) => true;
     const strategy = new ExponentialBackOffStrategy(maxRetries, retryDecider);
     const retryHandler = retryMiddleware({

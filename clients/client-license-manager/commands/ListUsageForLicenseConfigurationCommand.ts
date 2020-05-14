@@ -1,21 +1,11 @@
-import {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LicenseManagerClient";
-import {
-  ListUsageForLicenseConfigurationRequest,
-  ListUsageForLicenseConfigurationResponse
-} from "../models/index";
+import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
+import { ListUsageForLicenseConfigurationRequest, ListUsageForLicenseConfigurationResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListUsageForLicenseConfigurationCommand,
   serializeAws_json1_1ListUsageForLicenseConfigurationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUsageForLicenseConfigurationCommandInput = ListUsageForLicenseConfigurationRequest;
-export type ListUsageForLicenseConfigurationCommandOutput = ListUsageForLicenseConfigurationResponse &
-  __MetadataBearer;
+export type ListUsageForLicenseConfigurationCommandOutput = ListUsageForLicenseConfigurationResponse & __MetadataBearer;
 
 export class ListUsageForLicenseConfigurationCommand extends $Command<
   ListUsageForLicenseConfigurationCommandInput,
@@ -49,13 +38,8 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListUsageForLicenseConfigurationCommandInput,
-    ListUsageForLicenseConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListUsageForLicenseConfigurationCommandInput, ListUsageForLicenseConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class ListUsageForLicenseConfigurationCommand extends $Command<
     input: ListUsageForLicenseConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListUsageForLicenseConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListUsageForLicenseConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListUsageForLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1ListUsageForLicenseConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListUsageForLicenseConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

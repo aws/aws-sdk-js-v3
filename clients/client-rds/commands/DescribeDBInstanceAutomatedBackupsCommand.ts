@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DBInstanceAutomatedBackupMessage,
-  DescribeDBInstanceAutomatedBackupsMessage
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DBInstanceAutomatedBackupMessage, DescribeDBInstanceAutomatedBackupsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,
   serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDBInstanceAutomatedBackupsCommandInput = DescribeDBInstanceAutomatedBackupsMessage;
-export type DescribeDBInstanceAutomatedBackupsCommandOutput = DBInstanceAutomatedBackupMessage &
-  __MetadataBearer;
+export type DescribeDBInstanceAutomatedBackupsCommandOutput = DBInstanceAutomatedBackupMessage & __MetadataBearer;
 
 export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
   DescribeDBInstanceAutomatedBackupsCommandInput,
@@ -49,13 +38,8 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDBInstanceAutomatedBackupsCommandInput,
-    DescribeDBInstanceAutomatedBackupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDBInstanceAutomatedBackupsCommandInput, DescribeDBInstanceAutomatedBackupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
     input: DescribeDBInstanceAutomatedBackupsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> {
-    return deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

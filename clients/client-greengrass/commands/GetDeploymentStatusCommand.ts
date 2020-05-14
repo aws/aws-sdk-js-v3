@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  GetDeploymentStatusRequest,
-  GetDeploymentStatusResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDeploymentStatusCommand,
   serializeAws_restJson1_1GetDeploymentStatusCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDeploymentStatusCommandInput = GetDeploymentStatusRequest;
-export type GetDeploymentStatusCommandOutput = GetDeploymentStatusResponse &
-  __MetadataBearer;
+export type GetDeploymentStatusCommandOutput = GetDeploymentStatusResponse & __MetadataBearer;
 
 export class GetDeploymentStatusCommand extends $Command<
   GetDeploymentStatusCommandInput,
@@ -49,13 +38,8 @@ export class GetDeploymentStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDeploymentStatusCommandInput,
-    GetDeploymentStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDeploymentStatusCommandInput, GetDeploymentStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetDeploymentStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDeploymentStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDeploymentStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDeploymentStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDeploymentStatusCommandOutput> {
-    return deserializeAws_restJson1_1GetDeploymentStatusCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentStatusCommandOutput> {
+    return deserializeAws_restJson1_1GetDeploymentStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

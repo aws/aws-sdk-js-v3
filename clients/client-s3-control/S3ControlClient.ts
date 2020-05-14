@@ -1,15 +1,6 @@
-import {
-  CreateAccessPointCommandInput,
-  CreateAccessPointCommandOutput
-} from "./commands/CreateAccessPointCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
-import {
-  DeleteAccessPointCommandInput,
-  DeleteAccessPointCommandOutput
-} from "./commands/DeleteAccessPointCommand";
+import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput
@@ -18,14 +9,8 @@ import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput
 } from "./commands/DeletePublicAccessBlockCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
-import {
-  GetAccessPointCommandInput,
-  GetAccessPointCommandOutput
-} from "./commands/GetAccessPointCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
 import {
   GetAccessPointPolicyCommandInput,
   GetAccessPointPolicyCommandOutput
@@ -38,14 +23,8 @@ import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput
 } from "./commands/GetPublicAccessBlockCommand";
-import {
-  ListAccessPointsCommandInput,
-  ListAccessPointsCommandOutput
-} from "./commands/ListAccessPointsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput
@@ -54,14 +33,8 @@ import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput
 } from "./commands/PutPublicAccessBlockCommand";
-import {
-  UpdateJobPriorityCommandInput,
-  UpdateJobPriorityCommandOutput
-} from "./commands/UpdateJobPriorityCommand";
-import {
-  UpdateJobStatusCommandInput,
-  UpdateJobStatusCommandOutput
-} from "./commands/UpdateJobStatusCommand";
+import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
+import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -78,12 +51,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import { getPrependAccountIdPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import {
   AwsAuthInputConfig,
@@ -151,8 +119,7 @@ export type ServiceOutputTypes =
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -236,9 +203,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type S3ControlClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -247,9 +212,7 @@ export type S3ControlClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,8 +1,4 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import {
   GetIdentityMailFromDomainAttributesRequest,
   GetIdentityMailFromDomainAttributesResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_queryGetIdentityMailFromDomainAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +42,8 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityMailFromDomainAttributesCommandInput,
-    GetIdentityMailFromDomainAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityMailFromDomainAttributesCommandInput, GetIdentityMailFromDomainAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class GetIdentityMailFromDomainAttributesCommand extends $Command<
     input: GetIdentityMailFromDomainAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetIdentityMailFromDomainAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityMailFromDomainAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

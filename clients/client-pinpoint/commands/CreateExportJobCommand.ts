@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  CreateExportJobRequest,
-  CreateExportJobResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { CreateExportJobRequest, CreateExportJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateExportJobCommand,
   serializeAws_restJson1_1CreateExportJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateExportJobCommandInput = CreateExportJobRequest;
-export type CreateExportJobCommandOutput = CreateExportJobResponse &
-  __MetadataBearer;
+export type CreateExportJobCommandOutput = CreateExportJobResponse & __MetadataBearer;
 
 export class CreateExportJobCommand extends $Command<
   CreateExportJobCommandInput,
@@ -50,9 +39,7 @@ export class CreateExportJobCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateExportJobCommandInput, CreateExportJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateExportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateExportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateExportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateExportJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExportJobCommandOutput> {
     return deserializeAws_restJson1_1CreateExportJobCommand(output, context);
   }
 

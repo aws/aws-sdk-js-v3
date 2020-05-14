@@ -1,18 +1,8 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { AllocateAddressRequest, AllocateAddressResult } from "../models/index";
-import {
-  deserializeAws_ec2AllocateAddressCommand,
-  serializeAws_ec2AllocateAddressCommand
-} from "../protocols/Aws_ec2";
+import { deserializeAws_ec2AllocateAddressCommand, serializeAws_ec2AllocateAddressCommand } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocateAddressCommandInput = AllocateAddressRequest;
-export type AllocateAddressCommandOutput = AllocateAddressResult &
-  __MetadataBearer;
+export type AllocateAddressCommandOutput = AllocateAddressResult & __MetadataBearer;
 
 export class AllocateAddressCommand extends $Command<
   AllocateAddressCommandInput,
@@ -47,9 +36,7 @@ export class AllocateAddressCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AllocateAddressCommandInput, AllocateAddressCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +51,11 @@ export class AllocateAddressCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AllocateAddressCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AllocateAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2AllocateAddressCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AllocateAddressCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AllocateAddressCommandOutput> {
     return deserializeAws_ec2AllocateAddressCommand(output, context);
   }
 

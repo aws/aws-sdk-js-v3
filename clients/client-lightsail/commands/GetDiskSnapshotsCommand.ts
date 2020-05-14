@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  GetDiskSnapshotsRequest,
-  GetDiskSnapshotsResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetDiskSnapshotsRequest, GetDiskSnapshotsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetDiskSnapshotsCommand,
   serializeAws_json1_1GetDiskSnapshotsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDiskSnapshotsCommandInput = GetDiskSnapshotsRequest;
-export type GetDiskSnapshotsCommandOutput = GetDiskSnapshotsResult &
-  __MetadataBearer;
+export type GetDiskSnapshotsCommandOutput = GetDiskSnapshotsResult & __MetadataBearer;
 
 export class GetDiskSnapshotsCommand extends $Command<
   GetDiskSnapshotsCommandInput,
@@ -50,9 +39,7 @@ export class GetDiskSnapshotsCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetDiskSnapshotsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDiskSnapshotsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDiskSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetDiskSnapshotsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDiskSnapshotsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDiskSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetDiskSnapshotsCommand(output, context);
   }
 

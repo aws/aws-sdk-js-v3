@@ -1,18 +1,11 @@
-import {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestXmlProtocolClient";
+import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/index";
 import {
   deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand,
   serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type HttpPayloadTraitsWithMediaTypeCommandInput = HttpPayloadTraitsWithMediaTypeInputOutput;
-export type HttpPayloadTraitsWithMediaTypeCommandOutput = HttpPayloadTraitsWithMediaTypeInputOutput &
-  __MetadataBearer;
+export type HttpPayloadTraitsWithMediaTypeCommandOutput = HttpPayloadTraitsWithMediaTypeInputOutput & __MetadataBearer;
 
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -46,13 +38,8 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestXmlProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    HttpPayloadTraitsWithMediaTypeCommandInput,
-    HttpPayloadTraitsWithMediaTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<HttpPayloadTraitsWithMediaTypeCommandInput, HttpPayloadTraitsWithMediaTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -71,20 +58,14 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     input: HttpPayloadTraitsWithMediaTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

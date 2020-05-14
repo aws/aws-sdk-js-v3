@@ -1,18 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { AbortVaultLockInput } from "../models/index";
 import {
   deserializeAws_restJson1_1AbortVaultLockCommand,
   serializeAws_restJson1_1AbortVaultLockCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class AbortVaultLockCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AbortVaultLockCommandInput, AbortVaultLockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class AbortVaultLockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AbortVaultLockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AbortVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AbortVaultLockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AbortVaultLockCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AbortVaultLockCommandOutput> {
     return deserializeAws_restJson1_1AbortVaultLockCommand(output, context);
   }
 

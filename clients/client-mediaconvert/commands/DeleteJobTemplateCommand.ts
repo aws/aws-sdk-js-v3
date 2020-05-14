@@ -1,21 +1,11 @@
-import {
-  MediaConvertClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConvertClient";
-import {
-  DeleteJobTemplateRequest,
-  DeleteJobTemplateResponse
-} from "../models/index";
+import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteJobTemplateCommand,
   serializeAws_restJson1_1DeleteJobTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteJobTemplateCommandInput = DeleteJobTemplateRequest;
-export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse &
-  __MetadataBearer;
+export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse & __MetadataBearer;
 
 export class DeleteJobTemplateCommand extends $Command<
   DeleteJobTemplateCommandInput,
@@ -50,9 +39,7 @@ export class DeleteJobTemplateCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteJobTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteJobTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteJobTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteJobTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteJobTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobTemplateCommandOutput> {
     return deserializeAws_restJson1_1DeleteJobTemplateCommand(output, context);
   }
 

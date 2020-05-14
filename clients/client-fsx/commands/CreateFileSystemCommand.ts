@@ -1,21 +1,11 @@
-import {
-  FSxClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FSxClient";
-import {
-  CreateFileSystemRequest,
-  CreateFileSystemResponse
-} from "../models/index";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { CreateFileSystemRequest, CreateFileSystemResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateFileSystemCommand,
   serializeAws_json1_1CreateFileSystemCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateFileSystemCommandInput = CreateFileSystemRequest;
-export type CreateFileSystemCommandOutput = CreateFileSystemResponse &
-  __MetadataBearer;
+export type CreateFileSystemCommandOutput = CreateFileSystemResponse & __MetadataBearer;
 
 export class CreateFileSystemCommand extends $Command<
   CreateFileSystemCommandInput,
@@ -50,9 +39,7 @@ export class CreateFileSystemCommand extends $Command<
     configuration: FSxClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFileSystemCommandInput, CreateFileSystemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateFileSystemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateFileSystemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateFileSystemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateFileSystemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateFileSystemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFileSystemCommandOutput> {
     return deserializeAws_json1_1CreateFileSystemCommand(output, context);
   }
 

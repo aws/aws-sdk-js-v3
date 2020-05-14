@@ -1,18 +1,11 @@
-import {
-  CognitoSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoSyncClient";
+import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { UpdateRecordsRequest, UpdateRecordsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRecordsCommand,
   serializeAws_restJson1_1UpdateRecordsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRecordsCommandInput = UpdateRecordsRequest;
-export type UpdateRecordsCommandOutput = UpdateRecordsResponse &
-  __MetadataBearer;
+export type UpdateRecordsCommandOutput = UpdateRecordsResponse & __MetadataBearer;
 
 export class UpdateRecordsCommand extends $Command<
   UpdateRecordsCommandInput,
@@ -47,9 +39,7 @@ export class UpdateRecordsCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRecordsCommandInput, UpdateRecordsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateRecordsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRecordsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRecordsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateRecordsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRecordsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRecordsCommandOutput> {
     return deserializeAws_restJson1_1UpdateRecordsCommand(output, context);
   }
 

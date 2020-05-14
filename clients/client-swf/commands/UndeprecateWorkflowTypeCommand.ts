@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { UndeprecateWorkflowTypeInput } from "../models/index";
 import {
   deserializeAws_json1_0UndeprecateWorkflowTypeCommand,
   serializeAws_json1_0UndeprecateWorkflowTypeCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UndeprecateWorkflowTypeCommandInput,
-    UndeprecateWorkflowTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UndeprecateWorkflowTypeCommandInput, UndeprecateWorkflowTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,21 +54,12 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UndeprecateWorkflowTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UndeprecateWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UndeprecateWorkflowTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UndeprecateWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UndeprecateWorkflowTypeCommandOutput> {
+    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(output, context);
   }
 
   // Start section: command_body_extra

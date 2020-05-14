@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient";
-import {
-  ListGroupMembersRequest,
-  ListGroupMembersResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
+import { ListGroupMembersRequest, ListGroupMembersResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListGroupMembersCommand,
   serializeAws_json1_1ListGroupMembersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListGroupMembersCommandInput = ListGroupMembersRequest;
-export type ListGroupMembersCommandOutput = ListGroupMembersResponse &
-  __MetadataBearer;
+export type ListGroupMembersCommandOutput = ListGroupMembersResponse & __MetadataBearer;
 
 export class ListGroupMembersCommand extends $Command<
   ListGroupMembersCommandInput,
@@ -50,9 +39,7 @@ export class ListGroupMembersCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGroupMembersCommandInput, ListGroupMembersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListGroupMembersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListGroupMembersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListGroupMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListGroupMembersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListGroupMembersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGroupMembersCommandOutput> {
     return deserializeAws_json1_1ListGroupMembersCommand(output, context);
   }
 

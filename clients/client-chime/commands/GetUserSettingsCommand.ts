@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  GetUserSettingsRequest,
-  GetUserSettingsResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetUserSettingsCommand,
   serializeAws_restJson1_1GetUserSettingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUserSettingsCommandInput = GetUserSettingsRequest;
-export type GetUserSettingsCommandOutput = GetUserSettingsResponse &
-  __MetadataBearer;
+export type GetUserSettingsCommandOutput = GetUserSettingsResponse & __MetadataBearer;
 
 export class GetUserSettingsCommand extends $Command<
   GetUserSettingsCommandInput,
@@ -50,9 +39,7 @@ export class GetUserSettingsCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUserSettingsCommandInput, GetUserSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetUserSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUserSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetUserSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetUserSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUserSettingsCommandOutput> {
     return deserializeAws_restJson1_1GetUserSettingsCommand(output, context);
   }
 

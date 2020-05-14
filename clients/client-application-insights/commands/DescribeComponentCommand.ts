@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DescribeComponentRequest,
-  DescribeComponentResponse
-} from "../models/index";
+import { DescribeComponentRequest, DescribeComponentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeComponentCommand,
   serializeAws_json1_1DescribeComponentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeComponentCommandInput = DescribeComponentRequest;
-export type DescribeComponentCommandOutput = DescribeComponentResponse &
-  __MetadataBearer;
+export type DescribeComponentCommandOutput = DescribeComponentResponse & __MetadataBearer;
 
 export class DescribeComponentCommand extends $Command<
   DescribeComponentCommandInput,
@@ -50,9 +43,7 @@ export class DescribeComponentCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeComponentCommandInput, DescribeComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DescribeComponentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeComponentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeComponentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeComponentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeComponentCommandOutput> {
     return deserializeAws_json1_1DescribeComponentCommand(output, context);
   }
 

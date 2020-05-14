@@ -1,19 +1,10 @@
-import {
-  CreateApiKeyCommandInput,
-  CreateApiKeyCommandOutput
-} from "./commands/CreateApiKeyCommand";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "./commands/CreateAuthorizerCommand";
+import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "./commands/CreateApiKeyCommand";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand";
 import {
   CreateBasePathMappingCommandInput,
   CreateBasePathMappingCommandOutput
 } from "./commands/CreateBasePathMappingCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import {
   CreateDocumentationPartCommandInput,
   CreateDocumentationPartCommandOutput
@@ -22,50 +13,20 @@ import {
   CreateDocumentationVersionCommandInput,
   CreateDocumentationVersionCommandOutput
 } from "./commands/CreateDocumentationVersionCommand";
-import {
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput
-} from "./commands/CreateDomainNameCommand";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand";
+import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
   CreateRequestValidatorCommandInput,
   CreateRequestValidatorCommandOutput
 } from "./commands/CreateRequestValidatorCommand";
-import {
-  CreateResourceCommandInput,
-  CreateResourceCommandOutput
-} from "./commands/CreateResourceCommand";
-import {
-  CreateRestApiCommandInput,
-  CreateRestApiCommandOutput
-} from "./commands/CreateRestApiCommand";
-import {
-  CreateStageCommandInput,
-  CreateStageCommandOutput
-} from "./commands/CreateStageCommand";
-import {
-  CreateUsagePlanCommandInput,
-  CreateUsagePlanCommandOutput
-} from "./commands/CreateUsagePlanCommand";
-import {
-  CreateUsagePlanKeyCommandInput,
-  CreateUsagePlanKeyCommandOutput
-} from "./commands/CreateUsagePlanKeyCommand";
-import {
-  CreateVpcLinkCommandInput,
-  CreateVpcLinkCommandOutput
-} from "./commands/CreateVpcLinkCommand";
-import {
-  DeleteApiKeyCommandInput,
-  DeleteApiKeyCommandOutput
-} from "./commands/DeleteApiKeyCommand";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "./commands/DeleteAuthorizerCommand";
+import { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand";
+import { CreateRestApiCommandInput, CreateRestApiCommandOutput } from "./commands/CreateRestApiCommand";
+import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import { CreateUsagePlanCommandInput, CreateUsagePlanCommandOutput } from "./commands/CreateUsagePlanCommand";
+import { CreateUsagePlanKeyCommandInput, CreateUsagePlanKeyCommandOutput } from "./commands/CreateUsagePlanKeyCommand";
+import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "./commands/CreateVpcLinkCommand";
+import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "./commands/DeleteApiKeyCommand";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
 import {
   DeleteBasePathMappingCommandInput,
   DeleteBasePathMappingCommandOutput
@@ -74,10 +35,7 @@ import {
   DeleteClientCertificateCommandInput,
   DeleteClientCertificateCommandOutput
 } from "./commands/DeleteClientCertificateCommand";
-import {
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput
-} from "./commands/DeleteDeploymentCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
 import {
   DeleteDocumentationPartCommandInput,
   DeleteDocumentationPartCommandOutput
@@ -86,98 +44,47 @@ import {
   DeleteDocumentationVersionCommandInput,
   DeleteDocumentationVersionCommandOutput
 } from "./commands/DeleteDocumentationVersionCommand";
-import {
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput
-} from "./commands/DeleteDomainNameCommand";
+import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
 import {
   DeleteGatewayResponseCommandInput,
   DeleteGatewayResponseCommandOutput
 } from "./commands/DeleteGatewayResponseCommand";
-import {
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput
-} from "./commands/DeleteIntegrationCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import {
   DeleteIntegrationResponseCommandInput,
   DeleteIntegrationResponseCommandOutput
 } from "./commands/DeleteIntegrationResponseCommand";
-import {
-  DeleteMethodCommandInput,
-  DeleteMethodCommandOutput
-} from "./commands/DeleteMethodCommand";
+import { DeleteMethodCommandInput, DeleteMethodCommandOutput } from "./commands/DeleteMethodCommand";
 import {
   DeleteMethodResponseCommandInput,
   DeleteMethodResponseCommandOutput
 } from "./commands/DeleteMethodResponseCommand";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteRequestValidatorCommandInput,
   DeleteRequestValidatorCommandOutput
 } from "./commands/DeleteRequestValidatorCommand";
-import {
-  DeleteResourceCommandInput,
-  DeleteResourceCommandOutput
-} from "./commands/DeleteResourceCommand";
-import {
-  DeleteRestApiCommandInput,
-  DeleteRestApiCommandOutput
-} from "./commands/DeleteRestApiCommand";
-import {
-  DeleteStageCommandInput,
-  DeleteStageCommandOutput
-} from "./commands/DeleteStageCommand";
-import {
-  DeleteUsagePlanCommandInput,
-  DeleteUsagePlanCommandOutput
-} from "./commands/DeleteUsagePlanCommand";
-import {
-  DeleteUsagePlanKeyCommandInput,
-  DeleteUsagePlanKeyCommandOutput
-} from "./commands/DeleteUsagePlanKeyCommand";
-import {
-  DeleteVpcLinkCommandInput,
-  DeleteVpcLinkCommandOutput
-} from "./commands/DeleteVpcLinkCommand";
+import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand";
+import { DeleteRestApiCommandInput, DeleteRestApiCommandOutput } from "./commands/DeleteRestApiCommand";
+import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import { DeleteUsagePlanCommandInput, DeleteUsagePlanCommandOutput } from "./commands/DeleteUsagePlanCommand";
+import { DeleteUsagePlanKeyCommandInput, DeleteUsagePlanKeyCommandOutput } from "./commands/DeleteUsagePlanKeyCommand";
+import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "./commands/DeleteVpcLinkCommand";
 import {
   FlushStageAuthorizersCacheCommandInput,
   FlushStageAuthorizersCacheCommandOutput
 } from "./commands/FlushStageAuthorizersCacheCommand";
-import {
-  FlushStageCacheCommandInput,
-  FlushStageCacheCommandOutput
-} from "./commands/FlushStageCacheCommand";
+import { FlushStageCacheCommandInput, FlushStageCacheCommandOutput } from "./commands/FlushStageCacheCommand";
 import {
   GenerateClientCertificateCommandInput,
   GenerateClientCertificateCommandOutput
 } from "./commands/GenerateClientCertificateCommand";
-import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand";
-import {
-  GetApiKeyCommandInput,
-  GetApiKeyCommandOutput
-} from "./commands/GetApiKeyCommand";
-import {
-  GetApiKeysCommandInput,
-  GetApiKeysCommandOutput
-} from "./commands/GetApiKeysCommand";
-import {
-  GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput
-} from "./commands/GetAuthorizerCommand";
-import {
-  GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput
-} from "./commands/GetAuthorizersCommand";
-import {
-  GetBasePathMappingCommandInput,
-  GetBasePathMappingCommandOutput
-} from "./commands/GetBasePathMappingCommand";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
+import { GetApiKeyCommandInput, GetApiKeyCommandOutput } from "./commands/GetApiKeyCommand";
+import { GetApiKeysCommandInput, GetApiKeysCommandOutput } from "./commands/GetApiKeysCommand";
+import { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "./commands/GetAuthorizerCommand";
+import { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "./commands/GetAuthorizersCommand";
+import { GetBasePathMappingCommandInput, GetBasePathMappingCommandOutput } from "./commands/GetBasePathMappingCommand";
 import {
   GetBasePathMappingsCommandInput,
   GetBasePathMappingsCommandOutput
@@ -190,14 +97,8 @@ import {
   GetClientCertificatesCommandInput,
   GetClientCertificatesCommandOutput
 } from "./commands/GetClientCertificatesCommand";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand";
-import {
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput
-} from "./commands/GetDeploymentsCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "./commands/GetDeploymentsCommand";
 import {
   GetDocumentationPartCommandInput,
   GetDocumentationPartCommandOutput
@@ -214,54 +115,24 @@ import {
   GetDocumentationVersionsCommandInput,
   GetDocumentationVersionsCommandOutput
 } from "./commands/GetDocumentationVersionsCommand";
-import {
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput
-} from "./commands/GetDomainNameCommand";
-import {
-  GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput
-} from "./commands/GetDomainNamesCommand";
-import {
-  GetExportCommandInput,
-  GetExportCommandOutput
-} from "./commands/GetExportCommand";
-import {
-  GetGatewayResponseCommandInput,
-  GetGatewayResponseCommandOutput
-} from "./commands/GetGatewayResponseCommand";
+import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
+import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "./commands/GetDomainNamesCommand";
+import { GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
+import { GetGatewayResponseCommandInput, GetGatewayResponseCommandOutput } from "./commands/GetGatewayResponseCommand";
 import {
   GetGatewayResponsesCommandInput,
   GetGatewayResponsesCommandOutput
 } from "./commands/GetGatewayResponsesCommand";
-import {
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput
-} from "./commands/GetIntegrationCommand";
+import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
 import {
   GetIntegrationResponseCommandInput,
   GetIntegrationResponseCommandOutput
 } from "./commands/GetIntegrationResponseCommand";
-import {
-  GetMethodCommandInput,
-  GetMethodCommandOutput
-} from "./commands/GetMethodCommand";
-import {
-  GetMethodResponseCommandInput,
-  GetMethodResponseCommandOutput
-} from "./commands/GetMethodResponseCommand";
-import {
-  GetModelCommandInput,
-  GetModelCommandOutput
-} from "./commands/GetModelCommand";
-import {
-  GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput
-} from "./commands/GetModelTemplateCommand";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "./commands/GetModelsCommand";
+import { GetMethodCommandInput, GetMethodCommandOutput } from "./commands/GetMethodCommand";
+import { GetMethodResponseCommandInput, GetMethodResponseCommandOutput } from "./commands/GetMethodResponseCommand";
+import { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
+import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "./commands/GetModelTemplateCommand";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetRequestValidatorCommandInput,
   GetRequestValidatorCommandOutput
@@ -270,138 +141,48 @@ import {
   GetRequestValidatorsCommandInput,
   GetRequestValidatorsCommandOutput
 } from "./commands/GetRequestValidatorsCommand";
-import {
-  GetResourceCommandInput,
-  GetResourceCommandOutput
-} from "./commands/GetResourceCommand";
-import {
-  GetResourcesCommandInput,
-  GetResourcesCommandOutput
-} from "./commands/GetResourcesCommand";
-import {
-  GetRestApiCommandInput,
-  GetRestApiCommandOutput
-} from "./commands/GetRestApiCommand";
-import {
-  GetRestApisCommandInput,
-  GetRestApisCommandOutput
-} from "./commands/GetRestApisCommand";
-import {
-  GetSdkCommandInput,
-  GetSdkCommandOutput
-} from "./commands/GetSdkCommand";
-import {
-  GetSdkTypeCommandInput,
-  GetSdkTypeCommandOutput
-} from "./commands/GetSdkTypeCommand";
-import {
-  GetSdkTypesCommandInput,
-  GetSdkTypesCommandOutput
-} from "./commands/GetSdkTypesCommand";
-import {
-  GetStageCommandInput,
-  GetStageCommandOutput
-} from "./commands/GetStageCommand";
-import {
-  GetStagesCommandInput,
-  GetStagesCommandOutput
-} from "./commands/GetStagesCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
-import {
-  GetUsageCommandInput,
-  GetUsageCommandOutput
-} from "./commands/GetUsageCommand";
-import {
-  GetUsagePlanCommandInput,
-  GetUsagePlanCommandOutput
-} from "./commands/GetUsagePlanCommand";
-import {
-  GetUsagePlanKeyCommandInput,
-  GetUsagePlanKeyCommandOutput
-} from "./commands/GetUsagePlanKeyCommand";
-import {
-  GetUsagePlanKeysCommandInput,
-  GetUsagePlanKeysCommandOutput
-} from "./commands/GetUsagePlanKeysCommand";
-import {
-  GetUsagePlansCommandInput,
-  GetUsagePlansCommandOutput
-} from "./commands/GetUsagePlansCommand";
-import {
-  GetVpcLinkCommandInput,
-  GetVpcLinkCommandOutput
-} from "./commands/GetVpcLinkCommand";
-import {
-  GetVpcLinksCommandInput,
-  GetVpcLinksCommandOutput
-} from "./commands/GetVpcLinksCommand";
-import {
-  ImportApiKeysCommandInput,
-  ImportApiKeysCommandOutput
-} from "./commands/ImportApiKeysCommand";
+import { GetResourceCommandInput, GetResourceCommandOutput } from "./commands/GetResourceCommand";
+import { GetResourcesCommandInput, GetResourcesCommandOutput } from "./commands/GetResourcesCommand";
+import { GetRestApiCommandInput, GetRestApiCommandOutput } from "./commands/GetRestApiCommand";
+import { GetRestApisCommandInput, GetRestApisCommandOutput } from "./commands/GetRestApisCommand";
+import { GetSdkCommandInput, GetSdkCommandOutput } from "./commands/GetSdkCommand";
+import { GetSdkTypeCommandInput, GetSdkTypeCommandOutput } from "./commands/GetSdkTypeCommand";
+import { GetSdkTypesCommandInput, GetSdkTypesCommandOutput } from "./commands/GetSdkTypesCommand";
+import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetUsageCommandInput, GetUsageCommandOutput } from "./commands/GetUsageCommand";
+import { GetUsagePlanCommandInput, GetUsagePlanCommandOutput } from "./commands/GetUsagePlanCommand";
+import { GetUsagePlanKeyCommandInput, GetUsagePlanKeyCommandOutput } from "./commands/GetUsagePlanKeyCommand";
+import { GetUsagePlanKeysCommandInput, GetUsagePlanKeysCommandOutput } from "./commands/GetUsagePlanKeysCommand";
+import { GetUsagePlansCommandInput, GetUsagePlansCommandOutput } from "./commands/GetUsagePlansCommand";
+import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand";
+import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
+import { ImportApiKeysCommandInput, ImportApiKeysCommandOutput } from "./commands/ImportApiKeysCommand";
 import {
   ImportDocumentationPartsCommandInput,
   ImportDocumentationPartsCommandOutput
 } from "./commands/ImportDocumentationPartsCommand";
-import {
-  ImportRestApiCommandInput,
-  ImportRestApiCommandOutput
-} from "./commands/ImportRestApiCommand";
-import {
-  PutGatewayResponseCommandInput,
-  PutGatewayResponseCommandOutput
-} from "./commands/PutGatewayResponseCommand";
-import {
-  PutIntegrationCommandInput,
-  PutIntegrationCommandOutput
-} from "./commands/PutIntegrationCommand";
+import { ImportRestApiCommandInput, ImportRestApiCommandOutput } from "./commands/ImportRestApiCommand";
+import { PutGatewayResponseCommandInput, PutGatewayResponseCommandOutput } from "./commands/PutGatewayResponseCommand";
+import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "./commands/PutIntegrationCommand";
 import {
   PutIntegrationResponseCommandInput,
   PutIntegrationResponseCommandOutput
 } from "./commands/PutIntegrationResponseCommand";
-import {
-  PutMethodCommandInput,
-  PutMethodCommandOutput
-} from "./commands/PutMethodCommand";
-import {
-  PutMethodResponseCommandInput,
-  PutMethodResponseCommandOutput
-} from "./commands/PutMethodResponseCommand";
-import {
-  PutRestApiCommandInput,
-  PutRestApiCommandOutput
-} from "./commands/PutRestApiCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { PutMethodCommandInput, PutMethodCommandOutput } from "./commands/PutMethodCommand";
+import { PutMethodResponseCommandInput, PutMethodResponseCommandOutput } from "./commands/PutMethodResponseCommand";
+import { PutRestApiCommandInput, PutRestApiCommandOutput } from "./commands/PutRestApiCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestInvokeAuthorizerCommandInput,
   TestInvokeAuthorizerCommandOutput
 } from "./commands/TestInvokeAuthorizerCommand";
-import {
-  TestInvokeMethodCommandInput,
-  TestInvokeMethodCommandOutput
-} from "./commands/TestInvokeMethodCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAccountCommandInput,
-  UpdateAccountCommandOutput
-} from "./commands/UpdateAccountCommand";
-import {
-  UpdateApiKeyCommandInput,
-  UpdateApiKeyCommandOutput
-} from "./commands/UpdateApiKeyCommand";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "./commands/UpdateAuthorizerCommand";
+import { TestInvokeMethodCommandInput, TestInvokeMethodCommandOutput } from "./commands/TestInvokeMethodCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAccountCommandInput, UpdateAccountCommandOutput } from "./commands/UpdateAccountCommand";
+import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "./commands/UpdateApiKeyCommand";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand";
 import {
   UpdateBasePathMappingCommandInput,
   UpdateBasePathMappingCommandOutput
@@ -410,10 +191,7 @@ import {
   UpdateClientCertificateCommandInput,
   UpdateClientCertificateCommandOutput
 } from "./commands/UpdateClientCertificateCommand";
-import {
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput
-} from "./commands/UpdateDeploymentCommand";
+import { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "./commands/UpdateDeploymentCommand";
 import {
   UpdateDocumentationPartCommandInput,
   UpdateDocumentationPartCommandOutput
@@ -422,62 +200,32 @@ import {
   UpdateDocumentationVersionCommandInput,
   UpdateDocumentationVersionCommandOutput
 } from "./commands/UpdateDocumentationVersionCommand";
-import {
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput
-} from "./commands/UpdateDomainNameCommand";
+import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
 import {
   UpdateGatewayResponseCommandInput,
   UpdateGatewayResponseCommandOutput
 } from "./commands/UpdateGatewayResponseCommand";
-import {
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput
-} from "./commands/UpdateIntegrationCommand";
+import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "./commands/UpdateIntegrationCommand";
 import {
   UpdateIntegrationResponseCommandInput,
   UpdateIntegrationResponseCommandOutput
 } from "./commands/UpdateIntegrationResponseCommand";
-import {
-  UpdateMethodCommandInput,
-  UpdateMethodCommandOutput
-} from "./commands/UpdateMethodCommand";
+import { UpdateMethodCommandInput, UpdateMethodCommandOutput } from "./commands/UpdateMethodCommand";
 import {
   UpdateMethodResponseCommandInput,
   UpdateMethodResponseCommandOutput
 } from "./commands/UpdateMethodResponseCommand";
-import {
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput
-} from "./commands/UpdateModelCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
   UpdateRequestValidatorCommandInput,
   UpdateRequestValidatorCommandOutput
 } from "./commands/UpdateRequestValidatorCommand";
-import {
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput
-} from "./commands/UpdateResourceCommand";
-import {
-  UpdateRestApiCommandInput,
-  UpdateRestApiCommandOutput
-} from "./commands/UpdateRestApiCommand";
-import {
-  UpdateStageCommandInput,
-  UpdateStageCommandOutput
-} from "./commands/UpdateStageCommand";
-import {
-  UpdateUsageCommandInput,
-  UpdateUsageCommandOutput
-} from "./commands/UpdateUsageCommand";
-import {
-  UpdateUsagePlanCommandInput,
-  UpdateUsagePlanCommandOutput
-} from "./commands/UpdateUsagePlanCommand";
-import {
-  UpdateVpcLinkCommandInput,
-  UpdateVpcLinkCommandOutput
-} from "./commands/UpdateVpcLinkCommand";
+import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
+import { UpdateRestApiCommandInput, UpdateRestApiCommandOutput } from "./commands/UpdateRestApiCommand";
+import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
+import { UpdateUsageCommandInput, UpdateUsageCommandOutput } from "./commands/UpdateUsageCommand";
+import { UpdateUsagePlanCommandInput, UpdateUsagePlanCommandOutput } from "./commands/UpdateUsagePlanCommand";
+import { UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput } from "./commands/UpdateVpcLinkCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -494,12 +242,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import { getAcceptHeaderPlugin } from "@aws-sdk/middleware-sdk-api-gateway";
 import {
   AwsAuthInputConfig,
@@ -775,8 +518,7 @@ export type ServiceOutputTypes =
   | UpdateUsagePlanCommandOutput
   | UpdateVpcLinkCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -860,9 +602,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type APIGatewayClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type APIGatewayClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -871,9 +611,7 @@ export type APIGatewayClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type APIGatewayClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type APIGatewayClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

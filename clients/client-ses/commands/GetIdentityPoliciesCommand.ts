@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  GetIdentityPoliciesRequest,
-  GetIdentityPoliciesResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { GetIdentityPoliciesRequest, GetIdentityPoliciesResponse } from "../models/index";
 import {
   deserializeAws_queryGetIdentityPoliciesCommand,
   serializeAws_queryGetIdentityPoliciesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetIdentityPoliciesCommandInput = GetIdentityPoliciesRequest;
-export type GetIdentityPoliciesCommandOutput = GetIdentityPoliciesResponse &
-  __MetadataBearer;
+export type GetIdentityPoliciesCommandOutput = GetIdentityPoliciesResponse & __MetadataBearer;
 
 export class GetIdentityPoliciesCommand extends $Command<
   GetIdentityPoliciesCommandInput,
@@ -49,13 +38,8 @@ export class GetIdentityPoliciesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityPoliciesCommandInput,
-    GetIdentityPoliciesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityPoliciesCommandInput, GetIdentityPoliciesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class GetIdentityPoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetIdentityPoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetIdentityPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetIdentityPoliciesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetIdentityPoliciesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIdentityPoliciesCommandOutput> {
     return deserializeAws_queryGetIdentityPoliciesCommand(output, context);
   }
 

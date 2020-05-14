@@ -1,18 +1,8 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { ListMetricsInput, ListMetricsOutput } from "../models/index";
-import {
-  deserializeAws_queryListMetricsCommand,
-  serializeAws_queryListMetricsCommand
-} from "../protocols/Aws_query";
+import { deserializeAws_queryListMetricsCommand, serializeAws_queryListMetricsCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +36,7 @@ export class ListMetricsCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMetricsCommandInput, ListMetricsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +51,11 @@ export class ListMetricsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMetricsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMetricsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListMetricsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMetricsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMetricsCommandOutput> {
     return deserializeAws_queryListMetricsCommand(output, context);
   }
 

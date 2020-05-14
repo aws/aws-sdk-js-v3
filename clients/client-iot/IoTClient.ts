@@ -14,10 +14,7 @@ import {
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput
 } from "./commands/AssociateTargetsWithJobCommand";
-import {
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput
-} from "./commands/AttachPolicyCommand";
+import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
 import {
   AttachPrincipalPolicyCommandInput,
   AttachPrincipalPolicyCommandOutput
@@ -34,22 +31,13 @@ import {
   CancelAuditMitigationActionsTaskCommandInput,
   CancelAuditMitigationActionsTaskCommandOutput
 } from "./commands/CancelAuditMitigationActionsTaskCommand";
-import {
-  CancelAuditTaskCommandInput,
-  CancelAuditTaskCommandOutput
-} from "./commands/CancelAuditTaskCommand";
+import { CancelAuditTaskCommandInput, CancelAuditTaskCommandOutput } from "./commands/CancelAuditTaskCommand";
 import {
   CancelCertificateTransferCommandInput,
   CancelCertificateTransferCommandOutput
 } from "./commands/CancelCertificateTransferCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
-import {
-  CancelJobExecutionCommandInput,
-  CancelJobExecutionCommandOutput
-} from "./commands/CancelJobExecutionCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CancelJobExecutionCommandInput, CancelJobExecutionCommandOutput } from "./commands/CancelJobExecutionCommand";
 import {
   ClearDefaultAuthorizerCommandInput,
   ClearDefaultAuthorizerCommandOutput
@@ -58,14 +46,8 @@ import {
   ConfirmTopicRuleDestinationCommandInput,
   ConfirmTopicRuleDestinationCommandOutput
 } from "./commands/ConfirmTopicRuleDestinationCommand";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "./commands/CreateAuthorizerCommand";
-import {
-  CreateBillingGroupCommandInput,
-  CreateBillingGroupCommandOutput
-} from "./commands/CreateBillingGroupCommand";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand";
+import { CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput } from "./commands/CreateBillingGroupCommand";
 import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput
@@ -78,10 +60,7 @@ import {
   CreateDynamicThingGroupCommandInput,
   CreateDynamicThingGroupCommandOutput
 } from "./commands/CreateDynamicThingGroupCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateKeysAndCertificateCommandInput,
   CreateKeysAndCertificateCommandOutput
@@ -90,14 +69,8 @@ import {
   CreateMitigationActionCommandInput,
   CreateMitigationActionCommandOutput
 } from "./commands/CreateMitigationActionCommand";
-import {
-  CreateOTAUpdateCommandInput,
-  CreateOTAUpdateCommandOutput
-} from "./commands/CreateOTAUpdateCommand";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand";
+import { CreateOTAUpdateCommandInput, CreateOTAUpdateCommandOutput } from "./commands/CreateOTAUpdateCommand";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import {
   CreatePolicyVersionCommandInput,
   CreatePolicyVersionCommandOutput
@@ -114,10 +87,7 @@ import {
   CreateProvisioningTemplateVersionCommandInput,
   CreateProvisioningTemplateVersionCommandOutput
 } from "./commands/CreateProvisioningTemplateVersionCommand";
-import {
-  CreateRoleAliasCommandInput,
-  CreateRoleAliasCommandOutput
-} from "./commands/CreateRoleAliasCommand";
+import { CreateRoleAliasCommandInput, CreateRoleAliasCommandOutput } from "./commands/CreateRoleAliasCommand";
 import {
   CreateScheduledAuditCommandInput,
   CreateScheduledAuditCommandOutput
@@ -126,26 +96,11 @@ import {
   CreateSecurityProfileCommandInput,
   CreateSecurityProfileCommandOutput
 } from "./commands/CreateSecurityProfileCommand";
-import {
-  CreateStreamCommandInput,
-  CreateStreamCommandOutput
-} from "./commands/CreateStreamCommand";
-import {
-  CreateThingCommandInput,
-  CreateThingCommandOutput
-} from "./commands/CreateThingCommand";
-import {
-  CreateThingGroupCommandInput,
-  CreateThingGroupCommandOutput
-} from "./commands/CreateThingGroupCommand";
-import {
-  CreateThingTypeCommandInput,
-  CreateThingTypeCommandOutput
-} from "./commands/CreateThingTypeCommand";
-import {
-  CreateTopicRuleCommandInput,
-  CreateTopicRuleCommandOutput
-} from "./commands/CreateTopicRuleCommand";
+import { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
+import { CreateThingCommandInput, CreateThingCommandOutput } from "./commands/CreateThingCommand";
+import { CreateThingGroupCommandInput, CreateThingGroupCommandOutput } from "./commands/CreateThingGroupCommand";
+import { CreateThingTypeCommandInput, CreateThingTypeCommandOutput } from "./commands/CreateThingTypeCommand";
+import { CreateTopicRuleCommandInput, CreateTopicRuleCommandOutput } from "./commands/CreateTopicRuleCommand";
 import {
   CreateTopicRuleDestinationCommandInput,
   CreateTopicRuleDestinationCommandOutput
@@ -154,22 +109,13 @@ import {
   DeleteAccountAuditConfigurationCommandInput,
   DeleteAccountAuditConfigurationCommandOutput
 } from "./commands/DeleteAccountAuditConfigurationCommand";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "./commands/DeleteAuthorizerCommand";
-import {
-  DeleteBillingGroupCommandInput,
-  DeleteBillingGroupCommandOutput
-} from "./commands/DeleteBillingGroupCommand";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
+import { DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput } from "./commands/DeleteBillingGroupCommand";
 import {
   DeleteCACertificateCommandInput,
   DeleteCACertificateCommandOutput
 } from "./commands/DeleteCACertificateCommand";
-import {
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
-} from "./commands/DeleteCertificateCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import {
   DeleteDomainConfigurationCommandInput,
   DeleteDomainConfigurationCommandOutput
@@ -178,26 +124,14 @@ import {
   DeleteDynamicThingGroupCommandInput,
   DeleteDynamicThingGroupCommandOutput
 } from "./commands/DeleteDynamicThingGroupCommand";
-import {
-  DeleteJobCommandInput,
-  DeleteJobCommandOutput
-} from "./commands/DeleteJobCommand";
-import {
-  DeleteJobExecutionCommandInput,
-  DeleteJobExecutionCommandOutput
-} from "./commands/DeleteJobExecutionCommand";
+import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
+import { DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput } from "./commands/DeleteJobExecutionCommand";
 import {
   DeleteMitigationActionCommandInput,
   DeleteMitigationActionCommandOutput
 } from "./commands/DeleteMitigationActionCommand";
-import {
-  DeleteOTAUpdateCommandInput,
-  DeleteOTAUpdateCommandOutput
-} from "./commands/DeleteOTAUpdateCommand";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand";
+import { DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput } from "./commands/DeleteOTAUpdateCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeletePolicyVersionCommandInput,
   DeletePolicyVersionCommandOutput
@@ -214,10 +148,7 @@ import {
   DeleteRegistrationCodeCommandInput,
   DeleteRegistrationCodeCommandOutput
 } from "./commands/DeleteRegistrationCodeCommand";
-import {
-  DeleteRoleAliasCommandInput,
-  DeleteRoleAliasCommandOutput
-} from "./commands/DeleteRoleAliasCommand";
+import { DeleteRoleAliasCommandInput, DeleteRoleAliasCommandOutput } from "./commands/DeleteRoleAliasCommand";
 import {
   DeleteScheduledAuditCommandInput,
   DeleteScheduledAuditCommandOutput
@@ -226,26 +157,11 @@ import {
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput
 } from "./commands/DeleteSecurityProfileCommand";
-import {
-  DeleteStreamCommandInput,
-  DeleteStreamCommandOutput
-} from "./commands/DeleteStreamCommand";
-import {
-  DeleteThingCommandInput,
-  DeleteThingCommandOutput
-} from "./commands/DeleteThingCommand";
-import {
-  DeleteThingGroupCommandInput,
-  DeleteThingGroupCommandOutput
-} from "./commands/DeleteThingGroupCommand";
-import {
-  DeleteThingTypeCommandInput,
-  DeleteThingTypeCommandOutput
-} from "./commands/DeleteThingTypeCommand";
-import {
-  DeleteTopicRuleCommandInput,
-  DeleteTopicRuleCommandOutput
-} from "./commands/DeleteTopicRuleCommand";
+import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
+import { DeleteThingCommandInput, DeleteThingCommandOutput } from "./commands/DeleteThingCommand";
+import { DeleteThingGroupCommandInput, DeleteThingGroupCommandOutput } from "./commands/DeleteThingGroupCommand";
+import { DeleteThingTypeCommandInput, DeleteThingTypeCommandOutput } from "./commands/DeleteThingTypeCommand";
+import { DeleteTopicRuleCommandInput, DeleteTopicRuleCommandOutput } from "./commands/DeleteTopicRuleCommand";
 import {
   DeleteTopicRuleDestinationCommandInput,
   DeleteTopicRuleDestinationCommandOutput
@@ -254,10 +170,7 @@ import {
   DeleteV2LoggingLevelCommandInput,
   DeleteV2LoggingLevelCommandOutput
 } from "./commands/DeleteV2LoggingLevelCommand";
-import {
-  DeprecateThingTypeCommandInput,
-  DeprecateThingTypeCommandOutput
-} from "./commands/DeprecateThingTypeCommand";
+import { DeprecateThingTypeCommandInput, DeprecateThingTypeCommandOutput } from "./commands/DeprecateThingTypeCommand";
 import {
   DescribeAccountAuditConfigurationCommandInput,
   DescribeAccountAuditConfigurationCommandOutput
@@ -270,14 +183,8 @@ import {
   DescribeAuditMitigationActionsTaskCommandInput,
   DescribeAuditMitigationActionsTaskCommandOutput
 } from "./commands/DescribeAuditMitigationActionsTaskCommand";
-import {
-  DescribeAuditTaskCommandInput,
-  DescribeAuditTaskCommandOutput
-} from "./commands/DescribeAuditTaskCommand";
-import {
-  DescribeAuthorizerCommandInput,
-  DescribeAuthorizerCommandOutput
-} from "./commands/DescribeAuthorizerCommand";
+import { DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput } from "./commands/DescribeAuditTaskCommand";
+import { DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput } from "./commands/DescribeAuthorizerCommand";
 import {
   DescribeBillingGroupCommandInput,
   DescribeBillingGroupCommandOutput
@@ -298,22 +205,13 @@ import {
   DescribeDomainConfigurationCommandInput,
   DescribeDomainConfigurationCommandOutput
 } from "./commands/DescribeDomainConfigurationCommand";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEventConfigurationsCommandInput,
   DescribeEventConfigurationsCommandOutput
 } from "./commands/DescribeEventConfigurationsCommand";
-import {
-  DescribeIndexCommandInput,
-  DescribeIndexCommandOutput
-} from "./commands/DescribeIndexCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
+import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "./commands/DescribeIndexCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput
@@ -330,10 +228,7 @@ import {
   DescribeProvisioningTemplateVersionCommandInput,
   DescribeProvisioningTemplateVersionCommandOutput
 } from "./commands/DescribeProvisioningTemplateVersionCommand";
-import {
-  DescribeRoleAliasCommandInput,
-  DescribeRoleAliasCommandOutput
-} from "./commands/DescribeRoleAliasCommand";
+import { DescribeRoleAliasCommandInput, DescribeRoleAliasCommandOutput } from "./commands/DescribeRoleAliasCommand";
 import {
   DescribeScheduledAuditCommandInput,
   DescribeScheduledAuditCommandOutput
@@ -342,30 +237,15 @@ import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput
 } from "./commands/DescribeSecurityProfileCommand";
-import {
-  DescribeStreamCommandInput,
-  DescribeStreamCommandOutput
-} from "./commands/DescribeStreamCommand";
-import {
-  DescribeThingCommandInput,
-  DescribeThingCommandOutput
-} from "./commands/DescribeThingCommand";
-import {
-  DescribeThingGroupCommandInput,
-  DescribeThingGroupCommandOutput
-} from "./commands/DescribeThingGroupCommand";
+import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
+import { DescribeThingCommandInput, DescribeThingCommandOutput } from "./commands/DescribeThingCommand";
+import { DescribeThingGroupCommandInput, DescribeThingGroupCommandOutput } from "./commands/DescribeThingGroupCommand";
 import {
   DescribeThingRegistrationTaskCommandInput,
   DescribeThingRegistrationTaskCommandOutput
 } from "./commands/DescribeThingRegistrationTaskCommand";
-import {
-  DescribeThingTypeCommandInput,
-  DescribeThingTypeCommandOutput
-} from "./commands/DescribeThingTypeCommand";
-import {
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput
-} from "./commands/DetachPolicyCommand";
+import { DescribeThingTypeCommandInput, DescribeThingTypeCommandOutput } from "./commands/DescribeThingTypeCommand";
+import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
 import {
   DetachPrincipalPolicyCommandInput,
   DetachPrincipalPolicyCommandOutput
@@ -378,18 +258,9 @@ import {
   DetachThingPrincipalCommandInput,
   DetachThingPrincipalCommandOutput
 } from "./commands/DetachThingPrincipalCommand";
-import {
-  DisableTopicRuleCommandInput,
-  DisableTopicRuleCommandOutput
-} from "./commands/DisableTopicRuleCommand";
-import {
-  EnableTopicRuleCommandInput,
-  EnableTopicRuleCommandOutput
-} from "./commands/EnableTopicRuleCommand";
-import {
-  GetCardinalityCommandInput,
-  GetCardinalityCommandOutput
-} from "./commands/GetCardinalityCommand";
+import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "./commands/DisableTopicRuleCommand";
+import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "./commands/EnableTopicRuleCommand";
+import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand";
 import {
   GetEffectivePoliciesCommandInput,
   GetEffectivePoliciesCommandOutput
@@ -398,42 +269,18 @@ import {
   GetIndexingConfigurationCommandInput,
   GetIndexingConfigurationCommandOutput
 } from "./commands/GetIndexingConfigurationCommand";
-import {
-  GetJobDocumentCommandInput,
-  GetJobDocumentCommandOutput
-} from "./commands/GetJobDocumentCommand";
-import {
-  GetLoggingOptionsCommandInput,
-  GetLoggingOptionsCommandOutput
-} from "./commands/GetLoggingOptionsCommand";
-import {
-  GetOTAUpdateCommandInput,
-  GetOTAUpdateCommandOutput
-} from "./commands/GetOTAUpdateCommand";
-import {
-  GetPercentilesCommandInput,
-  GetPercentilesCommandOutput
-} from "./commands/GetPercentilesCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
-import {
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput
-} from "./commands/GetPolicyVersionCommand";
+import { GetJobDocumentCommandInput, GetJobDocumentCommandOutput } from "./commands/GetJobDocumentCommand";
+import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
+import { GetOTAUpdateCommandInput, GetOTAUpdateCommandOutput } from "./commands/GetOTAUpdateCommand";
+import { GetPercentilesCommandInput, GetPercentilesCommandOutput } from "./commands/GetPercentilesCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
 import {
   GetRegistrationCodeCommandInput,
   GetRegistrationCodeCommandOutput
 } from "./commands/GetRegistrationCodeCommand";
-import {
-  GetStatisticsCommandInput,
-  GetStatisticsCommandOutput
-} from "./commands/GetStatisticsCommand";
-import {
-  GetTopicRuleCommandInput,
-  GetTopicRuleCommandOutput
-} from "./commands/GetTopicRuleCommand";
+import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "./commands/GetStatisticsCommand";
+import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "./commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
   GetTopicRuleDestinationCommandOutput
@@ -450,10 +297,7 @@ import {
   ListAttachedPoliciesCommandInput,
   ListAttachedPoliciesCommandOutput
 } from "./commands/ListAttachedPoliciesCommand";
-import {
-  ListAuditFindingsCommandInput,
-  ListAuditFindingsCommandOutput
-} from "./commands/ListAuditFindingsCommand";
+import { ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput } from "./commands/ListAuditFindingsCommand";
 import {
   ListAuditMitigationActionsExecutionsCommandInput,
   ListAuditMitigationActionsExecutionsCommandOutput
@@ -462,38 +306,20 @@ import {
   ListAuditMitigationActionsTasksCommandInput,
   ListAuditMitigationActionsTasksCommandOutput
 } from "./commands/ListAuditMitigationActionsTasksCommand";
-import {
-  ListAuditTasksCommandInput,
-  ListAuditTasksCommandOutput
-} from "./commands/ListAuditTasksCommand";
-import {
-  ListAuthorizersCommandInput,
-  ListAuthorizersCommandOutput
-} from "./commands/ListAuthorizersCommand";
-import {
-  ListBillingGroupsCommandInput,
-  ListBillingGroupsCommandOutput
-} from "./commands/ListBillingGroupsCommand";
-import {
-  ListCACertificatesCommandInput,
-  ListCACertificatesCommandOutput
-} from "./commands/ListCACertificatesCommand";
+import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "./commands/ListAuditTasksCommand";
+import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "./commands/ListAuthorizersCommand";
+import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "./commands/ListBillingGroupsCommand";
+import { ListCACertificatesCommandInput, ListCACertificatesCommandOutput } from "./commands/ListCACertificatesCommand";
 import {
   ListCertificatesByCACommandInput,
   ListCertificatesByCACommandOutput
 } from "./commands/ListCertificatesByCACommand";
-import {
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
-} from "./commands/ListCertificatesCommand";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput
 } from "./commands/ListDomainConfigurationsCommand";
-import {
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput
-} from "./commands/ListIndicesCommand";
+import { ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand";
 import {
   ListJobExecutionsForJobCommandInput,
   ListJobExecutionsForJobCommandOutput
@@ -502,34 +328,22 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput
 } from "./commands/ListJobExecutionsForThingCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMitigationActionsCommandInput,
   ListMitigationActionsCommandOutput
 } from "./commands/ListMitigationActionsCommand";
-import {
-  ListOTAUpdatesCommandInput,
-  ListOTAUpdatesCommandOutput
-} from "./commands/ListOTAUpdatesCommand";
+import { ListOTAUpdatesCommandInput, ListOTAUpdatesCommandOutput } from "./commands/ListOTAUpdatesCommand";
 import {
   ListOutgoingCertificatesCommandInput,
   ListOutgoingCertificatesCommandOutput
 } from "./commands/ListOutgoingCertificatesCommand";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPolicyPrincipalsCommandInput,
   ListPolicyPrincipalsCommandOutput
 } from "./commands/ListPolicyPrincipalsCommand";
-import {
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput
-} from "./commands/ListPolicyVersionsCommand";
+import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "./commands/ListPolicyVersionsCommand";
 import {
   ListPrincipalPoliciesCommandInput,
   ListPrincipalPoliciesCommandOutput
@@ -546,10 +360,7 @@ import {
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput
 } from "./commands/ListProvisioningTemplatesCommand";
-import {
-  ListRoleAliasesCommandInput,
-  ListRoleAliasesCommandOutput
-} from "./commands/ListRoleAliasesCommand";
+import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand";
 import {
   ListScheduledAuditsCommandInput,
   ListScheduledAuditsCommandOutput
@@ -562,10 +373,7 @@ import {
   ListSecurityProfilesForTargetCommandInput,
   ListSecurityProfilesForTargetCommandOutput
 } from "./commands/ListSecurityProfilesForTargetCommand";
-import {
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput
-} from "./commands/ListStreamsCommand";
+import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -578,10 +386,7 @@ import {
   ListTargetsForSecurityProfileCommandInput,
   ListTargetsForSecurityProfileCommandOutput
 } from "./commands/ListTargetsForSecurityProfileCommand";
-import {
-  ListThingGroupsCommandInput,
-  ListThingGroupsCommandOutput
-} from "./commands/ListThingGroupsCommand";
+import { ListThingGroupsCommandInput, ListThingGroupsCommandOutput } from "./commands/ListThingGroupsCommand";
 import {
   ListThingGroupsForThingCommandInput,
   ListThingGroupsForThingCommandOutput
@@ -598,14 +403,8 @@ import {
   ListThingRegistrationTasksCommandInput,
   ListThingRegistrationTasksCommandOutput
 } from "./commands/ListThingRegistrationTasksCommand";
-import {
-  ListThingTypesCommandInput,
-  ListThingTypesCommandOutput
-} from "./commands/ListThingTypesCommand";
-import {
-  ListThingsCommandInput,
-  ListThingsCommandOutput
-} from "./commands/ListThingsCommand";
+import { ListThingTypesCommandInput, ListThingTypesCommandOutput } from "./commands/ListThingTypesCommand";
+import { ListThingsCommandInput, ListThingsCommandOutput } from "./commands/ListThingsCommand";
 import {
   ListThingsInBillingGroupCommandInput,
   ListThingsInBillingGroupCommandOutput
@@ -618,10 +417,7 @@ import {
   ListTopicRuleDestinationsCommandInput,
   ListTopicRuleDestinationsCommandOutput
 } from "./commands/ListTopicRuleDestinationsCommand";
-import {
-  ListTopicRulesCommandInput,
-  ListTopicRulesCommandOutput
-} from "./commands/ListTopicRulesCommand";
+import { ListTopicRulesCommandInput, ListTopicRulesCommandOutput } from "./commands/ListTopicRulesCommand";
 import {
   ListV2LoggingLevelsCommandInput,
   ListV2LoggingLevelsCommandOutput
@@ -638,10 +434,7 @@ import {
   RegisterCertificateCommandInput,
   RegisterCertificateCommandOutput
 } from "./commands/RegisterCertificateCommand";
-import {
-  RegisterThingCommandInput,
-  RegisterThingCommandOutput
-} from "./commands/RegisterThingCommand";
+import { RegisterThingCommandInput, RegisterThingCommandOutput } from "./commands/RegisterThingCommand";
 import {
   RejectCertificateTransferCommandInput,
   RejectCertificateTransferCommandOutput
@@ -654,14 +447,8 @@ import {
   RemoveThingFromThingGroupCommandInput,
   RemoveThingFromThingGroupCommandOutput
 } from "./commands/RemoveThingFromThingGroupCommand";
-import {
-  ReplaceTopicRuleCommandInput,
-  ReplaceTopicRuleCommandOutput
-} from "./commands/ReplaceTopicRuleCommand";
-import {
-  SearchIndexCommandInput,
-  SearchIndexCommandOutput
-} from "./commands/SearchIndexCommand";
+import { ReplaceTopicRuleCommandInput, ReplaceTopicRuleCommandOutput } from "./commands/ReplaceTopicRuleCommand";
+import { SearchIndexCommandInput, SearchIndexCommandOutput } from "./commands/SearchIndexCommand";
 import {
   SetDefaultAuthorizerCommandInput,
   SetDefaultAuthorizerCommandOutput
@@ -670,14 +457,8 @@ import {
   SetDefaultPolicyVersionCommandInput,
   SetDefaultPolicyVersionCommandOutput
 } from "./commands/SetDefaultPolicyVersionCommand";
-import {
-  SetLoggingOptionsCommandInput,
-  SetLoggingOptionsCommandOutput
-} from "./commands/SetLoggingOptionsCommand";
-import {
-  SetV2LoggingLevelCommandInput,
-  SetV2LoggingLevelCommandOutput
-} from "./commands/SetV2LoggingLevelCommand";
+import { SetLoggingOptionsCommandInput, SetLoggingOptionsCommandOutput } from "./commands/SetLoggingOptionsCommand";
+import { SetV2LoggingLevelCommandInput, SetV2LoggingLevelCommandOutput } from "./commands/SetV2LoggingLevelCommand";
 import {
   SetV2LoggingOptionsCommandInput,
   SetV2LoggingOptionsCommandOutput
@@ -698,14 +479,8 @@ import {
   StopThingRegistrationTaskCommandInput,
   StopThingRegistrationTaskCommandOutput
 } from "./commands/StopThingRegistrationTaskCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TestAuthorizationCommandInput,
-  TestAuthorizationCommandOutput
-} from "./commands/TestAuthorizationCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestAuthorizationCommandInput, TestAuthorizationCommandOutput } from "./commands/TestAuthorizationCommand";
 import {
   TestInvokeAuthorizerCommandInput,
   TestInvokeAuthorizerCommandOutput
@@ -714,30 +489,18 @@ import {
   TransferCertificateCommandInput,
   TransferCertificateCommandOutput
 } from "./commands/TransferCertificateCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAccountAuditConfigurationCommandInput,
   UpdateAccountAuditConfigurationCommandOutput
 } from "./commands/UpdateAccountAuditConfigurationCommand";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "./commands/UpdateAuthorizerCommand";
-import {
-  UpdateBillingGroupCommandInput,
-  UpdateBillingGroupCommandOutput
-} from "./commands/UpdateBillingGroupCommand";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand";
+import { UpdateBillingGroupCommandInput, UpdateBillingGroupCommandOutput } from "./commands/UpdateBillingGroupCommand";
 import {
   UpdateCACertificateCommandInput,
   UpdateCACertificateCommandOutput
 } from "./commands/UpdateCACertificateCommand";
-import {
-  UpdateCertificateCommandInput,
-  UpdateCertificateCommandOutput
-} from "./commands/UpdateCertificateCommand";
+import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
 import {
   UpdateDomainConfigurationCommandInput,
   UpdateDomainConfigurationCommandOutput
@@ -754,10 +517,7 @@ import {
   UpdateIndexingConfigurationCommandInput,
   UpdateIndexingConfigurationCommandOutput
 } from "./commands/UpdateIndexingConfigurationCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
   UpdateMitigationActionCommandInput,
   UpdateMitigationActionCommandOutput
@@ -766,10 +526,7 @@ import {
   UpdateProvisioningTemplateCommandInput,
   UpdateProvisioningTemplateCommandOutput
 } from "./commands/UpdateProvisioningTemplateCommand";
-import {
-  UpdateRoleAliasCommandInput,
-  UpdateRoleAliasCommandOutput
-} from "./commands/UpdateRoleAliasCommand";
+import { UpdateRoleAliasCommandInput, UpdateRoleAliasCommandOutput } from "./commands/UpdateRoleAliasCommand";
 import {
   UpdateScheduledAuditCommandInput,
   UpdateScheduledAuditCommandOutput
@@ -778,18 +535,9 @@ import {
   UpdateSecurityProfileCommandInput,
   UpdateSecurityProfileCommandOutput
 } from "./commands/UpdateSecurityProfileCommand";
-import {
-  UpdateStreamCommandInput,
-  UpdateStreamCommandOutput
-} from "./commands/UpdateStreamCommand";
-import {
-  UpdateThingCommandInput,
-  UpdateThingCommandOutput
-} from "./commands/UpdateThingCommand";
-import {
-  UpdateThingGroupCommandInput,
-  UpdateThingGroupCommandOutput
-} from "./commands/UpdateThingGroupCommand";
+import { UpdateStreamCommandInput, UpdateStreamCommandOutput } from "./commands/UpdateStreamCommand";
+import { UpdateThingCommandInput, UpdateThingCommandOutput } from "./commands/UpdateThingCommand";
+import { UpdateThingGroupCommandInput, UpdateThingGroupCommandOutput } from "./commands/UpdateThingGroupCommand";
 import {
   UpdateThingGroupsForThingCommandInput,
   UpdateThingGroupsForThingCommandOutput
@@ -818,12 +566,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -1260,8 +1003,7 @@ export type ServiceOutputTypes =
   | UpdateTopicRuleDestinationCommandOutput
   | ValidateSecurityProfileBehaviorsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -1345,9 +1087,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -1356,9 +1096,7 @@ export type IoTClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

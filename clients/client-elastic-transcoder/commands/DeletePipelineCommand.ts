@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1DeletePipelineCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeletePipelineCommandInput = DeletePipelineRequest;
-export type DeletePipelineCommandOutput = DeletePipelineResponse &
-  __MetadataBearer;
+export type DeletePipelineCommandOutput = DeletePipelineResponse & __MetadataBearer;
 
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,
@@ -47,9 +43,7 @@ export class DeletePipelineCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePipelineCommandInput, DeletePipelineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class DeletePipelineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeletePipelineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeletePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeletePipelineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeletePipelineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeletePipelineCommandOutput> {
     return deserializeAws_restJson1_1DeletePipelineCommand(output, context);
   }
 

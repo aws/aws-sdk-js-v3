@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailClientResolvedConfig
-} from "../WorkMailClient";
-import {
-  ListOrganizationsRequest,
-  ListOrganizationsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
+import { ListOrganizationsRequest, ListOrganizationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListOrganizationsCommand,
   serializeAws_json1_1ListOrganizationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOrganizationsCommandInput = ListOrganizationsRequest;
-export type ListOrganizationsCommandOutput = ListOrganizationsResponse &
-  __MetadataBearer;
+export type ListOrganizationsCommandOutput = ListOrganizationsResponse & __MetadataBearer;
 
 export class ListOrganizationsCommand extends $Command<
   ListOrganizationsCommandInput,
@@ -50,9 +39,7 @@ export class ListOrganizationsCommand extends $Command<
     configuration: WorkMailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOrganizationsCommandInput, ListOrganizationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListOrganizationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListOrganizationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListOrganizationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListOrganizationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListOrganizationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOrganizationsCommandOutput> {
     return deserializeAws_json1_1ListOrganizationsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LicenseManagerClient";
-import {
-  GetServiceSettingsRequest,
-  GetServiceSettingsResponse
-} from "../models/index";
+import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
+import { GetServiceSettingsRequest, GetServiceSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetServiceSettingsCommand,
   serializeAws_json1_1GetServiceSettingsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetServiceSettingsCommandInput = GetServiceSettingsRequest;
-export type GetServiceSettingsCommandOutput = GetServiceSettingsResponse &
-  __MetadataBearer;
+export type GetServiceSettingsCommandOutput = GetServiceSettingsResponse & __MetadataBearer;
 
 export class GetServiceSettingsCommand extends $Command<
   GetServiceSettingsCommandInput,
@@ -50,9 +39,7 @@ export class GetServiceSettingsCommand extends $Command<
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetServiceSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetServiceSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetServiceSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetServiceSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetServiceSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetServiceSettingsCommandOutput> {
     return deserializeAws_json1_1GetServiceSettingsCommand(output, context);
   }
 

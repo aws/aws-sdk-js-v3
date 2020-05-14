@@ -6,18 +6,12 @@ import {
   DeleteNotificationRuleCommandInput,
   DeleteNotificationRuleCommandOutput
 } from "./commands/DeleteNotificationRuleCommand";
-import {
-  DeleteTargetCommandInput,
-  DeleteTargetCommandOutput
-} from "./commands/DeleteTargetCommand";
+import { DeleteTargetCommandInput, DeleteTargetCommandOutput } from "./commands/DeleteTargetCommand";
 import {
   DescribeNotificationRuleCommandInput,
   DescribeNotificationRuleCommandOutput
 } from "./commands/DescribeNotificationRuleCommand";
-import {
-  ListEventTypesCommandInput,
-  ListEventTypesCommandOutput
-} from "./commands/ListEventTypesCommand";
+import { ListEventTypesCommandInput, ListEventTypesCommandOutput } from "./commands/ListEventTypesCommand";
 import {
   ListNotificationRulesCommandInput,
   ListNotificationRulesCommandOutput
@@ -26,26 +20,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTargetsCommandInput,
-  ListTargetsCommandOutput
-} from "./commands/ListTargetsCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "./commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "./commands/UnsubscribeCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateNotificationRuleCommandInput,
   UpdateNotificationRuleCommandOutput
@@ -66,12 +45,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +106,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateNotificationRuleCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type codestarnotificationsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type codestarnotificationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +199,7 @@ export type codestarnotificationsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type codestarnotificationsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type codestarnotificationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

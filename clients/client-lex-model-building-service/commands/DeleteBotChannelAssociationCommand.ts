@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1DeleteBotChannelAssociationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +42,8 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteBotChannelAssociationCommandInput,
-    DeleteBotChannelAssociationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteBotChannelAssociationCommandInput, DeleteBotChannelAssociationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,24 +58,15 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteBotChannelAssociationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBotChannelAssociationCommand(
-      input,
-      context
-    );
+  private serialize(input: DeleteBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DeleteBotChannelAssociationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteBotChannelAssociationCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBotChannelAssociationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteBotChannelAssociationCommand(output, context);
   }
 
   // Start section: command_body_extra

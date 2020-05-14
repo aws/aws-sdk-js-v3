@@ -125,8 +125,7 @@ export interface AlgorithmSpecification {
 }
 
 export namespace AlgorithmSpecification {
-  export const isa = (o: any): o is AlgorithmSpecification =>
-    __isa(o, "AlgorithmSpecification");
+  export const isa = (o: any): o is AlgorithmSpecification => __isa(o, "AlgorithmSpecification");
 }
 
 export enum AlgorithmStatus {
@@ -154,8 +153,7 @@ export interface AlgorithmStatusDetails {
 }
 
 export namespace AlgorithmStatusDetails {
-  export const isa = (o: any): o is AlgorithmStatusDetails =>
-    __isa(o, "AlgorithmStatusDetails");
+  export const isa = (o: any): o is AlgorithmStatusDetails => __isa(o, "AlgorithmStatusDetails");
 }
 
 /**
@@ -180,8 +178,7 @@ export interface AlgorithmStatusItem {
 }
 
 export namespace AlgorithmStatusItem {
-  export const isa = (o: any): o is AlgorithmStatusItem =>
-    __isa(o, "AlgorithmStatusItem");
+  export const isa = (o: any): o is AlgorithmStatusItem => __isa(o, "AlgorithmStatusItem");
 }
 
 /**
@@ -216,8 +213,7 @@ export interface AlgorithmSummary {
 }
 
 export namespace AlgorithmSummary {
-  export const isa = (o: any): o is AlgorithmSummary =>
-    __isa(o, "AlgorithmSummary");
+  export const isa = (o: any): o is AlgorithmSummary => __isa(o, "AlgorithmSummary");
 }
 
 /**
@@ -248,8 +244,7 @@ export interface AlgorithmValidationProfile {
 }
 
 export namespace AlgorithmValidationProfile {
-  export const isa = (o: any): o is AlgorithmValidationProfile =>
-    __isa(o, "AlgorithmValidationProfile");
+  export const isa = (o: any): o is AlgorithmValidationProfile => __isa(o, "AlgorithmValidationProfile");
 }
 
 /**
@@ -271,8 +266,7 @@ export interface AlgorithmValidationSpecification {
 }
 
 export namespace AlgorithmValidationSpecification {
-  export const isa = (o: any): o is AlgorithmValidationSpecification =>
-    __isa(o, "AlgorithmValidationSpecification");
+  export const isa = (o: any): o is AlgorithmValidationSpecification => __isa(o, "AlgorithmValidationSpecification");
 }
 
 /**
@@ -672,8 +666,7 @@ export interface AnnotationConsolidationConfig {
 }
 
 export namespace AnnotationConsolidationConfig {
-  export const isa = (o: any): o is AnnotationConsolidationConfig =>
-    __isa(o, "AnnotationConsolidationConfig");
+  export const isa = (o: any): o is AnnotationConsolidationConfig => __isa(o, "AnnotationConsolidationConfig");
 }
 
 /**
@@ -777,8 +770,7 @@ export interface AppSpecification {
 }
 
 export namespace AppSpecification {
-  export const isa = (o: any): o is AppSpecification =>
-    __isa(o, "AppSpecification");
+  export const isa = (o: any): o is AppSpecification => __isa(o, "AppSpecification");
 }
 
 export enum AppStatus {
@@ -814,8 +806,7 @@ export interface AssociateTrialComponentRequest {
 }
 
 export namespace AssociateTrialComponentRequest {
-  export const isa = (o: any): o is AssociateTrialComponentRequest =>
-    __isa(o, "AssociateTrialComponentRequest");
+  export const isa = (o: any): o is AssociateTrialComponentRequest => __isa(o, "AssociateTrialComponentRequest");
 }
 
 export interface AssociateTrialComponentResponse {
@@ -832,8 +823,7 @@ export interface AssociateTrialComponentResponse {
 }
 
 export namespace AssociateTrialComponentResponse {
-  export const isa = (o: any): o is AssociateTrialComponentResponse =>
-    __isa(o, "AssociateTrialComponentResponse");
+  export const isa = (o: any): o is AssociateTrialComponentResponse => __isa(o, "AssociateTrialComponentResponse");
 }
 
 export enum AuthMode {
@@ -899,8 +889,7 @@ export interface AutoMLCandidate {
 }
 
 export namespace AutoMLCandidate {
-  export const isa = (o: any): o is AutoMLCandidate =>
-    __isa(o, "AutoMLCandidate");
+  export const isa = (o: any): o is AutoMLCandidate => __isa(o, "AutoMLCandidate");
 }
 
 /**
@@ -925,8 +914,7 @@ export interface AutoMLCandidateStep {
 }
 
 export namespace AutoMLCandidateStep {
-  export const isa = (o: any): o is AutoMLCandidateStep =>
-    __isa(o, "AutoMLCandidateStep");
+  export const isa = (o: any): o is AutoMLCandidateStep => __isa(o, "AutoMLCandidateStep");
 }
 
 /**
@@ -982,8 +970,7 @@ export interface AutoMLContainerDefinition {
 }
 
 export namespace AutoMLContainerDefinition {
-  export const isa = (o: any): o is AutoMLContainerDefinition =>
-    __isa(o, "AutoMLContainerDefinition");
+  export const isa = (o: any): o is AutoMLContainerDefinition => __isa(o, "AutoMLContainerDefinition");
 }
 
 /**
@@ -998,8 +985,7 @@ export interface AutoMLDataSource {
 }
 
 export namespace AutoMLDataSource {
-  export const isa = (o: any): o is AutoMLDataSource =>
-    __isa(o, "AutoMLDataSource");
+  export const isa = (o: any): o is AutoMLDataSource => __isa(o, "AutoMLDataSource");
 }
 
 /**
@@ -1019,8 +1005,7 @@ export interface AutoMLJobArtifacts {
 }
 
 export namespace AutoMLJobArtifacts {
-  export const isa = (o: any): o is AutoMLJobArtifacts =>
-    __isa(o, "AutoMLJobArtifacts");
+  export const isa = (o: any): o is AutoMLJobArtifacts => __isa(o, "AutoMLJobArtifacts");
 }
 
 /**
@@ -1046,8 +1031,7 @@ export interface AutoMLJobCompletionCriteria {
 }
 
 export namespace AutoMLJobCompletionCriteria {
-  export const isa = (o: any): o is AutoMLJobCompletionCriteria =>
-    __isa(o, "AutoMLJobCompletionCriteria");
+  export const isa = (o: any): o is AutoMLJobCompletionCriteria => __isa(o, "AutoMLJobCompletionCriteria");
 }
 
 /**
@@ -1067,8 +1051,7 @@ export interface AutoMLJobConfig {
 }
 
 export namespace AutoMLJobConfig {
-  export const isa = (o: any): o is AutoMLJobConfig =>
-    __isa(o, "AutoMLJobConfig");
+  export const isa = (o: any): o is AutoMLJobConfig => __isa(o, "AutoMLJobConfig");
 }
 
 /**
@@ -1083,8 +1066,7 @@ export interface AutoMLJobObjective {
 }
 
 export namespace AutoMLJobObjective {
-  export const isa = (o: any): o is AutoMLJobObjective =>
-    __isa(o, "AutoMLJobObjective");
+  export const isa = (o: any): o is AutoMLJobObjective => __isa(o, "AutoMLJobObjective");
 }
 
 export enum AutoMLJobObjectiveType {
@@ -1160,8 +1142,7 @@ export interface AutoMLJobSummary {
 }
 
 export namespace AutoMLJobSummary {
-  export const isa = (o: any): o is AutoMLJobSummary =>
-    __isa(o, "AutoMLJobSummary");
+  export const isa = (o: any): o is AutoMLJobSummary => __isa(o, "AutoMLJobSummary");
 }
 
 export enum AutoMLMetricEnum {
@@ -1188,8 +1169,7 @@ export interface AutoMLOutputDataConfig {
 }
 
 export namespace AutoMLOutputDataConfig {
-  export const isa = (o: any): o is AutoMLOutputDataConfig =>
-    __isa(o, "AutoMLOutputDataConfig");
+  export const isa = (o: any): o is AutoMLOutputDataConfig => __isa(o, "AutoMLOutputDataConfig");
 }
 
 /**
@@ -1209,8 +1189,7 @@ export interface AutoMLS3DataSource {
 }
 
 export namespace AutoMLS3DataSource {
-  export const isa = (o: any): o is AutoMLS3DataSource =>
-    __isa(o, "AutoMLS3DataSource");
+  export const isa = (o: any): o is AutoMLS3DataSource => __isa(o, "AutoMLS3DataSource");
 }
 
 export enum AutoMLS3DataType {
@@ -1240,8 +1219,7 @@ export interface AutoMLSecurityConfig {
 }
 
 export namespace AutoMLSecurityConfig {
-  export const isa = (o: any): o is AutoMLSecurityConfig =>
-    __isa(o, "AutoMLSecurityConfig");
+  export const isa = (o: any): o is AutoMLSecurityConfig => __isa(o, "AutoMLSecurityConfig");
 }
 
 export enum AutoMLSortBy {
@@ -1307,8 +1285,7 @@ export interface CaptureContentTypeHeader {
 }
 
 export namespace CaptureContentTypeHeader {
-  export const isa = (o: any): o is CaptureContentTypeHeader =>
-    __isa(o, "CaptureContentTypeHeader");
+  export const isa = (o: any): o is CaptureContentTypeHeader => __isa(o, "CaptureContentTypeHeader");
 }
 
 export enum CaptureMode {
@@ -1355,8 +1332,7 @@ export interface CategoricalParameterRange {
 }
 
 export namespace CategoricalParameterRange {
-  export const isa = (o: any): o is CategoricalParameterRange =>
-    __isa(o, "CategoricalParameterRange");
+  export const isa = (o: any): o is CategoricalParameterRange => __isa(o, "CategoricalParameterRange");
 }
 
 /**
@@ -1492,8 +1468,7 @@ export interface ChannelSpecification {
 }
 
 export namespace ChannelSpecification {
-  export const isa = (o: any): o is ChannelSpecification =>
-    __isa(o, "ChannelSpecification");
+  export const isa = (o: any): o is ChannelSpecification => __isa(o, "ChannelSpecification");
 }
 
 /**
@@ -1516,8 +1491,7 @@ export interface CheckpointConfig {
 }
 
 export namespace CheckpointConfig {
-  export const isa = (o: any): o is CheckpointConfig =>
-    __isa(o, "CheckpointConfig");
+  export const isa = (o: any): o is CheckpointConfig => __isa(o, "CheckpointConfig");
 }
 
 export enum CodeRepositorySortBy {
@@ -1565,8 +1539,7 @@ export interface CodeRepositorySummary {
 }
 
 export namespace CodeRepositorySummary {
-  export const isa = (o: any): o is CodeRepositorySummary =>
-    __isa(o, "CodeRepositorySummary");
+  export const isa = (o: any): o is CodeRepositorySummary => __isa(o, "CodeRepositorySummary");
 }
 
 /**
@@ -1594,8 +1567,7 @@ export interface CognitoMemberDefinition {
 }
 
 export namespace CognitoMemberDefinition {
-  export const isa = (o: any): o is CognitoMemberDefinition =>
-    __isa(o, "CognitoMemberDefinition");
+  export const isa = (o: any): o is CognitoMemberDefinition => __isa(o, "CognitoMemberDefinition");
 }
 
 /**
@@ -1618,8 +1590,7 @@ export interface CollectionConfiguration {
 }
 
 export namespace CollectionConfiguration {
-  export const isa = (o: any): o is CollectionConfiguration =>
-    __isa(o, "CollectionConfiguration");
+  export const isa = (o: any): o is CollectionConfiguration => __isa(o, "CollectionConfiguration");
 }
 
 export enum CompilationJobStatus {
@@ -1678,8 +1649,7 @@ export interface CompilationJobSummary {
 }
 
 export namespace CompilationJobSummary {
-  export const isa = (o: any): o is CompilationJobSummary =>
-    __isa(o, "CompilationJobSummary");
+  export const isa = (o: any): o is CompilationJobSummary => __isa(o, "CompilationJobSummary");
 }
 
 export enum CompressionType {
@@ -1697,8 +1667,7 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
-  export const isa = (o: any): o is ConflictException =>
-    __isa(o, "ConflictException");
+  export const isa = (o: any): o is ConflictException => __isa(o, "ConflictException");
 }
 
 /**
@@ -1773,8 +1742,7 @@ export interface ContainerDefinition {
 }
 
 export namespace ContainerDefinition {
-  export const isa = (o: any): o is ContainerDefinition =>
-    __isa(o, "ContainerDefinition");
+  export const isa = (o: any): o is ContainerDefinition => __isa(o, "ContainerDefinition");
 }
 
 export enum ContainerMode {
@@ -1845,8 +1813,7 @@ export interface ContinuousParameterRange {
 }
 
 export namespace ContinuousParameterRange {
-  export const isa = (o: any): o is ContinuousParameterRange =>
-    __isa(o, "ContinuousParameterRange");
+  export const isa = (o: any): o is ContinuousParameterRange => __isa(o, "ContinuousParameterRange");
 }
 
 /**
@@ -1949,8 +1916,7 @@ export interface CreateAlgorithmInput {
 }
 
 export namespace CreateAlgorithmInput {
-  export const isa = (o: any): o is CreateAlgorithmInput =>
-    __isa(o, "CreateAlgorithmInput");
+  export const isa = (o: any): o is CreateAlgorithmInput => __isa(o, "CreateAlgorithmInput");
 }
 
 export interface CreateAlgorithmOutput {
@@ -1962,8 +1928,7 @@ export interface CreateAlgorithmOutput {
 }
 
 export namespace CreateAlgorithmOutput {
-  export const isa = (o: any): o is CreateAlgorithmOutput =>
-    __isa(o, "CreateAlgorithmOutput");
+  export const isa = (o: any): o is CreateAlgorithmOutput => __isa(o, "CreateAlgorithmOutput");
 }
 
 export interface CreateAppRequest {
@@ -2001,8 +1966,7 @@ export interface CreateAppRequest {
 }
 
 export namespace CreateAppRequest {
-  export const isa = (o: any): o is CreateAppRequest =>
-    __isa(o, "CreateAppRequest");
+  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 export interface CreateAppResponse {
@@ -2014,8 +1978,7 @@ export interface CreateAppResponse {
 }
 
 export namespace CreateAppResponse {
-  export const isa = (o: any): o is CreateAppResponse =>
-    __isa(o, "CreateAppResponse");
+  export const isa = (o: any): o is CreateAppResponse => __isa(o, "CreateAppResponse");
 }
 
 export interface CreateAutoMLJobRequest {
@@ -2074,8 +2037,7 @@ export interface CreateAutoMLJobRequest {
 }
 
 export namespace CreateAutoMLJobRequest {
-  export const isa = (o: any): o is CreateAutoMLJobRequest =>
-    __isa(o, "CreateAutoMLJobRequest");
+  export const isa = (o: any): o is CreateAutoMLJobRequest => __isa(o, "CreateAutoMLJobRequest");
 }
 
 export interface CreateAutoMLJobResponse {
@@ -2087,8 +2049,7 @@ export interface CreateAutoMLJobResponse {
 }
 
 export namespace CreateAutoMLJobResponse {
-  export const isa = (o: any): o is CreateAutoMLJobResponse =>
-    __isa(o, "CreateAutoMLJobResponse");
+  export const isa = (o: any): o is CreateAutoMLJobResponse => __isa(o, "CreateAutoMLJobResponse");
 }
 
 export interface CreateCodeRepositoryInput {
@@ -2107,8 +2068,7 @@ export interface CreateCodeRepositoryInput {
 }
 
 export namespace CreateCodeRepositoryInput {
-  export const isa = (o: any): o is CreateCodeRepositoryInput =>
-    __isa(o, "CreateCodeRepositoryInput");
+  export const isa = (o: any): o is CreateCodeRepositoryInput => __isa(o, "CreateCodeRepositoryInput");
 }
 
 export interface CreateCodeRepositoryOutput {
@@ -2120,8 +2080,7 @@ export interface CreateCodeRepositoryOutput {
 }
 
 export namespace CreateCodeRepositoryOutput {
-  export const isa = (o: any): o is CreateCodeRepositoryOutput =>
-    __isa(o, "CreateCodeRepositoryOutput");
+  export const isa = (o: any): o is CreateCodeRepositoryOutput => __isa(o, "CreateCodeRepositoryOutput");
 }
 
 export interface CreateCompilationJobRequest {
@@ -2179,8 +2138,7 @@ export interface CreateCompilationJobRequest {
 }
 
 export namespace CreateCompilationJobRequest {
-  export const isa = (o: any): o is CreateCompilationJobRequest =>
-    __isa(o, "CreateCompilationJobRequest");
+  export const isa = (o: any): o is CreateCompilationJobRequest => __isa(o, "CreateCompilationJobRequest");
 }
 
 export interface CreateCompilationJobResponse {
@@ -2200,8 +2158,7 @@ export interface CreateCompilationJobResponse {
 }
 
 export namespace CreateCompilationJobResponse {
-  export const isa = (o: any): o is CreateCompilationJobResponse =>
-    __isa(o, "CreateCompilationJobResponse");
+  export const isa = (o: any): o is CreateCompilationJobResponse => __isa(o, "CreateCompilationJobResponse");
 }
 
 export interface CreateDomainRequest {
@@ -2244,8 +2201,7 @@ export interface CreateDomainRequest {
 }
 
 export namespace CreateDomainRequest {
-  export const isa = (o: any): o is CreateDomainRequest =>
-    __isa(o, "CreateDomainRequest");
+  export const isa = (o: any): o is CreateDomainRequest => __isa(o, "CreateDomainRequest");
 }
 
 export interface CreateDomainResponse {
@@ -2262,8 +2218,7 @@ export interface CreateDomainResponse {
 }
 
 export namespace CreateDomainResponse {
-  export const isa = (o: any): o is CreateDomainResponse =>
-    __isa(o, "CreateDomainResponse");
+  export const isa = (o: any): o is CreateDomainResponse => __isa(o, "CreateDomainResponse");
 }
 
 export interface CreateEndpointConfigInput {
@@ -2338,8 +2293,7 @@ export interface CreateEndpointConfigInput {
 }
 
 export namespace CreateEndpointConfigInput {
-  export const isa = (o: any): o is CreateEndpointConfigInput =>
-    __isa(o, "CreateEndpointConfigInput");
+  export const isa = (o: any): o is CreateEndpointConfigInput => __isa(o, "CreateEndpointConfigInput");
 }
 
 export interface CreateEndpointConfigOutput {
@@ -2351,8 +2305,7 @@ export interface CreateEndpointConfigOutput {
 }
 
 export namespace CreateEndpointConfigOutput {
-  export const isa = (o: any): o is CreateEndpointConfigOutput =>
-    __isa(o, "CreateEndpointConfigOutput");
+  export const isa = (o: any): o is CreateEndpointConfigOutput => __isa(o, "CreateEndpointConfigOutput");
 }
 
 export interface CreateEndpointInput {
@@ -2380,8 +2333,7 @@ export interface CreateEndpointInput {
 }
 
 export namespace CreateEndpointInput {
-  export const isa = (o: any): o is CreateEndpointInput =>
-    __isa(o, "CreateEndpointInput");
+  export const isa = (o: any): o is CreateEndpointInput => __isa(o, "CreateEndpointInput");
 }
 
 export interface CreateEndpointOutput {
@@ -2393,8 +2345,7 @@ export interface CreateEndpointOutput {
 }
 
 export namespace CreateEndpointOutput {
-  export const isa = (o: any): o is CreateEndpointOutput =>
-    __isa(o, "CreateEndpointOutput");
+  export const isa = (o: any): o is CreateEndpointOutput => __isa(o, "CreateEndpointOutput");
 }
 
 export interface CreateExperimentRequest {
@@ -2425,8 +2376,7 @@ export interface CreateExperimentRequest {
 }
 
 export namespace CreateExperimentRequest {
-  export const isa = (o: any): o is CreateExperimentRequest =>
-    __isa(o, "CreateExperimentRequest");
+  export const isa = (o: any): o is CreateExperimentRequest => __isa(o, "CreateExperimentRequest");
 }
 
 export interface CreateExperimentResponse {
@@ -2438,8 +2388,7 @@ export interface CreateExperimentResponse {
 }
 
 export namespace CreateExperimentResponse {
-  export const isa = (o: any): o is CreateExperimentResponse =>
-    __isa(o, "CreateExperimentResponse");
+  export const isa = (o: any): o is CreateExperimentResponse => __isa(o, "CreateExperimentResponse");
 }
 
 export interface CreateFlowDefinitionRequest {
@@ -2476,8 +2425,7 @@ export interface CreateFlowDefinitionRequest {
 }
 
 export namespace CreateFlowDefinitionRequest {
-  export const isa = (o: any): o is CreateFlowDefinitionRequest =>
-    __isa(o, "CreateFlowDefinitionRequest");
+  export const isa = (o: any): o is CreateFlowDefinitionRequest => __isa(o, "CreateFlowDefinitionRequest");
 }
 
 export interface CreateFlowDefinitionResponse {
@@ -2489,8 +2437,7 @@ export interface CreateFlowDefinitionResponse {
 }
 
 export namespace CreateFlowDefinitionResponse {
-  export const isa = (o: any): o is CreateFlowDefinitionResponse =>
-    __isa(o, "CreateFlowDefinitionResponse");
+  export const isa = (o: any): o is CreateFlowDefinitionResponse => __isa(o, "CreateFlowDefinitionResponse");
 }
 
 export interface CreateHumanTaskUiRequest {
@@ -2512,8 +2459,7 @@ export interface CreateHumanTaskUiRequest {
 }
 
 export namespace CreateHumanTaskUiRequest {
-  export const isa = (o: any): o is CreateHumanTaskUiRequest =>
-    __isa(o, "CreateHumanTaskUiRequest");
+  export const isa = (o: any): o is CreateHumanTaskUiRequest => __isa(o, "CreateHumanTaskUiRequest");
 }
 
 export interface CreateHumanTaskUiResponse {
@@ -2525,8 +2471,7 @@ export interface CreateHumanTaskUiResponse {
 }
 
 export namespace CreateHumanTaskUiResponse {
-  export const isa = (o: any): o is CreateHumanTaskUiResponse =>
-    __isa(o, "CreateHumanTaskUiResponse");
+  export const isa = (o: any): o is CreateHumanTaskUiResponse => __isa(o, "CreateHumanTaskUiResponse");
 }
 
 export interface CreateHyperParameterTuningJobRequest {
@@ -2724,8 +2669,7 @@ export interface CreateLabelingJobRequest {
 }
 
 export namespace CreateLabelingJobRequest {
-  export const isa = (o: any): o is CreateLabelingJobRequest =>
-    __isa(o, "CreateLabelingJobRequest");
+  export const isa = (o: any): o is CreateLabelingJobRequest => __isa(o, "CreateLabelingJobRequest");
 }
 
 export interface CreateLabelingJobResponse {
@@ -2738,8 +2682,7 @@ export interface CreateLabelingJobResponse {
 }
 
 export namespace CreateLabelingJobResponse {
-  export const isa = (o: any): o is CreateLabelingJobResponse =>
-    __isa(o, "CreateLabelingJobResponse");
+  export const isa = (o: any): o is CreateLabelingJobResponse => __isa(o, "CreateLabelingJobResponse");
 }
 
 export interface CreateModelInput {
@@ -2799,8 +2742,7 @@ export interface CreateModelInput {
 }
 
 export namespace CreateModelInput {
-  export const isa = (o: any): o is CreateModelInput =>
-    __isa(o, "CreateModelInput");
+  export const isa = (o: any): o is CreateModelInput => __isa(o, "CreateModelInput");
 }
 
 export interface CreateModelOutput {
@@ -2812,8 +2754,7 @@ export interface CreateModelOutput {
 }
 
 export namespace CreateModelOutput {
-  export const isa = (o: any): o is CreateModelOutput =>
-    __isa(o, "CreateModelOutput");
+  export const isa = (o: any): o is CreateModelOutput => __isa(o, "CreateModelOutput");
 }
 
 export interface CreateModelPackageInput {
@@ -2867,8 +2808,7 @@ export interface CreateModelPackageInput {
 }
 
 export namespace CreateModelPackageInput {
-  export const isa = (o: any): o is CreateModelPackageInput =>
-    __isa(o, "CreateModelPackageInput");
+  export const isa = (o: any): o is CreateModelPackageInput => __isa(o, "CreateModelPackageInput");
 }
 
 export interface CreateModelPackageOutput {
@@ -2880,8 +2820,7 @@ export interface CreateModelPackageOutput {
 }
 
 export namespace CreateModelPackageOutput {
-  export const isa = (o: any): o is CreateModelPackageOutput =>
-    __isa(o, "CreateModelPackageOutput");
+  export const isa = (o: any): o is CreateModelPackageOutput => __isa(o, "CreateModelPackageOutput");
 }
 
 export interface CreateMonitoringScheduleRequest {
@@ -2906,8 +2845,7 @@ export interface CreateMonitoringScheduleRequest {
 }
 
 export namespace CreateMonitoringScheduleRequest {
-  export const isa = (o: any): o is CreateMonitoringScheduleRequest =>
-    __isa(o, "CreateMonitoringScheduleRequest");
+  export const isa = (o: any): o is CreateMonitoringScheduleRequest => __isa(o, "CreateMonitoringScheduleRequest");
 }
 
 export interface CreateMonitoringScheduleResponse {
@@ -2919,8 +2857,7 @@ export interface CreateMonitoringScheduleResponse {
 }
 
 export namespace CreateMonitoringScheduleResponse {
-  export const isa = (o: any): o is CreateMonitoringScheduleResponse =>
-    __isa(o, "CreateMonitoringScheduleResponse");
+  export const isa = (o: any): o is CreateMonitoringScheduleResponse => __isa(o, "CreateMonitoringScheduleResponse");
 }
 
 export interface CreateNotebookInstanceInput {
@@ -3039,8 +2976,7 @@ export interface CreateNotebookInstanceInput {
 }
 
 export namespace CreateNotebookInstanceInput {
-  export const isa = (o: any): o is CreateNotebookInstanceInput =>
-    __isa(o, "CreateNotebookInstanceInput");
+  export const isa = (o: any): o is CreateNotebookInstanceInput => __isa(o, "CreateNotebookInstanceInput");
 }
 
 export interface CreateNotebookInstanceLifecycleConfigInput {
@@ -3064,9 +3000,7 @@ export interface CreateNotebookInstanceLifecycleConfigInput {
 }
 
 export namespace CreateNotebookInstanceLifecycleConfigInput {
-  export const isa = (
-    o: any
-  ): o is CreateNotebookInstanceLifecycleConfigInput =>
+  export const isa = (o: any): o is CreateNotebookInstanceLifecycleConfigInput =>
     __isa(o, "CreateNotebookInstanceLifecycleConfigInput");
 }
 
@@ -3079,9 +3013,7 @@ export interface CreateNotebookInstanceLifecycleConfigOutput {
 }
 
 export namespace CreateNotebookInstanceLifecycleConfigOutput {
-  export const isa = (
-    o: any
-  ): o is CreateNotebookInstanceLifecycleConfigOutput =>
+  export const isa = (o: any): o is CreateNotebookInstanceLifecycleConfigOutput =>
     __isa(o, "CreateNotebookInstanceLifecycleConfigOutput");
 }
 
@@ -3094,8 +3026,7 @@ export interface CreateNotebookInstanceOutput {
 }
 
 export namespace CreateNotebookInstanceOutput {
-  export const isa = (o: any): o is CreateNotebookInstanceOutput =>
-    __isa(o, "CreateNotebookInstanceOutput");
+  export const isa = (o: any): o is CreateNotebookInstanceOutput => __isa(o, "CreateNotebookInstanceOutput");
 }
 
 export interface CreatePresignedDomainUrlRequest {
@@ -3117,8 +3048,7 @@ export interface CreatePresignedDomainUrlRequest {
 }
 
 export namespace CreatePresignedDomainUrlRequest {
-  export const isa = (o: any): o is CreatePresignedDomainUrlRequest =>
-    __isa(o, "CreatePresignedDomainUrlRequest");
+  export const isa = (o: any): o is CreatePresignedDomainUrlRequest => __isa(o, "CreatePresignedDomainUrlRequest");
 }
 
 export interface CreatePresignedDomainUrlResponse {
@@ -3130,8 +3060,7 @@ export interface CreatePresignedDomainUrlResponse {
 }
 
 export namespace CreatePresignedDomainUrlResponse {
-  export const isa = (o: any): o is CreatePresignedDomainUrlResponse =>
-    __isa(o, "CreatePresignedDomainUrlResponse");
+  export const isa = (o: any): o is CreatePresignedDomainUrlResponse => __isa(o, "CreatePresignedDomainUrlResponse");
 }
 
 export interface CreatePresignedNotebookInstanceUrlInput {
@@ -3229,8 +3158,7 @@ export interface CreateProcessingJobRequest {
 }
 
 export namespace CreateProcessingJobRequest {
-  export const isa = (o: any): o is CreateProcessingJobRequest =>
-    __isa(o, "CreateProcessingJobRequest");
+  export const isa = (o: any): o is CreateProcessingJobRequest => __isa(o, "CreateProcessingJobRequest");
 }
 
 export interface CreateProcessingJobResponse {
@@ -3242,8 +3170,7 @@ export interface CreateProcessingJobResponse {
 }
 
 export namespace CreateProcessingJobResponse {
-  export const isa = (o: any): o is CreateProcessingJobResponse =>
-    __isa(o, "CreateProcessingJobResponse");
+  export const isa = (o: any): o is CreateProcessingJobResponse => __isa(o, "CreateProcessingJobResponse");
 }
 
 export interface CreateTrainingJobRequest {
@@ -3410,8 +3337,7 @@ export interface CreateTrainingJobRequest {
 }
 
 export namespace CreateTrainingJobRequest {
-  export const isa = (o: any): o is CreateTrainingJobRequest =>
-    __isa(o, "CreateTrainingJobRequest");
+  export const isa = (o: any): o is CreateTrainingJobRequest => __isa(o, "CreateTrainingJobRequest");
 }
 
 export interface CreateTrainingJobResponse {
@@ -3423,8 +3349,7 @@ export interface CreateTrainingJobResponse {
 }
 
 export namespace CreateTrainingJobResponse {
-  export const isa = (o: any): o is CreateTrainingJobResponse =>
-    __isa(o, "CreateTrainingJobResponse");
+  export const isa = (o: any): o is CreateTrainingJobResponse => __isa(o, "CreateTrainingJobResponse");
 }
 
 export interface CreateTransformJobRequest {
@@ -3538,8 +3463,7 @@ export interface CreateTransformJobRequest {
 }
 
 export namespace CreateTransformJobRequest {
-  export const isa = (o: any): o is CreateTransformJobRequest =>
-    __isa(o, "CreateTransformJobRequest");
+  export const isa = (o: any): o is CreateTransformJobRequest => __isa(o, "CreateTransformJobRequest");
 }
 
 export interface CreateTransformJobResponse {
@@ -3551,8 +3475,7 @@ export interface CreateTransformJobResponse {
 }
 
 export namespace CreateTransformJobResponse {
-  export const isa = (o: any): o is CreateTransformJobResponse =>
-    __isa(o, "CreateTransformJobResponse");
+  export const isa = (o: any): o is CreateTransformJobResponse => __isa(o, "CreateTransformJobResponse");
 }
 
 export interface CreateTrialComponentRequest {
@@ -3621,8 +3544,7 @@ export interface CreateTrialComponentRequest {
 }
 
 export namespace CreateTrialComponentRequest {
-  export const isa = (o: any): o is CreateTrialComponentRequest =>
-    __isa(o, "CreateTrialComponentRequest");
+  export const isa = (o: any): o is CreateTrialComponentRequest => __isa(o, "CreateTrialComponentRequest");
 }
 
 export interface CreateTrialComponentResponse {
@@ -3634,8 +3556,7 @@ export interface CreateTrialComponentResponse {
 }
 
 export namespace CreateTrialComponentResponse {
-  export const isa = (o: any): o is CreateTrialComponentResponse =>
-    __isa(o, "CreateTrialComponentResponse");
+  export const isa = (o: any): o is CreateTrialComponentResponse => __isa(o, "CreateTrialComponentResponse");
 }
 
 export interface CreateTrialRequest {
@@ -3666,8 +3587,7 @@ export interface CreateTrialRequest {
 }
 
 export namespace CreateTrialRequest {
-  export const isa = (o: any): o is CreateTrialRequest =>
-    __isa(o, "CreateTrialRequest");
+  export const isa = (o: any): o is CreateTrialRequest => __isa(o, "CreateTrialRequest");
 }
 
 export interface CreateTrialResponse {
@@ -3679,8 +3599,7 @@ export interface CreateTrialResponse {
 }
 
 export namespace CreateTrialResponse {
-  export const isa = (o: any): o is CreateTrialResponse =>
-    __isa(o, "CreateTrialResponse");
+  export const isa = (o: any): o is CreateTrialResponse => __isa(o, "CreateTrialResponse");
 }
 
 export interface CreateUserProfileRequest {
@@ -3722,8 +3641,7 @@ export interface CreateUserProfileRequest {
 }
 
 export namespace CreateUserProfileRequest {
-  export const isa = (o: any): o is CreateUserProfileRequest =>
-    __isa(o, "CreateUserProfileRequest");
+  export const isa = (o: any): o is CreateUserProfileRequest => __isa(o, "CreateUserProfileRequest");
 }
 
 export interface CreateUserProfileResponse {
@@ -3735,8 +3653,7 @@ export interface CreateUserProfileResponse {
 }
 
 export namespace CreateUserProfileResponse {
-  export const isa = (o: any): o is CreateUserProfileResponse =>
-    __isa(o, "CreateUserProfileResponse");
+  export const isa = (o: any): o is CreateUserProfileResponse => __isa(o, "CreateUserProfileResponse");
 }
 
 export interface CreateWorkteamRequest {
@@ -3777,8 +3694,7 @@ export interface CreateWorkteamRequest {
 }
 
 export namespace CreateWorkteamRequest {
-  export const isa = (o: any): o is CreateWorkteamRequest =>
-    __isa(o, "CreateWorkteamRequest");
+  export const isa = (o: any): o is CreateWorkteamRequest => __isa(o, "CreateWorkteamRequest");
 }
 
 export interface CreateWorkteamResponse {
@@ -3791,8 +3707,7 @@ export interface CreateWorkteamResponse {
 }
 
 export namespace CreateWorkteamResponse {
-  export const isa = (o: any): o is CreateWorkteamResponse =>
-    __isa(o, "CreateWorkteamResponse");
+  export const isa = (o: any): o is CreateWorkteamResponse => __isa(o, "CreateWorkteamResponse");
 }
 
 /**
@@ -3832,8 +3747,7 @@ export interface DataCaptureConfig {
 }
 
 export namespace DataCaptureConfig {
-  export const isa = (o: any): o is DataCaptureConfig =>
-    __isa(o, "DataCaptureConfig");
+  export const isa = (o: any): o is DataCaptureConfig => __isa(o, "DataCaptureConfig");
 }
 
 /**
@@ -3868,8 +3782,7 @@ export interface DataCaptureConfigSummary {
 }
 
 export namespace DataCaptureConfigSummary {
-  export const isa = (o: any): o is DataCaptureConfigSummary =>
-    __isa(o, "DataCaptureConfigSummary");
+  export const isa = (o: any): o is DataCaptureConfigSummary => __isa(o, "DataCaptureConfigSummary");
 }
 
 /**
@@ -3926,8 +3839,7 @@ export interface DataProcessing {
 }
 
 export namespace DataProcessing {
-  export const isa = (o: any): o is DataProcessing =>
-    __isa(o, "DataProcessing");
+  export const isa = (o: any): o is DataProcessing => __isa(o, "DataProcessing");
 }
 
 /**
@@ -3979,8 +3891,7 @@ export interface DebugHookConfig {
 }
 
 export namespace DebugHookConfig {
-  export const isa = (o: any): o is DebugHookConfig =>
-    __isa(o, "DebugHookConfig");
+  export const isa = (o: any): o is DebugHookConfig => __isa(o, "DebugHookConfig");
 }
 
 /**
@@ -4027,8 +3938,7 @@ export interface DebugRuleConfiguration {
 }
 
 export namespace DebugRuleConfiguration {
-  export const isa = (o: any): o is DebugRuleConfiguration =>
-    __isa(o, "DebugRuleConfiguration");
+  export const isa = (o: any): o is DebugRuleConfiguration => __isa(o, "DebugRuleConfiguration");
 }
 
 /**
@@ -4063,8 +3973,7 @@ export interface DebugRuleEvaluationStatus {
 }
 
 export namespace DebugRuleEvaluationStatus {
-  export const isa = (o: any): o is DebugRuleEvaluationStatus =>
-    __isa(o, "DebugRuleEvaluationStatus");
+  export const isa = (o: any): o is DebugRuleEvaluationStatus => __isa(o, "DebugRuleEvaluationStatus");
 }
 
 export interface DeleteAlgorithmInput {
@@ -4076,8 +3985,7 @@ export interface DeleteAlgorithmInput {
 }
 
 export namespace DeleteAlgorithmInput {
-  export const isa = (o: any): o is DeleteAlgorithmInput =>
-    __isa(o, "DeleteAlgorithmInput");
+  export const isa = (o: any): o is DeleteAlgorithmInput => __isa(o, "DeleteAlgorithmInput");
 }
 
 export interface DeleteAppRequest {
@@ -4104,8 +4012,7 @@ export interface DeleteAppRequest {
 }
 
 export namespace DeleteAppRequest {
-  export const isa = (o: any): o is DeleteAppRequest =>
-    __isa(o, "DeleteAppRequest");
+  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 export interface DeleteCodeRepositoryInput {
@@ -4117,8 +4024,7 @@ export interface DeleteCodeRepositoryInput {
 }
 
 export namespace DeleteCodeRepositoryInput {
-  export const isa = (o: any): o is DeleteCodeRepositoryInput =>
-    __isa(o, "DeleteCodeRepositoryInput");
+  export const isa = (o: any): o is DeleteCodeRepositoryInput => __isa(o, "DeleteCodeRepositoryInput");
 }
 
 export interface DeleteDomainRequest {
@@ -4137,8 +4043,7 @@ export interface DeleteDomainRequest {
 }
 
 export namespace DeleteDomainRequest {
-  export const isa = (o: any): o is DeleteDomainRequest =>
-    __isa(o, "DeleteDomainRequest");
+  export const isa = (o: any): o is DeleteDomainRequest => __isa(o, "DeleteDomainRequest");
 }
 
 export interface DeleteEndpointConfigInput {
@@ -4150,8 +4055,7 @@ export interface DeleteEndpointConfigInput {
 }
 
 export namespace DeleteEndpointConfigInput {
-  export const isa = (o: any): o is DeleteEndpointConfigInput =>
-    __isa(o, "DeleteEndpointConfigInput");
+  export const isa = (o: any): o is DeleteEndpointConfigInput => __isa(o, "DeleteEndpointConfigInput");
 }
 
 export interface DeleteEndpointInput {
@@ -4163,8 +4067,7 @@ export interface DeleteEndpointInput {
 }
 
 export namespace DeleteEndpointInput {
-  export const isa = (o: any): o is DeleteEndpointInput =>
-    __isa(o, "DeleteEndpointInput");
+  export const isa = (o: any): o is DeleteEndpointInput => __isa(o, "DeleteEndpointInput");
 }
 
 export interface DeleteExperimentRequest {
@@ -4176,8 +4079,7 @@ export interface DeleteExperimentRequest {
 }
 
 export namespace DeleteExperimentRequest {
-  export const isa = (o: any): o is DeleteExperimentRequest =>
-    __isa(o, "DeleteExperimentRequest");
+  export const isa = (o: any): o is DeleteExperimentRequest => __isa(o, "DeleteExperimentRequest");
 }
 
 export interface DeleteExperimentResponse {
@@ -4189,8 +4091,7 @@ export interface DeleteExperimentResponse {
 }
 
 export namespace DeleteExperimentResponse {
-  export const isa = (o: any): o is DeleteExperimentResponse =>
-    __isa(o, "DeleteExperimentResponse");
+  export const isa = (o: any): o is DeleteExperimentResponse => __isa(o, "DeleteExperimentResponse");
 }
 
 export interface DeleteFlowDefinitionRequest {
@@ -4202,8 +4103,7 @@ export interface DeleteFlowDefinitionRequest {
 }
 
 export namespace DeleteFlowDefinitionRequest {
-  export const isa = (o: any): o is DeleteFlowDefinitionRequest =>
-    __isa(o, "DeleteFlowDefinitionRequest");
+  export const isa = (o: any): o is DeleteFlowDefinitionRequest => __isa(o, "DeleteFlowDefinitionRequest");
 }
 
 export interface DeleteFlowDefinitionResponse {
@@ -4211,8 +4111,7 @@ export interface DeleteFlowDefinitionResponse {
 }
 
 export namespace DeleteFlowDefinitionResponse {
-  export const isa = (o: any): o is DeleteFlowDefinitionResponse =>
-    __isa(o, "DeleteFlowDefinitionResponse");
+  export const isa = (o: any): o is DeleteFlowDefinitionResponse => __isa(o, "DeleteFlowDefinitionResponse");
 }
 
 export interface DeleteModelInput {
@@ -4224,8 +4123,7 @@ export interface DeleteModelInput {
 }
 
 export namespace DeleteModelInput {
-  export const isa = (o: any): o is DeleteModelInput =>
-    __isa(o, "DeleteModelInput");
+  export const isa = (o: any): o is DeleteModelInput => __isa(o, "DeleteModelInput");
 }
 
 export interface DeleteModelPackageInput {
@@ -4238,8 +4136,7 @@ export interface DeleteModelPackageInput {
 }
 
 export namespace DeleteModelPackageInput {
-  export const isa = (o: any): o is DeleteModelPackageInput =>
-    __isa(o, "DeleteModelPackageInput");
+  export const isa = (o: any): o is DeleteModelPackageInput => __isa(o, "DeleteModelPackageInput");
 }
 
 export interface DeleteMonitoringScheduleRequest {
@@ -4251,8 +4148,7 @@ export interface DeleteMonitoringScheduleRequest {
 }
 
 export namespace DeleteMonitoringScheduleRequest {
-  export const isa = (o: any): o is DeleteMonitoringScheduleRequest =>
-    __isa(o, "DeleteMonitoringScheduleRequest");
+  export const isa = (o: any): o is DeleteMonitoringScheduleRequest => __isa(o, "DeleteMonitoringScheduleRequest");
 }
 
 export interface DeleteNotebookInstanceInput {
@@ -4264,8 +4160,7 @@ export interface DeleteNotebookInstanceInput {
 }
 
 export namespace DeleteNotebookInstanceInput {
-  export const isa = (o: any): o is DeleteNotebookInstanceInput =>
-    __isa(o, "DeleteNotebookInstanceInput");
+  export const isa = (o: any): o is DeleteNotebookInstanceInput => __isa(o, "DeleteNotebookInstanceInput");
 }
 
 export interface DeleteNotebookInstanceLifecycleConfigInput {
@@ -4277,9 +4172,7 @@ export interface DeleteNotebookInstanceLifecycleConfigInput {
 }
 
 export namespace DeleteNotebookInstanceLifecycleConfigInput {
-  export const isa = (
-    o: any
-  ): o is DeleteNotebookInstanceLifecycleConfigInput =>
+  export const isa = (o: any): o is DeleteNotebookInstanceLifecycleConfigInput =>
     __isa(o, "DeleteNotebookInstanceLifecycleConfigInput");
 }
 
@@ -4298,8 +4191,7 @@ export interface DeleteTagsInput {
 }
 
 export namespace DeleteTagsInput {
-  export const isa = (o: any): o is DeleteTagsInput =>
-    __isa(o, "DeleteTagsInput");
+  export const isa = (o: any): o is DeleteTagsInput => __isa(o, "DeleteTagsInput");
 }
 
 export interface DeleteTagsOutput {
@@ -4307,8 +4199,7 @@ export interface DeleteTagsOutput {
 }
 
 export namespace DeleteTagsOutput {
-  export const isa = (o: any): o is DeleteTagsOutput =>
-    __isa(o, "DeleteTagsOutput");
+  export const isa = (o: any): o is DeleteTagsOutput => __isa(o, "DeleteTagsOutput");
 }
 
 export interface DeleteTrialComponentRequest {
@@ -4320,8 +4211,7 @@ export interface DeleteTrialComponentRequest {
 }
 
 export namespace DeleteTrialComponentRequest {
-  export const isa = (o: any): o is DeleteTrialComponentRequest =>
-    __isa(o, "DeleteTrialComponentRequest");
+  export const isa = (o: any): o is DeleteTrialComponentRequest => __isa(o, "DeleteTrialComponentRequest");
 }
 
 export interface DeleteTrialComponentResponse {
@@ -4333,8 +4223,7 @@ export interface DeleteTrialComponentResponse {
 }
 
 export namespace DeleteTrialComponentResponse {
-  export const isa = (o: any): o is DeleteTrialComponentResponse =>
-    __isa(o, "DeleteTrialComponentResponse");
+  export const isa = (o: any): o is DeleteTrialComponentResponse => __isa(o, "DeleteTrialComponentResponse");
 }
 
 export interface DeleteTrialRequest {
@@ -4346,8 +4235,7 @@ export interface DeleteTrialRequest {
 }
 
 export namespace DeleteTrialRequest {
-  export const isa = (o: any): o is DeleteTrialRequest =>
-    __isa(o, "DeleteTrialRequest");
+  export const isa = (o: any): o is DeleteTrialRequest => __isa(o, "DeleteTrialRequest");
 }
 
 export interface DeleteTrialResponse {
@@ -4359,8 +4247,7 @@ export interface DeleteTrialResponse {
 }
 
 export namespace DeleteTrialResponse {
-  export const isa = (o: any): o is DeleteTrialResponse =>
-    __isa(o, "DeleteTrialResponse");
+  export const isa = (o: any): o is DeleteTrialResponse => __isa(o, "DeleteTrialResponse");
 }
 
 export interface DeleteUserProfileRequest {
@@ -4377,8 +4264,7 @@ export interface DeleteUserProfileRequest {
 }
 
 export namespace DeleteUserProfileRequest {
-  export const isa = (o: any): o is DeleteUserProfileRequest =>
-    __isa(o, "DeleteUserProfileRequest");
+  export const isa = (o: any): o is DeleteUserProfileRequest => __isa(o, "DeleteUserProfileRequest");
 }
 
 export interface DeleteWorkteamRequest {
@@ -4390,8 +4276,7 @@ export interface DeleteWorkteamRequest {
 }
 
 export namespace DeleteWorkteamRequest {
-  export const isa = (o: any): o is DeleteWorkteamRequest =>
-    __isa(o, "DeleteWorkteamRequest");
+  export const isa = (o: any): o is DeleteWorkteamRequest => __isa(o, "DeleteWorkteamRequest");
 }
 
 export interface DeleteWorkteamResponse {
@@ -4404,8 +4289,7 @@ export interface DeleteWorkteamResponse {
 }
 
 export namespace DeleteWorkteamResponse {
-  export const isa = (o: any): o is DeleteWorkteamResponse =>
-    __isa(o, "DeleteWorkteamResponse");
+  export const isa = (o: any): o is DeleteWorkteamResponse => __isa(o, "DeleteWorkteamResponse");
 }
 
 /**
@@ -4450,8 +4334,7 @@ export interface DescribeAlgorithmInput {
 }
 
 export namespace DescribeAlgorithmInput {
-  export const isa = (o: any): o is DescribeAlgorithmInput =>
-    __isa(o, "DescribeAlgorithmInput");
+  export const isa = (o: any): o is DescribeAlgorithmInput => __isa(o, "DescribeAlgorithmInput");
 }
 
 export interface DescribeAlgorithmOutput {
@@ -4514,8 +4397,7 @@ export interface DescribeAlgorithmOutput {
 }
 
 export namespace DescribeAlgorithmOutput {
-  export const isa = (o: any): o is DescribeAlgorithmOutput =>
-    __isa(o, "DescribeAlgorithmOutput");
+  export const isa = (o: any): o is DescribeAlgorithmOutput => __isa(o, "DescribeAlgorithmOutput");
 }
 
 export interface DescribeAppRequest {
@@ -4542,8 +4424,7 @@ export interface DescribeAppRequest {
 }
 
 export namespace DescribeAppRequest {
-  export const isa = (o: any): o is DescribeAppRequest =>
-    __isa(o, "DescribeAppRequest");
+  export const isa = (o: any): o is DescribeAppRequest => __isa(o, "DescribeAppRequest");
 }
 
 export interface DescribeAppResponse {
@@ -4605,8 +4486,7 @@ export interface DescribeAppResponse {
 }
 
 export namespace DescribeAppResponse {
-  export const isa = (o: any): o is DescribeAppResponse =>
-    __isa(o, "DescribeAppResponse");
+  export const isa = (o: any): o is DescribeAppResponse => __isa(o, "DescribeAppResponse");
 }
 
 export interface DescribeAutoMLJobRequest {
@@ -4618,8 +4498,7 @@ export interface DescribeAutoMLJobRequest {
 }
 
 export namespace DescribeAutoMLJobRequest {
-  export const isa = (o: any): o is DescribeAutoMLJobRequest =>
-    __isa(o, "DescribeAutoMLJobRequest");
+  export const isa = (o: any): o is DescribeAutoMLJobRequest => __isa(o, "DescribeAutoMLJobRequest");
 }
 
 export interface DescribeAutoMLJobResponse {
@@ -4719,8 +4598,7 @@ export interface DescribeAutoMLJobResponse {
 }
 
 export namespace DescribeAutoMLJobResponse {
-  export const isa = (o: any): o is DescribeAutoMLJobResponse =>
-    __isa(o, "DescribeAutoMLJobResponse");
+  export const isa = (o: any): o is DescribeAutoMLJobResponse => __isa(o, "DescribeAutoMLJobResponse");
 }
 
 export interface DescribeCodeRepositoryInput {
@@ -4732,8 +4610,7 @@ export interface DescribeCodeRepositoryInput {
 }
 
 export namespace DescribeCodeRepositoryInput {
-  export const isa = (o: any): o is DescribeCodeRepositoryInput =>
-    __isa(o, "DescribeCodeRepositoryInput");
+  export const isa = (o: any): o is DescribeCodeRepositoryInput => __isa(o, "DescribeCodeRepositoryInput");
 }
 
 export interface DescribeCodeRepositoryOutput {
@@ -4767,8 +4644,7 @@ export interface DescribeCodeRepositoryOutput {
 }
 
 export namespace DescribeCodeRepositoryOutput {
-  export const isa = (o: any): o is DescribeCodeRepositoryOutput =>
-    __isa(o, "DescribeCodeRepositoryOutput");
+  export const isa = (o: any): o is DescribeCodeRepositoryOutput => __isa(o, "DescribeCodeRepositoryOutput");
 }
 
 export interface DescribeCompilationJobRequest {
@@ -4780,8 +4656,7 @@ export interface DescribeCompilationJobRequest {
 }
 
 export namespace DescribeCompilationJobRequest {
-  export const isa = (o: any): o is DescribeCompilationJobRequest =>
-    __isa(o, "DescribeCompilationJobRequest");
+  export const isa = (o: any): o is DescribeCompilationJobRequest => __isa(o, "DescribeCompilationJobRequest");
 }
 
 export interface DescribeCompilationJobResponse {
@@ -4868,8 +4743,7 @@ export interface DescribeCompilationJobResponse {
 }
 
 export namespace DescribeCompilationJobResponse {
-  export const isa = (o: any): o is DescribeCompilationJobResponse =>
-    __isa(o, "DescribeCompilationJobResponse");
+  export const isa = (o: any): o is DescribeCompilationJobResponse => __isa(o, "DescribeCompilationJobResponse");
 }
 
 export interface DescribeDomainRequest {
@@ -4881,8 +4755,7 @@ export interface DescribeDomainRequest {
 }
 
 export namespace DescribeDomainRequest {
-  export const isa = (o: any): o is DescribeDomainRequest =>
-    __isa(o, "DescribeDomainRequest");
+  export const isa = (o: any): o is DescribeDomainRequest => __isa(o, "DescribeDomainRequest");
 }
 
 export interface DescribeDomainResponse {
@@ -4966,8 +4839,7 @@ export interface DescribeDomainResponse {
 }
 
 export namespace DescribeDomainResponse {
-  export const isa = (o: any): o is DescribeDomainResponse =>
-    __isa(o, "DescribeDomainResponse");
+  export const isa = (o: any): o is DescribeDomainResponse => __isa(o, "DescribeDomainResponse");
 }
 
 export interface DescribeEndpointConfigInput {
@@ -4979,8 +4851,7 @@ export interface DescribeEndpointConfigInput {
 }
 
 export namespace DescribeEndpointConfigInput {
-  export const isa = (o: any): o is DescribeEndpointConfigInput =>
-    __isa(o, "DescribeEndpointConfigInput");
+  export const isa = (o: any): o is DescribeEndpointConfigInput => __isa(o, "DescribeEndpointConfigInput");
 }
 
 export interface DescribeEndpointConfigOutput {
@@ -5019,8 +4890,7 @@ export interface DescribeEndpointConfigOutput {
 }
 
 export namespace DescribeEndpointConfigOutput {
-  export const isa = (o: any): o is DescribeEndpointConfigOutput =>
-    __isa(o, "DescribeEndpointConfigOutput");
+  export const isa = (o: any): o is DescribeEndpointConfigOutput => __isa(o, "DescribeEndpointConfigOutput");
 }
 
 export interface DescribeEndpointInput {
@@ -5032,8 +4902,7 @@ export interface DescribeEndpointInput {
 }
 
 export namespace DescribeEndpointInput {
-  export const isa = (o: any): o is DescribeEndpointInput =>
-    __isa(o, "DescribeEndpointInput");
+  export const isa = (o: any): o is DescribeEndpointInput => __isa(o, "DescribeEndpointInput");
 }
 
 export interface DescribeEndpointOutput {
@@ -5135,8 +5004,7 @@ export interface DescribeEndpointOutput {
 }
 
 export namespace DescribeEndpointOutput {
-  export const isa = (o: any): o is DescribeEndpointOutput =>
-    __isa(o, "DescribeEndpointOutput");
+  export const isa = (o: any): o is DescribeEndpointOutput => __isa(o, "DescribeEndpointOutput");
 }
 
 export interface DescribeExperimentRequest {
@@ -5148,8 +5016,7 @@ export interface DescribeExperimentRequest {
 }
 
 export namespace DescribeExperimentRequest {
-  export const isa = (o: any): o is DescribeExperimentRequest =>
-    __isa(o, "DescribeExperimentRequest");
+  export const isa = (o: any): o is DescribeExperimentRequest => __isa(o, "DescribeExperimentRequest");
 }
 
 export interface DescribeExperimentResponse {
@@ -5202,8 +5069,7 @@ export interface DescribeExperimentResponse {
 }
 
 export namespace DescribeExperimentResponse {
-  export const isa = (o: any): o is DescribeExperimentResponse =>
-    __isa(o, "DescribeExperimentResponse");
+  export const isa = (o: any): o is DescribeExperimentResponse => __isa(o, "DescribeExperimentResponse");
 }
 
 export interface DescribeFlowDefinitionRequest {
@@ -5215,8 +5081,7 @@ export interface DescribeFlowDefinitionRequest {
 }
 
 export namespace DescribeFlowDefinitionRequest {
-  export const isa = (o: any): o is DescribeFlowDefinitionRequest =>
-    __isa(o, "DescribeFlowDefinitionRequest");
+  export const isa = (o: any): o is DescribeFlowDefinitionRequest => __isa(o, "DescribeFlowDefinitionRequest");
 }
 
 export interface DescribeFlowDefinitionResponse {
@@ -5268,8 +5133,7 @@ export interface DescribeFlowDefinitionResponse {
 }
 
 export namespace DescribeFlowDefinitionResponse {
-  export const isa = (o: any): o is DescribeFlowDefinitionResponse =>
-    __isa(o, "DescribeFlowDefinitionResponse");
+  export const isa = (o: any): o is DescribeFlowDefinitionResponse => __isa(o, "DescribeFlowDefinitionResponse");
 }
 
 export interface DescribeHumanTaskUiRequest {
@@ -5281,8 +5145,7 @@ export interface DescribeHumanTaskUiRequest {
 }
 
 export namespace DescribeHumanTaskUiRequest {
-  export const isa = (o: any): o is DescribeHumanTaskUiRequest =>
-    __isa(o, "DescribeHumanTaskUiRequest");
+  export const isa = (o: any): o is DescribeHumanTaskUiRequest => __isa(o, "DescribeHumanTaskUiRequest");
 }
 
 export interface DescribeHumanTaskUiResponse {
@@ -5309,8 +5172,7 @@ export interface DescribeHumanTaskUiResponse {
 }
 
 export namespace DescribeHumanTaskUiResponse {
-  export const isa = (o: any): o is DescribeHumanTaskUiResponse =>
-    __isa(o, "DescribeHumanTaskUiResponse");
+  export const isa = (o: any): o is DescribeHumanTaskUiResponse => __isa(o, "DescribeHumanTaskUiResponse");
 }
 
 export interface DescribeHyperParameterTuningJobRequest {
@@ -5370,10 +5232,7 @@ export interface DescribeHyperParameterTuningJobResponse {
    * <p>The status of the tuning job: InProgress, Completed, Failed, Stopping, or
    *             Stopped.</p>
    */
-  HyperParameterTuningJobStatus:
-    | HyperParameterTuningJobStatus
-    | string
-    | undefined;
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
 
   /**
    * <p>The date and time that the status of the tuning job was modified. </p>
@@ -5436,8 +5295,7 @@ export interface DescribeLabelingJobRequest {
 }
 
 export namespace DescribeLabelingJobRequest {
-  export const isa = (o: any): o is DescribeLabelingJobRequest =>
-    __isa(o, "DescribeLabelingJobRequest");
+  export const isa = (o: any): o is DescribeLabelingJobRequest => __isa(o, "DescribeLabelingJobRequest");
 }
 
 export interface DescribeLabelingJobResponse {
@@ -5599,8 +5457,7 @@ export interface DescribeLabelingJobResponse {
 }
 
 export namespace DescribeLabelingJobResponse {
-  export const isa = (o: any): o is DescribeLabelingJobResponse =>
-    __isa(o, "DescribeLabelingJobResponse");
+  export const isa = (o: any): o is DescribeLabelingJobResponse => __isa(o, "DescribeLabelingJobResponse");
 }
 
 export interface DescribeModelInput {
@@ -5612,8 +5469,7 @@ export interface DescribeModelInput {
 }
 
 export namespace DescribeModelInput {
-  export const isa = (o: any): o is DescribeModelInput =>
-    __isa(o, "DescribeModelInput");
+  export const isa = (o: any): o is DescribeModelInput => __isa(o, "DescribeModelInput");
 }
 
 export interface DescribeModelOutput {
@@ -5667,8 +5523,7 @@ export interface DescribeModelOutput {
 }
 
 export namespace DescribeModelOutput {
-  export const isa = (o: any): o is DescribeModelOutput =>
-    __isa(o, "DescribeModelOutput");
+  export const isa = (o: any): o is DescribeModelOutput => __isa(o, "DescribeModelOutput");
 }
 
 export interface DescribeModelPackageInput {
@@ -5680,8 +5535,7 @@ export interface DescribeModelPackageInput {
 }
 
 export namespace DescribeModelPackageInput {
-  export const isa = (o: any): o is DescribeModelPackageInput =>
-    __isa(o, "DescribeModelPackageInput");
+  export const isa = (o: any): o is DescribeModelPackageInput => __isa(o, "DescribeModelPackageInput");
 }
 
 export interface DescribeModelPackageOutput {
@@ -5740,8 +5594,7 @@ export interface DescribeModelPackageOutput {
 }
 
 export namespace DescribeModelPackageOutput {
-  export const isa = (o: any): o is DescribeModelPackageOutput =>
-    __isa(o, "DescribeModelPackageOutput");
+  export const isa = (o: any): o is DescribeModelPackageOutput => __isa(o, "DescribeModelPackageOutput");
 }
 
 export interface DescribeMonitoringScheduleRequest {
@@ -5753,8 +5606,7 @@ export interface DescribeMonitoringScheduleRequest {
 }
 
 export namespace DescribeMonitoringScheduleRequest {
-  export const isa = (o: any): o is DescribeMonitoringScheduleRequest =>
-    __isa(o, "DescribeMonitoringScheduleRequest");
+  export const isa = (o: any): o is DescribeMonitoringScheduleRequest => __isa(o, "DescribeMonitoringScheduleRequest");
 }
 
 export interface DescribeMonitoringScheduleResponse {
@@ -5821,8 +5673,7 @@ export interface DescribeNotebookInstanceInput {
 }
 
 export namespace DescribeNotebookInstanceInput {
-  export const isa = (o: any): o is DescribeNotebookInstanceInput =>
-    __isa(o, "DescribeNotebookInstanceInput");
+  export const isa = (o: any): o is DescribeNotebookInstanceInput => __isa(o, "DescribeNotebookInstanceInput");
 }
 
 export interface DescribeNotebookInstanceLifecycleConfigInput {
@@ -5834,9 +5685,7 @@ export interface DescribeNotebookInstanceLifecycleConfigInput {
 }
 
 export namespace DescribeNotebookInstanceLifecycleConfigInput {
-  export const isa = (
-    o: any
-  ): o is DescribeNotebookInstanceLifecycleConfigInput =>
+  export const isa = (o: any): o is DescribeNotebookInstanceLifecycleConfigInput =>
     __isa(o, "DescribeNotebookInstanceLifecycleConfigInput");
 }
 
@@ -5875,9 +5724,7 @@ export interface DescribeNotebookInstanceLifecycleConfigOutput {
 }
 
 export namespace DescribeNotebookInstanceLifecycleConfigOutput {
-  export const isa = (
-    o: any
-  ): o is DescribeNotebookInstanceLifecycleConfigOutput =>
+  export const isa = (o: any): o is DescribeNotebookInstanceLifecycleConfigOutput =>
     __isa(o, "DescribeNotebookInstanceLifecycleConfigOutput");
 }
 
@@ -6016,8 +5863,7 @@ export interface DescribeNotebookInstanceOutput {
 }
 
 export namespace DescribeNotebookInstanceOutput {
-  export const isa = (o: any): o is DescribeNotebookInstanceOutput =>
-    __isa(o, "DescribeNotebookInstanceOutput");
+  export const isa = (o: any): o is DescribeNotebookInstanceOutput => __isa(o, "DescribeNotebookInstanceOutput");
 }
 
 export interface DescribeProcessingJobRequest {
@@ -6030,8 +5876,7 @@ export interface DescribeProcessingJobRequest {
 }
 
 export namespace DescribeProcessingJobRequest {
-  export const isa = (o: any): o is DescribeProcessingJobRequest =>
-    __isa(o, "DescribeProcessingJobRequest");
+  export const isa = (o: any): o is DescribeProcessingJobRequest => __isa(o, "DescribeProcessingJobRequest");
 }
 
 export interface DescribeProcessingJobResponse {
@@ -6149,8 +5994,7 @@ export interface DescribeProcessingJobResponse {
 }
 
 export namespace DescribeProcessingJobResponse {
-  export const isa = (o: any): o is DescribeProcessingJobResponse =>
-    __isa(o, "DescribeProcessingJobResponse");
+  export const isa = (o: any): o is DescribeProcessingJobResponse => __isa(o, "DescribeProcessingJobResponse");
 }
 
 export interface DescribeSubscribedWorkteamRequest {
@@ -6162,8 +6006,7 @@ export interface DescribeSubscribedWorkteamRequest {
 }
 
 export namespace DescribeSubscribedWorkteamRequest {
-  export const isa = (o: any): o is DescribeSubscribedWorkteamRequest =>
-    __isa(o, "DescribeSubscribedWorkteamRequest");
+  export const isa = (o: any): o is DescribeSubscribedWorkteamRequest => __isa(o, "DescribeSubscribedWorkteamRequest");
 }
 
 export interface DescribeSubscribedWorkteamResponse {
@@ -6188,8 +6031,7 @@ export interface DescribeTrainingJobRequest {
 }
 
 export namespace DescribeTrainingJobRequest {
-  export const isa = (o: any): o is DescribeTrainingJobRequest =>
-    __isa(o, "DescribeTrainingJobRequest");
+  export const isa = (o: any): o is DescribeTrainingJobRequest => __isa(o, "DescribeTrainingJobRequest");
 }
 
 export interface DescribeTrainingJobResponse {
@@ -6540,8 +6382,7 @@ export interface DescribeTrainingJobResponse {
 }
 
 export namespace DescribeTrainingJobResponse {
-  export const isa = (o: any): o is DescribeTrainingJobResponse =>
-    __isa(o, "DescribeTrainingJobResponse");
+  export const isa = (o: any): o is DescribeTrainingJobResponse => __isa(o, "DescribeTrainingJobResponse");
 }
 
 export interface DescribeTransformJobRequest {
@@ -6553,8 +6394,7 @@ export interface DescribeTransformJobRequest {
 }
 
 export namespace DescribeTransformJobRequest {
-  export const isa = (o: any): o is DescribeTransformJobRequest =>
-    __isa(o, "DescribeTransformJobRequest");
+  export const isa = (o: any): o is DescribeTransformJobRequest => __isa(o, "DescribeTransformJobRequest");
 }
 
 export interface DescribeTransformJobResponse {
@@ -6700,8 +6540,7 @@ export interface DescribeTransformJobResponse {
 }
 
 export namespace DescribeTransformJobResponse {
-  export const isa = (o: any): o is DescribeTransformJobResponse =>
-    __isa(o, "DescribeTransformJobResponse");
+  export const isa = (o: any): o is DescribeTransformJobResponse => __isa(o, "DescribeTransformJobResponse");
 }
 
 export interface DescribeTrialComponentRequest {
@@ -6713,8 +6552,7 @@ export interface DescribeTrialComponentRequest {
 }
 
 export namespace DescribeTrialComponentRequest {
-  export const isa = (o: any): o is DescribeTrialComponentRequest =>
-    __isa(o, "DescribeTrialComponentRequest");
+  export const isa = (o: any): o is DescribeTrialComponentRequest => __isa(o, "DescribeTrialComponentRequest");
 }
 
 export interface DescribeTrialComponentResponse {
@@ -6809,8 +6647,7 @@ export interface DescribeTrialComponentResponse {
 }
 
 export namespace DescribeTrialComponentResponse {
-  export const isa = (o: any): o is DescribeTrialComponentResponse =>
-    __isa(o, "DescribeTrialComponentResponse");
+  export const isa = (o: any): o is DescribeTrialComponentResponse => __isa(o, "DescribeTrialComponentResponse");
 }
 
 export interface DescribeTrialRequest {
@@ -6822,8 +6659,7 @@ export interface DescribeTrialRequest {
 }
 
 export namespace DescribeTrialRequest {
-  export const isa = (o: any): o is DescribeTrialRequest =>
-    __isa(o, "DescribeTrialRequest");
+  export const isa = (o: any): o is DescribeTrialRequest => __isa(o, "DescribeTrialRequest");
 }
 
 export interface DescribeTrialResponse {
@@ -6877,8 +6713,7 @@ export interface DescribeTrialResponse {
 }
 
 export namespace DescribeTrialResponse {
-  export const isa = (o: any): o is DescribeTrialResponse =>
-    __isa(o, "DescribeTrialResponse");
+  export const isa = (o: any): o is DescribeTrialResponse => __isa(o, "DescribeTrialResponse");
 }
 
 export interface DescribeUserProfileRequest {
@@ -6895,8 +6730,7 @@ export interface DescribeUserProfileRequest {
 }
 
 export namespace DescribeUserProfileRequest {
-  export const isa = (o: any): o is DescribeUserProfileRequest =>
-    __isa(o, "DescribeUserProfileRequest");
+  export const isa = (o: any): o is DescribeUserProfileRequest => __isa(o, "DescribeUserProfileRequest");
 }
 
 export interface DescribeUserProfileResponse {
@@ -6958,8 +6792,7 @@ export interface DescribeUserProfileResponse {
 }
 
 export namespace DescribeUserProfileResponse {
-  export const isa = (o: any): o is DescribeUserProfileResponse =>
-    __isa(o, "DescribeUserProfileResponse");
+  export const isa = (o: any): o is DescribeUserProfileResponse => __isa(o, "DescribeUserProfileResponse");
 }
 
 export interface DescribeWorkforceRequest {
@@ -6973,8 +6806,7 @@ export interface DescribeWorkforceRequest {
 }
 
 export namespace DescribeWorkforceRequest {
-  export const isa = (o: any): o is DescribeWorkforceRequest =>
-    __isa(o, "DescribeWorkforceRequest");
+  export const isa = (o: any): o is DescribeWorkforceRequest => __isa(o, "DescribeWorkforceRequest");
 }
 
 export interface DescribeWorkforceResponse {
@@ -6989,8 +6821,7 @@ export interface DescribeWorkforceResponse {
 }
 
 export namespace DescribeWorkforceResponse {
-  export const isa = (o: any): o is DescribeWorkforceResponse =>
-    __isa(o, "DescribeWorkforceResponse");
+  export const isa = (o: any): o is DescribeWorkforceResponse => __isa(o, "DescribeWorkforceResponse");
 }
 
 export interface DescribeWorkteamRequest {
@@ -7002,8 +6833,7 @@ export interface DescribeWorkteamRequest {
 }
 
 export namespace DescribeWorkteamRequest {
-  export const isa = (o: any): o is DescribeWorkteamRequest =>
-    __isa(o, "DescribeWorkteamRequest");
+  export const isa = (o: any): o is DescribeWorkteamRequest => __isa(o, "DescribeWorkteamRequest");
 }
 
 export interface DescribeWorkteamResponse {
@@ -7016,8 +6846,7 @@ export interface DescribeWorkteamResponse {
 }
 
 export namespace DescribeWorkteamResponse {
-  export const isa = (o: any): o is DescribeWorkteamResponse =>
-    __isa(o, "DescribeWorkteamResponse");
+  export const isa = (o: any): o is DescribeWorkteamResponse => __isa(o, "DescribeWorkteamResponse");
 }
 
 /**
@@ -7044,8 +6873,7 @@ export interface DesiredWeightAndCapacity {
 }
 
 export namespace DesiredWeightAndCapacity {
-  export const isa = (o: any): o is DesiredWeightAndCapacity =>
-    __isa(o, "DesiredWeightAndCapacity");
+  export const isa = (o: any): o is DesiredWeightAndCapacity => __isa(o, "DesiredWeightAndCapacity");
 }
 
 export enum DetailedAlgorithmStatus {
@@ -7081,8 +6909,7 @@ export interface DisassociateTrialComponentRequest {
 }
 
 export namespace DisassociateTrialComponentRequest {
-  export const isa = (o: any): o is DisassociateTrialComponentRequest =>
-    __isa(o, "DisassociateTrialComponentRequest");
+  export const isa = (o: any): o is DisassociateTrialComponentRequest => __isa(o, "DisassociateTrialComponentRequest");
 }
 
 export interface DisassociateTrialComponentResponse {
@@ -7182,8 +7009,7 @@ export interface EndpointConfigSummary {
 }
 
 export namespace EndpointConfigSummary {
-  export const isa = (o: any): o is EndpointConfigSummary =>
-    __isa(o, "EndpointConfigSummary");
+  export const isa = (o: any): o is EndpointConfigSummary => __isa(o, "EndpointConfigSummary");
 }
 
 /**
@@ -7320,8 +7146,7 @@ export interface EndpointSummary {
 }
 
 export namespace EndpointSummary {
-  export const isa = (o: any): o is EndpointSummary =>
-    __isa(o, "EndpointSummary");
+  export const isa = (o: any): o is EndpointSummary => __isa(o, "EndpointSummary");
 }
 
 export enum ExecutionStatus {
@@ -7421,8 +7246,7 @@ export interface ExperimentConfig {
 }
 
 export namespace ExperimentConfig {
-  export const isa = (o: any): o is ExperimentConfig =>
-    __isa(o, "ExperimentConfig");
+  export const isa = (o: any): o is ExperimentConfig => __isa(o, "ExperimentConfig");
 }
 
 /**
@@ -7442,8 +7266,7 @@ export interface ExperimentSource {
 }
 
 export namespace ExperimentSource {
-  export const isa = (o: any): o is ExperimentSource =>
-    __isa(o, "ExperimentSource");
+  export const isa = (o: any): o is ExperimentSource => __isa(o, "ExperimentSource");
 }
 
 /**
@@ -7486,8 +7309,7 @@ export interface ExperimentSummary {
 }
 
 export namespace ExperimentSummary {
-  export const isa = (o: any): o is ExperimentSummary =>
-    __isa(o, "ExperimentSummary");
+  export const isa = (o: any): o is ExperimentSummary => __isa(o, "ExperimentSummary");
 }
 
 export enum FileSystemAccessMode {
@@ -7524,8 +7346,7 @@ export interface FileSystemDataSource {
 }
 
 export namespace FileSystemDataSource {
-  export const isa = (o: any): o is FileSystemDataSource =>
-    __isa(o, "FileSystemDataSource");
+  export const isa = (o: any): o is FileSystemDataSource => __isa(o, "FileSystemDataSource");
 }
 
 export enum FileSystemType {
@@ -7694,8 +7515,7 @@ export interface FinalAutoMLJobObjectiveMetric {
 }
 
 export namespace FinalAutoMLJobObjectiveMetric {
-  export const isa = (o: any): o is FinalAutoMLJobObjectiveMetric =>
-    __isa(o, "FinalAutoMLJobObjectiveMetric");
+  export const isa = (o: any): o is FinalAutoMLJobObjectiveMetric => __isa(o, "FinalAutoMLJobObjectiveMetric");
 }
 
 /**
@@ -7729,9 +7549,7 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
 }
 
 export namespace FinalHyperParameterTuningJobObjectiveMetric {
-  export const isa = (
-    o: any
-  ): o is FinalHyperParameterTuningJobObjectiveMetric =>
+  export const isa = (o: any): o is FinalHyperParameterTuningJobObjectiveMetric =>
     __isa(o, "FinalHyperParameterTuningJobObjectiveMetric");
 }
 
@@ -7752,8 +7570,7 @@ export interface FlowDefinitionOutputConfig {
 }
 
 export namespace FlowDefinitionOutputConfig {
-  export const isa = (o: any): o is FlowDefinitionOutputConfig =>
-    __isa(o, "FlowDefinitionOutputConfig");
+  export const isa = (o: any): o is FlowDefinitionOutputConfig => __isa(o, "FlowDefinitionOutputConfig");
 }
 
 export enum FlowDefinitionStatus {
@@ -7796,8 +7613,7 @@ export interface FlowDefinitionSummary {
 }
 
 export namespace FlowDefinitionSummary {
-  export const isa = (o: any): o is FlowDefinitionSummary =>
-    __isa(o, "FlowDefinitionSummary");
+  export const isa = (o: any): o is FlowDefinitionSummary => __isa(o, "FlowDefinitionSummary");
 }
 
 export enum Framework {
@@ -7823,8 +7639,7 @@ export interface GetSearchSuggestionsRequest {
 }
 
 export namespace GetSearchSuggestionsRequest {
-  export const isa = (o: any): o is GetSearchSuggestionsRequest =>
-    __isa(o, "GetSearchSuggestionsRequest");
+  export const isa = (o: any): o is GetSearchSuggestionsRequest => __isa(o, "GetSearchSuggestionsRequest");
 }
 
 export interface GetSearchSuggestionsResponse {
@@ -7837,8 +7652,7 @@ export interface GetSearchSuggestionsResponse {
 }
 
 export namespace GetSearchSuggestionsResponse {
-  export const isa = (o: any): o is GetSearchSuggestionsResponse =>
-    __isa(o, "GetSearchSuggestionsResponse");
+  export const isa = (o: any): o is GetSearchSuggestionsResponse => __isa(o, "GetSearchSuggestionsResponse");
 }
 
 /**
@@ -7891,8 +7705,7 @@ export interface GitConfigForUpdate {
 }
 
 export namespace GitConfigForUpdate {
-  export const isa = (o: any): o is GitConfigForUpdate =>
-    __isa(o, "GitConfigForUpdate");
+  export const isa = (o: any): o is GitConfigForUpdate => __isa(o, "GitConfigForUpdate");
 }
 
 /**
@@ -7919,9 +7732,7 @@ export interface HumanLoopActivationConfig {
   /**
    * <p>Container structure for defining under what conditions SageMaker creates a human loop.</p>
    */
-  HumanLoopActivationConditionsConfig:
-    | HumanLoopActivationConditionsConfig
-    | undefined;
+  HumanLoopActivationConditionsConfig: HumanLoopActivationConditionsConfig | undefined;
 
   /**
    * <p>Container for configuring the source of human task requests.</p>
@@ -7930,8 +7741,7 @@ export interface HumanLoopActivationConfig {
 }
 
 export namespace HumanLoopActivationConfig {
-  export const isa = (o: any): o is HumanLoopActivationConfig =>
-    __isa(o, "HumanLoopActivationConfig");
+  export const isa = (o: any): o is HumanLoopActivationConfig => __isa(o, "HumanLoopActivationConfig");
 }
 
 /**
@@ -8287,8 +8097,7 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
-  export const isa = (o: any): o is HumanLoopConfig =>
-    __isa(o, "HumanLoopConfig");
+  export const isa = (o: any): o is HumanLoopConfig => __isa(o, "HumanLoopConfig");
 }
 
 /**
@@ -8299,15 +8108,11 @@ export interface HumanLoopRequestSource {
   /**
    * <p>Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. The default field settings and JSON parsing rules are different based on the integration source. Valid values:</p>
    */
-  AwsManagedHumanLoopRequestSource:
-    | AwsManagedHumanLoopRequestSource
-    | string
-    | undefined;
+  AwsManagedHumanLoopRequestSource: AwsManagedHumanLoopRequestSource | string | undefined;
 }
 
 export namespace HumanLoopRequestSource {
-  export const isa = (o: any): o is HumanLoopRequestSource =>
-    __isa(o, "HumanLoopRequestSource");
+  export const isa = (o: any): o is HumanLoopRequestSource => __isa(o, "HumanLoopRequestSource");
 }
 
 /**
@@ -8988,8 +8793,7 @@ export interface HumanTaskConfig {
 }
 
 export namespace HumanTaskConfig {
-  export const isa = (o: any): o is HumanTaskConfig =>
-    __isa(o, "HumanTaskConfig");
+  export const isa = (o: any): o is HumanTaskConfig => __isa(o, "HumanTaskConfig");
 }
 
 /**
@@ -9014,8 +8818,7 @@ export interface HumanTaskUiSummary {
 }
 
 export namespace HumanTaskUiSummary {
-  export const isa = (o: any): o is HumanTaskUiSummary =>
-    __isa(o, "HumanTaskUiSummary");
+  export const isa = (o: any): o is HumanTaskUiSummary => __isa(o, "HumanTaskUiSummary");
 }
 
 /**
@@ -9128,8 +8931,7 @@ export interface HyperParameterSpecification {
 }
 
 export namespace HyperParameterSpecification {
-  export const isa = (o: any): o is HyperParameterSpecification =>
-    __isa(o, "HyperParameterSpecification");
+  export const isa = (o: any): o is HyperParameterSpecification => __isa(o, "HyperParameterSpecification");
 }
 
 /**
@@ -9386,8 +9188,7 @@ export interface HyperParameterTrainingJobSummary {
 }
 
 export namespace HyperParameterTrainingJobSummary {
-  export const isa = (o: any): o is HyperParameterTrainingJobSummary =>
-    __isa(o, "HyperParameterTrainingJobSummary");
+  export const isa = (o: any): o is HyperParameterTrainingJobSummary => __isa(o, "HyperParameterTrainingJobSummary");
 }
 
 /**
@@ -9453,8 +9254,7 @@ export interface HyperParameterTuningJobConfig {
 }
 
 export namespace HyperParameterTuningJobConfig {
-  export const isa = (o: any): o is HyperParameterTuningJobConfig =>
-    __isa(o, "HyperParameterTuningJobConfig");
+  export const isa = (o: any): o is HyperParameterTuningJobConfig => __isa(o, "HyperParameterTuningJobConfig");
 }
 
 /**
@@ -9482,8 +9282,7 @@ export interface HyperParameterTuningJobObjective {
 }
 
 export namespace HyperParameterTuningJobObjective {
-  export const isa = (o: any): o is HyperParameterTuningJobObjective =>
-    __isa(o, "HyperParameterTuningJobObjective");
+  export const isa = (o: any): o is HyperParameterTuningJobObjective => __isa(o, "HyperParameterTuningJobObjective");
 }
 
 export enum HyperParameterTuningJobObjectiveType {
@@ -9542,10 +9341,7 @@ export interface HyperParameterTuningJobSummary {
    *             tuning
    *             job.</p>
    */
-  HyperParameterTuningJobStatus:
-    | HyperParameterTuningJobStatus
-    | string
-    | undefined;
+  HyperParameterTuningJobStatus: HyperParameterTuningJobStatus | string | undefined;
 
   /**
    * <p>The date and time that the tuning job was
@@ -9583,8 +9379,7 @@ export interface HyperParameterTuningJobSummary {
 }
 
 export namespace HyperParameterTuningJobSummary {
-  export const isa = (o: any): o is HyperParameterTuningJobSummary =>
-    __isa(o, "HyperParameterTuningJobSummary");
+  export const isa = (o: any): o is HyperParameterTuningJobSummary => __isa(o, "HyperParameterTuningJobSummary");
 }
 
 /**
@@ -9677,9 +9472,7 @@ export interface InferenceSpecification {
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
    */
-  SupportedRealtimeInferenceInstanceTypes:
-    | (ProductionVariantInstanceType | string)[]
-    | undefined;
+  SupportedRealtimeInferenceInstanceTypes: (ProductionVariantInstanceType | string)[] | undefined;
 
   /**
    * <p>The supported MIME types for the output data.</p>
@@ -9690,14 +9483,11 @@ export interface InferenceSpecification {
    * <p>A list of the instance types on which a transformation job can be run or on which an
    *             endpoint can be deployed.</p>
    */
-  SupportedTransformInstanceTypes:
-    | (TransformInstanceType | string)[]
-    | undefined;
+  SupportedTransformInstanceTypes: (TransformInstanceType | string)[] | undefined;
 }
 
 export namespace InferenceSpecification {
-  export const isa = (o: any): o is InferenceSpecification =>
-    __isa(o, "InferenceSpecification");
+  export const isa = (o: any): o is InferenceSpecification => __isa(o, "InferenceSpecification");
 }
 
 /**
@@ -9999,8 +9789,7 @@ export interface IntegerParameterRange {
 }
 
 export namespace IntegerParameterRange {
-  export const isa = (o: any): o is IntegerParameterRange =>
-    __isa(o, "IntegerParameterRange");
+  export const isa = (o: any): o is IntegerParameterRange => __isa(o, "IntegerParameterRange");
 }
 
 /**
@@ -10041,8 +9830,7 @@ export interface JupyterServerAppSettings {
 }
 
 export namespace JupyterServerAppSettings {
-  export const isa = (o: any): o is JupyterServerAppSettings =>
-    __isa(o, "JupyterServerAppSettings");
+  export const isa = (o: any): o is JupyterServerAppSettings => __isa(o, "JupyterServerAppSettings");
 }
 
 /**
@@ -10057,8 +9845,7 @@ export interface KernelGatewayAppSettings {
 }
 
 export namespace KernelGatewayAppSettings {
-  export const isa = (o: any): o is KernelGatewayAppSettings =>
-    __isa(o, "KernelGatewayAppSettings");
+  export const isa = (o: any): o is KernelGatewayAppSettings => __isa(o, "KernelGatewayAppSettings");
 }
 
 /**
@@ -10118,8 +9905,7 @@ export interface LabelCountersForWorkteam {
 }
 
 export namespace LabelCountersForWorkteam {
-  export const isa = (o: any): o is LabelCountersForWorkteam =>
-    __isa(o, "LabelCountersForWorkteam");
+  export const isa = (o: any): o is LabelCountersForWorkteam => __isa(o, "LabelCountersForWorkteam");
 }
 
 /**
@@ -10183,8 +9969,7 @@ export interface LabelingJobAlgorithmsConfig {
 }
 
 export namespace LabelingJobAlgorithmsConfig {
-  export const isa = (o: any): o is LabelingJobAlgorithmsConfig =>
-    __isa(o, "LabelingJobAlgorithmsConfig");
+  export const isa = (o: any): o is LabelingJobAlgorithmsConfig => __isa(o, "LabelingJobAlgorithmsConfig");
 }
 
 /**
@@ -10202,8 +9987,7 @@ export interface LabelingJobDataAttributes {
 }
 
 export namespace LabelingJobDataAttributes {
-  export const isa = (o: any): o is LabelingJobDataAttributes =>
-    __isa(o, "LabelingJobDataAttributes");
+  export const isa = (o: any): o is LabelingJobDataAttributes => __isa(o, "LabelingJobDataAttributes");
 }
 
 /**
@@ -10218,8 +10002,7 @@ export interface LabelingJobDataSource {
 }
 
 export namespace LabelingJobDataSource {
-  export const isa = (o: any): o is LabelingJobDataSource =>
-    __isa(o, "LabelingJobDataSource");
+  export const isa = (o: any): o is LabelingJobDataSource => __isa(o, "LabelingJobDataSource");
 }
 
 /**
@@ -10260,8 +10043,7 @@ export interface LabelingJobForWorkteamSummary {
 }
 
 export namespace LabelingJobForWorkteamSummary {
-  export const isa = (o: any): o is LabelingJobForWorkteamSummary =>
-    __isa(o, "LabelingJobForWorkteamSummary");
+  export const isa = (o: any): o is LabelingJobForWorkteamSummary => __isa(o, "LabelingJobForWorkteamSummary");
 }
 
 /**
@@ -10281,8 +10063,7 @@ export interface LabelingJobInputConfig {
 }
 
 export namespace LabelingJobInputConfig {
-  export const isa = (o: any): o is LabelingJobInputConfig =>
-    __isa(o, "LabelingJobInputConfig");
+  export const isa = (o: any): o is LabelingJobInputConfig => __isa(o, "LabelingJobInputConfig");
 }
 
 /**
@@ -10303,8 +10084,7 @@ export interface LabelingJobOutput {
 }
 
 export namespace LabelingJobOutput {
-  export const isa = (o: any): o is LabelingJobOutput =>
-    __isa(o, "LabelingJobOutput");
+  export const isa = (o: any): o is LabelingJobOutput => __isa(o, "LabelingJobOutput");
 }
 
 /**
@@ -10338,8 +10118,7 @@ export interface LabelingJobOutputConfig {
 }
 
 export namespace LabelingJobOutputConfig {
-  export const isa = (o: any): o is LabelingJobOutputConfig =>
-    __isa(o, "LabelingJobOutputConfig");
+  export const isa = (o: any): o is LabelingJobOutputConfig => __isa(o, "LabelingJobOutputConfig");
 }
 
 /**
@@ -10370,8 +10149,7 @@ export interface LabelingJobResourceConfig {
 }
 
 export namespace LabelingJobResourceConfig {
-  export const isa = (o: any): o is LabelingJobResourceConfig =>
-    __isa(o, "LabelingJobResourceConfig");
+  export const isa = (o: any): o is LabelingJobResourceConfig => __isa(o, "LabelingJobResourceConfig");
 }
 
 /**
@@ -10386,8 +10164,7 @@ export interface LabelingJobS3DataSource {
 }
 
 export namespace LabelingJobS3DataSource {
-  export const isa = (o: any): o is LabelingJobS3DataSource =>
-    __isa(o, "LabelingJobS3DataSource");
+  export const isa = (o: any): o is LabelingJobS3DataSource => __isa(o, "LabelingJobS3DataSource");
 }
 
 export enum LabelingJobStatus {
@@ -10420,8 +10197,7 @@ export interface LabelingJobStoppingConditions {
 }
 
 export namespace LabelingJobStoppingConditions {
-  export const isa = (o: any): o is LabelingJobStoppingConditions =>
-    __isa(o, "LabelingJobStoppingConditions");
+  export const isa = (o: any): o is LabelingJobStoppingConditions => __isa(o, "LabelingJobStoppingConditions");
 }
 
 /**
@@ -10497,8 +10273,7 @@ export interface LabelingJobSummary {
 }
 
 export namespace LabelingJobSummary {
-  export const isa = (o: any): o is LabelingJobSummary =>
-    __isa(o, "LabelingJobSummary");
+  export const isa = (o: any): o is LabelingJobSummary => __isa(o, "LabelingJobSummary");
 }
 
 export interface ListAlgorithmsInput {
@@ -10546,8 +10321,7 @@ export interface ListAlgorithmsInput {
 }
 
 export namespace ListAlgorithmsInput {
-  export const isa = (o: any): o is ListAlgorithmsInput =>
-    __isa(o, "ListAlgorithmsInput");
+  export const isa = (o: any): o is ListAlgorithmsInput => __isa(o, "ListAlgorithmsInput");
 }
 
 export interface ListAlgorithmsOutput {
@@ -10566,8 +10340,7 @@ export interface ListAlgorithmsOutput {
 }
 
 export namespace ListAlgorithmsOutput {
-  export const isa = (o: any): o is ListAlgorithmsOutput =>
-    __isa(o, "ListAlgorithmsOutput");
+  export const isa = (o: any): o is ListAlgorithmsOutput => __isa(o, "ListAlgorithmsOutput");
 }
 
 export interface ListAppsRequest {
@@ -10605,8 +10378,7 @@ export interface ListAppsRequest {
 }
 
 export namespace ListAppsRequest {
-  export const isa = (o: any): o is ListAppsRequest =>
-    __isa(o, "ListAppsRequest");
+  export const isa = (o: any): o is ListAppsRequest => __isa(o, "ListAppsRequest");
 }
 
 export interface ListAppsResponse {
@@ -10624,8 +10396,7 @@ export interface ListAppsResponse {
 }
 
 export namespace ListAppsResponse {
-  export const isa = (o: any): o is ListAppsResponse =>
-    __isa(o, "ListAppsResponse");
+  export const isa = (o: any): o is ListAppsResponse => __isa(o, "ListAppsResponse");
 }
 
 export interface ListAutoMLJobsRequest {
@@ -10683,8 +10454,7 @@ export interface ListAutoMLJobsRequest {
 }
 
 export namespace ListAutoMLJobsRequest {
-  export const isa = (o: any): o is ListAutoMLJobsRequest =>
-    __isa(o, "ListAutoMLJobsRequest");
+  export const isa = (o: any): o is ListAutoMLJobsRequest => __isa(o, "ListAutoMLJobsRequest");
 }
 
 export interface ListAutoMLJobsResponse {
@@ -10702,8 +10472,7 @@ export interface ListAutoMLJobsResponse {
 }
 
 export namespace ListAutoMLJobsResponse {
-  export const isa = (o: any): o is ListAutoMLJobsResponse =>
-    __isa(o, "ListAutoMLJobsResponse");
+  export const isa = (o: any): o is ListAutoMLJobsResponse => __isa(o, "ListAutoMLJobsResponse");
 }
 
 export interface ListCandidatesForAutoMLJobRequest {
@@ -10746,8 +10515,7 @@ export interface ListCandidatesForAutoMLJobRequest {
 }
 
 export namespace ListCandidatesForAutoMLJobRequest {
-  export const isa = (o: any): o is ListCandidatesForAutoMLJobRequest =>
-    __isa(o, "ListCandidatesForAutoMLJobRequest");
+  export const isa = (o: any): o is ListCandidatesForAutoMLJobRequest => __isa(o, "ListCandidatesForAutoMLJobRequest");
 }
 
 export interface ListCandidatesForAutoMLJobResponse {
@@ -10825,8 +10593,7 @@ export interface ListCodeRepositoriesInput {
 }
 
 export namespace ListCodeRepositoriesInput {
-  export const isa = (o: any): o is ListCodeRepositoriesInput =>
-    __isa(o, "ListCodeRepositoriesInput");
+  export const isa = (o: any): o is ListCodeRepositoriesInput => __isa(o, "ListCodeRepositoriesInput");
 }
 
 export interface ListCodeRepositoriesOutput {
@@ -10865,8 +10632,7 @@ export interface ListCodeRepositoriesOutput {
 }
 
 export namespace ListCodeRepositoriesOutput {
-  export const isa = (o: any): o is ListCodeRepositoriesOutput =>
-    __isa(o, "ListCodeRepositoriesOutput");
+  export const isa = (o: any): o is ListCodeRepositoriesOutput => __isa(o, "ListCodeRepositoriesOutput");
 }
 
 export interface ListCompilationJobsRequest {
@@ -10930,8 +10696,7 @@ export interface ListCompilationJobsRequest {
 }
 
 export namespace ListCompilationJobsRequest {
-  export const isa = (o: any): o is ListCompilationJobsRequest =>
-    __isa(o, "ListCompilationJobsRequest");
+  export const isa = (o: any): o is ListCompilationJobsRequest => __isa(o, "ListCompilationJobsRequest");
 }
 
 export interface ListCompilationJobsResponse {
@@ -10950,8 +10715,7 @@ export interface ListCompilationJobsResponse {
 }
 
 export namespace ListCompilationJobsResponse {
-  export const isa = (o: any): o is ListCompilationJobsResponse =>
-    __isa(o, "ListCompilationJobsResponse");
+  export const isa = (o: any): o is ListCompilationJobsResponse => __isa(o, "ListCompilationJobsResponse");
 }
 
 export enum ListCompilationJobsSortBy {
@@ -10975,8 +10739,7 @@ export interface ListDomainsRequest {
 }
 
 export namespace ListDomainsRequest {
-  export const isa = (o: any): o is ListDomainsRequest =>
-    __isa(o, "ListDomainsRequest");
+  export const isa = (o: any): o is ListDomainsRequest => __isa(o, "ListDomainsRequest");
 }
 
 export interface ListDomainsResponse {
@@ -10994,8 +10757,7 @@ export interface ListDomainsResponse {
 }
 
 export namespace ListDomainsResponse {
-  export const isa = (o: any): o is ListDomainsResponse =>
-    __isa(o, "ListDomainsResponse");
+  export const isa = (o: any): o is ListDomainsResponse => __isa(o, "ListDomainsResponse");
 }
 
 export interface ListEndpointConfigsInput {
@@ -11042,8 +10804,7 @@ export interface ListEndpointConfigsInput {
 }
 
 export namespace ListEndpointConfigsInput {
-  export const isa = (o: any): o is ListEndpointConfigsInput =>
-    __isa(o, "ListEndpointConfigsInput");
+  export const isa = (o: any): o is ListEndpointConfigsInput => __isa(o, "ListEndpointConfigsInput");
 }
 
 export interface ListEndpointConfigsOutput {
@@ -11061,8 +10822,7 @@ export interface ListEndpointConfigsOutput {
 }
 
 export namespace ListEndpointConfigsOutput {
-  export const isa = (o: any): o is ListEndpointConfigsOutput =>
-    __isa(o, "ListEndpointConfigsOutput");
+  export const isa = (o: any): o is ListEndpointConfigsOutput => __isa(o, "ListEndpointConfigsOutput");
 }
 
 export interface ListEndpointsInput {
@@ -11126,8 +10886,7 @@ export interface ListEndpointsInput {
 }
 
 export namespace ListEndpointsInput {
-  export const isa = (o: any): o is ListEndpointsInput =>
-    __isa(o, "ListEndpointsInput");
+  export const isa = (o: any): o is ListEndpointsInput => __isa(o, "ListEndpointsInput");
 }
 
 export interface ListEndpointsOutput {
@@ -11145,8 +10904,7 @@ export interface ListEndpointsOutput {
 }
 
 export namespace ListEndpointsOutput {
-  export const isa = (o: any): o is ListEndpointsOutput =>
-    __isa(o, "ListEndpointsOutput");
+  export const isa = (o: any): o is ListEndpointsOutput => __isa(o, "ListEndpointsOutput");
 }
 
 export interface ListExperimentsRequest {
@@ -11184,8 +10942,7 @@ export interface ListExperimentsRequest {
 }
 
 export namespace ListExperimentsRequest {
-  export const isa = (o: any): o is ListExperimentsRequest =>
-    __isa(o, "ListExperimentsRequest");
+  export const isa = (o: any): o is ListExperimentsRequest => __isa(o, "ListExperimentsRequest");
 }
 
 export interface ListExperimentsResponse {
@@ -11202,8 +10959,7 @@ export interface ListExperimentsResponse {
 }
 
 export namespace ListExperimentsResponse {
-  export const isa = (o: any): o is ListExperimentsResponse =>
-    __isa(o, "ListExperimentsResponse");
+  export const isa = (o: any): o is ListExperimentsResponse => __isa(o, "ListExperimentsResponse");
 }
 
 export interface ListFlowDefinitionsRequest {
@@ -11235,8 +10991,7 @@ export interface ListFlowDefinitionsRequest {
 }
 
 export namespace ListFlowDefinitionsRequest {
-  export const isa = (o: any): o is ListFlowDefinitionsRequest =>
-    __isa(o, "ListFlowDefinitionsRequest");
+  export const isa = (o: any): o is ListFlowDefinitionsRequest => __isa(o, "ListFlowDefinitionsRequest");
 }
 
 export interface ListFlowDefinitionsResponse {
@@ -11253,8 +11008,7 @@ export interface ListFlowDefinitionsResponse {
 }
 
 export namespace ListFlowDefinitionsResponse {
-  export const isa = (o: any): o is ListFlowDefinitionsResponse =>
-    __isa(o, "ListFlowDefinitionsResponse");
+  export const isa = (o: any): o is ListFlowDefinitionsResponse => __isa(o, "ListFlowDefinitionsResponse");
 }
 
 export interface ListHumanTaskUisRequest {
@@ -11286,8 +11040,7 @@ export interface ListHumanTaskUisRequest {
 }
 
 export namespace ListHumanTaskUisRequest {
-  export const isa = (o: any): o is ListHumanTaskUisRequest =>
-    __isa(o, "ListHumanTaskUisRequest");
+  export const isa = (o: any): o is ListHumanTaskUisRequest => __isa(o, "ListHumanTaskUisRequest");
 }
 
 export interface ListHumanTaskUisResponse {
@@ -11304,8 +11057,7 @@ export interface ListHumanTaskUisResponse {
 }
 
 export namespace ListHumanTaskUisResponse {
-  export const isa = (o: any): o is ListHumanTaskUisResponse =>
-    __isa(o, "ListHumanTaskUisResponse");
+  export const isa = (o: any): o is ListHumanTaskUisResponse => __isa(o, "ListHumanTaskUisResponse");
 }
 
 export interface ListHyperParameterTuningJobsRequest {
@@ -11391,9 +11143,7 @@ export interface ListHyperParameterTuningJobsResponse {
    *             the tuning jobs that the <code>ListHyperParameterTuningJobs</code>
    *             request returned.</p>
    */
-  HyperParameterTuningJobSummaries:
-    | HyperParameterTuningJobSummary[]
-    | undefined;
+  HyperParameterTuningJobSummaries: HyperParameterTuningJobSummary[] | undefined;
 
   /**
    * <p>If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated,
@@ -11547,8 +11297,7 @@ export interface ListLabelingJobsRequest {
 }
 
 export namespace ListLabelingJobsRequest {
-  export const isa = (o: any): o is ListLabelingJobsRequest =>
-    __isa(o, "ListLabelingJobsRequest");
+  export const isa = (o: any): o is ListLabelingJobsRequest => __isa(o, "ListLabelingJobsRequest");
 }
 
 export interface ListLabelingJobsResponse {
@@ -11567,8 +11316,7 @@ export interface ListLabelingJobsResponse {
 }
 
 export namespace ListLabelingJobsResponse {
-  export const isa = (o: any): o is ListLabelingJobsResponse =>
-    __isa(o, "ListLabelingJobsResponse");
+  export const isa = (o: any): o is ListLabelingJobsResponse => __isa(o, "ListLabelingJobsResponse");
 }
 
 export interface ListModelPackagesInput {
@@ -11616,8 +11364,7 @@ export interface ListModelPackagesInput {
 }
 
 export namespace ListModelPackagesInput {
-  export const isa = (o: any): o is ListModelPackagesInput =>
-    __isa(o, "ListModelPackagesInput");
+  export const isa = (o: any): o is ListModelPackagesInput => __isa(o, "ListModelPackagesInput");
 }
 
 export interface ListModelPackagesOutput {
@@ -11636,8 +11383,7 @@ export interface ListModelPackagesOutput {
 }
 
 export namespace ListModelPackagesOutput {
-  export const isa = (o: any): o is ListModelPackagesOutput =>
-    __isa(o, "ListModelPackagesOutput");
+  export const isa = (o: any): o is ListModelPackagesOutput => __isa(o, "ListModelPackagesOutput");
 }
 
 export interface ListModelsInput {
@@ -11684,8 +11430,7 @@ export interface ListModelsInput {
 }
 
 export namespace ListModelsInput {
-  export const isa = (o: any): o is ListModelsInput =>
-    __isa(o, "ListModelsInput");
+  export const isa = (o: any): o is ListModelsInput => __isa(o, "ListModelsInput");
 }
 
 export interface ListModelsOutput {
@@ -11704,8 +11449,7 @@ export interface ListModelsOutput {
 }
 
 export namespace ListModelsOutput {
-  export const isa = (o: any): o is ListModelsOutput =>
-    __isa(o, "ListModelsOutput");
+  export const isa = (o: any): o is ListModelsOutput => __isa(o, "ListModelsOutput");
 }
 
 export interface ListMonitoringExecutionsRequest {
@@ -11780,8 +11524,7 @@ export interface ListMonitoringExecutionsRequest {
 }
 
 export namespace ListMonitoringExecutionsRequest {
-  export const isa = (o: any): o is ListMonitoringExecutionsRequest =>
-    __isa(o, "ListMonitoringExecutionsRequest");
+  export const isa = (o: any): o is ListMonitoringExecutionsRequest => __isa(o, "ListMonitoringExecutionsRequest");
 }
 
 export interface ListMonitoringExecutionsResponse {
@@ -11799,8 +11542,7 @@ export interface ListMonitoringExecutionsResponse {
 }
 
 export namespace ListMonitoringExecutionsResponse {
-  export const isa = (o: any): o is ListMonitoringExecutionsResponse =>
-    __isa(o, "ListMonitoringExecutionsResponse");
+  export const isa = (o: any): o is ListMonitoringExecutionsResponse => __isa(o, "ListMonitoringExecutionsResponse");
 }
 
 export interface ListMonitoringSchedulesRequest {
@@ -11865,8 +11607,7 @@ export interface ListMonitoringSchedulesRequest {
 }
 
 export namespace ListMonitoringSchedulesRequest {
-  export const isa = (o: any): o is ListMonitoringSchedulesRequest =>
-    __isa(o, "ListMonitoringSchedulesRequest");
+  export const isa = (o: any): o is ListMonitoringSchedulesRequest => __isa(o, "ListMonitoringSchedulesRequest");
 }
 
 export interface ListMonitoringSchedulesResponse {
@@ -11884,8 +11625,7 @@ export interface ListMonitoringSchedulesResponse {
 }
 
 export namespace ListMonitoringSchedulesResponse {
-  export const isa = (o: any): o is ListMonitoringSchedulesResponse =>
-    __isa(o, "ListMonitoringSchedulesResponse");
+  export const isa = (o: any): o is ListMonitoringSchedulesResponse => __isa(o, "ListMonitoringSchedulesResponse");
 }
 
 export interface ListNotebookInstanceLifecycleConfigsInput {
@@ -11964,9 +11704,7 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
 }
 
 export namespace ListNotebookInstanceLifecycleConfigsOutput {
-  export const isa = (
-    o: any
-  ): o is ListNotebookInstanceLifecycleConfigsOutput =>
+  export const isa = (o: any): o is ListNotebookInstanceLifecycleConfigsOutput =>
     __isa(o, "ListNotebookInstanceLifecycleConfigsOutput");
 }
 
@@ -12057,8 +11795,7 @@ export interface ListNotebookInstancesInput {
 }
 
 export namespace ListNotebookInstancesInput {
-  export const isa = (o: any): o is ListNotebookInstancesInput =>
-    __isa(o, "ListNotebookInstancesInput");
+  export const isa = (o: any): o is ListNotebookInstancesInput => __isa(o, "ListNotebookInstancesInput");
 }
 
 export interface ListNotebookInstancesOutput {
@@ -12078,8 +11815,7 @@ export interface ListNotebookInstancesOutput {
 }
 
 export namespace ListNotebookInstancesOutput {
-  export const isa = (o: any): o is ListNotebookInstancesOutput =>
-    __isa(o, "ListNotebookInstancesOutput");
+  export const isa = (o: any): o is ListNotebookInstancesOutput => __isa(o, "ListNotebookInstancesOutput");
 }
 
 export interface ListProcessingJobsRequest {
@@ -12139,8 +11875,7 @@ export interface ListProcessingJobsRequest {
 }
 
 export namespace ListProcessingJobsRequest {
-  export const isa = (o: any): o is ListProcessingJobsRequest =>
-    __isa(o, "ListProcessingJobsRequest");
+  export const isa = (o: any): o is ListProcessingJobsRequest => __isa(o, "ListProcessingJobsRequest");
 }
 
 export interface ListProcessingJobsResponse {
@@ -12159,8 +11894,7 @@ export interface ListProcessingJobsResponse {
 }
 
 export namespace ListProcessingJobsResponse {
-  export const isa = (o: any): o is ListProcessingJobsResponse =>
-    __isa(o, "ListProcessingJobsResponse");
+  export const isa = (o: any): o is ListProcessingJobsResponse => __isa(o, "ListProcessingJobsResponse");
 }
 
 export interface ListSubscribedWorkteamsRequest {
@@ -12185,8 +11919,7 @@ export interface ListSubscribedWorkteamsRequest {
 }
 
 export namespace ListSubscribedWorkteamsRequest {
-  export const isa = (o: any): o is ListSubscribedWorkteamsRequest =>
-    __isa(o, "ListSubscribedWorkteamsRequest");
+  export const isa = (o: any): o is ListSubscribedWorkteamsRequest => __isa(o, "ListSubscribedWorkteamsRequest");
 }
 
 export interface ListSubscribedWorkteamsResponse {
@@ -12204,8 +11937,7 @@ export interface ListSubscribedWorkteamsResponse {
 }
 
 export namespace ListSubscribedWorkteamsResponse {
-  export const isa = (o: any): o is ListSubscribedWorkteamsResponse =>
-    __isa(o, "ListSubscribedWorkteamsResponse");
+  export const isa = (o: any): o is ListSubscribedWorkteamsResponse => __isa(o, "ListSubscribedWorkteamsResponse");
 }
 
 export interface ListTagsInput {
@@ -12248,8 +11980,7 @@ export interface ListTagsOutput {
 }
 
 export namespace ListTagsOutput {
-  export const isa = (o: any): o is ListTagsOutput =>
-    __isa(o, "ListTagsOutput");
+  export const isa = (o: any): o is ListTagsOutput => __isa(o, "ListTagsOutput");
 }
 
 export interface ListTrainingJobsForHyperParameterTuningJobRequest {
@@ -12296,9 +12027,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
 }
 
 export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
-  export const isa = (
-    o: any
-  ): o is ListTrainingJobsForHyperParameterTuningJobRequest =>
+  export const isa = (o: any): o is ListTrainingJobsForHyperParameterTuningJobRequest =>
     __isa(o, "ListTrainingJobsForHyperParameterTuningJobRequest");
 }
 
@@ -12321,9 +12050,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobResponse {
 }
 
 export namespace ListTrainingJobsForHyperParameterTuningJobResponse {
-  export const isa = (
-    o: any
-  ): o is ListTrainingJobsForHyperParameterTuningJobResponse =>
+  export const isa = (o: any): o is ListTrainingJobsForHyperParameterTuningJobResponse =>
     __isa(o, "ListTrainingJobsForHyperParameterTuningJobResponse");
 }
 
@@ -12388,8 +12115,7 @@ export interface ListTrainingJobsRequest {
 }
 
 export namespace ListTrainingJobsRequest {
-  export const isa = (o: any): o is ListTrainingJobsRequest =>
-    __isa(o, "ListTrainingJobsRequest");
+  export const isa = (o: any): o is ListTrainingJobsRequest => __isa(o, "ListTrainingJobsRequest");
 }
 
 export interface ListTrainingJobsResponse {
@@ -12408,8 +12134,7 @@ export interface ListTrainingJobsResponse {
 }
 
 export namespace ListTrainingJobsResponse {
-  export const isa = (o: any): o is ListTrainingJobsResponse =>
-    __isa(o, "ListTrainingJobsResponse");
+  export const isa = (o: any): o is ListTrainingJobsResponse => __isa(o, "ListTrainingJobsResponse");
 }
 
 export interface ListTransformJobsRequest {
@@ -12472,8 +12197,7 @@ export interface ListTransformJobsRequest {
 }
 
 export namespace ListTransformJobsRequest {
-  export const isa = (o: any): o is ListTransformJobsRequest =>
-    __isa(o, "ListTransformJobsRequest");
+  export const isa = (o: any): o is ListTransformJobsRequest => __isa(o, "ListTransformJobsRequest");
 }
 
 export interface ListTransformJobsResponse {
@@ -12493,8 +12217,7 @@ export interface ListTransformJobsResponse {
 }
 
 export namespace ListTransformJobsResponse {
-  export const isa = (o: any): o is ListTransformJobsResponse =>
-    __isa(o, "ListTransformJobsResponse");
+  export const isa = (o: any): o is ListTransformJobsResponse => __isa(o, "ListTransformJobsResponse");
 }
 
 export interface ListTrialComponentsRequest {
@@ -12553,8 +12276,7 @@ export interface ListTrialComponentsRequest {
 }
 
 export namespace ListTrialComponentsRequest {
-  export const isa = (o: any): o is ListTrialComponentsRequest =>
-    __isa(o, "ListTrialComponentsRequest");
+  export const isa = (o: any): o is ListTrialComponentsRequest => __isa(o, "ListTrialComponentsRequest");
 }
 
 export interface ListTrialComponentsResponse {
@@ -12571,8 +12293,7 @@ export interface ListTrialComponentsResponse {
 }
 
 export namespace ListTrialComponentsResponse {
-  export const isa = (o: any): o is ListTrialComponentsResponse =>
-    __isa(o, "ListTrialComponentsResponse");
+  export const isa = (o: any): o is ListTrialComponentsResponse => __isa(o, "ListTrialComponentsResponse");
 }
 
 export interface ListTrialsRequest {
@@ -12615,8 +12336,7 @@ export interface ListTrialsRequest {
 }
 
 export namespace ListTrialsRequest {
-  export const isa = (o: any): o is ListTrialsRequest =>
-    __isa(o, "ListTrialsRequest");
+  export const isa = (o: any): o is ListTrialsRequest => __isa(o, "ListTrialsRequest");
 }
 
 export interface ListTrialsResponse {
@@ -12633,8 +12353,7 @@ export interface ListTrialsResponse {
 }
 
 export namespace ListTrialsResponse {
-  export const isa = (o: any): o is ListTrialsResponse =>
-    __isa(o, "ListTrialsResponse");
+  export const isa = (o: any): o is ListTrialsResponse => __isa(o, "ListTrialsResponse");
 }
 
 export interface ListUserProfilesRequest {
@@ -12672,8 +12391,7 @@ export interface ListUserProfilesRequest {
 }
 
 export namespace ListUserProfilesRequest {
-  export const isa = (o: any): o is ListUserProfilesRequest =>
-    __isa(o, "ListUserProfilesRequest");
+  export const isa = (o: any): o is ListUserProfilesRequest => __isa(o, "ListUserProfilesRequest");
 }
 
 export interface ListUserProfilesResponse {
@@ -12691,8 +12409,7 @@ export interface ListUserProfilesResponse {
 }
 
 export namespace ListUserProfilesResponse {
-  export const isa = (o: any): o is ListUserProfilesResponse =>
-    __isa(o, "ListUserProfilesResponse");
+  export const isa = (o: any): o is ListUserProfilesResponse => __isa(o, "ListUserProfilesResponse");
 }
 
 export interface ListWorkteamsRequest {
@@ -12727,8 +12444,7 @@ export interface ListWorkteamsRequest {
 }
 
 export namespace ListWorkteamsRequest {
-  export const isa = (o: any): o is ListWorkteamsRequest =>
-    __isa(o, "ListWorkteamsRequest");
+  export const isa = (o: any): o is ListWorkteamsRequest => __isa(o, "ListWorkteamsRequest");
 }
 
 export interface ListWorkteamsResponse {
@@ -12746,8 +12462,7 @@ export interface ListWorkteamsResponse {
 }
 
 export namespace ListWorkteamsResponse {
-  export const isa = (o: any): o is ListWorkteamsResponse =>
-    __isa(o, "ListWorkteamsResponse");
+  export const isa = (o: any): o is ListWorkteamsResponse => __isa(o, "ListWorkteamsResponse");
 }
 
 export enum ListWorkteamsSortByOptions {
@@ -12767,8 +12482,7 @@ export interface MemberDefinition {
 }
 
 export namespace MemberDefinition {
-  export const isa = (o: any): o is MemberDefinition =>
-    __isa(o, "MemberDefinition");
+  export const isa = (o: any): o is MemberDefinition => __isa(o, "MemberDefinition");
 }
 
 /**
@@ -12825,8 +12539,7 @@ export interface MetricDefinition {
 }
 
 export namespace MetricDefinition {
-  export const isa = (o: any): o is MetricDefinition =>
-    __isa(o, "MetricDefinition");
+  export const isa = (o: any): o is MetricDefinition => __isa(o, "MetricDefinition");
 }
 
 /**
@@ -12843,8 +12556,7 @@ export interface ModelArtifacts {
 }
 
 export namespace ModelArtifacts {
-  export const isa = (o: any): o is ModelArtifacts =>
-    __isa(o, "ModelArtifacts");
+  export const isa = (o: any): o is ModelArtifacts => __isa(o, "ModelArtifacts");
 }
 
 /**
@@ -12887,8 +12599,7 @@ export interface ModelPackageContainerDefinition {
 }
 
 export namespace ModelPackageContainerDefinition {
-  export const isa = (o: any): o is ModelPackageContainerDefinition =>
-    __isa(o, "ModelPackageContainerDefinition");
+  export const isa = (o: any): o is ModelPackageContainerDefinition => __isa(o, "ModelPackageContainerDefinition");
 }
 
 export enum ModelPackageSortBy {
@@ -12921,8 +12632,7 @@ export interface ModelPackageStatusDetails {
 }
 
 export namespace ModelPackageStatusDetails {
-  export const isa = (o: any): o is ModelPackageStatusDetails =>
-    __isa(o, "ModelPackageStatusDetails");
+  export const isa = (o: any): o is ModelPackageStatusDetails => __isa(o, "ModelPackageStatusDetails");
 }
 
 /**
@@ -12947,8 +12657,7 @@ export interface ModelPackageStatusItem {
 }
 
 export namespace ModelPackageStatusItem {
-  export const isa = (o: any): o is ModelPackageStatusItem =>
-    __isa(o, "ModelPackageStatusItem");
+  export const isa = (o: any): o is ModelPackageStatusItem => __isa(o, "ModelPackageStatusItem");
 }
 
 /**
@@ -12983,8 +12692,7 @@ export interface ModelPackageSummary {
 }
 
 export namespace ModelPackageSummary {
-  export const isa = (o: any): o is ModelPackageSummary =>
-    __isa(o, "ModelPackageSummary");
+  export const isa = (o: any): o is ModelPackageSummary => __isa(o, "ModelPackageSummary");
 }
 
 /**
@@ -13008,8 +12716,7 @@ export interface ModelPackageValidationProfile {
 }
 
 export namespace ModelPackageValidationProfile {
-  export const isa = (o: any): o is ModelPackageValidationProfile =>
-    __isa(o, "ModelPackageValidationProfile");
+  export const isa = (o: any): o is ModelPackageValidationProfile => __isa(o, "ModelPackageValidationProfile");
 }
 
 /**
@@ -13100,8 +12807,7 @@ export interface MonitoringAppSpecification {
 }
 
 export namespace MonitoringAppSpecification {
-  export const isa = (o: any): o is MonitoringAppSpecification =>
-    __isa(o, "MonitoringAppSpecification");
+  export const isa = (o: any): o is MonitoringAppSpecification => __isa(o, "MonitoringAppSpecification");
 }
 
 /**
@@ -13125,8 +12831,7 @@ export interface MonitoringBaselineConfig {
 }
 
 export namespace MonitoringBaselineConfig {
-  export const isa = (o: any): o is MonitoringBaselineConfig =>
-    __isa(o, "MonitoringBaselineConfig");
+  export const isa = (o: any): o is MonitoringBaselineConfig => __isa(o, "MonitoringBaselineConfig");
 }
 
 /**
@@ -13160,8 +12865,7 @@ export interface MonitoringClusterConfig {
 }
 
 export namespace MonitoringClusterConfig {
-  export const isa = (o: any): o is MonitoringClusterConfig =>
-    __isa(o, "MonitoringClusterConfig");
+  export const isa = (o: any): o is MonitoringClusterConfig => __isa(o, "MonitoringClusterConfig");
 }
 
 /**
@@ -13176,8 +12880,7 @@ export interface MonitoringConstraintsResource {
 }
 
 export namespace MonitoringConstraintsResource {
-  export const isa = (o: any): o is MonitoringConstraintsResource =>
-    __isa(o, "MonitoringConstraintsResource");
+  export const isa = (o: any): o is MonitoringConstraintsResource => __isa(o, "MonitoringConstraintsResource");
 }
 
 export enum MonitoringExecutionSortKey {
@@ -13233,8 +12936,7 @@ export interface MonitoringExecutionSummary {
 }
 
 export namespace MonitoringExecutionSummary {
-  export const isa = (o: any): o is MonitoringExecutionSummary =>
-    __isa(o, "MonitoringExecutionSummary");
+  export const isa = (o: any): o is MonitoringExecutionSummary => __isa(o, "MonitoringExecutionSummary");
 }
 
 /**
@@ -13249,8 +12951,7 @@ export interface MonitoringInput {
 }
 
 export namespace MonitoringInput {
-  export const isa = (o: any): o is MonitoringInput =>
-    __isa(o, "MonitoringInput");
+  export const isa = (o: any): o is MonitoringInput => __isa(o, "MonitoringInput");
 }
 
 /**
@@ -13310,8 +13011,7 @@ export interface MonitoringJobDefinition {
 }
 
 export namespace MonitoringJobDefinition {
-  export const isa = (o: any): o is MonitoringJobDefinition =>
-    __isa(o, "MonitoringJobDefinition");
+  export const isa = (o: any): o is MonitoringJobDefinition => __isa(o, "MonitoringJobDefinition");
 }
 
 /**
@@ -13326,8 +13026,7 @@ export interface MonitoringOutput {
 }
 
 export namespace MonitoringOutput {
-  export const isa = (o: any): o is MonitoringOutput =>
-    __isa(o, "MonitoringOutput");
+  export const isa = (o: any): o is MonitoringOutput => __isa(o, "MonitoringOutput");
 }
 
 /**
@@ -13349,8 +13048,7 @@ export interface MonitoringOutputConfig {
 }
 
 export namespace MonitoringOutputConfig {
-  export const isa = (o: any): o is MonitoringOutputConfig =>
-    __isa(o, "MonitoringOutputConfig");
+  export const isa = (o: any): o is MonitoringOutputConfig => __isa(o, "MonitoringOutputConfig");
 }
 
 /**
@@ -13365,8 +13063,7 @@ export interface MonitoringResources {
 }
 
 export namespace MonitoringResources {
-  export const isa = (o: any): o is MonitoringResources =>
-    __isa(o, "MonitoringResources");
+  export const isa = (o: any): o is MonitoringResources => __isa(o, "MonitoringResources");
 }
 
 /**
@@ -13395,8 +13092,7 @@ export interface MonitoringS3Output {
 }
 
 export namespace MonitoringS3Output {
-  export const isa = (o: any): o is MonitoringS3Output =>
-    __isa(o, "MonitoringS3Output");
+  export const isa = (o: any): o is MonitoringS3Output => __isa(o, "MonitoringS3Output");
 }
 
 /**
@@ -13416,8 +13112,7 @@ export interface MonitoringScheduleConfig {
 }
 
 export namespace MonitoringScheduleConfig {
-  export const isa = (o: any): o is MonitoringScheduleConfig =>
-    __isa(o, "MonitoringScheduleConfig");
+  export const isa = (o: any): o is MonitoringScheduleConfig => __isa(o, "MonitoringScheduleConfig");
 }
 
 export enum MonitoringScheduleSortKey {
@@ -13463,8 +13158,7 @@ export interface MonitoringScheduleSummary {
 }
 
 export namespace MonitoringScheduleSummary {
-  export const isa = (o: any): o is MonitoringScheduleSummary =>
-    __isa(o, "MonitoringScheduleSummary");
+  export const isa = (o: any): o is MonitoringScheduleSummary => __isa(o, "MonitoringScheduleSummary");
 }
 
 /**
@@ -13479,8 +13173,7 @@ export interface MonitoringStatisticsResource {
 }
 
 export namespace MonitoringStatisticsResource {
-  export const isa = (o: any): o is MonitoringStatisticsResource =>
-    __isa(o, "MonitoringStatisticsResource");
+  export const isa = (o: any): o is MonitoringStatisticsResource => __isa(o, "MonitoringStatisticsResource");
 }
 
 /**
@@ -13495,8 +13188,7 @@ export interface MonitoringStoppingCondition {
 }
 
 export namespace MonitoringStoppingCondition {
-  export const isa = (o: any): o is MonitoringStoppingCondition =>
-    __isa(o, "MonitoringStoppingCondition");
+  export const isa = (o: any): o is MonitoringStoppingCondition => __isa(o, "MonitoringStoppingCondition");
 }
 
 /**
@@ -13646,8 +13338,7 @@ export interface NotebookInstanceLifecycleHook {
 }
 
 export namespace NotebookInstanceLifecycleHook {
-  export const isa = (o: any): o is NotebookInstanceLifecycleHook =>
-    __isa(o, "NotebookInstanceLifecycleHook");
+  export const isa = (o: any): o is NotebookInstanceLifecycleHook => __isa(o, "NotebookInstanceLifecycleHook");
 }
 
 export enum NotebookInstanceSortKey {
@@ -13743,8 +13434,7 @@ export interface NotebookInstanceSummary {
 }
 
 export namespace NotebookInstanceSummary {
-  export const isa = (o: any): o is NotebookInstanceSummary =>
-    __isa(o, "NotebookInstanceSummary");
+  export const isa = (o: any): o is NotebookInstanceSummary => __isa(o, "NotebookInstanceSummary");
 }
 
 export enum NotebookOutputOption {
@@ -13765,8 +13455,7 @@ export interface NotificationConfiguration {
 }
 
 export namespace NotificationConfiguration {
-  export const isa = (o: any): o is NotificationConfiguration =>
-    __isa(o, "NotificationConfiguration");
+  export const isa = (o: any): o is NotificationConfiguration => __isa(o, "NotificationConfiguration");
 }
 
 export enum ObjectiveStatus {
@@ -13806,8 +13495,7 @@ export interface ObjectiveStatusCounters {
 }
 
 export namespace ObjectiveStatusCounters {
-  export const isa = (o: any): o is ObjectiveStatusCounters =>
-    __isa(o, "ObjectiveStatusCounters");
+  export const isa = (o: any): o is ObjectiveStatusCounters => __isa(o, "ObjectiveStatusCounters");
 }
 
 export enum Operator {
@@ -13917,8 +13605,7 @@ export interface OutputDataConfig {
 }
 
 export namespace OutputDataConfig {
-  export const isa = (o: any): o is OutputDataConfig =>
-    __isa(o, "OutputDataConfig");
+  export const isa = (o: any): o is OutputDataConfig => __isa(o, "OutputDataConfig");
 }
 
 /**
@@ -13947,8 +13634,7 @@ export interface ParameterRange {
 }
 
 export namespace ParameterRange {
-  export const isa = (o: any): o is ParameterRange =>
-    __isa(o, "ParameterRange");
+  export const isa = (o: any): o is ParameterRange => __isa(o, "ParameterRange");
 }
 
 /**
@@ -13985,8 +13671,7 @@ export interface ParameterRanges {
 }
 
 export namespace ParameterRanges {
-  export const isa = (o: any): o is ParameterRanges =>
-    __isa(o, "ParameterRanges");
+  export const isa = (o: any): o is ParameterRanges => __isa(o, "ParameterRanges");
 }
 
 export enum ParameterType {
@@ -14032,8 +13717,7 @@ export interface ParentHyperParameterTuningJob {
 }
 
 export namespace ParentHyperParameterTuningJob {
-  export const isa = (o: any): o is ParentHyperParameterTuningJob =>
-    __isa(o, "ParentHyperParameterTuningJob");
+  export const isa = (o: any): o is ParentHyperParameterTuningJob => __isa(o, "ParentHyperParameterTuningJob");
 }
 
 export enum ProblemType {
@@ -14073,8 +13757,7 @@ export interface ProcessingClusterConfig {
 }
 
 export namespace ProcessingClusterConfig {
-  export const isa = (o: any): o is ProcessingClusterConfig =>
-    __isa(o, "ProcessingClusterConfig");
+  export const isa = (o: any): o is ProcessingClusterConfig => __isa(o, "ProcessingClusterConfig");
 }
 
 /**
@@ -14094,8 +13777,7 @@ export interface ProcessingInput {
 }
 
 export namespace ProcessingInput {
-  export const isa = (o: any): o is ProcessingInput =>
-    __isa(o, "ProcessingInput");
+  export const isa = (o: any): o is ProcessingInput => __isa(o, "ProcessingInput");
 }
 
 export enum ProcessingInstanceType {
@@ -14196,8 +13878,7 @@ export interface ProcessingJobSummary {
 }
 
 export namespace ProcessingJobSummary {
-  export const isa = (o: any): o is ProcessingJobSummary =>
-    __isa(o, "ProcessingJobSummary");
+  export const isa = (o: any): o is ProcessingJobSummary => __isa(o, "ProcessingJobSummary");
 }
 
 /**
@@ -14217,8 +13898,7 @@ export interface ProcessingOutput {
 }
 
 export namespace ProcessingOutput {
-  export const isa = (o: any): o is ProcessingOutput =>
-    __isa(o, "ProcessingOutput");
+  export const isa = (o: any): o is ProcessingOutput => __isa(o, "ProcessingOutput");
 }
 
 /**
@@ -14241,8 +13921,7 @@ export interface ProcessingOutputConfig {
 }
 
 export namespace ProcessingOutputConfig {
-  export const isa = (o: any): o is ProcessingOutputConfig =>
-    __isa(o, "ProcessingOutputConfig");
+  export const isa = (o: any): o is ProcessingOutputConfig => __isa(o, "ProcessingOutputConfig");
 }
 
 /**
@@ -14259,8 +13938,7 @@ export interface ProcessingResources {
 }
 
 export namespace ProcessingResources {
-  export const isa = (o: any): o is ProcessingResources =>
-    __isa(o, "ProcessingResources");
+  export const isa = (o: any): o is ProcessingResources => __isa(o, "ProcessingResources");
 }
 
 export enum ProcessingS3CompressionType {
@@ -14329,8 +14007,7 @@ export interface ProcessingS3Input {
 }
 
 export namespace ProcessingS3Input {
-  export const isa = (o: any): o is ProcessingS3Input =>
-    __isa(o, "ProcessingS3Input");
+  export const isa = (o: any): o is ProcessingS3Input => __isa(o, "ProcessingS3Input");
 }
 
 export enum ProcessingS3InputMode {
@@ -14364,8 +14041,7 @@ export interface ProcessingS3Output {
 }
 
 export namespace ProcessingS3Output {
-  export const isa = (o: any): o is ProcessingS3Output =>
-    __isa(o, "ProcessingS3Output");
+  export const isa = (o: any): o is ProcessingS3Output => __isa(o, "ProcessingS3Output");
 }
 
 export enum ProcessingS3UploadMode {
@@ -14385,8 +14061,7 @@ export interface ProcessingStoppingCondition {
 }
 
 export namespace ProcessingStoppingCondition {
-  export const isa = (o: any): o is ProcessingStoppingCondition =>
-    __isa(o, "ProcessingStoppingCondition");
+  export const isa = (o: any): o is ProcessingStoppingCondition => __isa(o, "ProcessingStoppingCondition");
 }
 
 /**
@@ -14437,8 +14112,7 @@ export interface ProductionVariant {
 }
 
 export namespace ProductionVariant {
-  export const isa = (o: any): o is ProductionVariant =>
-    __isa(o, "ProductionVariant");
+  export const isa = (o: any): o is ProductionVariant => __isa(o, "ProductionVariant");
 }
 
 export enum ProductionVariantAcceleratorType {
@@ -14562,8 +14236,7 @@ export interface ProductionVariantSummary {
 }
 
 export namespace ProductionVariantSummary {
-  export const isa = (o: any): o is ProductionVariantSummary =>
-    __isa(o, "ProductionVariantSummary");
+  export const isa = (o: any): o is ProductionVariantSummary => __isa(o, "ProductionVariantSummary");
 }
 
 /**
@@ -14579,8 +14252,7 @@ export interface PropertyNameQuery {
 }
 
 export namespace PropertyNameQuery {
-  export const isa = (o: any): o is PropertyNameQuery =>
-    __isa(o, "PropertyNameQuery");
+  export const isa = (o: any): o is PropertyNameQuery => __isa(o, "PropertyNameQuery");
 }
 
 /**
@@ -14597,8 +14269,7 @@ export interface PropertyNameSuggestion {
 }
 
 export namespace PropertyNameSuggestion {
-  export const isa = (o: any): o is PropertyNameSuggestion =>
-    __isa(o, "PropertyNameSuggestion");
+  export const isa = (o: any): o is PropertyNameSuggestion => __isa(o, "PropertyNameSuggestion");
 }
 
 /**
@@ -14914,8 +14585,7 @@ export interface PublicWorkforceTaskPrice {
 }
 
 export namespace PublicWorkforceTaskPrice {
-  export const isa = (o: any): o is PublicWorkforceTaskPrice =>
-    __isa(o, "PublicWorkforceTaskPrice");
+  export const isa = (o: any): o is PublicWorkforceTaskPrice => __isa(o, "PublicWorkforceTaskPrice");
 }
 
 export enum RecordWrapper {
@@ -14944,8 +14614,7 @@ export interface RenderUiTemplateRequest {
 }
 
 export namespace RenderUiTemplateRequest {
-  export const isa = (o: any): o is RenderUiTemplateRequest =>
-    __isa(o, "RenderUiTemplateRequest");
+  export const isa = (o: any): o is RenderUiTemplateRequest => __isa(o, "RenderUiTemplateRequest");
 }
 
 export interface RenderUiTemplateResponse {
@@ -14963,8 +14632,7 @@ export interface RenderUiTemplateResponse {
 }
 
 export namespace RenderUiTemplateResponse {
-  export const isa = (o: any): o is RenderUiTemplateResponse =>
-    __isa(o, "RenderUiTemplateResponse");
+  export const isa = (o: any): o is RenderUiTemplateResponse => __isa(o, "RenderUiTemplateResponse");
 }
 
 /**
@@ -14982,8 +14650,7 @@ export interface RenderableTask {
 }
 
 export namespace RenderableTask {
-  export const isa = (o: any): o is RenderableTask =>
-    __isa(o, "RenderableTask");
+  export const isa = (o: any): o is RenderableTask => __isa(o, "RenderableTask");
 }
 
 /**
@@ -15003,8 +14670,7 @@ export interface RenderingError {
 }
 
 export namespace RenderingError {
-  export const isa = (o: any): o is RenderingError =>
-    __isa(o, "RenderingError");
+  export const isa = (o: any): o is RenderingError => __isa(o, "RenderingError");
 }
 
 /**
@@ -15029,8 +14695,7 @@ export interface ResolvedAttributes {
 }
 
 export namespace ResolvedAttributes {
-  export const isa = (o: any): o is ResolvedAttributes =>
-    __isa(o, "ResolvedAttributes");
+  export const isa = (o: any): o is ResolvedAttributes => __isa(o, "ResolvedAttributes");
 }
 
 /**
@@ -15105,8 +14770,7 @@ export interface ResourceConfig {
 }
 
 export namespace ResourceConfig {
-  export const isa = (o: any): o is ResourceConfig =>
-    __isa(o, "ResourceConfig");
+  export const isa = (o: any): o is ResourceConfig => __isa(o, "ResourceConfig");
 }
 
 /**
@@ -15126,17 +14790,14 @@ export namespace ResourceInUse {
  * <p> You have exceeded an Amazon SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  */
-export interface ResourceLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ResourceLimitExceeded";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceLimitExceeded {
-  export const isa = (o: any): o is ResourceLimitExceeded =>
-    __isa(o, "ResourceLimitExceeded");
+  export const isa = (o: any): o is ResourceLimitExceeded => __isa(o, "ResourceLimitExceeded");
 }
 
 /**
@@ -15165,8 +14826,7 @@ export interface ResourceLimits {
 }
 
 export namespace ResourceLimits {
-  export const isa = (o: any): o is ResourceLimits =>
-    __isa(o, "ResourceLimits");
+  export const isa = (o: any): o is ResourceLimits => __isa(o, "ResourceLimits");
 }
 
 /**
@@ -15179,8 +14839,7 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
-  export const isa = (o: any): o is ResourceNotFound =>
-    __isa(o, "ResourceNotFound");
+  export const isa = (o: any): o is ResourceNotFound => __isa(o, "ResourceNotFound");
 }
 
 /**
@@ -15222,8 +14881,7 @@ export interface RetentionPolicy {
 }
 
 export namespace RetentionPolicy {
-  export const isa = (o: any): o is RetentionPolicy =>
-    __isa(o, "RetentionPolicy");
+  export const isa = (o: any): o is RetentionPolicy => __isa(o, "RetentionPolicy");
 }
 
 export enum RetentionType {
@@ -15430,8 +15088,7 @@ export interface ScheduleConfig {
 }
 
 export namespace ScheduleConfig {
-  export const isa = (o: any): o is ScheduleConfig =>
-    __isa(o, "ScheduleConfig");
+  export const isa = (o: any): o is ScheduleConfig => __isa(o, "ScheduleConfig");
 }
 
 export enum ScheduleStatus {
@@ -15497,8 +15154,7 @@ export interface SearchExpression {
 }
 
 export namespace SearchExpression {
-  export const isa = (o: any): o is SearchExpression =>
-    __isa(o, "SearchExpression");
+  export const isa = (o: any): o is SearchExpression => __isa(o, "SearchExpression");
 }
 
 /**
@@ -15595,8 +15251,7 @@ export interface SearchResponse {
 }
 
 export namespace SearchResponse {
-  export const isa = (o: any): o is SearchResponse =>
-    __isa(o, "SearchResponse");
+  export const isa = (o: any): o is SearchResponse => __isa(o, "SearchResponse");
 }
 
 export enum SearchSortOrder {
@@ -15813,8 +15468,7 @@ export interface SecondaryStatusTransition {
 }
 
 export namespace SecondaryStatusTransition {
-  export const isa = (o: any): o is SecondaryStatusTransition =>
-    __isa(o, "SecondaryStatusTransition");
+  export const isa = (o: any): o is SecondaryStatusTransition => __isa(o, "SecondaryStatusTransition");
 }
 
 /**
@@ -15839,8 +15493,7 @@ export interface SharingSettings {
 }
 
 export namespace SharingSettings {
-  export const isa = (o: any): o is SharingSettings =>
-    __isa(o, "SharingSettings");
+  export const isa = (o: any): o is SharingSettings => __isa(o, "SharingSettings");
 }
 
 /**
@@ -15920,8 +15573,7 @@ export interface SourceAlgorithm {
 }
 
 export namespace SourceAlgorithm {
-  export const isa = (o: any): o is SourceAlgorithm =>
-    __isa(o, "SourceAlgorithm");
+  export const isa = (o: any): o is SourceAlgorithm => __isa(o, "SourceAlgorithm");
 }
 
 /**
@@ -15936,8 +15588,7 @@ export interface SourceAlgorithmSpecification {
 }
 
 export namespace SourceAlgorithmSpecification {
-  export const isa = (o: any): o is SourceAlgorithmSpecification =>
-    __isa(o, "SourceAlgorithmSpecification");
+  export const isa = (o: any): o is SourceAlgorithmSpecification => __isa(o, "SourceAlgorithmSpecification");
 }
 
 /**
@@ -15958,8 +15609,7 @@ export interface SourceIpConfig {
 }
 
 export namespace SourceIpConfig {
-  export const isa = (o: any): o is SourceIpConfig =>
-    __isa(o, "SourceIpConfig");
+  export const isa = (o: any): o is SourceIpConfig => __isa(o, "SourceIpConfig");
 }
 
 export enum SplitType {
@@ -15978,8 +15628,7 @@ export interface StartMonitoringScheduleRequest {
 }
 
 export namespace StartMonitoringScheduleRequest {
-  export const isa = (o: any): o is StartMonitoringScheduleRequest =>
-    __isa(o, "StartMonitoringScheduleRequest");
+  export const isa = (o: any): o is StartMonitoringScheduleRequest => __isa(o, "StartMonitoringScheduleRequest");
 }
 
 export interface StartNotebookInstanceInput {
@@ -15991,8 +15640,7 @@ export interface StartNotebookInstanceInput {
 }
 
 export namespace StartNotebookInstanceInput {
-  export const isa = (o: any): o is StartNotebookInstanceInput =>
-    __isa(o, "StartNotebookInstanceInput");
+  export const isa = (o: any): o is StartNotebookInstanceInput => __isa(o, "StartNotebookInstanceInput");
 }
 
 export interface StopAutoMLJobRequest {
@@ -16004,8 +15652,7 @@ export interface StopAutoMLJobRequest {
 }
 
 export namespace StopAutoMLJobRequest {
-  export const isa = (o: any): o is StopAutoMLJobRequest =>
-    __isa(o, "StopAutoMLJobRequest");
+  export const isa = (o: any): o is StopAutoMLJobRequest => __isa(o, "StopAutoMLJobRequest");
 }
 
 export interface StopCompilationJobRequest {
@@ -16017,8 +15664,7 @@ export interface StopCompilationJobRequest {
 }
 
 export namespace StopCompilationJobRequest {
-  export const isa = (o: any): o is StopCompilationJobRequest =>
-    __isa(o, "StopCompilationJobRequest");
+  export const isa = (o: any): o is StopCompilationJobRequest => __isa(o, "StopCompilationJobRequest");
 }
 
 export interface StopHyperParameterTuningJobRequest {
@@ -16043,8 +15689,7 @@ export interface StopLabelingJobRequest {
 }
 
 export namespace StopLabelingJobRequest {
-  export const isa = (o: any): o is StopLabelingJobRequest =>
-    __isa(o, "StopLabelingJobRequest");
+  export const isa = (o: any): o is StopLabelingJobRequest => __isa(o, "StopLabelingJobRequest");
 }
 
 export interface StopMonitoringScheduleRequest {
@@ -16056,8 +15701,7 @@ export interface StopMonitoringScheduleRequest {
 }
 
 export namespace StopMonitoringScheduleRequest {
-  export const isa = (o: any): o is StopMonitoringScheduleRequest =>
-    __isa(o, "StopMonitoringScheduleRequest");
+  export const isa = (o: any): o is StopMonitoringScheduleRequest => __isa(o, "StopMonitoringScheduleRequest");
 }
 
 export interface StopNotebookInstanceInput {
@@ -16069,8 +15713,7 @@ export interface StopNotebookInstanceInput {
 }
 
 export namespace StopNotebookInstanceInput {
-  export const isa = (o: any): o is StopNotebookInstanceInput =>
-    __isa(o, "StopNotebookInstanceInput");
+  export const isa = (o: any): o is StopNotebookInstanceInput => __isa(o, "StopNotebookInstanceInput");
 }
 
 export interface StopProcessingJobRequest {
@@ -16082,8 +15725,7 @@ export interface StopProcessingJobRequest {
 }
 
 export namespace StopProcessingJobRequest {
-  export const isa = (o: any): o is StopProcessingJobRequest =>
-    __isa(o, "StopProcessingJobRequest");
+  export const isa = (o: any): o is StopProcessingJobRequest => __isa(o, "StopProcessingJobRequest");
 }
 
 export interface StopTrainingJobRequest {
@@ -16095,8 +15737,7 @@ export interface StopTrainingJobRequest {
 }
 
 export namespace StopTrainingJobRequest {
-  export const isa = (o: any): o is StopTrainingJobRequest =>
-    __isa(o, "StopTrainingJobRequest");
+  export const isa = (o: any): o is StopTrainingJobRequest => __isa(o, "StopTrainingJobRequest");
 }
 
 export interface StopTransformJobRequest {
@@ -16108,8 +15749,7 @@ export interface StopTransformJobRequest {
 }
 
 export namespace StopTransformJobRequest {
-  export const isa = (o: any): o is StopTransformJobRequest =>
-    __isa(o, "StopTransformJobRequest");
+  export const isa = (o: any): o is StopTransformJobRequest => __isa(o, "StopTransformJobRequest");
 }
 
 /**
@@ -16151,8 +15791,7 @@ export interface StoppingCondition {
 }
 
 export namespace StoppingCondition {
-  export const isa = (o: any): o is StoppingCondition =>
-    __isa(o, "StoppingCondition");
+  export const isa = (o: any): o is StoppingCondition => __isa(o, "StoppingCondition");
 }
 
 /**
@@ -16187,8 +15826,7 @@ export interface SubscribedWorkteam {
 }
 
 export namespace SubscribedWorkteam {
-  export const isa = (o: any): o is SubscribedWorkteam =>
-    __isa(o, "SubscribedWorkteam");
+  export const isa = (o: any): o is SubscribedWorkteam => __isa(o, "SubscribedWorkteam");
 }
 
 /**
@@ -16205,8 +15843,7 @@ export interface SuggestionQuery {
 }
 
 export namespace SuggestionQuery {
-  export const isa = (o: any): o is SuggestionQuery =>
-    __isa(o, "SuggestionQuery");
+  export const isa = (o: any): o is SuggestionQuery => __isa(o, "SuggestionQuery");
 }
 
 /**
@@ -16263,8 +15900,7 @@ export interface TensorBoardAppSettings {
 }
 
 export namespace TensorBoardAppSettings {
-  export const isa = (o: any): o is TensorBoardAppSettings =>
-    __isa(o, "TensorBoardAppSettings");
+  export const isa = (o: any): o is TensorBoardAppSettings => __isa(o, "TensorBoardAppSettings");
 }
 
 /**
@@ -16285,8 +15921,7 @@ export interface TensorBoardOutputConfig {
 }
 
 export namespace TensorBoardOutputConfig {
-  export const isa = (o: any): o is TensorBoardOutputConfig =>
-    __isa(o, "TensorBoardOutputConfig");
+  export const isa = (o: any): o is TensorBoardOutputConfig => __isa(o, "TensorBoardOutputConfig");
 }
 
 export enum TrainingInputMode {
@@ -16719,8 +16354,7 @@ export interface TrainingJobDefinition {
 }
 
 export namespace TrainingJobDefinition {
-  export const isa = (o: any): o is TrainingJobDefinition =>
-    __isa(o, "TrainingJobDefinition");
+  export const isa = (o: any): o is TrainingJobDefinition => __isa(o, "TrainingJobDefinition");
 }
 
 export enum TrainingJobEarlyStoppingType {
@@ -16782,8 +16416,7 @@ export interface TrainingJobStatusCounters {
 }
 
 export namespace TrainingJobStatusCounters {
-  export const isa = (o: any): o is TrainingJobStatusCounters =>
-    __isa(o, "TrainingJobStatusCounters");
+  export const isa = (o: any): o is TrainingJobStatusCounters => __isa(o, "TrainingJobStatusCounters");
 }
 
 /**
@@ -16825,8 +16458,7 @@ export interface TrainingJobSummary {
 }
 
 export namespace TrainingJobSummary {
-  export const isa = (o: any): o is TrainingJobSummary =>
-    __isa(o, "TrainingJobSummary");
+  export const isa = (o: any): o is TrainingJobSummary => __isa(o, "TrainingJobSummary");
 }
 
 /**
@@ -16884,8 +16516,7 @@ export interface TrainingSpecification {
 }
 
 export namespace TrainingSpecification {
-  export const isa = (o: any): o is TrainingSpecification =>
-    __isa(o, "TrainingSpecification");
+  export const isa = (o: any): o is TrainingSpecification => __isa(o, "TrainingSpecification");
 }
 
 /**
@@ -16900,8 +16531,7 @@ export interface TransformDataSource {
 }
 
 export namespace TransformDataSource {
-  export const isa = (o: any): o is TransformDataSource =>
-    __isa(o, "TransformDataSource");
+  export const isa = (o: any): o is TransformDataSource => __isa(o, "TransformDataSource");
 }
 
 /**
@@ -16966,8 +16596,7 @@ export interface TransformInput {
 }
 
 export namespace TransformInput {
-  export const isa = (o: any): o is TransformInput =>
-    __isa(o, "TransformInput");
+  export const isa = (o: any): o is TransformInput => __isa(o, "TransformInput");
 }
 
 export enum TransformInstanceType {
@@ -17050,8 +16679,7 @@ export interface TransformJobDefinition {
 }
 
 export namespace TransformJobDefinition {
-  export const isa = (o: any): o is TransformJobDefinition =>
-    __isa(o, "TransformJobDefinition");
+  export const isa = (o: any): o is TransformJobDefinition => __isa(o, "TransformJobDefinition");
 }
 
 export enum TransformJobStatus {
@@ -17115,8 +16743,7 @@ export interface TransformJobSummary {
 }
 
 export namespace TransformJobSummary {
-  export const isa = (o: any): o is TransformJobSummary =>
-    __isa(o, "TransformJobSummary");
+  export const isa = (o: any): o is TransformJobSummary => __isa(o, "TransformJobSummary");
 }
 
 /**
@@ -17198,8 +16825,7 @@ export interface TransformOutput {
 }
 
 export namespace TransformOutput {
-  export const isa = (o: any): o is TransformOutput =>
-    __isa(o, "TransformOutput");
+  export const isa = (o: any): o is TransformOutput => __isa(o, "TransformOutput");
 }
 
 /**
@@ -17256,8 +16882,7 @@ export interface TransformResources {
 }
 
 export namespace TransformResources {
-  export const isa = (o: any): o is TransformResources =>
-    __isa(o, "TransformResources");
+  export const isa = (o: any): o is TransformResources => __isa(o, "TransformResources");
 }
 
 /**
@@ -17334,8 +16959,7 @@ export interface TransformS3DataSource {
 }
 
 export namespace TransformS3DataSource {
-  export const isa = (o: any): o is TransformS3DataSource =>
-    __isa(o, "TransformS3DataSource");
+  export const isa = (o: any): o is TransformS3DataSource => __isa(o, "TransformS3DataSource");
 }
 
 /**
@@ -17513,8 +17137,7 @@ export interface TrialComponent {
 }
 
 export namespace TrialComponent {
-  export const isa = (o: any): o is TrialComponent =>
-    __isa(o, "TrialComponent");
+  export const isa = (o: any): o is TrialComponent => __isa(o, "TrialComponent");
 }
 
 /**
@@ -17542,8 +17165,7 @@ export interface TrialComponentArtifact {
 }
 
 export namespace TrialComponentArtifact {
-  export const isa = (o: any): o is TrialComponentArtifact =>
-    __isa(o, "TrialComponentArtifact");
+  export const isa = (o: any): o is TrialComponentArtifact => __isa(o, "TrialComponentArtifact");
 }
 
 /**
@@ -17598,8 +17220,7 @@ export interface TrialComponentMetricSummary {
 }
 
 export namespace TrialComponentMetricSummary {
-  export const isa = (o: any): o is TrialComponentMetricSummary =>
-    __isa(o, "TrialComponentMetricSummary");
+  export const isa = (o: any): o is TrialComponentMetricSummary => __isa(o, "TrialComponentMetricSummary");
 }
 
 /**
@@ -17623,8 +17244,7 @@ export interface TrialComponentParameterValue {
 }
 
 export namespace TrialComponentParameterValue {
-  export const isa = (o: any): o is TrialComponentParameterValue =>
-    __isa(o, "TrialComponentParameterValue");
+  export const isa = (o: any): o is TrialComponentParameterValue => __isa(o, "TrialComponentParameterValue");
 }
 
 export enum TrialComponentPrimaryStatus {
@@ -17666,8 +17286,7 @@ export interface TrialComponentSimpleSummary {
 }
 
 export namespace TrialComponentSimpleSummary {
-  export const isa = (o: any): o is TrialComponentSimpleSummary =>
-    __isa(o, "TrialComponentSimpleSummary");
+  export const isa = (o: any): o is TrialComponentSimpleSummary => __isa(o, "TrialComponentSimpleSummary");
 }
 
 /**
@@ -17687,8 +17306,7 @@ export interface TrialComponentSource {
 }
 
 export namespace TrialComponentSource {
-  export const isa = (o: any): o is TrialComponentSource =>
-    __isa(o, "TrialComponentSource");
+  export const isa = (o: any): o is TrialComponentSource => __isa(o, "TrialComponentSource");
 }
 
 /**
@@ -17708,8 +17326,7 @@ export interface TrialComponentSourceDetail {
 }
 
 export namespace TrialComponentSourceDetail {
-  export const isa = (o: any): o is TrialComponentSourceDetail =>
-    __isa(o, "TrialComponentSourceDetail");
+  export const isa = (o: any): o is TrialComponentSourceDetail => __isa(o, "TrialComponentSourceDetail");
 }
 
 /**
@@ -17729,8 +17346,7 @@ export interface TrialComponentStatus {
 }
 
 export namespace TrialComponentStatus {
-  export const isa = (o: any): o is TrialComponentStatus =>
-    __isa(o, "TrialComponentStatus");
+  export const isa = (o: any): o is TrialComponentStatus => __isa(o, "TrialComponentStatus");
 }
 
 /**
@@ -17809,8 +17425,7 @@ export interface TrialComponentSummary {
 }
 
 export namespace TrialComponentSummary {
-  export const isa = (o: any): o is TrialComponentSummary =>
-    __isa(o, "TrialComponentSummary");
+  export const isa = (o: any): o is TrialComponentSummary => __isa(o, "TrialComponentSummary");
 }
 
 /**
@@ -17887,8 +17502,7 @@ export interface TuningJobCompletionCriteria {
 }
 
 export namespace TuningJobCompletionCriteria {
-  export const isa = (o: any): o is TuningJobCompletionCriteria =>
-    __isa(o, "TuningJobCompletionCriteria");
+  export const isa = (o: any): o is TuningJobCompletionCriteria => __isa(o, "TuningJobCompletionCriteria");
 }
 
 /**
@@ -17965,8 +17579,7 @@ export interface UiTemplateInfo {
 }
 
 export namespace UiTemplateInfo {
-  export const isa = (o: any): o is UiTemplateInfo =>
-    __isa(o, "UiTemplateInfo");
+  export const isa = (o: any): o is UiTemplateInfo => __isa(o, "UiTemplateInfo");
 }
 
 export interface UpdateCodeRepositoryInput {
@@ -17990,8 +17603,7 @@ export interface UpdateCodeRepositoryInput {
 }
 
 export namespace UpdateCodeRepositoryInput {
-  export const isa = (o: any): o is UpdateCodeRepositoryInput =>
-    __isa(o, "UpdateCodeRepositoryInput");
+  export const isa = (o: any): o is UpdateCodeRepositoryInput => __isa(o, "UpdateCodeRepositoryInput");
 }
 
 export interface UpdateCodeRepositoryOutput {
@@ -18003,8 +17615,7 @@ export interface UpdateCodeRepositoryOutput {
 }
 
 export namespace UpdateCodeRepositoryOutput {
-  export const isa = (o: any): o is UpdateCodeRepositoryOutput =>
-    __isa(o, "UpdateCodeRepositoryOutput");
+  export const isa = (o: any): o is UpdateCodeRepositoryOutput => __isa(o, "UpdateCodeRepositoryOutput");
 }
 
 export interface UpdateDomainRequest {
@@ -18021,8 +17632,7 @@ export interface UpdateDomainRequest {
 }
 
 export namespace UpdateDomainRequest {
-  export const isa = (o: any): o is UpdateDomainRequest =>
-    __isa(o, "UpdateDomainRequest");
+  export const isa = (o: any): o is UpdateDomainRequest => __isa(o, "UpdateDomainRequest");
 }
 
 export interface UpdateDomainResponse {
@@ -18034,8 +17644,7 @@ export interface UpdateDomainResponse {
 }
 
 export namespace UpdateDomainResponse {
-  export const isa = (o: any): o is UpdateDomainResponse =>
-    __isa(o, "UpdateDomainResponse");
+  export const isa = (o: any): o is UpdateDomainResponse => __isa(o, "UpdateDomainResponse");
 }
 
 export interface UpdateEndpointInput {
@@ -18052,8 +17661,7 @@ export interface UpdateEndpointInput {
 }
 
 export namespace UpdateEndpointInput {
-  export const isa = (o: any): o is UpdateEndpointInput =>
-    __isa(o, "UpdateEndpointInput");
+  export const isa = (o: any): o is UpdateEndpointInput => __isa(o, "UpdateEndpointInput");
 }
 
 export interface UpdateEndpointOutput {
@@ -18065,8 +17673,7 @@ export interface UpdateEndpointOutput {
 }
 
 export namespace UpdateEndpointOutput {
-  export const isa = (o: any): o is UpdateEndpointOutput =>
-    __isa(o, "UpdateEndpointOutput");
+  export const isa = (o: any): o is UpdateEndpointOutput => __isa(o, "UpdateEndpointOutput");
 }
 
 export interface UpdateEndpointWeightsAndCapacitiesInput {
@@ -18121,8 +17728,7 @@ export interface UpdateExperimentRequest {
 }
 
 export namespace UpdateExperimentRequest {
-  export const isa = (o: any): o is UpdateExperimentRequest =>
-    __isa(o, "UpdateExperimentRequest");
+  export const isa = (o: any): o is UpdateExperimentRequest => __isa(o, "UpdateExperimentRequest");
 }
 
 export interface UpdateExperimentResponse {
@@ -18134,8 +17740,7 @@ export interface UpdateExperimentResponse {
 }
 
 export namespace UpdateExperimentResponse {
-  export const isa = (o: any): o is UpdateExperimentResponse =>
-    __isa(o, "UpdateExperimentResponse");
+  export const isa = (o: any): o is UpdateExperimentResponse => __isa(o, "UpdateExperimentResponse");
 }
 
 export interface UpdateMonitoringScheduleRequest {
@@ -18154,8 +17759,7 @@ export interface UpdateMonitoringScheduleRequest {
 }
 
 export namespace UpdateMonitoringScheduleRequest {
-  export const isa = (o: any): o is UpdateMonitoringScheduleRequest =>
-    __isa(o, "UpdateMonitoringScheduleRequest");
+  export const isa = (o: any): o is UpdateMonitoringScheduleRequest => __isa(o, "UpdateMonitoringScheduleRequest");
 }
 
 export interface UpdateMonitoringScheduleResponse {
@@ -18167,8 +17771,7 @@ export interface UpdateMonitoringScheduleResponse {
 }
 
 export namespace UpdateMonitoringScheduleResponse {
-  export const isa = (o: any): o is UpdateMonitoringScheduleResponse =>
-    __isa(o, "UpdateMonitoringScheduleResponse");
+  export const isa = (o: any): o is UpdateMonitoringScheduleResponse => __isa(o, "UpdateMonitoringScheduleResponse");
 }
 
 export interface UpdateNotebookInstanceInput {
@@ -18282,8 +17885,7 @@ export interface UpdateNotebookInstanceInput {
 }
 
 export namespace UpdateNotebookInstanceInput {
-  export const isa = (o: any): o is UpdateNotebookInstanceInput =>
-    __isa(o, "UpdateNotebookInstanceInput");
+  export const isa = (o: any): o is UpdateNotebookInstanceInput => __isa(o, "UpdateNotebookInstanceInput");
 }
 
 export interface UpdateNotebookInstanceLifecycleConfigInput {
@@ -18308,9 +17910,7 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
 }
 
 export namespace UpdateNotebookInstanceLifecycleConfigInput {
-  export const isa = (
-    o: any
-  ): o is UpdateNotebookInstanceLifecycleConfigInput =>
+  export const isa = (o: any): o is UpdateNotebookInstanceLifecycleConfigInput =>
     __isa(o, "UpdateNotebookInstanceLifecycleConfigInput");
 }
 
@@ -18319,9 +17919,7 @@ export interface UpdateNotebookInstanceLifecycleConfigOutput {
 }
 
 export namespace UpdateNotebookInstanceLifecycleConfigOutput {
-  export const isa = (
-    o: any
-  ): o is UpdateNotebookInstanceLifecycleConfigOutput =>
+  export const isa = (o: any): o is UpdateNotebookInstanceLifecycleConfigOutput =>
     __isa(o, "UpdateNotebookInstanceLifecycleConfigOutput");
 }
 
@@ -18330,8 +17928,7 @@ export interface UpdateNotebookInstanceOutput {
 }
 
 export namespace UpdateNotebookInstanceOutput {
-  export const isa = (o: any): o is UpdateNotebookInstanceOutput =>
-    __isa(o, "UpdateNotebookInstanceOutput");
+  export const isa = (o: any): o is UpdateNotebookInstanceOutput => __isa(o, "UpdateNotebookInstanceOutput");
 }
 
 export interface UpdateTrialComponentRequest {
@@ -18395,8 +17992,7 @@ export interface UpdateTrialComponentRequest {
 }
 
 export namespace UpdateTrialComponentRequest {
-  export const isa = (o: any): o is UpdateTrialComponentRequest =>
-    __isa(o, "UpdateTrialComponentRequest");
+  export const isa = (o: any): o is UpdateTrialComponentRequest => __isa(o, "UpdateTrialComponentRequest");
 }
 
 export interface UpdateTrialComponentResponse {
@@ -18408,8 +18004,7 @@ export interface UpdateTrialComponentResponse {
 }
 
 export namespace UpdateTrialComponentResponse {
-  export const isa = (o: any): o is UpdateTrialComponentResponse =>
-    __isa(o, "UpdateTrialComponentResponse");
+  export const isa = (o: any): o is UpdateTrialComponentResponse => __isa(o, "UpdateTrialComponentResponse");
 }
 
 export interface UpdateTrialRequest {
@@ -18428,8 +18023,7 @@ export interface UpdateTrialRequest {
 }
 
 export namespace UpdateTrialRequest {
-  export const isa = (o: any): o is UpdateTrialRequest =>
-    __isa(o, "UpdateTrialRequest");
+  export const isa = (o: any): o is UpdateTrialRequest => __isa(o, "UpdateTrialRequest");
 }
 
 export interface UpdateTrialResponse {
@@ -18441,8 +18035,7 @@ export interface UpdateTrialResponse {
 }
 
 export namespace UpdateTrialResponse {
-  export const isa = (o: any): o is UpdateTrialResponse =>
-    __isa(o, "UpdateTrialResponse");
+  export const isa = (o: any): o is UpdateTrialResponse => __isa(o, "UpdateTrialResponse");
 }
 
 export interface UpdateUserProfileRequest {
@@ -18464,8 +18057,7 @@ export interface UpdateUserProfileRequest {
 }
 
 export namespace UpdateUserProfileRequest {
-  export const isa = (o: any): o is UpdateUserProfileRequest =>
-    __isa(o, "UpdateUserProfileRequest");
+  export const isa = (o: any): o is UpdateUserProfileRequest => __isa(o, "UpdateUserProfileRequest");
 }
 
 export interface UpdateUserProfileResponse {
@@ -18477,8 +18069,7 @@ export interface UpdateUserProfileResponse {
 }
 
 export namespace UpdateUserProfileResponse {
-  export const isa = (o: any): o is UpdateUserProfileResponse =>
-    __isa(o, "UpdateUserProfileResponse");
+  export const isa = (o: any): o is UpdateUserProfileResponse => __isa(o, "UpdateUserProfileResponse");
 }
 
 export interface UpdateWorkforceRequest {
@@ -18499,8 +18090,7 @@ export interface UpdateWorkforceRequest {
 }
 
 export namespace UpdateWorkforceRequest {
-  export const isa = (o: any): o is UpdateWorkforceRequest =>
-    __isa(o, "UpdateWorkforceRequest");
+  export const isa = (o: any): o is UpdateWorkforceRequest => __isa(o, "UpdateWorkforceRequest");
 }
 
 export interface UpdateWorkforceResponse {
@@ -18515,8 +18105,7 @@ export interface UpdateWorkforceResponse {
 }
 
 export namespace UpdateWorkforceResponse {
-  export const isa = (o: any): o is UpdateWorkforceResponse =>
-    __isa(o, "UpdateWorkforceResponse");
+  export const isa = (o: any): o is UpdateWorkforceResponse => __isa(o, "UpdateWorkforceResponse");
 }
 
 export interface UpdateWorkteamRequest {
@@ -18544,8 +18133,7 @@ export interface UpdateWorkteamRequest {
 }
 
 export namespace UpdateWorkteamRequest {
-  export const isa = (o: any): o is UpdateWorkteamRequest =>
-    __isa(o, "UpdateWorkteamRequest");
+  export const isa = (o: any): o is UpdateWorkteamRequest => __isa(o, "UpdateWorkteamRequest");
 }
 
 export interface UpdateWorkteamResponse {
@@ -18557,8 +18145,7 @@ export interface UpdateWorkteamResponse {
 }
 
 export namespace UpdateWorkteamResponse {
-  export const isa = (o: any): o is UpdateWorkteamResponse =>
-    __isa(o, "UpdateWorkteamResponse");
+  export const isa = (o: any): o is UpdateWorkteamResponse => __isa(o, "UpdateWorkteamResponse");
 }
 
 /**
@@ -18619,8 +18206,7 @@ export interface UserProfileDetails {
 }
 
 export namespace UserProfileDetails {
-  export const isa = (o: any): o is UserProfileDetails =>
-    __isa(o, "UserProfileDetails");
+  export const isa = (o: any): o is UserProfileDetails => __isa(o, "UserProfileDetails");
 }
 
 export enum UserProfileSortKey {

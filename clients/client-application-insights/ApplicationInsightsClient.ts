@@ -1,35 +1,14 @@
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
-import {
-  CreateComponentCommandInput,
-  CreateComponentCommandOutput
-} from "./commands/CreateComponentCommand";
-import {
-  CreateLogPatternCommandInput,
-  CreateLogPatternCommandOutput
-} from "./commands/CreateLogPatternCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
-import {
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput
-} from "./commands/DeleteComponentCommand";
-import {
-  DeleteLogPatternCommandInput,
-  DeleteLogPatternCommandOutput
-} from "./commands/DeleteLogPatternCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
+import { CreateLogPatternCommandInput, CreateLogPatternCommandOutput } from "./commands/CreateLogPatternCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
+import { DeleteLogPatternCommandInput, DeleteLogPatternCommandOutput } from "./commands/DeleteLogPatternCommand";
 import {
   DescribeApplicationCommandInput,
   DescribeApplicationCommandOutput
 } from "./commands/DescribeApplicationCommand";
-import {
-  DescribeComponentCommandInput,
-  DescribeComponentCommandOutput
-} from "./commands/DescribeComponentCommand";
+import { DescribeComponentCommandInput, DescribeComponentCommandOutput } from "./commands/DescribeComponentCommand";
 import {
   DescribeComponentConfigurationCommandInput,
   DescribeComponentConfigurationCommandOutput
@@ -38,74 +17,38 @@ import {
   DescribeComponentConfigurationRecommendationCommandInput,
   DescribeComponentConfigurationRecommendationCommandOutput
 } from "./commands/DescribeComponentConfigurationRecommendationCommand";
-import {
-  DescribeLogPatternCommandInput,
-  DescribeLogPatternCommandOutput
-} from "./commands/DescribeLogPatternCommand";
+import { DescribeLogPatternCommandInput, DescribeLogPatternCommandOutput } from "./commands/DescribeLogPatternCommand";
 import {
   DescribeObservationCommandInput,
   DescribeObservationCommandOutput
 } from "./commands/DescribeObservationCommand";
-import {
-  DescribeProblemCommandInput,
-  DescribeProblemCommandOutput
-} from "./commands/DescribeProblemCommand";
+import { DescribeProblemCommandInput, DescribeProblemCommandOutput } from "./commands/DescribeProblemCommand";
 import {
   DescribeProblemObservationsCommandInput,
   DescribeProblemObservationsCommandOutput
 } from "./commands/DescribeProblemObservationsCommand";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand";
-import {
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput
-} from "./commands/ListComponentsCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import {
   ListConfigurationHistoryCommandInput,
   ListConfigurationHistoryCommandOutput
 } from "./commands/ListConfigurationHistoryCommand";
-import {
-  ListLogPatternSetsCommandInput,
-  ListLogPatternSetsCommandOutput
-} from "./commands/ListLogPatternSetsCommand";
-import {
-  ListLogPatternsCommandInput,
-  ListLogPatternsCommandOutput
-} from "./commands/ListLogPatternsCommand";
-import {
-  ListProblemsCommandInput,
-  ListProblemsCommandOutput
-} from "./commands/ListProblemsCommand";
+import { ListLogPatternSetsCommandInput, ListLogPatternSetsCommandOutput } from "./commands/ListLogPatternSetsCommand";
+import { ListLogPatternsCommandInput, ListLogPatternsCommandOutput } from "./commands/ListLogPatternsCommand";
+import { ListProblemsCommandInput, ListProblemsCommandOutput } from "./commands/ListProblemsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
-import {
-  UpdateComponentCommandInput,
-  UpdateComponentCommandOutput
-} from "./commands/UpdateComponentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
+import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
 import {
   UpdateComponentConfigurationCommandInput,
   UpdateComponentConfigurationCommandOutput
 } from "./commands/UpdateComponentConfigurationCommand";
-import {
-  UpdateLogPatternCommandInput,
-  UpdateLogPatternCommandOutput
-} from "./commands/UpdateLogPatternCommand";
+import { UpdateLogPatternCommandInput, UpdateLogPatternCommandOutput } from "./commands/UpdateLogPatternCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -122,12 +65,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -216,8 +154,7 @@ export type ServiceOutputTypes =
   | UpdateComponentConfigurationCommandOutput
   | UpdateLogPatternCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -301,9 +238,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApplicationInsightsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApplicationInsightsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -312,9 +247,7 @@ export type ApplicationInsightsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApplicationInsightsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApplicationInsightsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

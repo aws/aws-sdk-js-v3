@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeLoadBalancerAttributesInput,
-  DescribeLoadBalancerAttributesOutput
-} from "../models/index";
+import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeLoadBalancerAttributesCommand,
   serializeAws_queryDescribeLoadBalancerAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLoadBalancerAttributesCommandInput = DescribeLoadBalancerAttributesInput;
-export type DescribeLoadBalancerAttributesCommandOutput = DescribeLoadBalancerAttributesOutput &
-  __MetadataBearer;
+export type DescribeLoadBalancerAttributesCommandOutput = DescribeLoadBalancerAttributesOutput & __MetadataBearer;
 
 export class DescribeLoadBalancerAttributesCommand extends $Command<
   DescribeLoadBalancerAttributesCommandInput,
@@ -49,13 +42,8 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoadBalancerAttributesCommandInput,
-    DescribeLoadBalancerAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoadBalancerAttributesCommandInput, DescribeLoadBalancerAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class DescribeLoadBalancerAttributesCommand extends $Command<
     input: DescribeLoadBalancerAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLoadBalancerAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeLoadBalancerAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeLoadBalancerAttributesCommandOutput> {
-    return deserializeAws_queryDescribeLoadBalancerAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeLoadBalancerAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

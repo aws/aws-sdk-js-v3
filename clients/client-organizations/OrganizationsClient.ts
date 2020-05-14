@@ -1,55 +1,25 @@
-import {
-  AcceptHandshakeCommandInput,
-  AcceptHandshakeCommandOutput
-} from "./commands/AcceptHandshakeCommand";
-import {
-  AttachPolicyCommandInput,
-  AttachPolicyCommandOutput
-} from "./commands/AttachPolicyCommand";
-import {
-  CancelHandshakeCommandInput,
-  CancelHandshakeCommandOutput
-} from "./commands/CancelHandshakeCommand";
-import {
-  CreateAccountCommandInput,
-  CreateAccountCommandOutput
-} from "./commands/CreateAccountCommand";
+import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "./commands/AcceptHandshakeCommand";
+import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand";
+import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "./commands/CancelHandshakeCommand";
+import { CreateAccountCommandInput, CreateAccountCommandOutput } from "./commands/CreateAccountCommand";
 import {
   CreateGovCloudAccountCommandInput,
   CreateGovCloudAccountCommandOutput
 } from "./commands/CreateGovCloudAccountCommand";
-import {
-  CreateOrganizationCommandInput,
-  CreateOrganizationCommandOutput
-} from "./commands/CreateOrganizationCommand";
+import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand";
 import {
   CreateOrganizationalUnitCommandInput,
   CreateOrganizationalUnitCommandOutput
 } from "./commands/CreateOrganizationalUnitCommand";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand";
-import {
-  DeclineHandshakeCommandInput,
-  DeclineHandshakeCommandOutput
-} from "./commands/DeclineHandshakeCommand";
-import {
-  DeleteOrganizationCommandInput,
-  DeleteOrganizationCommandOutput
-} from "./commands/DeleteOrganizationCommand";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
+import { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "./commands/DeclineHandshakeCommand";
+import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand";
 import {
   DeleteOrganizationalUnitCommandInput,
   DeleteOrganizationalUnitCommandOutput
 } from "./commands/DeleteOrganizationalUnitCommand";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand";
-import {
-  DescribeAccountCommandInput,
-  DescribeAccountCommandOutput
-} from "./commands/DescribeAccountCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
+import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
 import {
   DescribeCreateAccountStatusCommandInput,
   DescribeCreateAccountStatusCommandOutput
@@ -58,10 +28,7 @@ import {
   DescribeEffectivePolicyCommandInput,
   DescribeEffectivePolicyCommandOutput
 } from "./commands/DescribeEffectivePolicyCommand";
-import {
-  DescribeHandshakeCommandInput,
-  DescribeHandshakeCommandOutput
-} from "./commands/DescribeHandshakeCommand";
+import { DescribeHandshakeCommandInput, DescribeHandshakeCommandOutput } from "./commands/DescribeHandshakeCommand";
 import {
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput
@@ -70,58 +37,34 @@ import {
   DescribeOrganizationalUnitCommandInput,
   DescribeOrganizationalUnitCommandOutput
 } from "./commands/DescribeOrganizationalUnitCommand";
-import {
-  DescribePolicyCommandInput,
-  DescribePolicyCommandOutput
-} from "./commands/DescribePolicyCommand";
-import {
-  DetachPolicyCommandInput,
-  DetachPolicyCommandOutput
-} from "./commands/DetachPolicyCommand";
+import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "./commands/DescribePolicyCommand";
+import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "./commands/DetachPolicyCommand";
 import {
   DisableAWSServiceAccessCommandInput,
   DisableAWSServiceAccessCommandOutput
 } from "./commands/DisableAWSServiceAccessCommand";
-import {
-  DisablePolicyTypeCommandInput,
-  DisablePolicyTypeCommandOutput
-} from "./commands/DisablePolicyTypeCommand";
+import { DisablePolicyTypeCommandInput, DisablePolicyTypeCommandOutput } from "./commands/DisablePolicyTypeCommand";
 import {
   EnableAWSServiceAccessCommandInput,
   EnableAWSServiceAccessCommandOutput
 } from "./commands/EnableAWSServiceAccessCommand";
-import {
-  EnableAllFeaturesCommandInput,
-  EnableAllFeaturesCommandOutput
-} from "./commands/EnableAllFeaturesCommand";
-import {
-  EnablePolicyTypeCommandInput,
-  EnablePolicyTypeCommandOutput
-} from "./commands/EnablePolicyTypeCommand";
+import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "./commands/EnableAllFeaturesCommand";
+import { EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput } from "./commands/EnablePolicyTypeCommand";
 import {
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput
 } from "./commands/InviteAccountToOrganizationCommand";
-import {
-  LeaveOrganizationCommandInput,
-  LeaveOrganizationCommandOutput
-} from "./commands/LeaveOrganizationCommand";
+import { LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput } from "./commands/LeaveOrganizationCommand";
 import {
   ListAWSServiceAccessForOrganizationCommandInput,
   ListAWSServiceAccessForOrganizationCommandOutput
 } from "./commands/ListAWSServiceAccessForOrganizationCommand";
-import {
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput
-} from "./commands/ListAccountsCommand";
+import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
 import {
   ListAccountsForParentCommandInput,
   ListAccountsForParentCommandOutput
 } from "./commands/ListAccountsForParentCommand";
-import {
-  ListChildrenCommandInput,
-  ListChildrenCommandOutput
-} from "./commands/ListChildrenCommand";
+import { ListChildrenCommandInput, ListChildrenCommandOutput } from "./commands/ListChildrenCommand";
 import {
   ListCreateAccountStatusCommandInput,
   ListCreateAccountStatusCommandOutput
@@ -138,22 +81,13 @@ import {
   ListOrganizationalUnitsForParentCommandInput,
   ListOrganizationalUnitsForParentCommandOutput
 } from "./commands/ListOrganizationalUnitsForParentCommand";
-import {
-  ListParentsCommandInput,
-  ListParentsCommandOutput
-} from "./commands/ListParentsCommand";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand";
+import { ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPoliciesForTargetCommandInput,
   ListPoliciesForTargetCommandOutput
 } from "./commands/ListPoliciesForTargetCommand";
-import {
-  ListRootsCommandInput,
-  ListRootsCommandOutput
-} from "./commands/ListRootsCommand";
+import { ListRootsCommandInput, ListRootsCommandOutput } from "./commands/ListRootsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -162,30 +96,18 @@ import {
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput
 } from "./commands/ListTargetsForPolicyCommand";
-import {
-  MoveAccountCommandInput,
-  MoveAccountCommandOutput
-} from "./commands/MoveAccountCommand";
+import { MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand";
 import {
   RemoveAccountFromOrganizationCommandInput,
   RemoveAccountFromOrganizationCommandOutput
 } from "./commands/RemoveAccountFromOrganizationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateOrganizationalUnitCommandInput,
   UpdateOrganizationalUnitCommandOutput
 } from "./commands/UpdateOrganizationalUnitCommand";
-import {
-  UpdatePolicyCommandInput,
-  UpdatePolicyCommandOutput
-} from "./commands/UpdatePolicyCommand";
+import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "./commands/UpdatePolicyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -202,12 +124,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -336,8 +253,7 @@ export type ServiceOutputTypes =
   | UpdateOrganizationalUnitCommandOutput
   | UpdatePolicyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -421,9 +337,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type OrganizationsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type OrganizationsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -432,9 +346,7 @@ export type OrganizationsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type OrganizationsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

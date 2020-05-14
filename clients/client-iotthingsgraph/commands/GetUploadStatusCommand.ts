@@ -1,21 +1,11 @@
-import {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTThingsGraphClient";
-import {
-  GetUploadStatusRequest,
-  GetUploadStatusResponse
-} from "../models/index";
+import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
+import { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetUploadStatusCommand,
   serializeAws_json1_1GetUploadStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetUploadStatusCommandInput = GetUploadStatusRequest;
-export type GetUploadStatusCommandOutput = GetUploadStatusResponse &
-  __MetadataBearer;
+export type GetUploadStatusCommandOutput = GetUploadStatusResponse & __MetadataBearer;
 
 export class GetUploadStatusCommand extends $Command<
   GetUploadStatusCommandInput,
@@ -50,9 +39,7 @@ export class GetUploadStatusCommand extends $Command<
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUploadStatusCommandInput, GetUploadStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetUploadStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetUploadStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetUploadStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetUploadStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetUploadStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUploadStatusCommandOutput> {
     return deserializeAws_json1_1GetUploadStatusCommand(output, context);
   }
 

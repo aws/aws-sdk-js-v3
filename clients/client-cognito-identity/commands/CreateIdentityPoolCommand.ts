@@ -1,8 +1,4 @@
-import {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoIdentityClient";
+import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
 import { CreateIdentityPoolInput, IdentityPool } from "../models/index";
 import {
   deserializeAws_json1_1CreateIdentityPoolCommand,
@@ -10,10 +6,7 @@ import {
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -47,9 +40,7 @@ export class CreateIdentityPoolCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateIdentityPoolCommandInput, CreateIdentityPoolCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -65,17 +56,11 @@ export class CreateIdentityPoolCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateIdentityPoolCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateIdentityPoolCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateIdentityPoolCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateIdentityPoolCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIdentityPoolCommandOutput> {
     return deserializeAws_json1_1CreateIdentityPoolCommand(output, context);
   }
 

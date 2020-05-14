@@ -1,21 +1,11 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AlexaForBusinessClient";
-import {
-  RevokeInvitationRequest,
-  RevokeInvitationResponse
-} from "../models/index";
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
+import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/index";
 import {
   deserializeAws_json1_1RevokeInvitationCommand,
   serializeAws_json1_1RevokeInvitationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeInvitationCommandInput = RevokeInvitationRequest;
-export type RevokeInvitationCommandOutput = RevokeInvitationResponse &
-  __MetadataBearer;
+export type RevokeInvitationCommandOutput = RevokeInvitationResponse & __MetadataBearer;
 
 export class RevokeInvitationCommand extends $Command<
   RevokeInvitationCommandInput,
@@ -50,9 +39,7 @@ export class RevokeInvitationCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeInvitationCommandInput, RevokeInvitationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class RevokeInvitationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RevokeInvitationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RevokeInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RevokeInvitationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RevokeInvitationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeInvitationCommandOutput> {
     return deserializeAws_json1_1RevokeInvitationCommand(output, context);
   }
 

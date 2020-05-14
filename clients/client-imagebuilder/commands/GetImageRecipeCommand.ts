@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient";
+import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
 import { GetImageRecipeRequest, GetImageRecipeResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetImageRecipeCommand,
   serializeAws_restJson1_1GetImageRecipeCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetImageRecipeCommandInput = GetImageRecipeRequest;
-export type GetImageRecipeCommandOutput = GetImageRecipeResponse &
-  __MetadataBearer;
+export type GetImageRecipeCommandOutput = GetImageRecipeResponse & __MetadataBearer;
 
 export class GetImageRecipeCommand extends $Command<
   GetImageRecipeCommandInput,
@@ -47,9 +39,7 @@ export class GetImageRecipeCommand extends $Command<
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetImageRecipeCommandInput, GetImageRecipeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetImageRecipeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetImageRecipeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetImageRecipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetImageRecipeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetImageRecipeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetImageRecipeCommandOutput> {
     return deserializeAws_restJson1_1GetImageRecipeCommand(output, context);
   }
 

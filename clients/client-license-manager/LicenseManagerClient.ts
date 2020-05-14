@@ -10,10 +10,7 @@ import {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput
 } from "./commands/GetLicenseConfigurationCommand";
-import {
-  GetServiceSettingsCommandInput,
-  GetServiceSettingsCommandOutput
-} from "./commands/GetServiceSettingsCommand";
+import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "./commands/GetServiceSettingsCommand";
 import {
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput
@@ -42,14 +39,8 @@ import {
   ListUsageForLicenseConfigurationCommandInput,
   ListUsageForLicenseConfigurationCommandOutput
 } from "./commands/ListUsageForLicenseConfigurationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateLicenseConfigurationCommandInput,
   UpdateLicenseConfigurationCommandOutput
@@ -78,12 +69,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -150,8 +136,7 @@ export type ServiceOutputTypes =
   | UpdateLicenseSpecificationsForResourceCommandOutput
   | UpdateServiceSettingsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -235,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LicenseManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LicenseManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -246,9 +229,7 @@ export type LicenseManagerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LicenseManagerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LicenseManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

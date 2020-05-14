@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AWSRegion {
@@ -43,8 +40,7 @@ export interface DeleteReportDefinitionRequest {
 }
 
 export namespace DeleteReportDefinitionRequest {
-  export const isa = (o: any): o is DeleteReportDefinitionRequest =>
-    __isa(o, "DeleteReportDefinitionRequest");
+  export const isa = (o: any): o is DeleteReportDefinitionRequest => __isa(o, "DeleteReportDefinitionRequest");
 }
 
 /**
@@ -59,8 +55,7 @@ export interface DeleteReportDefinitionResponse {
 }
 
 export namespace DeleteReportDefinitionResponse {
-  export const isa = (o: any): o is DeleteReportDefinitionResponse =>
-    __isa(o, "DeleteReportDefinitionResponse");
+  export const isa = (o: any): o is DeleteReportDefinitionResponse => __isa(o, "DeleteReportDefinitionResponse");
 }
 
 /**
@@ -80,8 +75,7 @@ export interface DescribeReportDefinitionsRequest {
 }
 
 export namespace DescribeReportDefinitionsRequest {
-  export const isa = (o: any): o is DescribeReportDefinitionsRequest =>
-    __isa(o, "DescribeReportDefinitionsRequest");
+  export const isa = (o: any): o is DescribeReportDefinitionsRequest => __isa(o, "DescribeReportDefinitionsRequest");
 }
 
 /**
@@ -101,16 +95,13 @@ export interface DescribeReportDefinitionsResponse {
 }
 
 export namespace DescribeReportDefinitionsResponse {
-  export const isa = (o: any): o is DescribeReportDefinitionsResponse =>
-    __isa(o, "DescribeReportDefinitionsResponse");
+  export const isa = (o: any): o is DescribeReportDefinitionsResponse => __isa(o, "DescribeReportDefinitionsResponse");
 }
 
 /**
  * <p>A report with the specified name already exists in the account. Specify a different report name.</p>
  */
-export interface DuplicateReportNameException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DuplicateReportNameException extends __SmithyException, $MetadataBearer {
   name: "DuplicateReportNameException";
   $fault: "client";
   /**
@@ -120,16 +111,13 @@ export interface DuplicateReportNameException
 }
 
 export namespace DuplicateReportNameException {
-  export const isa = (o: any): o is DuplicateReportNameException =>
-    __isa(o, "DuplicateReportNameException");
+  export const isa = (o: any): o is DuplicateReportNameException => __isa(o, "DuplicateReportNameException");
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   /**
@@ -139,8 +127,7 @@ export interface InternalErrorException
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 export interface ModifyReportDefinitionRequest {
@@ -161,8 +148,7 @@ export interface ModifyReportDefinitionRequest {
 }
 
 export namespace ModifyReportDefinitionRequest {
-  export const isa = (o: any): o is ModifyReportDefinitionRequest =>
-    __isa(o, "ModifyReportDefinitionRequest");
+  export const isa = (o: any): o is ModifyReportDefinitionRequest => __isa(o, "ModifyReportDefinitionRequest");
 }
 
 export interface ModifyReportDefinitionResponse {
@@ -170,8 +156,7 @@ export interface ModifyReportDefinitionResponse {
 }
 
 export namespace ModifyReportDefinitionResponse {
-  export const isa = (o: any): o is ModifyReportDefinitionResponse =>
-    __isa(o, "ModifyReportDefinitionResponse");
+  export const isa = (o: any): o is ModifyReportDefinitionResponse => __isa(o, "ModifyReportDefinitionResponse");
 }
 
 /**
@@ -187,8 +172,7 @@ export interface PutReportDefinitionRequest {
 }
 
 export namespace PutReportDefinitionRequest {
-  export const isa = (o: any): o is PutReportDefinitionRequest =>
-    __isa(o, "PutReportDefinitionRequest");
+  export const isa = (o: any): o is PutReportDefinitionRequest => __isa(o, "PutReportDefinitionRequest");
 }
 
 /**
@@ -199,8 +183,7 @@ export interface PutReportDefinitionResponse {
 }
 
 export namespace PutReportDefinitionResponse {
-  export const isa = (o: any): o is PutReportDefinitionResponse =>
-    __isa(o, "PutReportDefinitionResponse");
+  export const isa = (o: any): o is PutReportDefinitionResponse => __isa(o, "PutReportDefinitionResponse");
 }
 
 /**
@@ -272,8 +255,7 @@ export interface ReportDefinition {
 }
 
 export namespace ReportDefinition {
-  export const isa = (o: any): o is ReportDefinition =>
-    __isa(o, "ReportDefinition");
+  export const isa = (o: any): o is ReportDefinition => __isa(o, "ReportDefinition");
 }
 
 export enum ReportFormat {
@@ -284,9 +266,7 @@ export enum ReportFormat {
 /**
  * <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  */
-export interface ReportLimitReachedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReportLimitReachedException extends __SmithyException, $MetadataBearer {
   name: "ReportLimitReachedException";
   $fault: "client";
   /**
@@ -296,8 +276,7 @@ export interface ReportLimitReachedException
 }
 
 export namespace ReportLimitReachedException {
-  export const isa = (o: any): o is ReportLimitReachedException =>
-    __isa(o, "ReportLimitReachedException");
+  export const isa = (o: any): o is ReportLimitReachedException => __isa(o, "ReportLimitReachedException");
 }
 
 export enum ReportVersioning {
@@ -317,9 +296,7 @@ export enum TimeUnit {
 /**
  * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
@@ -329,6 +306,5 @@ export interface ValidationException
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

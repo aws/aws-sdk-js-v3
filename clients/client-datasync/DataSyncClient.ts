@@ -2,46 +2,16 @@ import {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput
 } from "./commands/CancelTaskExecutionCommand";
-import {
-  CreateAgentCommandInput,
-  CreateAgentCommandOutput
-} from "./commands/CreateAgentCommand";
-import {
-  CreateLocationEfsCommandInput,
-  CreateLocationEfsCommandOutput
-} from "./commands/CreateLocationEfsCommand";
-import {
-  CreateLocationNfsCommandInput,
-  CreateLocationNfsCommandOutput
-} from "./commands/CreateLocationNfsCommand";
-import {
-  CreateLocationS3CommandInput,
-  CreateLocationS3CommandOutput
-} from "./commands/CreateLocationS3Command";
-import {
-  CreateLocationSmbCommandInput,
-  CreateLocationSmbCommandOutput
-} from "./commands/CreateLocationSmbCommand";
-import {
-  CreateTaskCommandInput,
-  CreateTaskCommandOutput
-} from "./commands/CreateTaskCommand";
-import {
-  DeleteAgentCommandInput,
-  DeleteAgentCommandOutput
-} from "./commands/DeleteAgentCommand";
-import {
-  DeleteLocationCommandInput,
-  DeleteLocationCommandOutput
-} from "./commands/DeleteLocationCommand";
-import {
-  DeleteTaskCommandInput,
-  DeleteTaskCommandOutput
-} from "./commands/DeleteTaskCommand";
-import {
-  DescribeAgentCommandInput,
-  DescribeAgentCommandOutput
-} from "./commands/DescribeAgentCommand";
+import { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
+import { CreateLocationEfsCommandInput, CreateLocationEfsCommandOutput } from "./commands/CreateLocationEfsCommand";
+import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "./commands/CreateLocationNfsCommand";
+import { CreateLocationS3CommandInput, CreateLocationS3CommandOutput } from "./commands/CreateLocationS3Command";
+import { CreateLocationSmbCommandInput, CreateLocationSmbCommandOutput } from "./commands/CreateLocationSmbCommand";
+import { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
+import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
+import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand";
+import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
+import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
 import {
   DescribeLocationEfsCommandInput,
   DescribeLocationEfsCommandOutput
@@ -50,62 +20,29 @@ import {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput
 } from "./commands/DescribeLocationNfsCommand";
-import {
-  DescribeLocationS3CommandInput,
-  DescribeLocationS3CommandOutput
-} from "./commands/DescribeLocationS3Command";
+import { DescribeLocationS3CommandInput, DescribeLocationS3CommandOutput } from "./commands/DescribeLocationS3Command";
 import {
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput
 } from "./commands/DescribeLocationSmbCommand";
-import {
-  DescribeTaskCommandInput,
-  DescribeTaskCommandOutput
-} from "./commands/DescribeTaskCommand";
+import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput
 } from "./commands/DescribeTaskExecutionCommand";
-import {
-  ListAgentsCommandInput,
-  ListAgentsCommandOutput
-} from "./commands/ListAgentsCommand";
-import {
-  ListLocationsCommandInput,
-  ListLocationsCommandOutput
-} from "./commands/ListLocationsCommand";
+import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
+import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTaskExecutionsCommandInput,
-  ListTaskExecutionsCommandOutput
-} from "./commands/ListTaskExecutionsCommand";
-import {
-  ListTasksCommandInput,
-  ListTasksCommandOutput
-} from "./commands/ListTasksCommand";
-import {
-  StartTaskExecutionCommandInput,
-  StartTaskExecutionCommandOutput
-} from "./commands/StartTaskExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAgentCommandInput,
-  UpdateAgentCommandOutput
-} from "./commands/UpdateAgentCommand";
-import {
-  UpdateTaskCommandInput,
-  UpdateTaskCommandOutput
-} from "./commands/UpdateTaskCommand";
+import { ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput } from "./commands/ListTaskExecutionsCommand";
+import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
+import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from "./commands/StartTaskExecutionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -122,12 +59,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -216,8 +148,7 @@ export type ServiceOutputTypes =
   | UpdateAgentCommandOutput
   | UpdateTaskCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -301,9 +232,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DataSyncClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DataSyncClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -312,9 +241,7 @@ export type DataSyncClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DataSyncClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

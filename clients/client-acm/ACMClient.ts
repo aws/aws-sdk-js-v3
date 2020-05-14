@@ -2,30 +2,15 @@ import {
   AddTagsToCertificateCommandInput,
   AddTagsToCertificateCommandOutput
 } from "./commands/AddTagsToCertificateCommand";
-import {
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
-} from "./commands/DeleteCertificateCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
 import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput
 } from "./commands/DescribeCertificateCommand";
-import {
-  ExportCertificateCommandInput,
-  ExportCertificateCommandOutput
-} from "./commands/ExportCertificateCommand";
-import {
-  GetCertificateCommandInput,
-  GetCertificateCommandOutput
-} from "./commands/GetCertificateCommand";
-import {
-  ImportCertificateCommandInput,
-  ImportCertificateCommandOutput
-} from "./commands/ImportCertificateCommand";
-import {
-  ListCertificatesCommandInput,
-  ListCertificatesCommandOutput
-} from "./commands/ListCertificatesCommand";
+import { ExportCertificateCommandInput, ExportCertificateCommandOutput } from "./commands/ExportCertificateCommand";
+import { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand";
+import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import {
   ListTagsForCertificateCommandInput,
   ListTagsForCertificateCommandOutput
@@ -34,14 +19,8 @@ import {
   RemoveTagsFromCertificateCommandInput,
   RemoveTagsFromCertificateCommandOutput
 } from "./commands/RemoveTagsFromCertificateCommand";
-import {
-  RenewCertificateCommandInput,
-  RenewCertificateCommandOutput
-} from "./commands/RenewCertificateCommand";
-import {
-  RequestCertificateCommandInput,
-  RequestCertificateCommandOutput
-} from "./commands/RequestCertificateCommand";
+import { RenewCertificateCommandInput, RenewCertificateCommandOutput } from "./commands/RenewCertificateCommand";
+import { RequestCertificateCommandInput, RequestCertificateCommandOutput } from "./commands/RequestCertificateCommand";
 import {
   ResendValidationEmailCommandInput,
   ResendValidationEmailCommandOutput
@@ -66,12 +45,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +106,7 @@ export type ServiceOutputTypes =
   | ResendValidationEmailCommandOutput
   | UpdateCertificateOptionsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +190,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ACMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ACMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +199,7 @@ export type ACMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ACMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ACMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

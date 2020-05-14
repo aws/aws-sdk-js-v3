@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
-import {
-  DescribeAlarmHistoryInput,
-  DescribeAlarmHistoryOutput
-} from "../models/index";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeAlarmHistoryCommand,
   serializeAws_queryDescribeAlarmHistoryCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAlarmHistoryCommandInput = DescribeAlarmHistoryInput;
-export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput &
-  __MetadataBearer;
+export type DescribeAlarmHistoryCommandOutput = DescribeAlarmHistoryOutput & __MetadataBearer;
 
 export class DescribeAlarmHistoryCommand extends $Command<
   DescribeAlarmHistoryCommandInput,
@@ -49,13 +38,8 @@ export class DescribeAlarmHistoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeAlarmHistoryCommandInput,
-    DescribeAlarmHistoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeAlarmHistoryCommandInput, DescribeAlarmHistoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DescribeAlarmHistoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAlarmHistoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAlarmHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeAlarmHistoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAlarmHistoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlarmHistoryCommandOutput> {
     return deserializeAws_queryDescribeAlarmHistoryCommand(output, context);
   }
 

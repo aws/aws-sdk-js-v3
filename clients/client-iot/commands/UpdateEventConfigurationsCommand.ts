@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateEventConfigurationsRequest,
-  UpdateEventConfigurationsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateEventConfigurationsCommand,
   serializeAws_restJson1_1UpdateEventConfigurationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEventConfigurationsCommandInput = UpdateEventConfigurationsRequest;
-export type UpdateEventConfigurationsCommandOutput = UpdateEventConfigurationsResponse &
-  __MetadataBearer;
+export type UpdateEventConfigurationsCommandOutput = UpdateEventConfigurationsResponse & __MetadataBearer;
 
 export class UpdateEventConfigurationsCommand extends $Command<
   UpdateEventConfigurationsCommandInput,
@@ -49,13 +38,8 @@ export class UpdateEventConfigurationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateEventConfigurationsCommandInput,
-    UpdateEventConfigurationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateEventConfigurationsCommandInput, UpdateEventConfigurationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class UpdateEventConfigurationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateEventConfigurationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateEventConfigurationsCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateEventConfigurationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateEventConfigurationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateEventConfigurationsCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEventConfigurationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateEventConfigurationsCommand(output, context);
   }
 
   // Start section: command_body_extra

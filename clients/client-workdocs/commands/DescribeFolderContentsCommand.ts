@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient";
-import {
-  DescribeFolderContentsRequest,
-  DescribeFolderContentsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
+import { DescribeFolderContentsRequest, DescribeFolderContentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeFolderContentsCommand,
   serializeAws_restJson1_1DescribeFolderContentsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFolderContentsCommandInput = DescribeFolderContentsRequest;
-export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse &
-  __MetadataBearer;
+export type DescribeFolderContentsCommandOutput = DescribeFolderContentsResponse & __MetadataBearer;
 
 export class DescribeFolderContentsCommand extends $Command<
   DescribeFolderContentsCommandInput,
@@ -49,13 +38,8 @@ export class DescribeFolderContentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFolderContentsCommandInput,
-    DescribeFolderContentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFolderContentsCommandInput, DescribeFolderContentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class DescribeFolderContentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFolderContentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFolderContentsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeFolderContentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DescribeFolderContentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFolderContentsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFolderContentsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFolderContentsCommandOutput> {
+    return deserializeAws_restJson1_1DescribeFolderContentsCommand(output, context);
   }
 
   // Start section: command_body_extra

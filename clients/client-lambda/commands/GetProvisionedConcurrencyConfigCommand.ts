@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetProvisionedConcurrencyConfigRequest,
-  GetProvisionedConcurrencyConfigResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetProvisionedConcurrencyConfigRequest, GetProvisionedConcurrencyConfigResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand,
   serializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetProvisionedConcurrencyConfigCommandInput = GetProvisionedConcurrencyConfigRequest;
-export type GetProvisionedConcurrencyConfigCommandOutput = GetProvisionedConcurrencyConfigResponse &
-  __MetadataBearer;
+export type GetProvisionedConcurrencyConfigCommandOutput = GetProvisionedConcurrencyConfigResponse & __MetadataBearer;
 
 export class GetProvisionedConcurrencyConfigCommand extends $Command<
   GetProvisionedConcurrencyConfigCommandInput,
@@ -49,13 +38,8 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetProvisionedConcurrencyConfigCommandInput,
-    GetProvisionedConcurrencyConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetProvisionedConcurrencyConfigCommandInput, GetProvisionedConcurrencyConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
     input: GetProvisionedConcurrencyConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetProvisionedConcurrencyConfigCommandOutput> {
-    return deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetProvisionedConcurrencyConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

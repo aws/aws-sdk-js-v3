@@ -1,21 +1,11 @@
-import {
-  CognitoSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoSyncClient";
-import {
-  GetBulkPublishDetailsRequest,
-  GetBulkPublishDetailsResponse
-} from "../models/index";
+import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
+import { GetBulkPublishDetailsRequest, GetBulkPublishDetailsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBulkPublishDetailsCommand,
   serializeAws_restJson1_1GetBulkPublishDetailsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBulkPublishDetailsCommandInput = GetBulkPublishDetailsRequest;
-export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse &
-  __MetadataBearer;
+export type GetBulkPublishDetailsCommandOutput = GetBulkPublishDetailsResponse & __MetadataBearer;
 
 export class GetBulkPublishDetailsCommand extends $Command<
   GetBulkPublishDetailsCommandInput,
@@ -49,13 +38,8 @@ export class GetBulkPublishDetailsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBulkPublishDetailsCommandInput,
-    GetBulkPublishDetailsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBulkPublishDetailsCommandInput, GetBulkPublishDetailsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetBulkPublishDetailsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBulkPublishDetailsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBulkPublishDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetBulkPublishDetailsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBulkPublishDetailsCommandOutput> {
-    return deserializeAws_restJson1_1GetBulkPublishDetailsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBulkPublishDetailsCommandOutput> {
+    return deserializeAws_restJson1_1GetBulkPublishDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

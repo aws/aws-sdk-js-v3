@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateLedgerRequest {
@@ -35,8 +32,7 @@ export interface CreateLedgerRequest {
 }
 
 export namespace CreateLedgerRequest {
-  export const isa = (o: any): o is CreateLedgerRequest =>
-    __isa(o, "CreateLedgerRequest");
+  export const isa = (o: any): o is CreateLedgerRequest => __isa(o, "CreateLedgerRequest");
 }
 
 export interface CreateLedgerResponse {
@@ -74,8 +70,7 @@ export interface CreateLedgerResponse {
 }
 
 export namespace CreateLedgerResponse {
-  export const isa = (o: any): o is CreateLedgerResponse =>
-    __isa(o, "CreateLedgerResponse");
+  export const isa = (o: any): o is CreateLedgerResponse => __isa(o, "CreateLedgerResponse");
 }
 
 export interface DeleteLedgerRequest {
@@ -87,8 +82,7 @@ export interface DeleteLedgerRequest {
 }
 
 export namespace DeleteLedgerRequest {
-  export const isa = (o: any): o is DeleteLedgerRequest =>
-    __isa(o, "DeleteLedgerRequest");
+  export const isa = (o: any): o is DeleteLedgerRequest => __isa(o, "DeleteLedgerRequest");
 }
 
 export interface DescribeJournalS3ExportRequest {
@@ -105,8 +99,7 @@ export interface DescribeJournalS3ExportRequest {
 }
 
 export namespace DescribeJournalS3ExportRequest {
-  export const isa = (o: any): o is DescribeJournalS3ExportRequest =>
-    __isa(o, "DescribeJournalS3ExportRequest");
+  export const isa = (o: any): o is DescribeJournalS3ExportRequest => __isa(o, "DescribeJournalS3ExportRequest");
 }
 
 export interface DescribeJournalS3ExportResponse {
@@ -119,8 +112,7 @@ export interface DescribeJournalS3ExportResponse {
 }
 
 export namespace DescribeJournalS3ExportResponse {
-  export const isa = (o: any): o is DescribeJournalS3ExportResponse =>
-    __isa(o, "DescribeJournalS3ExportResponse");
+  export const isa = (o: any): o is DescribeJournalS3ExportResponse => __isa(o, "DescribeJournalS3ExportResponse");
 }
 
 export interface DescribeLedgerRequest {
@@ -132,8 +124,7 @@ export interface DescribeLedgerRequest {
 }
 
 export namespace DescribeLedgerRequest {
-  export const isa = (o: any): o is DescribeLedgerRequest =>
-    __isa(o, "DescribeLedgerRequest");
+  export const isa = (o: any): o is DescribeLedgerRequest => __isa(o, "DescribeLedgerRequest");
 }
 
 export interface DescribeLedgerResponse {
@@ -171,8 +162,7 @@ export interface DescribeLedgerResponse {
 }
 
 export namespace DescribeLedgerResponse {
-  export const isa = (o: any): o is DescribeLedgerResponse =>
-    __isa(o, "DescribeLedgerResponse");
+  export const isa = (o: any): o is DescribeLedgerResponse => __isa(o, "DescribeLedgerResponse");
 }
 
 export interface ExportJournalToS3Request {
@@ -231,8 +221,7 @@ export interface ExportJournalToS3Request {
 }
 
 export namespace ExportJournalToS3Request {
-  export const isa = (o: any): o is ExportJournalToS3Request =>
-    __isa(o, "ExportJournalToS3Request");
+  export const isa = (o: any): o is ExportJournalToS3Request => __isa(o, "ExportJournalToS3Request");
 }
 
 export interface ExportJournalToS3Response {
@@ -246,8 +235,7 @@ export interface ExportJournalToS3Response {
 }
 
 export namespace ExportJournalToS3Response {
-  export const isa = (o: any): o is ExportJournalToS3Response =>
-    __isa(o, "ExportJournalToS3Response");
+  export const isa = (o: any): o is ExportJournalToS3Response => __isa(o, "ExportJournalToS3Response");
 }
 
 export enum ExportStatus {
@@ -282,8 +270,7 @@ export interface GetBlockRequest {
 }
 
 export namespace GetBlockRequest {
-  export const isa = (o: any): o is GetBlockRequest =>
-    __isa(o, "GetBlockRequest");
+  export const isa = (o: any): o is GetBlockRequest => __isa(o, "GetBlockRequest");
 }
 
 export interface GetBlockResponse {
@@ -302,8 +289,7 @@ export interface GetBlockResponse {
 }
 
 export namespace GetBlockResponse {
-  export const isa = (o: any): o is GetBlockResponse =>
-    __isa(o, "GetBlockResponse");
+  export const isa = (o: any): o is GetBlockResponse => __isa(o, "GetBlockResponse");
 }
 
 export interface GetDigestRequest {
@@ -315,8 +301,7 @@ export interface GetDigestRequest {
 }
 
 export namespace GetDigestRequest {
-  export const isa = (o: any): o is GetDigestRequest =>
-    __isa(o, "GetDigestRequest");
+  export const isa = (o: any): o is GetDigestRequest => __isa(o, "GetDigestRequest");
 }
 
 export interface GetDigestResponse {
@@ -336,8 +321,7 @@ export interface GetDigestResponse {
 }
 
 export namespace GetDigestResponse {
-  export const isa = (o: any): o is GetDigestResponse =>
-    __isa(o, "GetDigestResponse");
+  export const isa = (o: any): o is GetDigestResponse => __isa(o, "GetDigestResponse");
 }
 
 export interface GetRevisionRequest {
@@ -371,8 +355,7 @@ export interface GetRevisionRequest {
 }
 
 export namespace GetRevisionRequest {
-  export const isa = (o: any): o is GetRevisionRequest =>
-    __isa(o, "GetRevisionRequest");
+  export const isa = (o: any): o is GetRevisionRequest => __isa(o, "GetRevisionRequest");
 }
 
 export interface GetRevisionResponse {
@@ -391,16 +374,13 @@ export interface GetRevisionResponse {
 }
 
 export namespace GetRevisionResponse {
-  export const isa = (o: any): o is GetRevisionResponse =>
-    __isa(o, "GetRevisionResponse");
+  export const isa = (o: any): o is GetRevisionResponse => __isa(o, "GetRevisionResponse");
 }
 
 /**
  * <p>One or more parameters in the request aren't valid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -411,8 +391,7 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
@@ -477,8 +456,7 @@ export interface JournalS3ExportDescription {
 }
 
 export namespace JournalS3ExportDescription {
-  export const isa = (o: any): o is JournalS3ExportDescription =>
-    __isa(o, "JournalS3ExportDescription");
+  export const isa = (o: any): o is JournalS3ExportDescription => __isa(o, "JournalS3ExportDescription");
 }
 
 export enum LedgerState {
@@ -517,9 +495,7 @@ export namespace LedgerSummary {
 /**
  * <p>You have reached the limit on the maximum number of resources allowed.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -530,8 +506,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListJournalS3ExportsForLedgerRequest {
@@ -610,8 +585,7 @@ export interface ListJournalS3ExportsRequest {
 }
 
 export namespace ListJournalS3ExportsRequest {
-  export const isa = (o: any): o is ListJournalS3ExportsRequest =>
-    __isa(o, "ListJournalS3ExportsRequest");
+  export const isa = (o: any): o is ListJournalS3ExportsRequest => __isa(o, "ListJournalS3ExportsRequest");
 }
 
 export interface ListJournalS3ExportsResponse {
@@ -640,8 +614,7 @@ export interface ListJournalS3ExportsResponse {
 }
 
 export namespace ListJournalS3ExportsResponse {
-  export const isa = (o: any): o is ListJournalS3ExportsResponse =>
-    __isa(o, "ListJournalS3ExportsResponse");
+  export const isa = (o: any): o is ListJournalS3ExportsResponse => __isa(o, "ListJournalS3ExportsResponse");
 }
 
 export interface ListLedgersRequest {
@@ -661,8 +634,7 @@ export interface ListLedgersRequest {
 }
 
 export namespace ListLedgersRequest {
-  export const isa = (o: any): o is ListLedgersRequest =>
-    __isa(o, "ListLedgersRequest");
+  export const isa = (o: any): o is ListLedgersRequest => __isa(o, "ListLedgersRequest");
 }
 
 export interface ListLedgersResponse {
@@ -691,8 +663,7 @@ export interface ListLedgersResponse {
 }
 
 export namespace ListLedgersResponse {
-  export const isa = (o: any): o is ListLedgersResponse =>
-    __isa(o, "ListLedgersResponse");
+  export const isa = (o: any): o is ListLedgersResponse => __isa(o, "ListLedgersResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -707,8 +678,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -720,8 +690,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export enum PermissionsMode {
@@ -731,9 +700,7 @@ export enum PermissionsMode {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -749,16 +716,13 @@ export interface ResourceAlreadyExistsException
 }
 
 export namespace ResourceAlreadyExistsException {
-  export const isa = (o: any): o is ResourceAlreadyExistsException =>
-    __isa(o, "ResourceAlreadyExistsException");
+  export const isa = (o: any): o is ResourceAlreadyExistsException => __isa(o, "ResourceAlreadyExistsException");
 }
 
 /**
  * <p>The specified resource can't be modified at this time.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -774,16 +738,13 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The specified resource doesn't exist.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -799,16 +760,13 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>The operation failed because a condition wasn't satisfied in advance.</p>
  */
-export interface ResourcePreconditionNotMetException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourcePreconditionNotMetException extends __SmithyException, $MetadataBearer {
   name: "ResourcePreconditionNotMetException";
   $fault: "client";
   Message?: string;
@@ -855,8 +813,7 @@ export interface S3EncryptionConfiguration {
 }
 
 export namespace S3EncryptionConfiguration {
-  export const isa = (o: any): o is S3EncryptionConfiguration =>
-    __isa(o, "S3EncryptionConfiguration");
+  export const isa = (o: any): o is S3EncryptionConfiguration => __isa(o, "S3EncryptionConfiguration");
 }
 
 /**
@@ -908,8 +865,7 @@ export interface S3ExportConfiguration {
 }
 
 export namespace S3ExportConfiguration {
-  export const isa = (o: any): o is S3ExportConfiguration =>
-    __isa(o, "S3ExportConfiguration");
+  export const isa = (o: any): o is S3ExportConfiguration => __isa(o, "S3ExportConfiguration");
 }
 
 export enum S3ObjectEncryptionType {
@@ -937,8 +893,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -946,8 +901,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -968,8 +922,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -977,8 +930,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLedgerRequest {
@@ -1000,8 +952,7 @@ export interface UpdateLedgerRequest {
 }
 
 export namespace UpdateLedgerRequest {
-  export const isa = (o: any): o is UpdateLedgerRequest =>
-    __isa(o, "UpdateLedgerRequest");
+  export const isa = (o: any): o is UpdateLedgerRequest => __isa(o, "UpdateLedgerRequest");
 }
 
 export interface UpdateLedgerResponse {
@@ -1039,8 +990,7 @@ export interface UpdateLedgerResponse {
 }
 
 export namespace UpdateLedgerResponse {
-  export const isa = (o: any): o is UpdateLedgerResponse =>
-    __isa(o, "UpdateLedgerResponse");
+  export const isa = (o: any): o is UpdateLedgerResponse => __isa(o, "UpdateLedgerResponse");
 }
 
 /**

@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  StopUserImportJobRequest,
-  StopUserImportJobResponse
-} from "../models/index";
+import { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopUserImportJobCommand,
   serializeAws_json1_1StopUserImportJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopUserImportJobCommandInput = StopUserImportJobRequest;
-export type StopUserImportJobCommandOutput = StopUserImportJobResponse &
-  __MetadataBearer;
+export type StopUserImportJobCommandOutput = StopUserImportJobResponse & __MetadataBearer;
 
 export class StopUserImportJobCommand extends $Command<
   StopUserImportJobCommandInput,
@@ -50,9 +43,7 @@ export class StopUserImportJobCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopUserImportJobCommandInput, StopUserImportJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class StopUserImportJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopUserImportJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopUserImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopUserImportJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopUserImportJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopUserImportJobCommandOutput> {
     return deserializeAws_json1_1StopUserImportJobCommand(output, context);
   }
 

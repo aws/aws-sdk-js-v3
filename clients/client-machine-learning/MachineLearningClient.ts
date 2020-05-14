@@ -1,7 +1,4 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   CreateBatchPredictionCommandInput,
   CreateBatchPredictionCommandOutput
@@ -18,14 +15,8 @@ import {
   CreateDataSourceFromS3CommandInput,
   CreateDataSourceFromS3CommandOutput
 } from "./commands/CreateDataSourceFromS3Command";
-import {
-  CreateEvaluationCommandInput,
-  CreateEvaluationCommandOutput
-} from "./commands/CreateEvaluationCommand";
-import {
-  CreateMLModelCommandInput,
-  CreateMLModelCommandOutput
-} from "./commands/CreateMLModelCommand";
+import { CreateEvaluationCommandInput, CreateEvaluationCommandOutput } from "./commands/CreateEvaluationCommand";
+import { CreateMLModelCommandInput, CreateMLModelCommandOutput } from "./commands/CreateMLModelCommand";
 import {
   CreateRealtimeEndpointCommandInput,
   CreateRealtimeEndpointCommandOutput
@@ -34,26 +25,14 @@ import {
   DeleteBatchPredictionCommandInput,
   DeleteBatchPredictionCommandOutput
 } from "./commands/DeleteBatchPredictionCommand";
-import {
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
-} from "./commands/DeleteDataSourceCommand";
-import {
-  DeleteEvaluationCommandInput,
-  DeleteEvaluationCommandOutput
-} from "./commands/DeleteEvaluationCommand";
-import {
-  DeleteMLModelCommandInput,
-  DeleteMLModelCommandOutput
-} from "./commands/DeleteMLModelCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import { DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput } from "./commands/DeleteEvaluationCommand";
+import { DeleteMLModelCommandInput, DeleteMLModelCommandOutput } from "./commands/DeleteMLModelCommand";
 import {
   DeleteRealtimeEndpointCommandInput,
   DeleteRealtimeEndpointCommandOutput
 } from "./commands/DeleteRealtimeEndpointCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeBatchPredictionsCommandInput,
   DescribeBatchPredictionsCommandOutput
@@ -66,50 +45,20 @@ import {
   DescribeEvaluationsCommandInput,
   DescribeEvaluationsCommandOutput
 } from "./commands/DescribeEvaluationsCommand";
-import {
-  DescribeMLModelsCommandInput,
-  DescribeMLModelsCommandOutput
-} from "./commands/DescribeMLModelsCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
-import {
-  GetBatchPredictionCommandInput,
-  GetBatchPredictionCommandOutput
-} from "./commands/GetBatchPredictionCommand";
-import {
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput
-} from "./commands/GetDataSourceCommand";
-import {
-  GetEvaluationCommandInput,
-  GetEvaluationCommandOutput
-} from "./commands/GetEvaluationCommand";
-import {
-  GetMLModelCommandInput,
-  GetMLModelCommandOutput
-} from "./commands/GetMLModelCommand";
-import {
-  PredictCommandInput,
-  PredictCommandOutput
-} from "./commands/PredictCommand";
+import { DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput } from "./commands/DescribeMLModelsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import { GetBatchPredictionCommandInput, GetBatchPredictionCommandOutput } from "./commands/GetBatchPredictionCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import { GetEvaluationCommandInput, GetEvaluationCommandOutput } from "./commands/GetEvaluationCommand";
+import { GetMLModelCommandInput, GetMLModelCommandOutput } from "./commands/GetMLModelCommand";
+import { PredictCommandInput, PredictCommandOutput } from "./commands/PredictCommand";
 import {
   UpdateBatchPredictionCommandInput,
   UpdateBatchPredictionCommandOutput
 } from "./commands/UpdateBatchPredictionCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "./commands/UpdateDataSourceCommand";
-import {
-  UpdateEvaluationCommandInput,
-  UpdateEvaluationCommandOutput
-} from "./commands/UpdateEvaluationCommand";
-import {
-  UpdateMLModelCommandInput,
-  UpdateMLModelCommandOutput
-} from "./commands/UpdateMLModelCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import { UpdateEvaluationCommandInput, UpdateEvaluationCommandOutput } from "./commands/UpdateEvaluationCommand";
+import { UpdateMLModelCommandInput, UpdateMLModelCommandOutput } from "./commands/UpdateMLModelCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -126,12 +75,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -222,8 +166,7 @@ export type ServiceOutputTypes =
   | UpdateEvaluationCommandOutput
   | UpdateMLModelCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -307,9 +250,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MachineLearningClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MachineLearningClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -318,9 +259,7 @@ export type MachineLearningClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MachineLearningClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MachineLearningClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

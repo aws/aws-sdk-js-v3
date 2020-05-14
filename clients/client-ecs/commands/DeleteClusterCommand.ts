@@ -1,18 +1,11 @@
-import {
-  ECSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECSClient";
+import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
   serializeAws_json1_1DeleteClusterCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteClusterCommandInput = DeleteClusterRequest;
-export type DeleteClusterCommandOutput = DeleteClusterResponse &
-  __MetadataBearer;
+export type DeleteClusterCommandOutput = DeleteClusterResponse & __MetadataBearer;
 
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,
@@ -47,9 +39,7 @@ export class DeleteClusterCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteClusterCommandInput, DeleteClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
     return deserializeAws_json1_1DeleteClusterCommand(output, context);
   }
 

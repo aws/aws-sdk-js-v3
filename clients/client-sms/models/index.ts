@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AppLaunchStatus {
@@ -245,8 +242,7 @@ export interface CreateAppRequest {
 }
 
 export namespace CreateAppRequest {
-  export const isa = (o: any): o is CreateAppRequest =>
-    __isa(o, "CreateAppRequest");
+  export const isa = (o: any): o is CreateAppRequest => __isa(o, "CreateAppRequest");
 }
 
 export interface CreateAppResponse {
@@ -268,8 +264,7 @@ export interface CreateAppResponse {
 }
 
 export namespace CreateAppResponse {
-  export const isa = (o: any): o is CreateAppResponse =>
-    __isa(o, "CreateAppResponse");
+  export const isa = (o: any): o is CreateAppResponse => __isa(o, "CreateAppResponse");
 }
 
 export interface CreateReplicationJobRequest {
@@ -346,8 +341,7 @@ export interface CreateReplicationJobRequest {
 }
 
 export namespace CreateReplicationJobRequest {
-  export const isa = (o: any): o is CreateReplicationJobRequest =>
-    __isa(o, "CreateReplicationJobRequest");
+  export const isa = (o: any): o is CreateReplicationJobRequest => __isa(o, "CreateReplicationJobRequest");
 }
 
 export interface CreateReplicationJobResponse {
@@ -359,8 +353,7 @@ export interface CreateReplicationJobResponse {
 }
 
 export namespace CreateReplicationJobResponse {
-  export const isa = (o: any): o is CreateReplicationJobResponse =>
-    __isa(o, "CreateReplicationJobResponse");
+  export const isa = (o: any): o is CreateReplicationJobResponse => __isa(o, "CreateReplicationJobResponse");
 }
 
 export interface DeleteAppLaunchConfigurationRequest {
@@ -428,8 +421,7 @@ export interface DeleteAppRequest {
 }
 
 export namespace DeleteAppRequest {
-  export const isa = (o: any): o is DeleteAppRequest =>
-    __isa(o, "DeleteAppRequest");
+  export const isa = (o: any): o is DeleteAppRequest => __isa(o, "DeleteAppRequest");
 }
 
 export interface DeleteAppResponse {
@@ -437,8 +429,7 @@ export interface DeleteAppResponse {
 }
 
 export namespace DeleteAppResponse {
-  export const isa = (o: any): o is DeleteAppResponse =>
-    __isa(o, "DeleteAppResponse");
+  export const isa = (o: any): o is DeleteAppResponse => __isa(o, "DeleteAppResponse");
 }
 
 export interface DeleteReplicationJobRequest {
@@ -450,8 +441,7 @@ export interface DeleteReplicationJobRequest {
 }
 
 export namespace DeleteReplicationJobRequest {
-  export const isa = (o: any): o is DeleteReplicationJobRequest =>
-    __isa(o, "DeleteReplicationJobRequest");
+  export const isa = (o: any): o is DeleteReplicationJobRequest => __isa(o, "DeleteReplicationJobRequest");
 }
 
 export interface DeleteReplicationJobResponse {
@@ -459,8 +449,7 @@ export interface DeleteReplicationJobResponse {
 }
 
 export namespace DeleteReplicationJobResponse {
-  export const isa = (o: any): o is DeleteReplicationJobResponse =>
-    __isa(o, "DeleteReplicationJobResponse");
+  export const isa = (o: any): o is DeleteReplicationJobResponse => __isa(o, "DeleteReplicationJobResponse");
 }
 
 export interface DeleteServerCatalogRequest {
@@ -468,8 +457,7 @@ export interface DeleteServerCatalogRequest {
 }
 
 export namespace DeleteServerCatalogRequest {
-  export const isa = (o: any): o is DeleteServerCatalogRequest =>
-    __isa(o, "DeleteServerCatalogRequest");
+  export const isa = (o: any): o is DeleteServerCatalogRequest => __isa(o, "DeleteServerCatalogRequest");
 }
 
 export interface DeleteServerCatalogResponse {
@@ -477,8 +465,7 @@ export interface DeleteServerCatalogResponse {
 }
 
 export namespace DeleteServerCatalogResponse {
-  export const isa = (o: any): o is DeleteServerCatalogResponse =>
-    __isa(o, "DeleteServerCatalogResponse");
+  export const isa = (o: any): o is DeleteServerCatalogResponse => __isa(o, "DeleteServerCatalogResponse");
 }
 
 export interface DisassociateConnectorRequest {
@@ -490,8 +477,7 @@ export interface DisassociateConnectorRequest {
 }
 
 export namespace DisassociateConnectorRequest {
-  export const isa = (o: any): o is DisassociateConnectorRequest =>
-    __isa(o, "DisassociateConnectorRequest");
+  export const isa = (o: any): o is DisassociateConnectorRequest => __isa(o, "DisassociateConnectorRequest");
 }
 
 export interface DisassociateConnectorResponse {
@@ -499,8 +485,7 @@ export interface DisassociateConnectorResponse {
 }
 
 export namespace DisassociateConnectorResponse {
-  export const isa = (o: any): o is DisassociateConnectorResponse =>
-    __isa(o, "DisassociateConnectorResponse");
+  export const isa = (o: any): o is DisassociateConnectorResponse => __isa(o, "DisassociateConnectorResponse");
 }
 
 export interface GenerateChangeSetRequest {
@@ -517,8 +502,7 @@ export interface GenerateChangeSetRequest {
 }
 
 export namespace GenerateChangeSetRequest {
-  export const isa = (o: any): o is GenerateChangeSetRequest =>
-    __isa(o, "GenerateChangeSetRequest");
+  export const isa = (o: any): o is GenerateChangeSetRequest => __isa(o, "GenerateChangeSetRequest");
 }
 
 export interface GenerateChangeSetResponse {
@@ -530,8 +514,7 @@ export interface GenerateChangeSetResponse {
 }
 
 export namespace GenerateChangeSetResponse {
-  export const isa = (o: any): o is GenerateChangeSetResponse =>
-    __isa(o, "GenerateChangeSetResponse");
+  export const isa = (o: any): o is GenerateChangeSetResponse => __isa(o, "GenerateChangeSetResponse");
 }
 
 export interface GenerateTemplateRequest {
@@ -548,8 +531,7 @@ export interface GenerateTemplateRequest {
 }
 
 export namespace GenerateTemplateRequest {
-  export const isa = (o: any): o is GenerateTemplateRequest =>
-    __isa(o, "GenerateTemplateRequest");
+  export const isa = (o: any): o is GenerateTemplateRequest => __isa(o, "GenerateTemplateRequest");
 }
 
 export interface GenerateTemplateResponse {
@@ -561,8 +543,7 @@ export interface GenerateTemplateResponse {
 }
 
 export namespace GenerateTemplateResponse {
-  export const isa = (o: any): o is GenerateTemplateResponse =>
-    __isa(o, "GenerateTemplateResponse");
+  export const isa = (o: any): o is GenerateTemplateResponse => __isa(o, "GenerateTemplateResponse");
 }
 
 export interface GetAppLaunchConfigurationRequest {
@@ -574,8 +555,7 @@ export interface GetAppLaunchConfigurationRequest {
 }
 
 export namespace GetAppLaunchConfigurationRequest {
-  export const isa = (o: any): o is GetAppLaunchConfigurationRequest =>
-    __isa(o, "GetAppLaunchConfigurationRequest");
+  export const isa = (o: any): o is GetAppLaunchConfigurationRequest => __isa(o, "GetAppLaunchConfigurationRequest");
 }
 
 export interface GetAppLaunchConfigurationResponse {
@@ -598,8 +578,7 @@ export interface GetAppLaunchConfigurationResponse {
 }
 
 export namespace GetAppLaunchConfigurationResponse {
-  export const isa = (o: any): o is GetAppLaunchConfigurationResponse =>
-    __isa(o, "GetAppLaunchConfigurationResponse");
+  export const isa = (o: any): o is GetAppLaunchConfigurationResponse => __isa(o, "GetAppLaunchConfigurationResponse");
 }
 
 export interface GetAppReplicationConfigurationRequest {
@@ -659,8 +638,7 @@ export interface GetAppResponse {
 }
 
 export namespace GetAppResponse {
-  export const isa = (o: any): o is GetAppResponse =>
-    __isa(o, "GetAppResponse");
+  export const isa = (o: any): o is GetAppResponse => __isa(o, "GetAppResponse");
 }
 
 export interface GetConnectorsRequest {
@@ -679,8 +657,7 @@ export interface GetConnectorsRequest {
 }
 
 export namespace GetConnectorsRequest {
-  export const isa = (o: any): o is GetConnectorsRequest =>
-    __isa(o, "GetConnectorsRequest");
+  export const isa = (o: any): o is GetConnectorsRequest => __isa(o, "GetConnectorsRequest");
 }
 
 export interface GetConnectorsResponse {
@@ -698,8 +675,7 @@ export interface GetConnectorsResponse {
 }
 
 export namespace GetConnectorsResponse {
-  export const isa = (o: any): o is GetConnectorsResponse =>
-    __isa(o, "GetConnectorsResponse");
+  export const isa = (o: any): o is GetConnectorsResponse => __isa(o, "GetConnectorsResponse");
 }
 
 export interface GetReplicationJobsRequest {
@@ -723,8 +699,7 @@ export interface GetReplicationJobsRequest {
 }
 
 export namespace GetReplicationJobsRequest {
-  export const isa = (o: any): o is GetReplicationJobsRequest =>
-    __isa(o, "GetReplicationJobsRequest");
+  export const isa = (o: any): o is GetReplicationJobsRequest => __isa(o, "GetReplicationJobsRequest");
 }
 
 export interface GetReplicationJobsResponse {
@@ -742,8 +717,7 @@ export interface GetReplicationJobsResponse {
 }
 
 export namespace GetReplicationJobsResponse {
-  export const isa = (o: any): o is GetReplicationJobsResponse =>
-    __isa(o, "GetReplicationJobsResponse");
+  export const isa = (o: any): o is GetReplicationJobsResponse => __isa(o, "GetReplicationJobsResponse");
 }
 
 export interface GetReplicationRunsRequest {
@@ -767,8 +741,7 @@ export interface GetReplicationRunsRequest {
 }
 
 export namespace GetReplicationRunsRequest {
-  export const isa = (o: any): o is GetReplicationRunsRequest =>
-    __isa(o, "GetReplicationRunsRequest");
+  export const isa = (o: any): o is GetReplicationRunsRequest => __isa(o, "GetReplicationRunsRequest");
 }
 
 export interface GetReplicationRunsResponse {
@@ -791,8 +764,7 @@ export interface GetReplicationRunsResponse {
 }
 
 export namespace GetReplicationRunsResponse {
-  export const isa = (o: any): o is GetReplicationRunsResponse =>
-    __isa(o, "GetReplicationRunsResponse");
+  export const isa = (o: any): o is GetReplicationRunsResponse => __isa(o, "GetReplicationRunsResponse");
 }
 
 export interface GetServersRequest {
@@ -816,8 +788,7 @@ export interface GetServersRequest {
 }
 
 export namespace GetServersRequest {
-  export const isa = (o: any): o is GetServersRequest =>
-    __isa(o, "GetServersRequest");
+  export const isa = (o: any): o is GetServersRequest => __isa(o, "GetServersRequest");
 }
 
 export interface GetServersResponse {
@@ -845,8 +816,7 @@ export interface GetServersResponse {
 }
 
 export namespace GetServersResponse {
-  export const isa = (o: any): o is GetServersResponse =>
-    __isa(o, "GetServersResponse");
+  export const isa = (o: any): o is GetServersResponse => __isa(o, "GetServersResponse");
 }
 
 export interface ImportServerCatalogRequest {
@@ -854,8 +824,7 @@ export interface ImportServerCatalogRequest {
 }
 
 export namespace ImportServerCatalogRequest {
-  export const isa = (o: any): o is ImportServerCatalogRequest =>
-    __isa(o, "ImportServerCatalogRequest");
+  export const isa = (o: any): o is ImportServerCatalogRequest => __isa(o, "ImportServerCatalogRequest");
 }
 
 export interface ImportServerCatalogResponse {
@@ -863,8 +832,7 @@ export interface ImportServerCatalogResponse {
 }
 
 export namespace ImportServerCatalogResponse {
-  export const isa = (o: any): o is ImportServerCatalogResponse =>
-    __isa(o, "ImportServerCatalogResponse");
+  export const isa = (o: any): o is ImportServerCatalogResponse => __isa(o, "ImportServerCatalogResponse");
 }
 
 /**
@@ -883,17 +851,14 @@ export namespace InternalError {
 /**
  * <p>A specified parameter is not valid.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 export interface LaunchAppRequest {
@@ -905,8 +870,7 @@ export interface LaunchAppRequest {
 }
 
 export namespace LaunchAppRequest {
-  export const isa = (o: any): o is LaunchAppRequest =>
-    __isa(o, "LaunchAppRequest");
+  export const isa = (o: any): o is LaunchAppRequest => __isa(o, "LaunchAppRequest");
 }
 
 export interface LaunchAppResponse {
@@ -914,8 +878,7 @@ export interface LaunchAppResponse {
 }
 
 export namespace LaunchAppResponse {
-  export const isa = (o: any): o is LaunchAppResponse =>
-    __isa(o, "LaunchAppResponse");
+  export const isa = (o: any): o is LaunchAppResponse => __isa(o, "LaunchAppResponse");
 }
 
 /**
@@ -970,8 +933,7 @@ export interface ListAppsRequest {
 }
 
 export namespace ListAppsRequest {
-  export const isa = (o: any): o is ListAppsRequest =>
-    __isa(o, "ListAppsRequest");
+  export const isa = (o: any): o is ListAppsRequest => __isa(o, "ListAppsRequest");
 }
 
 export interface ListAppsResponse {
@@ -989,56 +951,46 @@ export interface ListAppsResponse {
 }
 
 export namespace ListAppsResponse {
-  export const isa = (o: any): o is ListAppsResponse =>
-    __isa(o, "ListAppsResponse");
+  export const isa = (o: any): o is ListAppsResponse => __isa(o, "ListAppsResponse");
 }
 
 /**
  * <p>A required parameter is missing.</p>
  */
-export interface MissingRequiredParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
   name: "MissingRequiredParameterException";
   $fault: "client";
   message?: string;
 }
 
 export namespace MissingRequiredParameterException {
-  export const isa = (o: any): o is MissingRequiredParameterException =>
-    __isa(o, "MissingRequiredParameterException");
+  export const isa = (o: any): o is MissingRequiredParameterException => __isa(o, "MissingRequiredParameterException");
 }
 
 /**
  * <p>There are no connectors available.</p>
  */
-export interface NoConnectorsAvailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoConnectorsAvailableException extends __SmithyException, $MetadataBearer {
   name: "NoConnectorsAvailableException";
   $fault: "client";
   message?: string;
 }
 
 export namespace NoConnectorsAvailableException {
-  export const isa = (o: any): o is NoConnectorsAvailableException =>
-    __isa(o, "NoConnectorsAvailableException");
+  export const isa = (o: any): o is NoConnectorsAvailableException => __isa(o, "NoConnectorsAvailableException");
 }
 
 /**
  * <p>This operation is not allowed.</p>
  */
-export interface OperationNotPermittedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
   name: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace OperationNotPermittedException {
-  export const isa = (o: any): o is OperationNotPermittedException =>
-    __isa(o, "OperationNotPermittedException");
+  export const isa = (o: any): o is OperationNotPermittedException => __isa(o, "OperationNotPermittedException");
 }
 
 export enum OutputFormat {
@@ -1066,8 +1018,7 @@ export interface PutAppLaunchConfigurationRequest {
 }
 
 export namespace PutAppLaunchConfigurationRequest {
-  export const isa = (o: any): o is PutAppLaunchConfigurationRequest =>
-    __isa(o, "PutAppLaunchConfigurationRequest");
+  export const isa = (o: any): o is PutAppLaunchConfigurationRequest => __isa(o, "PutAppLaunchConfigurationRequest");
 }
 
 export interface PutAppLaunchConfigurationResponse {
@@ -1075,8 +1026,7 @@ export interface PutAppLaunchConfigurationResponse {
 }
 
 export namespace PutAppLaunchConfigurationResponse {
-  export const isa = (o: any): o is PutAppLaunchConfigurationResponse =>
-    __isa(o, "PutAppLaunchConfigurationResponse");
+  export const isa = (o: any): o is PutAppLaunchConfigurationResponse => __isa(o, "PutAppLaunchConfigurationResponse");
 }
 
 export interface PutAppReplicationConfigurationRequest {
@@ -1223,16 +1173,13 @@ export interface ReplicationJob {
 }
 
 export namespace ReplicationJob {
-  export const isa = (o: any): o is ReplicationJob =>
-    __isa(o, "ReplicationJob");
+  export const isa = (o: any): o is ReplicationJob => __isa(o, "ReplicationJob");
 }
 
 /**
  * <p>The specified replication job already exists.</p>
  */
-export interface ReplicationJobAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationJobAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ReplicationJobAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1246,17 +1193,14 @@ export namespace ReplicationJobAlreadyExistsException {
 /**
  * <p>The specified replication job does not exist.</p>
  */
-export interface ReplicationJobNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationJobNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ReplicationJobNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReplicationJobNotFoundException {
-  export const isa = (o: any): o is ReplicationJobNotFoundException =>
-    __isa(o, "ReplicationJobNotFoundException");
+  export const isa = (o: any): o is ReplicationJobNotFoundException => __isa(o, "ReplicationJobNotFoundException");
 }
 
 export enum ReplicationJobState {
@@ -1351,17 +1295,14 @@ export interface ReplicationRun {
 }
 
 export namespace ReplicationRun {
-  export const isa = (o: any): o is ReplicationRun =>
-    __isa(o, "ReplicationRun");
+  export const isa = (o: any): o is ReplicationRun => __isa(o, "ReplicationRun");
 }
 
 /**
  * <p>You have exceeded the number of on-demand replication runs you can request in a
  *             24-hour period.</p>
  */
-export interface ReplicationRunLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicationRunLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ReplicationRunLimitExceededException";
   $fault: "client";
   message?: string;
@@ -1389,8 +1330,7 @@ export interface ReplicationRunStageDetails {
 }
 
 export namespace ReplicationRunStageDetails {
-  export const isa = (o: any): o is ReplicationRunStageDetails =>
-    __isa(o, "ReplicationRunStageDetails");
+  export const isa = (o: any): o is ReplicationRunStageDetails => __isa(o, "ReplicationRunStageDetails");
 }
 
 export enum ReplicationRunState {
@@ -1466,17 +1406,14 @@ export namespace Server {
 /**
  * <p>The specified server cannot be replicated.</p>
  */
-export interface ServerCannotBeReplicatedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServerCannotBeReplicatedException extends __SmithyException, $MetadataBearer {
   name: "ServerCannotBeReplicatedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ServerCannotBeReplicatedException {
-  export const isa = (o: any): o is ServerCannotBeReplicatedException =>
-    __isa(o, "ServerCannotBeReplicatedException");
+  export const isa = (o: any): o is ServerCannotBeReplicatedException => __isa(o, "ServerCannotBeReplicatedException");
 }
 
 export enum ServerCatalogStatus {
@@ -1534,8 +1471,7 @@ export interface ServerGroupLaunchConfiguration {
 }
 
 export namespace ServerGroupLaunchConfiguration {
-  export const isa = (o: any): o is ServerGroupLaunchConfiguration =>
-    __isa(o, "ServerGroupLaunchConfiguration");
+  export const isa = (o: any): o is ServerGroupLaunchConfiguration => __isa(o, "ServerGroupLaunchConfiguration");
 }
 
 /**
@@ -1612,8 +1548,7 @@ export interface ServerLaunchConfiguration {
 }
 
 export namespace ServerLaunchConfiguration {
-  export const isa = (o: any): o is ServerLaunchConfiguration =>
-    __isa(o, "ServerLaunchConfiguration");
+  export const isa = (o: any): o is ServerLaunchConfiguration => __isa(o, "ServerLaunchConfiguration");
 }
 
 /**
@@ -1633,8 +1568,7 @@ export interface ServerReplicationConfiguration {
 }
 
 export namespace ServerReplicationConfiguration {
-  export const isa = (o: any): o is ServerReplicationConfiguration =>
-    __isa(o, "ServerReplicationConfiguration");
+  export const isa = (o: any): o is ServerReplicationConfiguration => __isa(o, "ServerReplicationConfiguration");
 }
 
 /**
@@ -1698,8 +1632,7 @@ export interface ServerReplicationParameters {
 }
 
 export namespace ServerReplicationParameters {
-  export const isa = (o: any): o is ServerReplicationParameters =>
-    __isa(o, "ServerReplicationParameters");
+  export const isa = (o: any): o is ServerReplicationParameters => __isa(o, "ServerReplicationParameters");
 }
 
 export enum ServerType {
@@ -1715,8 +1648,7 @@ export interface StartAppReplicationRequest {
 }
 
 export namespace StartAppReplicationRequest {
-  export const isa = (o: any): o is StartAppReplicationRequest =>
-    __isa(o, "StartAppReplicationRequest");
+  export const isa = (o: any): o is StartAppReplicationRequest => __isa(o, "StartAppReplicationRequest");
 }
 
 export interface StartAppReplicationResponse {
@@ -1724,8 +1656,7 @@ export interface StartAppReplicationResponse {
 }
 
 export namespace StartAppReplicationResponse {
-  export const isa = (o: any): o is StartAppReplicationResponse =>
-    __isa(o, "StartAppReplicationResponse");
+  export const isa = (o: any): o is StartAppReplicationResponse => __isa(o, "StartAppReplicationResponse");
 }
 
 export interface StartOnDemandReplicationRunRequest {
@@ -1768,8 +1699,7 @@ export interface StopAppReplicationRequest {
 }
 
 export namespace StopAppReplicationRequest {
-  export const isa = (o: any): o is StopAppReplicationRequest =>
-    __isa(o, "StopAppReplicationRequest");
+  export const isa = (o: any): o is StopAppReplicationRequest => __isa(o, "StopAppReplicationRequest");
 }
 
 export interface StopAppReplicationResponse {
@@ -1777,8 +1707,7 @@ export interface StopAppReplicationResponse {
 }
 
 export namespace StopAppReplicationResponse {
-  export const isa = (o: any): o is StopAppReplicationResponse =>
-    __isa(o, "StopAppReplicationResponse");
+  export const isa = (o: any): o is StopAppReplicationResponse => __isa(o, "StopAppReplicationResponse");
 }
 
 /**
@@ -1804,16 +1733,13 @@ export namespace Tag {
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface TemporarilyUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
   name: "TemporarilyUnavailableException";
   $fault: "server";
 }
 
 export namespace TemporarilyUnavailableException {
-  export const isa = (o: any): o is TemporarilyUnavailableException =>
-    __isa(o, "TemporarilyUnavailableException");
+  export const isa = (o: any): o is TemporarilyUnavailableException => __isa(o, "TemporarilyUnavailableException");
 }
 
 export interface TerminateAppRequest {
@@ -1825,8 +1751,7 @@ export interface TerminateAppRequest {
 }
 
 export namespace TerminateAppRequest {
-  export const isa = (o: any): o is TerminateAppRequest =>
-    __isa(o, "TerminateAppRequest");
+  export const isa = (o: any): o is TerminateAppRequest => __isa(o, "TerminateAppRequest");
 }
 
 export interface TerminateAppResponse {
@@ -1834,25 +1759,21 @@ export interface TerminateAppResponse {
 }
 
 export namespace TerminateAppResponse {
-  export const isa = (o: any): o is TerminateAppResponse =>
-    __isa(o, "TerminateAppResponse");
+  export const isa = (o: any): o is TerminateAppResponse => __isa(o, "TerminateAppResponse");
 }
 
 /**
  * <p>You lack permissions needed to perform this operation. Check your IAM policies, and
  *             ensure that you are using the correct access keys.</p>
  */
-export interface UnauthorizedOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedOperationException";
   $fault: "client";
   message?: string;
 }
 
 export namespace UnauthorizedOperationException {
-  export const isa = (o: any): o is UnauthorizedOperationException =>
-    __isa(o, "UnauthorizedOperationException");
+  export const isa = (o: any): o is UnauthorizedOperationException => __isa(o, "UnauthorizedOperationException");
 }
 
 export interface UpdateAppRequest {
@@ -1889,8 +1810,7 @@ export interface UpdateAppRequest {
 }
 
 export namespace UpdateAppRequest {
-  export const isa = (o: any): o is UpdateAppRequest =>
-    __isa(o, "UpdateAppRequest");
+  export const isa = (o: any): o is UpdateAppRequest => __isa(o, "UpdateAppRequest");
 }
 
 export interface UpdateAppResponse {
@@ -1912,8 +1832,7 @@ export interface UpdateAppResponse {
 }
 
 export namespace UpdateAppResponse {
-  export const isa = (o: any): o is UpdateAppResponse =>
-    __isa(o, "UpdateAppResponse");
+  export const isa = (o: any): o is UpdateAppResponse => __isa(o, "UpdateAppResponse");
 }
 
 export interface UpdateReplicationJobRequest {
@@ -1986,8 +1905,7 @@ export interface UpdateReplicationJobRequest {
 }
 
 export namespace UpdateReplicationJobRequest {
-  export const isa = (o: any): o is UpdateReplicationJobRequest =>
-    __isa(o, "UpdateReplicationJobRequest");
+  export const isa = (o: any): o is UpdateReplicationJobRequest => __isa(o, "UpdateReplicationJobRequest");
 }
 
 export interface UpdateReplicationJobResponse {
@@ -1995,8 +1913,7 @@ export interface UpdateReplicationJobResponse {
 }
 
 export namespace UpdateReplicationJobResponse {
-  export const isa = (o: any): o is UpdateReplicationJobResponse =>
-    __isa(o, "UpdateReplicationJobResponse");
+  export const isa = (o: any): o is UpdateReplicationJobResponse => __isa(o, "UpdateReplicationJobResponse");
 }
 
 /**
@@ -2073,6 +1990,5 @@ export interface VmServerAddress {
 }
 
 export namespace VmServerAddress {
-  export const isa = (o: any): o is VmServerAddress =>
-    __isa(o, "VmServerAddress");
+  export const isa = (o: any): o is VmServerAddress => __isa(o, "VmServerAddress");
 }

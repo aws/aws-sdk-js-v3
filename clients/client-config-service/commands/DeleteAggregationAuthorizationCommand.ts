@@ -1,18 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { DeleteAggregationAuthorizationRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteAggregationAuthorizationCommand,
   serializeAws_json1_1DeleteAggregationAuthorizationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAggregationAuthorizationCommandInput,
-    DeleteAggregationAuthorizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAggregationAuthorizationCommandInput, DeleteAggregationAuthorizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,20 +58,14 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     input: DeleteAggregationAuthorizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteAggregationAuthorizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DeleteAggregationAuthorizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteAggregationAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteAggregationAuthorizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteAggregationAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

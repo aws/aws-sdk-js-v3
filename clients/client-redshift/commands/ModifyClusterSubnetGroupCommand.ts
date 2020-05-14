@@ -1,21 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
-import {
-  ModifyClusterSubnetGroupMessage,
-  ModifyClusterSubnetGroupResult
-} from "../models/index";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { ModifyClusterSubnetGroupMessage, ModifyClusterSubnetGroupResult } from "../models/index";
 import {
   deserializeAws_queryModifyClusterSubnetGroupCommand,
   serializeAws_queryModifyClusterSubnetGroupCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ModifyClusterSubnetGroupCommandInput = ModifyClusterSubnetGroupMessage;
-export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult &
-  __MetadataBearer;
+export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult & __MetadataBearer;
 
 export class ModifyClusterSubnetGroupCommand extends $Command<
   ModifyClusterSubnetGroupCommandInput,
@@ -49,13 +38,8 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ModifyClusterSubnetGroupCommandInput,
-    ModifyClusterSubnetGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ModifyClusterSubnetGroupCommandInput, ModifyClusterSubnetGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ModifyClusterSubnetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyClusterSubnetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyClusterSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryModifyClusterSubnetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyClusterSubnetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterSubnetGroupCommandOutput> {
     return deserializeAws_queryModifyClusterSubnetGroupCommand(output, context);
   }
 

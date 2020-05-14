@@ -1,18 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { CreateSnapshotMessage, CreateSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCreateSnapshotCommand,
   serializeAws_queryCreateSnapshotCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSnapshotCommandInput = CreateSnapshotMessage;
-export type CreateSnapshotCommandOutput = CreateSnapshotResult &
-  __MetadataBearer;
+export type CreateSnapshotCommandOutput = CreateSnapshotResult & __MetadataBearer;
 
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,
@@ -47,9 +39,7 @@ export class CreateSnapshotCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSnapshotCommandInput, CreateSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSnapshotCommandOutput> {
     return deserializeAws_queryCreateSnapshotCommand(output, context);
   }
 

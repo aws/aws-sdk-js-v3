@@ -2,82 +2,46 @@ import {
   CancelImageCreationCommandInput,
   CancelImageCreationCommandOutput
 } from "./commands/CancelImageCreationCommand";
-import {
-  CreateComponentCommandInput,
-  CreateComponentCommandOutput
-} from "./commands/CreateComponentCommand";
+import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand";
 import {
   CreateDistributionConfigurationCommandInput,
   CreateDistributionConfigurationCommandOutput
 } from "./commands/CreateDistributionConfigurationCommand";
-import {
-  CreateImageCommandInput,
-  CreateImageCommandOutput
-} from "./commands/CreateImageCommand";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import {
   CreateImagePipelineCommandInput,
   CreateImagePipelineCommandOutput
 } from "./commands/CreateImagePipelineCommand";
-import {
-  CreateImageRecipeCommandInput,
-  CreateImageRecipeCommandOutput
-} from "./commands/CreateImageRecipeCommand";
+import { CreateImageRecipeCommandInput, CreateImageRecipeCommandOutput } from "./commands/CreateImageRecipeCommand";
 import {
   CreateInfrastructureConfigurationCommandInput,
   CreateInfrastructureConfigurationCommandOutput
 } from "./commands/CreateInfrastructureConfigurationCommand";
-import {
-  DeleteComponentCommandInput,
-  DeleteComponentCommandOutput
-} from "./commands/DeleteComponentCommand";
+import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "./commands/DeleteComponentCommand";
 import {
   DeleteDistributionConfigurationCommandInput,
   DeleteDistributionConfigurationCommandOutput
 } from "./commands/DeleteDistributionConfigurationCommand";
-import {
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput
-} from "./commands/DeleteImageCommand";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import {
   DeleteImagePipelineCommandInput,
   DeleteImagePipelineCommandOutput
 } from "./commands/DeleteImagePipelineCommand";
-import {
-  DeleteImageRecipeCommandInput,
-  DeleteImageRecipeCommandOutput
-} from "./commands/DeleteImageRecipeCommand";
+import { DeleteImageRecipeCommandInput, DeleteImageRecipeCommandOutput } from "./commands/DeleteImageRecipeCommand";
 import {
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput
 } from "./commands/DeleteInfrastructureConfigurationCommand";
-import {
-  GetComponentCommandInput,
-  GetComponentCommandOutput
-} from "./commands/GetComponentCommand";
-import {
-  GetComponentPolicyCommandInput,
-  GetComponentPolicyCommandOutput
-} from "./commands/GetComponentPolicyCommand";
+import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand";
+import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "./commands/GetComponentPolicyCommand";
 import {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput
 } from "./commands/GetDistributionConfigurationCommand";
-import {
-  GetImageCommandInput,
-  GetImageCommandOutput
-} from "./commands/GetImageCommand";
-import {
-  GetImagePipelineCommandInput,
-  GetImagePipelineCommandOutput
-} from "./commands/GetImagePipelineCommand";
-import {
-  GetImagePolicyCommandInput,
-  GetImagePolicyCommandOutput
-} from "./commands/GetImagePolicyCommand";
-import {
-  GetImageRecipeCommandInput,
-  GetImageRecipeCommandOutput
-} from "./commands/GetImageRecipeCommand";
+import { GetImageCommandInput, GetImageCommandOutput } from "./commands/GetImageCommand";
+import { GetImagePipelineCommandInput, GetImagePipelineCommandOutput } from "./commands/GetImagePipelineCommand";
+import { GetImagePolicyCommandInput, GetImagePolicyCommandOutput } from "./commands/GetImagePolicyCommand";
+import { GetImageRecipeCommandInput, GetImageRecipeCommandOutput } from "./commands/GetImageRecipeCommand";
 import {
   GetImageRecipePolicyCommandInput,
   GetImageRecipePolicyCommandOutput
@@ -86,18 +50,12 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput
 } from "./commands/GetInfrastructureConfigurationCommand";
-import {
-  ImportComponentCommandInput,
-  ImportComponentCommandOutput
-} from "./commands/ImportComponentCommand";
+import { ImportComponentCommandInput, ImportComponentCommandOutput } from "./commands/ImportComponentCommand";
 import {
   ListComponentBuildVersionsCommandInput,
   ListComponentBuildVersionsCommandOutput
 } from "./commands/ListComponentBuildVersionsCommand";
-import {
-  ListComponentsCommandInput,
-  ListComponentsCommandOutput
-} from "./commands/ListComponentsCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import {
   ListDistributionConfigurationsCommandInput,
   ListDistributionConfigurationsCommandOutput
@@ -110,18 +68,9 @@ import {
   ListImagePipelineImagesCommandInput,
   ListImagePipelineImagesCommandOutput
 } from "./commands/ListImagePipelineImagesCommand";
-import {
-  ListImagePipelinesCommandInput,
-  ListImagePipelinesCommandOutput
-} from "./commands/ListImagePipelinesCommand";
-import {
-  ListImageRecipesCommandInput,
-  ListImageRecipesCommandOutput
-} from "./commands/ListImageRecipesCommand";
-import {
-  ListImagesCommandInput,
-  ListImagesCommandOutput
-} from "./commands/ListImagesCommand";
+import { ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput } from "./commands/ListImagePipelinesCommand";
+import { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "./commands/ListImageRecipesCommand";
+import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommandInput,
   ListInfrastructureConfigurationsCommandOutput
@@ -130,14 +79,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutComponentPolicyCommandInput,
-  PutComponentPolicyCommandOutput
-} from "./commands/PutComponentPolicyCommand";
-import {
-  PutImagePolicyCommandInput,
-  PutImagePolicyCommandOutput
-} from "./commands/PutImagePolicyCommand";
+import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "./commands/PutComponentPolicyCommand";
+import { PutImagePolicyCommandInput, PutImagePolicyCommandOutput } from "./commands/PutImagePolicyCommand";
 import {
   PutImageRecipePolicyCommandInput,
   PutImageRecipePolicyCommandOutput
@@ -146,14 +89,8 @@ import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput
 } from "./commands/StartImagePipelineExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateDistributionConfigurationCommandInput,
   UpdateDistributionConfigurationCommandOutput
@@ -182,12 +119,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -306,8 +238,7 @@ export type ServiceOutputTypes =
   | UpdateImagePipelineCommandOutput
   | UpdateInfrastructureConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -391,9 +322,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type imagebuilderClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type imagebuilderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -402,9 +331,7 @@ export type imagebuilderClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type imagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type imagebuilderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

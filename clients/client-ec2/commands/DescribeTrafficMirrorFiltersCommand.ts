@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeTrafficMirrorFiltersRequest,
-  DescribeTrafficMirrorFiltersResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeTrafficMirrorFiltersRequest, DescribeTrafficMirrorFiltersResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeTrafficMirrorFiltersCommand,
   serializeAws_ec2DescribeTrafficMirrorFiltersCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTrafficMirrorFiltersCommandInput = DescribeTrafficMirrorFiltersRequest;
-export type DescribeTrafficMirrorFiltersCommandOutput = DescribeTrafficMirrorFiltersResult &
-  __MetadataBearer;
+export type DescribeTrafficMirrorFiltersCommandOutput = DescribeTrafficMirrorFiltersResult & __MetadataBearer;
 
 export class DescribeTrafficMirrorFiltersCommand extends $Command<
   DescribeTrafficMirrorFiltersCommandInput,
@@ -49,13 +38,8 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTrafficMirrorFiltersCommandInput,
-    DescribeTrafficMirrorFiltersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTrafficMirrorFiltersCommandInput, DescribeTrafficMirrorFiltersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTrafficMirrorFiltersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTrafficMirrorFiltersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeTrafficMirrorFiltersCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrafficMirrorFiltersCommandOutput> {
-    return deserializeAws_ec2DescribeTrafficMirrorFiltersCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeTrafficMirrorFiltersCommand(output, context);
   }
 
   // Start section: command_body_extra

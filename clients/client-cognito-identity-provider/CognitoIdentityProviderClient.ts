@@ -6,58 +6,28 @@ import {
   AdminAddUserToGroupCommandInput,
   AdminAddUserToGroupCommandOutput
 } from "./commands/AdminAddUserToGroupCommand";
-import {
-  AdminConfirmSignUpCommandInput,
-  AdminConfirmSignUpCommandOutput
-} from "./commands/AdminConfirmSignUpCommand";
-import {
-  AdminCreateUserCommandInput,
-  AdminCreateUserCommandOutput
-} from "./commands/AdminCreateUserCommand";
+import { AdminConfirmSignUpCommandInput, AdminConfirmSignUpCommandOutput } from "./commands/AdminConfirmSignUpCommand";
+import { AdminCreateUserCommandInput, AdminCreateUserCommandOutput } from "./commands/AdminCreateUserCommand";
 import {
   AdminDeleteUserAttributesCommandInput,
   AdminDeleteUserAttributesCommandOutput
 } from "./commands/AdminDeleteUserAttributesCommand";
-import {
-  AdminDeleteUserCommandInput,
-  AdminDeleteUserCommandOutput
-} from "./commands/AdminDeleteUserCommand";
+import { AdminDeleteUserCommandInput, AdminDeleteUserCommandOutput } from "./commands/AdminDeleteUserCommand";
 import {
   AdminDisableProviderForUserCommandInput,
   AdminDisableProviderForUserCommandOutput
 } from "./commands/AdminDisableProviderForUserCommand";
-import {
-  AdminDisableUserCommandInput,
-  AdminDisableUserCommandOutput
-} from "./commands/AdminDisableUserCommand";
-import {
-  AdminEnableUserCommandInput,
-  AdminEnableUserCommandOutput
-} from "./commands/AdminEnableUserCommand";
-import {
-  AdminForgetDeviceCommandInput,
-  AdminForgetDeviceCommandOutput
-} from "./commands/AdminForgetDeviceCommand";
-import {
-  AdminGetDeviceCommandInput,
-  AdminGetDeviceCommandOutput
-} from "./commands/AdminGetDeviceCommand";
-import {
-  AdminGetUserCommandInput,
-  AdminGetUserCommandOutput
-} from "./commands/AdminGetUserCommand";
-import {
-  AdminInitiateAuthCommandInput,
-  AdminInitiateAuthCommandOutput
-} from "./commands/AdminInitiateAuthCommand";
+import { AdminDisableUserCommandInput, AdminDisableUserCommandOutput } from "./commands/AdminDisableUserCommand";
+import { AdminEnableUserCommandInput, AdminEnableUserCommandOutput } from "./commands/AdminEnableUserCommand";
+import { AdminForgetDeviceCommandInput, AdminForgetDeviceCommandOutput } from "./commands/AdminForgetDeviceCommand";
+import { AdminGetDeviceCommandInput, AdminGetDeviceCommandOutput } from "./commands/AdminGetDeviceCommand";
+import { AdminGetUserCommandInput, AdminGetUserCommandOutput } from "./commands/AdminGetUserCommand";
+import { AdminInitiateAuthCommandInput, AdminInitiateAuthCommandOutput } from "./commands/AdminInitiateAuthCommand";
 import {
   AdminLinkProviderForUserCommandInput,
   AdminLinkProviderForUserCommandOutput
 } from "./commands/AdminLinkProviderForUserCommand";
-import {
-  AdminListDevicesCommandInput,
-  AdminListDevicesCommandOutput
-} from "./commands/AdminListDevicesCommand";
+import { AdminListDevicesCommandInput, AdminListDevicesCommandOutput } from "./commands/AdminListDevicesCommand";
 import {
   AdminListGroupsForUserCommandInput,
   AdminListGroupsForUserCommandOutput
@@ -110,26 +80,14 @@ import {
   AssociateSoftwareTokenCommandInput,
   AssociateSoftwareTokenCommandOutput
 } from "./commands/AssociateSoftwareTokenCommand";
-import {
-  ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
-} from "./commands/ChangePasswordCommand";
-import {
-  ConfirmDeviceCommandInput,
-  ConfirmDeviceCommandOutput
-} from "./commands/ConfirmDeviceCommand";
+import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
+import { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "./commands/ConfirmDeviceCommand";
 import {
   ConfirmForgotPasswordCommandInput,
   ConfirmForgotPasswordCommandOutput
 } from "./commands/ConfirmForgotPasswordCommand";
-import {
-  ConfirmSignUpCommandInput,
-  ConfirmSignUpCommandOutput
-} from "./commands/ConfirmSignUpCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput } from "./commands/ConfirmSignUpCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput
@@ -146,18 +104,12 @@ import {
   CreateUserPoolClientCommandInput,
   CreateUserPoolClientCommandOutput
 } from "./commands/CreateUserPoolClientCommand";
-import {
-  CreateUserPoolCommandInput,
-  CreateUserPoolCommandOutput
-} from "./commands/CreateUserPoolCommand";
+import { CreateUserPoolCommandInput, CreateUserPoolCommandOutput } from "./commands/CreateUserPoolCommand";
 import {
   CreateUserPoolDomainCommandInput,
   CreateUserPoolDomainCommandOutput
 } from "./commands/CreateUserPoolDomainCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput
@@ -170,18 +122,12 @@ import {
   DeleteUserAttributesCommandInput,
   DeleteUserAttributesCommandOutput
 } from "./commands/DeleteUserAttributesCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserPoolClientCommandInput,
   DeleteUserPoolClientCommandOutput
 } from "./commands/DeleteUserPoolClientCommand";
-import {
-  DeleteUserPoolCommandInput,
-  DeleteUserPoolCommandOutput
-} from "./commands/DeleteUserPoolCommand";
+import { DeleteUserPoolCommandInput, DeleteUserPoolCommandOutput } from "./commands/DeleteUserPoolCommand";
 import {
   DeleteUserPoolDomainCommandInput,
   DeleteUserPoolDomainCommandOutput
@@ -206,34 +152,16 @@ import {
   DescribeUserPoolClientCommandInput,
   DescribeUserPoolClientCommandOutput
 } from "./commands/DescribeUserPoolClientCommand";
-import {
-  DescribeUserPoolCommandInput,
-  DescribeUserPoolCommandOutput
-} from "./commands/DescribeUserPoolCommand";
+import { DescribeUserPoolCommandInput, DescribeUserPoolCommandOutput } from "./commands/DescribeUserPoolCommand";
 import {
   DescribeUserPoolDomainCommandInput,
   DescribeUserPoolDomainCommandOutput
 } from "./commands/DescribeUserPoolDomainCommand";
-import {
-  ForgetDeviceCommandInput,
-  ForgetDeviceCommandOutput
-} from "./commands/ForgetDeviceCommand";
-import {
-  ForgotPasswordCommandInput,
-  ForgotPasswordCommandOutput
-} from "./commands/ForgotPasswordCommand";
-import {
-  GetCSVHeaderCommandInput,
-  GetCSVHeaderCommandOutput
-} from "./commands/GetCSVHeaderCommand";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "./commands/GetDeviceCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
+import { ForgetDeviceCommandInput, ForgetDeviceCommandOutput } from "./commands/ForgetDeviceCommand";
+import { ForgotPasswordCommandInput, ForgotPasswordCommandOutput } from "./commands/ForgotPasswordCommand";
+import { GetCSVHeaderCommandInput, GetCSVHeaderCommandOutput } from "./commands/GetCSVHeaderCommand";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import {
   GetIdentityProviderByIdentifierCommandInput,
   GetIdentityProviderByIdentifierCommandOutput
@@ -242,38 +170,20 @@ import {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput
 } from "./commands/GetSigningCertificateCommand";
-import {
-  GetUICustomizationCommandInput,
-  GetUICustomizationCommandOutput
-} from "./commands/GetUICustomizationCommand";
+import { GetUICustomizationCommandInput, GetUICustomizationCommandOutput } from "./commands/GetUICustomizationCommand";
 import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput
 } from "./commands/GetUserAttributeVerificationCodeCommand";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommandInput,
   GetUserPoolMfaConfigCommandOutput
 } from "./commands/GetUserPoolMfaConfigCommand";
-import {
-  GlobalSignOutCommandInput,
-  GlobalSignOutCommandOutput
-} from "./commands/GlobalSignOutCommand";
-import {
-  InitiateAuthCommandInput,
-  InitiateAuthCommandOutput
-} from "./commands/InitiateAuthCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { GlobalSignOutCommandInput, GlobalSignOutCommandOutput } from "./commands/GlobalSignOutCommand";
+import { InitiateAuthCommandInput, InitiateAuthCommandOutput } from "./commands/InitiateAuthCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput
@@ -286,26 +196,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListUserImportJobsCommandInput,
-  ListUserImportJobsCommandOutput
-} from "./commands/ListUserImportJobsCommand";
+import { ListUserImportJobsCommandInput, ListUserImportJobsCommandOutput } from "./commands/ListUserImportJobsCommand";
 import {
   ListUserPoolClientsCommandInput,
   ListUserPoolClientsCommandOutput
 } from "./commands/ListUserPoolClientsCommand";
-import {
-  ListUserPoolsCommandInput,
-  ListUserPoolsCommandOutput
-} from "./commands/ListUserPoolsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  ListUsersInGroupCommandInput,
-  ListUsersInGroupCommandOutput
-} from "./commands/ListUsersInGroupCommand";
+import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
 import {
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput
@@ -318,10 +216,7 @@ import {
   SetRiskConfigurationCommandInput,
   SetRiskConfigurationCommandOutput
 } from "./commands/SetRiskConfigurationCommand";
-import {
-  SetUICustomizationCommandInput,
-  SetUICustomizationCommandOutput
-} from "./commands/SetUICustomizationCommand";
+import { SetUICustomizationCommandInput, SetUICustomizationCommandOutput } from "./commands/SetUICustomizationCommand";
 import {
   SetUserMFAPreferenceCommandInput,
   SetUserMFAPreferenceCommandOutput
@@ -330,42 +225,18 @@ import {
   SetUserPoolMfaConfigCommandInput,
   SetUserPoolMfaConfigCommandOutput
 } from "./commands/SetUserPoolMfaConfigCommand";
-import {
-  SetUserSettingsCommandInput,
-  SetUserSettingsCommandOutput
-} from "./commands/SetUserSettingsCommand";
-import {
-  SignUpCommandInput,
-  SignUpCommandOutput
-} from "./commands/SignUpCommand";
-import {
-  StartUserImportJobCommandInput,
-  StartUserImportJobCommandOutput
-} from "./commands/StartUserImportJobCommand";
-import {
-  StopUserImportJobCommandInput,
-  StopUserImportJobCommandOutput
-} from "./commands/StopUserImportJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
+import { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
+import { StartUserImportJobCommandInput, StartUserImportJobCommandOutput } from "./commands/StartUserImportJobCommand";
+import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "./commands/StopUserImportJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateAuthEventFeedbackCommandInput,
   UpdateAuthEventFeedbackCommandOutput
 } from "./commands/UpdateAuthEventFeedbackCommand";
-import {
-  UpdateDeviceStatusCommandInput,
-  UpdateDeviceStatusCommandOutput
-} from "./commands/UpdateDeviceStatusCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateDeviceStatusCommandInput, UpdateDeviceStatusCommandOutput } from "./commands/UpdateDeviceStatusCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput
@@ -382,10 +253,7 @@ import {
   UpdateUserPoolClientCommandInput,
   UpdateUserPoolClientCommandOutput
 } from "./commands/UpdateUserPoolClientCommand";
-import {
-  UpdateUserPoolCommandInput,
-  UpdateUserPoolCommandOutput
-} from "./commands/UpdateUserPoolCommand";
+import { UpdateUserPoolCommandInput, UpdateUserPoolCommandOutput } from "./commands/UpdateUserPoolCommand";
 import {
   UpdateUserPoolDomainCommandInput,
   UpdateUserPoolDomainCommandOutput
@@ -414,12 +282,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -654,8 +517,7 @@ export type ServiceOutputTypes =
   | VerifySoftwareTokenCommandOutput
   | VerifyUserAttributeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -739,9 +601,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CognitoIdentityProviderClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CognitoIdentityProviderClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -750,9 +610,7 @@ export type CognitoIdentityProviderClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CognitoIdentityProviderClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CognitoIdentityProviderClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

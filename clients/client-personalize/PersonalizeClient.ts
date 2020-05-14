@@ -2,78 +2,33 @@ import {
   CreateBatchInferenceJobCommandInput,
   CreateBatchInferenceJobCommandOutput
 } from "./commands/CreateBatchInferenceJobCommand";
-import {
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput
-} from "./commands/CreateCampaignCommand";
-import {
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
-} from "./commands/CreateDatasetCommand";
-import {
-  CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput
-} from "./commands/CreateDatasetGroupCommand";
+import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "./commands/CreateCampaignCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "./commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput
 } from "./commands/CreateDatasetImportJobCommand";
-import {
-  CreateEventTrackerCommandInput,
-  CreateEventTrackerCommandOutput
-} from "./commands/CreateEventTrackerCommand";
-import {
-  CreateSchemaCommandInput,
-  CreateSchemaCommandOutput
-} from "./commands/CreateSchemaCommand";
-import {
-  CreateSolutionCommandInput,
-  CreateSolutionCommandOutput
-} from "./commands/CreateSolutionCommand";
+import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "./commands/CreateEventTrackerCommand";
+import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
+import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand";
 import {
   CreateSolutionVersionCommandInput,
   CreateSolutionVersionCommandOutput
 } from "./commands/CreateSolutionVersionCommand";
-import {
-  DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput
-} from "./commands/DeleteCampaignCommand";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "./commands/DeleteDatasetCommand";
-import {
-  DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput
-} from "./commands/DeleteDatasetGroupCommand";
-import {
-  DeleteEventTrackerCommandInput,
-  DeleteEventTrackerCommandOutput
-} from "./commands/DeleteEventTrackerCommand";
-import {
-  DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput
-} from "./commands/DeleteSchemaCommand";
-import {
-  DeleteSolutionCommandInput,
-  DeleteSolutionCommandOutput
-} from "./commands/DeleteSolutionCommand";
-import {
-  DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput
-} from "./commands/DescribeAlgorithmCommand";
+import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
+import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "./commands/DeleteEventTrackerCommand";
+import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
+import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand";
+import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
 import {
   DescribeBatchInferenceJobCommandInput,
   DescribeBatchInferenceJobCommandOutput
 } from "./commands/DescribeBatchInferenceJobCommand";
-import {
-  DescribeCampaignCommandInput,
-  DescribeCampaignCommandOutput
-} from "./commands/DescribeCampaignCommand";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "./commands/DescribeDatasetCommand";
+import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "./commands/DescribeCampaignCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput
@@ -90,70 +45,34 @@ import {
   DescribeFeatureTransformationCommandInput,
   DescribeFeatureTransformationCommandOutput
 } from "./commands/DescribeFeatureTransformationCommand";
-import {
-  DescribeRecipeCommandInput,
-  DescribeRecipeCommandOutput
-} from "./commands/DescribeRecipeCommand";
-import {
-  DescribeSchemaCommandInput,
-  DescribeSchemaCommandOutput
-} from "./commands/DescribeSchemaCommand";
-import {
-  DescribeSolutionCommandInput,
-  DescribeSolutionCommandOutput
-} from "./commands/DescribeSolutionCommand";
+import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
+import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
+import { DescribeSolutionCommandInput, DescribeSolutionCommandOutput } from "./commands/DescribeSolutionCommand";
 import {
   DescribeSolutionVersionCommandInput,
   DescribeSolutionVersionCommandOutput
 } from "./commands/DescribeSolutionVersionCommand";
-import {
-  GetSolutionMetricsCommandInput,
-  GetSolutionMetricsCommandOutput
-} from "./commands/GetSolutionMetricsCommand";
+import { GetSolutionMetricsCommandInput, GetSolutionMetricsCommandOutput } from "./commands/GetSolutionMetricsCommand";
 import {
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput
 } from "./commands/ListBatchInferenceJobsCommand";
-import {
-  ListCampaignsCommandInput,
-  ListCampaignsCommandOutput
-} from "./commands/ListCampaignsCommand";
-import {
-  ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput
-} from "./commands/ListDatasetGroupsCommand";
+import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "./commands/ListCampaignsCommand";
+import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand";
 import {
   ListDatasetImportJobsCommandInput,
   ListDatasetImportJobsCommandOutput
 } from "./commands/ListDatasetImportJobsCommand";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "./commands/ListDatasetsCommand";
-import {
-  ListEventTrackersCommandInput,
-  ListEventTrackersCommandOutput
-} from "./commands/ListEventTrackersCommand";
-import {
-  ListRecipesCommandInput,
-  ListRecipesCommandOutput
-} from "./commands/ListRecipesCommand";
-import {
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput
-} from "./commands/ListSchemasCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "./commands/ListEventTrackersCommand";
+import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
+import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListSolutionVersionsCommandInput,
   ListSolutionVersionsCommandOutput
 } from "./commands/ListSolutionVersionsCommand";
-import {
-  ListSolutionsCommandInput,
-  ListSolutionsCommandOutput
-} from "./commands/ListSolutionsCommand";
-import {
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput
-} from "./commands/UpdateCampaignCommand";
+import { ListSolutionsCommandInput, ListSolutionsCommandOutput } from "./commands/ListSolutionsCommand";
+import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -170,12 +89,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -288,8 +202,7 @@ export type ServiceOutputTypes =
   | ListSolutionsCommandOutput
   | UpdateCampaignCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -373,9 +286,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PersonalizeClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PersonalizeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -384,9 +295,7 @@ export type PersonalizeClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PersonalizeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

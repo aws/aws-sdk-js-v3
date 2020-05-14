@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DescribeSnapshotsListMessage,
-  DescribeSnapshotsMessage
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeSnapshotsCommand,
   serializeAws_queryDescribeSnapshotsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSnapshotsCommandInput = DescribeSnapshotsMessage;
-export type DescribeSnapshotsCommandOutput = DescribeSnapshotsListMessage &
-  __MetadataBearer;
+export type DescribeSnapshotsCommandOutput = DescribeSnapshotsListMessage & __MetadataBearer;
 
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,
@@ -50,9 +39,7 @@ export class DescribeSnapshotsCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeSnapshotsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSnapshotsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeSnapshotsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSnapshotsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSnapshotsCommandOutput> {
     return deserializeAws_queryDescribeSnapshotsCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
-} from "../WorkLinkClient";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
 import { SignOutUserRequest, SignOutUserResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SignOutUserCommand,
   serializeAws_restJson1_1SignOutUserCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class SignOutUserCommand extends $Command<
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SignOutUserCommandInput, SignOutUserCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class SignOutUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SignOutUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SignOutUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SignOutUserCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SignOutUserCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SignOutUserCommandOutput> {
     return deserializeAws_restJson1_1SignOutUserCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetCampaignActivitiesRequest,
-  GetCampaignActivitiesResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetCampaignActivitiesRequest, GetCampaignActivitiesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCampaignActivitiesCommand,
   serializeAws_restJson1_1GetCampaignActivitiesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCampaignActivitiesCommandInput = GetCampaignActivitiesRequest;
-export type GetCampaignActivitiesCommandOutput = GetCampaignActivitiesResponse &
-  __MetadataBearer;
+export type GetCampaignActivitiesCommandOutput = GetCampaignActivitiesResponse & __MetadataBearer;
 
 export class GetCampaignActivitiesCommand extends $Command<
   GetCampaignActivitiesCommandInput,
@@ -49,13 +38,8 @@ export class GetCampaignActivitiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCampaignActivitiesCommandInput,
-    GetCampaignActivitiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCampaignActivitiesCommandInput, GetCampaignActivitiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetCampaignActivitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCampaignActivitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCampaignActivitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetCampaignActivitiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCampaignActivitiesCommandOutput> {
-    return deserializeAws_restJson1_1GetCampaignActivitiesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignActivitiesCommandOutput> {
+    return deserializeAws_restJson1_1GetCampaignActivitiesCommand(output, context);
   }
 
   // Start section: command_body_extra

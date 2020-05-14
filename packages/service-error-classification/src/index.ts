@@ -1,8 +1,4 @@
-import {
-  CLOCK_SKEW_ERROR_CODES,
-  STILL_PROCESSING_ERROR_CODES,
-  THROTTLING_ERROR_CODES
-} from "./constants";
+import { CLOCK_SKEW_ERROR_CODES, STILL_PROCESSING_ERROR_CODES, THROTTLING_ERROR_CODES } from "./constants";
 
 export function isClockSkewError(error: Error) {
   return error.name in CLOCK_SKEW_ERROR_CODES;

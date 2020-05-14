@@ -1,18 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
 import { GetMinuteUsageRequest, GetMinuteUsageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetMinuteUsageCommand,
   serializeAws_restJson1_1GetMinuteUsageCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMinuteUsageCommandInput = GetMinuteUsageRequest;
-export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse &
-  __MetadataBearer;
+export type GetMinuteUsageCommandOutput = GetMinuteUsageResponse & __MetadataBearer;
 
 export class GetMinuteUsageCommand extends $Command<
   GetMinuteUsageCommandInput,
@@ -47,9 +39,7 @@ export class GetMinuteUsageCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMinuteUsageCommandInput, GetMinuteUsageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetMinuteUsageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMinuteUsageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMinuteUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetMinuteUsageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMinuteUsageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMinuteUsageCommandOutput> {
     return deserializeAws_restJson1_1GetMinuteUsageCommand(output, context);
   }
 

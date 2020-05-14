@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  DeclineInvitationsRequest,
-  DeclineInvitationsResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeclineInvitationsCommand,
   serializeAws_restJson1_1DeclineInvitationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
-export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse &
-  __MetadataBearer;
+export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse & __MetadataBearer;
 
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,
@@ -50,9 +39,7 @@ export class DeclineInvitationsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeclineInvitationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeclineInvitationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeclineInvitationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeclineInvitationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeclineInvitationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineInvitationsCommandOutput> {
     return deserializeAws_restJson1_1DeclineInvitationsCommand(output, context);
   }
 

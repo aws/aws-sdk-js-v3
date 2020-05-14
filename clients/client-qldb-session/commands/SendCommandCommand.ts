@@ -1,18 +1,11 @@
-import {
-  QLDBSessionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBSessionClient";
+import { QLDBSessionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBSessionClient";
 import { SendCommandRequest, SendCommandResult } from "../models/index";
 import {
   deserializeAws_json1_0SendCommandCommand,
   serializeAws_json1_0SendCommandCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class SendCommandCommand extends $Command<
     configuration: QLDBSessionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendCommandCommandInput, SendCommandCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class SendCommandCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendCommandCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0SendCommandCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendCommandCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendCommandCommandOutput> {
     return deserializeAws_json1_0SendCommandCommand(output, context);
   }
 

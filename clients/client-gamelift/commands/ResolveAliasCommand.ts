@@ -1,18 +1,11 @@
-import {
-  GameLiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GameLiftClient";
+import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import { ResolveAliasInput, ResolveAliasOutput } from "../models/index";
 import {
   deserializeAws_json1_1ResolveAliasCommand,
   serializeAws_json1_1ResolveAliasCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ResolveAliasCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResolveAliasCommandInput, ResolveAliasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ResolveAliasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResolveAliasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResolveAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ResolveAliasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResolveAliasCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResolveAliasCommandOutput> {
     return deserializeAws_json1_1ResolveAliasCommand(output, context);
   }
 

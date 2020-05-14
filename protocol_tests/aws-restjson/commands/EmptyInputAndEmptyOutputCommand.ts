@@ -1,21 +1,11 @@
-import {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestJsonProtocolClient";
-import {
-  EmptyInputAndEmptyOutputInput,
-  EmptyInputAndEmptyOutputOutput
-} from "../models/index";
+import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand,
   serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type EmptyInputAndEmptyOutputCommandInput = EmptyInputAndEmptyOutputInput;
-export type EmptyInputAndEmptyOutputCommandOutput = EmptyInputAndEmptyOutputOutput &
-  __MetadataBearer;
+export type EmptyInputAndEmptyOutputCommandOutput = EmptyInputAndEmptyOutputOutput & __MetadataBearer;
 
 export class EmptyInputAndEmptyOutputCommand extends $Command<
   EmptyInputAndEmptyOutputCommandInput,
@@ -49,13 +38,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    EmptyInputAndEmptyOutputCommandInput,
-    EmptyInputAndEmptyOutputCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<EmptyInputAndEmptyOutputCommandInput, EmptyInputAndEmptyOutputCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EmptyInputAndEmptyOutputCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
-      input,
-      context
-    );
+  private serialize(input: EmptyInputAndEmptyOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<EmptyInputAndEmptyOutputCommandOutput> {
-    return deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EmptyInputAndEmptyOutputCommandOutput> {
+    return deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

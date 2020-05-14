@@ -1,18 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { BatchWriteItemInput, BatchWriteItemOutput } from "../models/index";
 import {
   deserializeAws_json1_0BatchWriteItemCommand,
   serializeAws_json1_0BatchWriteItemCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchWriteItemCommandInput = BatchWriteItemInput;
-export type BatchWriteItemCommandOutput = BatchWriteItemOutput &
-  __MetadataBearer;
+export type BatchWriteItemCommandOutput = BatchWriteItemOutput & __MetadataBearer;
 
 export class BatchWriteItemCommand extends $Command<
   BatchWriteItemCommandInput,
@@ -47,9 +39,7 @@ export class BatchWriteItemCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchWriteItemCommandInput, BatchWriteItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class BatchWriteItemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchWriteItemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchWriteItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0BatchWriteItemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchWriteItemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchWriteItemCommandOutput> {
     return deserializeAws_json1_0BatchWriteItemCommand(output, context);
   }
 

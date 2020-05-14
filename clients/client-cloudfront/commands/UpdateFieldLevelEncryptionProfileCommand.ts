@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
-import {
-  UpdateFieldLevelEncryptionProfileRequest,
-  UpdateFieldLevelEncryptionProfileResult
-} from "../models/index";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { UpdateFieldLevelEncryptionProfileRequest, UpdateFieldLevelEncryptionProfileResult } from "../models/index";
 import {
   deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand,
   serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFieldLevelEncryptionProfileCommandInput = UpdateFieldLevelEncryptionProfileRequest;
-export type UpdateFieldLevelEncryptionProfileCommandOutput = UpdateFieldLevelEncryptionProfileResult &
-  __MetadataBearer;
+export type UpdateFieldLevelEncryptionProfileCommandOutput = UpdateFieldLevelEncryptionProfileResult & __MetadataBearer;
 
 export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
   UpdateFieldLevelEncryptionProfileCommandInput,
@@ -49,13 +38,8 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFieldLevelEncryptionProfileCommandInput,
-    UpdateFieldLevelEncryptionProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFieldLevelEncryptionProfileCommandInput, UpdateFieldLevelEncryptionProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
     input: UpdateFieldLevelEncryptionProfileCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> {
-    return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

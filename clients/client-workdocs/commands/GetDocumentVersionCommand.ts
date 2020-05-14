@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient";
-import {
-  GetDocumentVersionRequest,
-  GetDocumentVersionResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
+import { GetDocumentVersionRequest, GetDocumentVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDocumentVersionCommand,
   serializeAws_restJson1_1GetDocumentVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDocumentVersionCommandInput = GetDocumentVersionRequest;
-export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse &
-  __MetadataBearer;
+export type GetDocumentVersionCommandOutput = GetDocumentVersionResponse & __MetadataBearer;
 
 export class GetDocumentVersionCommand extends $Command<
   GetDocumentVersionCommandInput,
@@ -50,9 +39,7 @@ export class GetDocumentVersionCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDocumentVersionCommandInput, GetDocumentVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetDocumentVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDocumentVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDocumentVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDocumentVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDocumentVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDocumentVersionCommandOutput> {
     return deserializeAws_restJson1_1GetDocumentVersionCommand(output, context);
   }
 

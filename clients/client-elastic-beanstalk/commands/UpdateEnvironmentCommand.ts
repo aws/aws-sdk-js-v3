@@ -1,21 +1,11 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElasticBeanstalkClient";
-import {
-  EnvironmentDescription,
-  UpdateEnvironmentMessage
-} from "../models/index";
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
+import { EnvironmentDescription, UpdateEnvironmentMessage } from "../models/index";
 import {
   deserializeAws_queryUpdateEnvironmentCommand,
   serializeAws_queryUpdateEnvironmentCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEnvironmentCommandInput = UpdateEnvironmentMessage;
-export type UpdateEnvironmentCommandOutput = EnvironmentDescription &
-  __MetadataBearer;
+export type UpdateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
 
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,
@@ -50,9 +39,7 @@ export class UpdateEnvironmentCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateEnvironmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateEnvironmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryUpdateEnvironmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateEnvironmentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEnvironmentCommandOutput> {
     return deserializeAws_queryUpdateEnvironmentCommand(output, context);
   }
 

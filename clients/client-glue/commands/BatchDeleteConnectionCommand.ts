@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchDeleteConnectionRequest,
-  BatchDeleteConnectionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteConnectionCommand,
   serializeAws_json1_1BatchDeleteConnectionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeleteConnectionCommandInput = BatchDeleteConnectionRequest;
-export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse &
-  __MetadataBearer;
+export type BatchDeleteConnectionCommandOutput = BatchDeleteConnectionResponse & __MetadataBearer;
 
 export class BatchDeleteConnectionCommand extends $Command<
   BatchDeleteConnectionCommandInput,
@@ -49,13 +38,8 @@ export class BatchDeleteConnectionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteConnectionCommandInput,
-    BatchDeleteConnectionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteConnectionCommandInput, BatchDeleteConnectionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class BatchDeleteConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeleteConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchDeleteConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchDeleteConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteConnectionCommandOutput> {
     return deserializeAws_json1_1BatchDeleteConnectionCommand(output, context);
   }
 

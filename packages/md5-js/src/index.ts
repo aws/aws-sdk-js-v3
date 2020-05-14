@@ -52,11 +52,7 @@ export class Md5 implements Hash {
         buffer.setUint8(i, 0);
       }
       buffer.setUint32(BLOCK_SIZE - 8, bitsHashed >>> 0, true);
-      buffer.setUint32(
-        BLOCK_SIZE - 4,
-        Math.floor(bitsHashed / 0x100000000),
-        true
-      );
+      buffer.setUint32(BLOCK_SIZE - 4, Math.floor(bitsHashed / 0x100000000), true);
 
       this.hashBuffer();
 
@@ -159,51 +155,19 @@ function cmn(q: number, a: number, b: number, x: number, s: number, t: number) {
   return (((a << s) | (a >>> (32 - s))) + b) & 0xffffffff;
 }
 
-function ff(
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  x: number,
-  s: number,
-  t: number
-) {
+function ff(a: number, b: number, c: number, d: number, x: number, s: number, t: number) {
   return cmn((b & c) | (~b & d), a, b, x, s, t);
 }
 
-function gg(
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  x: number,
-  s: number,
-  t: number
-) {
+function gg(a: number, b: number, c: number, d: number, x: number, s: number, t: number) {
   return cmn((b & d) | (c & ~d), a, b, x, s, t);
 }
 
-function hh(
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  x: number,
-  s: number,
-  t: number
-) {
+function hh(a: number, b: number, c: number, d: number, x: number, s: number, t: number) {
   return cmn(b ^ c ^ d, a, b, x, s, t);
 }
 
-function ii(
-  a: number,
-  b: number,
-  c: number,
-  d: number,
-  x: number,
-  s: number,
-  t: number
-) {
+function ii(a: number, b: number, c: number, d: number, x: number, s: number, t: number) {
   return cmn(c ^ (b | ~d), a, b, x, s, t);
 }
 
@@ -221,11 +185,7 @@ function convertToBuffer(data: SourceData): Uint8Array {
   }
 
   if (ArrayBuffer.isView(data)) {
-    return new Uint8Array(
-      data.buffer,
-      data.byteOffset,
-      data.byteLength / Uint8Array.BYTES_PER_ELEMENT
-    );
+    return new Uint8Array(data.buffer, data.byteOffset, data.byteLength / Uint8Array.BYTES_PER_ELEMENT);
   }
 
   return new Uint8Array(data);

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DescribeEndpointsRequest {
@@ -9,8 +6,7 @@ export interface DescribeEndpointsRequest {
 }
 
 export namespace DescribeEndpointsRequest {
-  export const isa = (o: any): o is DescribeEndpointsRequest =>
-    __isa(o, "DescribeEndpointsRequest");
+  export const isa = (o: any): o is DescribeEndpointsRequest => __isa(o, "DescribeEndpointsRequest");
 }
 
 export interface DescribeEndpointsResponse {
@@ -22,8 +18,7 @@ export interface DescribeEndpointsResponse {
 }
 
 export namespace DescribeEndpointsResponse {
-  export const isa = (o: any): o is DescribeEndpointsResponse =>
-    __isa(o, "DescribeEndpointsResponse");
+  export const isa = (o: any): o is DescribeEndpointsResponse => __isa(o, "DescribeEndpointsResponse");
 }
 
 /**
@@ -46,17 +41,14 @@ export namespace Endpoint {
   export const isa = (o: any): o is Endpoint => __isa(o, "Endpoint");
 }
 
-export interface InvalidEndpointException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
   name: "InvalidEndpointException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidEndpointException {
-  export const isa = (o: any): o is InvalidEndpointException =>
-    __isa(o, "InvalidEndpointException");
+  export const isa = (o: any): o is InvalidEndpointException => __isa(o, "InvalidEndpointException");
 }
 
 /**
@@ -96,8 +88,7 @@ export interface ArchivalSummary {
 }
 
 export namespace ArchivalSummary {
-  export const isa = (o: any): o is ArchivalSummary =>
-    __isa(o, "ArchivalSummary");
+  export const isa = (o: any): o is ArchivalSummary => __isa(o, "ArchivalSummary");
 }
 
 export type AttributeAction = "ADD" | "DELETE" | "PUT";
@@ -133,8 +124,7 @@ export interface AttributeDefinition {
 }
 
 export namespace AttributeDefinition {
-  export const isa = (o: any): o is AttributeDefinition =>
-    __isa(o, "AttributeDefinition");
+  export const isa = (o: any): o is AttributeDefinition => __isa(o, "AttributeDefinition");
 }
 
 /**
@@ -229,8 +219,7 @@ export interface AttributeValue {
 }
 
 export namespace AttributeValue {
-  export const isa = (o: any): o is AttributeValue =>
-    __isa(o, "AttributeValue");
+  export const isa = (o: any): o is AttributeValue => __isa(o, "AttributeValue");
 }
 
 /**
@@ -348,8 +337,7 @@ export interface AttributeValueUpdate {
 }
 
 export namespace AttributeValueUpdate {
-  export const isa = (o: any): o is AttributeValueUpdate =>
-    __isa(o, "AttributeValueUpdate");
+  export const isa = (o: any): o is AttributeValueUpdate => __isa(o, "AttributeValueUpdate");
 }
 
 /**
@@ -369,8 +357,7 @@ export interface AutoScalingPolicyDescription {
 }
 
 export namespace AutoScalingPolicyDescription {
-  export const isa = (o: any): o is AutoScalingPolicyDescription =>
-    __isa(o, "AutoScalingPolicyDescription");
+  export const isa = (o: any): o is AutoScalingPolicyDescription => __isa(o, "AutoScalingPolicyDescription");
 }
 
 /**
@@ -386,14 +373,11 @@ export interface AutoScalingPolicyUpdate {
   /**
    * <p>Represents a target tracking scaling policy configuration.</p>
    */
-  TargetTrackingScalingPolicyConfiguration:
-    | AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
-    | undefined;
+  TargetTrackingScalingPolicyConfiguration: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate | undefined;
 }
 
 export namespace AutoScalingPolicyUpdate {
-  export const isa = (o: any): o is AutoScalingPolicyUpdate =>
-    __isa(o, "AutoScalingPolicyUpdate");
+  export const isa = (o: any): o is AutoScalingPolicyUpdate => __isa(o, "AutoScalingPolicyUpdate");
 }
 
 /**
@@ -429,8 +413,7 @@ export interface AutoScalingSettingsDescription {
 }
 
 export namespace AutoScalingSettingsDescription {
-  export const isa = (o: any): o is AutoScalingSettingsDescription =>
-    __isa(o, "AutoScalingSettingsDescription");
+  export const isa = (o: any): o is AutoScalingSettingsDescription => __isa(o, "AutoScalingSettingsDescription");
 }
 
 /**
@@ -466,8 +449,7 @@ export interface AutoScalingSettingsUpdate {
 }
 
 export namespace AutoScalingSettingsUpdate {
-  export const isa = (o: any): o is AutoScalingSettingsUpdate =>
-    __isa(o, "AutoScalingSettingsUpdate");
+  export const isa = (o: any): o is AutoScalingSettingsUpdate => __isa(o, "AutoScalingSettingsUpdate");
 }
 
 /**
@@ -509,9 +491,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
 }
 
 export namespace AutoScalingTargetTrackingScalingPolicyConfigurationDescription {
-  export const isa = (
-    o: any
-  ): o is AutoScalingTargetTrackingScalingPolicyConfigurationDescription =>
+  export const isa = (o: any): o is AutoScalingTargetTrackingScalingPolicyConfigurationDescription =>
     __isa(o, "AutoScalingTargetTrackingScalingPolicyConfigurationDescription");
 }
 
@@ -554,9 +534,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
 }
 
 export namespace AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
-  export const isa = (
-    o: any
-  ): o is AutoScalingTargetTrackingScalingPolicyConfigurationUpdate =>
+  export const isa = (o: any): o is AutoScalingTargetTrackingScalingPolicyConfigurationUpdate =>
     __isa(o, "AutoScalingTargetTrackingScalingPolicyConfigurationUpdate");
 }
 
@@ -582,8 +560,7 @@ export interface BackupDescription {
 }
 
 export namespace BackupDescription {
-  export const isa = (o: any): o is BackupDescription =>
-    __isa(o, "BackupDescription");
+  export const isa = (o: any): o is BackupDescription => __isa(o, "BackupDescription");
 }
 
 /**
@@ -652,33 +629,27 @@ export namespace BackupDetails {
 /**
  * <p>There is another ongoing conflicting backup control plane operation on the table. The backup is either being created, deleted or restored to a table.</p>
  */
-export interface BackupInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BackupInUseException extends __SmithyException, $MetadataBearer {
   name: "BackupInUseException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BackupInUseException {
-  export const isa = (o: any): o is BackupInUseException =>
-    __isa(o, "BackupInUseException");
+  export const isa = (o: any): o is BackupInUseException => __isa(o, "BackupInUseException");
 }
 
 /**
  * <p>Backup not found for the given BackupARN. </p>
  */
-export interface BackupNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BackupNotFoundException extends __SmithyException, $MetadataBearer {
   name: "BackupNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace BackupNotFoundException {
-  export const isa = (o: any): o is BackupNotFoundException =>
-    __isa(o, "BackupNotFoundException");
+  export const isa = (o: any): o is BackupNotFoundException => __isa(o, "BackupNotFoundException");
 }
 
 export type BackupStatus = "AVAILABLE" | "CREATING" | "DELETED";
@@ -886,8 +857,7 @@ export interface BatchGetItemInput {
 }
 
 export namespace BatchGetItemInput {
-  export const isa = (o: any): o is BatchGetItemInput =>
-    __isa(o, "BatchGetItemInput");
+  export const isa = (o: any): o is BatchGetItemInput => __isa(o, "BatchGetItemInput");
 }
 
 /**
@@ -949,8 +919,7 @@ export interface BatchGetItemOutput {
 }
 
 export namespace BatchGetItemOutput {
-  export const isa = (o: any): o is BatchGetItemOutput =>
-    __isa(o, "BatchGetItemOutput");
+  export const isa = (o: any): o is BatchGetItemOutput => __isa(o, "BatchGetItemOutput");
 }
 
 /**
@@ -1027,8 +996,7 @@ export interface BatchWriteItemInput {
 }
 
 export namespace BatchWriteItemInput {
-  export const isa = (o: any): o is BatchWriteItemInput =>
-    __isa(o, "BatchWriteItemInput");
+  export const isa = (o: any): o is BatchWriteItemInput => __isa(o, "BatchWriteItemInput");
 }
 
 /**
@@ -1120,8 +1088,7 @@ export interface BatchWriteItemOutput {
 }
 
 export namespace BatchWriteItemOutput {
-  export const isa = (o: any): o is BatchWriteItemOutput =>
-    __isa(o, "BatchWriteItemOutput");
+  export const isa = (o: any): o is BatchWriteItemOutput => __isa(o, "BatchWriteItemOutput");
 }
 
 export type BillingMode = "PAY_PER_REQUEST" | "PROVISIONED";
@@ -1154,8 +1121,7 @@ export interface BillingModeSummary {
 }
 
 export namespace BillingModeSummary {
-  export const isa = (o: any): o is BillingModeSummary =>
-    __isa(o, "BillingModeSummary");
+  export const isa = (o: any): o is BillingModeSummary => __isa(o, "BillingModeSummary");
 }
 
 /**
@@ -1184,8 +1150,7 @@ export interface CancellationReason {
 }
 
 export namespace CancellationReason {
-  export const isa = (o: any): o is CancellationReason =>
-    __isa(o, "CancellationReason");
+  export const isa = (o: any): o is CancellationReason => __isa(o, "CancellationReason");
 }
 
 /**
@@ -1451,9 +1416,7 @@ export interface ConditionCheck {
    *         For <code>ReturnValuesOnConditionCheckFailure</code>, the valid
    *         values are: NONE and ALL_OLD.</p>
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    * <p>Name of the table for the check item request.</p>
@@ -1462,16 +1425,13 @@ export interface ConditionCheck {
 }
 
 export namespace ConditionCheck {
-  export const isa = (o: any): o is ConditionCheck =>
-    __isa(o, "ConditionCheck");
+  export const isa = (o: any): o is ConditionCheck => __isa(o, "ConditionCheck");
 }
 
 /**
  * <p>A condition specified in the operation could not be evaluated.</p>
  */
-export interface ConditionalCheckFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConditionalCheckFailedException extends __SmithyException, $MetadataBearer {
   name: "ConditionalCheckFailedException";
   $fault: "client";
   /**
@@ -1481,8 +1441,7 @@ export interface ConditionalCheckFailedException
 }
 
 export namespace ConditionalCheckFailedException {
-  export const isa = (o: any): o is ConditionalCheckFailedException =>
-    __isa(o, "ConditionalCheckFailedException");
+  export const isa = (o: any): o is ConditionalCheckFailedException => __isa(o, "ConditionalCheckFailedException");
 }
 
 export type ConditionalOperator = "AND" | "OR";
@@ -1533,8 +1492,7 @@ export interface ConsumedCapacity {
 }
 
 export namespace ConsumedCapacity {
-  export const isa = (o: any): o is ConsumedCapacity =>
-    __isa(o, "ConsumedCapacity");
+  export const isa = (o: any): o is ConsumedCapacity => __isa(o, "ConsumedCapacity");
 }
 
 /**
@@ -1556,8 +1514,7 @@ export interface ContinuousBackupsDescription {
 }
 
 export namespace ContinuousBackupsDescription {
-  export const isa = (o: any): o is ContinuousBackupsDescription =>
-    __isa(o, "ContinuousBackupsDescription");
+  export const isa = (o: any): o is ContinuousBackupsDescription => __isa(o, "ContinuousBackupsDescription");
 }
 
 export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
@@ -1565,9 +1522,7 @@ export type ContinuousBackupsStatus = "DISABLED" | "ENABLED";
 /**
  * <p>Backups have not yet been enabled for this table.</p>
  */
-export interface ContinuousBackupsUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ContinuousBackupsUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ContinuousBackupsUnavailableException";
   $fault: "client";
   message?: string;
@@ -1580,12 +1535,7 @@ export namespace ContinuousBackupsUnavailableException {
 
 export type ContributorInsightsAction = "DISABLE" | "ENABLE";
 
-export type ContributorInsightsStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "FAILED";
+export type ContributorInsightsStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "FAILED";
 
 /**
  * <p>Represents a Contributor Insights summary entry..</p>
@@ -1609,8 +1559,7 @@ export interface ContributorInsightsSummary {
 }
 
 export namespace ContributorInsightsSummary {
-  export const isa = (o: any): o is ContributorInsightsSummary =>
-    __isa(o, "ContributorInsightsSummary");
+  export const isa = (o: any): o is ContributorInsightsSummary => __isa(o, "ContributorInsightsSummary");
 }
 
 export interface CreateBackupInput {
@@ -1627,8 +1576,7 @@ export interface CreateBackupInput {
 }
 
 export namespace CreateBackupInput {
-  export const isa = (o: any): o is CreateBackupInput =>
-    __isa(o, "CreateBackupInput");
+  export const isa = (o: any): o is CreateBackupInput => __isa(o, "CreateBackupInput");
 }
 
 export interface CreateBackupOutput {
@@ -1640,8 +1588,7 @@ export interface CreateBackupOutput {
 }
 
 export namespace CreateBackupOutput {
-  export const isa = (o: any): o is CreateBackupOutput =>
-    __isa(o, "CreateBackupOutput");
+  export const isa = (o: any): o is CreateBackupOutput => __isa(o, "CreateBackupOutput");
 }
 
 /**
@@ -1674,8 +1621,7 @@ export interface CreateGlobalSecondaryIndexAction {
 }
 
 export namespace CreateGlobalSecondaryIndexAction {
-  export const isa = (o: any): o is CreateGlobalSecondaryIndexAction =>
-    __isa(o, "CreateGlobalSecondaryIndexAction");
+  export const isa = (o: any): o is CreateGlobalSecondaryIndexAction => __isa(o, "CreateGlobalSecondaryIndexAction");
 }
 
 export interface CreateGlobalTableInput {
@@ -1692,8 +1638,7 @@ export interface CreateGlobalTableInput {
 }
 
 export namespace CreateGlobalTableInput {
-  export const isa = (o: any): o is CreateGlobalTableInput =>
-    __isa(o, "CreateGlobalTableInput");
+  export const isa = (o: any): o is CreateGlobalTableInput => __isa(o, "CreateGlobalTableInput");
 }
 
 export interface CreateGlobalTableOutput {
@@ -1705,8 +1650,7 @@ export interface CreateGlobalTableOutput {
 }
 
 export namespace CreateGlobalTableOutput {
-  export const isa = (o: any): o is CreateGlobalTableOutput =>
-    __isa(o, "CreateGlobalTableOutput");
+  export const isa = (o: any): o is CreateGlobalTableOutput => __isa(o, "CreateGlobalTableOutput");
 }
 
 /**
@@ -1721,8 +1665,7 @@ export interface CreateReplicaAction {
 }
 
 export namespace CreateReplicaAction {
-  export const isa = (o: any): o is CreateReplicaAction =>
-    __isa(o, "CreateReplicaAction");
+  export const isa = (o: any): o is CreateReplicaAction => __isa(o, "CreateReplicaAction");
 }
 
 /**
@@ -2020,8 +1963,7 @@ export interface CreateTableInput {
 }
 
 export namespace CreateTableInput {
-  export const isa = (o: any): o is CreateTableInput =>
-    __isa(o, "CreateTableInput");
+  export const isa = (o: any): o is CreateTableInput => __isa(o, "CreateTableInput");
 }
 
 /**
@@ -2036,8 +1978,7 @@ export interface CreateTableOutput {
 }
 
 export namespace CreateTableOutput {
-  export const isa = (o: any): o is CreateTableOutput =>
-    __isa(o, "CreateTableOutput");
+  export const isa = (o: any): o is CreateTableOutput => __isa(o, "CreateTableOutput");
 }
 
 /**
@@ -2072,9 +2013,7 @@ export interface Delete {
    *         For <code>ReturnValuesOnConditionCheckFailure</code>, the valid
    *         values are: NONE and ALL_OLD.</p>
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    * <p>Name of the table in which the item to be deleted resides.</p>
@@ -2095,8 +2034,7 @@ export interface DeleteBackupInput {
 }
 
 export namespace DeleteBackupInput {
-  export const isa = (o: any): o is DeleteBackupInput =>
-    __isa(o, "DeleteBackupInput");
+  export const isa = (o: any): o is DeleteBackupInput => __isa(o, "DeleteBackupInput");
 }
 
 export interface DeleteBackupOutput {
@@ -2108,8 +2046,7 @@ export interface DeleteBackupOutput {
 }
 
 export namespace DeleteBackupOutput {
-  export const isa = (o: any): o is DeleteBackupOutput =>
-    __isa(o, "DeleteBackupOutput");
+  export const isa = (o: any): o is DeleteBackupOutput => __isa(o, "DeleteBackupOutput");
 }
 
 /**
@@ -2124,8 +2061,7 @@ export interface DeleteGlobalSecondaryIndexAction {
 }
 
 export namespace DeleteGlobalSecondaryIndexAction {
-  export const isa = (o: any): o is DeleteGlobalSecondaryIndexAction =>
-    __isa(o, "DeleteGlobalSecondaryIndexAction");
+  export const isa = (o: any): o is DeleteGlobalSecondaryIndexAction => __isa(o, "DeleteGlobalSecondaryIndexAction");
 }
 
 /**
@@ -2298,8 +2234,7 @@ export interface DeleteItemInput {
 }
 
 export namespace DeleteItemInput {
-  export const isa = (o: any): o is DeleteItemInput =>
-    __isa(o, "DeleteItemInput");
+  export const isa = (o: any): o is DeleteItemInput => __isa(o, "DeleteItemInput");
 }
 
 /**
@@ -2356,8 +2291,7 @@ export interface DeleteItemOutput {
 }
 
 export namespace DeleteItemOutput {
-  export const isa = (o: any): o is DeleteItemOutput =>
-    __isa(o, "DeleteItemOutput");
+  export const isa = (o: any): o is DeleteItemOutput => __isa(o, "DeleteItemOutput");
 }
 
 /**
@@ -2372,8 +2306,7 @@ export interface DeleteReplicaAction {
 }
 
 export namespace DeleteReplicaAction {
-  export const isa = (o: any): o is DeleteReplicaAction =>
-    __isa(o, "DeleteReplicaAction");
+  export const isa = (o: any): o is DeleteReplicaAction => __isa(o, "DeleteReplicaAction");
 }
 
 /**
@@ -2419,8 +2352,7 @@ export interface DeleteTableInput {
 }
 
 export namespace DeleteTableInput {
-  export const isa = (o: any): o is DeleteTableInput =>
-    __isa(o, "DeleteTableInput");
+  export const isa = (o: any): o is DeleteTableInput => __isa(o, "DeleteTableInput");
 }
 
 /**
@@ -2435,8 +2367,7 @@ export interface DeleteTableOutput {
 }
 
 export namespace DeleteTableOutput {
-  export const isa = (o: any): o is DeleteTableOutput =>
-    __isa(o, "DeleteTableOutput");
+  export const isa = (o: any): o is DeleteTableOutput => __isa(o, "DeleteTableOutput");
 }
 
 export interface DescribeBackupInput {
@@ -2448,8 +2379,7 @@ export interface DescribeBackupInput {
 }
 
 export namespace DescribeBackupInput {
-  export const isa = (o: any): o is DescribeBackupInput =>
-    __isa(o, "DescribeBackupInput");
+  export const isa = (o: any): o is DescribeBackupInput => __isa(o, "DescribeBackupInput");
 }
 
 export interface DescribeBackupOutput {
@@ -2461,8 +2391,7 @@ export interface DescribeBackupOutput {
 }
 
 export namespace DescribeBackupOutput {
-  export const isa = (o: any): o is DescribeBackupOutput =>
-    __isa(o, "DescribeBackupOutput");
+  export const isa = (o: any): o is DescribeBackupOutput => __isa(o, "DescribeBackupOutput");
 }
 
 export interface DescribeContinuousBackupsInput {
@@ -2474,8 +2403,7 @@ export interface DescribeContinuousBackupsInput {
 }
 
 export namespace DescribeContinuousBackupsInput {
-  export const isa = (o: any): o is DescribeContinuousBackupsInput =>
-    __isa(o, "DescribeContinuousBackupsInput");
+  export const isa = (o: any): o is DescribeContinuousBackupsInput => __isa(o, "DescribeContinuousBackupsInput");
 }
 
 export interface DescribeContinuousBackupsOutput {
@@ -2487,8 +2415,7 @@ export interface DescribeContinuousBackupsOutput {
 }
 
 export namespace DescribeContinuousBackupsOutput {
-  export const isa = (o: any): o is DescribeContinuousBackupsOutput =>
-    __isa(o, "DescribeContinuousBackupsOutput");
+  export const isa = (o: any): o is DescribeContinuousBackupsOutput => __isa(o, "DescribeContinuousBackupsOutput");
 }
 
 export interface DescribeContributorInsightsInput {
@@ -2505,8 +2432,7 @@ export interface DescribeContributorInsightsInput {
 }
 
 export namespace DescribeContributorInsightsInput {
-  export const isa = (o: any): o is DescribeContributorInsightsInput =>
-    __isa(o, "DescribeContributorInsightsInput");
+  export const isa = (o: any): o is DescribeContributorInsightsInput => __isa(o, "DescribeContributorInsightsInput");
 }
 
 export interface DescribeContributorInsightsOutput {
@@ -2559,8 +2485,7 @@ export interface DescribeContributorInsightsOutput {
 }
 
 export namespace DescribeContributorInsightsOutput {
-  export const isa = (o: any): o is DescribeContributorInsightsOutput =>
-    __isa(o, "DescribeContributorInsightsOutput");
+  export const isa = (o: any): o is DescribeContributorInsightsOutput => __isa(o, "DescribeContributorInsightsOutput");
 }
 
 export interface DescribeGlobalTableInput {
@@ -2572,8 +2497,7 @@ export interface DescribeGlobalTableInput {
 }
 
 export namespace DescribeGlobalTableInput {
-  export const isa = (o: any): o is DescribeGlobalTableInput =>
-    __isa(o, "DescribeGlobalTableInput");
+  export const isa = (o: any): o is DescribeGlobalTableInput => __isa(o, "DescribeGlobalTableInput");
 }
 
 export interface DescribeGlobalTableOutput {
@@ -2585,8 +2509,7 @@ export interface DescribeGlobalTableOutput {
 }
 
 export namespace DescribeGlobalTableOutput {
-  export const isa = (o: any): o is DescribeGlobalTableOutput =>
-    __isa(o, "DescribeGlobalTableOutput");
+  export const isa = (o: any): o is DescribeGlobalTableOutput => __isa(o, "DescribeGlobalTableOutput");
 }
 
 export interface DescribeGlobalTableSettingsInput {
@@ -2598,8 +2521,7 @@ export interface DescribeGlobalTableSettingsInput {
 }
 
 export namespace DescribeGlobalTableSettingsInput {
-  export const isa = (o: any): o is DescribeGlobalTableSettingsInput =>
-    __isa(o, "DescribeGlobalTableSettingsInput");
+  export const isa = (o: any): o is DescribeGlobalTableSettingsInput => __isa(o, "DescribeGlobalTableSettingsInput");
 }
 
 export interface DescribeGlobalTableSettingsOutput {
@@ -2616,8 +2538,7 @@ export interface DescribeGlobalTableSettingsOutput {
 }
 
 export namespace DescribeGlobalTableSettingsOutput {
-  export const isa = (o: any): o is DescribeGlobalTableSettingsOutput =>
-    __isa(o, "DescribeGlobalTableSettingsOutput");
+  export const isa = (o: any): o is DescribeGlobalTableSettingsOutput => __isa(o, "DescribeGlobalTableSettingsOutput");
 }
 
 /**
@@ -2628,8 +2549,7 @@ export interface DescribeLimitsInput {
 }
 
 export namespace DescribeLimitsInput {
-  export const isa = (o: any): o is DescribeLimitsInput =>
-    __isa(o, "DescribeLimitsInput");
+  export const isa = (o: any): o is DescribeLimitsInput => __isa(o, "DescribeLimitsInput");
 }
 
 /**
@@ -2665,8 +2585,7 @@ export interface DescribeLimitsOutput {
 }
 
 export namespace DescribeLimitsOutput {
-  export const isa = (o: any): o is DescribeLimitsOutput =>
-    __isa(o, "DescribeLimitsOutput");
+  export const isa = (o: any): o is DescribeLimitsOutput => __isa(o, "DescribeLimitsOutput");
 }
 
 /**
@@ -2681,8 +2600,7 @@ export interface DescribeTableInput {
 }
 
 export namespace DescribeTableInput {
-  export const isa = (o: any): o is DescribeTableInput =>
-    __isa(o, "DescribeTableInput");
+  export const isa = (o: any): o is DescribeTableInput => __isa(o, "DescribeTableInput");
 }
 
 /**
@@ -2697,8 +2615,7 @@ export interface DescribeTableOutput {
 }
 
 export namespace DescribeTableOutput {
-  export const isa = (o: any): o is DescribeTableOutput =>
-    __isa(o, "DescribeTableOutput");
+  export const isa = (o: any): o is DescribeTableOutput => __isa(o, "DescribeTableOutput");
 }
 
 export interface DescribeTableReplicaAutoScalingInput {
@@ -2736,8 +2653,7 @@ export interface DescribeTimeToLiveInput {
 }
 
 export namespace DescribeTimeToLiveInput {
-  export const isa = (o: any): o is DescribeTimeToLiveInput =>
-    __isa(o, "DescribeTimeToLiveInput");
+  export const isa = (o: any): o is DescribeTimeToLiveInput => __isa(o, "DescribeTimeToLiveInput");
 }
 
 export interface DescribeTimeToLiveOutput {
@@ -2749,8 +2665,7 @@ export interface DescribeTimeToLiveOutput {
 }
 
 export namespace DescribeTimeToLiveOutput {
-  export const isa = (o: any): o is DescribeTimeToLiveOutput =>
-    __isa(o, "DescribeTimeToLiveOutput");
+  export const isa = (o: any): o is DescribeTimeToLiveOutput => __isa(o, "DescribeTimeToLiveOutput");
 }
 
 /**
@@ -2987,8 +2902,7 @@ export interface ExpectedAttributeValue {
 }
 
 export namespace ExpectedAttributeValue {
-  export const isa = (o: any): o is ExpectedAttributeValue =>
-    __isa(o, "ExpectedAttributeValue");
+  export const isa = (o: any): o is ExpectedAttributeValue => __isa(o, "ExpectedAttributeValue");
 }
 
 /**
@@ -3008,8 +2922,7 @@ export interface FailureException {
 }
 
 export namespace FailureException {
-  export const isa = (o: any): o is FailureException =>
-    __isa(o, "FailureException");
+  export const isa = (o: any): o is FailureException => __isa(o, "FailureException");
 }
 
 /**
@@ -3230,8 +3143,7 @@ export interface GlobalSecondaryIndex {
 }
 
 export namespace GlobalSecondaryIndex {
-  export const isa = (o: any): o is GlobalSecondaryIndex =>
-    __isa(o, "GlobalSecondaryIndex");
+  export const isa = (o: any): o is GlobalSecondaryIndex => __isa(o, "GlobalSecondaryIndex");
 }
 
 /**
@@ -3358,8 +3270,7 @@ export interface GlobalSecondaryIndexDescription {
 }
 
 export namespace GlobalSecondaryIndexDescription {
-  export const isa = (o: any): o is GlobalSecondaryIndexDescription =>
-    __isa(o, "GlobalSecondaryIndexDescription");
+  export const isa = (o: any): o is GlobalSecondaryIndexDescription => __isa(o, "GlobalSecondaryIndexDescription");
 }
 
 /**
@@ -3411,8 +3322,7 @@ export interface GlobalSecondaryIndexInfo {
 }
 
 export namespace GlobalSecondaryIndexInfo {
-  export const isa = (o: any): o is GlobalSecondaryIndexInfo =>
-    __isa(o, "GlobalSecondaryIndexInfo");
+  export const isa = (o: any): o is GlobalSecondaryIndexInfo => __isa(o, "GlobalSecondaryIndexInfo");
 }
 
 /**
@@ -3475,8 +3385,7 @@ export interface GlobalSecondaryIndexUpdate {
 }
 
 export namespace GlobalSecondaryIndexUpdate {
-  export const isa = (o: any): o is GlobalSecondaryIndexUpdate =>
-    __isa(o, "GlobalSecondaryIndexUpdate");
+  export const isa = (o: any): o is GlobalSecondaryIndexUpdate => __isa(o, "GlobalSecondaryIndexUpdate");
 }
 
 /**
@@ -3502,17 +3411,14 @@ export namespace GlobalTable {
 /**
  * <p>The specified global table already exists.</p>
  */
-export interface GlobalTableAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface GlobalTableAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "GlobalTableAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace GlobalTableAlreadyExistsException {
-  export const isa = (o: any): o is GlobalTableAlreadyExistsException =>
-    __isa(o, "GlobalTableAlreadyExistsException");
+  export const isa = (o: any): o is GlobalTableAlreadyExistsException => __isa(o, "GlobalTableAlreadyExistsException");
 }
 
 /**
@@ -3565,8 +3471,7 @@ export interface GlobalTableDescription {
 }
 
 export namespace GlobalTableDescription {
-  export const isa = (o: any): o is GlobalTableDescription =>
-    __isa(o, "GlobalTableDescription");
+  export const isa = (o: any): o is GlobalTableDescription => __isa(o, "GlobalTableDescription");
 }
 
 /**
@@ -3593,26 +3498,21 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
 }
 
 export namespace GlobalTableGlobalSecondaryIndexSettingsUpdate {
-  export const isa = (
-    o: any
-  ): o is GlobalTableGlobalSecondaryIndexSettingsUpdate =>
+  export const isa = (o: any): o is GlobalTableGlobalSecondaryIndexSettingsUpdate =>
     __isa(o, "GlobalTableGlobalSecondaryIndexSettingsUpdate");
 }
 
 /**
  * <p>The specified global table does not exist.</p>
  */
-export interface GlobalTableNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface GlobalTableNotFoundException extends __SmithyException, $MetadataBearer {
   name: "GlobalTableNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace GlobalTableNotFoundException {
-  export const isa = (o: any): o is GlobalTableNotFoundException =>
-    __isa(o, "GlobalTableNotFoundException");
+  export const isa = (o: any): o is GlobalTableNotFoundException => __isa(o, "GlobalTableNotFoundException");
 }
 
 export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
@@ -3621,9 +3521,7 @@ export type GlobalTableStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
  * <p>DynamoDB rejected the request because you retried a request with a different payload but
  *       with an idempotent token that was already used.</p>
  */
-export interface IdempotentParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Message?: string;
@@ -3637,17 +3535,14 @@ export namespace IdempotentParameterMismatchException {
 /**
  * <p>The operation tried to access a nonexistent index.</p>
  */
-export interface IndexNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IndexNotFoundException extends __SmithyException, $MetadataBearer {
   name: "IndexNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace IndexNotFoundException {
-  export const isa = (o: any): o is IndexNotFoundException =>
-    __isa(o, "IndexNotFoundException");
+  export const isa = (o: any): o is IndexNotFoundException => __isa(o, "IndexNotFoundException");
 }
 
 export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
@@ -3655,9 +3550,7 @@ export type IndexStatus = "ACTIVE" | "CREATING" | "DELETING" | "UPDATING";
 /**
  * <p>An error occurred on the server side.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -3667,24 +3560,20 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>An invalid restore time was specified. RestoreDateTime must be between EarliestRestorableDateTime and LatestRestorableDateTime.</p>
  */
-export interface InvalidRestoreTimeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRestoreTimeException extends __SmithyException, $MetadataBearer {
   name: "InvalidRestoreTimeException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidRestoreTimeException {
-  export const isa = (o: any): o is InvalidRestoreTimeException =>
-    __isa(o, "InvalidRestoreTimeException");
+  export const isa = (o: any): o is InvalidRestoreTimeException => __isa(o, "InvalidRestoreTimeException");
 }
 
 /**
@@ -3707,16 +3596,13 @@ export interface ItemCollectionMetrics {
 }
 
 export namespace ItemCollectionMetrics {
-  export const isa = (o: any): o is ItemCollectionMetrics =>
-    __isa(o, "ItemCollectionMetrics");
+  export const isa = (o: any): o is ItemCollectionMetrics => __isa(o, "ItemCollectionMetrics");
 }
 
 /**
  * <p>An item collection is too large. This exception is only returned for tables that have one or more local secondary indexes.</p>
  */
-export interface ItemCollectionSizeLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ItemCollectionSizeLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "ItemCollectionSizeLimitExceededException";
   $fault: "client";
   /**
@@ -3786,8 +3672,7 @@ export interface KeySchemaElement {
 }
 
 export namespace KeySchemaElement {
-  export const isa = (o: any): o is KeySchemaElement =>
-    __isa(o, "KeySchemaElement");
+  export const isa = (o: any): o is KeySchemaElement => __isa(o, "KeySchemaElement");
 }
 
 export type KeyType = "HASH" | "RANGE";
@@ -3872,8 +3757,7 @@ export interface KeysAndAttributes {
 }
 
 export namespace KeysAndAttributes {
-  export const isa = (o: any): o is KeysAndAttributes =>
-    __isa(o, "KeysAndAttributes");
+  export const isa = (o: any): o is KeysAndAttributes => __isa(o, "KeysAndAttributes");
 }
 
 /**
@@ -3887,9 +3771,7 @@ export namespace KeysAndAttributes {
  *         reduce the number of concurrent operations.</p>
  *         <p>There is a soft account limit of 256 tables.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -3899,8 +3781,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListBackupsInput {
@@ -3957,8 +3838,7 @@ export interface ListBackupsInput {
 }
 
 export namespace ListBackupsInput {
-  export const isa = (o: any): o is ListBackupsInput =>
-    __isa(o, "ListBackupsInput");
+  export const isa = (o: any): o is ListBackupsInput => __isa(o, "ListBackupsInput");
 }
 
 export interface ListBackupsOutput {
@@ -3986,8 +3866,7 @@ export interface ListBackupsOutput {
 }
 
 export namespace ListBackupsOutput {
-  export const isa = (o: any): o is ListBackupsOutput =>
-    __isa(o, "ListBackupsOutput");
+  export const isa = (o: any): o is ListBackupsOutput => __isa(o, "ListBackupsOutput");
 }
 
 export interface ListContributorInsightsInput {
@@ -4009,8 +3888,7 @@ export interface ListContributorInsightsInput {
 }
 
 export namespace ListContributorInsightsInput {
-  export const isa = (o: any): o is ListContributorInsightsInput =>
-    __isa(o, "ListContributorInsightsInput");
+  export const isa = (o: any): o is ListContributorInsightsInput => __isa(o, "ListContributorInsightsInput");
 }
 
 export interface ListContributorInsightsOutput {
@@ -4027,8 +3905,7 @@ export interface ListContributorInsightsOutput {
 }
 
 export namespace ListContributorInsightsOutput {
-  export const isa = (o: any): o is ListContributorInsightsOutput =>
-    __isa(o, "ListContributorInsightsOutput");
+  export const isa = (o: any): o is ListContributorInsightsOutput => __isa(o, "ListContributorInsightsOutput");
 }
 
 export interface ListGlobalTablesInput {
@@ -4050,8 +3927,7 @@ export interface ListGlobalTablesInput {
 }
 
 export namespace ListGlobalTablesInput {
-  export const isa = (o: any): o is ListGlobalTablesInput =>
-    __isa(o, "ListGlobalTablesInput");
+  export const isa = (o: any): o is ListGlobalTablesInput => __isa(o, "ListGlobalTablesInput");
 }
 
 export interface ListGlobalTablesOutput {
@@ -4068,8 +3944,7 @@ export interface ListGlobalTablesOutput {
 }
 
 export namespace ListGlobalTablesOutput {
-  export const isa = (o: any): o is ListGlobalTablesOutput =>
-    __isa(o, "ListGlobalTablesOutput");
+  export const isa = (o: any): o is ListGlobalTablesOutput => __isa(o, "ListGlobalTablesOutput");
 }
 
 /**
@@ -4091,8 +3966,7 @@ export interface ListTablesInput {
 }
 
 export namespace ListTablesInput {
-  export const isa = (o: any): o is ListTablesInput =>
-    __isa(o, "ListTablesInput");
+  export const isa = (o: any): o is ListTablesInput => __isa(o, "ListTablesInput");
 }
 
 /**
@@ -4119,8 +3993,7 @@ export interface ListTablesOutput {
 }
 
 export namespace ListTablesOutput {
-  export const isa = (o: any): o is ListTablesOutput =>
-    __isa(o, "ListTablesOutput");
+  export const isa = (o: any): o is ListTablesOutput => __isa(o, "ListTablesOutput");
 }
 
 export interface ListTagsOfResourceInput {
@@ -4138,8 +4011,7 @@ export interface ListTagsOfResourceInput {
 }
 
 export namespace ListTagsOfResourceInput {
-  export const isa = (o: any): o is ListTagsOfResourceInput =>
-    __isa(o, "ListTagsOfResourceInput");
+  export const isa = (o: any): o is ListTagsOfResourceInput => __isa(o, "ListTagsOfResourceInput");
 }
 
 export interface ListTagsOfResourceOutput {
@@ -4157,8 +4029,7 @@ export interface ListTagsOfResourceOutput {
 }
 
 export namespace ListTagsOfResourceOutput {
-  export const isa = (o: any): o is ListTagsOfResourceOutput =>
-    __isa(o, "ListTagsOfResourceOutput");
+  export const isa = (o: any): o is ListTagsOfResourceOutput => __isa(o, "ListTagsOfResourceOutput");
 }
 
 /**
@@ -4203,8 +4074,7 @@ export interface LocalSecondaryIndex {
 }
 
 export namespace LocalSecondaryIndex {
-  export const isa = (o: any): o is LocalSecondaryIndex =>
-    __isa(o, "LocalSecondaryIndex");
+  export const isa = (o: any): o is LocalSecondaryIndex => __isa(o, "LocalSecondaryIndex");
 }
 
 /**
@@ -4264,8 +4134,7 @@ export interface LocalSecondaryIndexDescription {
 }
 
 export namespace LocalSecondaryIndexDescription {
-  export const isa = (o: any): o is LocalSecondaryIndexDescription =>
-    __isa(o, "LocalSecondaryIndexDescription");
+  export const isa = (o: any): o is LocalSecondaryIndexDescription => __isa(o, "LocalSecondaryIndexDescription");
 }
 
 /**
@@ -4309,8 +4178,7 @@ export interface LocalSecondaryIndexInfo {
 }
 
 export namespace LocalSecondaryIndexInfo {
-  export const isa = (o: any): o is LocalSecondaryIndexInfo =>
-    __isa(o, "LocalSecondaryIndexInfo");
+  export const isa = (o: any): o is LocalSecondaryIndexInfo => __isa(o, "LocalSecondaryIndexInfo");
 }
 
 /**
@@ -4352,8 +4220,7 @@ export interface PointInTimeRecoveryDescription {
 }
 
 export namespace PointInTimeRecoveryDescription {
-  export const isa = (o: any): o is PointInTimeRecoveryDescription =>
-    __isa(o, "PointInTimeRecoveryDescription");
+  export const isa = (o: any): o is PointInTimeRecoveryDescription => __isa(o, "PointInTimeRecoveryDescription");
 }
 
 /**
@@ -4368,8 +4235,7 @@ export interface PointInTimeRecoverySpecification {
 }
 
 export namespace PointInTimeRecoverySpecification {
-  export const isa = (o: any): o is PointInTimeRecoverySpecification =>
-    __isa(o, "PointInTimeRecoverySpecification");
+  export const isa = (o: any): o is PointInTimeRecoverySpecification => __isa(o, "PointInTimeRecoverySpecification");
 }
 
 export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
@@ -4377,9 +4243,7 @@ export type PointInTimeRecoveryStatus = "DISABLED" | "ENABLED";
 /**
  * <p>Point in time recovery has not yet been enabled for this source table.</p>
  */
-export interface PointInTimeRecoveryUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PointInTimeRecoveryUnavailableException extends __SmithyException, $MetadataBearer {
   name: "PointInTimeRecoveryUnavailableException";
   $fault: "client";
   message?: string;
@@ -4456,8 +4320,7 @@ export interface ProvisionedThroughput {
 }
 
 export namespace ProvisionedThroughput {
-  export const isa = (o: any): o is ProvisionedThroughput =>
-    __isa(o, "ProvisionedThroughput");
+  export const isa = (o: any): o is ProvisionedThroughput => __isa(o, "ProvisionedThroughput");
 }
 
 /**
@@ -4497,8 +4360,7 @@ export interface ProvisionedThroughputDescription {
 }
 
 export namespace ProvisionedThroughputDescription {
-  export const isa = (o: any): o is ProvisionedThroughputDescription =>
-    __isa(o, "ProvisionedThroughputDescription");
+  export const isa = (o: any): o is ProvisionedThroughputDescription => __isa(o, "ProvisionedThroughputDescription");
 }
 
 /**
@@ -4508,9 +4370,7 @@ export namespace ProvisionedThroughputDescription {
  *       information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential
  *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
-export interface ProvisionedThroughputExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
@@ -4538,8 +4398,7 @@ export interface ProvisionedThroughputOverride {
 }
 
 export namespace ProvisionedThroughputOverride {
-  export const isa = (o: any): o is ProvisionedThroughputOverride =>
-    __isa(o, "ProvisionedThroughputOverride");
+  export const isa = (o: any): o is ProvisionedThroughputOverride => __isa(o, "ProvisionedThroughputOverride");
 }
 
 /**
@@ -4577,9 +4436,7 @@ export interface Put {
    *         For <code>ReturnValuesOnConditionCheckFailure</code>, the valid
    *         values are: NONE and ALL_OLD.</p>
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    * <p>Name of the table in which to write the item.</p>
@@ -5277,17 +5134,14 @@ export namespace Replica {
 /**
  * <p>The specified replica is already part of the global table.</p>
  */
-export interface ReplicaAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicaAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "ReplicaAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReplicaAlreadyExistsException {
-  export const isa = (o: any): o is ReplicaAlreadyExistsException =>
-    __isa(o, "ReplicaAlreadyExistsException");
+  export const isa = (o: any): o is ReplicaAlreadyExistsException => __isa(o, "ReplicaAlreadyExistsException");
 }
 
 /**
@@ -5342,8 +5196,7 @@ export interface ReplicaAutoScalingDescription {
 }
 
 export namespace ReplicaAutoScalingDescription {
-  export const isa = (o: any): o is ReplicaAutoScalingDescription =>
-    __isa(o, "ReplicaAutoScalingDescription");
+  export const isa = (o: any): o is ReplicaAutoScalingDescription => __isa(o, "ReplicaAutoScalingDescription");
 }
 
 /**
@@ -5370,8 +5223,7 @@ export interface ReplicaAutoScalingUpdate {
 }
 
 export namespace ReplicaAutoScalingUpdate {
-  export const isa = (o: any): o is ReplicaAutoScalingUpdate =>
-    __isa(o, "ReplicaAutoScalingUpdate");
+  export const isa = (o: any): o is ReplicaAutoScalingUpdate => __isa(o, "ReplicaAutoScalingUpdate");
 }
 
 /**
@@ -5437,8 +5289,7 @@ export interface ReplicaDescription {
 }
 
 export namespace ReplicaDescription {
-  export const isa = (o: any): o is ReplicaDescription =>
-    __isa(o, "ReplicaDescription");
+  export const isa = (o: any): o is ReplicaDescription => __isa(o, "ReplicaDescription");
 }
 
 /**
@@ -5459,8 +5310,7 @@ export interface ReplicaGlobalSecondaryIndex {
 }
 
 export namespace ReplicaGlobalSecondaryIndex {
-  export const isa = (o: any): o is ReplicaGlobalSecondaryIndex =>
-    __isa(o, "ReplicaGlobalSecondaryIndex");
+  export const isa = (o: any): o is ReplicaGlobalSecondaryIndex => __isa(o, "ReplicaGlobalSecondaryIndex");
 }
 
 /**
@@ -5510,9 +5360,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingDescription {
-  export const isa = (
-    o: any
-  ): o is ReplicaGlobalSecondaryIndexAutoScalingDescription =>
+  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexAutoScalingDescription =>
     __isa(o, "ReplicaGlobalSecondaryIndexAutoScalingDescription");
 }
 
@@ -5535,9 +5383,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
 }
 
 export namespace ReplicaGlobalSecondaryIndexAutoScalingUpdate {
-  export const isa = (
-    o: any
-  ): o is ReplicaGlobalSecondaryIndexAutoScalingUpdate =>
+  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexAutoScalingUpdate =>
     __isa(o, "ReplicaGlobalSecondaryIndexAutoScalingUpdate");
 }
 
@@ -5619,9 +5465,7 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
 }
 
 export namespace ReplicaGlobalSecondaryIndexSettingsDescription {
-  export const isa = (
-    o: any
-  ): o is ReplicaGlobalSecondaryIndexSettingsDescription =>
+  export const isa = (o: any): o is ReplicaGlobalSecondaryIndexSettingsDescription =>
     __isa(o, "ReplicaGlobalSecondaryIndexSettingsDescription");
 }
 
@@ -5655,17 +5499,14 @@ export namespace ReplicaGlobalSecondaryIndexSettingsUpdate {
 /**
  * <p>The specified replica is no longer part of the global table.</p>
  */
-export interface ReplicaNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReplicaNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ReplicaNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ReplicaNotFoundException {
-  export const isa = (o: any): o is ReplicaNotFoundException =>
-    __isa(o, "ReplicaNotFoundException");
+  export const isa = (o: any): o is ReplicaNotFoundException => __isa(o, "ReplicaNotFoundException");
 }
 
 /**
@@ -5738,8 +5579,7 @@ export interface ReplicaSettingsDescription {
 }
 
 export namespace ReplicaSettingsDescription {
-  export const isa = (o: any): o is ReplicaSettingsDescription =>
-    __isa(o, "ReplicaSettingsDescription");
+  export const isa = (o: any): o is ReplicaSettingsDescription => __isa(o, "ReplicaSettingsDescription");
 }
 
 /**
@@ -5772,16 +5612,10 @@ export interface ReplicaSettingsUpdate {
 }
 
 export namespace ReplicaSettingsUpdate {
-  export const isa = (o: any): o is ReplicaSettingsUpdate =>
-    __isa(o, "ReplicaSettingsUpdate");
+  export const isa = (o: any): o is ReplicaSettingsUpdate => __isa(o, "ReplicaSettingsUpdate");
 }
 
-export type ReplicaStatus =
-  | "ACTIVE"
-  | "CREATING"
-  | "CREATION_FAILED"
-  | "DELETING"
-  | "UPDATING";
+export type ReplicaStatus = "ACTIVE" | "CREATING" | "CREATION_FAILED" | "DELETING" | "UPDATING";
 
 /**
  * <p>Represents one of the following:</p>
@@ -5852,24 +5686,20 @@ export interface ReplicationGroupUpdate {
 }
 
 export namespace ReplicationGroupUpdate {
-  export const isa = (o: any): o is ReplicationGroupUpdate =>
-    __isa(o, "ReplicationGroupUpdate");
+  export const isa = (o: any): o is ReplicationGroupUpdate => __isa(o, "ReplicationGroupUpdate");
 }
 
 /**
  * <p>Throughput exceeds the current throughput limit for your account. Please contact AWS Support at <a href="https://aws.amazon.com/support">AWS Support</a> to request a limit increase.</p>
  */
-export interface RequestLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "RequestLimitExceeded";
   $fault: "client";
   message?: string;
 }
 
 export namespace RequestLimitExceeded {
-  export const isa = (o: any): o is RequestLimitExceeded =>
-    __isa(o, "RequestLimitExceeded");
+  export const isa = (o: any): o is RequestLimitExceeded => __isa(o, "RequestLimitExceeded");
 }
 
 /**
@@ -5877,9 +5707,7 @@ export namespace RequestLimitExceeded {
  *       recreate an existing table, or tried to delete a table currently in the <code>CREATING</code>
  *       state.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -5889,17 +5717,14 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The operation tried to access a nonexistent table or index. The resource might not be specified
  *       correctly, or its status might not be <code>ACTIVE</code>.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -5909,8 +5734,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -5940,8 +5764,7 @@ export interface RestoreSummary {
 }
 
 export namespace RestoreSummary {
-  export const isa = (o: any): o is RestoreSummary =>
-    __isa(o, "RestoreSummary");
+  export const isa = (o: any): o is RestoreSummary => __isa(o, "RestoreSummary");
 }
 
 export interface RestoreTableFromBackupInput {
@@ -5982,8 +5805,7 @@ export interface RestoreTableFromBackupInput {
 }
 
 export namespace RestoreTableFromBackupInput {
-  export const isa = (o: any): o is RestoreTableFromBackupInput =>
-    __isa(o, "RestoreTableFromBackupInput");
+  export const isa = (o: any): o is RestoreTableFromBackupInput => __isa(o, "RestoreTableFromBackupInput");
 }
 
 export interface RestoreTableFromBackupOutput {
@@ -5995,8 +5817,7 @@ export interface RestoreTableFromBackupOutput {
 }
 
 export namespace RestoreTableFromBackupOutput {
-  export const isa = (o: any): o is RestoreTableFromBackupOutput =>
-    __isa(o, "RestoreTableFromBackupOutput");
+  export const isa = (o: any): o is RestoreTableFromBackupOutput => __isa(o, "RestoreTableFromBackupOutput");
 }
 
 export interface RestoreTableToPointInTimeInput {
@@ -6048,8 +5869,7 @@ export interface RestoreTableToPointInTimeInput {
 }
 
 export namespace RestoreTableToPointInTimeInput {
-  export const isa = (o: any): o is RestoreTableToPointInTimeInput =>
-    __isa(o, "RestoreTableToPointInTimeInput");
+  export const isa = (o: any): o is RestoreTableToPointInTimeInput => __isa(o, "RestoreTableToPointInTimeInput");
 }
 
 export interface RestoreTableToPointInTimeOutput {
@@ -6061,20 +5881,14 @@ export interface RestoreTableToPointInTimeOutput {
 }
 
 export namespace RestoreTableToPointInTimeOutput {
-  export const isa = (o: any): o is RestoreTableToPointInTimeOutput =>
-    __isa(o, "RestoreTableToPointInTimeOutput");
+  export const isa = (o: any): o is RestoreTableToPointInTimeOutput => __isa(o, "RestoreTableToPointInTimeOutput");
 }
 
 export type ReturnConsumedCapacity = "INDEXES" | "NONE" | "TOTAL";
 
 export type ReturnItemCollectionMetrics = "NONE" | "SIZE";
 
-export type ReturnValue =
-  | "ALL_NEW"
-  | "ALL_OLD"
-  | "NONE"
-  | "UPDATED_NEW"
-  | "UPDATED_OLD";
+export type ReturnValue = "ALL_NEW" | "ALL_OLD" | "NONE" | "UPDATED_NEW" | "UPDATED_OLD";
 
 export type ReturnValuesOnConditionCheckFailure = "ALL_OLD" | "NONE";
 
@@ -6127,8 +5941,7 @@ export interface SSEDescription {
 }
 
 export namespace SSEDescription {
-  export const isa = (o: any): o is SSEDescription =>
-    __isa(o, "SSEDescription");
+  export const isa = (o: any): o is SSEDescription => __isa(o, "SSEDescription");
 }
 
 /**
@@ -6166,16 +5979,10 @@ export interface SSESpecification {
 }
 
 export namespace SSESpecification {
-  export const isa = (o: any): o is SSESpecification =>
-    __isa(o, "SSESpecification");
+  export const isa = (o: any): o is SSESpecification => __isa(o, "SSESpecification");
 }
 
-export type SSEStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING"
-  | "UPDATING";
+export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING" | "UPDATING";
 
 export type SSEType = "AES256" | "KMS";
 
@@ -6512,11 +6319,7 @@ export namespace ScanOutput {
   export const isa = (o: any): o is ScanOutput => __isa(o, "ScanOutput");
 }
 
-export type Select =
-  | "ALL_ATTRIBUTES"
-  | "ALL_PROJECTED_ATTRIBUTES"
-  | "COUNT"
-  | "SPECIFIC_ATTRIBUTES";
+export type Select = "ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "COUNT" | "SPECIFIC_ATTRIBUTES";
 
 /**
  * <p>Contains the details of the table when the backup was created. </p>
@@ -6581,8 +6384,7 @@ export interface SourceTableDetails {
 }
 
 export namespace SourceTableDetails {
-  export const isa = (o: any): o is SourceTableDetails =>
-    __isa(o, "SourceTableDetails");
+  export const isa = (o: any): o is SourceTableDetails => __isa(o, "SourceTableDetails");
 }
 
 /**
@@ -6619,8 +6421,7 @@ export interface SourceTableFeatureDetails {
 }
 
 export namespace SourceTableFeatureDetails {
-  export const isa = (o: any): o is SourceTableFeatureDetails =>
-    __isa(o, "SourceTableFeatureDetails");
+  export const isa = (o: any): o is SourceTableFeatureDetails => __isa(o, "SourceTableFeatureDetails");
 }
 
 /**
@@ -6664,30 +6465,22 @@ export interface StreamSpecification {
 }
 
 export namespace StreamSpecification {
-  export const isa = (o: any): o is StreamSpecification =>
-    __isa(o, "StreamSpecification");
+  export const isa = (o: any): o is StreamSpecification => __isa(o, "StreamSpecification");
 }
 
-export type StreamViewType =
-  | "KEYS_ONLY"
-  | "NEW_AND_OLD_IMAGES"
-  | "NEW_IMAGE"
-  | "OLD_IMAGE";
+export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE";
 
 /**
  * <p>A target table with the specified name already exists. </p>
  */
-export interface TableAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TableAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "TableAlreadyExistsException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TableAlreadyExistsException {
-  export const isa = (o: any): o is TableAlreadyExistsException =>
-    __isa(o, "TableAlreadyExistsException");
+  export const isa = (o: any): o is TableAlreadyExistsException => __isa(o, "TableAlreadyExistsException");
 }
 
 /**
@@ -6730,8 +6523,7 @@ export interface TableAutoScalingDescription {
 }
 
 export namespace TableAutoScalingDescription {
-  export const isa = (o: any): o is TableAutoScalingDescription =>
-    __isa(o, "TableAutoScalingDescription");
+  export const isa = (o: any): o is TableAutoScalingDescription => __isa(o, "TableAutoScalingDescription");
 }
 
 /**
@@ -7112,40 +6904,33 @@ export interface TableDescription {
 }
 
 export namespace TableDescription {
-  export const isa = (o: any): o is TableDescription =>
-    __isa(o, "TableDescription");
+  export const isa = (o: any): o is TableDescription => __isa(o, "TableDescription");
 }
 
 /**
  * <p>A target table with the specified name is either being created or deleted. </p>
  */
-export interface TableInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TableInUseException extends __SmithyException, $MetadataBearer {
   name: "TableInUseException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TableInUseException {
-  export const isa = (o: any): o is TableInUseException =>
-    __isa(o, "TableInUseException");
+  export const isa = (o: any): o is TableInUseException => __isa(o, "TableInUseException");
 }
 
 /**
  * <p>A source table with the name <code>TableName</code> does not currently exist within the subscriber's account.</p>
  */
-export interface TableNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TableNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TableNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TableNotFoundException {
-  export const isa = (o: any): o is TableNotFoundException =>
-    __isa(o, "TableNotFoundException");
+  export const isa = (o: any): o is TableNotFoundException => __isa(o, "TableNotFoundException");
 }
 
 export type TableStatus =
@@ -7201,8 +6986,7 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
-  export const isa = (o: any): o is TagResourceInput =>
-    __isa(o, "TagResourceInput");
+  export const isa = (o: any): o is TagResourceInput => __isa(o, "TagResourceInput");
 }
 
 /**
@@ -7222,8 +7006,7 @@ export interface TimeToLiveDescription {
 }
 
 export namespace TimeToLiveDescription {
-  export const isa = (o: any): o is TimeToLiveDescription =>
-    __isa(o, "TimeToLiveDescription");
+  export const isa = (o: any): o is TimeToLiveDescription => __isa(o, "TimeToLiveDescription");
 }
 
 /**
@@ -7245,15 +7028,10 @@ export interface TimeToLiveSpecification {
 }
 
 export namespace TimeToLiveSpecification {
-  export const isa = (o: any): o is TimeToLiveSpecification =>
-    __isa(o, "TimeToLiveSpecification");
+  export const isa = (o: any): o is TimeToLiveSpecification => __isa(o, "TimeToLiveSpecification");
 }
 
-export type TimeToLiveStatus =
-  | "DISABLED"
-  | "DISABLING"
-  | "ENABLED"
-  | "ENABLING";
+export type TimeToLiveStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
 
 /**
  * <p>Specifies an item to be retrieved as part of the transaction.</p>
@@ -7269,8 +7047,7 @@ export interface TransactGetItem {
 }
 
 export namespace TransactGetItem {
-  export const isa = (o: any): o is TransactGetItem =>
-    __isa(o, "TransactGetItem");
+  export const isa = (o: any): o is TransactGetItem => __isa(o, "TransactGetItem");
 }
 
 export interface TransactGetItemsInput {
@@ -7290,8 +7067,7 @@ export interface TransactGetItemsInput {
 }
 
 export namespace TransactGetItemsInput {
-  export const isa = (o: any): o is TransactGetItemsInput =>
-    __isa(o, "TransactGetItemsInput");
+  export const isa = (o: any): o is TransactGetItemsInput => __isa(o, "TransactGetItemsInput");
 }
 
 export interface TransactGetItemsOutput {
@@ -7319,8 +7095,7 @@ export interface TransactGetItemsOutput {
 }
 
 export namespace TransactGetItemsOutput {
-  export const isa = (o: any): o is TransactGetItemsOutput =>
-    __isa(o, "TransactGetItemsOutput");
+  export const isa = (o: any): o is TransactGetItemsOutput => __isa(o, "TransactGetItemsOutput");
 }
 
 /**
@@ -7350,8 +7125,7 @@ export interface TransactWriteItem {
 }
 
 export namespace TransactWriteItem {
-  export const isa = (o: any): o is TransactWriteItem =>
-    __isa(o, "TransactWriteItem");
+  export const isa = (o: any): o is TransactWriteItem => __isa(o, "TransactWriteItem");
 }
 
 export interface TransactWriteItemsInput {
@@ -7416,8 +7190,7 @@ export interface TransactWriteItemsInput {
 }
 
 export namespace TransactWriteItemsInput {
-  export const isa = (o: any): o is TransactWriteItemsInput =>
-    __isa(o, "TransactWriteItemsInput");
+  export const isa = (o: any): o is TransactWriteItemsInput => __isa(o, "TransactWriteItemsInput");
 }
 
 export interface TransactWriteItemsOutput {
@@ -7440,8 +7213,7 @@ export interface TransactWriteItemsOutput {
 }
 
 export namespace TransactWriteItemsOutput {
-  export const isa = (o: any): o is TransactWriteItemsOutput =>
-    __isa(o, "TransactWriteItemsOutput");
+  export const isa = (o: any): o is TransactWriteItemsOutput => __isa(o, "TransactWriteItemsOutput");
 }
 
 /**
@@ -7649,9 +7421,7 @@ export namespace TransactWriteItemsOutput {
  *             </li>
  *          </ul>
  */
-export interface TransactionCanceledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TransactionCanceledException extends __SmithyException, $MetadataBearer {
   name: "TransactionCanceledException";
   $fault: "client";
   /**
@@ -7663,40 +7433,33 @@ export interface TransactionCanceledException
 }
 
 export namespace TransactionCanceledException {
-  export const isa = (o: any): o is TransactionCanceledException =>
-    __isa(o, "TransactionCanceledException");
+  export const isa = (o: any): o is TransactionCanceledException => __isa(o, "TransactionCanceledException");
 }
 
 /**
  * <p>Operation was rejected because there is an ongoing transaction for the item.</p>
  */
-export interface TransactionConflictException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TransactionConflictException extends __SmithyException, $MetadataBearer {
   name: "TransactionConflictException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TransactionConflictException {
-  export const isa = (o: any): o is TransactionConflictException =>
-    __isa(o, "TransactionConflictException");
+  export const isa = (o: any): o is TransactionConflictException => __isa(o, "TransactionConflictException");
 }
 
 /**
  * <p>The transaction with the given request token is already in progress.</p>
  */
-export interface TransactionInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TransactionInProgressException extends __SmithyException, $MetadataBearer {
   name: "TransactionInProgressException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TransactionInProgressException {
-  export const isa = (o: any): o is TransactionInProgressException =>
-    __isa(o, "TransactionInProgressException");
+  export const isa = (o: any): o is TransactionInProgressException => __isa(o, "TransactionInProgressException");
 }
 
 export interface UntagResourceInput {
@@ -7715,8 +7478,7 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
-  export const isa = (o: any): o is UntagResourceInput =>
-    __isa(o, "UntagResourceInput");
+  export const isa = (o: any): o is UntagResourceInput => __isa(o, "UntagResourceInput");
 }
 
 /**
@@ -7752,9 +7514,7 @@ export interface Update {
    *         For <code>ReturnValuesOnConditionCheckFailure</code>, the valid
    *         values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
    */
-  ReturnValuesOnConditionCheckFailure?:
-    | ReturnValuesOnConditionCheckFailure
-    | string;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | string;
 
   /**
    * <p>Name of the table for the <code>UpdateItem</code> request.</p>
@@ -7777,9 +7537,7 @@ export interface UpdateContinuousBackupsInput {
   /**
    * <p>Represents the settings used to enable point in time recovery.</p>
    */
-  PointInTimeRecoverySpecification:
-    | PointInTimeRecoverySpecification
-    | undefined;
+  PointInTimeRecoverySpecification: PointInTimeRecoverySpecification | undefined;
 
   /**
    * <p>The name of the table.</p>
@@ -7788,8 +7546,7 @@ export interface UpdateContinuousBackupsInput {
 }
 
 export namespace UpdateContinuousBackupsInput {
-  export const isa = (o: any): o is UpdateContinuousBackupsInput =>
-    __isa(o, "UpdateContinuousBackupsInput");
+  export const isa = (o: any): o is UpdateContinuousBackupsInput => __isa(o, "UpdateContinuousBackupsInput");
 }
 
 export interface UpdateContinuousBackupsOutput {
@@ -7801,8 +7558,7 @@ export interface UpdateContinuousBackupsOutput {
 }
 
 export namespace UpdateContinuousBackupsOutput {
-  export const isa = (o: any): o is UpdateContinuousBackupsOutput =>
-    __isa(o, "UpdateContinuousBackupsOutput");
+  export const isa = (o: any): o is UpdateContinuousBackupsOutput => __isa(o, "UpdateContinuousBackupsOutput");
 }
 
 export interface UpdateContributorInsightsInput {
@@ -7824,8 +7580,7 @@ export interface UpdateContributorInsightsInput {
 }
 
 export namespace UpdateContributorInsightsInput {
-  export const isa = (o: any): o is UpdateContributorInsightsInput =>
-    __isa(o, "UpdateContributorInsightsInput");
+  export const isa = (o: any): o is UpdateContributorInsightsInput => __isa(o, "UpdateContributorInsightsInput");
 }
 
 export interface UpdateContributorInsightsOutput {
@@ -7847,8 +7602,7 @@ export interface UpdateContributorInsightsOutput {
 }
 
 export namespace UpdateContributorInsightsOutput {
-  export const isa = (o: any): o is UpdateContributorInsightsOutput =>
-    __isa(o, "UpdateContributorInsightsOutput");
+  export const isa = (o: any): o is UpdateContributorInsightsOutput => __isa(o, "UpdateContributorInsightsOutput");
 }
 
 /**
@@ -7869,8 +7623,7 @@ export interface UpdateGlobalSecondaryIndexAction {
 }
 
 export namespace UpdateGlobalSecondaryIndexAction {
-  export const isa = (o: any): o is UpdateGlobalSecondaryIndexAction =>
-    __isa(o, "UpdateGlobalSecondaryIndexAction");
+  export const isa = (o: any): o is UpdateGlobalSecondaryIndexAction => __isa(o, "UpdateGlobalSecondaryIndexAction");
 }
 
 export interface UpdateGlobalTableInput {
@@ -7887,8 +7640,7 @@ export interface UpdateGlobalTableInput {
 }
 
 export namespace UpdateGlobalTableInput {
-  export const isa = (o: any): o is UpdateGlobalTableInput =>
-    __isa(o, "UpdateGlobalTableInput");
+  export const isa = (o: any): o is UpdateGlobalTableInput => __isa(o, "UpdateGlobalTableInput");
 }
 
 export interface UpdateGlobalTableOutput {
@@ -7900,8 +7652,7 @@ export interface UpdateGlobalTableOutput {
 }
 
 export namespace UpdateGlobalTableOutput {
-  export const isa = (o: any): o is UpdateGlobalTableOutput =>
-    __isa(o, "UpdateGlobalTableOutput");
+  export const isa = (o: any): o is UpdateGlobalTableOutput => __isa(o, "UpdateGlobalTableOutput");
 }
 
 export interface UpdateGlobalTableSettingsInput {
@@ -7951,8 +7702,7 @@ export interface UpdateGlobalTableSettingsInput {
 }
 
 export namespace UpdateGlobalTableSettingsInput {
-  export const isa = (o: any): o is UpdateGlobalTableSettingsInput =>
-    __isa(o, "UpdateGlobalTableSettingsInput");
+  export const isa = (o: any): o is UpdateGlobalTableSettingsInput => __isa(o, "UpdateGlobalTableSettingsInput");
 }
 
 export interface UpdateGlobalTableSettingsOutput {
@@ -7969,8 +7719,7 @@ export interface UpdateGlobalTableSettingsOutput {
 }
 
 export namespace UpdateGlobalTableSettingsOutput {
-  export const isa = (o: any): o is UpdateGlobalTableSettingsOutput =>
-    __isa(o, "UpdateGlobalTableSettingsOutput");
+  export const isa = (o: any): o is UpdateGlobalTableSettingsOutput => __isa(o, "UpdateGlobalTableSettingsOutput");
 }
 
 /**
@@ -8257,8 +8006,7 @@ export interface UpdateItemInput {
 }
 
 export namespace UpdateItemInput {
-  export const isa = (o: any): o is UpdateItemInput =>
-    __isa(o, "UpdateItemInput");
+  export const isa = (o: any): o is UpdateItemInput => __isa(o, "UpdateItemInput");
 }
 
 /**
@@ -8315,8 +8063,7 @@ export interface UpdateItemOutput {
 }
 
 export namespace UpdateItemOutput {
-  export const isa = (o: any): o is UpdateItemOutput =>
-    __isa(o, "UpdateItemOutput");
+  export const isa = (o: any): o is UpdateItemOutput => __isa(o, "UpdateItemOutput");
 }
 
 /**
@@ -8440,8 +8187,7 @@ export interface UpdateTableInput {
 }
 
 export namespace UpdateTableInput {
-  export const isa = (o: any): o is UpdateTableInput =>
-    __isa(o, "UpdateTableInput");
+  export const isa = (o: any): o is UpdateTableInput => __isa(o, "UpdateTableInput");
 }
 
 /**
@@ -8456,8 +8202,7 @@ export interface UpdateTableOutput {
 }
 
 export namespace UpdateTableOutput {
-  export const isa = (o: any): o is UpdateTableOutput =>
-    __isa(o, "UpdateTableOutput");
+  export const isa = (o: any): o is UpdateTableOutput => __isa(o, "UpdateTableOutput");
 }
 
 export interface UpdateTableReplicaAutoScalingInput {
@@ -8521,8 +8266,7 @@ export interface UpdateTimeToLiveInput {
 }
 
 export namespace UpdateTimeToLiveInput {
-  export const isa = (o: any): o is UpdateTimeToLiveInput =>
-    __isa(o, "UpdateTimeToLiveInput");
+  export const isa = (o: any): o is UpdateTimeToLiveInput => __isa(o, "UpdateTimeToLiveInput");
 }
 
 export interface UpdateTimeToLiveOutput {
@@ -8534,8 +8278,7 @@ export interface UpdateTimeToLiveOutput {
 }
 
 export namespace UpdateTimeToLiveOutput {
-  export const isa = (o: any): o is UpdateTimeToLiveOutput =>
-    __isa(o, "UpdateTimeToLiveOutput");
+  export const isa = (o: any): o is UpdateTimeToLiveOutput => __isa(o, "UpdateTimeToLiveOutput");
 }
 
 /**

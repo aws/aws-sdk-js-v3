@@ -17,9 +17,7 @@ export function blobReader(
         resolve();
         return;
       }
-      fileReader.readAsArrayBuffer(
-        blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize))
-      );
+      fileReader.readAsArrayBuffer(blob.slice(totalBytesRead, Math.min(size, totalBytesRead + chunkSize)));
     }
 
     fileReader.addEventListener("load", event => {

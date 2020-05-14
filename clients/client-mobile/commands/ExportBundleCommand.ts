@@ -1,18 +1,11 @@
-import {
-  MobileClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MobileClient";
+import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
 import { ExportBundleRequest, ExportBundleResult } from "../models/index";
 import {
   deserializeAws_restJson1_1ExportBundleCommand,
   serializeAws_restJson1_1ExportBundleCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ExportBundleCommand extends $Command<
     configuration: MobileClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportBundleCommandInput, ExportBundleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ExportBundleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ExportBundleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ExportBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ExportBundleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ExportBundleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportBundleCommandOutput> {
     return deserializeAws_restJson1_1ExportBundleCommand(output, context);
   }
 

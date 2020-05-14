@@ -1,21 +1,11 @@
-import {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LicenseManagerClient";
-import {
-  UpdateServiceSettingsRequest,
-  UpdateServiceSettingsResponse
-} from "../models/index";
+import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
+import { UpdateServiceSettingsRequest, UpdateServiceSettingsResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateServiceSettingsCommand,
   serializeAws_json1_1UpdateServiceSettingsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateServiceSettingsCommandInput = UpdateServiceSettingsRequest;
-export type UpdateServiceSettingsCommandOutput = UpdateServiceSettingsResponse &
-  __MetadataBearer;
+export type UpdateServiceSettingsCommandOutput = UpdateServiceSettingsResponse & __MetadataBearer;
 
 export class UpdateServiceSettingsCommand extends $Command<
   UpdateServiceSettingsCommandInput,
@@ -49,13 +38,8 @@ export class UpdateServiceSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateServiceSettingsCommandInput,
-    UpdateServiceSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateServiceSettingsCommandInput, UpdateServiceSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class UpdateServiceSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateServiceSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateServiceSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateServiceSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateServiceSettingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceSettingsCommandOutput> {
     return deserializeAws_json1_1UpdateServiceSettingsCommand(output, context);
   }
 

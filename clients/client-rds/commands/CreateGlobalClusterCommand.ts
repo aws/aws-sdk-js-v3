@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CreateGlobalClusterMessage,
-  CreateGlobalClusterResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/index";
 import {
   deserializeAws_queryCreateGlobalClusterCommand,
   serializeAws_queryCreateGlobalClusterCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateGlobalClusterCommandInput = CreateGlobalClusterMessage;
-export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult &
-  __MetadataBearer;
+export type CreateGlobalClusterCommandOutput = CreateGlobalClusterResult & __MetadataBearer;
 
 export class CreateGlobalClusterCommand extends $Command<
   CreateGlobalClusterCommandInput,
@@ -49,13 +38,8 @@ export class CreateGlobalClusterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateGlobalClusterCommandInput,
-    CreateGlobalClusterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateGlobalClusterCommandInput, CreateGlobalClusterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class CreateGlobalClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateGlobalClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateGlobalClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateGlobalClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateGlobalClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateGlobalClusterCommandOutput> {
     return deserializeAws_queryCreateGlobalClusterCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestJsonProtocolClient";
+import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 import { SimpleScalarPropertiesInputOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1SimpleScalarPropertiesCommand,
   serializeAws_restJson1_1SimpleScalarPropertiesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SimpleScalarPropertiesCommandInput = SimpleScalarPropertiesInputOutput;
-export type SimpleScalarPropertiesCommandOutput = SimpleScalarPropertiesInputOutput &
-  __MetadataBearer;
+export type SimpleScalarPropertiesCommandOutput = SimpleScalarPropertiesInputOutput & __MetadataBearer;
 
 export class SimpleScalarPropertiesCommand extends $Command<
   SimpleScalarPropertiesCommandInput,
@@ -46,13 +38,8 @@ export class SimpleScalarPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    SimpleScalarPropertiesCommandInput,
-    SimpleScalarPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<SimpleScalarPropertiesCommandInput, SimpleScalarPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,24 +54,12 @@ export class SimpleScalarPropertiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SimpleScalarPropertiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1SimpleScalarPropertiesCommand(
-      input,
-      context
-    );
+  private serialize(input: SimpleScalarPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1SimpleScalarPropertiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SimpleScalarPropertiesCommandOutput> {
-    return deserializeAws_restJson1_1SimpleScalarPropertiesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SimpleScalarPropertiesCommandOutput> {
+    return deserializeAws_restJson1_1SimpleScalarPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

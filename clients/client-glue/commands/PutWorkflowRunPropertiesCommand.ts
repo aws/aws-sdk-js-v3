@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { PutWorkflowRunPropertiesRequest, PutWorkflowRunPropertiesResponse } from "../models/index";
 import {
   deserializeAws_json1_1PutWorkflowRunPropertiesCommand,
   serializeAws_json1_1PutWorkflowRunPropertiesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutWorkflowRunPropertiesCommandInput = PutWorkflowRunPropertiesRequest;
-export type PutWorkflowRunPropertiesCommandOutput = PutWorkflowRunPropertiesResponse &
-  __MetadataBearer;
+export type PutWorkflowRunPropertiesCommandOutput = PutWorkflowRunPropertiesResponse & __MetadataBearer;
 
 export class PutWorkflowRunPropertiesCommand extends $Command<
   PutWorkflowRunPropertiesCommandInput,
@@ -49,13 +38,8 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutWorkflowRunPropertiesCommandInput,
-    PutWorkflowRunPropertiesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutWorkflowRunPropertiesCommandInput, PutWorkflowRunPropertiesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutWorkflowRunPropertiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutWorkflowRunPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutWorkflowRunPropertiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutWorkflowRunPropertiesCommandOutput> {
-    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutWorkflowRunPropertiesCommandOutput> {
+    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(output, context);
   }
 
   // Start section: command_body_extra

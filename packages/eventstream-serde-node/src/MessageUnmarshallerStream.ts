@@ -30,9 +30,7 @@ export class MessageUnmarshallerStream extends Transform {
       const { value: messageType } = message.headers[":message-type"];
       if (messageType === "error") {
         // Unmodeled exception in event
-        const unmodeledError = new Error(
-          (message.headers[":error-message"].value as string) || "UnknownError"
-        );
+        const unmodeledError = new Error((message.headers[":error-message"].value as string) || "UnknownError");
         unmodeledError.name = message.headers[":error-code"].value as string;
         throw unmodeledError;
       } else if (messageType === "exception") {
@@ -45,9 +43,7 @@ export class MessageUnmarshallerStream extends Transform {
           [message.headers[":event-type"].value as string]: message
         });
       } else {
-        throw Error(
-          `Unrecognizable event type: ${message.headers[":event-type"].value}`
-        );
+        throw Error(`Unrecognizable event type: ${message.headers[":event-type"].value}`);
       }
       return callback();
     } catch (err) {

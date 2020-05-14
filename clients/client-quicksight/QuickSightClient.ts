@@ -1,23 +1,8 @@
-import {
-  CancelIngestionCommandInput,
-  CancelIngestionCommandOutput
-} from "./commands/CancelIngestionCommand";
-import {
-  CreateDashboardCommandInput,
-  CreateDashboardCommandOutput
-} from "./commands/CreateDashboardCommand";
-import {
-  CreateDataSetCommandInput,
-  CreateDataSetCommandOutput
-} from "./commands/CreateDataSetCommand";
-import {
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
-} from "./commands/CreateDataSourceCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "./commands/CancelIngestionCommand";
+import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
+import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
+import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommandInput,
   CreateGroupMembershipCommandOutput
@@ -26,34 +11,16 @@ import {
   CreateIAMPolicyAssignmentCommandInput,
   CreateIAMPolicyAssignmentCommandOutput
 } from "./commands/CreateIAMPolicyAssignmentCommand";
-import {
-  CreateIngestionCommandInput,
-  CreateIngestionCommandOutput
-} from "./commands/CreateIngestionCommand";
+import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
 import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput
 } from "./commands/CreateTemplateAliasCommand";
-import {
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput
-} from "./commands/CreateTemplateCommand";
-import {
-  DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput
-} from "./commands/DeleteDashboardCommand";
-import {
-  DeleteDataSetCommandInput,
-  DeleteDataSetCommandOutput
-} from "./commands/DeleteDataSetCommand";
-import {
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
-} from "./commands/DeleteDataSourceCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
+import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
+import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommandInput,
   DeleteGroupMembershipCommandOutput
@@ -66,70 +33,43 @@ import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput
 } from "./commands/DeleteTemplateAliasCommand";
-import {
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput
-} from "./commands/DeleteTemplateCommand";
+import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
 import {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput
 } from "./commands/DeleteUserByPrincipalIdCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
-import {
-  DescribeDashboardCommandInput,
-  DescribeDashboardCommandOutput
-} from "./commands/DescribeDashboardCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput
 } from "./commands/DescribeDashboardPermissionsCommand";
-import {
-  DescribeDataSetCommandInput,
-  DescribeDataSetCommandOutput
-} from "./commands/DescribeDataSetCommand";
+import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "./commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
   DescribeDataSetPermissionsCommandOutput
 } from "./commands/DescribeDataSetPermissionsCommand";
-import {
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput
-} from "./commands/DescribeDataSourceCommand";
+import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "./commands/DescribeDataSourceCommand";
 import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput
 } from "./commands/DescribeDataSourcePermissionsCommand";
-import {
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput
-} from "./commands/DescribeGroupCommand";
+import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
   DescribeIAMPolicyAssignmentCommandInput,
   DescribeIAMPolicyAssignmentCommandOutput
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
-import {
-  DescribeIngestionCommandInput,
-  DescribeIngestionCommandOutput
-} from "./commands/DescribeIngestionCommand";
+import { DescribeIngestionCommandInput, DescribeIngestionCommandOutput } from "./commands/DescribeIngestionCommand";
 import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput
 } from "./commands/DescribeTemplateAliasCommand";
-import {
-  DescribeTemplateCommandInput,
-  DescribeTemplateCommandOutput
-} from "./commands/DescribeTemplateCommand";
+import { DescribeTemplateCommandInput, DescribeTemplateCommandOutput } from "./commands/DescribeTemplateCommand";
 import {
   DescribeTemplatePermissionsCommandInput,
   DescribeTemplatePermissionsCommandOutput
 } from "./commands/DescribeTemplatePermissionsCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput
@@ -138,26 +78,14 @@ import {
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput
 } from "./commands/ListDashboardVersionsCommand";
-import {
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
-} from "./commands/ListDashboardsCommand";
-import {
-  ListDataSetsCommandInput,
-  ListDataSetsCommandOutput
-} from "./commands/ListDataSetsCommand";
-import {
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
-} from "./commands/ListDataSourcesCommand";
+import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
 import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput
 } from "./commands/ListGroupMembershipsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListIAMPolicyAssignmentsCommandInput,
   ListIAMPolicyAssignmentsCommandOutput
@@ -166,10 +94,7 @@ import {
   ListIAMPolicyAssignmentsForUserCommandInput,
   ListIAMPolicyAssignmentsForUserCommandOutput
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
-import {
-  ListIngestionsCommandInput,
-  ListIngestionsCommandOutput
-} from "./commands/ListIngestionsCommand";
+import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -182,34 +107,13 @@ import {
   ListTemplateVersionsCommandInput,
   ListTemplateVersionsCommandOutput
 } from "./commands/ListTemplateVersionsCommand";
-import {
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
-} from "./commands/ListTemplatesCommand";
-import {
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput
-} from "./commands/ListUserGroupsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  RegisterUserCommandInput,
-  RegisterUserCommandOutput
-} from "./commands/RegisterUserCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput
-} from "./commands/UpdateDashboardCommand";
+import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "./commands/ListTemplatesCommand";
+import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
   UpdateDashboardPermissionsCommandInput,
   UpdateDashboardPermissionsCommandOutput
@@ -218,26 +122,17 @@ import {
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput
 } from "./commands/UpdateDashboardPublishedVersionCommand";
-import {
-  UpdateDataSetCommandInput,
-  UpdateDataSetCommandOutput
-} from "./commands/UpdateDataSetCommand";
+import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "./commands/UpdateDataSetCommand";
 import {
   UpdateDataSetPermissionsCommandInput,
   UpdateDataSetPermissionsCommandOutput
 } from "./commands/UpdateDataSetPermissionsCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "./commands/UpdateDataSourceCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput
 } from "./commands/UpdateDataSourcePermissionsCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommandInput,
   UpdateIAMPolicyAssignmentCommandOutput
@@ -246,18 +141,12 @@ import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput
 } from "./commands/UpdateTemplateAliasCommand";
-import {
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput
-} from "./commands/UpdateTemplateCommand";
+import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
 import {
   UpdateTemplatePermissionsCommandInput,
   UpdateTemplatePermissionsCommandOutput
 } from "./commands/UpdateTemplatePermissionsCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -274,12 +163,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -444,8 +328,7 @@ export type ServiceOutputTypes =
   | UpdateTemplatePermissionsCommandOutput
   | UpdateUserCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -529,9 +412,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QuickSightClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QuickSightClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -540,9 +421,7 @@ export type QuickSightClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

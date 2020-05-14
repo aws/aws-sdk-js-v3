@@ -1,7 +1,4 @@
-import {
-  CreateDevicePoolCommandInput,
-  CreateDevicePoolCommandOutput
-} from "../commands/CreateDevicePoolCommand";
+import { CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput } from "../commands/CreateDevicePoolCommand";
 import {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput
@@ -10,10 +7,7 @@ import {
   CreateNetworkProfileCommandInput,
   CreateNetworkProfileCommandOutput
 } from "../commands/CreateNetworkProfileCommand";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "../commands/CreateProjectCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import {
   CreateRemoteAccessSessionCommandInput,
   CreateRemoteAccessSessionCommandOutput
@@ -22,22 +16,13 @@ import {
   CreateTestGridProjectCommandInput,
   CreateTestGridProjectCommandOutput
 } from "../commands/CreateTestGridProjectCommand";
-import {
-  CreateTestGridUrlCommandInput,
-  CreateTestGridUrlCommandOutput
-} from "../commands/CreateTestGridUrlCommand";
-import {
-  CreateUploadCommandInput,
-  CreateUploadCommandOutput
-} from "../commands/CreateUploadCommand";
+import { CreateTestGridUrlCommandInput, CreateTestGridUrlCommandOutput } from "../commands/CreateTestGridUrlCommand";
+import { CreateUploadCommandInput, CreateUploadCommandOutput } from "../commands/CreateUploadCommand";
 import {
   CreateVPCEConfigurationCommandInput,
   CreateVPCEConfigurationCommandOutput
 } from "../commands/CreateVPCEConfigurationCommand";
-import {
-  DeleteDevicePoolCommandInput,
-  DeleteDevicePoolCommandOutput
-} from "../commands/DeleteDevicePoolCommand";
+import { DeleteDevicePoolCommandInput, DeleteDevicePoolCommandOutput } from "../commands/DeleteDevicePoolCommand";
 import {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput
@@ -46,98 +31,44 @@ import {
   DeleteNetworkProfileCommandInput,
   DeleteNetworkProfileCommandOutput
 } from "../commands/DeleteNetworkProfileCommand";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "../commands/DeleteProjectCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
 import {
   DeleteRemoteAccessSessionCommandInput,
   DeleteRemoteAccessSessionCommandOutput
 } from "../commands/DeleteRemoteAccessSessionCommand";
-import {
-  DeleteRunCommandInput,
-  DeleteRunCommandOutput
-} from "../commands/DeleteRunCommand";
+import { DeleteRunCommandInput, DeleteRunCommandOutput } from "../commands/DeleteRunCommand";
 import {
   DeleteTestGridProjectCommandInput,
   DeleteTestGridProjectCommandOutput
 } from "../commands/DeleteTestGridProjectCommand";
-import {
-  DeleteUploadCommandInput,
-  DeleteUploadCommandOutput
-} from "../commands/DeleteUploadCommand";
+import { DeleteUploadCommandInput, DeleteUploadCommandOutput } from "../commands/DeleteUploadCommand";
 import {
   DeleteVPCEConfigurationCommandInput,
   DeleteVPCEConfigurationCommandOutput
 } from "../commands/DeleteVPCEConfigurationCommand";
-import {
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput
-} from "../commands/GetAccountSettingsCommand";
-import {
-  GetDeviceCommandInput,
-  GetDeviceCommandOutput
-} from "../commands/GetDeviceCommand";
-import {
-  GetDeviceInstanceCommandInput,
-  GetDeviceInstanceCommandOutput
-} from "../commands/GetDeviceInstanceCommand";
-import {
-  GetDevicePoolCommandInput,
-  GetDevicePoolCommandOutput
-} from "../commands/GetDevicePoolCommand";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "../commands/GetAccountSettingsCommand";
+import { GetDeviceCommandInput, GetDeviceCommandOutput } from "../commands/GetDeviceCommand";
+import { GetDeviceInstanceCommandInput, GetDeviceInstanceCommandOutput } from "../commands/GetDeviceInstanceCommand";
+import { GetDevicePoolCommandInput, GetDevicePoolCommandOutput } from "../commands/GetDevicePoolCommand";
 import {
   GetDevicePoolCompatibilityCommandInput,
   GetDevicePoolCompatibilityCommandOutput
 } from "../commands/GetDevicePoolCompatibilityCommand";
-import {
-  GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
-} from "../commands/GetInstanceProfileCommand";
-import {
-  GetJobCommandInput,
-  GetJobCommandOutput
-} from "../commands/GetJobCommand";
-import {
-  GetNetworkProfileCommandInput,
-  GetNetworkProfileCommandOutput
-} from "../commands/GetNetworkProfileCommand";
-import {
-  GetOfferingStatusCommandInput,
-  GetOfferingStatusCommandOutput
-} from "../commands/GetOfferingStatusCommand";
-import {
-  GetProjectCommandInput,
-  GetProjectCommandOutput
-} from "../commands/GetProjectCommand";
+import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "../commands/GetInstanceProfileCommand";
+import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
+import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "../commands/GetNetworkProfileCommand";
+import { GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput } from "../commands/GetOfferingStatusCommand";
+import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
 import {
   GetRemoteAccessSessionCommandInput,
   GetRemoteAccessSessionCommandOutput
 } from "../commands/GetRemoteAccessSessionCommand";
-import {
-  GetRunCommandInput,
-  GetRunCommandOutput
-} from "../commands/GetRunCommand";
-import {
-  GetSuiteCommandInput,
-  GetSuiteCommandOutput
-} from "../commands/GetSuiteCommand";
-import {
-  GetTestCommandInput,
-  GetTestCommandOutput
-} from "../commands/GetTestCommand";
-import {
-  GetTestGridProjectCommandInput,
-  GetTestGridProjectCommandOutput
-} from "../commands/GetTestGridProjectCommand";
-import {
-  GetTestGridSessionCommandInput,
-  GetTestGridSessionCommandOutput
-} from "../commands/GetTestGridSessionCommand";
-import {
-  GetUploadCommandInput,
-  GetUploadCommandOutput
-} from "../commands/GetUploadCommand";
+import { GetRunCommandInput, GetRunCommandOutput } from "../commands/GetRunCommand";
+import { GetSuiteCommandInput, GetSuiteCommandOutput } from "../commands/GetSuiteCommand";
+import { GetTestCommandInput, GetTestCommandOutput } from "../commands/GetTestCommand";
+import { GetTestGridProjectCommandInput, GetTestGridProjectCommandOutput } from "../commands/GetTestGridProjectCommand";
+import { GetTestGridSessionCommandInput, GetTestGridSessionCommandOutput } from "../commands/GetTestGridSessionCommand";
+import { GetUploadCommandInput, GetUploadCommandOutput } from "../commands/GetUploadCommand";
 import {
   GetVPCEConfigurationCommandInput,
   GetVPCEConfigurationCommandOutput
@@ -146,30 +77,18 @@ import {
   InstallToRemoteAccessSessionCommandInput,
   InstallToRemoteAccessSessionCommandOutput
 } from "../commands/InstallToRemoteAccessSessionCommand";
-import {
-  ListArtifactsCommandInput,
-  ListArtifactsCommandOutput
-} from "../commands/ListArtifactsCommand";
+import { ListArtifactsCommandInput, ListArtifactsCommandOutput } from "../commands/ListArtifactsCommand";
 import {
   ListDeviceInstancesCommandInput,
   ListDeviceInstancesCommandOutput
 } from "../commands/ListDeviceInstancesCommand";
-import {
-  ListDevicePoolsCommandInput,
-  ListDevicePoolsCommandOutput
-} from "../commands/ListDevicePoolsCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "../commands/ListDevicesCommand";
+import { ListDevicePoolsCommandInput, ListDevicePoolsCommandOutput } from "../commands/ListDevicePoolsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput
 } from "../commands/ListInstanceProfilesCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "../commands/ListJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   ListNetworkProfilesCommandInput,
   ListNetworkProfilesCommandOutput
@@ -182,30 +101,15 @@ import {
   ListOfferingTransactionsCommandInput,
   ListOfferingTransactionsCommandOutput
 } from "../commands/ListOfferingTransactionsCommand";
-import {
-  ListOfferingsCommandInput,
-  ListOfferingsCommandOutput
-} from "../commands/ListOfferingsCommand";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "../commands/ListProjectsCommand";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "../commands/ListOfferingsCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
 import {
   ListRemoteAccessSessionsCommandInput,
   ListRemoteAccessSessionsCommandOutput
 } from "../commands/ListRemoteAccessSessionsCommand";
-import {
-  ListRunsCommandInput,
-  ListRunsCommandOutput
-} from "../commands/ListRunsCommand";
-import {
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput
-} from "../commands/ListSamplesCommand";
-import {
-  ListSuitesCommandInput,
-  ListSuitesCommandOutput
-} from "../commands/ListSuitesCommand";
+import { ListRunsCommandInput, ListRunsCommandOutput } from "../commands/ListRunsCommand";
+import { ListSamplesCommandInput, ListSamplesCommandOutput } from "../commands/ListSamplesCommand";
+import { ListSuitesCommandInput, ListSuitesCommandOutput } from "../commands/ListSuitesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -226,62 +130,29 @@ import {
   ListTestGridSessionsCommandInput,
   ListTestGridSessionsCommandOutput
 } from "../commands/ListTestGridSessionsCommand";
-import {
-  ListTestsCommandInput,
-  ListTestsCommandOutput
-} from "../commands/ListTestsCommand";
-import {
-  ListUniqueProblemsCommandInput,
-  ListUniqueProblemsCommandOutput
-} from "../commands/ListUniqueProblemsCommand";
-import {
-  ListUploadsCommandInput,
-  ListUploadsCommandOutput
-} from "../commands/ListUploadsCommand";
+import { ListTestsCommandInput, ListTestsCommandOutput } from "../commands/ListTestsCommand";
+import { ListUniqueProblemsCommandInput, ListUniqueProblemsCommandOutput } from "../commands/ListUniqueProblemsCommand";
+import { ListUploadsCommandInput, ListUploadsCommandOutput } from "../commands/ListUploadsCommand";
 import {
   ListVPCEConfigurationsCommandInput,
   ListVPCEConfigurationsCommandOutput
 } from "../commands/ListVPCEConfigurationsCommand";
-import {
-  PurchaseOfferingCommandInput,
-  PurchaseOfferingCommandOutput
-} from "../commands/PurchaseOfferingCommand";
-import {
-  RenewOfferingCommandInput,
-  RenewOfferingCommandOutput
-} from "../commands/RenewOfferingCommand";
-import {
-  ScheduleRunCommandInput,
-  ScheduleRunCommandOutput
-} from "../commands/ScheduleRunCommand";
-import {
-  StopJobCommandInput,
-  StopJobCommandOutput
-} from "../commands/StopJobCommand";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
+import { RenewOfferingCommandInput, RenewOfferingCommandOutput } from "../commands/RenewOfferingCommand";
+import { ScheduleRunCommandInput, ScheduleRunCommandOutput } from "../commands/ScheduleRunCommand";
+import { StopJobCommandInput, StopJobCommandOutput } from "../commands/StopJobCommand";
 import {
   StopRemoteAccessSessionCommandInput,
   StopRemoteAccessSessionCommandOutput
 } from "../commands/StopRemoteAccessSessionCommand";
-import {
-  StopRunCommandInput,
-  StopRunCommandOutput
-} from "../commands/StopRunCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { StopRunCommandInput, StopRunCommandOutput } from "../commands/StopRunCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateDeviceInstanceCommandInput,
   UpdateDeviceInstanceCommandOutput
 } from "../commands/UpdateDeviceInstanceCommand";
-import {
-  UpdateDevicePoolCommandInput,
-  UpdateDevicePoolCommandOutput
-} from "../commands/UpdateDevicePoolCommand";
+import { UpdateDevicePoolCommandInput, UpdateDevicePoolCommandOutput } from "../commands/UpdateDevicePoolCommand";
 import {
   UpdateInstanceProfileCommandInput,
   UpdateInstanceProfileCommandOutput
@@ -290,18 +161,12 @@ import {
   UpdateNetworkProfileCommandInput,
   UpdateNetworkProfileCommandOutput
 } from "../commands/UpdateNetworkProfileCommand";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "../commands/UpdateProjectCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import {
   UpdateTestGridProjectCommandInput,
   UpdateTestGridProjectCommandOutput
 } from "../commands/UpdateTestGridProjectCommand";
-import {
-  UpdateUploadCommandInput,
-  UpdateUploadCommandOutput
-} from "../commands/UpdateUploadCommand";
+import { UpdateUploadCommandInput, UpdateUploadCommandOutput } from "../commands/UpdateUploadCommand";
 import {
   UpdateVPCEConfigurationCommandInput,
   UpdateVPCEConfigurationCommandOutput
@@ -524,10 +389,7 @@ import {
   Upload,
   VPCEConfiguration
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -546,9 +408,7 @@ export const serializeAws_json1_1CreateDevicePoolCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateDevicePool"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateDevicePoolRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -561,9 +421,7 @@ export const serializeAws_json1_1CreateInstanceProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateInstanceProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateInstanceProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -576,9 +434,7 @@ export const serializeAws_json1_1CreateNetworkProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateNetworkProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateNetworkProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -591,9 +447,7 @@ export const serializeAws_json1_1CreateProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -606,9 +460,7 @@ export const serializeAws_json1_1CreateRemoteAccessSessionCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateRemoteAccessSession"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateRemoteAccessSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -621,9 +473,7 @@ export const serializeAws_json1_1CreateTestGridProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateTestGridProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateTestGridProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -636,9 +486,7 @@ export const serializeAws_json1_1CreateTestGridUrlCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateTestGridUrl"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateTestGridUrlRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateTestGridUrlRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -651,9 +499,7 @@ export const serializeAws_json1_1CreateUploadCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateUpload"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateUploadRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -666,9 +512,7 @@ export const serializeAws_json1_1CreateVPCEConfigurationCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.CreateVPCEConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateVPCEConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -681,9 +525,7 @@ export const serializeAws_json1_1DeleteDevicePoolCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteDevicePool"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteDevicePoolRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -696,9 +538,7 @@ export const serializeAws_json1_1DeleteInstanceProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteInstanceProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteInstanceProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -711,9 +551,7 @@ export const serializeAws_json1_1DeleteNetworkProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteNetworkProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteNetworkProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -726,9 +564,7 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -741,9 +577,7 @@ export const serializeAws_json1_1DeleteRemoteAccessSessionCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteRemoteAccessSession"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteRemoteAccessSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -769,9 +603,7 @@ export const serializeAws_json1_1DeleteTestGridProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteTestGridProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteTestGridProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -784,9 +616,7 @@ export const serializeAws_json1_1DeleteUploadCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteUpload"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteUploadRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -799,9 +629,7 @@ export const serializeAws_json1_1DeleteVPCEConfigurationCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.DeleteVPCEConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteVPCEConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -814,9 +642,7 @@ export const serializeAws_json1_1GetAccountSettingsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetAccountSettings"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetAccountSettingsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetAccountSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -842,9 +668,7 @@ export const serializeAws_json1_1GetDeviceInstanceCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetDeviceInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDeviceInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDeviceInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -857,9 +681,7 @@ export const serializeAws_json1_1GetDevicePoolCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetDevicePool"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDevicePoolRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -872,9 +694,7 @@ export const serializeAws_json1_1GetDevicePoolCompatibilityCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetDevicePoolCompatibility"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDevicePoolCompatibilityRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDevicePoolCompatibilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -887,9 +707,7 @@ export const serializeAws_json1_1GetInstanceProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetInstanceProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetInstanceProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -915,9 +733,7 @@ export const serializeAws_json1_1GetNetworkProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetNetworkProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetNetworkProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -930,9 +746,7 @@ export const serializeAws_json1_1GetOfferingStatusCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetOfferingStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetOfferingStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetOfferingStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -958,9 +772,7 @@ export const serializeAws_json1_1GetRemoteAccessSessionCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetRemoteAccessSession"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetRemoteAccessSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1012,9 +824,7 @@ export const serializeAws_json1_1GetTestGridProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetTestGridProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetTestGridProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1027,9 +837,7 @@ export const serializeAws_json1_1GetTestGridSessionCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetTestGridSession"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetTestGridSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetTestGridSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1055,9 +863,7 @@ export const serializeAws_json1_1GetVPCEConfigurationCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.GetVPCEConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetVPCEConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1070,9 +876,7 @@ export const serializeAws_json1_1InstallToRemoteAccessSessionCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.InstallToRemoteAccessSession"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1InstallToRemoteAccessSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1InstallToRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1085,9 +889,7 @@ export const serializeAws_json1_1ListArtifactsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListArtifacts"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListArtifactsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListArtifactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1100,9 +902,7 @@ export const serializeAws_json1_1ListDeviceInstancesCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListDeviceInstances"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListDeviceInstancesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListDeviceInstancesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1115,9 +915,7 @@ export const serializeAws_json1_1ListDevicePoolsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListDevicePools"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListDevicePoolsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListDevicePoolsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1143,9 +941,7 @@ export const serializeAws_json1_1ListInstanceProfilesCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListInstanceProfiles"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListInstanceProfilesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListInstanceProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1171,9 +967,7 @@ export const serializeAws_json1_1ListNetworkProfilesCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListNetworkProfiles"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListNetworkProfilesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListNetworkProfilesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1186,9 +980,7 @@ export const serializeAws_json1_1ListOfferingPromotionsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListOfferingPromotions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListOfferingPromotionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListOfferingPromotionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1201,9 +993,7 @@ export const serializeAws_json1_1ListOfferingTransactionsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListOfferingTransactions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListOfferingTransactionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListOfferingTransactionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1216,9 +1006,7 @@ export const serializeAws_json1_1ListOfferingsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListOfferings"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListOfferingsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListOfferingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1231,9 +1019,7 @@ export const serializeAws_json1_1ListProjectsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListProjects"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListProjectsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListProjectsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1246,9 +1032,7 @@ export const serializeAws_json1_1ListRemoteAccessSessionsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListRemoteAccessSessions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListRemoteAccessSessionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListRemoteAccessSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1300,9 +1084,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListTagsForResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1315,9 +1097,7 @@ export const serializeAws_json1_1ListTestGridProjectsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridProjects"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTestGridProjectsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTestGridProjectsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1330,9 +1110,7 @@ export const serializeAws_json1_1ListTestGridSessionActionsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessionActions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTestGridSessionActionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTestGridSessionActionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1345,9 +1123,7 @@ export const serializeAws_json1_1ListTestGridSessionArtifactsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessionArtifacts"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTestGridSessionArtifactsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTestGridSessionArtifactsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1360,9 +1136,7 @@ export const serializeAws_json1_1ListTestGridSessionsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListTestGridSessions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTestGridSessionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTestGridSessionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1388,9 +1162,7 @@ export const serializeAws_json1_1ListUniqueProblemsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListUniqueProblems"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListUniqueProblemsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListUniqueProblemsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1416,9 +1188,7 @@ export const serializeAws_json1_1ListVPCEConfigurationsCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.ListVPCEConfigurations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListVPCEConfigurationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListVPCEConfigurationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1431,9 +1201,7 @@ export const serializeAws_json1_1PurchaseOfferingCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.PurchaseOffering"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1PurchaseOfferingRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1PurchaseOfferingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1446,9 +1214,7 @@ export const serializeAws_json1_1RenewOfferingCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.RenewOffering"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RenewOfferingRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RenewOfferingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1487,9 +1253,7 @@ export const serializeAws_json1_1StopRemoteAccessSessionCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.StopRemoteAccessSession"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1StopRemoteAccessSessionRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1StopRemoteAccessSessionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1528,9 +1292,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UntagResource"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UntagResourceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1543,9 +1305,7 @@ export const serializeAws_json1_1UpdateDeviceInstanceCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateDeviceInstance"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDeviceInstanceRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDeviceInstanceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1558,9 +1318,7 @@ export const serializeAws_json1_1UpdateDevicePoolCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateDevicePool"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDevicePoolRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDevicePoolRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1573,9 +1331,7 @@ export const serializeAws_json1_1UpdateInstanceProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateInstanceProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateInstanceProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateInstanceProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1588,9 +1344,7 @@ export const serializeAws_json1_1UpdateNetworkProfileCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateNetworkProfile"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateNetworkProfileRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateNetworkProfileRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1603,9 +1357,7 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1618,9 +1370,7 @@ export const serializeAws_json1_1UpdateTestGridProjectCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateTestGridProject"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateTestGridProjectRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateTestGridProjectRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1633,9 +1383,7 @@ export const serializeAws_json1_1UpdateUploadCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateUpload"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateUploadRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateUploadRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1648,9 +1396,7 @@ export const serializeAws_json1_1UpdateVPCEConfigurationCommand = async (
     "X-Amz-Target": "DeviceFarm_20150623.UpdateVPCEConfiguration"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateVPCEConfigurationRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateVPCEConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1683,16 +1429,12 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1700,10 +1442,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1711,10 +1450,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1722,10 +1458,7 @@ const deserializeAws_json1_1CreateDevicePoolCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1752,10 +1485,7 @@ export const deserializeAws_json1_1CreateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateInstanceProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1779,16 +1509,12 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1796,10 +1522,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1807,10 +1530,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1818,10 +1538,7 @@ const deserializeAws_json1_1CreateInstanceProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1848,10 +1565,7 @@ export const deserializeAws_json1_1CreateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateNetworkProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1875,16 +1589,12 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1892,10 +1602,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1903,10 +1610,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1914,10 +1618,7 @@ const deserializeAws_json1_1CreateNetworkProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1968,16 +1669,12 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1985,10 +1682,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1996,10 +1690,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2007,10 +1698,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2018,10 +1706,7 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     case "TagOperationException":
     case "com.amazon.devicefarm.model#TagOperationException":
       response = {
-        ...(await deserializeAws_json1_1TagOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2048,17 +1733,11 @@ export const deserializeAws_json1_1CreateRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateRemoteAccessSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateRemoteAccessSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRemoteAccessSessionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRemoteAccessSessionResult(data, context);
   const response: CreateRemoteAccessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRemoteAccessSessionResult",
@@ -2078,16 +1757,12 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2095,10 +1770,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2106,10 +1778,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2117,10 +1786,7 @@ const deserializeAws_json1_1CreateRemoteAccessSessionCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2147,10 +1813,7 @@ export const deserializeAws_json1_1CreateTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateTestGridProjectCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateTestGridProjectCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateTestGridProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2174,16 +1837,12 @@ const deserializeAws_json1_1CreateTestGridProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2234,16 +1893,12 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2251,10 +1906,7 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2262,10 +1914,7 @@ const deserializeAws_json1_1CreateTestGridUrlCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2316,16 +1965,12 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2333,10 +1978,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2344,10 +1986,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2355,10 +1994,7 @@ const deserializeAws_json1_1CreateUploadCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2385,10 +2021,7 @@ export const deserializeAws_json1_1CreateVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateVPCEConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateVPCEConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2412,16 +2045,12 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2429,10 +2058,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2440,10 +2066,7 @@ const deserializeAws_json1_1CreateVPCEConfigurationCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2494,16 +2117,12 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2511,10 +2130,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2522,10 +2138,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2533,10 +2146,7 @@ const deserializeAws_json1_1DeleteDevicePoolCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2563,10 +2173,7 @@ export const deserializeAws_json1_1DeleteInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteInstanceProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2590,16 +2197,12 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2607,10 +2210,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2618,10 +2218,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2629,10 +2226,7 @@ const deserializeAws_json1_1DeleteInstanceProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2659,10 +2253,7 @@ export const deserializeAws_json1_1DeleteNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteNetworkProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2686,16 +2277,12 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2703,10 +2290,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2714,10 +2298,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2725,10 +2306,7 @@ const deserializeAws_json1_1DeleteNetworkProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2779,16 +2357,12 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2796,10 +2370,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2807,10 +2378,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2818,10 +2386,7 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2848,17 +2413,11 @@ export const deserializeAws_json1_1DeleteRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRemoteAccessSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteRemoteAccessSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRemoteAccessSessionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRemoteAccessSessionResult(data, context);
   const response: DeleteRemoteAccessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRemoteAccessSessionResult",
@@ -2878,16 +2437,12 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2895,10 +2450,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2906,10 +2458,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2917,10 +2466,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2971,16 +2517,12 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2988,10 +2530,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2999,10 +2538,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3010,10 +2546,7 @@ const deserializeAws_json1_1DeleteRunCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3040,10 +2573,7 @@ export const deserializeAws_json1_1DeleteTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTestGridProjectCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteTestGridProjectCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteTestGridProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3067,16 +2597,12 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3084,10 +2610,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
     case "CannotDeleteException":
     case "com.amazon.devicefarm.model#CannotDeleteException":
       response = {
-        ...(await deserializeAws_json1_1CannotDeleteExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1CannotDeleteExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3095,10 +2618,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3106,10 +2626,7 @@ const deserializeAws_json1_1DeleteTestGridProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3160,16 +2677,12 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3177,10 +2690,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3188,10 +2698,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3199,10 +2706,7 @@ const deserializeAws_json1_1DeleteUploadCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3229,10 +2733,7 @@ export const deserializeAws_json1_1DeleteVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteVPCEConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteVPCEConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3256,16 +2757,12 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3273,10 +2770,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
     case "InvalidOperationException":
     case "com.amazon.devicefarm.model#InvalidOperationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3284,10 +2778,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3295,10 +2786,7 @@ const deserializeAws_json1_1DeleteVPCEConfigurationCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3325,10 +2813,7 @@ export const deserializeAws_json1_1GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetAccountSettingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetAccountSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3352,16 +2837,12 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3369,10 +2850,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3380,10 +2858,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3391,10 +2866,7 @@ const deserializeAws_json1_1GetAccountSettingsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3445,16 +2917,12 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3462,10 +2930,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3473,10 +2938,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3484,10 +2946,7 @@ const deserializeAws_json1_1GetDeviceCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3538,16 +2997,12 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3555,10 +3010,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3566,10 +3018,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3577,10 +3026,7 @@ const deserializeAws_json1_1GetDeviceInstanceCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3631,16 +3077,12 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3648,10 +3090,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3659,10 +3098,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3670,10 +3106,7 @@ const deserializeAws_json1_1GetDevicePoolCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3700,17 +3133,11 @@ export const deserializeAws_json1_1GetDevicePoolCompatibilityCommand = async (
   context: __SerdeContext
 ): Promise<GetDevicePoolCompatibilityCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDevicePoolCompatibilityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetDevicePoolCompatibilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDevicePoolCompatibilityResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetDevicePoolCompatibilityResult(data, context);
   const response: GetDevicePoolCompatibilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDevicePoolCompatibilityResult",
@@ -3730,16 +3157,12 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3747,10 +3170,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3758,10 +3178,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3769,10 +3186,7 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3799,10 +3213,7 @@ export const deserializeAws_json1_1GetInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetInstanceProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3826,16 +3237,12 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3843,10 +3250,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3854,10 +3258,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3865,10 +3266,7 @@ const deserializeAws_json1_1GetInstanceProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3919,16 +3317,12 @@ const deserializeAws_json1_1GetJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3936,10 +3330,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3947,10 +3338,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3958,10 +3346,7 @@ const deserializeAws_json1_1GetJobCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4012,16 +3397,12 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4029,10 +3410,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4040,10 +3418,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4051,10 +3426,7 @@ const deserializeAws_json1_1GetNetworkProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4105,16 +3477,12 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4122,10 +3490,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4133,10 +3498,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
     case "NotEligibleException":
     case "com.amazon.devicefarm.model#NotEligibleException":
       response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4144,10 +3506,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4155,10 +3514,7 @@ const deserializeAws_json1_1GetOfferingStatusCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4209,16 +3565,12 @@ const deserializeAws_json1_1GetProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4226,10 +3578,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4237,10 +3586,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4248,10 +3594,7 @@ const deserializeAws_json1_1GetProjectCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4278,10 +3621,7 @@ export const deserializeAws_json1_1GetRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetRemoteAccessSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetRemoteAccessSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4305,16 +3645,12 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4322,10 +3658,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4333,10 +3666,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4344,10 +3674,7 @@ const deserializeAws_json1_1GetRemoteAccessSessionCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4398,16 +3725,12 @@ const deserializeAws_json1_1GetRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4415,10 +3738,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4426,10 +3746,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4437,10 +3754,7 @@ const deserializeAws_json1_1GetRunCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4491,16 +3805,12 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4508,10 +3818,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4519,10 +3826,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4530,10 +3834,7 @@ const deserializeAws_json1_1GetSuiteCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4584,16 +3885,12 @@ const deserializeAws_json1_1GetTestCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4601,10 +3898,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4612,10 +3906,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4623,10 +3914,7 @@ const deserializeAws_json1_1GetTestCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4653,10 +3941,7 @@ export const deserializeAws_json1_1GetTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<GetTestGridProjectCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetTestGridProjectCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetTestGridProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4680,16 +3965,12 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4697,10 +3978,7 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4708,10 +3986,7 @@ const deserializeAws_json1_1GetTestGridProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4738,10 +4013,7 @@ export const deserializeAws_json1_1GetTestGridSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetTestGridSessionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetTestGridSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetTestGridSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4765,16 +4037,12 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4782,10 +4050,7 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4793,10 +4058,7 @@ const deserializeAws_json1_1GetTestGridSessionCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4847,16 +4109,12 @@ const deserializeAws_json1_1GetUploadCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4864,10 +4122,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4875,10 +4130,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4886,10 +4138,7 @@ const deserializeAws_json1_1GetUploadCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4916,10 +4165,7 @@ export const deserializeAws_json1_1GetVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetVPCEConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetVPCEConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4943,16 +4189,12 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4960,10 +4202,7 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4971,10 +4210,7 @@ const deserializeAws_json1_1GetVPCEConfigurationCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5001,17 +4237,11 @@ export const deserializeAws_json1_1InstallToRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<InstallToRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1InstallToRemoteAccessSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1InstallToRemoteAccessSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InstallToRemoteAccessSessionResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1InstallToRemoteAccessSessionResult(data, context);
   const response: InstallToRemoteAccessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InstallToRemoteAccessSessionResult",
@@ -5031,16 +4261,12 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5048,10 +4274,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5059,10 +4282,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5070,10 +4290,7 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5124,16 +4341,12 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5141,10 +4354,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5152,10 +4362,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5163,10 +4370,7 @@ const deserializeAws_json1_1ListArtifactsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5193,10 +4397,7 @@ export const deserializeAws_json1_1ListDeviceInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceInstancesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListDeviceInstancesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListDeviceInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5220,16 +4421,12 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5237,10 +4434,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5248,10 +4442,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5259,10 +4450,7 @@ const deserializeAws_json1_1ListDeviceInstancesCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5313,16 +4501,12 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5330,10 +4514,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5341,10 +4522,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5352,10 +4530,7 @@ const deserializeAws_json1_1ListDevicePoolsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5406,16 +4581,12 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5423,10 +4594,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5434,10 +4602,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5445,10 +4610,7 @@ const deserializeAws_json1_1ListDevicesCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5475,10 +4637,7 @@ export const deserializeAws_json1_1ListInstanceProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceProfilesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListInstanceProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListInstanceProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5502,16 +4661,12 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5519,10 +4674,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5530,10 +4682,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5541,10 +4690,7 @@ const deserializeAws_json1_1ListInstanceProfilesCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5595,16 +4741,12 @@ const deserializeAws_json1_1ListJobsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5612,10 +4754,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5623,10 +4762,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5634,10 +4770,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5664,10 +4797,7 @@ export const deserializeAws_json1_1ListNetworkProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListNetworkProfilesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListNetworkProfilesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListNetworkProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5691,16 +4821,12 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5708,10 +4834,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5719,10 +4842,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5730,10 +4850,7 @@ const deserializeAws_json1_1ListNetworkProfilesCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5760,10 +4877,7 @@ export const deserializeAws_json1_1ListOfferingPromotionsCommand = async (
   context: __SerdeContext
 ): Promise<ListOfferingPromotionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListOfferingPromotionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListOfferingPromotionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5787,16 +4901,12 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5804,10 +4914,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5815,10 +4922,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
     case "NotEligibleException":
     case "com.amazon.devicefarm.model#NotEligibleException":
       response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5826,10 +4930,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5837,10 +4938,7 @@ const deserializeAws_json1_1ListOfferingPromotionsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5867,17 +4965,11 @@ export const deserializeAws_json1_1ListOfferingTransactionsCommand = async (
   context: __SerdeContext
 ): Promise<ListOfferingTransactionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListOfferingTransactionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListOfferingTransactionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOfferingTransactionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListOfferingTransactionsResult(data, context);
   const response: ListOfferingTransactionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOfferingTransactionsResult",
@@ -5897,16 +4989,12 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5914,10 +5002,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5925,10 +5010,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
     case "NotEligibleException":
     case "com.amazon.devicefarm.model#NotEligibleException":
       response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5936,10 +5018,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5947,10 +5026,7 @@ const deserializeAws_json1_1ListOfferingTransactionsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6001,16 +5077,12 @@ const deserializeAws_json1_1ListOfferingsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6018,10 +5090,7 @@ const deserializeAws_json1_1ListOfferingsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6029,10 +5098,7 @@ const deserializeAws_json1_1ListOfferingsCommandError = async (
     case "NotEligibleException":
     case "com.amazon.devicefarm.model#NotEligibleException":
       response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6040,10 +5106,7 @@ const deserializeAws_json1_1ListOfferingsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6051,10 +5114,7 @@ const deserializeAws_json1_1ListOfferingsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6105,16 +5165,12 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6122,10 +5178,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6133,10 +5186,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6144,10 +5194,7 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6174,17 +5221,11 @@ export const deserializeAws_json1_1ListRemoteAccessSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListRemoteAccessSessionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRemoteAccessSessionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListRemoteAccessSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRemoteAccessSessionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListRemoteAccessSessionsResult(data, context);
   const response: ListRemoteAccessSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRemoteAccessSessionsResult",
@@ -6204,16 +5245,12 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6221,10 +5258,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6232,10 +5266,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6243,10 +5274,7 @@ const deserializeAws_json1_1ListRemoteAccessSessionsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6297,16 +5325,12 @@ const deserializeAws_json1_1ListRunsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6314,10 +5338,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6325,10 +5346,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6336,10 +5354,7 @@ const deserializeAws_json1_1ListRunsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6390,16 +5405,12 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6407,10 +5418,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6418,10 +5426,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6429,10 +5434,7 @@ const deserializeAws_json1_1ListSamplesCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6483,16 +5485,12 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6500,10 +5498,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6511,10 +5506,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6522,10 +5514,7 @@ const deserializeAws_json1_1ListSuitesCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6552,10 +5541,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6579,16 +5565,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6596,10 +5578,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6607,10 +5586,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     case "TagOperationException":
     case "com.amazon.devicefarm.model#TagOperationException":
       response = {
-        ...(await deserializeAws_json1_1TagOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6637,10 +5613,7 @@ export const deserializeAws_json1_1ListTestGridProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridProjectsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTestGridProjectsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTestGridProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6664,16 +5637,12 @@ const deserializeAws_json1_1ListTestGridProjectsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6681,10 +5650,7 @@ const deserializeAws_json1_1ListTestGridProjectsCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6711,17 +5677,11 @@ export const deserializeAws_json1_1ListTestGridSessionActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridSessionActionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTestGridSessionActionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTestGridSessionActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTestGridSessionActionsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListTestGridSessionActionsResult(data, context);
   const response: ListTestGridSessionActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTestGridSessionActionsResult",
@@ -6741,16 +5701,12 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6758,10 +5714,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6769,10 +5722,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6799,17 +5749,11 @@ export const deserializeAws_json1_1ListTestGridSessionArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridSessionArtifactsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTestGridSessionArtifactsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTestGridSessionArtifactsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTestGridSessionArtifactsResult(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ListTestGridSessionArtifactsResult(data, context);
   const response: ListTestGridSessionArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTestGridSessionArtifactsResult",
@@ -6829,16 +5773,12 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6846,10 +5786,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6857,10 +5794,7 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6887,10 +5821,7 @@ export const deserializeAws_json1_1ListTestGridSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridSessionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTestGridSessionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListTestGridSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6914,16 +5845,12 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6931,10 +5858,7 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6942,10 +5866,7 @@ const deserializeAws_json1_1ListTestGridSessionsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6996,16 +5917,12 @@ const deserializeAws_json1_1ListTestsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7013,10 +5930,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7024,10 +5938,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7035,10 +5946,7 @@ const deserializeAws_json1_1ListTestsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7065,10 +5973,7 @@ export const deserializeAws_json1_1ListUniqueProblemsCommand = async (
   context: __SerdeContext
 ): Promise<ListUniqueProblemsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListUniqueProblemsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListUniqueProblemsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7092,16 +5997,12 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7109,10 +6010,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7120,10 +6018,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7131,10 +6026,7 @@ const deserializeAws_json1_1ListUniqueProblemsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7185,16 +6077,12 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7202,10 +6090,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7213,10 +6098,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7224,10 +6106,7 @@ const deserializeAws_json1_1ListUploadsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7254,10 +6133,7 @@ export const deserializeAws_json1_1ListVPCEConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListVPCEConfigurationsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListVPCEConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListVPCEConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7281,16 +6157,12 @@ const deserializeAws_json1_1ListVPCEConfigurationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7298,10 +6170,7 @@ const deserializeAws_json1_1ListVPCEConfigurationsCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7352,16 +6221,12 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7369,10 +6234,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7380,10 +6242,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
     case "NotEligibleException":
     case "com.amazon.devicefarm.model#NotEligibleException":
       response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7391,10 +6250,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7402,10 +6258,7 @@ const deserializeAws_json1_1PurchaseOfferingCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7456,16 +6309,12 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7473,10 +6322,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7484,10 +6330,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
     case "NotEligibleException":
     case "com.amazon.devicefarm.model#NotEligibleException":
       response = {
-        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotEligibleExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7495,10 +6338,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7506,10 +6346,7 @@ const deserializeAws_json1_1RenewOfferingCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7560,16 +6397,12 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7577,10 +6410,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
     case "IdempotencyException":
     case "com.amazon.devicefarm.model#IdempotencyException":
       response = {
-        ...(await deserializeAws_json1_1IdempotencyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1IdempotencyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7588,10 +6418,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7599,10 +6426,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7610,10 +6434,7 @@ const deserializeAws_json1_1ScheduleRunCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7664,16 +6485,12 @@ const deserializeAws_json1_1StopJobCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7681,10 +6498,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7692,10 +6506,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7703,10 +6514,7 @@ const deserializeAws_json1_1StopJobCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7733,10 +6541,7 @@ export const deserializeAws_json1_1StopRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<StopRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopRemoteAccessSessionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopRemoteAccessSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7760,16 +6565,12 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7777,10 +6578,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7788,10 +6586,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7799,10 +6594,7 @@ const deserializeAws_json1_1StopRemoteAccessSessionCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7853,16 +6645,12 @@ const deserializeAws_json1_1StopRunCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7870,10 +6658,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7881,10 +6666,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7892,10 +6674,7 @@ const deserializeAws_json1_1StopRunCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7946,16 +6725,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7963,10 +6738,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7974,10 +6746,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "TagOperationException":
     case "com.amazon.devicefarm.model#TagOperationException":
       response = {
-        ...(await deserializeAws_json1_1TagOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7985,10 +6754,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "TagPolicyException":
     case "com.amazon.devicefarm.model#TagPolicyException":
       response = {
-        ...(await deserializeAws_json1_1TagPolicyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagPolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7996,10 +6762,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "TooManyTagsException":
     case "com.amazon.devicefarm.model#TooManyTagsException":
       response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8050,16 +6813,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8067,10 +6826,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8078,10 +6834,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "TagOperationException":
     case "com.amazon.devicefarm.model#TagOperationException":
       response = {
-        ...(await deserializeAws_json1_1TagOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TagOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8108,10 +6861,7 @@ export const deserializeAws_json1_1UpdateDeviceInstanceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceInstanceCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDeviceInstanceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDeviceInstanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8135,16 +6885,12 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8152,10 +6898,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8163,10 +6906,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8174,10 +6914,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8228,16 +6965,12 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8245,10 +6978,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8256,10 +6986,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8267,10 +6994,7 @@ const deserializeAws_json1_1UpdateDevicePoolCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8297,10 +7021,7 @@ export const deserializeAws_json1_1UpdateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateInstanceProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8324,16 +7045,12 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8341,10 +7058,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8352,10 +7066,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8363,10 +7074,7 @@ const deserializeAws_json1_1UpdateInstanceProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8393,10 +7101,7 @@ export const deserializeAws_json1_1UpdateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNetworkProfileCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateNetworkProfileCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateNetworkProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8420,16 +7125,12 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8437,10 +7138,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8448,10 +7146,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8459,10 +7154,7 @@ const deserializeAws_json1_1UpdateNetworkProfileCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8513,16 +7205,12 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8530,10 +7218,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8541,10 +7226,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8552,10 +7234,7 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8582,10 +7261,7 @@ export const deserializeAws_json1_1UpdateTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTestGridProjectCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateTestGridProjectCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateTestGridProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8609,16 +7285,12 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8626,10 +7298,7 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
     case "InternalServiceException":
     case "com.amazon.devicefarm.model#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8637,10 +7306,7 @@ const deserializeAws_json1_1UpdateTestGridProjectCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8691,16 +7357,12 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8708,10 +7370,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
     case "LimitExceededException":
     case "com.amazon.devicefarm.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8719,10 +7378,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8730,10 +7386,7 @@ const deserializeAws_json1_1UpdateUploadCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8760,10 +7413,7 @@ export const deserializeAws_json1_1UpdateVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateVPCEConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateVPCEConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8787,16 +7437,12 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ArgumentException":
     case "com.amazon.devicefarm.model#ArgumentException":
       response = {
-        ...(await deserializeAws_json1_1ArgumentExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ArgumentExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8804,10 +7450,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
     case "InvalidOperationException":
     case "com.amazon.devicefarm.model#InvalidOperationException":
       response = {
-        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8815,10 +7458,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazon.devicefarm.model#NotFoundException":
       response = {
-        ...(await deserializeAws_json1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8826,10 +7466,7 @@ const deserializeAws_json1_1UpdateVPCEConfigurationCommandError = async (
     case "ServiceAccountException":
     case "com.amazon.devicefarm.model#ServiceAccountException":
       response = {
-        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ServiceAccountExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8856,10 +7493,7 @@ const deserializeAws_json1_1ArgumentExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ArgumentException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ArgumentException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ArgumentException(body, context);
   const contents: ArgumentException = {
     name: "ArgumentException",
     $fault: "client",
@@ -8874,10 +7508,7 @@ const deserializeAws_json1_1CannotDeleteExceptionResponse = async (
   context: __SerdeContext
 ): Promise<CannotDeleteException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1CannotDeleteException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1CannotDeleteException(body, context);
   const contents: CannotDeleteException = {
     name: "CannotDeleteException",
     $fault: "client",
@@ -8892,10 +7523,7 @@ const deserializeAws_json1_1IdempotencyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<IdempotencyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1IdempotencyException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1IdempotencyException(body, context);
   const contents: IdempotencyException = {
     name: "IdempotencyException",
     $fault: "client",
@@ -8910,10 +7538,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
   const contents: InternalServiceException = {
     name: "InternalServiceException",
     $fault: "server",
@@ -8928,10 +7553,7 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidOperationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidOperationException(body, context);
   const contents: InvalidOperationException = {
     name: "InvalidOperationException",
     $fault: "client",
@@ -8946,10 +7568,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -8964,10 +7583,7 @@ const deserializeAws_json1_1NotEligibleExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotEligibleException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotEligibleException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotEligibleException(body, context);
   const contents: NotEligibleException = {
     name: "NotEligibleException",
     $fault: "client",
@@ -8982,10 +7598,7 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<NotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1NotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1NotFoundException(body, context);
   const contents: NotFoundException = {
     name: "NotFoundException",
     $fault: "client",
@@ -9000,10 +7613,7 @@ const deserializeAws_json1_1ServiceAccountExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ServiceAccountException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ServiceAccountException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ServiceAccountException(body, context);
   const contents: ServiceAccountException = {
     name: "ServiceAccountException",
     $fault: "client",
@@ -9018,10 +7628,7 @@ const deserializeAws_json1_1TagOperationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagOperationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagOperationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TagOperationException(body, context);
   const contents: TagOperationException = {
     name: "TagOperationException",
     $fault: "client",
@@ -9036,10 +7643,7 @@ const deserializeAws_json1_1TagPolicyExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TagPolicyException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TagPolicyException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TagPolicyException(body, context);
   const contents: TagPolicyException = {
     name: "TagPolicyException",
     $fault: "client",
@@ -9054,10 +7658,7 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
   const contents: TooManyTagsException = {
     name: "TooManyTagsException",
     $fault: "client",
@@ -9067,24 +7668,15 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1AmazonResourceNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AmazonResourceNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1AndroidPaths = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1AndroidPaths = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1CreateDevicePoolRequest = (
-  input: CreateDevicePoolRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateDevicePoolRequest = (input: CreateDevicePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.maxDevices !== undefined && { maxDevices: input.maxDevices }),
@@ -9103,10 +7695,7 @@ const serializeAws_json1_1CreateInstanceProfileRequest = (
   return {
     ...(input.description !== undefined && { description: input.description }),
     ...(input.excludeAppPackagesFromCleanup !== undefined && {
-      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(
-        input.excludeAppPackagesFromCleanup,
-        context
-      )
+      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context)
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.packageCleanup !== undefined && {
@@ -9154,10 +7743,7 @@ const serializeAws_json1_1CreateNetworkProfileRequest = (
   };
 };
 
-const serializeAws_json1_1CreateProjectRequest = (
-  input: CreateProjectRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateProjectRequest = (input: CreateProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.defaultJobTimeoutMinutes !== undefined && {
       defaultJobTimeoutMinutes: input.defaultJobTimeoutMinutes
@@ -9175,10 +7761,7 @@ const serializeAws_json1_1CreateRemoteAccessSessionConfiguration = (
       billingMethod: input.billingMethod
     }),
     ...(input.vpceConfigurationArns !== undefined && {
-      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(
-        input.vpceConfigurationArns,
-        context
-      )
+      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context)
     })
   };
 };
@@ -9190,10 +7773,7 @@ const serializeAws_json1_1CreateRemoteAccessSessionRequest = (
   return {
     ...(input.clientId !== undefined && { clientId: input.clientId }),
     ...(input.configuration !== undefined && {
-      configuration: serializeAws_json1_1CreateRemoteAccessSessionConfiguration(
-        input.configuration,
-        context
-      )
+      configuration: serializeAws_json1_1CreateRemoteAccessSessionConfiguration(input.configuration, context)
     }),
     ...(input.deviceArn !== undefined && { deviceArn: input.deviceArn }),
     ...(input.instanceArn !== undefined && { instanceArn: input.instanceArn }),
@@ -9242,10 +7822,7 @@ const serializeAws_json1_1CreateTestGridUrlRequest = (
   };
 };
 
-const serializeAws_json1_1CreateUploadRequest = (
-  input: CreateUploadRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CreateUploadRequest = (input: CreateUploadRequest, context: __SerdeContext): any => {
   return {
     ...(input.contentType !== undefined && { contentType: input.contentType }),
     ...(input.name !== undefined && { name: input.name }),
@@ -9274,22 +7851,13 @@ const serializeAws_json1_1CreateVPCEConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1CustomerArtifactPaths = (
-  input: CustomerArtifactPaths,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1CustomerArtifactPaths = (input: CustomerArtifactPaths, context: __SerdeContext): any => {
   return {
     ...(input.androidPaths !== undefined && {
-      androidPaths: serializeAws_json1_1AndroidPaths(
-        input.androidPaths,
-        context
-      )
+      androidPaths: serializeAws_json1_1AndroidPaths(input.androidPaths, context)
     }),
     ...(input.deviceHostPaths !== undefined && {
-      deviceHostPaths: serializeAws_json1_1DeviceHostPaths(
-        input.deviceHostPaths,
-        context
-      )
+      deviceHostPaths: serializeAws_json1_1DeviceHostPaths(input.deviceHostPaths, context)
     }),
     ...(input.iosPaths !== undefined && {
       iosPaths: serializeAws_json1_1IosPaths(input.iosPaths, context)
@@ -9297,10 +7865,7 @@ const serializeAws_json1_1CustomerArtifactPaths = (
   };
 };
 
-const serializeAws_json1_1DeleteDevicePoolRequest = (
-  input: DeleteDevicePoolRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteDevicePoolRequest = (input: DeleteDevicePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9324,10 +7889,7 @@ const serializeAws_json1_1DeleteNetworkProfileRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteProjectRequest = (
-  input: DeleteProjectRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteProjectRequest = (input: DeleteProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9342,10 +7904,7 @@ const serializeAws_json1_1DeleteRemoteAccessSessionRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteRunRequest = (
-  input: DeleteRunRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteRunRequest = (input: DeleteRunRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9360,10 +7919,7 @@ const serializeAws_json1_1DeleteTestGridProjectRequest = (
   };
 };
 
-const serializeAws_json1_1DeleteUploadRequest = (
-  input: DeleteUploadRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeleteUploadRequest = (input: DeleteUploadRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9378,10 +7934,7 @@ const serializeAws_json1_1DeleteVPCEConfigurationRequest = (
   };
 };
 
-const serializeAws_json1_1DeviceFilter = (
-  input: DeviceFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeviceFilter = (input: DeviceFilter, context: __SerdeContext): any => {
   return {
     ...(input.attribute !== undefined && { attribute: input.attribute }),
     ...(input.operator !== undefined && { operator: input.operator }),
@@ -9391,24 +7944,15 @@ const serializeAws_json1_1DeviceFilter = (
   };
 };
 
-const serializeAws_json1_1DeviceFilterValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeviceFilterValues = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1DeviceFilters = (
-  input: DeviceFilter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeviceFilters = (input: DeviceFilter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1DeviceFilter(entry, context));
 };
 
-const serializeAws_json1_1DeviceHostPaths = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1DeviceHostPaths = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -9424,10 +7968,7 @@ const serializeAws_json1_1DeviceSelectionConfiguration = (
   };
 };
 
-const serializeAws_json1_1ExecutionConfiguration = (
-  input: ExecutionConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExecutionConfiguration = (input: ExecutionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.accountsCleanup !== undefined && {
       accountsCleanup: input.accountsCleanup
@@ -9470,10 +8011,7 @@ const serializeAws_json1_1GetDevicePoolCompatibilityRequest = (
   return {
     ...(input.appArn !== undefined && { appArn: input.appArn }),
     ...(input.configuration !== undefined && {
-      configuration: serializeAws_json1_1ScheduleRunConfiguration(
-        input.configuration,
-        context
-      )
+      configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context)
     }),
     ...(input.devicePoolArn !== undefined && {
       devicePoolArn: input.devicePoolArn
@@ -9485,19 +8023,13 @@ const serializeAws_json1_1GetDevicePoolCompatibilityRequest = (
   };
 };
 
-const serializeAws_json1_1GetDevicePoolRequest = (
-  input: GetDevicePoolRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetDevicePoolRequest = (input: GetDevicePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
 };
 
-const serializeAws_json1_1GetDeviceRequest = (
-  input: GetDeviceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetDeviceRequest = (input: GetDeviceRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9512,10 +8044,7 @@ const serializeAws_json1_1GetInstanceProfileRequest = (
   };
 };
 
-const serializeAws_json1_1GetJobRequest = (
-  input: GetJobRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetJobRequest = (input: GetJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9539,10 +8068,7 @@ const serializeAws_json1_1GetOfferingStatusRequest = (
   };
 };
 
-const serializeAws_json1_1GetProjectRequest = (
-  input: GetProjectRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetProjectRequest = (input: GetProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9557,19 +8083,13 @@ const serializeAws_json1_1GetRemoteAccessSessionRequest = (
   };
 };
 
-const serializeAws_json1_1GetRunRequest = (
-  input: GetRunRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetRunRequest = (input: GetRunRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
 };
 
-const serializeAws_json1_1GetSuiteRequest = (
-  input: GetSuiteRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetSuiteRequest = (input: GetSuiteRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9595,19 +8115,13 @@ const serializeAws_json1_1GetTestGridSessionRequest = (
   };
 };
 
-const serializeAws_json1_1GetTestRequest = (
-  input: GetTestRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetTestRequest = (input: GetTestRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
 };
 
-const serializeAws_json1_1GetUploadRequest = (
-  input: GetUploadRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetUploadRequest = (input: GetUploadRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -9634,24 +8148,15 @@ const serializeAws_json1_1InstallToRemoteAccessSessionRequest = (
   };
 };
 
-const serializeAws_json1_1InstanceLabels = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1InstanceLabels = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1IosPaths = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1IosPaths = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ListArtifactsRequest = (
-  input: ListArtifactsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListArtifactsRequest = (input: ListArtifactsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -9669,10 +8174,7 @@ const serializeAws_json1_1ListDeviceInstancesRequest = (
   };
 };
 
-const serializeAws_json1_1ListDevicePoolsRequest = (
-  input: ListDevicePoolsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListDevicePoolsRequest = (input: ListDevicePoolsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -9680,10 +8182,7 @@ const serializeAws_json1_1ListDevicePoolsRequest = (
   };
 };
 
-const serializeAws_json1_1ListDevicesRequest = (
-  input: ListDevicesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListDevicesRequest = (input: ListDevicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.filters !== undefined && {
@@ -9703,10 +8202,7 @@ const serializeAws_json1_1ListInstanceProfilesRequest = (
   };
 };
 
-const serializeAws_json1_1ListJobsRequest = (
-  input: ListJobsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListJobsRequest = (input: ListJobsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -9742,19 +8238,13 @@ const serializeAws_json1_1ListOfferingTransactionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListOfferingsRequest = (
-  input: ListOfferingsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListOfferingsRequest = (input: ListOfferingsRequest, context: __SerdeContext): any => {
   return {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
 };
 
-const serializeAws_json1_1ListProjectsRequest = (
-  input: ListProjectsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListProjectsRequest = (input: ListProjectsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -9771,30 +8261,21 @@ const serializeAws_json1_1ListRemoteAccessSessionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListRunsRequest = (
-  input: ListRunsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListRunsRequest = (input: ListRunsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
 };
 
-const serializeAws_json1_1ListSamplesRequest = (
-  input: ListSamplesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListSamplesRequest = (input: ListSamplesRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
 };
 
-const serializeAws_json1_1ListSuitesRequest = (
-  input: ListSuitesRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListSuitesRequest = (input: ListSuitesRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -9867,10 +8348,7 @@ const serializeAws_json1_1ListTestGridSessionsRequest = (
   };
 };
 
-const serializeAws_json1_1ListTestsRequest = (
-  input: ListTestsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListTestsRequest = (input: ListTestsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -9887,10 +8365,7 @@ const serializeAws_json1_1ListUniqueProblemsRequest = (
   };
 };
 
-const serializeAws_json1_1ListUploadsRequest = (
-  input: ListUploadsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListUploadsRequest = (input: ListUploadsRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -9908,27 +8383,18 @@ const serializeAws_json1_1ListVPCEConfigurationsRequest = (
   };
 };
 
-const serializeAws_json1_1Location = (
-  input: Location,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Location = (input: Location, context: __SerdeContext): any => {
   return {
     ...(input.latitude !== undefined && { latitude: input.latitude }),
     ...(input.longitude !== undefined && { longitude: input.longitude })
   };
 };
 
-const serializeAws_json1_1PackageIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PackageIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1PurchaseOfferingRequest = (
-  input: PurchaseOfferingRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1PurchaseOfferingRequest = (input: PurchaseOfferingRequest, context: __SerdeContext): any => {
   return {
     ...(input.offeringId !== undefined && { offeringId: input.offeringId }),
     ...(input.offeringPromotionId !== undefined && {
@@ -9938,10 +8404,7 @@ const serializeAws_json1_1PurchaseOfferingRequest = (
   };
 };
 
-const serializeAws_json1_1Radios = (
-  input: Radios,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Radios = (input: Radios, context: __SerdeContext): any => {
   return {
     ...(input.bluetooth !== undefined && { bluetooth: input.bluetooth }),
     ...(input.gps !== undefined && { gps: input.gps }),
@@ -9950,20 +8413,14 @@ const serializeAws_json1_1Radios = (
   };
 };
 
-const serializeAws_json1_1RenewOfferingRequest = (
-  input: RenewOfferingRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RenewOfferingRequest = (input: RenewOfferingRequest, context: __SerdeContext): any => {
   return {
     ...(input.offeringId !== undefined && { offeringId: input.offeringId }),
     ...(input.quantity !== undefined && { quantity: input.quantity })
   };
 };
 
-const serializeAws_json1_1Rule = (
-  input: Rule,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
     ...(input.attribute !== undefined && { attribute: input.attribute }),
     ...(input.operator !== undefined && { operator: input.operator }),
@@ -9971,10 +8428,7 @@ const serializeAws_json1_1Rule = (
   };
 };
 
-const serializeAws_json1_1Rules = (
-  input: Rule[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Rules = (input: Rule[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Rule(entry, context));
 };
 
@@ -9984,19 +8438,13 @@ const serializeAws_json1_1ScheduleRunConfiguration = (
 ): any => {
   return {
     ...(input.auxiliaryApps !== undefined && {
-      auxiliaryApps: serializeAws_json1_1AmazonResourceNames(
-        input.auxiliaryApps,
-        context
-      )
+      auxiliaryApps: serializeAws_json1_1AmazonResourceNames(input.auxiliaryApps, context)
     }),
     ...(input.billingMethod !== undefined && {
       billingMethod: input.billingMethod
     }),
     ...(input.customerArtifactPaths !== undefined && {
-      customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(
-        input.customerArtifactPaths,
-        context
-      )
+      customerArtifactPaths: serializeAws_json1_1CustomerArtifactPaths(input.customerArtifactPaths, context)
     }),
     ...(input.extraDataPackageArn !== undefined && {
       extraDataPackageArn: input.extraDataPackageArn
@@ -10012,25 +8460,16 @@ const serializeAws_json1_1ScheduleRunConfiguration = (
       radios: serializeAws_json1_1Radios(input.radios, context)
     }),
     ...(input.vpceConfigurationArns !== undefined && {
-      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(
-        input.vpceConfigurationArns,
-        context
-      )
+      vpceConfigurationArns: serializeAws_json1_1AmazonResourceNames(input.vpceConfigurationArns, context)
     })
   };
 };
 
-const serializeAws_json1_1ScheduleRunRequest = (
-  input: ScheduleRunRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ScheduleRunRequest = (input: ScheduleRunRequest, context: __SerdeContext): any => {
   return {
     ...(input.appArn !== undefined && { appArn: input.appArn }),
     ...(input.configuration !== undefined && {
-      configuration: serializeAws_json1_1ScheduleRunConfiguration(
-        input.configuration,
-        context
-      )
+      configuration: serializeAws_json1_1ScheduleRunConfiguration(input.configuration, context)
     }),
     ...(input.devicePoolArn !== undefined && {
       devicePoolArn: input.devicePoolArn
@@ -10042,10 +8481,7 @@ const serializeAws_json1_1ScheduleRunRequest = (
       )
     }),
     ...(input.executionConfiguration !== undefined && {
-      executionConfiguration: serializeAws_json1_1ExecutionConfiguration(
-        input.executionConfiguration,
-        context
-      )
+      executionConfiguration: serializeAws_json1_1ExecutionConfiguration(input.executionConfiguration, context)
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.projectArn !== undefined && { projectArn: input.projectArn }),
@@ -10055,10 +8491,7 @@ const serializeAws_json1_1ScheduleRunRequest = (
   };
 };
 
-const serializeAws_json1_1ScheduleRunTest = (
-  input: ScheduleRunTest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ScheduleRunTest = (input: ScheduleRunTest, context: __SerdeContext): any => {
   return {
     ...(input.filter !== undefined && { filter: input.filter }),
     ...(input.parameters !== undefined && {
@@ -10072,10 +8505,7 @@ const serializeAws_json1_1ScheduleRunTest = (
   };
 };
 
-const serializeAws_json1_1StopJobRequest = (
-  input: StopJobRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopJobRequest = (input: StopJobRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -10090,10 +8520,7 @@ const serializeAws_json1_1StopRemoteAccessSessionRequest = (
   };
 };
 
-const serializeAws_json1_1StopRunRequest = (
-  input: StopRunRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1StopRunRequest = (input: StopRunRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn })
   };
@@ -10106,24 +8533,15 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const serializeAws_json1_1TagResourceRequest = (
-  input: TagResourceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.Tags !== undefined && {
@@ -10132,10 +8550,7 @@ const serializeAws_json1_1TagResourceRequest = (
   };
 };
 
-const serializeAws_json1_1TestParameters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TestParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -10145,10 +8560,7 @@ const serializeAws_json1_1TestParameters = (
   );
 };
 
-const serializeAws_json1_1UntagResourceRequest = (
-  input: UntagResourceRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
     ...(input.TagKeys !== undefined && {
@@ -10170,10 +8582,7 @@ const serializeAws_json1_1UpdateDeviceInstanceRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateDevicePoolRequest = (
-  input: UpdateDevicePoolRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateDevicePoolRequest = (input: UpdateDevicePoolRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.clearMaxDevices !== undefined && {
@@ -10196,10 +8605,7 @@ const serializeAws_json1_1UpdateInstanceProfileRequest = (
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.excludeAppPackagesFromCleanup !== undefined && {
-      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(
-        input.excludeAppPackagesFromCleanup,
-        context
-      )
+      excludeAppPackagesFromCleanup: serializeAws_json1_1PackageIds(input.excludeAppPackagesFromCleanup, context)
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.packageCleanup !== undefined && {
@@ -10247,10 +8653,7 @@ const serializeAws_json1_1UpdateNetworkProfileRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateProjectRequest = (
-  input: UpdateProjectRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateProjectRequest = (input: UpdateProjectRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.defaultJobTimeoutMinutes !== undefined && {
@@ -10271,10 +8674,7 @@ const serializeAws_json1_1UpdateTestGridProjectRequest = (
   };
 };
 
-const serializeAws_json1_1UpdateUploadRequest = (
-  input: UpdateUploadRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1UpdateUploadRequest = (input: UpdateUploadRequest, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
     ...(input.contentType !== undefined && { contentType: input.contentType }),
@@ -10304,24 +8704,17 @@ const serializeAws_json1_1UpdateVPCEConfigurationRequest = (
   };
 };
 
-const deserializeAws_json1_1AccountSettings = (
-  output: any,
-  context: __SerdeContext
-): AccountSettings => {
+const deserializeAws_json1_1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
     __type: "AccountSettings",
     awsAccountNumber:
-      output.awsAccountNumber !== undefined && output.awsAccountNumber !== null
-        ? output.awsAccountNumber
-        : undefined,
+      output.awsAccountNumber !== undefined && output.awsAccountNumber !== null ? output.awsAccountNumber : undefined,
     defaultJobTimeoutMinutes:
-      output.defaultJobTimeoutMinutes !== undefined &&
-      output.defaultJobTimeoutMinutes !== null
+      output.defaultJobTimeoutMinutes !== undefined && output.defaultJobTimeoutMinutes !== null
         ? output.defaultJobTimeoutMinutes
         : undefined,
     maxJobTimeoutMinutes:
-      output.maxJobTimeoutMinutes !== undefined &&
-      output.maxJobTimeoutMinutes !== null
+      output.maxJobTimeoutMinutes !== undefined && output.maxJobTimeoutMinutes !== null
         ? output.maxJobTimeoutMinutes
         : undefined,
     maxSlots:
@@ -10329,160 +8722,78 @@ const deserializeAws_json1_1AccountSettings = (
         ? deserializeAws_json1_1MaxSlotMap(output.maxSlots, context)
         : undefined,
     skipAppResign:
-      output.skipAppResign !== undefined && output.skipAppResign !== null
-        ? output.skipAppResign
-        : undefined,
+      output.skipAppResign !== undefined && output.skipAppResign !== null ? output.skipAppResign : undefined,
     trialMinutes:
       output.trialMinutes !== undefined && output.trialMinutes !== null
         ? deserializeAws_json1_1TrialMinutes(output.trialMinutes, context)
         : undefined,
     unmeteredDevices:
       output.unmeteredDevices !== undefined && output.unmeteredDevices !== null
-        ? deserializeAws_json1_1PurchasedDevicesMap(
-            output.unmeteredDevices,
-            context
-          )
+        ? deserializeAws_json1_1PurchasedDevicesMap(output.unmeteredDevices, context)
         : undefined,
     unmeteredRemoteAccessDevices:
-      output.unmeteredRemoteAccessDevices !== undefined &&
-      output.unmeteredRemoteAccessDevices !== null
-        ? deserializeAws_json1_1PurchasedDevicesMap(
-            output.unmeteredRemoteAccessDevices,
-            context
-          )
+      output.unmeteredRemoteAccessDevices !== undefined && output.unmeteredRemoteAccessDevices !== null
+        ? deserializeAws_json1_1PurchasedDevicesMap(output.unmeteredRemoteAccessDevices, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1AndroidPaths = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1AndroidPaths = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1ArgumentException = (
-  output: any,
-  context: __SerdeContext
-): ArgumentException => {
+const deserializeAws_json1_1ArgumentException = (output: any, context: __SerdeContext): ArgumentException => {
   return {
     __type: "ArgumentException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Artifact = (
-  output: any,
-  context: __SerdeContext
-): Artifact => {
+const deserializeAws_json1_1Artifact = (output: any, context: __SerdeContext): Artifact => {
   return {
     __type: "Artifact",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    extension:
-      output.extension !== undefined && output.extension !== null
-        ? output.extension
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    extension: output.extension !== undefined && output.extension !== null ? output.extension : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Artifacts = (
-  output: any,
-  context: __SerdeContext
-): Artifact[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Artifact(entry, context)
-  );
+const deserializeAws_json1_1Artifacts = (output: any, context: __SerdeContext): Artifact[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Artifact(entry, context));
 };
 
-const deserializeAws_json1_1CPU = (
-  output: any,
-  context: __SerdeContext
-): CPU => {
+const deserializeAws_json1_1CPU = (output: any, context: __SerdeContext): CPU => {
   return {
     __type: "CPU",
-    architecture:
-      output.architecture !== undefined && output.architecture !== null
-        ? output.architecture
-        : undefined,
-    clock:
-      output.clock !== undefined && output.clock !== null
-        ? output.clock
-        : undefined,
-    frequency:
-      output.frequency !== undefined && output.frequency !== null
-        ? output.frequency
-        : undefined
+    architecture: output.architecture !== undefined && output.architecture !== null ? output.architecture : undefined,
+    clock: output.clock !== undefined && output.clock !== null ? output.clock : undefined,
+    frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CannotDeleteException = (
-  output: any,
-  context: __SerdeContext
-): CannotDeleteException => {
+const deserializeAws_json1_1CannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
   return {
     __type: "CannotDeleteException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Counters = (
-  output: any,
-  context: __SerdeContext
-): Counters => {
+const deserializeAws_json1_1Counters = (output: any, context: __SerdeContext): Counters => {
   return {
     __type: "Counters",
-    errored:
-      output.errored !== undefined && output.errored !== null
-        ? output.errored
-        : undefined,
-    failed:
-      output.failed !== undefined && output.failed !== null
-        ? output.failed
-        : undefined,
-    passed:
-      output.passed !== undefined && output.passed !== null
-        ? output.passed
-        : undefined,
-    skipped:
-      output.skipped !== undefined && output.skipped !== null
-        ? output.skipped
-        : undefined,
-    stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? output.stopped
-        : undefined,
-    total:
-      output.total !== undefined && output.total !== null
-        ? output.total
-        : undefined,
-    warned:
-      output.warned !== undefined && output.warned !== null
-        ? output.warned
-        : undefined
+    errored: output.errored !== undefined && output.errored !== null ? output.errored : undefined,
+    failed: output.failed !== undefined && output.failed !== null ? output.failed : undefined,
+    passed: output.passed !== undefined && output.passed !== null ? output.passed : undefined,
+    skipped: output.skipped !== undefined && output.skipped !== null ? output.skipped : undefined,
+    stopped: output.stopped !== undefined && output.stopped !== null ? output.stopped : undefined,
+    total: output.total !== undefined && output.total !== null ? output.total : undefined,
+    warned: output.warned !== undefined && output.warned !== null ? output.warned : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateDevicePoolResult = (
-  output: any,
-  context: __SerdeContext
-): CreateDevicePoolResult => {
+const deserializeAws_json1_1CreateDevicePoolResult = (output: any, context: __SerdeContext): CreateDevicePoolResult => {
   return {
     __type: "CreateDevicePoolResult",
     devicePool:
@@ -10518,10 +8829,7 @@ const deserializeAws_json1_1CreateNetworkProfileResult = (
   } as any;
 };
 
-const deserializeAws_json1_1CreateProjectResult = (
-  output: any,
-  context: __SerdeContext
-): CreateProjectResult => {
+const deserializeAws_json1_1CreateProjectResult = (output: any, context: __SerdeContext): CreateProjectResult => {
   return {
     __type: "CreateProjectResult",
     project:
@@ -10538,12 +8846,8 @@ const deserializeAws_json1_1CreateRemoteAccessSessionResult = (
   return {
     __type: "CreateRemoteAccessSessionResult",
     remoteAccessSession:
-      output.remoteAccessSession !== undefined &&
-      output.remoteAccessSession !== null
-        ? deserializeAws_json1_1RemoteAccessSession(
-            output.remoteAccessSession,
-            context
-          )
+      output.remoteAccessSession !== undefined && output.remoteAccessSession !== null
+        ? deserializeAws_json1_1RemoteAccessSession(output.remoteAccessSession, context)
         : undefined
   } as any;
 };
@@ -10568,18 +8872,12 @@ const deserializeAws_json1_1CreateTestGridUrlResult = (
   return {
     __type: "CreateTestGridUrlResult",
     expires:
-      output.expires !== undefined && output.expires !== null
-        ? new Date(Math.round(output.expires * 1000))
-        : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+      output.expires !== undefined && output.expires !== null ? new Date(Math.round(output.expires * 1000)) : undefined,
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CreateUploadResult = (
-  output: any,
-  context: __SerdeContext
-): CreateUploadResult => {
+const deserializeAws_json1_1CreateUploadResult = (output: any, context: __SerdeContext): CreateUploadResult => {
   return {
     __type: "CreateUploadResult",
     upload:
@@ -10596,20 +8894,13 @@ const deserializeAws_json1_1CreateVPCEConfigurationResult = (
   return {
     __type: "CreateVPCEConfigurationResult",
     vpceConfiguration:
-      output.vpceConfiguration !== undefined &&
-      output.vpceConfiguration !== null
-        ? deserializeAws_json1_1VPCEConfiguration(
-            output.vpceConfiguration,
-            context
-          )
+      output.vpceConfiguration !== undefined && output.vpceConfiguration !== null
+        ? deserializeAws_json1_1VPCEConfiguration(output.vpceConfiguration, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1CustomerArtifactPaths = (
-  output: any,
-  context: __SerdeContext
-): CustomerArtifactPaths => {
+const deserializeAws_json1_1CustomerArtifactPaths = (output: any, context: __SerdeContext): CustomerArtifactPaths => {
   return {
     __type: "CustomerArtifactPaths",
     androidPaths:
@@ -10627,10 +8918,7 @@ const deserializeAws_json1_1CustomerArtifactPaths = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteDevicePoolResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteDevicePoolResult => {
+const deserializeAws_json1_1DeleteDevicePoolResult = (output: any, context: __SerdeContext): DeleteDevicePoolResult => {
   return {
     __type: "DeleteDevicePoolResult"
   } as any;
@@ -10654,10 +8942,7 @@ const deserializeAws_json1_1DeleteNetworkProfileResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteProjectResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteProjectResult => {
+const deserializeAws_json1_1DeleteProjectResult = (output: any, context: __SerdeContext): DeleteProjectResult => {
   return {
     __type: "DeleteProjectResult"
   } as any;
@@ -10672,10 +8957,7 @@ const deserializeAws_json1_1DeleteRemoteAccessSessionResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteRunResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteRunResult => {
+const deserializeAws_json1_1DeleteRunResult = (output: any, context: __SerdeContext): DeleteRunResult => {
   return {
     __type: "DeleteRunResult"
   } as any;
@@ -10690,10 +8972,7 @@ const deserializeAws_json1_1DeleteTestGridProjectResult = (
   } as any;
 };
 
-const deserializeAws_json1_1DeleteUploadResult = (
-  output: any,
-  context: __SerdeContext
-): DeleteUploadResult => {
+const deserializeAws_json1_1DeleteUploadResult = (output: any, context: __SerdeContext): DeleteUploadResult => {
   return {
     __type: "DeleteUploadResult"
   } as any;
@@ -10708,87 +8987,36 @@ const deserializeAws_json1_1DeleteVPCEConfigurationResult = (
   } as any;
 };
 
-const deserializeAws_json1_1Device = (
-  output: any,
-  context: __SerdeContext
-): Device => {
+const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Device => {
   return {
     __type: "Device",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    availability:
-      output.availability !== undefined && output.availability !== null
-        ? output.availability
-        : undefined,
-    carrier:
-      output.carrier !== undefined && output.carrier !== null
-        ? output.carrier
-        : undefined,
-    cpu:
-      output.cpu !== undefined && output.cpu !== null
-        ? deserializeAws_json1_1CPU(output.cpu, context)
-        : undefined,
-    fleetName:
-      output.fleetName !== undefined && output.fleetName !== null
-        ? output.fleetName
-        : undefined,
-    fleetType:
-      output.fleetType !== undefined && output.fleetType !== null
-        ? output.fleetType
-        : undefined,
-    formFactor:
-      output.formFactor !== undefined && output.formFactor !== null
-        ? output.formFactor
-        : undefined,
-    heapSize:
-      output.heapSize !== undefined && output.heapSize !== null
-        ? output.heapSize
-        : undefined,
-    image:
-      output.image !== undefined && output.image !== null
-        ? output.image
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    availability: output.availability !== undefined && output.availability !== null ? output.availability : undefined,
+    carrier: output.carrier !== undefined && output.carrier !== null ? output.carrier : undefined,
+    cpu: output.cpu !== undefined && output.cpu !== null ? deserializeAws_json1_1CPU(output.cpu, context) : undefined,
+    fleetName: output.fleetName !== undefined && output.fleetName !== null ? output.fleetName : undefined,
+    fleetType: output.fleetType !== undefined && output.fleetType !== null ? output.fleetType : undefined,
+    formFactor: output.formFactor !== undefined && output.formFactor !== null ? output.formFactor : undefined,
+    heapSize: output.heapSize !== undefined && output.heapSize !== null ? output.heapSize : undefined,
+    image: output.image !== undefined && output.image !== null ? output.image : undefined,
     instances:
       output.instances !== undefined && output.instances !== null
         ? deserializeAws_json1_1DeviceInstances(output.instances, context)
         : undefined,
-    manufacturer:
-      output.manufacturer !== undefined && output.manufacturer !== null
-        ? output.manufacturer
-        : undefined,
-    memory:
-      output.memory !== undefined && output.memory !== null
-        ? output.memory
-        : undefined,
-    model:
-      output.model !== undefined && output.model !== null
-        ? output.model
-        : undefined,
-    modelId:
-      output.modelId !== undefined && output.modelId !== null
-        ? output.modelId
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    manufacturer: output.manufacturer !== undefined && output.manufacturer !== null ? output.manufacturer : undefined,
+    memory: output.memory !== undefined && output.memory !== null ? output.memory : undefined,
+    model: output.model !== undefined && output.model !== null ? output.model : undefined,
+    modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     os: output.os !== undefined && output.os !== null ? output.os : undefined,
-    platform:
-      output.platform !== undefined && output.platform !== null
-        ? output.platform
-        : undefined,
-    radio:
-      output.radio !== undefined && output.radio !== null
-        ? output.radio
-        : undefined,
+    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
+    radio: output.radio !== undefined && output.radio !== null ? output.radio : undefined,
     remoteAccessEnabled:
-      output.remoteAccessEnabled !== undefined &&
-      output.remoteAccessEnabled !== null
+      output.remoteAccessEnabled !== undefined && output.remoteAccessEnabled !== null
         ? output.remoteAccessEnabled
         : undefined,
     remoteDebugEnabled:
-      output.remoteDebugEnabled !== undefined &&
-      output.remoteDebugEnabled !== null
+      output.remoteDebugEnabled !== undefined && output.remoteDebugEnabled !== null
         ? output.remoteDebugEnabled
         : undefined,
     resolution:
@@ -10798,20 +9026,11 @@ const deserializeAws_json1_1Device = (
   } as any;
 };
 
-const deserializeAws_json1_1DeviceFilter = (
-  output: any,
-  context: __SerdeContext
-): DeviceFilter => {
+const deserializeAws_json1_1DeviceFilter = (output: any, context: __SerdeContext): DeviceFilter => {
   return {
     __type: "DeviceFilter",
-    attribute:
-      output.attribute !== undefined && output.attribute !== null
-        ? output.attribute
-        : undefined,
-    operator:
-      output.operator !== undefined && output.operator !== null
-        ? output.operator
-        : undefined,
+    attribute: output.attribute !== undefined && output.attribute !== null ? output.attribute : undefined,
+    operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
     values:
       output.values !== undefined && output.values !== null
         ? deserializeAws_json1_1DeviceFilterValues(output.values, context)
@@ -10819,41 +9038,23 @@ const deserializeAws_json1_1DeviceFilter = (
   } as any;
 };
 
-const deserializeAws_json1_1DeviceFilterValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DeviceFilterValues = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1DeviceFilters = (
-  output: any,
-  context: __SerdeContext
-): DeviceFilter[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DeviceFilter(entry, context)
-  );
+const deserializeAws_json1_1DeviceFilters = (output: any, context: __SerdeContext): DeviceFilter[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DeviceFilter(entry, context));
 };
 
-const deserializeAws_json1_1DeviceHostPaths = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DeviceHostPaths = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1DeviceInstance = (
-  output: any,
-  context: __SerdeContext
-): DeviceInstance => {
+const deserializeAws_json1_1DeviceInstance = (output: any, context: __SerdeContext): DeviceInstance => {
   return {
     __type: "DeviceInstance",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    deviceArn:
-      output.deviceArn !== undefined && output.deviceArn !== null
-        ? output.deviceArn
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    deviceArn: output.deviceArn !== undefined && output.deviceArn !== null ? output.deviceArn : undefined,
     instanceProfile:
       output.instanceProfile !== undefined && output.instanceProfile !== null
         ? deserializeAws_json1_1InstanceProfile(output.instanceProfile, context)
@@ -10862,75 +9063,36 @@ const deserializeAws_json1_1DeviceInstance = (
       output.labels !== undefined && output.labels !== null
         ? deserializeAws_json1_1InstanceLabels(output.labels, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    udid:
-      output.udid !== undefined && output.udid !== null
-        ? output.udid
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    udid: output.udid !== undefined && output.udid !== null ? output.udid : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DeviceInstances = (
-  output: any,
-  context: __SerdeContext
-): DeviceInstance[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DeviceInstance(entry, context)
-  );
+const deserializeAws_json1_1DeviceInstances = (output: any, context: __SerdeContext): DeviceInstance[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DeviceInstance(entry, context));
 };
 
-const deserializeAws_json1_1DeviceMinutes = (
-  output: any,
-  context: __SerdeContext
-): DeviceMinutes => {
+const deserializeAws_json1_1DeviceMinutes = (output: any, context: __SerdeContext): DeviceMinutes => {
   return {
     __type: "DeviceMinutes",
-    metered:
-      output.metered !== undefined && output.metered !== null
-        ? output.metered
-        : undefined,
-    total:
-      output.total !== undefined && output.total !== null
-        ? output.total
-        : undefined,
-    unmetered:
-      output.unmetered !== undefined && output.unmetered !== null
-        ? output.unmetered
-        : undefined
+    metered: output.metered !== undefined && output.metered !== null ? output.metered : undefined,
+    total: output.total !== undefined && output.total !== null ? output.total : undefined,
+    unmetered: output.unmetered !== undefined && output.unmetered !== null ? output.unmetered : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DevicePool = (
-  output: any,
-  context: __SerdeContext
-): DevicePool => {
+const deserializeAws_json1_1DevicePool = (output: any, context: __SerdeContext): DevicePool => {
   return {
     __type: "DevicePool",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    maxDevices:
-      output.maxDevices !== undefined && output.maxDevices !== null
-        ? output.maxDevices
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    maxDevices: output.maxDevices !== undefined && output.maxDevices !== null ? output.maxDevices : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     rules:
       output.rules !== undefined && output.rules !== null
         ? deserializeAws_json1_1Rules(output.rules, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -10940,21 +9102,14 @@ const deserializeAws_json1_1DevicePoolCompatibilityResult = (
 ): DevicePoolCompatibilityResult => {
   return {
     __type: "DevicePoolCompatibilityResult",
-    compatible:
-      output.compatible !== undefined && output.compatible !== null
-        ? output.compatible
-        : undefined,
+    compatible: output.compatible !== undefined && output.compatible !== null ? output.compatible : undefined,
     device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_json1_1Device(output.device, context)
         : undefined,
     incompatibilityMessages:
-      output.incompatibilityMessages !== undefined &&
-      output.incompatibilityMessages !== null
-        ? deserializeAws_json1_1IncompatibilityMessages(
-            output.incompatibilityMessages,
-            context
-          )
+      output.incompatibilityMessages !== undefined && output.incompatibilityMessages !== null
+        ? deserializeAws_json1_1IncompatibilityMessages(output.incompatibilityMessages, context)
         : undefined
   } as any;
 };
@@ -10963,24 +9118,14 @@ const deserializeAws_json1_1DevicePoolCompatibilityResults = (
   output: any,
   context: __SerdeContext
 ): DevicePoolCompatibilityResult[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DevicePoolCompatibilityResult(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1DevicePoolCompatibilityResult(entry, context));
 };
 
-const deserializeAws_json1_1DevicePools = (
-  output: any,
-  context: __SerdeContext
-): DevicePool[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DevicePool(entry, context)
-  );
+const deserializeAws_json1_1DevicePools = (output: any, context: __SerdeContext): DevicePool[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DevicePool(entry, context));
 };
 
-const deserializeAws_json1_1DeviceSelectionResult = (
-  output: any,
-  context: __SerdeContext
-): DeviceSelectionResult => {
+const deserializeAws_json1_1DeviceSelectionResult = (output: any, context: __SerdeContext): DeviceSelectionResult => {
   return {
     __type: "DeviceSelectionResult",
     filters:
@@ -10988,24 +9133,15 @@ const deserializeAws_json1_1DeviceSelectionResult = (
         ? deserializeAws_json1_1DeviceFilters(output.filters, context)
         : undefined,
     matchedDevicesCount:
-      output.matchedDevicesCount !== undefined &&
-      output.matchedDevicesCount !== null
+      output.matchedDevicesCount !== undefined && output.matchedDevicesCount !== null
         ? output.matchedDevicesCount
         : undefined,
-    maxDevices:
-      output.maxDevices !== undefined && output.maxDevices !== null
-        ? output.maxDevices
-        : undefined
+    maxDevices: output.maxDevices !== undefined && output.maxDevices !== null ? output.maxDevices : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Devices = (
-  output: any,
-  context: __SerdeContext
-): Device[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Device(entry, context)
-  );
+const deserializeAws_json1_1Devices = (output: any, context: __SerdeContext): Device[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Device(entry, context));
 };
 
 const deserializeAws_json1_1GetAccountSettingsResult = (
@@ -11041,28 +9177,17 @@ const deserializeAws_json1_1GetDevicePoolCompatibilityResult = (
   return {
     __type: "GetDevicePoolCompatibilityResult",
     compatibleDevices:
-      output.compatibleDevices !== undefined &&
-      output.compatibleDevices !== null
-        ? deserializeAws_json1_1DevicePoolCompatibilityResults(
-            output.compatibleDevices,
-            context
-          )
+      output.compatibleDevices !== undefined && output.compatibleDevices !== null
+        ? deserializeAws_json1_1DevicePoolCompatibilityResults(output.compatibleDevices, context)
         : undefined,
     incompatibleDevices:
-      output.incompatibleDevices !== undefined &&
-      output.incompatibleDevices !== null
-        ? deserializeAws_json1_1DevicePoolCompatibilityResults(
-            output.incompatibleDevices,
-            context
-          )
+      output.incompatibleDevices !== undefined && output.incompatibleDevices !== null
+        ? deserializeAws_json1_1DevicePoolCompatibilityResults(output.incompatibleDevices, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetDevicePoolResult = (
-  output: any,
-  context: __SerdeContext
-): GetDevicePoolResult => {
+const deserializeAws_json1_1GetDevicePoolResult = (output: any, context: __SerdeContext): GetDevicePoolResult => {
   return {
     __type: "GetDevicePoolResult",
     devicePool:
@@ -11072,10 +9197,7 @@ const deserializeAws_json1_1GetDevicePoolResult = (
   } as any;
 };
 
-const deserializeAws_json1_1GetDeviceResult = (
-  output: any,
-  context: __SerdeContext
-): GetDeviceResult => {
+const deserializeAws_json1_1GetDeviceResult = (output: any, context: __SerdeContext): GetDeviceResult => {
   return {
     __type: "GetDeviceResult",
     device:
@@ -11098,16 +9220,10 @@ const deserializeAws_json1_1GetInstanceProfileResult = (
   } as any;
 };
 
-const deserializeAws_json1_1GetJobResult = (
-  output: any,
-  context: __SerdeContext
-): GetJobResult => {
+const deserializeAws_json1_1GetJobResult = (output: any, context: __SerdeContext): GetJobResult => {
   return {
     __type: "GetJobResult",
-    job:
-      output.job !== undefined && output.job !== null
-        ? deserializeAws_json1_1Job(output.job, context)
-        : undefined
+    job: output.job !== undefined && output.job !== null ? deserializeAws_json1_1Job(output.job, context) : undefined
   } as any;
 };
 
@@ -11138,17 +9254,11 @@ const deserializeAws_json1_1GetOfferingStatusResult = (
       output.nextPeriod !== undefined && output.nextPeriod !== null
         ? deserializeAws_json1_1OfferingStatusMap(output.nextPeriod, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetProjectResult = (
-  output: any,
-  context: __SerdeContext
-): GetProjectResult => {
+const deserializeAws_json1_1GetProjectResult = (output: any, context: __SerdeContext): GetProjectResult => {
   return {
     __type: "GetProjectResult",
     project:
@@ -11165,33 +9275,20 @@ const deserializeAws_json1_1GetRemoteAccessSessionResult = (
   return {
     __type: "GetRemoteAccessSessionResult",
     remoteAccessSession:
-      output.remoteAccessSession !== undefined &&
-      output.remoteAccessSession !== null
-        ? deserializeAws_json1_1RemoteAccessSession(
-            output.remoteAccessSession,
-            context
-          )
+      output.remoteAccessSession !== undefined && output.remoteAccessSession !== null
+        ? deserializeAws_json1_1RemoteAccessSession(output.remoteAccessSession, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetRunResult = (
-  output: any,
-  context: __SerdeContext
-): GetRunResult => {
+const deserializeAws_json1_1GetRunResult = (output: any, context: __SerdeContext): GetRunResult => {
   return {
     __type: "GetRunResult",
-    run:
-      output.run !== undefined && output.run !== null
-        ? deserializeAws_json1_1Run(output.run, context)
-        : undefined
+    run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetSuiteResult = (
-  output: any,
-  context: __SerdeContext
-): GetSuiteResult => {
+const deserializeAws_json1_1GetSuiteResult = (output: any, context: __SerdeContext): GetSuiteResult => {
   return {
     __type: "GetSuiteResult",
     suite:
@@ -11227,23 +9324,15 @@ const deserializeAws_json1_1GetTestGridSessionResult = (
   } as any;
 };
 
-const deserializeAws_json1_1GetTestResult = (
-  output: any,
-  context: __SerdeContext
-): GetTestResult => {
+const deserializeAws_json1_1GetTestResult = (output: any, context: __SerdeContext): GetTestResult => {
   return {
     __type: "GetTestResult",
     test:
-      output.test !== undefined && output.test !== null
-        ? deserializeAws_json1_1Test(output.test, context)
-        : undefined
+      output.test !== undefined && output.test !== null ? deserializeAws_json1_1Test(output.test, context) : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GetUploadResult = (
-  output: any,
-  context: __SerdeContext
-): GetUploadResult => {
+const deserializeAws_json1_1GetUploadResult = (output: any, context: __SerdeContext): GetUploadResult => {
   return {
     __type: "GetUploadResult",
     upload:
@@ -11260,43 +9349,24 @@ const deserializeAws_json1_1GetVPCEConfigurationResult = (
   return {
     __type: "GetVPCEConfigurationResult",
     vpceConfiguration:
-      output.vpceConfiguration !== undefined &&
-      output.vpceConfiguration !== null
-        ? deserializeAws_json1_1VPCEConfiguration(
-            output.vpceConfiguration,
-            context
-          )
+      output.vpceConfiguration !== undefined && output.vpceConfiguration !== null
+        ? deserializeAws_json1_1VPCEConfiguration(output.vpceConfiguration, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IdempotencyException = (
-  output: any,
-  context: __SerdeContext
-): IdempotencyException => {
+const deserializeAws_json1_1IdempotencyException = (output: any, context: __SerdeContext): IdempotencyException => {
   return {
     __type: "IdempotencyException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IncompatibilityMessage = (
-  output: any,
-  context: __SerdeContext
-): IncompatibilityMessage => {
+const deserializeAws_json1_1IncompatibilityMessage = (output: any, context: __SerdeContext): IncompatibilityMessage => {
   return {
     __type: "IncompatibilityMessage",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -11304,9 +9374,7 @@ const deserializeAws_json1_1IncompatibilityMessages = (
   output: any,
   context: __SerdeContext
 ): IncompatibilityMessage[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1IncompatibilityMessage(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1IncompatibilityMessage(entry, context));
 };
 
 const deserializeAws_json1_1InstallToRemoteAccessSessionResult = (
@@ -11322,55 +9390,29 @@ const deserializeAws_json1_1InstallToRemoteAccessSessionResult = (
   } as any;
 };
 
-const deserializeAws_json1_1InstanceLabels = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1InstanceLabels = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1InstanceProfile = (
-  output: any,
-  context: __SerdeContext
-): InstanceProfile => {
+const deserializeAws_json1_1InstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
   return {
     __type: "InstanceProfile",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     excludeAppPackagesFromCleanup:
-      output.excludeAppPackagesFromCleanup !== undefined &&
-      output.excludeAppPackagesFromCleanup !== null
-        ? deserializeAws_json1_1PackageIds(
-            output.excludeAppPackagesFromCleanup,
-            context
-          )
+      output.excludeAppPackagesFromCleanup !== undefined && output.excludeAppPackagesFromCleanup !== null
+        ? deserializeAws_json1_1PackageIds(output.excludeAppPackagesFromCleanup, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     packageCleanup:
-      output.packageCleanup !== undefined && output.packageCleanup !== null
-        ? output.packageCleanup
-        : undefined,
+      output.packageCleanup !== undefined && output.packageCleanup !== null ? output.packageCleanup : undefined,
     rebootAfterUse:
-      output.rebootAfterUse !== undefined && output.rebootAfterUse !== null
-        ? output.rebootAfterUse
-        : undefined
+      output.rebootAfterUse !== undefined && output.rebootAfterUse !== null ? output.rebootAfterUse : undefined
   } as any;
 };
 
-const deserializeAws_json1_1InstanceProfiles = (
-  output: any,
-  context: __SerdeContext
-): InstanceProfile[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1InstanceProfile(entry, context)
-  );
+const deserializeAws_json1_1InstanceProfiles = (output: any, context: __SerdeContext): InstanceProfile[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1InstanceProfile(entry, context));
 };
 
 const deserializeAws_json1_1InternalServiceException = (
@@ -11379,10 +9421,7 @@ const deserializeAws_json1_1InternalServiceException = (
 ): InternalServiceException => {
   return {
     __type: "InternalServiceException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -11392,36 +9431,24 @@ const deserializeAws_json1_1InvalidOperationException = (
 ): InvalidOperationException => {
   return {
     __type: "InvalidOperationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1IosPaths = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1IosPaths = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Job = (
-  output: any,
-  context: __SerdeContext
-): Job => {
+const deserializeAws_json1_1Job = (output: any, context: __SerdeContext): Job => {
   return {
     __type: "Job",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     counters:
       output.counters !== undefined && output.counters !== null
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_json1_1Device(output.device, context)
@@ -11430,85 +9457,41 @@ const deserializeAws_json1_1Job = (
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
-    instanceArn:
-      output.instanceArn !== undefined && output.instanceArn !== null
-        ? output.instanceArn
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined,
+    instanceArn: output.instanceArn !== undefined && output.instanceArn !== null ? output.instanceArn : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    result: output.result !== undefined && output.result !== null ? output.result : undefined,
     started:
-      output.started !== undefined && output.started !== null
-        ? new Date(Math.round(output.started * 1000))
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? new Date(Math.round(output.stopped * 1000))
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    videoCapture:
-      output.videoCapture !== undefined && output.videoCapture !== null
-        ? output.videoCapture
-        : undefined,
+      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    videoCapture: output.videoCapture !== undefined && output.videoCapture !== null ? output.videoCapture : undefined,
     videoEndpoint:
-      output.videoEndpoint !== undefined && output.videoEndpoint !== null
-        ? output.videoEndpoint
-        : undefined
+      output.videoEndpoint !== undefined && output.videoEndpoint !== null ? output.videoEndpoint : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Jobs = (
-  output: any,
-  context: __SerdeContext
-): Job[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Job(entry, context)
-  );
+const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): Job[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Job(entry, context));
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListArtifactsResult = (
-  output: any,
-  context: __SerdeContext
-): ListArtifactsResult => {
+const deserializeAws_json1_1ListArtifactsResult = (output: any, context: __SerdeContext): ListArtifactsResult => {
   return {
     __type: "ListArtifactsResult",
     artifacts:
       output.artifacts !== undefined && output.artifacts !== null
         ? deserializeAws_json1_1Artifacts(output.artifacts, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -11522,44 +9505,29 @@ const deserializeAws_json1_1ListDeviceInstancesResult = (
       output.deviceInstances !== undefined && output.deviceInstances !== null
         ? deserializeAws_json1_1DeviceInstances(output.deviceInstances, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListDevicePoolsResult = (
-  output: any,
-  context: __SerdeContext
-): ListDevicePoolsResult => {
+const deserializeAws_json1_1ListDevicePoolsResult = (output: any, context: __SerdeContext): ListDevicePoolsResult => {
   return {
     __type: "ListDevicePoolsResult",
     devicePools:
       output.devicePools !== undefined && output.devicePools !== null
         ? deserializeAws_json1_1DevicePools(output.devicePools, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListDevicesResult = (
-  output: any,
-  context: __SerdeContext
-): ListDevicesResult => {
+const deserializeAws_json1_1ListDevicesResult = (output: any, context: __SerdeContext): ListDevicesResult => {
   return {
     __type: "ListDevicesResult",
     devices:
       output.devices !== undefined && output.devices !== null
         ? deserializeAws_json1_1Devices(output.devices, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -11571,32 +9539,18 @@ const deserializeAws_json1_1ListInstanceProfilesResult = (
     __type: "ListInstanceProfilesResult",
     instanceProfiles:
       output.instanceProfiles !== undefined && output.instanceProfiles !== null
-        ? deserializeAws_json1_1InstanceProfiles(
-            output.instanceProfiles,
-            context
-          )
+        ? deserializeAws_json1_1InstanceProfiles(output.instanceProfiles, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListJobsResult = (
-  output: any,
-  context: __SerdeContext
-): ListJobsResult => {
+const deserializeAws_json1_1ListJobsResult = (output: any, context: __SerdeContext): ListJobsResult => {
   return {
     __type: "ListJobsResult",
     jobs:
-      output.jobs !== undefined && output.jobs !== null
-        ? deserializeAws_json1_1Jobs(output.jobs, context)
-        : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+      output.jobs !== undefined && output.jobs !== null ? deserializeAws_json1_1Jobs(output.jobs, context) : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -11610,10 +9564,7 @@ const deserializeAws_json1_1ListNetworkProfilesResult = (
       output.networkProfiles !== undefined && output.networkProfiles !== null
         ? deserializeAws_json1_1NetworkProfiles(output.networkProfiles, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -11623,17 +9574,10 @@ const deserializeAws_json1_1ListOfferingPromotionsResult = (
 ): ListOfferingPromotionsResult => {
   return {
     __type: "ListOfferingPromotionsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     offeringPromotions:
-      output.offeringPromotions !== undefined &&
-      output.offeringPromotions !== null
-        ? deserializeAws_json1_1OfferingPromotions(
-            output.offeringPromotions,
-            context
-          )
+      output.offeringPromotions !== undefined && output.offeringPromotions !== null
+        ? deserializeAws_json1_1OfferingPromotions(output.offeringPromotions, context)
         : undefined
   } as any;
 };
@@ -11644,31 +9588,18 @@ const deserializeAws_json1_1ListOfferingTransactionsResult = (
 ): ListOfferingTransactionsResult => {
   return {
     __type: "ListOfferingTransactionsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     offeringTransactions:
-      output.offeringTransactions !== undefined &&
-      output.offeringTransactions !== null
-        ? deserializeAws_json1_1OfferingTransactions(
-            output.offeringTransactions,
-            context
-          )
+      output.offeringTransactions !== undefined && output.offeringTransactions !== null
+        ? deserializeAws_json1_1OfferingTransactions(output.offeringTransactions, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListOfferingsResult = (
-  output: any,
-  context: __SerdeContext
-): ListOfferingsResult => {
+const deserializeAws_json1_1ListOfferingsResult = (output: any, context: __SerdeContext): ListOfferingsResult => {
   return {
     __type: "ListOfferingsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     offerings:
       output.offerings !== undefined && output.offerings !== null
         ? deserializeAws_json1_1Offerings(output.offerings, context)
@@ -11676,16 +9607,10 @@ const deserializeAws_json1_1ListOfferingsResult = (
   } as any;
 };
 
-const deserializeAws_json1_1ListProjectsResult = (
-  output: any,
-  context: __SerdeContext
-): ListProjectsResult => {
+const deserializeAws_json1_1ListProjectsResult = (output: any, context: __SerdeContext): ListProjectsResult => {
   return {
     __type: "ListProjectsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     projects:
       output.projects !== undefined && output.projects !== null
         ? deserializeAws_json1_1Projects(output.projects, context)
@@ -11699,48 +9624,27 @@ const deserializeAws_json1_1ListRemoteAccessSessionsResult = (
 ): ListRemoteAccessSessionsResult => {
   return {
     __type: "ListRemoteAccessSessionsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     remoteAccessSessions:
-      output.remoteAccessSessions !== undefined &&
-      output.remoteAccessSessions !== null
-        ? deserializeAws_json1_1RemoteAccessSessions(
-            output.remoteAccessSessions,
-            context
-          )
+      output.remoteAccessSessions !== undefined && output.remoteAccessSessions !== null
+        ? deserializeAws_json1_1RemoteAccessSessions(output.remoteAccessSessions, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListRunsResult = (
-  output: any,
-  context: __SerdeContext
-): ListRunsResult => {
+const deserializeAws_json1_1ListRunsResult = (output: any, context: __SerdeContext): ListRunsResult => {
   return {
     __type: "ListRunsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     runs:
-      output.runs !== undefined && output.runs !== null
-        ? deserializeAws_json1_1Runs(output.runs, context)
-        : undefined
+      output.runs !== undefined && output.runs !== null ? deserializeAws_json1_1Runs(output.runs, context) : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListSamplesResult = (
-  output: any,
-  context: __SerdeContext
-): ListSamplesResult => {
+const deserializeAws_json1_1ListSamplesResult = (output: any, context: __SerdeContext): ListSamplesResult => {
   return {
     __type: "ListSamplesResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     samples:
       output.samples !== undefined && output.samples !== null
         ? deserializeAws_json1_1Samples(output.samples, context)
@@ -11748,16 +9652,10 @@ const deserializeAws_json1_1ListSamplesResult = (
   } as any;
 };
 
-const deserializeAws_json1_1ListSuitesResult = (
-  output: any,
-  context: __SerdeContext
-): ListSuitesResult => {
+const deserializeAws_json1_1ListSuitesResult = (output: any, context: __SerdeContext): ListSuitesResult => {
   return {
     __type: "ListSuitesResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     suites:
       output.suites !== undefined && output.suites !== null
         ? deserializeAws_json1_1Suites(output.suites, context)
@@ -11784,16 +9682,10 @@ const deserializeAws_json1_1ListTestGridProjectsResult = (
 ): ListTestGridProjectsResult => {
   return {
     __type: "ListTestGridProjectsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     testGridProjects:
       output.testGridProjects !== undefined && output.testGridProjects !== null
-        ? deserializeAws_json1_1TestGridProjects(
-            output.testGridProjects,
-            context
-          )
+        ? deserializeAws_json1_1TestGridProjects(output.testGridProjects, context)
         : undefined
   } as any;
 };
@@ -11808,10 +9700,7 @@ const deserializeAws_json1_1ListTestGridSessionActionsResult = (
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_json1_1TestGridSessionActions(output.actions, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -11823,15 +9712,9 @@ const deserializeAws_json1_1ListTestGridSessionArtifactsResult = (
     __type: "ListTestGridSessionArtifactsResult",
     artifacts:
       output.artifacts !== undefined && output.artifacts !== null
-        ? deserializeAws_json1_1TestGridSessionArtifacts(
-            output.artifacts,
-            context
-          )
+        ? deserializeAws_json1_1TestGridSessionArtifacts(output.artifacts, context)
         : undefined,
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined
   } as any;
 };
 
@@ -11841,30 +9724,18 @@ const deserializeAws_json1_1ListTestGridSessionsResult = (
 ): ListTestGridSessionsResult => {
   return {
     __type: "ListTestGridSessionsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     testGridSessions:
       output.testGridSessions !== undefined && output.testGridSessions !== null
-        ? deserializeAws_json1_1TestGridSessions(
-            output.testGridSessions,
-            context
-          )
+        ? deserializeAws_json1_1TestGridSessions(output.testGridSessions, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListTestsResult = (
-  output: any,
-  context: __SerdeContext
-): ListTestsResult => {
+const deserializeAws_json1_1ListTestsResult = (output: any, context: __SerdeContext): ListTestsResult => {
   return {
     __type: "ListTestsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tests:
       output.tests !== undefined && output.tests !== null
         ? deserializeAws_json1_1Tests(output.tests, context)
@@ -11878,30 +9749,18 @@ const deserializeAws_json1_1ListUniqueProblemsResult = (
 ): ListUniqueProblemsResult => {
   return {
     __type: "ListUniqueProblemsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     uniqueProblems:
       output.uniqueProblems !== undefined && output.uniqueProblems !== null
-        ? deserializeAws_json1_1UniqueProblemsByExecutionResultMap(
-            output.uniqueProblems,
-            context
-          )
+        ? deserializeAws_json1_1UniqueProblemsByExecutionResultMap(output.uniqueProblems, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListUploadsResult = (
-  output: any,
-  context: __SerdeContext
-): ListUploadsResult => {
+const deserializeAws_json1_1ListUploadsResult = (output: any, context: __SerdeContext): ListUploadsResult => {
   return {
     __type: "ListUploadsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     uploads:
       output.uploads !== undefined && output.uploads !== null
         ? deserializeAws_json1_1Uploads(output.uploads, context)
@@ -11915,42 +9774,23 @@ const deserializeAws_json1_1ListVPCEConfigurationsResult = (
 ): ListVPCEConfigurationsResult => {
   return {
     __type: "ListVPCEConfigurationsResult",
-    nextToken:
-      output.nextToken !== undefined && output.nextToken !== null
-        ? output.nextToken
-        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     vpceConfigurations:
-      output.vpceConfigurations !== undefined &&
-      output.vpceConfigurations !== null
-        ? deserializeAws_json1_1VPCEConfigurations(
-            output.vpceConfigurations,
-            context
-          )
+      output.vpceConfigurations !== undefined && output.vpceConfigurations !== null
+        ? deserializeAws_json1_1VPCEConfigurations(output.vpceConfigurations, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Location = (
-  output: any,
-  context: __SerdeContext
-): Location => {
+const deserializeAws_json1_1Location = (output: any, context: __SerdeContext): Location => {
   return {
     __type: "Location",
-    latitude:
-      output.latitude !== undefined && output.latitude !== null
-        ? output.latitude
-        : undefined,
-    longitude:
-      output.longitude !== undefined && output.longitude !== null
-        ? output.longitude
-        : undefined
+    latitude: output.latitude !== undefined && output.latitude !== null ? output.latitude : undefined,
+    longitude: output.longitude !== undefined && output.longitude !== null ? output.longitude : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MaxSlotMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
+const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
       ...acc,
@@ -11960,173 +9800,91 @@ const deserializeAws_json1_1MaxSlotMap = (
   );
 };
 
-const deserializeAws_json1_1MonetaryAmount = (
-  output: any,
-  context: __SerdeContext
-): MonetaryAmount => {
+const deserializeAws_json1_1MonetaryAmount = (output: any, context: __SerdeContext): MonetaryAmount => {
   return {
     __type: "MonetaryAmount",
-    amount:
-      output.amount !== undefined && output.amount !== null
-        ? output.amount
-        : undefined,
-    currencyCode:
-      output.currencyCode !== undefined && output.currencyCode !== null
-        ? output.currencyCode
-        : undefined
+    amount: output.amount !== undefined && output.amount !== null ? output.amount : undefined,
+    currencyCode: output.currencyCode !== undefined && output.currencyCode !== null ? output.currencyCode : undefined
   } as any;
 };
 
-const deserializeAws_json1_1NetworkProfile = (
-  output: any,
-  context: __SerdeContext
-): NetworkProfile => {
+const deserializeAws_json1_1NetworkProfile = (output: any, context: __SerdeContext): NetworkProfile => {
   return {
     __type: "NetworkProfile",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     downlinkBandwidthBits:
-      output.downlinkBandwidthBits !== undefined &&
-      output.downlinkBandwidthBits !== null
+      output.downlinkBandwidthBits !== undefined && output.downlinkBandwidthBits !== null
         ? output.downlinkBandwidthBits
         : undefined,
     downlinkDelayMs:
-      output.downlinkDelayMs !== undefined && output.downlinkDelayMs !== null
-        ? output.downlinkDelayMs
-        : undefined,
+      output.downlinkDelayMs !== undefined && output.downlinkDelayMs !== null ? output.downlinkDelayMs : undefined,
     downlinkJitterMs:
-      output.downlinkJitterMs !== undefined && output.downlinkJitterMs !== null
-        ? output.downlinkJitterMs
-        : undefined,
+      output.downlinkJitterMs !== undefined && output.downlinkJitterMs !== null ? output.downlinkJitterMs : undefined,
     downlinkLossPercent:
-      output.downlinkLossPercent !== undefined &&
-      output.downlinkLossPercent !== null
+      output.downlinkLossPercent !== undefined && output.downlinkLossPercent !== null
         ? output.downlinkLossPercent
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
     uplinkBandwidthBits:
-      output.uplinkBandwidthBits !== undefined &&
-      output.uplinkBandwidthBits !== null
+      output.uplinkBandwidthBits !== undefined && output.uplinkBandwidthBits !== null
         ? output.uplinkBandwidthBits
         : undefined,
     uplinkDelayMs:
-      output.uplinkDelayMs !== undefined && output.uplinkDelayMs !== null
-        ? output.uplinkDelayMs
-        : undefined,
+      output.uplinkDelayMs !== undefined && output.uplinkDelayMs !== null ? output.uplinkDelayMs : undefined,
     uplinkJitterMs:
-      output.uplinkJitterMs !== undefined && output.uplinkJitterMs !== null
-        ? output.uplinkJitterMs
-        : undefined,
+      output.uplinkJitterMs !== undefined && output.uplinkJitterMs !== null ? output.uplinkJitterMs : undefined,
     uplinkLossPercent:
-      output.uplinkLossPercent !== undefined &&
-      output.uplinkLossPercent !== null
-        ? output.uplinkLossPercent
-        : undefined
+      output.uplinkLossPercent !== undefined && output.uplinkLossPercent !== null ? output.uplinkLossPercent : undefined
   } as any;
 };
 
-const deserializeAws_json1_1NetworkProfiles = (
-  output: any,
-  context: __SerdeContext
-): NetworkProfile[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1NetworkProfile(entry, context)
-  );
+const deserializeAws_json1_1NetworkProfiles = (output: any, context: __SerdeContext): NetworkProfile[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1NetworkProfile(entry, context));
 };
 
-const deserializeAws_json1_1NotEligibleException = (
-  output: any,
-  context: __SerdeContext
-): NotEligibleException => {
+const deserializeAws_json1_1NotEligibleException = (output: any, context: __SerdeContext): NotEligibleException => {
   return {
     __type: "NotEligibleException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1NotFoundException = (
-  output: any,
-  context: __SerdeContext
-): NotFoundException => {
+const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     __type: "NotFoundException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Offering = (
-  output: any,
-  context: __SerdeContext
-): Offering => {
+const deserializeAws_json1_1Offering = (output: any, context: __SerdeContext): Offering => {
   return {
     __type: "Offering",
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    platform:
-      output.platform !== undefined && output.platform !== null
-        ? output.platform
-        : undefined,
+    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
     recurringCharges:
       output.recurringCharges !== undefined && output.recurringCharges !== null
-        ? deserializeAws_json1_1RecurringCharges(
-            output.recurringCharges,
-            context
-          )
+        ? deserializeAws_json1_1RecurringCharges(output.recurringCharges, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OfferingPromotion = (
-  output: any,
-  context: __SerdeContext
-): OfferingPromotion => {
+const deserializeAws_json1_1OfferingPromotion = (output: any, context: __SerdeContext): OfferingPromotion => {
   return {
     __type: "OfferingPromotion",
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OfferingPromotions = (
-  output: any,
-  context: __SerdeContext
-): OfferingPromotion[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1OfferingPromotion(entry, context)
-  );
+const deserializeAws_json1_1OfferingPromotions = (output: any, context: __SerdeContext): OfferingPromotion[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1OfferingPromotion(entry, context));
 };
 
-const deserializeAws_json1_1OfferingStatus = (
-  output: any,
-  context: __SerdeContext
-): OfferingStatus => {
+const deserializeAws_json1_1OfferingStatus = (output: any, context: __SerdeContext): OfferingStatus => {
   return {
     __type: "OfferingStatus",
     effectiveOn:
@@ -12137,14 +9895,8 @@ const deserializeAws_json1_1OfferingStatus = (
       output.offering !== undefined && output.offering !== null
         ? deserializeAws_json1_1Offering(output.offering, context)
         : undefined,
-    quantity:
-      output.quantity !== undefined && output.quantity !== null
-        ? output.quantity
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    quantity: output.quantity !== undefined && output.quantity !== null ? output.quantity : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -12161,10 +9913,7 @@ const deserializeAws_json1_1OfferingStatusMap = (
   );
 };
 
-const deserializeAws_json1_1OfferingTransaction = (
-  output: any,
-  context: __SerdeContext
-): OfferingTransaction => {
+const deserializeAws_json1_1OfferingTransaction = (output: any, context: __SerdeContext): OfferingTransaction => {
   return {
     __type: "OfferingTransaction",
     cost:
@@ -12176,8 +9925,7 @@ const deserializeAws_json1_1OfferingTransaction = (
         ? new Date(Math.round(output.createdOn * 1000))
         : undefined,
     offeringPromotionId:
-      output.offeringPromotionId !== undefined &&
-      output.offeringPromotionId !== null
+      output.offeringPromotionId !== undefined && output.offeringPromotionId !== null
         ? output.offeringPromotionId
         : undefined,
     offeringStatus:
@@ -12185,41 +9933,23 @@ const deserializeAws_json1_1OfferingTransaction = (
         ? deserializeAws_json1_1OfferingStatus(output.offeringStatus, context)
         : undefined,
     transactionId:
-      output.transactionId !== undefined && output.transactionId !== null
-        ? output.transactionId
-        : undefined
+      output.transactionId !== undefined && output.transactionId !== null ? output.transactionId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OfferingTransactions = (
-  output: any,
-  context: __SerdeContext
-): OfferingTransaction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1OfferingTransaction(entry, context)
-  );
+const deserializeAws_json1_1OfferingTransactions = (output: any, context: __SerdeContext): OfferingTransaction[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1OfferingTransaction(entry, context));
 };
 
-const deserializeAws_json1_1Offerings = (
-  output: any,
-  context: __SerdeContext
-): Offering[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Offering(entry, context)
-  );
+const deserializeAws_json1_1Offerings = (output: any, context: __SerdeContext): Offering[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Offering(entry, context));
 };
 
-const deserializeAws_json1_1PackageIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1PackageIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1Problem = (
-  output: any,
-  context: __SerdeContext
-): Problem => {
+const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Problem => {
   return {
     __type: "Problem",
     device:
@@ -12230,14 +9960,8 @@ const deserializeAws_json1_1Problem = (
       output.job !== undefined && output.job !== null
         ? deserializeAws_json1_1ProblemDetail(output.job, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    result: output.result !== undefined && output.result !== null ? output.result : undefined,
     run:
       output.run !== undefined && output.run !== null
         ? deserializeAws_json1_1ProblemDetail(output.run, context)
@@ -12253,89 +9977,49 @@ const deserializeAws_json1_1Problem = (
   } as any;
 };
 
-const deserializeAws_json1_1ProblemDetail = (
-  output: any,
-  context: __SerdeContext
-): ProblemDetail => {
+const deserializeAws_json1_1ProblemDetail = (output: any, context: __SerdeContext): ProblemDetail => {
   return {
     __type: "ProblemDetail",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Problems = (
-  output: any,
-  context: __SerdeContext
-): Problem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Problem(entry, context)
-  );
+const deserializeAws_json1_1Problems = (output: any, context: __SerdeContext): Problem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Problem(entry, context));
 };
 
-const deserializeAws_json1_1Project = (
-  output: any,
-  context: __SerdeContext
-): Project => {
+const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Project => {
   return {
     __type: "Project",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     defaultJobTimeoutMinutes:
-      output.defaultJobTimeoutMinutes !== undefined &&
-      output.defaultJobTimeoutMinutes !== null
+      output.defaultJobTimeoutMinutes !== undefined && output.defaultJobTimeoutMinutes !== null
         ? output.defaultJobTimeoutMinutes
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Projects = (
-  output: any,
-  context: __SerdeContext
-): Project[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Project(entry, context)
-  );
+const deserializeAws_json1_1Projects = (output: any, context: __SerdeContext): Project[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Project(entry, context));
 };
 
-const deserializeAws_json1_1PurchaseOfferingResult = (
-  output: any,
-  context: __SerdeContext
-): PurchaseOfferingResult => {
+const deserializeAws_json1_1PurchaseOfferingResult = (output: any, context: __SerdeContext): PurchaseOfferingResult => {
   return {
     __type: "PurchaseOfferingResult",
     offeringTransaction:
-      output.offeringTransaction !== undefined &&
-      output.offeringTransaction !== null
-        ? deserializeAws_json1_1OfferingTransaction(
-            output.offeringTransaction,
-            context
-          )
+      output.offeringTransaction !== undefined && output.offeringTransaction !== null
+        ? deserializeAws_json1_1OfferingTransaction(output.offeringTransaction, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1PurchasedDevicesMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: number } => {
+const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: number },
-      [key, value]: [DevicePlatform | string, any]
-    ) => ({
+    (acc: { [key: string]: number }, [key, value]: [DevicePlatform | string, any]) => ({
       ...acc,
       [key]: value
     }),
@@ -12343,73 +10027,40 @@ const deserializeAws_json1_1PurchasedDevicesMap = (
   );
 };
 
-const deserializeAws_json1_1Radios = (
-  output: any,
-  context: __SerdeContext
-): Radios => {
+const deserializeAws_json1_1Radios = (output: any, context: __SerdeContext): Radios => {
   return {
     __type: "Radios",
-    bluetooth:
-      output.bluetooth !== undefined && output.bluetooth !== null
-        ? output.bluetooth
-        : undefined,
-    gps:
-      output.gps !== undefined && output.gps !== null ? output.gps : undefined,
-    nfc:
-      output.nfc !== undefined && output.nfc !== null ? output.nfc : undefined,
-    wifi:
-      output.wifi !== undefined && output.wifi !== null
-        ? output.wifi
-        : undefined
+    bluetooth: output.bluetooth !== undefined && output.bluetooth !== null ? output.bluetooth : undefined,
+    gps: output.gps !== undefined && output.gps !== null ? output.gps : undefined,
+    nfc: output.nfc !== undefined && output.nfc !== null ? output.nfc : undefined,
+    wifi: output.wifi !== undefined && output.wifi !== null ? output.wifi : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RecurringCharge = (
-  output: any,
-  context: __SerdeContext
-): RecurringCharge => {
+const deserializeAws_json1_1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   return {
     __type: "RecurringCharge",
     cost:
       output.cost !== undefined && output.cost !== null
         ? deserializeAws_json1_1MonetaryAmount(output.cost, context)
         : undefined,
-    frequency:
-      output.frequency !== undefined && output.frequency !== null
-        ? output.frequency
-        : undefined
+    frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RecurringCharges = (
-  output: any,
-  context: __SerdeContext
-): RecurringCharge[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RecurringCharge(entry, context)
-  );
+const deserializeAws_json1_1RecurringCharges = (output: any, context: __SerdeContext): RecurringCharge[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1RecurringCharge(entry, context));
 };
 
-const deserializeAws_json1_1RemoteAccessSession = (
-  output: any,
-  context: __SerdeContext
-): RemoteAccessSession => {
+const deserializeAws_json1_1RemoteAccessSession = (output: any, context: __SerdeContext): RemoteAccessSession => {
   return {
     __type: "RemoteAccessSession",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     billingMethod:
-      output.billingMethod !== undefined && output.billingMethod !== null
-        ? output.billingMethod
-        : undefined,
-    clientId:
-      output.clientId !== undefined && output.clientId !== null
-        ? output.clientId
-        : undefined,
+      output.billingMethod !== undefined && output.billingMethod !== null ? output.billingMethod : undefined,
+    clientId: output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_json1_1Device(output.device, context)
@@ -12418,330 +10069,162 @@ const deserializeAws_json1_1RemoteAccessSession = (
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
-    deviceUdid:
-      output.deviceUdid !== undefined && output.deviceUdid !== null
-        ? output.deviceUdid
-        : undefined,
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? output.endpoint
-        : undefined,
-    hostAddress:
-      output.hostAddress !== undefined && output.hostAddress !== null
-        ? output.hostAddress
-        : undefined,
-    instanceArn:
-      output.instanceArn !== undefined && output.instanceArn !== null
-        ? output.instanceArn
-        : undefined,
+    deviceUdid: output.deviceUdid !== undefined && output.deviceUdid !== null ? output.deviceUdid : undefined,
+    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
+    hostAddress: output.hostAddress !== undefined && output.hostAddress !== null ? output.hostAddress : undefined,
+    instanceArn: output.instanceArn !== undefined && output.instanceArn !== null ? output.instanceArn : undefined,
     interactionMode:
-      output.interactionMode !== undefined && output.interactionMode !== null
-        ? output.interactionMode
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.interactionMode !== undefined && output.interactionMode !== null ? output.interactionMode : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     remoteDebugEnabled:
-      output.remoteDebugEnabled !== undefined &&
-      output.remoteDebugEnabled !== null
+      output.remoteDebugEnabled !== undefined && output.remoteDebugEnabled !== null
         ? output.remoteDebugEnabled
         : undefined,
     remoteRecordAppArn:
-      output.remoteRecordAppArn !== undefined &&
-      output.remoteRecordAppArn !== null
+      output.remoteRecordAppArn !== undefined && output.remoteRecordAppArn !== null
         ? output.remoteRecordAppArn
         : undefined,
     remoteRecordEnabled:
-      output.remoteRecordEnabled !== undefined &&
-      output.remoteRecordEnabled !== null
+      output.remoteRecordEnabled !== undefined && output.remoteRecordEnabled !== null
         ? output.remoteRecordEnabled
         : undefined,
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined,
+    result: output.result !== undefined && output.result !== null ? output.result : undefined,
     skipAppResign:
-      output.skipAppResign !== undefined && output.skipAppResign !== null
-        ? output.skipAppResign
-        : undefined,
+      output.skipAppResign !== undefined && output.skipAppResign !== null ? output.skipAppResign : undefined,
     started:
-      output.started !== undefined && output.started !== null
-        ? new Date(Math.round(output.started * 1000))
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? new Date(Math.round(output.stopped * 1000))
-        : undefined
+      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RemoteAccessSessions = (
-  output: any,
-  context: __SerdeContext
-): RemoteAccessSession[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1RemoteAccessSession(entry, context)
-  );
+const deserializeAws_json1_1RemoteAccessSessions = (output: any, context: __SerdeContext): RemoteAccessSession[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1RemoteAccessSession(entry, context));
 };
 
-const deserializeAws_json1_1RenewOfferingResult = (
-  output: any,
-  context: __SerdeContext
-): RenewOfferingResult => {
+const deserializeAws_json1_1RenewOfferingResult = (output: any, context: __SerdeContext): RenewOfferingResult => {
   return {
     __type: "RenewOfferingResult",
     offeringTransaction:
-      output.offeringTransaction !== undefined &&
-      output.offeringTransaction !== null
-        ? deserializeAws_json1_1OfferingTransaction(
-            output.offeringTransaction,
-            context
-          )
+      output.offeringTransaction !== undefined && output.offeringTransaction !== null
+        ? deserializeAws_json1_1OfferingTransaction(output.offeringTransaction, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Resolution = (
-  output: any,
-  context: __SerdeContext
-): Resolution => {
+const deserializeAws_json1_1Resolution = (output: any, context: __SerdeContext): Resolution => {
   return {
     __type: "Resolution",
-    height:
-      output.height !== undefined && output.height !== null
-        ? output.height
-        : undefined,
-    width:
-      output.width !== undefined && output.width !== null
-        ? output.width
-        : undefined
+    height: output.height !== undefined && output.height !== null ? output.height : undefined,
+    width: output.width !== undefined && output.width !== null ? output.width : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Rule = (
-  output: any,
-  context: __SerdeContext
-): Rule => {
+const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
     __type: "Rule",
-    attribute:
-      output.attribute !== undefined && output.attribute !== null
-        ? output.attribute
-        : undefined,
-    operator:
-      output.operator !== undefined && output.operator !== null
-        ? output.operator
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    attribute: output.attribute !== undefined && output.attribute !== null ? output.attribute : undefined,
+    operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Rules = (
-  output: any,
-  context: __SerdeContext
-): Rule[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Rule(entry, context)
-  );
+const deserializeAws_json1_1Rules = (output: any, context: __SerdeContext): Rule[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Rule(entry, context));
 };
 
-const deserializeAws_json1_1Run = (
-  output: any,
-  context: __SerdeContext
-): Run => {
+const deserializeAws_json1_1Run = (output: any, context: __SerdeContext): Run => {
   return {
     __type: "Run",
-    appUpload:
-      output.appUpload !== undefined && output.appUpload !== null
-        ? output.appUpload
-        : undefined,
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    appUpload: output.appUpload !== undefined && output.appUpload !== null ? output.appUpload : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     billingMethod:
-      output.billingMethod !== undefined && output.billingMethod !== null
-        ? output.billingMethod
-        : undefined,
+      output.billingMethod !== undefined && output.billingMethod !== null ? output.billingMethod : undefined,
     completedJobs:
-      output.completedJobs !== undefined && output.completedJobs !== null
-        ? output.completedJobs
-        : undefined,
+      output.completedJobs !== undefined && output.completedJobs !== null ? output.completedJobs : undefined,
     counters:
       output.counters !== undefined && output.counters !== null
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     customerArtifactPaths:
-      output.customerArtifactPaths !== undefined &&
-      output.customerArtifactPaths !== null
-        ? deserializeAws_json1_1CustomerArtifactPaths(
-            output.customerArtifactPaths,
-            context
-          )
+      output.customerArtifactPaths !== undefined && output.customerArtifactPaths !== null
+        ? deserializeAws_json1_1CustomerArtifactPaths(output.customerArtifactPaths, context)
         : undefined,
     deviceMinutes:
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
     devicePoolArn:
-      output.devicePoolArn !== undefined && output.devicePoolArn !== null
-        ? output.devicePoolArn
-        : undefined,
+      output.devicePoolArn !== undefined && output.devicePoolArn !== null ? output.devicePoolArn : undefined,
     deviceSelectionResult:
-      output.deviceSelectionResult !== undefined &&
-      output.deviceSelectionResult !== null
-        ? deserializeAws_json1_1DeviceSelectionResult(
-            output.deviceSelectionResult,
-            context
-          )
+      output.deviceSelectionResult !== undefined && output.deviceSelectionResult !== null
+        ? deserializeAws_json1_1DeviceSelectionResult(output.deviceSelectionResult, context)
         : undefined,
-    eventCount:
-      output.eventCount !== undefined && output.eventCount !== null
-        ? output.eventCount
-        : undefined,
+    eventCount: output.eventCount !== undefined && output.eventCount !== null ? output.eventCount : undefined,
     jobTimeoutMinutes:
-      output.jobTimeoutMinutes !== undefined &&
-      output.jobTimeoutMinutes !== null
+      output.jobTimeoutMinutes !== undefined && output.jobTimeoutMinutes !== null
         ? output.jobTimeoutMinutes
         : undefined,
-    locale:
-      output.locale !== undefined && output.locale !== null
-        ? output.locale
-        : undefined,
+    locale: output.locale !== undefined && output.locale !== null ? output.locale : undefined,
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1Location(output.location, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     networkProfile:
       output.networkProfile !== undefined && output.networkProfile !== null
         ? deserializeAws_json1_1NetworkProfile(output.networkProfile, context)
         : undefined,
     parsingResultUrl:
-      output.parsingResultUrl !== undefined && output.parsingResultUrl !== null
-        ? output.parsingResultUrl
-        : undefined,
-    platform:
-      output.platform !== undefined && output.platform !== null
-        ? output.platform
-        : undefined,
+      output.parsingResultUrl !== undefined && output.parsingResultUrl !== null ? output.parsingResultUrl : undefined,
+    platform: output.platform !== undefined && output.platform !== null ? output.platform : undefined,
     radios:
       output.radios !== undefined && output.radios !== null
         ? deserializeAws_json1_1Radios(output.radios, context)
         : undefined,
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined,
-    resultCode:
-      output.resultCode !== undefined && output.resultCode !== null
-        ? output.resultCode
-        : undefined,
-    seed:
-      output.seed !== undefined && output.seed !== null
-        ? output.seed
-        : undefined,
+    result: output.result !== undefined && output.result !== null ? output.result : undefined,
+    resultCode: output.resultCode !== undefined && output.resultCode !== null ? output.resultCode : undefined,
+    seed: output.seed !== undefined && output.seed !== null ? output.seed : undefined,
     skipAppResign:
-      output.skipAppResign !== undefined && output.skipAppResign !== null
-        ? output.skipAppResign
-        : undefined,
+      output.skipAppResign !== undefined && output.skipAppResign !== null ? output.skipAppResign : undefined,
     started:
-      output.started !== undefined && output.started !== null
-        ? new Date(Math.round(output.started * 1000))
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? new Date(Math.round(output.stopped * 1000))
-        : undefined,
-    testSpecArn:
-      output.testSpecArn !== undefined && output.testSpecArn !== null
-        ? output.testSpecArn
-        : undefined,
-    totalJobs:
-      output.totalJobs !== undefined && output.totalJobs !== null
-        ? output.totalJobs
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    webUrl:
-      output.webUrl !== undefined && output.webUrl !== null
-        ? output.webUrl
-        : undefined
+      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+    testSpecArn: output.testSpecArn !== undefined && output.testSpecArn !== null ? output.testSpecArn : undefined,
+    totalJobs: output.totalJobs !== undefined && output.totalJobs !== null ? output.totalJobs : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    webUrl: output.webUrl !== undefined && output.webUrl !== null ? output.webUrl : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Runs = (
-  output: any,
-  context: __SerdeContext
-): Run[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Run(entry, context)
-  );
+const deserializeAws_json1_1Runs = (output: any, context: __SerdeContext): Run[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Run(entry, context));
 };
 
-const deserializeAws_json1_1Sample = (
-  output: any,
-  context: __SerdeContext
-): Sample => {
+const deserializeAws_json1_1Sample = (output: any, context: __SerdeContext): Sample => {
   return {
     __type: "Sample",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Samples = (
-  output: any,
-  context: __SerdeContext
-): Sample[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Sample(entry, context)
-  );
+const deserializeAws_json1_1Samples = (output: any, context: __SerdeContext): Sample[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Sample(entry, context));
 };
 
-const deserializeAws_json1_1ScheduleRunResult = (
-  output: any,
-  context: __SerdeContext
-): ScheduleRunResult => {
+const deserializeAws_json1_1ScheduleRunResult = (output: any, context: __SerdeContext): ScheduleRunResult => {
   return {
     __type: "ScheduleRunResult",
-    run:
-      output.run !== undefined && output.run !== null
-        ? deserializeAws_json1_1Run(output.run, context)
-        : undefined
+    run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined
   } as any;
 };
 
@@ -12751,23 +10234,14 @@ const deserializeAws_json1_1ServiceAccountException = (
 ): ServiceAccountException => {
   return {
     __type: "ServiceAccountException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StopJobResult = (
-  output: any,
-  context: __SerdeContext
-): StopJobResult => {
+const deserializeAws_json1_1StopJobResult = (output: any, context: __SerdeContext): StopJobResult => {
   return {
     __type: "StopJobResult",
-    job:
-      output.job !== undefined && output.job !== null
-        ? deserializeAws_json1_1Job(output.job, context)
-        : undefined
+    job: output.job !== undefined && output.job !== null ? deserializeAws_json1_1Job(output.job, context) : undefined
   } as any;
 };
 
@@ -12778,297 +10252,151 @@ const deserializeAws_json1_1StopRemoteAccessSessionResult = (
   return {
     __type: "StopRemoteAccessSessionResult",
     remoteAccessSession:
-      output.remoteAccessSession !== undefined &&
-      output.remoteAccessSession !== null
-        ? deserializeAws_json1_1RemoteAccessSession(
-            output.remoteAccessSession,
-            context
-          )
+      output.remoteAccessSession !== undefined && output.remoteAccessSession !== null
+        ? deserializeAws_json1_1RemoteAccessSession(output.remoteAccessSession, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1StopRunResult = (
-  output: any,
-  context: __SerdeContext
-): StopRunResult => {
+const deserializeAws_json1_1StopRunResult = (output: any, context: __SerdeContext): StopRunResult => {
   return {
     __type: "StopRunResult",
-    run:
-      output.run !== undefined && output.run !== null
-        ? deserializeAws_json1_1Run(output.run, context)
-        : undefined
+    run: output.run !== undefined && output.run !== null ? deserializeAws_json1_1Run(output.run, context) : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Suite = (
-  output: any,
-  context: __SerdeContext
-): Suite => {
+const deserializeAws_json1_1Suite = (output: any, context: __SerdeContext): Suite => {
   return {
     __type: "Suite",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     counters:
       output.counters !== undefined && output.counters !== null
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     deviceMinutes:
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    result: output.result !== undefined && output.result !== null ? output.result : undefined,
     started:
-      output.started !== undefined && output.started !== null
-        ? new Date(Math.round(output.started * 1000))
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? new Date(Math.round(output.stopped * 1000))
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Suites = (
-  output: any,
-  context: __SerdeContext
-): Suite[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Suite(entry, context)
-  );
+const deserializeAws_json1_1Suites = (output: any, context: __SerdeContext): Suite[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Suite(entry, context));
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
-const deserializeAws_json1_1TagOperationException = (
-  output: any,
-  context: __SerdeContext
-): TagOperationException => {
+const deserializeAws_json1_1TagOperationException = (output: any, context: __SerdeContext): TagOperationException => {
   return {
     __type: "TagOperationException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    resourceName:
-      output.resourceName !== undefined && output.resourceName !== null
-        ? output.resourceName
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagPolicyException = (
-  output: any,
-  context: __SerdeContext
-): TagPolicyException => {
+const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
   return {
     __type: "TagPolicyException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    resourceName:
-      output.resourceName !== undefined && output.resourceName !== null
-        ? output.resourceName
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): TagResourceResponse => {
+const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {
     __type: "TagResourceResponse"
   } as any;
 };
 
-const deserializeAws_json1_1Test = (
-  output: any,
-  context: __SerdeContext
-): Test => {
+const deserializeAws_json1_1Test = (output: any, context: __SerdeContext): Test => {
   return {
     __type: "Test",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     counters:
       output.counters !== undefined && output.counters !== null
         ? deserializeAws_json1_1Counters(output.counters, context)
         : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
     deviceMinutes:
       output.deviceMinutes !== undefined && output.deviceMinutes !== null
         ? deserializeAws_json1_1DeviceMinutes(output.deviceMinutes, context)
         : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    result:
-      output.result !== undefined && output.result !== null
-        ? output.result
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    result: output.result !== undefined && output.result !== null ? output.result : undefined,
     started:
-      output.started !== undefined && output.started !== null
-        ? new Date(Math.round(output.started * 1000))
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     stopped:
-      output.stopped !== undefined && output.stopped !== null
-        ? new Date(Math.round(output.stopped * 1000))
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+      output.stopped !== undefined && output.stopped !== null ? new Date(Math.round(output.stopped * 1000)) : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TestGridProject = (
-  output: any,
-  context: __SerdeContext
-): TestGridProject => {
+const deserializeAws_json1_1TestGridProject = (output: any, context: __SerdeContext): TestGridProject => {
   return {
     __type: "TestGridProject",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TestGridProjects = (
-  output: any,
-  context: __SerdeContext
-): TestGridProject[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TestGridProject(entry, context)
-  );
+const deserializeAws_json1_1TestGridProjects = (output: any, context: __SerdeContext): TestGridProject[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridProject(entry, context));
 };
 
-const deserializeAws_json1_1TestGridSession = (
-  output: any,
-  context: __SerdeContext
-): TestGridSession => {
+const deserializeAws_json1_1TestGridSession = (output: any, context: __SerdeContext): TestGridSession => {
   return {
     __type: "TestGridSession",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     billingMinutes:
-      output.billingMinutes !== undefined && output.billingMinutes !== null
-        ? output.billingMinutes
-        : undefined,
+      output.billingMinutes !== undefined && output.billingMinutes !== null ? output.billingMinutes : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
-    ended:
-      output.ended !== undefined && output.ended !== null
-        ? new Date(Math.round(output.ended * 1000))
-        : undefined,
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+    ended: output.ended !== undefined && output.ended !== null ? new Date(Math.round(output.ended * 1000)) : undefined,
     seleniumProperties:
-      output.seleniumProperties !== undefined &&
-      output.seleniumProperties !== null
+      output.seleniumProperties !== undefined && output.seleniumProperties !== null
         ? output.seleniumProperties
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TestGridSessionAction = (
-  output: any,
-  context: __SerdeContext
-): TestGridSessionAction => {
+const deserializeAws_json1_1TestGridSessionAction = (output: any, context: __SerdeContext): TestGridSessionAction => {
   return {
     __type: "TestGridSessionAction",
-    action:
-      output.action !== undefined && output.action !== null
-        ? output.action
-        : undefined,
-    duration:
-      output.duration !== undefined && output.duration !== null
-        ? output.duration
-        : undefined,
+    action: output.action !== undefined && output.action !== null ? output.action : undefined,
+    duration: output.duration !== undefined && output.duration !== null ? output.duration : undefined,
     requestMethod:
-      output.requestMethod !== undefined && output.requestMethod !== null
-        ? output.requestMethod
-        : undefined,
+      output.requestMethod !== undefined && output.requestMethod !== null ? output.requestMethod : undefined,
     started:
-      output.started !== undefined && output.started !== null
-        ? new Date(Math.round(output.started * 1000))
-        : undefined,
-    statusCode:
-      output.statusCode !== undefined && output.statusCode !== null
-        ? output.statusCode
-        : undefined
+      output.started !== undefined && output.started !== null ? new Date(Math.round(output.started * 1000)) : undefined,
+    statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined
   } as any;
 };
 
@@ -13076,9 +10404,7 @@ const deserializeAws_json1_1TestGridSessionActions = (
   output: any,
   context: __SerdeContext
 ): TestGridSessionAction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TestGridSessionAction(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridSessionAction(entry, context));
 };
 
 const deserializeAws_json1_1TestGridSessionArtifact = (
@@ -13087,16 +10413,9 @@ const deserializeAws_json1_1TestGridSessionArtifact = (
 ): TestGridSessionArtifact => {
   return {
     __type: "TestGridSessionArtifact",
-    filename:
-      output.filename !== undefined && output.filename !== null
-        ? output.filename
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+    filename: output.filename !== undefined && output.filename !== null ? output.filename : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
@@ -13104,73 +10423,37 @@ const deserializeAws_json1_1TestGridSessionArtifacts = (
   output: any,
   context: __SerdeContext
 ): TestGridSessionArtifact[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TestGridSessionArtifact(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridSessionArtifact(entry, context));
 };
 
-const deserializeAws_json1_1TestGridSessions = (
-  output: any,
-  context: __SerdeContext
-): TestGridSession[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TestGridSession(entry, context)
-  );
+const deserializeAws_json1_1TestGridSessions = (output: any, context: __SerdeContext): TestGridSession[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TestGridSession(entry, context));
 };
 
-const deserializeAws_json1_1Tests = (
-  output: any,
-  context: __SerdeContext
-): Test[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Test(entry, context)
-  );
+const deserializeAws_json1_1Tests = (output: any, context: __SerdeContext): Test[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Test(entry, context));
 };
 
-const deserializeAws_json1_1TooManyTagsException = (
-  output: any,
-  context: __SerdeContext
-): TooManyTagsException => {
+const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
     __type: "TooManyTagsException",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    resourceName:
-      output.resourceName !== undefined && output.resourceName !== null
-        ? output.resourceName
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TrialMinutes = (
-  output: any,
-  context: __SerdeContext
-): TrialMinutes => {
+const deserializeAws_json1_1TrialMinutes = (output: any, context: __SerdeContext): TrialMinutes => {
   return {
     __type: "TrialMinutes",
-    remaining:
-      output.remaining !== undefined && output.remaining !== null
-        ? output.remaining
-        : undefined,
-    total:
-      output.total !== undefined && output.total !== null
-        ? output.total
-        : undefined
+    remaining: output.remaining !== undefined && output.remaining !== null ? output.remaining : undefined,
+    total: output.total !== undefined && output.total !== null ? output.total : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UniqueProblem = (
-  output: any,
-  context: __SerdeContext
-): UniqueProblem => {
+const deserializeAws_json1_1UniqueProblem = (output: any, context: __SerdeContext): UniqueProblem => {
   return {
     __type: "UniqueProblem",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
     problems:
       output.problems !== undefined && output.problems !== null
         ? deserializeAws_json1_1Problems(output.problems, context)
@@ -13178,13 +10461,8 @@ const deserializeAws_json1_1UniqueProblem = (
   } as any;
 };
 
-const deserializeAws_json1_1UniqueProblems = (
-  output: any,
-  context: __SerdeContext
-): UniqueProblem[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1UniqueProblem(entry, context)
-  );
+const deserializeAws_json1_1UniqueProblems = (output: any, context: __SerdeContext): UniqueProblem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1UniqueProblem(entry, context));
 };
 
 const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
@@ -13192,10 +10470,7 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   context: __SerdeContext
 ): { [key: string]: UniqueProblem[] } => {
   return Object.entries(output).reduce(
-    (
-      acc: { [key: string]: UniqueProblem[] },
-      [key, value]: [ExecutionResult | string, any]
-    ) => ({
+    (acc: { [key: string]: UniqueProblem[] }, [key, value]: [ExecutionResult | string, any]) => ({
       ...acc,
       [key]: deserializeAws_json1_1UniqueProblems(value, context)
     }),
@@ -13203,10 +10478,7 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
   );
 };
 
-const deserializeAws_json1_1UntagResourceResponse = (
-  output: any,
-  context: __SerdeContext
-): UntagResourceResponse => {
+const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {
     __type: "UntagResourceResponse"
   } as any;
@@ -13225,10 +10497,7 @@ const deserializeAws_json1_1UpdateDeviceInstanceResult = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateDevicePoolResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateDevicePoolResult => {
+const deserializeAws_json1_1UpdateDevicePoolResult = (output: any, context: __SerdeContext): UpdateDevicePoolResult => {
   return {
     __type: "UpdateDevicePoolResult",
     devicePool:
@@ -13264,10 +10533,7 @@ const deserializeAws_json1_1UpdateNetworkProfileResult = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateProjectResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateProjectResult => {
+const deserializeAws_json1_1UpdateProjectResult = (output: any, context: __SerdeContext): UpdateProjectResult => {
   return {
     __type: "UpdateProjectResult",
     project:
@@ -13290,10 +10556,7 @@ const deserializeAws_json1_1UpdateTestGridProjectResult = (
   } as any;
 };
 
-const deserializeAws_json1_1UpdateUploadResult = (
-  output: any,
-  context: __SerdeContext
-): UpdateUploadResult => {
+const deserializeAws_json1_1UpdateUploadResult = (output: any, context: __SerdeContext): UpdateUploadResult => {
   return {
     __type: "UpdateUploadResult",
     upload:
@@ -13310,106 +10573,54 @@ const deserializeAws_json1_1UpdateVPCEConfigurationResult = (
   return {
     __type: "UpdateVPCEConfigurationResult",
     vpceConfiguration:
-      output.vpceConfiguration !== undefined &&
-      output.vpceConfiguration !== null
-        ? deserializeAws_json1_1VPCEConfiguration(
-            output.vpceConfiguration,
-            context
-          )
+      output.vpceConfiguration !== undefined && output.vpceConfiguration !== null
+        ? deserializeAws_json1_1VPCEConfiguration(output.vpceConfiguration, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Upload = (
-  output: any,
-  context: __SerdeContext
-): Upload => {
+const deserializeAws_json1_1Upload = (output: any, context: __SerdeContext): Upload => {
   return {
     __type: "Upload",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    category:
-      output.category !== undefined && output.category !== null
-        ? output.category
-        : undefined,
-    contentType:
-      output.contentType !== undefined && output.contentType !== null
-        ? output.contentType
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    category: output.category !== undefined && output.category !== null ? output.category : undefined,
+    contentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
     created:
-      output.created !== undefined && output.created !== null
-        ? new Date(Math.round(output.created * 1000))
-        : undefined,
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    metadata:
-      output.metadata !== undefined && output.metadata !== null
-        ? output.metadata
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    url:
-      output.url !== undefined && output.url !== null ? output.url : undefined
+      output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    metadata: output.metadata !== undefined && output.metadata !== null ? output.metadata : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    url: output.url !== undefined && output.url !== null ? output.url : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Uploads = (
-  output: any,
-  context: __SerdeContext
-): Upload[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Upload(entry, context)
-  );
+const deserializeAws_json1_1Uploads = (output: any, context: __SerdeContext): Upload[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Upload(entry, context));
 };
 
-const deserializeAws_json1_1VPCEConfiguration = (
-  output: any,
-  context: __SerdeContext
-): VPCEConfiguration => {
+const deserializeAws_json1_1VPCEConfiguration = (output: any, context: __SerdeContext): VPCEConfiguration => {
   return {
     __type: "VPCEConfiguration",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     serviceDnsName:
-      output.serviceDnsName !== undefined && output.serviceDnsName !== null
-        ? output.serviceDnsName
-        : undefined,
+      output.serviceDnsName !== undefined && output.serviceDnsName !== null ? output.serviceDnsName : undefined,
     vpceConfigurationDescription:
-      output.vpceConfigurationDescription !== undefined &&
-      output.vpceConfigurationDescription !== null
+      output.vpceConfigurationDescription !== undefined && output.vpceConfigurationDescription !== null
         ? output.vpceConfigurationDescription
         : undefined,
     vpceConfigurationName:
-      output.vpceConfigurationName !== undefined &&
-      output.vpceConfigurationName !== null
+      output.vpceConfigurationName !== undefined && output.vpceConfigurationName !== null
         ? output.vpceConfigurationName
         : undefined,
     vpceServiceName:
-      output.vpceServiceName !== undefined && output.vpceServiceName !== null
-        ? output.vpceServiceName
-        : undefined
+      output.vpceServiceName !== undefined && output.vpceServiceName !== null ? output.vpceServiceName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1VPCEConfigurations = (
-  output: any,
-  context: __SerdeContext
-): VPCEConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1VPCEConfiguration(entry, context)
-  );
+const deserializeAws_json1_1VPCEConfigurations = (output: any, context: __SerdeContext): VPCEConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1VPCEConfiguration(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -13419,23 +10630,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

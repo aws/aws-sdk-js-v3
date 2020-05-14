@@ -1,21 +1,11 @@
-import {
-  MediaConvertClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConvertClient";
-import {
-  DescribeEndpointsRequest,
-  DescribeEndpointsResponse
-} from "../models/index";
+import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeEndpointsCommand,
   serializeAws_restJson1_1DescribeEndpointsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEndpointsCommandInput = DescribeEndpointsRequest;
-export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse &
-  __MetadataBearer;
+export type DescribeEndpointsCommandOutput = DescribeEndpointsResponse & __MetadataBearer;
 
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,
@@ -50,9 +39,7 @@ export class DescribeEndpointsCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEndpointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeEndpointsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEndpointsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
     return deserializeAws_restJson1_1DescribeEndpointsCommand(output, context);
   }
 

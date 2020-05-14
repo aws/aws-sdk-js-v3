@@ -1,18 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
 import { PublishSchemaRequest, PublishSchemaResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PublishSchemaCommand,
   serializeAws_restJson1_1PublishSchemaCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PublishSchemaCommandInput = PublishSchemaRequest;
-export type PublishSchemaCommandOutput = PublishSchemaResponse &
-  __MetadataBearer;
+export type PublishSchemaCommandOutput = PublishSchemaResponse & __MetadataBearer;
 
 export class PublishSchemaCommand extends $Command<
   PublishSchemaCommandInput,
@@ -47,9 +39,7 @@ export class PublishSchemaCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PublishSchemaCommandInput, PublishSchemaCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class PublishSchemaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PublishSchemaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PublishSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PublishSchemaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PublishSchemaCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishSchemaCommandOutput> {
     return deserializeAws_restJson1_1PublishSchemaCommand(output, context);
   }
 

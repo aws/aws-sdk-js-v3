@@ -10,10 +10,7 @@ import {
   StartNextPendingJobExecutionCommandInput,
   StartNextPendingJobExecutionCommandOutput
 } from "../commands/StartNextPendingJobExecutionCommand";
-import {
-  UpdateJobExecutionCommandInput,
-  UpdateJobExecutionCommandOutput
-} from "../commands/UpdateJobExecutionCommand";
+import { UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput } from "../commands/UpdateJobExecutionCommand";
 import {
   CertificateValidationException,
   InvalidRequestException,
@@ -26,10 +23,7 @@ import {
   TerminalStateException,
   ThrottlingException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -54,10 +48,7 @@ export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -66,10 +57,7 @@ export const serializeAws_restJson1_1DescribeJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -108,10 +96,7 @@ export const serializeAws_restJson1_1GetPendingJobExecutionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -141,20 +126,14 @@ export const serializeAws_restJson1_1StartNextPendingJobExecutionCommand = async
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.statusDetails !== undefined && {
-      statusDetails: serializeAws_restJson1_1DetailsMap(
-        input.statusDetails,
-        context
-      )
+      statusDetails: serializeAws_restJson1_1DetailsMap(input.statusDetails, context)
     }),
     ...(input.stepTimeoutInMinutes !== undefined && {
       stepTimeoutInMinutes: input.stepTimeoutInMinutes
@@ -185,10 +164,7 @@ export const serializeAws_restJson1_1UpdateJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{jobId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
   }
@@ -197,10 +173,7 @@ export const serializeAws_restJson1_1UpdateJobExecutionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: thingName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{thingName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
@@ -220,10 +193,7 @@ export const serializeAws_restJson1_1UpdateJobExecutionCommand = async (
     }),
     ...(input.status !== undefined && { status: input.status }),
     ...(input.statusDetails !== undefined && {
-      statusDetails: serializeAws_restJson1_1DetailsMap(
-        input.statusDetails,
-        context
-      )
+      statusDetails: serializeAws_restJson1_1DetailsMap(input.statusDetails, context)
     }),
     ...(input.stepTimeoutInMinutes !== undefined && {
       stepTimeoutInMinutes: input.stepTimeoutInMinutes
@@ -246,10 +216,7 @@ export const deserializeAws_restJson1_1DescribeJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeJobExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobExecutionCommandError(output, context);
   }
   const contents: DescribeJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -258,10 +225,7 @@ export const deserializeAws_restJson1_1DescribeJobExecutionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.execution !== undefined && data.execution !== null) {
-    contents.execution = deserializeAws_restJson1_1JobExecution(
-      data.execution,
-      context
-    );
+    contents.execution = deserializeAws_restJson1_1JobExecution(data.execution, context);
   }
   return Promise.resolve(contents);
 };
@@ -281,10 +245,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -292,10 +253,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -303,10 +261,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -314,10 +269,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -325,10 +277,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "TerminalStateException":
     case "com.amazonaws.iot.common.types#TerminalStateException":
       response = {
-        ...(await deserializeAws_restJson1_1TerminalStateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TerminalStateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -336,10 +285,7 @@ const deserializeAws_restJson1_1DescribeJobExecutionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.laser.thingjobmanagerservice#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -366,10 +312,7 @@ export const deserializeAws_restJson1_1GetPendingJobExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<GetPendingJobExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetPendingJobExecutionsCommandError(output, context);
   }
   const contents: GetPendingJobExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -379,16 +322,10 @@ export const deserializeAws_restJson1_1GetPendingJobExecutionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.inProgressJobs !== undefined && data.inProgressJobs !== null) {
-    contents.inProgressJobs = deserializeAws_restJson1_1JobExecutionSummaryList(
-      data.inProgressJobs,
-      context
-    );
+    contents.inProgressJobs = deserializeAws_restJson1_1JobExecutionSummaryList(data.inProgressJobs, context);
   }
   if (data.queuedJobs !== undefined && data.queuedJobs !== null) {
-    contents.queuedJobs = deserializeAws_restJson1_1JobExecutionSummaryList(
-      data.queuedJobs,
-      context
-    );
+    contents.queuedJobs = deserializeAws_restJson1_1JobExecutionSummaryList(data.queuedJobs, context);
   }
   return Promise.resolve(contents);
 };
@@ -408,10 +345,7 @@ const deserializeAws_restJson1_1GetPendingJobExecutionsCommandError = async (
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -419,10 +353,7 @@ const deserializeAws_restJson1_1GetPendingJobExecutionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -430,10 +361,7 @@ const deserializeAws_restJson1_1GetPendingJobExecutionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -441,10 +369,7 @@ const deserializeAws_restJson1_1GetPendingJobExecutionsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -452,10 +377,7 @@ const deserializeAws_restJson1_1GetPendingJobExecutionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.laser.thingjobmanagerservice#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -482,10 +404,7 @@ export const deserializeAws_restJson1_1StartNextPendingJobExecutionCommand = asy
   context: __SerdeContext
 ): Promise<StartNextPendingJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError(output, context);
   }
   const contents: StartNextPendingJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -494,10 +413,7 @@ export const deserializeAws_restJson1_1StartNextPendingJobExecutionCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data.execution !== undefined && data.execution !== null) {
-    contents.execution = deserializeAws_restJson1_1JobExecution(
-      data.execution,
-      context
-    );
+    contents.execution = deserializeAws_restJson1_1JobExecution(data.execution, context);
   }
   return Promise.resolve(contents);
 };
@@ -517,10 +433,7 @@ const deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError = async
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -528,10 +441,7 @@ const deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError = async
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -539,10 +449,7 @@ const deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -550,10 +457,7 @@ const deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError = async
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -561,10 +465,7 @@ const deserializeAws_restJson1_1StartNextPendingJobExecutionCommandError = async
     case "ThrottlingException":
     case "com.amazonaws.iot.laser.thingjobmanagerservice#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -591,10 +492,7 @@ export const deserializeAws_restJson1_1UpdateJobExecutionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateJobExecutionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateJobExecutionCommandError(output, context);
   }
   const contents: UpdateJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -604,10 +502,7 @@ export const deserializeAws_restJson1_1UpdateJobExecutionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.executionState !== undefined && data.executionState !== null) {
-    contents.executionState = deserializeAws_restJson1_1JobExecutionState(
-      data.executionState,
-      context
-    );
+    contents.executionState = deserializeAws_restJson1_1JobExecutionState(data.executionState, context);
   }
   if (data.jobDocument !== undefined && data.jobDocument !== null) {
     contents.jobDocument = data.jobDocument;
@@ -630,10 +525,7 @@ const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
     case "CertificateValidationException":
     case "com.amazonaws.iot.common.types#CertificateValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1CertificateValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -641,10 +533,7 @@ const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot.common.types#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -652,10 +541,7 @@ const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
     case "InvalidStateTransitionException":
     case "com.amazonaws.iot.common.types#InvalidStateTransitionException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -663,10 +549,7 @@ const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot.common.types#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -674,10 +557,7 @@ const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.iot.common.types#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -685,10 +565,7 @@ const deserializeAws_restJson1_1UpdateJobExecutionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iot.laser.thingjobmanagerservice#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -833,10 +710,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1DetailsMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DetailsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -846,10 +720,7 @@ const serializeAws_restJson1_1DetailsMap = (
   );
 };
 
-const deserializeAws_restJson1_1DetailsMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1DetailsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -859,111 +730,57 @@ const deserializeAws_restJson1_1DetailsMap = (
   );
 };
 
-const deserializeAws_restJson1_1JobExecution = (
-  output: any,
-  context: __SerdeContext
-): JobExecution => {
+const deserializeAws_restJson1_1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
     __type: "JobExecution",
     approximateSecondsBeforeTimedOut:
-      output.approximateSecondsBeforeTimedOut !== undefined &&
-      output.approximateSecondsBeforeTimedOut !== null
+      output.approximateSecondsBeforeTimedOut !== undefined && output.approximateSecondsBeforeTimedOut !== null
         ? output.approximateSecondsBeforeTimedOut
         : undefined,
     executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null
-        ? output.executionNumber
-        : undefined,
-    jobDocument:
-      output.jobDocument !== undefined && output.jobDocument !== null
-        ? output.jobDocument
-        : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
+      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
+    jobDocument: output.jobDocument !== undefined && output.jobDocument !== null ? output.jobDocument : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? output.lastUpdatedAt
-        : undefined,
-    queuedAt:
-      output.queuedAt !== undefined && output.queuedAt !== null
-        ? output.queuedAt
-        : undefined,
-    startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? output.startedAt
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null ? output.lastUpdatedAt : undefined,
+    queuedAt: output.queuedAt !== undefined && output.queuedAt !== null ? output.queuedAt : undefined,
+    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1_1DetailsMap(output.statusDetails, context)
         : undefined,
-    thingName:
-      output.thingName !== undefined && output.thingName !== null
-        ? output.thingName
-        : undefined,
+    thingName: output.thingName !== undefined && output.thingName !== null ? output.thingName : undefined,
     versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null
-        ? output.versionNumber
-        : undefined
+      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobExecutionState = (
-  output: any,
-  context: __SerdeContext
-): JobExecutionState => {
+const deserializeAws_restJson1_1JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
   return {
     __type: "JobExecutionState",
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
         ? deserializeAws_restJson1_1DetailsMap(output.statusDetails, context)
         : undefined,
     versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null
-        ? output.versionNumber
-        : undefined
+      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobExecutionSummary = (
-  output: any,
-  context: __SerdeContext
-): JobExecutionSummary => {
+const deserializeAws_restJson1_1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
     __type: "JobExecutionSummary",
     executionNumber:
-      output.executionNumber !== undefined && output.executionNumber !== null
-        ? output.executionNumber
-        : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
+      output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     lastUpdatedAt:
-      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
-        ? output.lastUpdatedAt
-        : undefined,
-    queuedAt:
-      output.queuedAt !== undefined && output.queuedAt !== null
-        ? output.queuedAt
-        : undefined,
-    startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? output.startedAt
-        : undefined,
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null ? output.lastUpdatedAt : undefined,
+    queuedAt: output.queuedAt !== undefined && output.queuedAt !== null ? output.queuedAt : undefined,
+    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
     versionNumber:
-      output.versionNumber !== undefined && output.versionNumber !== null
-        ? output.versionNumber
-        : undefined
+      output.versionNumber !== undefined && output.versionNumber !== null ? output.versionNumber : undefined
   } as any;
 };
 
@@ -971,9 +788,7 @@ const deserializeAws_restJson1_1JobExecutionSummaryList = (
   output: any,
   context: __SerdeContext
 ): JobExecutionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobExecutionSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobExecutionSummary(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -983,30 +798,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -1021,8 +827,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

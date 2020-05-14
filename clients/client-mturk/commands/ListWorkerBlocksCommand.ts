@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ListWorkerBlocksRequest,
-  ListWorkerBlocksResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ListWorkerBlocksRequest, ListWorkerBlocksResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListWorkerBlocksCommand,
   serializeAws_json1_1ListWorkerBlocksCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListWorkerBlocksCommandInput = ListWorkerBlocksRequest;
-export type ListWorkerBlocksCommandOutput = ListWorkerBlocksResponse &
-  __MetadataBearer;
+export type ListWorkerBlocksCommandOutput = ListWorkerBlocksResponse & __MetadataBearer;
 
 export class ListWorkerBlocksCommand extends $Command<
   ListWorkerBlocksCommandInput,
@@ -50,9 +39,7 @@ export class ListWorkerBlocksCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListWorkerBlocksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListWorkerBlocksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListWorkerBlocksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListWorkerBlocksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListWorkerBlocksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkerBlocksCommandOutput> {
     return deserializeAws_json1_1ListWorkerBlocksCommand(output, context);
   }
 

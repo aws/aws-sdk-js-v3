@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddPermissionInput {
@@ -31,24 +28,20 @@ export interface AddPermissionInput {
 }
 
 export namespace AddPermissionInput {
-  export const isa = (o: any): o is AddPermissionInput =>
-    __isa(o, "AddPermissionInput");
+  export const isa = (o: any): o is AddPermissionInput => __isa(o, "AddPermissionInput");
 }
 
 /**
  * <p>Indicates that the user has been denied access to the requested resource.</p>
  */
-export interface AuthorizationErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AuthorizationErrorException extends __SmithyException, $MetadataBearer {
   name: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
 }
 
 export namespace AuthorizationErrorException {
-  export const isa = (o: any): o is AuthorizationErrorException =>
-    __isa(o, "AuthorizationErrorException");
+  export const isa = (o: any): o is AuthorizationErrorException => __isa(o, "AuthorizationErrorException");
 }
 
 /**
@@ -63,8 +56,7 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
 }
 
 export namespace CheckIfPhoneNumberIsOptedOutInput {
-  export const isa = (o: any): o is CheckIfPhoneNumberIsOptedOutInput =>
-    __isa(o, "CheckIfPhoneNumberIsOptedOutInput");
+  export const isa = (o: any): o is CheckIfPhoneNumberIsOptedOutInput => __isa(o, "CheckIfPhoneNumberIsOptedOutInput");
 }
 
 /**
@@ -99,17 +91,14 @@ export namespace CheckIfPhoneNumberIsOptedOutResponse {
  * <p>Can't perform multiple operations on a tag simultaneously. Perform the operations
  *             sequentially.</p>
  */
-export interface ConcurrentAccessException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentAccessException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentAccessException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ConcurrentAccessException {
-  export const isa = (o: any): o is ConcurrentAccessException =>
-    __isa(o, "ConcurrentAccessException");
+  export const isa = (o: any): o is ConcurrentAccessException => __isa(o, "ConcurrentAccessException");
 }
 
 /**
@@ -137,8 +126,7 @@ export interface ConfirmSubscriptionInput {
 }
 
 export namespace ConfirmSubscriptionInput {
-  export const isa = (o: any): o is ConfirmSubscriptionInput =>
-    __isa(o, "ConfirmSubscriptionInput");
+  export const isa = (o: any): o is ConfirmSubscriptionInput => __isa(o, "ConfirmSubscriptionInput");
 }
 
 /**
@@ -153,8 +141,7 @@ export interface ConfirmSubscriptionResponse {
 }
 
 export namespace ConfirmSubscriptionResponse {
-  export const isa = (o: any): o is ConfirmSubscriptionResponse =>
-    __isa(o, "ConfirmSubscriptionResponse");
+  export const isa = (o: any): o is ConfirmSubscriptionResponse => __isa(o, "ConfirmSubscriptionResponse");
 }
 
 /**
@@ -169,8 +156,7 @@ export interface CreateEndpointResponse {
 }
 
 export namespace CreateEndpointResponse {
-  export const isa = (o: any): o is CreateEndpointResponse =>
-    __isa(o, "CreateEndpointResponse");
+  export const isa = (o: any): o is CreateEndpointResponse => __isa(o, "CreateEndpointResponse");
 }
 
 /**
@@ -199,8 +185,7 @@ export interface CreatePlatformApplicationInput {
 }
 
 export namespace CreatePlatformApplicationInput {
-  export const isa = (o: any): o is CreatePlatformApplicationInput =>
-    __isa(o, "CreatePlatformApplicationInput");
+  export const isa = (o: any): o is CreatePlatformApplicationInput => __isa(o, "CreatePlatformApplicationInput");
 }
 
 /**
@@ -215,8 +200,7 @@ export interface CreatePlatformApplicationResponse {
 }
 
 export namespace CreatePlatformApplicationResponse {
-  export const isa = (o: any): o is CreatePlatformApplicationResponse =>
-    __isa(o, "CreatePlatformApplicationResponse");
+  export const isa = (o: any): o is CreatePlatformApplicationResponse => __isa(o, "CreatePlatformApplicationResponse");
 }
 
 /**
@@ -252,8 +236,7 @@ export interface CreatePlatformEndpointInput {
 }
 
 export namespace CreatePlatformEndpointInput {
-  export const isa = (o: any): o is CreatePlatformEndpointInput =>
-    __isa(o, "CreatePlatformEndpointInput");
+  export const isa = (o: any): o is CreatePlatformEndpointInput => __isa(o, "CreatePlatformEndpointInput");
 }
 
 /**
@@ -315,8 +298,7 @@ export interface CreateTopicInput {
 }
 
 export namespace CreateTopicInput {
-  export const isa = (o: any): o is CreateTopicInput =>
-    __isa(o, "CreateTopicInput");
+  export const isa = (o: any): o is CreateTopicInput => __isa(o, "CreateTopicInput");
 }
 
 /**
@@ -331,8 +313,7 @@ export interface CreateTopicResponse {
 }
 
 export namespace CreateTopicResponse {
-  export const isa = (o: any): o is CreateTopicResponse =>
-    __isa(o, "CreateTopicResponse");
+  export const isa = (o: any): o is CreateTopicResponse => __isa(o, "CreateTopicResponse");
 }
 
 /**
@@ -347,8 +328,7 @@ export interface DeleteEndpointInput {
 }
 
 export namespace DeleteEndpointInput {
-  export const isa = (o: any): o is DeleteEndpointInput =>
-    __isa(o, "DeleteEndpointInput");
+  export const isa = (o: any): o is DeleteEndpointInput => __isa(o, "DeleteEndpointInput");
 }
 
 /**
@@ -363,8 +343,7 @@ export interface DeletePlatformApplicationInput {
 }
 
 export namespace DeletePlatformApplicationInput {
-  export const isa = (o: any): o is DeletePlatformApplicationInput =>
-    __isa(o, "DeletePlatformApplicationInput");
+  export const isa = (o: any): o is DeletePlatformApplicationInput => __isa(o, "DeletePlatformApplicationInput");
 }
 
 export interface DeleteTopicInput {
@@ -376,8 +355,7 @@ export interface DeleteTopicInput {
 }
 
 export namespace DeleteTopicInput {
-  export const isa = (o: any): o is DeleteTopicInput =>
-    __isa(o, "DeleteTopicInput");
+  export const isa = (o: any): o is DeleteTopicInput => __isa(o, "DeleteTopicInput");
 }
 
 /**
@@ -403,9 +381,7 @@ export namespace Endpoint {
 /**
  * <p>Exception error indicating endpoint disabled.</p>
  */
-export interface EndpointDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EndpointDisabledException extends __SmithyException, $MetadataBearer {
   name: "EndpointDisabledException";
   $fault: "client";
   /**
@@ -415,8 +391,7 @@ export interface EndpointDisabledException
 }
 
 export namespace EndpointDisabledException {
-  export const isa = (o: any): o is EndpointDisabledException =>
-    __isa(o, "EndpointDisabledException");
+  export const isa = (o: any): o is EndpointDisabledException => __isa(o, "EndpointDisabledException");
 }
 
 /**
@@ -424,9 +399,7 @@ export namespace EndpointDisabledException {
  *             add more filter polices, submit an SNS Limit Increase case in the AWS Support
  *             Center.</p>
  */
-export interface FilterPolicyLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface FilterPolicyLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "FilterPolicyLimitExceededException";
   $fault: "client";
   message?: string;
@@ -449,8 +422,7 @@ export interface GetEndpointAttributesInput {
 }
 
 export namespace GetEndpointAttributesInput {
-  export const isa = (o: any): o is GetEndpointAttributesInput =>
-    __isa(o, "GetEndpointAttributesInput");
+  export const isa = (o: any): o is GetEndpointAttributesInput => __isa(o, "GetEndpointAttributesInput");
 }
 
 /**
@@ -490,8 +462,7 @@ export interface GetEndpointAttributesResponse {
 }
 
 export namespace GetEndpointAttributesResponse {
-  export const isa = (o: any): o is GetEndpointAttributesResponse =>
-    __isa(o, "GetEndpointAttributesResponse");
+  export const isa = (o: any): o is GetEndpointAttributesResponse => __isa(o, "GetEndpointAttributesResponse");
 }
 
 /**
@@ -564,8 +535,7 @@ export interface GetSMSAttributesInput {
 }
 
 export namespace GetSMSAttributesInput {
-  export const isa = (o: any): o is GetSMSAttributesInput =>
-    __isa(o, "GetSMSAttributesInput");
+  export const isa = (o: any): o is GetSMSAttributesInput => __isa(o, "GetSMSAttributesInput");
 }
 
 /**
@@ -580,8 +550,7 @@ export interface GetSMSAttributesResponse {
 }
 
 export namespace GetSMSAttributesResponse {
-  export const isa = (o: any): o is GetSMSAttributesResponse =>
-    __isa(o, "GetSMSAttributesResponse");
+  export const isa = (o: any): o is GetSMSAttributesResponse => __isa(o, "GetSMSAttributesResponse");
 }
 
 /**
@@ -596,8 +565,7 @@ export interface GetSubscriptionAttributesInput {
 }
 
 export namespace GetSubscriptionAttributesInput {
-  export const isa = (o: any): o is GetSubscriptionAttributesInput =>
-    __isa(o, "GetSubscriptionAttributesInput");
+  export const isa = (o: any): o is GetSubscriptionAttributesInput => __isa(o, "GetSubscriptionAttributesInput");
 }
 
 /**
@@ -669,8 +637,7 @@ export interface GetSubscriptionAttributesResponse {
 }
 
 export namespace GetSubscriptionAttributesResponse {
-  export const isa = (o: any): o is GetSubscriptionAttributesResponse =>
-    __isa(o, "GetSubscriptionAttributesResponse");
+  export const isa = (o: any): o is GetSubscriptionAttributesResponse => __isa(o, "GetSubscriptionAttributesResponse");
 }
 
 /**
@@ -685,8 +652,7 @@ export interface GetTopicAttributesInput {
 }
 
 export namespace GetTopicAttributesInput {
-  export const isa = (o: any): o is GetTopicAttributesInput =>
-    __isa(o, "GetTopicAttributesInput");
+  export const isa = (o: any): o is GetTopicAttributesInput => __isa(o, "GetTopicAttributesInput");
 }
 
 /**
@@ -757,50 +723,41 @@ export interface GetTopicAttributesResponse {
 }
 
 export namespace GetTopicAttributesResponse {
-  export const isa = (o: any): o is GetTopicAttributesResponse =>
-    __isa(o, "GetTopicAttributesResponse");
+  export const isa = (o: any): o is GetTopicAttributesResponse => __isa(o, "GetTopicAttributesResponse");
 }
 
 /**
  * <p>Indicates an internal service error.</p>
  */
-export interface InternalErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalErrorException";
   $fault: "server";
   message?: string;
 }
 
 export namespace InternalErrorException {
-  export const isa = (o: any): o is InternalErrorException =>
-    __isa(o, "InternalErrorException");
+  export const isa = (o: any): o is InternalErrorException => __isa(o, "InternalErrorException");
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>Indicates that a request parameter does not comply with the associated
  *             constraints.</p>
  */
-export interface InvalidParameterValueException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -810,59 +767,49 @@ export interface InvalidParameterValueException
 }
 
 export namespace InvalidParameterValueException {
-  export const isa = (o: any): o is InvalidParameterValueException =>
-    __isa(o, "InvalidParameterValueException");
+  export const isa = (o: any): o is InvalidParameterValueException => __isa(o, "InvalidParameterValueException");
 }
 
 /**
  * <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
  *             request using Signature Version 4.</p>
  */
-export interface InvalidSecurityException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidSecurityException extends __SmithyException, $MetadataBearer {
   name: "InvalidSecurityException";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidSecurityException {
-  export const isa = (o: any): o is InvalidSecurityException =>
-    __isa(o, "InvalidSecurityException");
+  export const isa = (o: any): o is InvalidSecurityException => __isa(o, "InvalidSecurityException");
 }
 
 /**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  */
-export interface KMSAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSAccessDeniedException {
-  export const isa = (o: any): o is KMSAccessDeniedException =>
-    __isa(o, "KMSAccessDeniedException");
+  export const isa = (o: any): o is KMSAccessDeniedException => __isa(o, "KMSAccessDeniedException");
 }
 
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
-export interface KMSDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledException";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSDisabledException {
-  export const isa = (o: any): o is KMSDisabledException =>
-    __isa(o, "KMSDisabledException");
+  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
@@ -871,34 +818,28 @@ export namespace KMSDisabledException {
  *                 Customer Master Key</a> in the <i>AWS Key Management Service Developer
  *                 Guide</i>.</p>
  */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSInvalidStateException {
-  export const isa = (o: any): o is KMSInvalidStateException =>
-    __isa(o, "KMSInvalidStateException");
+  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
-export interface KMSNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSNotFoundException {
-  export const isa = (o: any): o is KMSNotFoundException =>
-    __isa(o, "KMSNotFoundException");
+  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 /**
@@ -911,8 +852,7 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSOptInRequired {
-  export const isa = (o: any): o is KMSOptInRequired =>
-    __isa(o, "KMSOptInRequired");
+  export const isa = (o: any): o is KMSOptInRequired => __isa(o, "KMSOptInRequired");
 }
 
 /**
@@ -921,17 +861,14 @@ export namespace KMSOptInRequired {
  *             the <i>AWS Key Management Service Developer Guide.</i>
  *          </p>
  */
-export interface KMSThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
   name: "KMSThrottlingException";
   $fault: "client";
   message?: string;
 }
 
 export namespace KMSThrottlingException {
-  export const isa = (o: any): o is KMSThrottlingException =>
-    __isa(o, "KMSThrottlingException");
+  export const isa = (o: any): o is KMSThrottlingException => __isa(o, "KMSThrottlingException");
 }
 
 /**
@@ -974,9 +911,7 @@ export interface ListEndpointsByPlatformApplicationResponse {
 }
 
 export namespace ListEndpointsByPlatformApplicationResponse {
-  export const isa = (
-    o: any
-  ): o is ListEndpointsByPlatformApplicationResponse =>
+  export const isa = (o: any): o is ListEndpointsByPlatformApplicationResponse =>
     __isa(o, "ListEndpointsByPlatformApplicationResponse");
 }
 
@@ -994,8 +929,7 @@ export interface ListPhoneNumbersOptedOutInput {
 }
 
 export namespace ListPhoneNumbersOptedOutInput {
-  export const isa = (o: any): o is ListPhoneNumbersOptedOutInput =>
-    __isa(o, "ListPhoneNumbersOptedOutInput");
+  export const isa = (o: any): o is ListPhoneNumbersOptedOutInput => __isa(o, "ListPhoneNumbersOptedOutInput");
 }
 
 /**
@@ -1018,8 +952,7 @@ export interface ListPhoneNumbersOptedOutResponse {
 }
 
 export namespace ListPhoneNumbersOptedOutResponse {
-  export const isa = (o: any): o is ListPhoneNumbersOptedOutResponse =>
-    __isa(o, "ListPhoneNumbersOptedOutResponse");
+  export const isa = (o: any): o is ListPhoneNumbersOptedOutResponse => __isa(o, "ListPhoneNumbersOptedOutResponse");
 }
 
 /**
@@ -1035,8 +968,7 @@ export interface ListPlatformApplicationsInput {
 }
 
 export namespace ListPlatformApplicationsInput {
-  export const isa = (o: any): o is ListPlatformApplicationsInput =>
-    __isa(o, "ListPlatformApplicationsInput");
+  export const isa = (o: any): o is ListPlatformApplicationsInput => __isa(o, "ListPlatformApplicationsInput");
 }
 
 /**
@@ -1057,8 +989,7 @@ export interface ListPlatformApplicationsResponse {
 }
 
 export namespace ListPlatformApplicationsResponse {
-  export const isa = (o: any): o is ListPlatformApplicationsResponse =>
-    __isa(o, "ListPlatformApplicationsResponse");
+  export const isa = (o: any): o is ListPlatformApplicationsResponse => __isa(o, "ListPlatformApplicationsResponse");
 }
 
 /**
@@ -1078,8 +1009,7 @@ export interface ListSubscriptionsByTopicInput {
 }
 
 export namespace ListSubscriptionsByTopicInput {
-  export const isa = (o: any): o is ListSubscriptionsByTopicInput =>
-    __isa(o, "ListSubscriptionsByTopicInput");
+  export const isa = (o: any): o is ListSubscriptionsByTopicInput => __isa(o, "ListSubscriptionsByTopicInput");
 }
 
 /**
@@ -1100,8 +1030,7 @@ export interface ListSubscriptionsByTopicResponse {
 }
 
 export namespace ListSubscriptionsByTopicResponse {
-  export const isa = (o: any): o is ListSubscriptionsByTopicResponse =>
-    __isa(o, "ListSubscriptionsByTopicResponse");
+  export const isa = (o: any): o is ListSubscriptionsByTopicResponse => __isa(o, "ListSubscriptionsByTopicResponse");
 }
 
 /**
@@ -1116,8 +1045,7 @@ export interface ListSubscriptionsInput {
 }
 
 export namespace ListSubscriptionsInput {
-  export const isa = (o: any): o is ListSubscriptionsInput =>
-    __isa(o, "ListSubscriptionsInput");
+  export const isa = (o: any): o is ListSubscriptionsInput => __isa(o, "ListSubscriptionsInput");
 }
 
 /**
@@ -1138,8 +1066,7 @@ export interface ListSubscriptionsResponse {
 }
 
 export namespace ListSubscriptionsResponse {
-  export const isa = (o: any): o is ListSubscriptionsResponse =>
-    __isa(o, "ListSubscriptionsResponse");
+  export const isa = (o: any): o is ListSubscriptionsResponse => __isa(o, "ListSubscriptionsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -1151,8 +1078,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -1164,8 +1090,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ListTopicsInput {
@@ -1177,8 +1102,7 @@ export interface ListTopicsInput {
 }
 
 export namespace ListTopicsInput {
-  export const isa = (o: any): o is ListTopicsInput =>
-    __isa(o, "ListTopicsInput");
+  export const isa = (o: any): o is ListTopicsInput => __isa(o, "ListTopicsInput");
 }
 
 /**
@@ -1199,8 +1123,7 @@ export interface ListTopicsResponse {
 }
 
 export namespace ListTopicsResponse {
-  export const isa = (o: any): o is ListTopicsResponse =>
-    __isa(o, "ListTopicsResponse");
+  export const isa = (o: any): o is ListTopicsResponse => __isa(o, "ListTopicsResponse");
 }
 
 /**
@@ -1236,8 +1159,7 @@ export interface MessageAttributeValue {
 }
 
 export namespace MessageAttributeValue {
-  export const isa = (o: any): o is MessageAttributeValue =>
-    __isa(o, "MessageAttributeValue");
+  export const isa = (o: any): o is MessageAttributeValue => __isa(o, "MessageAttributeValue");
 }
 
 /**
@@ -1250,8 +1172,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -1266,8 +1187,7 @@ export interface OptInPhoneNumberInput {
 }
 
 export namespace OptInPhoneNumberInput {
-  export const isa = (o: any): o is OptInPhoneNumberInput =>
-    __isa(o, "OptInPhoneNumberInput");
+  export const isa = (o: any): o is OptInPhoneNumberInput => __isa(o, "OptInPhoneNumberInput");
 }
 
 /**
@@ -1278,8 +1198,7 @@ export interface OptInPhoneNumberResponse {
 }
 
 export namespace OptInPhoneNumberResponse {
-  export const isa = (o: any): o is OptInPhoneNumberResponse =>
-    __isa(o, "OptInPhoneNumberResponse");
+  export const isa = (o: any): o is OptInPhoneNumberResponse => __isa(o, "OptInPhoneNumberResponse");
 }
 
 /**
@@ -1299,16 +1218,13 @@ export interface PlatformApplication {
 }
 
 export namespace PlatformApplication {
-  export const isa = (o: any): o is PlatformApplication =>
-    __isa(o, "PlatformApplication");
+  export const isa = (o: any): o is PlatformApplication => __isa(o, "PlatformApplication");
 }
 
 /**
  * <p>Exception error indicating platform application disabled.</p>
  */
-export interface PlatformApplicationDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PlatformApplicationDisabledException extends __SmithyException, $MetadataBearer {
   name: "PlatformApplicationDisabledException";
   $fault: "client";
   /**
@@ -1469,8 +1385,7 @@ export interface PublishResponse {
 }
 
 export namespace PublishResponse {
-  export const isa = (o: any): o is PublishResponse =>
-    __isa(o, "PublishResponse");
+  export const isa = (o: any): o is PublishResponse => __isa(o, "PublishResponse");
 }
 
 /**
@@ -1490,24 +1405,20 @@ export interface RemovePermissionInput {
 }
 
 export namespace RemovePermissionInput {
-  export const isa = (o: any): o is RemovePermissionInput =>
-    __isa(o, "RemovePermissionInput");
+  export const isa = (o: any): o is RemovePermissionInput => __isa(o, "RemovePermissionInput");
 }
 
 /**
  * <p>Can't tag resource. Verify that the topic exists.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -1549,8 +1460,7 @@ export interface SetEndpointAttributesInput {
 }
 
 export namespace SetEndpointAttributesInput {
-  export const isa = (o: any): o is SetEndpointAttributesInput =>
-    __isa(o, "SetEndpointAttributesInput");
+  export const isa = (o: any): o is SetEndpointAttributesInput => __isa(o, "SetEndpointAttributesInput");
 }
 
 /**
@@ -1724,8 +1634,7 @@ export interface SetSMSAttributesInput {
 }
 
 export namespace SetSMSAttributesInput {
-  export const isa = (o: any): o is SetSMSAttributesInput =>
-    __isa(o, "SetSMSAttributesInput");
+  export const isa = (o: any): o is SetSMSAttributesInput => __isa(o, "SetSMSAttributesInput");
 }
 
 /**
@@ -1736,8 +1645,7 @@ export interface SetSMSAttributesResponse {
 }
 
 export namespace SetSMSAttributesResponse {
-  export const isa = (o: any): o is SetSMSAttributesResponse =>
-    __isa(o, "SetSMSAttributesResponse");
+  export const isa = (o: any): o is SetSMSAttributesResponse => __isa(o, "SetSMSAttributesResponse");
 }
 
 /**
@@ -1791,8 +1699,7 @@ export interface SetSubscriptionAttributesInput {
 }
 
 export namespace SetSubscriptionAttributesInput {
-  export const isa = (o: any): o is SetSubscriptionAttributesInput =>
-    __isa(o, "SetSubscriptionAttributesInput");
+  export const isa = (o: any): o is SetSubscriptionAttributesInput => __isa(o, "SetSubscriptionAttributesInput");
 }
 
 /**
@@ -1848,8 +1755,7 @@ export interface SetTopicAttributesInput {
 }
 
 export namespace SetTopicAttributesInput {
-  export const isa = (o: any): o is SetTopicAttributesInput =>
-    __isa(o, "SetTopicAttributesInput");
+  export const isa = (o: any): o is SetTopicAttributesInput => __isa(o, "SetTopicAttributesInput");
 }
 
 /**
@@ -1863,8 +1769,7 @@ export interface StaleTagException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace StaleTagException {
-  export const isa = (o: any): o is StaleTagException =>
-    __isa(o, "StaleTagException");
+  export const isa = (o: any): o is StaleTagException => __isa(o, "StaleTagException");
 }
 
 /**
@@ -2019,8 +1924,7 @@ export interface SubscribeInput {
 }
 
 export namespace SubscribeInput {
-  export const isa = (o: any): o is SubscribeInput =>
-    __isa(o, "SubscribeInput");
+  export const isa = (o: any): o is SubscribeInput => __isa(o, "SubscribeInput");
 }
 
 /**
@@ -2038,8 +1942,7 @@ export interface SubscribeResponse {
 }
 
 export namespace SubscribeResponse {
-  export const isa = (o: any): o is SubscribeResponse =>
-    __isa(o, "SubscribeResponse");
+  export const isa = (o: any): o is SubscribeResponse => __isa(o, "SubscribeResponse");
 }
 
 /**
@@ -2081,9 +1984,7 @@ export namespace Subscription {
  * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  */
-export interface SubscriptionLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SubscriptionLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "SubscriptionLimitExceededException";
   $fault: "client";
   message?: string;
@@ -2117,17 +2018,14 @@ export namespace Tag {
 /**
  * <p>Can't add more than 50 tags to a topic.</p>
  */
-export interface TagLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TagLimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TagLimitExceededException {
-  export const isa = (o: any): o is TagLimitExceededException =>
-    __isa(o, "TagLimitExceededException");
+  export const isa = (o: any): o is TagLimitExceededException => __isa(o, "TagLimitExceededException");
 }
 
 /**
@@ -2141,8 +2039,7 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagPolicyException {
-  export const isa = (o: any): o is TagPolicyException =>
-    __isa(o, "TagPolicyException");
+  export const isa = (o: any): o is TagPolicyException => __isa(o, "TagPolicyException");
 }
 
 export interface TagResourceRequest {
@@ -2160,8 +2057,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -2169,8 +2065,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 /**
@@ -2187,8 +2082,7 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
-  export const isa = (o: any): o is ThrottledException =>
-    __isa(o, "ThrottledException");
+  export const isa = (o: any): o is ThrottledException => __isa(o, "ThrottledException");
 }
 
 /**
@@ -2210,17 +2104,14 @@ export namespace Topic {
 /**
  * <p>Indicates that the customer already owns the maximum allowed number of topics.</p>
  */
-export interface TopicLimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TopicLimitExceededException extends __SmithyException, $MetadataBearer {
   name: "TopicLimitExceededException";
   $fault: "client";
   message?: string;
 }
 
 export namespace TopicLimitExceededException {
-  export const isa = (o: any): o is TopicLimitExceededException =>
-    __isa(o, "TopicLimitExceededException");
+  export const isa = (o: any): o is TopicLimitExceededException => __isa(o, "TopicLimitExceededException");
 }
 
 /**
@@ -2235,8 +2126,7 @@ export interface UnsubscribeInput {
 }
 
 export namespace UnsubscribeInput {
-  export const isa = (o: any): o is UnsubscribeInput =>
-    __isa(o, "UnsubscribeInput");
+  export const isa = (o: any): o is UnsubscribeInput => __isa(o, "UnsubscribeInput");
 }
 
 export interface UntagResourceRequest {
@@ -2253,8 +2143,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -2262,6 +2151,5 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }

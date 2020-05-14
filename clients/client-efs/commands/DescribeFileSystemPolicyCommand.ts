@@ -1,21 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  DescribeFileSystemPolicyRequest,
-  FileSystemPolicyDescription
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { DescribeFileSystemPolicyRequest, FileSystemPolicyDescription } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeFileSystemPolicyCommand,
   serializeAws_restJson1_1DescribeFileSystemPolicyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeFileSystemPolicyCommandInput = DescribeFileSystemPolicyRequest;
-export type DescribeFileSystemPolicyCommandOutput = FileSystemPolicyDescription &
-  __MetadataBearer;
+export type DescribeFileSystemPolicyCommandOutput = FileSystemPolicyDescription & __MetadataBearer;
 
 export class DescribeFileSystemPolicyCommand extends $Command<
   DescribeFileSystemPolicyCommandInput,
@@ -49,13 +38,8 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeFileSystemPolicyCommandInput,
-    DescribeFileSystemPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeFileSystemPolicyCommandInput, DescribeFileSystemPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeFileSystemPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeFileSystemPolicyCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeFileSystemPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DescribeFileSystemPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFileSystemPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DescribeFileSystemPolicyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFileSystemPolicyCommandOutput> {
+    return deserializeAws_restJson1_1DescribeFileSystemPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,10 +1,5 @@
 import { EventStreamMarshaller as EventMarshaller } from "@aws-sdk/eventstream-marshaller";
-import {
-  Encoder,
-  Decoder,
-  Message,
-  EventStreamMarshaller as IEventStreamMarshaller
-} from "@aws-sdk/types";
+import { Encoder, Decoder, Message, EventStreamMarshaller as IEventStreamMarshaller } from "@aws-sdk/types";
 import { Readable, pipeline } from "stream";
 import { readabletoIterable } from "./utils";
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
@@ -24,10 +19,7 @@ export class EventStreamMarshaller {
     this.eventMarshaller = new EventMarshaller(utf8Encoder, utf8Decoder);
   }
 
-  deserialize<T>(
-    body: Readable,
-    deserializer: (input: { [event: string]: Message }) => T
-  ): AsyncIterable<T> {
+  deserialize<T>(body: Readable, deserializer: (input: { [event: string]: Message }) => T): AsyncIterable<T> {
     const eventDeserializerStream = new EventDeserializerStream({
       deserializer
     });
@@ -51,10 +43,7 @@ export class EventStreamMarshaller {
     return readabletoIterable(eventDeserializerStream);
   }
 
-  serialize<T>(
-    input: AsyncIterable<T>,
-    serializer: (event: T) => Message
-  ): Readable {
+  serialize<T>(input: AsyncIterable<T>, serializer: (event: T) => Message): Readable {
     //will use Readable.from(Iterable) in Node12
     const inputIterator = input[Symbol.asyncIterator]();
     const self = this;
@@ -68,9 +57,7 @@ export class EventStreamMarshaller {
             this.push(null);
             return;
           }
-          const payloadBuf = result.done
-            ? new Uint8Array(0)
-            : self.eventMarshaller.marshall(serializer(result.value));
+          const payloadBuf = result.done ? new Uint8Array(0) : self.eventMarshaller.marshall(serializer(result.value));
           this.push(payloadBuf);
           if (result.done && !generatorDone) generatorDone = true;
         } catch (e) {

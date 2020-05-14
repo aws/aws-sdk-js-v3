@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  UpdateConnectorDefinitionRequest,
-  UpdateConnectorDefinitionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { UpdateConnectorDefinitionRequest, UpdateConnectorDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateConnectorDefinitionCommand,
   serializeAws_restJson1_1UpdateConnectorDefinitionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateConnectorDefinitionCommandInput = UpdateConnectorDefinitionRequest;
-export type UpdateConnectorDefinitionCommandOutput = UpdateConnectorDefinitionResponse &
-  __MetadataBearer;
+export type UpdateConnectorDefinitionCommandOutput = UpdateConnectorDefinitionResponse & __MetadataBearer;
 
 export class UpdateConnectorDefinitionCommand extends $Command<
   UpdateConnectorDefinitionCommandInput,
@@ -49,13 +38,8 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateConnectorDefinitionCommandInput,
-    UpdateConnectorDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateConnectorDefinitionCommandInput, UpdateConnectorDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateConnectorDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConnectorDefinitionCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateConnectorDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateConnectorDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateConnectorDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConnectorDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateConnectorDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

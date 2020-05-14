@@ -1,71 +1,26 @@
-import {
-  CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput
-} from "./commands/CancelRotateSecretCommand";
-import {
-  CreateSecretCommandInput,
-  CreateSecretCommandOutput
-} from "./commands/CreateSecretCommand";
+import { CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput } from "./commands/CancelRotateSecretCommand";
+import { CreateSecretCommandInput, CreateSecretCommandOutput } from "./commands/CreateSecretCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput
 } from "./commands/DeleteResourcePolicyCommand";
-import {
-  DeleteSecretCommandInput,
-  DeleteSecretCommandOutput
-} from "./commands/DeleteSecretCommand";
-import {
-  DescribeSecretCommandInput,
-  DescribeSecretCommandOutput
-} from "./commands/DescribeSecretCommand";
-import {
-  GetRandomPasswordCommandInput,
-  GetRandomPasswordCommandOutput
-} from "./commands/GetRandomPasswordCommand";
-import {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
-} from "./commands/GetResourcePolicyCommand";
-import {
-  GetSecretValueCommandInput,
-  GetSecretValueCommandOutput
-} from "./commands/GetSecretValueCommand";
+import { DeleteSecretCommandInput, DeleteSecretCommandOutput } from "./commands/DeleteSecretCommand";
+import { DescribeSecretCommandInput, DescribeSecretCommandOutput } from "./commands/DescribeSecretCommand";
+import { GetRandomPasswordCommandInput, GetRandomPasswordCommandOutput } from "./commands/GetRandomPasswordCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
+import { GetSecretValueCommandInput, GetSecretValueCommandOutput } from "./commands/GetSecretValueCommand";
 import {
   ListSecretVersionIdsCommandInput,
   ListSecretVersionIdsCommandOutput
 } from "./commands/ListSecretVersionIdsCommand";
-import {
-  ListSecretsCommandInput,
-  ListSecretsCommandOutput
-} from "./commands/ListSecretsCommand";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand";
-import {
-  PutSecretValueCommandInput,
-  PutSecretValueCommandOutput
-} from "./commands/PutSecretValueCommand";
-import {
-  RestoreSecretCommandInput,
-  RestoreSecretCommandOutput
-} from "./commands/RestoreSecretCommand";
-import {
-  RotateSecretCommandInput,
-  RotateSecretCommandOutput
-} from "./commands/RotateSecretCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateSecretCommandInput,
-  UpdateSecretCommandOutput
-} from "./commands/UpdateSecretCommand";
+import { ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import { PutSecretValueCommandInput, PutSecretValueCommandOutput } from "./commands/PutSecretValueCommand";
+import { RestoreSecretCommandInput, RestoreSecretCommandOutput } from "./commands/RestoreSecretCommand";
+import { RotateSecretCommandInput, RotateSecretCommandOutput } from "./commands/RotateSecretCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateSecretCommandInput, UpdateSecretCommandOutput } from "./commands/UpdateSecretCommand";
 import {
   UpdateSecretVersionStageCommandInput,
   UpdateSecretVersionStageCommandOutput
@@ -86,12 +41,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -162,8 +112,7 @@ export type ServiceOutputTypes =
   | UpdateSecretCommandOutput
   | UpdateSecretVersionStageCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -247,9 +196,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SecretsManagerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SecretsManagerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +205,7 @@ export type SecretsManagerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SecretsManagerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

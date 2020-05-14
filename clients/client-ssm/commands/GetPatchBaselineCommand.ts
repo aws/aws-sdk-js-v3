@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetPatchBaselineRequest,
-  GetPatchBaselineResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetPatchBaselineRequest, GetPatchBaselineResult } from "../models/index";
 import {
   deserializeAws_json1_1GetPatchBaselineCommand,
   serializeAws_json1_1GetPatchBaselineCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPatchBaselineCommandInput = GetPatchBaselineRequest;
-export type GetPatchBaselineCommandOutput = GetPatchBaselineResult &
-  __MetadataBearer;
+export type GetPatchBaselineCommandOutput = GetPatchBaselineResult & __MetadataBearer;
 
 export class GetPatchBaselineCommand extends $Command<
   GetPatchBaselineCommandInput,
@@ -50,9 +39,7 @@ export class GetPatchBaselineCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetPatchBaselineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPatchBaselineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPatchBaselineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPatchBaselineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPatchBaselineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPatchBaselineCommandOutput> {
     return deserializeAws_json1_1GetPatchBaselineCommand(output, context);
   }
 

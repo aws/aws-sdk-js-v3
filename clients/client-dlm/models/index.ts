@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CreateLifecyclePolicyRequest {
@@ -33,8 +30,7 @@ export interface CreateLifecyclePolicyRequest {
 }
 
 export namespace CreateLifecyclePolicyRequest {
-  export const isa = (o: any): o is CreateLifecyclePolicyRequest =>
-    __isa(o, "CreateLifecyclePolicyRequest");
+  export const isa = (o: any): o is CreateLifecyclePolicyRequest => __isa(o, "CreateLifecyclePolicyRequest");
 }
 
 export interface CreateLifecyclePolicyResponse {
@@ -46,8 +42,7 @@ export interface CreateLifecyclePolicyResponse {
 }
 
 export namespace CreateLifecyclePolicyResponse {
-  export const isa = (o: any): o is CreateLifecyclePolicyResponse =>
-    __isa(o, "CreateLifecyclePolicyResponse");
+  export const isa = (o: any): o is CreateLifecyclePolicyResponse => __isa(o, "CreateLifecyclePolicyResponse");
 }
 
 /**
@@ -92,8 +87,7 @@ export interface CrossRegionCopyRetainRule {
 }
 
 export namespace CrossRegionCopyRetainRule {
-  export const isa = (o: any): o is CrossRegionCopyRetainRule =>
-    __isa(o, "CrossRegionCopyRetainRule");
+  export const isa = (o: any): o is CrossRegionCopyRetainRule => __isa(o, "CrossRegionCopyRetainRule");
 }
 
 /**
@@ -128,8 +122,7 @@ export interface CrossRegionCopyRule {
 }
 
 export namespace CrossRegionCopyRule {
-  export const isa = (o: any): o is CrossRegionCopyRule =>
-    __isa(o, "CrossRegionCopyRule");
+  export const isa = (o: any): o is CrossRegionCopyRule => __isa(o, "CrossRegionCopyRule");
 }
 
 export interface DeleteLifecyclePolicyRequest {
@@ -141,8 +134,7 @@ export interface DeleteLifecyclePolicyRequest {
 }
 
 export namespace DeleteLifecyclePolicyRequest {
-  export const isa = (o: any): o is DeleteLifecyclePolicyRequest =>
-    __isa(o, "DeleteLifecyclePolicyRequest");
+  export const isa = (o: any): o is DeleteLifecyclePolicyRequest => __isa(o, "DeleteLifecyclePolicyRequest");
 }
 
 export interface DeleteLifecyclePolicyResponse {
@@ -150,8 +142,7 @@ export interface DeleteLifecyclePolicyResponse {
 }
 
 export namespace DeleteLifecyclePolicyResponse {
-  export const isa = (o: any): o is DeleteLifecyclePolicyResponse =>
-    __isa(o, "DeleteLifecyclePolicyResponse");
+  export const isa = (o: any): o is DeleteLifecyclePolicyResponse => __isa(o, "DeleteLifecyclePolicyResponse");
 }
 
 /**
@@ -181,8 +172,7 @@ export interface FastRestoreRule {
 }
 
 export namespace FastRestoreRule {
-  export const isa = (o: any): o is FastRestoreRule =>
-    __isa(o, "FastRestoreRule");
+  export const isa = (o: any): o is FastRestoreRule => __isa(o, "FastRestoreRule");
 }
 
 export interface GetLifecyclePoliciesRequest {
@@ -214,8 +204,7 @@ export interface GetLifecyclePoliciesRequest {
 }
 
 export namespace GetLifecyclePoliciesRequest {
-  export const isa = (o: any): o is GetLifecyclePoliciesRequest =>
-    __isa(o, "GetLifecyclePoliciesRequest");
+  export const isa = (o: any): o is GetLifecyclePoliciesRequest => __isa(o, "GetLifecyclePoliciesRequest");
 }
 
 export interface GetLifecyclePoliciesResponse {
@@ -227,8 +216,7 @@ export interface GetLifecyclePoliciesResponse {
 }
 
 export namespace GetLifecyclePoliciesResponse {
-  export const isa = (o: any): o is GetLifecyclePoliciesResponse =>
-    __isa(o, "GetLifecyclePoliciesResponse");
+  export const isa = (o: any): o is GetLifecyclePoliciesResponse => __isa(o, "GetLifecyclePoliciesResponse");
 }
 
 export interface GetLifecyclePolicyRequest {
@@ -240,8 +228,7 @@ export interface GetLifecyclePolicyRequest {
 }
 
 export namespace GetLifecyclePolicyRequest {
-  export const isa = (o: any): o is GetLifecyclePolicyRequest =>
-    __isa(o, "GetLifecyclePolicyRequest");
+  export const isa = (o: any): o is GetLifecyclePolicyRequest => __isa(o, "GetLifecyclePolicyRequest");
 }
 
 export interface GetLifecyclePolicyResponse {
@@ -253,8 +240,7 @@ export interface GetLifecyclePolicyResponse {
 }
 
 export namespace GetLifecyclePolicyResponse {
-  export const isa = (o: any): o is GetLifecyclePolicyResponse =>
-    __isa(o, "GetLifecyclePolicyResponse");
+  export const isa = (o: any): o is GetLifecyclePolicyResponse => __isa(o, "GetLifecyclePolicyResponse");
 }
 
 export enum GettablePolicyStateValues {
@@ -266,9 +252,7 @@ export enum GettablePolicyStateValues {
 /**
  * <p>The service failed in an unexpected way.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Code?: string;
@@ -276,8 +260,7 @@ export interface InternalServerException
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export enum IntervalUnitValues {
@@ -287,9 +270,7 @@ export enum IntervalUnitValues {
 /**
  * <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   Code?: string;
@@ -306,8 +287,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -367,8 +347,7 @@ export interface LifecyclePolicy {
 }
 
 export namespace LifecyclePolicy {
-  export const isa = (o: any): o is LifecyclePolicy =>
-    __isa(o, "LifecyclePolicy");
+  export const isa = (o: any): o is LifecyclePolicy => __isa(o, "LifecyclePolicy");
 }
 
 /**
@@ -398,16 +377,13 @@ export interface LifecyclePolicySummary {
 }
 
 export namespace LifecyclePolicySummary {
-  export const isa = (o: any): o is LifecyclePolicySummary =>
-    __isa(o, "LifecyclePolicySummary");
+  export const isa = (o: any): o is LifecyclePolicySummary => __isa(o, "LifecyclePolicySummary");
 }
 
 /**
  * <p>The request failed because a limit was exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -419,8 +395,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListTagsForResourceRequest {
@@ -432,8 +407,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -445,8 +419,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -506,9 +479,7 @@ export enum PolicyTypeValues {
 /**
  * <p>A requested resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -525,8 +496,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ResourceTypeValues {
@@ -655,8 +625,7 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 export interface TagResourceResponse {
@@ -664,8 +633,7 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
-  export const isa = (o: any): o is TagResourceResponse =>
-    __isa(o, "TagResourceResponse");
+  export const isa = (o: any): o is TagResourceResponse => __isa(o, "TagResourceResponse");
 }
 
 export interface UntagResourceRequest {
@@ -682,8 +650,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 export interface UntagResourceResponse {
@@ -691,8 +658,7 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
-  export const isa = (o: any): o is UntagResourceResponse =>
-    __isa(o, "UntagResourceResponse");
+  export const isa = (o: any): o is UntagResourceResponse => __isa(o, "UntagResourceResponse");
 }
 
 export interface UpdateLifecyclePolicyRequest {
@@ -724,8 +690,7 @@ export interface UpdateLifecyclePolicyRequest {
 }
 
 export namespace UpdateLifecyclePolicyRequest {
-  export const isa = (o: any): o is UpdateLifecyclePolicyRequest =>
-    __isa(o, "UpdateLifecyclePolicyRequest");
+  export const isa = (o: any): o is UpdateLifecyclePolicyRequest => __isa(o, "UpdateLifecyclePolicyRequest");
 }
 
 export interface UpdateLifecyclePolicyResponse {
@@ -733,6 +698,5 @@ export interface UpdateLifecyclePolicyResponse {
 }
 
 export namespace UpdateLifecyclePolicyResponse {
-  export const isa = (o: any): o is UpdateLifecyclePolicyResponse =>
-    __isa(o, "UpdateLifecyclePolicyResponse");
+  export const isa = (o: any): o is UpdateLifecyclePolicyResponse => __isa(o, "UpdateLifecyclePolicyResponse");
 }

@@ -1,21 +1,11 @@
-import {
-  SSOClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOClient";
-import {
-  ListAccountRolesRequest,
-  ListAccountRolesResponse
-} from "../models/index";
+import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient";
+import { ListAccountRolesRequest, ListAccountRolesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAccountRolesCommand,
   serializeAws_restJson1_1ListAccountRolesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAccountRolesCommandInput = ListAccountRolesRequest;
-export type ListAccountRolesCommandOutput = ListAccountRolesResponse &
-  __MetadataBearer;
+export type ListAccountRolesCommandOutput = ListAccountRolesResponse & __MetadataBearer;
 
 export class ListAccountRolesCommand extends $Command<
   ListAccountRolesCommandInput,
@@ -50,9 +39,7 @@ export class ListAccountRolesCommand extends $Command<
     configuration: SSOClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountRolesCommandInput, ListAccountRolesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListAccountRolesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAccountRolesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAccountRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAccountRolesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAccountRolesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountRolesCommandOutput> {
     return deserializeAws_restJson1_1ListAccountRolesCommand(output, context);
   }
 

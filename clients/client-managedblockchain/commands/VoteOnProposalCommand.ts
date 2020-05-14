@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1VoteOnProposalCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type VoteOnProposalCommandInput = VoteOnProposalInput;
-export type VoteOnProposalCommandOutput = VoteOnProposalOutput &
-  __MetadataBearer;
+export type VoteOnProposalCommandOutput = VoteOnProposalOutput & __MetadataBearer;
 
 export class VoteOnProposalCommand extends $Command<
   VoteOnProposalCommandInput,
@@ -47,9 +43,7 @@ export class VoteOnProposalCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<VoteOnProposalCommandInput, VoteOnProposalCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class VoteOnProposalCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: VoteOnProposalCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: VoteOnProposalCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1VoteOnProposalCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<VoteOnProposalCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<VoteOnProposalCommandOutput> {
     return deserializeAws_restJson1_1VoteOnProposalCommand(output, context);
   }
 

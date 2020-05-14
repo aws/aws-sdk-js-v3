@@ -1,15 +1,6 @@
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
   DescribeUserHierarchyGroupCommandOutput
@@ -26,30 +17,15 @@ import {
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput
 } from "./commands/GetCurrentMetricDataCommand";
-import {
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput
-} from "./commands/GetFederationTokenCommand";
-import {
-  GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
-} from "./commands/GetMetricDataCommand";
-import {
-  ListContactFlowsCommandInput,
-  ListContactFlowsCommandOutput
-} from "./commands/ListContactFlowsCommand";
+import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand";
+import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
+import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput
 } from "./commands/ListHoursOfOperationsCommand";
-import {
-  ListPhoneNumbersCommandInput,
-  ListPhoneNumbersCommandOutput
-} from "./commands/ListPhoneNumbersCommand";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand";
+import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput
@@ -66,30 +42,15 @@ import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput
 } from "./commands/ListUserHierarchyGroupsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  StartChatContactCommandInput,
-  StartChatContactCommandOutput
-} from "./commands/StartChatContactCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput
 } from "./commands/StartOutboundVoiceContactCommand";
-import {
-  StopContactCommandInput,
-  StopContactCommandOutput
-} from "./commands/StopContactCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput
@@ -130,12 +91,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -228,8 +184,7 @@ export type ServiceOutputTypes =
   | UpdateUserRoutingProfileCommandOutput
   | UpdateUserSecurityProfilesCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -313,9 +268,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConnectClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConnectClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -324,9 +277,7 @@ export type ConnectClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

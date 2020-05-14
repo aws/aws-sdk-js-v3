@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  DeleteEmailChannelRequest,
-  DeleteEmailChannelResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { DeleteEmailChannelRequest, DeleteEmailChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteEmailChannelCommand,
   serializeAws_restJson1_1DeleteEmailChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteEmailChannelCommandInput = DeleteEmailChannelRequest;
-export type DeleteEmailChannelCommandOutput = DeleteEmailChannelResponse &
-  __MetadataBearer;
+export type DeleteEmailChannelCommandOutput = DeleteEmailChannelResponse & __MetadataBearer;
 
 export class DeleteEmailChannelCommand extends $Command<
   DeleteEmailChannelCommandInput,
@@ -50,9 +39,7 @@ export class DeleteEmailChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEmailChannelCommandInput, DeleteEmailChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteEmailChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteEmailChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteEmailChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteEmailChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteEmailChannelCommandOutput> {
     return deserializeAws_restJson1_1DeleteEmailChannelCommand(output, context);
   }
 

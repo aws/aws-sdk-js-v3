@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
-import {
-  CreateFieldLevelEncryptionConfigRequest,
-  CreateFieldLevelEncryptionConfigResult
-} from "../models/index";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateFieldLevelEncryptionConfigRequest, CreateFieldLevelEncryptionConfigResult } from "../models/index";
 import {
   deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand,
   serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateFieldLevelEncryptionConfigCommandInput = CreateFieldLevelEncryptionConfigRequest;
-export type CreateFieldLevelEncryptionConfigCommandOutput = CreateFieldLevelEncryptionConfigResult &
-  __MetadataBearer;
+export type CreateFieldLevelEncryptionConfigCommandOutput = CreateFieldLevelEncryptionConfigResult & __MetadataBearer;
 
 export class CreateFieldLevelEncryptionConfigCommand extends $Command<
   CreateFieldLevelEncryptionConfigCommandInput,
@@ -49,13 +38,8 @@ export class CreateFieldLevelEncryptionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateFieldLevelEncryptionConfigCommandInput,
-    CreateFieldLevelEncryptionConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateFieldLevelEncryptionConfigCommandInput, CreateFieldLevelEncryptionConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class CreateFieldLevelEncryptionConfigCommand extends $Command<
     input: CreateFieldLevelEncryptionConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateFieldLevelEncryptionConfigCommandOutput> {
-    return deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

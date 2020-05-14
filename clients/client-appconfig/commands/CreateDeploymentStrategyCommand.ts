@@ -1,21 +1,11 @@
-import {
-  AppConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppConfigClient";
-import {
-  CreateDeploymentStrategyRequest,
-  DeploymentStrategy
-} from "../models/index";
+import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDeploymentStrategyCommand,
   serializeAws_restJson1_1CreateDeploymentStrategyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDeploymentStrategyCommandInput = CreateDeploymentStrategyRequest;
-export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy &
-  __MetadataBearer;
+export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
 
 export class CreateDeploymentStrategyCommand extends $Command<
   CreateDeploymentStrategyCommandInput,
@@ -49,13 +38,8 @@ export class CreateDeploymentStrategyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeploymentStrategyCommandInput,
-    CreateDeploymentStrategyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeploymentStrategyCommandInput, CreateDeploymentStrategyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class CreateDeploymentStrategyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDeploymentStrategyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeploymentStrategyCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateDeploymentStrategyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeploymentStrategyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentStrategyCommandOutput> {
+    return deserializeAws_restJson1_1CreateDeploymentStrategyCommand(output, context);
   }
 
   // Start section: command_body_extra

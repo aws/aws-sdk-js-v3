@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListSecurityProfilesRequest,
-  ListSecurityProfilesResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListSecurityProfilesRequest, ListSecurityProfilesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListSecurityProfilesCommand,
   serializeAws_restJson1_1ListSecurityProfilesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSecurityProfilesCommandInput = ListSecurityProfilesRequest;
-export type ListSecurityProfilesCommandOutput = ListSecurityProfilesResponse &
-  __MetadataBearer;
+export type ListSecurityProfilesCommandOutput = ListSecurityProfilesResponse & __MetadataBearer;
 
 export class ListSecurityProfilesCommand extends $Command<
   ListSecurityProfilesCommandInput,
@@ -49,13 +38,8 @@ export class ListSecurityProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListSecurityProfilesCommandInput,
-    ListSecurityProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListSecurityProfilesCommandInput, ListSecurityProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListSecurityProfilesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSecurityProfilesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSecurityProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListSecurityProfilesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSecurityProfilesCommandOutput> {
-    return deserializeAws_restJson1_1ListSecurityProfilesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSecurityProfilesCommandOutput> {
+    return deserializeAws_restJson1_1ListSecurityProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

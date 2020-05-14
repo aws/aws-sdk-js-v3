@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
-import {
-  UpdateVirtualRouterInput,
-  UpdateVirtualRouterOutput
-} from "../models/index";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVirtualRouterCommand,
   serializeAws_restJson1_1UpdateVirtualRouterCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVirtualRouterCommandInput = UpdateVirtualRouterInput;
-export type UpdateVirtualRouterCommandOutput = UpdateVirtualRouterOutput &
-  __MetadataBearer;
+export type UpdateVirtualRouterCommandOutput = UpdateVirtualRouterOutput & __MetadataBearer;
 
 export class UpdateVirtualRouterCommand extends $Command<
   UpdateVirtualRouterCommandInput,
@@ -49,13 +38,8 @@ export class UpdateVirtualRouterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateVirtualRouterCommandInput,
-    UpdateVirtualRouterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateVirtualRouterCommandInput, UpdateVirtualRouterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateVirtualRouterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVirtualRouterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateVirtualRouterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1UpdateVirtualRouterCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVirtualRouterCommandOutput> {
+    return deserializeAws_restJson1_1UpdateVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

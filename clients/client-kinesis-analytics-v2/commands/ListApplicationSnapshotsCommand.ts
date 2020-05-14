@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisAnalyticsV2Client";
-import {
-  ListApplicationSnapshotsRequest,
-  ListApplicationSnapshotsResponse
-} from "../models/index";
+import { ListApplicationSnapshotsRequest, ListApplicationSnapshotsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListApplicationSnapshotsCommand,
   serializeAws_json1_1ListApplicationSnapshotsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListApplicationSnapshotsCommandInput = ListApplicationSnapshotsRequest;
-export type ListApplicationSnapshotsCommandOutput = ListApplicationSnapshotsResponse &
-  __MetadataBearer;
+export type ListApplicationSnapshotsCommandOutput = ListApplicationSnapshotsResponse & __MetadataBearer;
 
 export class ListApplicationSnapshotsCommand extends $Command<
   ListApplicationSnapshotsCommandInput,
@@ -49,13 +42,8 @@ export class ListApplicationSnapshotsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListApplicationSnapshotsCommandInput,
-    ListApplicationSnapshotsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListApplicationSnapshotsCommandInput, ListApplicationSnapshotsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +58,12 @@ export class ListApplicationSnapshotsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListApplicationSnapshotsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListApplicationSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationSnapshotsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListApplicationSnapshotsCommandOutput> {
-    return deserializeAws_json1_1ListApplicationSnapshotsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationSnapshotsCommandOutput> {
+    return deserializeAws_json1_1ListApplicationSnapshotsCommand(output, context);
   }
 
   // Start section: command_body_extra

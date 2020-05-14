@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1ListEventTypesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListEventTypesCommandInput = ListEventTypesRequest;
-export type ListEventTypesCommandOutput = ListEventTypesResult &
-  __MetadataBearer;
+export type ListEventTypesCommandOutput = ListEventTypesResult & __MetadataBearer;
 
 export class ListEventTypesCommand extends $Command<
   ListEventTypesCommandInput,
@@ -47,9 +43,7 @@ export class ListEventTypesCommand extends $Command<
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEventTypesCommandInput, ListEventTypesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class ListEventTypesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListEventTypesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListEventTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListEventTypesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEventTypesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEventTypesCommandOutput> {
     return deserializeAws_restJson1_1ListEventTypesCommand(output, context);
   }
 

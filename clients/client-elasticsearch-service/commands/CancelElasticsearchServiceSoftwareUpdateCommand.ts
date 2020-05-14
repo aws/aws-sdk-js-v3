@@ -12,10 +12,7 @@ import {
   serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +36,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput
-  ) {
+  constructor(readonly input: CancelElasticsearchServiceSoftwareUpdateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +50,7 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     CancelElasticsearchServiceSoftwareUpdateCommandInput,
     CancelElasticsearchServiceSoftwareUpdateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +69,14 @@ export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command<
     input: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> {
-    return deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCommand(output, context);
   }
 
   // Start section: command_body_extra

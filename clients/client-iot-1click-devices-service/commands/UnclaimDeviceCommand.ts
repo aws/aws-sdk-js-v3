@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1UnclaimDeviceCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UnclaimDeviceCommandInput = UnclaimDeviceRequest;
-export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse &
-  __MetadataBearer;
+export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse & __MetadataBearer;
 
 export class UnclaimDeviceCommand extends $Command<
   UnclaimDeviceCommandInput,
@@ -47,9 +43,7 @@ export class UnclaimDeviceCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UnclaimDeviceCommandInput, UnclaimDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class UnclaimDeviceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnclaimDeviceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UnclaimDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UnclaimDeviceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnclaimDeviceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnclaimDeviceCommandOutput> {
     return deserializeAws_restJson1_1UnclaimDeviceCommand(output, context);
   }
 

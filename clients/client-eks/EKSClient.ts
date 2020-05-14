@@ -1,71 +1,35 @@
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateFargateProfileCommandInput,
   CreateFargateProfileCommandOutput
 } from "./commands/CreateFargateProfileCommand";
-import {
-  CreateNodegroupCommandInput,
-  CreateNodegroupCommandOutput
-} from "./commands/CreateNodegroupCommand";
-import {
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput
-} from "./commands/DeleteClusterCommand";
+import { CreateNodegroupCommandInput, CreateNodegroupCommandOutput } from "./commands/CreateNodegroupCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteFargateProfileCommandInput,
   DeleteFargateProfileCommandOutput
 } from "./commands/DeleteFargateProfileCommand";
-import {
-  DeleteNodegroupCommandInput,
-  DeleteNodegroupCommandOutput
-} from "./commands/DeleteNodegroupCommand";
-import {
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
-} from "./commands/DescribeClusterCommand";
+import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./commands/DeleteNodegroupCommand";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeFargateProfileCommandInput,
   DescribeFargateProfileCommandOutput
 } from "./commands/DescribeFargateProfileCommand";
-import {
-  DescribeNodegroupCommandInput,
-  DescribeNodegroupCommandOutput
-} from "./commands/DescribeNodegroupCommand";
-import {
-  DescribeUpdateCommandInput,
-  DescribeUpdateCommandOutput
-} from "./commands/DescribeUpdateCommand";
-import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand";
+import { DescribeNodegroupCommandInput, DescribeNodegroupCommandOutput } from "./commands/DescribeNodegroupCommand";
+import { DescribeUpdateCommandInput, DescribeUpdateCommandOutput } from "./commands/DescribeUpdateCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput
 } from "./commands/ListFargateProfilesCommand";
-import {
-  ListNodegroupsCommandInput,
-  ListNodegroupsCommandOutput
-} from "./commands/ListNodegroupsCommand";
+import { ListNodegroupsCommandInput, ListNodegroupsCommandOutput } from "./commands/ListNodegroupsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListUpdatesCommandInput,
-  ListUpdatesCommandOutput
-} from "./commands/ListUpdatesCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { ListUpdatesCommandInput, ListUpdatesCommandOutput } from "./commands/ListUpdatesCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateClusterConfigCommandInput,
   UpdateClusterConfigCommandOutput
@@ -98,12 +62,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -180,8 +139,7 @@ export type ServiceOutputTypes =
   | UpdateNodegroupConfigCommandOutput
   | UpdateNodegroupVersionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -265,9 +223,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type EKSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type EKSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -276,9 +232,7 @@ export type EKSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type EKSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type EKSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

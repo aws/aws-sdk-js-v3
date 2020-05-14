@@ -1,21 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
-import {
-  DeleteGraphqlApiRequest,
-  DeleteGraphqlApiResponse
-} from "../models/index";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import { DeleteGraphqlApiRequest, DeleteGraphqlApiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteGraphqlApiCommand,
   serializeAws_restJson1_1DeleteGraphqlApiCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteGraphqlApiCommandInput = DeleteGraphqlApiRequest;
-export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse &
-  __MetadataBearer;
+export type DeleteGraphqlApiCommandOutput = DeleteGraphqlApiResponse & __MetadataBearer;
 
 export class DeleteGraphqlApiCommand extends $Command<
   DeleteGraphqlApiCommandInput,
@@ -50,9 +39,7 @@ export class DeleteGraphqlApiCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteGraphqlApiCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteGraphqlApiCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteGraphqlApiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteGraphqlApiCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteGraphqlApiCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGraphqlApiCommandOutput> {
     return deserializeAws_restJson1_1DeleteGraphqlApiCommand(output, context);
   }
 

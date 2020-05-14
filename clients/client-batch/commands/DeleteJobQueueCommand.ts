@@ -1,18 +1,11 @@
-import {
-  BatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BatchClient";
+import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
 import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteJobQueueCommand,
   serializeAws_restJson1_1DeleteJobQueueCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteJobQueueCommandInput = DeleteJobQueueRequest;
-export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse &
-  __MetadataBearer;
+export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse & __MetadataBearer;
 
 export class DeleteJobQueueCommand extends $Command<
   DeleteJobQueueCommandInput,
@@ -47,9 +39,7 @@ export class DeleteJobQueueCommand extends $Command<
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteJobQueueCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteJobQueueCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteJobQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteJobQueueCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteJobQueueCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteJobQueueCommandOutput> {
     return deserializeAws_restJson1_1DeleteJobQueueCommand(output, context);
   }
 

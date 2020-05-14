@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
-import {
-  DeleteVirtualRouterInput,
-  DeleteVirtualRouterOutput
-} from "../models/index";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import { DeleteVirtualRouterInput, DeleteVirtualRouterOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteVirtualRouterCommand,
   serializeAws_restJson1_1DeleteVirtualRouterCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteVirtualRouterCommandInput = DeleteVirtualRouterInput;
-export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput &
-  __MetadataBearer;
+export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput & __MetadataBearer;
 
 export class DeleteVirtualRouterCommand extends $Command<
   DeleteVirtualRouterCommandInput,
@@ -49,13 +38,8 @@ export class DeleteVirtualRouterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVirtualRouterCommandInput,
-    DeleteVirtualRouterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVirtualRouterCommandInput, DeleteVirtualRouterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DeleteVirtualRouterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteVirtualRouterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteVirtualRouterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1DeleteVirtualRouterCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVirtualRouterCommandOutput> {
+    return deserializeAws_restJson1_1DeleteVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient";
-import {
-  AddResourcePermissionsRequest,
-  AddResourcePermissionsResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
+import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AddResourcePermissionsCommand,
   serializeAws_restJson1_1AddResourcePermissionsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddResourcePermissionsCommandInput = AddResourcePermissionsRequest;
-export type AddResourcePermissionsCommandOutput = AddResourcePermissionsResponse &
-  __MetadataBearer;
+export type AddResourcePermissionsCommandOutput = AddResourcePermissionsResponse & __MetadataBearer;
 
 export class AddResourcePermissionsCommand extends $Command<
   AddResourcePermissionsCommandInput,
@@ -49,13 +38,8 @@ export class AddResourcePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddResourcePermissionsCommandInput,
-    AddResourcePermissionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddResourcePermissionsCommandInput, AddResourcePermissionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class AddResourcePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddResourcePermissionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AddResourcePermissionsCommand(
-      input,
-      context
-    );
+  private serialize(input: AddResourcePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1AddResourcePermissionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddResourcePermissionsCommandOutput> {
-    return deserializeAws_restJson1_1AddResourcePermissionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddResourcePermissionsCommandOutput> {
+    return deserializeAws_restJson1_1AddResourcePermissionsCommand(output, context);
   }
 
   // Start section: command_body_extra

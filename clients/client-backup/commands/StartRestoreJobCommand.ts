@@ -1,18 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import { StartRestoreJobInput, StartRestoreJobOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1StartRestoreJobCommand,
   serializeAws_restJson1_1StartRestoreJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartRestoreJobCommandInput = StartRestoreJobInput;
-export type StartRestoreJobCommandOutput = StartRestoreJobOutput &
-  __MetadataBearer;
+export type StartRestoreJobCommandOutput = StartRestoreJobOutput & __MetadataBearer;
 
 export class StartRestoreJobCommand extends $Command<
   StartRestoreJobCommandInput,
@@ -47,9 +39,7 @@ export class StartRestoreJobCommand extends $Command<
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartRestoreJobCommandInput, StartRestoreJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class StartRestoreJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartRestoreJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartRestoreJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StartRestoreJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartRestoreJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartRestoreJobCommandOutput> {
     return deserializeAws_restJson1_1StartRestoreJobCommand(output, context);
   }
 

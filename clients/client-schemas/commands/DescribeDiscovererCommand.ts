@@ -1,21 +1,11 @@
-import {
-  DescribeDiscovererRequest,
-  DescribeDiscovererResponse
-} from "../models/index";
+import { DescribeDiscovererRequest, DescribeDiscovererResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDiscovererCommand,
   serializeAws_restJson1_1DescribeDiscovererCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  schemasClientResolvedConfig
-} from "../schemasClient";
+import { ServiceInputTypes, ServiceOutputTypes, schemasClientResolvedConfig } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDiscovererCommandInput = DescribeDiscovererRequest;
-export type DescribeDiscovererCommandOutput = DescribeDiscovererResponse &
-  __MetadataBearer;
+export type DescribeDiscovererCommandOutput = DescribeDiscovererResponse & __MetadataBearer;
 
 export class DescribeDiscovererCommand extends $Command<
   DescribeDiscovererCommandInput,
@@ -50,9 +39,7 @@ export class DescribeDiscovererCommand extends $Command<
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeDiscovererCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDiscovererCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDiscovererCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeDiscovererCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDiscovererCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDiscovererCommandOutput> {
     return deserializeAws_restJson1_1DescribeDiscovererCommand(output, context);
   }
 

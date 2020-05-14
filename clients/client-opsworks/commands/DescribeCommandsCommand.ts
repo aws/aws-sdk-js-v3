@@ -1,21 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient";
-import {
-  DescribeCommandsRequest,
-  DescribeCommandsResult
-} from "../models/index";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
+import { DescribeCommandsRequest, DescribeCommandsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCommandsCommand,
   serializeAws_json1_1DescribeCommandsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCommandsCommandInput = DescribeCommandsRequest;
-export type DescribeCommandsCommandOutput = DescribeCommandsResult &
-  __MetadataBearer;
+export type DescribeCommandsCommandOutput = DescribeCommandsResult & __MetadataBearer;
 
 export class DescribeCommandsCommand extends $Command<
   DescribeCommandsCommandInput,
@@ -50,9 +39,7 @@ export class DescribeCommandsCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCommandsCommandInput, DescribeCommandsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeCommandsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCommandsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCommandsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCommandsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCommandsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCommandsCommandOutput> {
     return deserializeAws_json1_1DescribeCommandsCommand(output, context);
   }
 

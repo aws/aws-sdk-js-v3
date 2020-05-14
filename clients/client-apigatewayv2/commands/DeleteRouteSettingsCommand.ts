@@ -1,18 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
 import { DeleteRouteSettingsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRouteSettingsCommand,
   serializeAws_restJson1_1DeleteRouteSettingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteRouteSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteRouteSettingsCommandInput,
-    DeleteRouteSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteRouteSettingsCommandInput, DeleteRouteSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,21 +54,12 @@ export class DeleteRouteSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteRouteSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteRouteSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteRouteSettingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteRouteSettingsCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRouteSettingsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRouteSettingsCommandOutput> {
+    return deserializeAws_restJson1_1DeleteRouteSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

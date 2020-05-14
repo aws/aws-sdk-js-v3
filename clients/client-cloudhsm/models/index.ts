@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddTagsToResourceRequest {
@@ -18,8 +15,7 @@ export interface AddTagsToResourceRequest {
 }
 
 export namespace AddTagsToResourceRequest {
-  export const isa = (o: any): o is AddTagsToResourceRequest =>
-    __isa(o, "AddTagsToResourceRequest");
+  export const isa = (o: any): o is AddTagsToResourceRequest => __isa(o, "AddTagsToResourceRequest");
 }
 
 export interface AddTagsToResourceResponse {
@@ -31,8 +27,7 @@ export interface AddTagsToResourceResponse {
 }
 
 export namespace AddTagsToResourceResponse {
-  export const isa = (o: any): o is AddTagsToResourceResponse =>
-    __isa(o, "AddTagsToResourceResponse");
+  export const isa = (o: any): o is AddTagsToResourceResponse => __isa(o, "AddTagsToResourceResponse");
 }
 
 export enum ClientVersion {
@@ -43,9 +38,7 @@ export enum ClientVersion {
 /**
  * <p>Indicates that an internal error occurred.</p>
  */
-export interface CloudHsmInternalException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmInternalException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmInternalException";
   $fault: "server";
   /**
@@ -60,8 +53,7 @@ export interface CloudHsmInternalException
 }
 
 export namespace CloudHsmInternalException {
-  export const isa = (o: any): o is CloudHsmInternalException =>
-    __isa(o, "CloudHsmInternalException");
+  export const isa = (o: any): o is CloudHsmInternalException => __isa(o, "CloudHsmInternalException");
 }
 
 export enum CloudHsmObjectState {
@@ -73,9 +65,7 @@ export enum CloudHsmObjectState {
 /**
  * <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  */
-export interface CloudHsmServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CloudHsmServiceException extends __SmithyException, $MetadataBearer {
   name: "CloudHsmServiceException";
   $fault: "client";
   /**
@@ -90,8 +80,7 @@ export interface CloudHsmServiceException
 }
 
 export namespace CloudHsmServiceException {
-  export const isa = (o: any): o is CloudHsmServiceException =>
-    __isa(o, "CloudHsmServiceException");
+  export const isa = (o: any): o is CloudHsmServiceException => __isa(o, "CloudHsmServiceException");
 }
 
 /**
@@ -106,8 +95,7 @@ export interface CreateHapgRequest {
 }
 
 export namespace CreateHapgRequest {
-  export const isa = (o: any): o is CreateHapgRequest =>
-    __isa(o, "CreateHapgRequest");
+  export const isa = (o: any): o is CreateHapgRequest => __isa(o, "CreateHapgRequest");
 }
 
 /**
@@ -122,8 +110,7 @@ export interface CreateHapgResponse {
 }
 
 export namespace CreateHapgResponse {
-  export const isa = (o: any): o is CreateHapgResponse =>
-    __isa(o, "CreateHapgResponse");
+  export const isa = (o: any): o is CreateHapgResponse => __isa(o, "CreateHapgResponse");
 }
 
 /**
@@ -190,8 +177,7 @@ export interface CreateHsmRequest {
 }
 
 export namespace CreateHsmRequest {
-  export const isa = (o: any): o is CreateHsmRequest =>
-    __isa(o, "CreateHsmRequest");
+  export const isa = (o: any): o is CreateHsmRequest => __isa(o, "CreateHsmRequest");
 }
 
 /**
@@ -206,8 +192,7 @@ export interface CreateHsmResponse {
 }
 
 export namespace CreateHsmResponse {
-  export const isa = (o: any): o is CreateHsmResponse =>
-    __isa(o, "CreateHsmResponse");
+  export const isa = (o: any): o is CreateHsmResponse => __isa(o, "CreateHsmResponse");
 }
 
 /**
@@ -228,8 +213,7 @@ export interface CreateLunaClientRequest {
 }
 
 export namespace CreateLunaClientRequest {
-  export const isa = (o: any): o is CreateLunaClientRequest =>
-    __isa(o, "CreateLunaClientRequest");
+  export const isa = (o: any): o is CreateLunaClientRequest => __isa(o, "CreateLunaClientRequest");
 }
 
 /**
@@ -244,8 +228,7 @@ export interface CreateLunaClientResponse {
 }
 
 export namespace CreateLunaClientResponse {
-  export const isa = (o: any): o is CreateLunaClientResponse =>
-    __isa(o, "CreateLunaClientResponse");
+  export const isa = (o: any): o is CreateLunaClientResponse => __isa(o, "CreateLunaClientResponse");
 }
 
 /**
@@ -260,8 +243,7 @@ export interface DeleteHapgRequest {
 }
 
 export namespace DeleteHapgRequest {
-  export const isa = (o: any): o is DeleteHapgRequest =>
-    __isa(o, "DeleteHapgRequest");
+  export const isa = (o: any): o is DeleteHapgRequest => __isa(o, "DeleteHapgRequest");
 }
 
 /**
@@ -276,8 +258,7 @@ export interface DeleteHapgResponse {
 }
 
 export namespace DeleteHapgResponse {
-  export const isa = (o: any): o is DeleteHapgResponse =>
-    __isa(o, "DeleteHapgResponse");
+  export const isa = (o: any): o is DeleteHapgResponse => __isa(o, "DeleteHapgResponse");
 }
 
 /**
@@ -292,8 +273,7 @@ export interface DeleteHsmRequest {
 }
 
 export namespace DeleteHsmRequest {
-  export const isa = (o: any): o is DeleteHsmRequest =>
-    __isa(o, "DeleteHsmRequest");
+  export const isa = (o: any): o is DeleteHsmRequest => __isa(o, "DeleteHsmRequest");
 }
 
 /**
@@ -308,8 +288,7 @@ export interface DeleteHsmResponse {
 }
 
 export namespace DeleteHsmResponse {
-  export const isa = (o: any): o is DeleteHsmResponse =>
-    __isa(o, "DeleteHsmResponse");
+  export const isa = (o: any): o is DeleteHsmResponse => __isa(o, "DeleteHsmResponse");
 }
 
 export interface DeleteLunaClientRequest {
@@ -321,8 +300,7 @@ export interface DeleteLunaClientRequest {
 }
 
 export namespace DeleteLunaClientRequest {
-  export const isa = (o: any): o is DeleteLunaClientRequest =>
-    __isa(o, "DeleteLunaClientRequest");
+  export const isa = (o: any): o is DeleteLunaClientRequest => __isa(o, "DeleteLunaClientRequest");
 }
 
 export interface DeleteLunaClientResponse {
@@ -334,8 +312,7 @@ export interface DeleteLunaClientResponse {
 }
 
 export namespace DeleteLunaClientResponse {
-  export const isa = (o: any): o is DeleteLunaClientResponse =>
-    __isa(o, "DeleteLunaClientResponse");
+  export const isa = (o: any): o is DeleteLunaClientResponse => __isa(o, "DeleteLunaClientResponse");
 }
 
 /**
@@ -350,8 +327,7 @@ export interface DescribeHapgRequest {
 }
 
 export namespace DescribeHapgRequest {
-  export const isa = (o: any): o is DescribeHapgRequest =>
-    __isa(o, "DescribeHapgRequest");
+  export const isa = (o: any): o is DescribeHapgRequest => __isa(o, "DescribeHapgRequest");
 }
 
 /**
@@ -407,8 +383,7 @@ export interface DescribeHapgResponse {
 }
 
 export namespace DescribeHapgResponse {
-  export const isa = (o: any): o is DescribeHapgResponse =>
-    __isa(o, "DescribeHapgResponse");
+  export const isa = (o: any): o is DescribeHapgResponse => __isa(o, "DescribeHapgResponse");
 }
 
 /**
@@ -430,8 +405,7 @@ export interface DescribeHsmRequest {
 }
 
 export namespace DescribeHsmRequest {
-  export const isa = (o: any): o is DescribeHsmRequest =>
-    __isa(o, "DescribeHsmRequest");
+  export const isa = (o: any): o is DescribeHsmRequest => __isa(o, "DescribeHsmRequest");
 }
 
 /**
@@ -558,8 +532,7 @@ export interface DescribeHsmResponse {
 }
 
 export namespace DescribeHsmResponse {
-  export const isa = (o: any): o is DescribeHsmResponse =>
-    __isa(o, "DescribeHsmResponse");
+  export const isa = (o: any): o is DescribeHsmResponse => __isa(o, "DescribeHsmResponse");
 }
 
 export interface DescribeLunaClientRequest {
@@ -576,8 +549,7 @@ export interface DescribeLunaClientRequest {
 }
 
 export namespace DescribeLunaClientRequest {
-  export const isa = (o: any): o is DescribeLunaClientRequest =>
-    __isa(o, "DescribeLunaClientRequest");
+  export const isa = (o: any): o is DescribeLunaClientRequest => __isa(o, "DescribeLunaClientRequest");
 }
 
 export interface DescribeLunaClientResponse {
@@ -609,8 +581,7 @@ export interface DescribeLunaClientResponse {
 }
 
 export namespace DescribeLunaClientResponse {
-  export const isa = (o: any): o is DescribeLunaClientResponse =>
-    __isa(o, "DescribeLunaClientResponse");
+  export const isa = (o: any): o is DescribeLunaClientResponse => __isa(o, "DescribeLunaClientResponse");
 }
 
 export interface GetConfigRequest {
@@ -633,8 +604,7 @@ export interface GetConfigRequest {
 }
 
 export namespace GetConfigRequest {
-  export const isa = (o: any): o is GetConfigRequest =>
-    __isa(o, "GetConfigRequest");
+  export const isa = (o: any): o is GetConfigRequest => __isa(o, "GetConfigRequest");
 }
 
 export interface GetConfigResponse {
@@ -656,8 +626,7 @@ export interface GetConfigResponse {
 }
 
 export namespace GetConfigResponse {
-  export const isa = (o: any): o is GetConfigResponse =>
-    __isa(o, "GetConfigResponse");
+  export const isa = (o: any): o is GetConfigResponse => __isa(o, "GetConfigResponse");
 }
 
 export enum HsmStatus {
@@ -673,9 +642,7 @@ export enum HsmStatus {
 /**
  * <p>Indicates that one or more of the request parameters are not valid.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -690,8 +657,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -702,8 +668,7 @@ export interface ListAvailableZonesRequest {
 }
 
 export namespace ListAvailableZonesRequest {
-  export const isa = (o: any): o is ListAvailableZonesRequest =>
-    __isa(o, "ListAvailableZonesRequest");
+  export const isa = (o: any): o is ListAvailableZonesRequest => __isa(o, "ListAvailableZonesRequest");
 }
 
 export interface ListAvailableZonesResponse {
@@ -715,8 +680,7 @@ export interface ListAvailableZonesResponse {
 }
 
 export namespace ListAvailableZonesResponse {
-  export const isa = (o: any): o is ListAvailableZonesResponse =>
-    __isa(o, "ListAvailableZonesResponse");
+  export const isa = (o: any): o is ListAvailableZonesResponse => __isa(o, "ListAvailableZonesResponse");
 }
 
 export interface ListHapgsRequest {
@@ -729,8 +693,7 @@ export interface ListHapgsRequest {
 }
 
 export namespace ListHapgsRequest {
-  export const isa = (o: any): o is ListHapgsRequest =>
-    __isa(o, "ListHapgsRequest");
+  export const isa = (o: any): o is ListHapgsRequest => __isa(o, "ListHapgsRequest");
 }
 
 export interface ListHapgsResponse {
@@ -748,8 +711,7 @@ export interface ListHapgsResponse {
 }
 
 export namespace ListHapgsResponse {
-  export const isa = (o: any): o is ListHapgsResponse =>
-    __isa(o, "ListHapgsResponse");
+  export const isa = (o: any): o is ListHapgsResponse => __isa(o, "ListHapgsResponse");
 }
 
 export interface ListHsmsRequest {
@@ -762,8 +724,7 @@ export interface ListHsmsRequest {
 }
 
 export namespace ListHsmsRequest {
-  export const isa = (o: any): o is ListHsmsRequest =>
-    __isa(o, "ListHsmsRequest");
+  export const isa = (o: any): o is ListHsmsRequest => __isa(o, "ListHsmsRequest");
 }
 
 /**
@@ -784,8 +745,7 @@ export interface ListHsmsResponse {
 }
 
 export namespace ListHsmsResponse {
-  export const isa = (o: any): o is ListHsmsResponse =>
-    __isa(o, "ListHsmsResponse");
+  export const isa = (o: any): o is ListHsmsResponse => __isa(o, "ListHsmsResponse");
 }
 
 export interface ListLunaClientsRequest {
@@ -798,8 +758,7 @@ export interface ListLunaClientsRequest {
 }
 
 export namespace ListLunaClientsRequest {
-  export const isa = (o: any): o is ListLunaClientsRequest =>
-    __isa(o, "ListLunaClientsRequest");
+  export const isa = (o: any): o is ListLunaClientsRequest => __isa(o, "ListLunaClientsRequest");
 }
 
 export interface ListLunaClientsResponse {
@@ -817,8 +776,7 @@ export interface ListLunaClientsResponse {
 }
 
 export namespace ListLunaClientsResponse {
-  export const isa = (o: any): o is ListLunaClientsResponse =>
-    __isa(o, "ListLunaClientsResponse");
+  export const isa = (o: any): o is ListLunaClientsResponse => __isa(o, "ListLunaClientsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -830,8 +788,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -843,8 +800,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 export interface ModifyHapgRequest {
@@ -867,8 +823,7 @@ export interface ModifyHapgRequest {
 }
 
 export namespace ModifyHapgRequest {
-  export const isa = (o: any): o is ModifyHapgRequest =>
-    __isa(o, "ModifyHapgRequest");
+  export const isa = (o: any): o is ModifyHapgRequest => __isa(o, "ModifyHapgRequest");
 }
 
 export interface ModifyHapgResponse {
@@ -880,8 +835,7 @@ export interface ModifyHapgResponse {
 }
 
 export namespace ModifyHapgResponse {
-  export const isa = (o: any): o is ModifyHapgResponse =>
-    __isa(o, "ModifyHapgResponse");
+  export const isa = (o: any): o is ModifyHapgResponse => __isa(o, "ModifyHapgResponse");
 }
 
 /**
@@ -926,8 +880,7 @@ export interface ModifyHsmRequest {
 }
 
 export namespace ModifyHsmRequest {
-  export const isa = (o: any): o is ModifyHsmRequest =>
-    __isa(o, "ModifyHsmRequest");
+  export const isa = (o: any): o is ModifyHsmRequest => __isa(o, "ModifyHsmRequest");
 }
 
 /**
@@ -942,8 +895,7 @@ export interface ModifyHsmResponse {
 }
 
 export namespace ModifyHsmResponse {
-  export const isa = (o: any): o is ModifyHsmResponse =>
-    __isa(o, "ModifyHsmResponse");
+  export const isa = (o: any): o is ModifyHsmResponse => __isa(o, "ModifyHsmResponse");
 }
 
 export interface ModifyLunaClientRequest {
@@ -960,8 +912,7 @@ export interface ModifyLunaClientRequest {
 }
 
 export namespace ModifyLunaClientRequest {
-  export const isa = (o: any): o is ModifyLunaClientRequest =>
-    __isa(o, "ModifyLunaClientRequest");
+  export const isa = (o: any): o is ModifyLunaClientRequest => __isa(o, "ModifyLunaClientRequest");
 }
 
 export interface ModifyLunaClientResponse {
@@ -973,8 +924,7 @@ export interface ModifyLunaClientResponse {
 }
 
 export namespace ModifyLunaClientResponse {
-  export const isa = (o: any): o is ModifyLunaClientResponse =>
-    __isa(o, "ModifyLunaClientResponse");
+  export const isa = (o: any): o is ModifyLunaClientResponse => __isa(o, "ModifyLunaClientResponse");
 }
 
 export interface RemoveTagsFromResourceRequest {
@@ -993,8 +943,7 @@ export interface RemoveTagsFromResourceRequest {
 }
 
 export namespace RemoveTagsFromResourceRequest {
-  export const isa = (o: any): o is RemoveTagsFromResourceRequest =>
-    __isa(o, "RemoveTagsFromResourceRequest");
+  export const isa = (o: any): o is RemoveTagsFromResourceRequest => __isa(o, "RemoveTagsFromResourceRequest");
 }
 
 export interface RemoveTagsFromResourceResponse {
@@ -1006,8 +955,7 @@ export interface RemoveTagsFromResourceResponse {
 }
 
 export namespace RemoveTagsFromResourceResponse {
-  export const isa = (o: any): o is RemoveTagsFromResourceResponse =>
-    __isa(o, "RemoveTagsFromResourceResponse");
+  export const isa = (o: any): o is RemoveTagsFromResourceResponse => __isa(o, "RemoveTagsFromResourceResponse");
 }
 
 export enum SubscriptionType {

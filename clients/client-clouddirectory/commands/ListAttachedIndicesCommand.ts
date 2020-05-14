@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  ListAttachedIndicesRequest,
-  ListAttachedIndicesResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAttachedIndicesCommand,
   serializeAws_restJson1_1ListAttachedIndicesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAttachedIndicesCommandInput = ListAttachedIndicesRequest;
-export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse &
-  __MetadataBearer;
+export type ListAttachedIndicesCommandOutput = ListAttachedIndicesResponse & __MetadataBearer;
 
 export class ListAttachedIndicesCommand extends $Command<
   ListAttachedIndicesCommandInput,
@@ -49,13 +38,8 @@ export class ListAttachedIndicesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAttachedIndicesCommandInput,
-    ListAttachedIndicesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAttachedIndicesCommandInput, ListAttachedIndicesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListAttachedIndicesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAttachedIndicesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAttachedIndicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListAttachedIndicesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAttachedIndicesCommandOutput> {
-    return deserializeAws_restJson1_1ListAttachedIndicesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAttachedIndicesCommandOutput> {
+    return deserializeAws_restJson1_1ListAttachedIndicesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  CreateUserDefinedFunctionRequest,
-  CreateUserDefinedFunctionResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateUserDefinedFunctionCommand,
   serializeAws_json1_1CreateUserDefinedFunctionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateUserDefinedFunctionCommandInput = CreateUserDefinedFunctionRequest;
-export type CreateUserDefinedFunctionCommandOutput = CreateUserDefinedFunctionResponse &
-  __MetadataBearer;
+export type CreateUserDefinedFunctionCommandOutput = CreateUserDefinedFunctionResponse & __MetadataBearer;
 
 export class CreateUserDefinedFunctionCommand extends $Command<
   CreateUserDefinedFunctionCommandInput,
@@ -49,13 +38,8 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateUserDefinedFunctionCommandInput,
-    CreateUserDefinedFunctionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateUserDefinedFunctionCommandInput, CreateUserDefinedFunctionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateUserDefinedFunctionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateUserDefinedFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserDefinedFunctionCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class CreateUserDefinedFunctionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1CreateUserDefinedFunctionCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateUserDefinedFunctionCommand(output, context);
   }
 
   // Start section: command_body_extra

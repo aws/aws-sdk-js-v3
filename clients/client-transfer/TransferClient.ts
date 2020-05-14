@@ -1,75 +1,27 @@
-import {
-  CreateServerCommandInput,
-  CreateServerCommandOutput
-} from "./commands/CreateServerCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
-import {
-  DeleteServerCommandInput,
-  DeleteServerCommandOutput
-} from "./commands/DeleteServerCommand";
-import {
-  DeleteSshPublicKeyCommandInput,
-  DeleteSshPublicKeyCommandOutput
-} from "./commands/DeleteSshPublicKeyCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
-import {
-  DescribeServerCommandInput,
-  DescribeServerCommandOutput
-} from "./commands/DescribeServerCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "./commands/DescribeUserCommand";
-import {
-  ImportSshPublicKeyCommandInput,
-  ImportSshPublicKeyCommandOutput
-} from "./commands/ImportSshPublicKeyCommand";
-import {
-  ListServersCommandInput,
-  ListServersCommandOutput
-} from "./commands/ListServersCommand";
+import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
+import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
+import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand";
+import { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
-import {
-  StartServerCommandInput,
-  StartServerCommandOutput
-} from "./commands/StartServerCommand";
-import {
-  StopServerCommandInput,
-  StopServerCommandOutput
-} from "./commands/StopServerCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
+import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestIdentityProviderCommandInput,
   TestIdentityProviderCommandOutput
 } from "./commands/TestIdentityProviderCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateServerCommandInput,
-  UpdateServerCommandOutput
-} from "./commands/UpdateServerCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -86,12 +38,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -162,8 +109,7 @@ export type ServiceOutputTypes =
   | UpdateServerCommandOutput
   | UpdateUserCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -247,9 +193,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type TransferClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type TransferClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +202,7 @@ export type TransferClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  ListCommandInvocationsRequest,
-  ListCommandInvocationsResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { ListCommandInvocationsRequest, ListCommandInvocationsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListCommandInvocationsCommand,
   serializeAws_json1_1ListCommandInvocationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListCommandInvocationsCommandInput = ListCommandInvocationsRequest;
-export type ListCommandInvocationsCommandOutput = ListCommandInvocationsResult &
-  __MetadataBearer;
+export type ListCommandInvocationsCommandOutput = ListCommandInvocationsResult & __MetadataBearer;
 
 export class ListCommandInvocationsCommand extends $Command<
   ListCommandInvocationsCommandInput,
@@ -49,13 +38,8 @@ export class ListCommandInvocationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListCommandInvocationsCommandInput,
-    ListCommandInvocationsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListCommandInvocationsCommandInput, ListCommandInvocationsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ListCommandInvocationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListCommandInvocationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListCommandInvocationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListCommandInvocationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListCommandInvocationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCommandInvocationsCommandOutput> {
     return deserializeAws_json1_1ListCommandInvocationsCommand(output, context);
   }
 

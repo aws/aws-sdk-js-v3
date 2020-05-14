@@ -1,21 +1,11 @@
-import {
-  DeviceFarmClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DeviceFarmClient";
-import {
-  GetNetworkProfileRequest,
-  GetNetworkProfileResult
-} from "../models/index";
+import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import { GetNetworkProfileRequest, GetNetworkProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1GetNetworkProfileCommand,
   serializeAws_json1_1GetNetworkProfileCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetNetworkProfileCommandInput = GetNetworkProfileRequest;
-export type GetNetworkProfileCommandOutput = GetNetworkProfileResult &
-  __MetadataBearer;
+export type GetNetworkProfileCommandOutput = GetNetworkProfileResult & __MetadataBearer;
 
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,
@@ -50,9 +39,7 @@ export class GetNetworkProfileCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetNetworkProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetNetworkProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetNetworkProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetNetworkProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetNetworkProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNetworkProfileCommandOutput> {
     return deserializeAws_json1_1GetNetworkProfileCommand(output, context);
   }
 

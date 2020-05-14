@@ -1,21 +1,11 @@
-import {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MachineLearningClient";
-import {
-  DescribeBatchPredictionsInput,
-  DescribeBatchPredictionsOutput
-} from "../models/index";
+import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
+import { DescribeBatchPredictionsInput, DescribeBatchPredictionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribeBatchPredictionsCommand,
   serializeAws_json1_1DescribeBatchPredictionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeBatchPredictionsCommandInput = DescribeBatchPredictionsInput;
-export type DescribeBatchPredictionsCommandOutput = DescribeBatchPredictionsOutput &
-  __MetadataBearer;
+export type DescribeBatchPredictionsCommandOutput = DescribeBatchPredictionsOutput & __MetadataBearer;
 
 export class DescribeBatchPredictionsCommand extends $Command<
   DescribeBatchPredictionsCommandInput,
@@ -49,13 +38,8 @@ export class DescribeBatchPredictionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeBatchPredictionsCommandInput,
-    DescribeBatchPredictionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeBatchPredictionsCommandInput, DescribeBatchPredictionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DescribeBatchPredictionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeBatchPredictionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeBatchPredictionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeBatchPredictionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeBatchPredictionsCommandOutput> {
-    return deserializeAws_json1_1DescribeBatchPredictionsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeBatchPredictionsCommandOutput> {
+    return deserializeAws_json1_1DescribeBatchPredictionsCommand(output, context);
   }
 
   // Start section: command_body_extra

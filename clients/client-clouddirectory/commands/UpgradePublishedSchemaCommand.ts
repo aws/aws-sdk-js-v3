@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  UpgradePublishedSchemaRequest,
-  UpgradePublishedSchemaResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { UpgradePublishedSchemaRequest, UpgradePublishedSchemaResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpgradePublishedSchemaCommand,
   serializeAws_restJson1_1UpgradePublishedSchemaCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpgradePublishedSchemaCommandInput = UpgradePublishedSchemaRequest;
-export type UpgradePublishedSchemaCommandOutput = UpgradePublishedSchemaResponse &
-  __MetadataBearer;
+export type UpgradePublishedSchemaCommandOutput = UpgradePublishedSchemaResponse & __MetadataBearer;
 
 export class UpgradePublishedSchemaCommand extends $Command<
   UpgradePublishedSchemaCommandInput,
@@ -49,13 +38,8 @@ export class UpgradePublishedSchemaCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpgradePublishedSchemaCommandInput,
-    UpgradePublishedSchemaCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpgradePublishedSchemaCommandInput, UpgradePublishedSchemaCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class UpgradePublishedSchemaCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpgradePublishedSchemaCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpgradePublishedSchemaCommand(
-      input,
-      context
-    );
+  private serialize(input: UpgradePublishedSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpgradePublishedSchemaCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpgradePublishedSchemaCommandOutput> {
-    return deserializeAws_restJson1_1UpgradePublishedSchemaCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpgradePublishedSchemaCommandOutput> {
+    return deserializeAws_restJson1_1UpgradePublishedSchemaCommand(output, context);
   }
 
   // Start section: command_body_extra

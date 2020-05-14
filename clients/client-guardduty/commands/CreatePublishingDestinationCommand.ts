@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  CreatePublishingDestinationRequest,
-  CreatePublishingDestinationResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { CreatePublishingDestinationRequest, CreatePublishingDestinationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreatePublishingDestinationCommand,
   serializeAws_restJson1_1CreatePublishingDestinationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePublishingDestinationCommandInput = CreatePublishingDestinationRequest;
-export type CreatePublishingDestinationCommandOutput = CreatePublishingDestinationResponse &
-  __MetadataBearer;
+export type CreatePublishingDestinationCommandOutput = CreatePublishingDestinationResponse & __MetadataBearer;
 
 export class CreatePublishingDestinationCommand extends $Command<
   CreatePublishingDestinationCommandInput,
@@ -49,13 +38,8 @@ export class CreatePublishingDestinationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePublishingDestinationCommandInput,
-    CreatePublishingDestinationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePublishingDestinationCommandInput, CreatePublishingDestinationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class CreatePublishingDestinationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePublishingDestinationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePublishingDestinationCommand(
-      input,
-      context
-    );
+  private serialize(input: CreatePublishingDestinationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreatePublishingDestinationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreatePublishingDestinationCommandOutput> {
-    return deserializeAws_restJson1_1CreatePublishingDestinationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreatePublishingDestinationCommand(output, context);
   }
 
   // Start section: command_body_extra

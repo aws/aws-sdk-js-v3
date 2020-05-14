@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient";
-import {
-  PutApprovalResultInput,
-  PutApprovalResultOutput
-} from "../models/index";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/index";
 import {
   deserializeAws_json1_1PutApprovalResultCommand,
   serializeAws_json1_1PutApprovalResultCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutApprovalResultCommandInput = PutApprovalResultInput;
-export type PutApprovalResultCommandOutput = PutApprovalResultOutput &
-  __MetadataBearer;
+export type PutApprovalResultCommandOutput = PutApprovalResultOutput & __MetadataBearer;
 
 export class PutApprovalResultCommand extends $Command<
   PutApprovalResultCommandInput,
@@ -50,9 +39,7 @@ export class PutApprovalResultCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutApprovalResultCommandInput, PutApprovalResultCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class PutApprovalResultCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutApprovalResultCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutApprovalResultCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutApprovalResultCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutApprovalResultCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutApprovalResultCommandOutput> {
     return deserializeAws_json1_1PutApprovalResultCommand(output, context);
   }
 

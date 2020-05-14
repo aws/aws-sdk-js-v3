@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeGroupsCommand,
   serializeAws_restJson1_1DescribeGroupsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeGroupsCommandInput = DescribeGroupsRequest;
-export type DescribeGroupsCommandOutput = DescribeGroupsResponse &
-  __MetadataBearer;
+export type DescribeGroupsCommandOutput = DescribeGroupsResponse & __MetadataBearer;
 
 export class DescribeGroupsCommand extends $Command<
   DescribeGroupsCommandInput,
@@ -47,9 +39,7 @@ export class DescribeGroupsCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeGroupsCommandInput, DescribeGroupsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DescribeGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeGroupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeGroupsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeGroupsCommandOutput> {
     return deserializeAws_restJson1_1DescribeGroupsCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DeleteHsmClientCertificateMessage } from "../models/index";
 import {
   deserializeAws_queryDeleteHsmClientCertificateCommand,
   serializeAws_queryDeleteHsmClientCertificateCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteHsmClientCertificateCommandInput,
-    DeleteHsmClientCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteHsmClientCertificateCommandInput, DeleteHsmClientCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,10 +54,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteHsmClientCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteHsmClientCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteHsmClientCertificateCommand(input, context);
   }
 
@@ -77,10 +62,7 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteHsmClientCertificateCommandOutput> {
-    return deserializeAws_queryDeleteHsmClientCertificateCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteHsmClientCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

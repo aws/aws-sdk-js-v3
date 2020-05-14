@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
-import {
-  CreateVirtualRouterInput,
-  CreateVirtualRouterOutput
-} from "../models/index";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import { CreateVirtualRouterInput, CreateVirtualRouterOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateVirtualRouterCommand,
   serializeAws_restJson1_1CreateVirtualRouterCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateVirtualRouterCommandInput = CreateVirtualRouterInput;
-export type CreateVirtualRouterCommandOutput = CreateVirtualRouterOutput &
-  __MetadataBearer;
+export type CreateVirtualRouterCommandOutput = CreateVirtualRouterOutput & __MetadataBearer;
 
 export class CreateVirtualRouterCommand extends $Command<
   CreateVirtualRouterCommandInput,
@@ -49,13 +38,8 @@ export class CreateVirtualRouterCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateVirtualRouterCommandInput,
-    CreateVirtualRouterCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateVirtualRouterCommandInput, CreateVirtualRouterCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class CreateVirtualRouterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateVirtualRouterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateVirtualRouterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateVirtualRouterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateVirtualRouterCommandOutput> {
-    return deserializeAws_restJson1_1CreateVirtualRouterCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateVirtualRouterCommandOutput> {
+    return deserializeAws_restJson1_1CreateVirtualRouterCommand(output, context);
   }
 
   // Start section: command_body_extra

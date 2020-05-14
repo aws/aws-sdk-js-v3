@@ -1,18 +1,11 @@
-import {
-  S3ControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3ControlClient";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DescribeJobRequest, DescribeJobResult } from "../models/index";
 import {
   deserializeAws_restXmlDescribeJobCommand,
   serializeAws_restXmlDescribeJobCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DescribeJobCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeJobCommandInput, DescribeJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DescribeJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlDescribeJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeJobCommandOutput> {
     return deserializeAws_restXmlDescribeJobCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient";
-import {
-  GetMergeConflictsInput,
-  GetMergeConflictsOutput
-} from "../models/index";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { GetMergeConflictsInput, GetMergeConflictsOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetMergeConflictsCommand,
   serializeAws_json1_1GetMergeConflictsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMergeConflictsCommandInput = GetMergeConflictsInput;
-export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput &
-  __MetadataBearer;
+export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput & __MetadataBearer;
 
 export class GetMergeConflictsCommand extends $Command<
   GetMergeConflictsCommandInput,
@@ -50,9 +39,7 @@ export class GetMergeConflictsCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMergeConflictsCommandInput, GetMergeConflictsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetMergeConflictsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMergeConflictsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMergeConflictsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetMergeConflictsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMergeConflictsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMergeConflictsCommandOutput> {
     return deserializeAws_json1_1GetMergeConflictsCommand(output, context);
   }
 

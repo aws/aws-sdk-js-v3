@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  forecastClientResolvedConfig
-} from "../forecastClient";
-import {
-  DescribePredictorRequest,
-  DescribePredictorResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, forecastClientResolvedConfig } from "../forecastClient";
+import { DescribePredictorRequest, DescribePredictorResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribePredictorCommand,
   serializeAws_json1_1DescribePredictorCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePredictorCommandInput = DescribePredictorRequest;
-export type DescribePredictorCommandOutput = DescribePredictorResponse &
-  __MetadataBearer;
+export type DescribePredictorCommandOutput = DescribePredictorResponse & __MetadataBearer;
 
 export class DescribePredictorCommand extends $Command<
   DescribePredictorCommandInput,
@@ -50,9 +39,7 @@ export class DescribePredictorCommand extends $Command<
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePredictorCommandInput, DescribePredictorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribePredictorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePredictorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribePredictorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePredictorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribePredictorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePredictorCommandOutput> {
     return deserializeAws_json1_1DescribePredictorCommand(output, context);
   }
 

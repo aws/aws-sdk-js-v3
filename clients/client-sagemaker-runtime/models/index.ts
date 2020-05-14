@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -14,8 +11,7 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InternalFailure {
-  export const isa = (o: any): o is InternalFailure =>
-    __isa(o, "InternalFailure");
+  export const isa = (o: any): o is InternalFailure => __isa(o, "InternalFailure");
 }
 
 export interface InvokeEndpointInput {
@@ -63,8 +59,7 @@ export interface InvokeEndpointInput {
 }
 
 export namespace InvokeEndpointInput {
-  export const isa = (o: any): o is InvokeEndpointInput =>
-    __isa(o, "InvokeEndpointInput");
+  export const isa = (o: any): o is InvokeEndpointInput => __isa(o, "InvokeEndpointInput");
 }
 
 export interface InvokeEndpointOutput {
@@ -103,8 +98,7 @@ export interface InvokeEndpointOutput {
 }
 
 export namespace InvokeEndpointOutput {
-  export const isa = (o: any): o is InvokeEndpointOutput =>
-    __isa(o, "InvokeEndpointOutput");
+  export const isa = (o: any): o is InvokeEndpointOutput => __isa(o, "InvokeEndpointOutput");
 }
 
 /**
@@ -145,8 +139,7 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceUnavailable {
-  export const isa = (o: any): o is ServiceUnavailable =>
-    __isa(o, "ServiceUnavailable");
+  export const isa = (o: any): o is ServiceUnavailable => __isa(o, "ServiceUnavailable");
 }
 
 /**
@@ -159,6 +152,5 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ValidationError {
-  export const isa = (o: any): o is ValidationError =>
-    __isa(o, "ValidationError");
+  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }

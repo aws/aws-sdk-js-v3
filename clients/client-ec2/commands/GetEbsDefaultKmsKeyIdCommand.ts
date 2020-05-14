@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  GetEbsDefaultKmsKeyIdRequest,
-  GetEbsDefaultKmsKeyIdResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { GetEbsDefaultKmsKeyIdRequest, GetEbsDefaultKmsKeyIdResult } from "../models/index";
 import {
   deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2GetEbsDefaultKmsKeyIdCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetEbsDefaultKmsKeyIdCommandInput = GetEbsDefaultKmsKeyIdRequest;
-export type GetEbsDefaultKmsKeyIdCommandOutput = GetEbsDefaultKmsKeyIdResult &
-  __MetadataBearer;
+export type GetEbsDefaultKmsKeyIdCommandOutput = GetEbsDefaultKmsKeyIdResult & __MetadataBearer;
 
 export class GetEbsDefaultKmsKeyIdCommand extends $Command<
   GetEbsDefaultKmsKeyIdCommandInput,
@@ -49,13 +38,8 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetEbsDefaultKmsKeyIdCommandInput,
-    GetEbsDefaultKmsKeyIdCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetEbsDefaultKmsKeyIdCommandInput, GetEbsDefaultKmsKeyIdCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class GetEbsDefaultKmsKeyIdCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetEbsDefaultKmsKeyIdCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetEbsDefaultKmsKeyIdCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2GetEbsDefaultKmsKeyIdCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEbsDefaultKmsKeyIdCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEbsDefaultKmsKeyIdCommandOutput> {
     return deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand(output, context);
   }
 

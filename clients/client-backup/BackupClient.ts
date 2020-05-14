@@ -1,19 +1,10 @@
-import {
-  CreateBackupPlanCommandInput,
-  CreateBackupPlanCommandOutput
-} from "./commands/CreateBackupPlanCommand";
+import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
 import {
   CreateBackupSelectionCommandInput,
   CreateBackupSelectionCommandOutput
 } from "./commands/CreateBackupSelectionCommand";
-import {
-  CreateBackupVaultCommandInput,
-  CreateBackupVaultCommandOutput
-} from "./commands/CreateBackupVaultCommand";
-import {
-  DeleteBackupPlanCommandInput,
-  DeleteBackupPlanCommandOutput
-} from "./commands/DeleteBackupPlanCommand";
+import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "./commands/CreateBackupVaultCommand";
+import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommandInput,
   DeleteBackupSelectionCommandOutput
@@ -22,10 +13,7 @@ import {
   DeleteBackupVaultAccessPolicyCommandInput,
   DeleteBackupVaultAccessPolicyCommandOutput
 } from "./commands/DeleteBackupVaultAccessPolicyCommand";
-import {
-  DeleteBackupVaultCommandInput,
-  DeleteBackupVaultCommandOutput
-} from "./commands/DeleteBackupVaultCommand";
+import { DeleteBackupVaultCommandInput, DeleteBackupVaultCommandOutput } from "./commands/DeleteBackupVaultCommand";
 import {
   DeleteBackupVaultNotificationsCommandInput,
   DeleteBackupVaultNotificationsCommandOutput
@@ -34,18 +22,12 @@ import {
   DeleteRecoveryPointCommandInput,
   DeleteRecoveryPointCommandOutput
 } from "./commands/DeleteRecoveryPointCommand";
-import {
-  DescribeBackupJobCommandInput,
-  DescribeBackupJobCommandOutput
-} from "./commands/DescribeBackupJobCommand";
+import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "./commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommandInput,
   DescribeBackupVaultCommandOutput
 } from "./commands/DescribeBackupVaultCommand";
-import {
-  DescribeCopyJobCommandInput,
-  DescribeCopyJobCommandOutput
-} from "./commands/DescribeCopyJobCommand";
+import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand";
 import {
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput
@@ -54,18 +36,12 @@ import {
   DescribeRecoveryPointCommandInput,
   DescribeRecoveryPointCommandOutput
 } from "./commands/DescribeRecoveryPointCommand";
-import {
-  DescribeRestoreJobCommandInput,
-  DescribeRestoreJobCommandOutput
-} from "./commands/DescribeRestoreJobCommand";
+import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
 import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput
 } from "./commands/ExportBackupPlanTemplateCommand";
-import {
-  GetBackupPlanCommandInput,
-  GetBackupPlanCommandOutput
-} from "./commands/GetBackupPlanCommand";
+import { GetBackupPlanCommandInput, GetBackupPlanCommandOutput } from "./commands/GetBackupPlanCommand";
 import {
   GetBackupPlanFromJSONCommandInput,
   GetBackupPlanFromJSONCommandOutput
@@ -74,10 +50,7 @@ import {
   GetBackupPlanFromTemplateCommandInput,
   GetBackupPlanFromTemplateCommandOutput
 } from "./commands/GetBackupPlanFromTemplateCommand";
-import {
-  GetBackupSelectionCommandInput,
-  GetBackupSelectionCommandOutput
-} from "./commands/GetBackupSelectionCommand";
+import { GetBackupSelectionCommandInput, GetBackupSelectionCommandOutput } from "./commands/GetBackupSelectionCommand";
 import {
   GetBackupVaultAccessPolicyCommandInput,
   GetBackupVaultAccessPolicyCommandOutput
@@ -94,10 +67,7 @@ import {
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput
 } from "./commands/GetSupportedResourceTypesCommand";
-import {
-  ListBackupJobsCommandInput,
-  ListBackupJobsCommandOutput
-} from "./commands/ListBackupJobsCommand";
+import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
 import {
   ListBackupPlanTemplatesCommandInput,
   ListBackupPlanTemplatesCommandOutput
@@ -106,22 +76,13 @@ import {
   ListBackupPlanVersionsCommandInput,
   ListBackupPlanVersionsCommandOutput
 } from "./commands/ListBackupPlanVersionsCommand";
-import {
-  ListBackupPlansCommandInput,
-  ListBackupPlansCommandOutput
-} from "./commands/ListBackupPlansCommand";
+import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "./commands/ListBackupPlansCommand";
 import {
   ListBackupSelectionsCommandInput,
   ListBackupSelectionsCommandOutput
 } from "./commands/ListBackupSelectionsCommand";
-import {
-  ListBackupVaultsCommandInput,
-  ListBackupVaultsCommandOutput
-} from "./commands/ListBackupVaultsCommand";
-import {
-  ListCopyJobsCommandInput,
-  ListCopyJobsCommandOutput
-} from "./commands/ListCopyJobsCommand";
+import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
+import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
 import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput
@@ -134,14 +95,8 @@ import {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput
 } from "./commands/ListRecoveryPointsByResourceCommand";
-import {
-  ListRestoreJobsCommandInput,
-  ListRestoreJobsCommandOutput
-} from "./commands/ListRestoreJobsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
+import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
   PutBackupVaultAccessPolicyCommandOutput
@@ -150,34 +105,13 @@ import {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput
 } from "./commands/PutBackupVaultNotificationsCommand";
-import {
-  StartBackupJobCommandInput,
-  StartBackupJobCommandOutput
-} from "./commands/StartBackupJobCommand";
-import {
-  StartCopyJobCommandInput,
-  StartCopyJobCommandOutput
-} from "./commands/StartCopyJobCommand";
-import {
-  StartRestoreJobCommandInput,
-  StartRestoreJobCommandOutput
-} from "./commands/StartRestoreJobCommand";
-import {
-  StopBackupJobCommandInput,
-  StopBackupJobCommandOutput
-} from "./commands/StopBackupJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateBackupPlanCommandInput,
-  UpdateBackupPlanCommandOutput
-} from "./commands/UpdateBackupPlanCommand";
+import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
+import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
+import { StartRestoreJobCommandInput, StartRestoreJobCommandOutput } from "./commands/StartRestoreJobCommand";
+import { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./commands/StopBackupJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand";
 import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput
@@ -198,12 +132,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -330,8 +259,7 @@ export type ServiceOutputTypes =
   | UpdateBackupPlanCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -415,9 +343,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type BackupClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type BackupClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -426,9 +352,7 @@ export type BackupClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type BackupClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type BackupClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

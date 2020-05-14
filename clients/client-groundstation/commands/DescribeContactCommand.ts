@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient";
-import {
-  DescribeContactRequest,
-  DescribeContactResponse
-} from "../models/index";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { DescribeContactRequest, DescribeContactResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeContactCommand,
   serializeAws_restJson1_1DescribeContactCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeContactCommandInput = DescribeContactRequest;
-export type DescribeContactCommandOutput = DescribeContactResponse &
-  __MetadataBearer;
+export type DescribeContactCommandOutput = DescribeContactResponse & __MetadataBearer;
 
 export class DescribeContactCommand extends $Command<
   DescribeContactCommandInput,
@@ -50,9 +39,7 @@ export class DescribeContactCommand extends $Command<
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeContactCommandInput, DescribeContactCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeContactCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeContactCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeContactCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeContactCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContactCommandOutput> {
     return deserializeAws_restJson1_1DescribeContactCommand(output, context);
   }
 

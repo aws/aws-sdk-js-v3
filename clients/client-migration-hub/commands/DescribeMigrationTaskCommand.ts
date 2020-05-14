@@ -1,21 +1,11 @@
-import {
-  MigrationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MigrationHubClient";
-import {
-  DescribeMigrationTaskRequest,
-  DescribeMigrationTaskResult
-} from "../models/index";
+import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { DescribeMigrationTaskRequest, DescribeMigrationTaskResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeMigrationTaskCommand,
   serializeAws_json1_1DescribeMigrationTaskCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMigrationTaskCommandInput = DescribeMigrationTaskRequest;
-export type DescribeMigrationTaskCommandOutput = DescribeMigrationTaskResult &
-  __MetadataBearer;
+export type DescribeMigrationTaskCommandOutput = DescribeMigrationTaskResult & __MetadataBearer;
 
 export class DescribeMigrationTaskCommand extends $Command<
   DescribeMigrationTaskCommandInput,
@@ -49,13 +38,8 @@ export class DescribeMigrationTaskCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMigrationTaskCommandInput,
-    DescribeMigrationTaskCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMigrationTaskCommandInput, DescribeMigrationTaskCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DescribeMigrationTaskCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeMigrationTaskCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeMigrationTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMigrationTaskCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeMigrationTaskCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMigrationTaskCommandOutput> {
     return deserializeAws_json1_1DescribeMigrationTaskCommand(output, context);
   }
 

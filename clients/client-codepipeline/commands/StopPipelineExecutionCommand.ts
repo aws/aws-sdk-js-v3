@@ -1,21 +1,11 @@
-import {
-  CodePipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodePipelineClient";
-import {
-  StopPipelineExecutionInput,
-  StopPipelineExecutionOutput
-} from "../models/index";
+import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
+import { StopPipelineExecutionInput, StopPipelineExecutionOutput } from "../models/index";
 import {
   deserializeAws_json1_1StopPipelineExecutionCommand,
   serializeAws_json1_1StopPipelineExecutionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopPipelineExecutionCommandInput = StopPipelineExecutionInput;
-export type StopPipelineExecutionCommandOutput = StopPipelineExecutionOutput &
-  __MetadataBearer;
+export type StopPipelineExecutionCommandOutput = StopPipelineExecutionOutput & __MetadataBearer;
 
 export class StopPipelineExecutionCommand extends $Command<
   StopPipelineExecutionCommandInput,
@@ -49,13 +38,8 @@ export class StopPipelineExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopPipelineExecutionCommandInput,
-    StopPipelineExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopPipelineExecutionCommandInput, StopPipelineExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class StopPipelineExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopPipelineExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopPipelineExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopPipelineExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopPipelineExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopPipelineExecutionCommandOutput> {
     return deserializeAws_json1_1StopPipelineExecutionCommand(output, context);
   }
 

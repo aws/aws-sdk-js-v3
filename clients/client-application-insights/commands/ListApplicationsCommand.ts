@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  ListApplicationsRequest,
-  ListApplicationsResponse
-} from "../models/index";
+import { ListApplicationsRequest, ListApplicationsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListApplicationsCommand,
   serializeAws_json1_1ListApplicationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListApplicationsCommandInput = ListApplicationsRequest;
-export type ListApplicationsCommandOutput = ListApplicationsResponse &
-  __MetadataBearer;
+export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
 
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,
@@ -50,9 +43,7 @@ export class ListApplicationsCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListApplicationsCommandInput, ListApplicationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class ListApplicationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListApplicationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListApplicationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListApplicationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListApplicationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationsCommandOutput> {
     return deserializeAws_json1_1ListApplicationsCommand(output, context);
   }
 

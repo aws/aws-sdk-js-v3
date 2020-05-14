@@ -19,9 +19,5 @@ export function fromBase64(input: string): Uint8Array {
  * @param input The binary data to encode
  */
 export function toBase64(input: Uint8Array): string {
-  return fromArrayBuffer(
-    input.buffer,
-    input.byteOffset,
-    input.byteLength
-  ).toString("base64");
+  return fromArrayBuffer(input.buffer, input.byteOffset, input.byteLength).toString("base64");
 }

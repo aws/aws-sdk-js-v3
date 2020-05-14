@@ -14,10 +14,7 @@ import {
   CreateDeploymentJobCommandInput,
   CreateDeploymentJobCommandOutput
 } from "./commands/CreateDeploymentJobCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateRobotApplicationCommandInput,
   CreateRobotApplicationCommandOutput
@@ -26,10 +23,7 @@ import {
   CreateRobotApplicationVersionCommandInput,
   CreateRobotApplicationVersionCommandOutput
 } from "./commands/CreateRobotApplicationVersionCommand";
-import {
-  CreateRobotCommandInput,
-  CreateRobotCommandOutput
-} from "./commands/CreateRobotCommand";
+import { CreateRobotCommandInput, CreateRobotCommandOutput } from "./commands/CreateRobotCommand";
 import {
   CreateSimulationApplicationCommandInput,
   CreateSimulationApplicationCommandOutput
@@ -42,42 +36,27 @@ import {
   CreateSimulationJobCommandInput,
   CreateSimulationJobCommandOutput
 } from "./commands/CreateSimulationJobCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteRobotApplicationCommandInput,
   DeleteRobotApplicationCommandOutput
 } from "./commands/DeleteRobotApplicationCommand";
-import {
-  DeleteRobotCommandInput,
-  DeleteRobotCommandOutput
-} from "./commands/DeleteRobotCommand";
+import { DeleteRobotCommandInput, DeleteRobotCommandOutput } from "./commands/DeleteRobotCommand";
 import {
   DeleteSimulationApplicationCommandInput,
   DeleteSimulationApplicationCommandOutput
 } from "./commands/DeleteSimulationApplicationCommand";
-import {
-  DeregisterRobotCommandInput,
-  DeregisterRobotCommandOutput
-} from "./commands/DeregisterRobotCommand";
+import { DeregisterRobotCommandInput, DeregisterRobotCommandOutput } from "./commands/DeregisterRobotCommand";
 import {
   DescribeDeploymentJobCommandInput,
   DescribeDeploymentJobCommandOutput
 } from "./commands/DescribeDeploymentJobCommand";
-import {
-  DescribeFleetCommandInput,
-  DescribeFleetCommandOutput
-} from "./commands/DescribeFleetCommand";
+import { DescribeFleetCommandInput, DescribeFleetCommandOutput } from "./commands/DescribeFleetCommand";
 import {
   DescribeRobotApplicationCommandInput,
   DescribeRobotApplicationCommandOutput
 } from "./commands/DescribeRobotApplicationCommand";
-import {
-  DescribeRobotCommandInput,
-  DescribeRobotCommandOutput
-} from "./commands/DescribeRobotCommand";
+import { DescribeRobotCommandInput, DescribeRobotCommandOutput } from "./commands/DescribeRobotCommand";
 import {
   DescribeSimulationApplicationCommandInput,
   DescribeSimulationApplicationCommandOutput
@@ -86,54 +65,30 @@ import {
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput
 } from "./commands/DescribeSimulationJobCommand";
-import {
-  ListDeploymentJobsCommandInput,
-  ListDeploymentJobsCommandOutput
-} from "./commands/ListDeploymentJobsCommand";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
+import { ListDeploymentJobsCommandInput, ListDeploymentJobsCommandOutput } from "./commands/ListDeploymentJobsCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListRobotApplicationsCommandInput,
   ListRobotApplicationsCommandOutput
 } from "./commands/ListRobotApplicationsCommand";
-import {
-  ListRobotsCommandInput,
-  ListRobotsCommandOutput
-} from "./commands/ListRobotsCommand";
+import { ListRobotsCommandInput, ListRobotsCommandOutput } from "./commands/ListRobotsCommand";
 import {
   ListSimulationApplicationsCommandInput,
   ListSimulationApplicationsCommandOutput
 } from "./commands/ListSimulationApplicationsCommand";
-import {
-  ListSimulationJobsCommandInput,
-  ListSimulationJobsCommandOutput
-} from "./commands/ListSimulationJobsCommand";
+import { ListSimulationJobsCommandInput, ListSimulationJobsCommandOutput } from "./commands/ListSimulationJobsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  RegisterRobotCommandInput,
-  RegisterRobotCommandOutput
-} from "./commands/RegisterRobotCommand";
+import { RegisterRobotCommandInput, RegisterRobotCommandOutput } from "./commands/RegisterRobotCommand";
 import {
   RestartSimulationJobCommandInput,
   RestartSimulationJobCommandOutput
 } from "./commands/RestartSimulationJobCommand";
-import {
-  SyncDeploymentJobCommandInput,
-  SyncDeploymentJobCommandOutput
-} from "./commands/SyncDeploymentJobCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { SyncDeploymentJobCommandInput, SyncDeploymentJobCommandOutput } from "./commands/SyncDeploymentJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateRobotApplicationCommandInput,
   UpdateRobotApplicationCommandOutput
@@ -158,12 +113,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -270,8 +220,7 @@ export type ServiceOutputTypes =
   | UpdateRobotApplicationCommandOutput
   | UpdateSimulationApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -355,9 +304,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RoboMakerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RoboMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -366,9 +313,7 @@ export type RoboMakerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RoboMakerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RoboMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

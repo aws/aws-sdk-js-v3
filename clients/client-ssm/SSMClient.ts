@@ -1,39 +1,21 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
-import {
-  CancelCommandCommandInput,
-  CancelCommandCommandOutput
-} from "./commands/CancelCommandCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
+import { CancelCommandCommandInput, CancelCommandCommandOutput } from "./commands/CancelCommandCommand";
 import {
   CancelMaintenanceWindowExecutionCommandInput,
   CancelMaintenanceWindowExecutionCommandOutput
 } from "./commands/CancelMaintenanceWindowExecutionCommand";
-import {
-  CreateActivationCommandInput,
-  CreateActivationCommandOutput
-} from "./commands/CreateActivationCommand";
+import { CreateActivationCommandInput, CreateActivationCommandOutput } from "./commands/CreateActivationCommand";
 import {
   CreateAssociationBatchCommandInput,
   CreateAssociationBatchCommandOutput
 } from "./commands/CreateAssociationBatchCommand";
-import {
-  CreateAssociationCommandInput,
-  CreateAssociationCommandOutput
-} from "./commands/CreateAssociationCommand";
-import {
-  CreateDocumentCommandInput,
-  CreateDocumentCommandOutput
-} from "./commands/CreateDocumentCommand";
+import { CreateAssociationCommandInput, CreateAssociationCommandOutput } from "./commands/CreateAssociationCommand";
+import { CreateDocumentCommandInput, CreateDocumentCommandOutput } from "./commands/CreateDocumentCommand";
 import {
   CreateMaintenanceWindowCommandInput,
   CreateMaintenanceWindowCommandOutput
 } from "./commands/CreateMaintenanceWindowCommand";
-import {
-  CreateOpsItemCommandInput,
-  CreateOpsItemCommandOutput
-} from "./commands/CreateOpsItemCommand";
+import { CreateOpsItemCommandInput, CreateOpsItemCommandOutput } from "./commands/CreateOpsItemCommand";
 import {
   CreatePatchBaselineCommandInput,
   CreatePatchBaselineCommandOutput
@@ -42,34 +24,16 @@ import {
   CreateResourceDataSyncCommandInput,
   CreateResourceDataSyncCommandOutput
 } from "./commands/CreateResourceDataSyncCommand";
-import {
-  DeleteActivationCommandInput,
-  DeleteActivationCommandOutput
-} from "./commands/DeleteActivationCommand";
-import {
-  DeleteAssociationCommandInput,
-  DeleteAssociationCommandOutput
-} from "./commands/DeleteAssociationCommand";
-import {
-  DeleteDocumentCommandInput,
-  DeleteDocumentCommandOutput
-} from "./commands/DeleteDocumentCommand";
-import {
-  DeleteInventoryCommandInput,
-  DeleteInventoryCommandOutput
-} from "./commands/DeleteInventoryCommand";
+import { DeleteActivationCommandInput, DeleteActivationCommandOutput } from "./commands/DeleteActivationCommand";
+import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "./commands/DeleteAssociationCommand";
+import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
+import { DeleteInventoryCommandInput, DeleteInventoryCommandOutput } from "./commands/DeleteInventoryCommand";
 import {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput
 } from "./commands/DeleteMaintenanceWindowCommand";
-import {
-  DeleteParameterCommandInput,
-  DeleteParameterCommandOutput
-} from "./commands/DeleteParameterCommand";
-import {
-  DeleteParametersCommandInput,
-  DeleteParametersCommandOutput
-} from "./commands/DeleteParametersCommand";
+import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "./commands/DeleteParameterCommand";
+import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "./commands/DeleteParametersCommand";
 import {
   DeletePatchBaselineCommandInput,
   DeletePatchBaselineCommandOutput
@@ -122,10 +86,7 @@ import {
   DescribeAvailablePatchesCommandInput,
   DescribeAvailablePatchesCommandOutput
 } from "./commands/DescribeAvailablePatchesCommand";
-import {
-  DescribeDocumentCommandInput,
-  DescribeDocumentCommandOutput
-} from "./commands/DescribeDocumentCommand";
+import { DescribeDocumentCommandInput, DescribeDocumentCommandOutput } from "./commands/DescribeDocumentCommand";
 import {
   DescribeDocumentPermissionCommandInput,
   DescribeDocumentPermissionCommandOutput
@@ -194,14 +155,8 @@ import {
   DescribeMaintenanceWindowsForTargetCommandInput,
   DescribeMaintenanceWindowsForTargetCommandOutput
 } from "./commands/DescribeMaintenanceWindowsForTargetCommand";
-import {
-  DescribeOpsItemsCommandInput,
-  DescribeOpsItemsCommandOutput
-} from "./commands/DescribeOpsItemsCommand";
-import {
-  DescribeParametersCommandInput,
-  DescribeParametersCommandOutput
-} from "./commands/DescribeParametersCommand";
+import { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "./commands/DescribeOpsItemsCommand";
+import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "./commands/DescribeParametersCommand";
 import {
   DescribePatchBaselinesCommandInput,
   DescribePatchBaselinesCommandOutput
@@ -218,18 +173,12 @@ import {
   DescribePatchPropertiesCommandInput,
   DescribePatchPropertiesCommandOutput
 } from "./commands/DescribePatchPropertiesCommand";
-import {
-  DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput
-} from "./commands/DescribeSessionsCommand";
+import { DescribeSessionsCommandInput, DescribeSessionsCommandOutput } from "./commands/DescribeSessionsCommand";
 import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput
 } from "./commands/GetAutomationExecutionCommand";
-import {
-  GetCalendarStateCommandInput,
-  GetCalendarStateCommandOutput
-} from "./commands/GetCalendarStateCommand";
+import { GetCalendarStateCommandInput, GetCalendarStateCommandOutput } from "./commands/GetCalendarStateCommand";
 import {
   GetCommandInvocationCommandInput,
   GetCommandInvocationCommandOutput
@@ -246,18 +195,9 @@ import {
   GetDeployablePatchSnapshotForInstanceCommandInput,
   GetDeployablePatchSnapshotForInstanceCommandOutput
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
-import {
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput
-} from "./commands/GetDocumentCommand";
-import {
-  GetInventoryCommandInput,
-  GetInventoryCommandOutput
-} from "./commands/GetInventoryCommand";
-import {
-  GetInventorySchemaCommandInput,
-  GetInventorySchemaCommandOutput
-} from "./commands/GetInventorySchemaCommand";
+import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
+import { GetInventoryCommandInput, GetInventoryCommandOutput } from "./commands/GetInventoryCommand";
+import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "./commands/GetInventorySchemaCommand";
 import {
   GetMaintenanceWindowCommandInput,
   GetMaintenanceWindowCommandOutput
@@ -278,18 +218,9 @@ import {
   GetMaintenanceWindowTaskCommandInput,
   GetMaintenanceWindowTaskCommandOutput
 } from "./commands/GetMaintenanceWindowTaskCommand";
-import {
-  GetOpsItemCommandInput,
-  GetOpsItemCommandOutput
-} from "./commands/GetOpsItemCommand";
-import {
-  GetOpsSummaryCommandInput,
-  GetOpsSummaryCommandOutput
-} from "./commands/GetOpsSummaryCommand";
-import {
-  GetParameterCommandInput,
-  GetParameterCommandOutput
-} from "./commands/GetParameterCommand";
+import { GetOpsItemCommandInput, GetOpsItemCommandOutput } from "./commands/GetOpsItemCommand";
+import { GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput } from "./commands/GetOpsSummaryCommand";
+import { GetParameterCommandInput, GetParameterCommandOutput } from "./commands/GetParameterCommand";
 import {
   GetParameterHistoryCommandInput,
   GetParameterHistoryCommandOutput
@@ -298,22 +229,13 @@ import {
   GetParametersByPathCommandInput,
   GetParametersByPathCommandOutput
 } from "./commands/GetParametersByPathCommand";
-import {
-  GetParametersCommandInput,
-  GetParametersCommandOutput
-} from "./commands/GetParametersCommand";
-import {
-  GetPatchBaselineCommandInput,
-  GetPatchBaselineCommandOutput
-} from "./commands/GetPatchBaselineCommand";
+import { GetParametersCommandInput, GetParametersCommandOutput } from "./commands/GetParametersCommand";
+import { GetPatchBaselineCommandInput, GetPatchBaselineCommandOutput } from "./commands/GetPatchBaselineCommand";
 import {
   GetPatchBaselineForPatchGroupCommandInput,
   GetPatchBaselineForPatchGroupCommandOutput
 } from "./commands/GetPatchBaselineForPatchGroupCommand";
-import {
-  GetServiceSettingCommandInput,
-  GetServiceSettingCommandOutput
-} from "./commands/GetServiceSettingCommand";
+import { GetServiceSettingCommandInput, GetServiceSettingCommandOutput } from "./commands/GetServiceSettingCommand";
 import {
   LabelParameterVersionCommandInput,
   LabelParameterVersionCommandOutput
@@ -322,18 +244,12 @@ import {
   ListAssociationVersionsCommandInput,
   ListAssociationVersionsCommandOutput
 } from "./commands/ListAssociationVersionsCommand";
-import {
-  ListAssociationsCommandInput,
-  ListAssociationsCommandOutput
-} from "./commands/ListAssociationsCommand";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
 import {
   ListCommandInvocationsCommandInput,
   ListCommandInvocationsCommandOutput
 } from "./commands/ListCommandInvocationsCommand";
-import {
-  ListCommandsCommandInput,
-  ListCommandsCommandOutput
-} from "./commands/ListCommandsCommand";
+import { ListCommandsCommandInput, ListCommandsCommandOutput } from "./commands/ListCommandsCommand";
 import {
   ListComplianceItemsCommandInput,
   ListComplianceItemsCommandOutput
@@ -346,10 +262,7 @@ import {
   ListDocumentVersionsCommandInput,
   ListDocumentVersionsCommandOutput
 } from "./commands/ListDocumentVersionsCommand";
-import {
-  ListDocumentsCommandInput,
-  ListDocumentsCommandOutput
-} from "./commands/ListDocumentsCommand";
+import { ListDocumentsCommandInput, ListDocumentsCommandOutput } from "./commands/ListDocumentsCommand";
 import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput
@@ -370,18 +283,9 @@ import {
   ModifyDocumentPermissionCommandInput,
   ModifyDocumentPermissionCommandOutput
 } from "./commands/ModifyDocumentPermissionCommand";
-import {
-  PutComplianceItemsCommandInput,
-  PutComplianceItemsCommandOutput
-} from "./commands/PutComplianceItemsCommand";
-import {
-  PutInventoryCommandInput,
-  PutInventoryCommandOutput
-} from "./commands/PutInventoryCommand";
-import {
-  PutParameterCommandInput,
-  PutParameterCommandOutput
-} from "./commands/PutParameterCommand";
+import { PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput } from "./commands/PutComplianceItemsCommand";
+import { PutInventoryCommandInput, PutInventoryCommandOutput } from "./commands/PutInventoryCommand";
+import { PutParameterCommandInput, PutParameterCommandOutput } from "./commands/PutParameterCommand";
 import {
   RegisterDefaultPatchBaselineCommandInput,
   RegisterDefaultPatchBaselineCommandOutput
@@ -406,18 +310,12 @@ import {
   ResetServiceSettingCommandInput,
   ResetServiceSettingCommandOutput
 } from "./commands/ResetServiceSettingCommand";
-import {
-  ResumeSessionCommandInput,
-  ResumeSessionCommandOutput
-} from "./commands/ResumeSessionCommand";
+import { ResumeSessionCommandInput, ResumeSessionCommandOutput } from "./commands/ResumeSessionCommand";
 import {
   SendAutomationSignalCommandInput,
   SendAutomationSignalCommandOutput
 } from "./commands/SendAutomationSignalCommand";
-import {
-  SendCommandCommandInput,
-  SendCommandCommandOutput
-} from "./commands/SendCommandCommand";
+import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
 import {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput
@@ -426,30 +324,18 @@ import {
   StartAutomationExecutionCommandInput,
   StartAutomationExecutionCommandOutput
 } from "./commands/StartAutomationExecutionCommand";
-import {
-  StartSessionCommandInput,
-  StartSessionCommandOutput
-} from "./commands/StartSessionCommand";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import {
   StopAutomationExecutionCommandInput,
   StopAutomationExecutionCommandOutput
 } from "./commands/StopAutomationExecutionCommand";
-import {
-  TerminateSessionCommandInput,
-  TerminateSessionCommandOutput
-} from "./commands/TerminateSessionCommand";
-import {
-  UpdateAssociationCommandInput,
-  UpdateAssociationCommandOutput
-} from "./commands/UpdateAssociationCommand";
+import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
+import { UpdateAssociationCommandInput, UpdateAssociationCommandOutput } from "./commands/UpdateAssociationCommand";
 import {
   UpdateAssociationStatusCommandInput,
   UpdateAssociationStatusCommandOutput
 } from "./commands/UpdateAssociationStatusCommand";
-import {
-  UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput
-} from "./commands/UpdateDocumentCommand";
+import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
 import {
   UpdateDocumentDefaultVersionCommandInput,
   UpdateDocumentDefaultVersionCommandOutput
@@ -470,10 +356,7 @@ import {
   UpdateManagedInstanceRoleCommandInput,
   UpdateManagedInstanceRoleCommandOutput
 } from "./commands/UpdateManagedInstanceRoleCommand";
-import {
-  UpdateOpsItemCommandInput,
-  UpdateOpsItemCommandOutput
-} from "./commands/UpdateOpsItemCommand";
+import { UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput } from "./commands/UpdateOpsItemCommand";
 import {
   UpdatePatchBaselineCommandInput,
   UpdatePatchBaselineCommandOutput
@@ -502,12 +385,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -786,8 +664,7 @@ export type ServiceOutputTypes =
   | UpdateResourceDataSyncCommandOutput
   | UpdateServiceSettingCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -871,9 +748,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -882,9 +757,7 @@ export type SSMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

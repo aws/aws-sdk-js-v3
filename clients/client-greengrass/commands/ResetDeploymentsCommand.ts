@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  ResetDeploymentsRequest,
-  ResetDeploymentsResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ResetDeploymentsRequest, ResetDeploymentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ResetDeploymentsCommand,
   serializeAws_restJson1_1ResetDeploymentsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetDeploymentsCommandInput = ResetDeploymentsRequest;
-export type ResetDeploymentsCommandOutput = ResetDeploymentsResponse &
-  __MetadataBearer;
+export type ResetDeploymentsCommandOutput = ResetDeploymentsResponse & __MetadataBearer;
 
 export class ResetDeploymentsCommand extends $Command<
   ResetDeploymentsCommandInput,
@@ -50,9 +39,7 @@ export class ResetDeploymentsCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ResetDeploymentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResetDeploymentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResetDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ResetDeploymentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResetDeploymentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetDeploymentsCommandOutput> {
     return deserializeAws_restJson1_1ResetDeploymentsCommand(output, context);
   }
 

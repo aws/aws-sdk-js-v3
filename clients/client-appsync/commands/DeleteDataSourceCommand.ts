@@ -1,21 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
-import {
-  DeleteDataSourceRequest,
-  DeleteDataSourceResponse
-} from "../models/index";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import { DeleteDataSourceRequest, DeleteDataSourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDataSourceCommand,
   serializeAws_restJson1_1DeleteDataSourceCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDataSourceCommandInput = DeleteDataSourceRequest;
-export type DeleteDataSourceCommandOutput = DeleteDataSourceResponse &
-  __MetadataBearer;
+export type DeleteDataSourceCommandOutput = DeleteDataSourceResponse & __MetadataBearer;
 
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,
@@ -50,9 +39,7 @@ export class DeleteDataSourceCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteDataSourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDataSourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteDataSourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDataSourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDataSourceCommandOutput> {
     return deserializeAws_restJson1_1DeleteDataSourceCommand(output, context);
   }
 

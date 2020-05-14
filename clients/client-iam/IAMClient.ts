@@ -6,66 +6,30 @@ import {
   AddRoleToInstanceProfileCommandInput,
   AddRoleToInstanceProfileCommandOutput
 } from "./commands/AddRoleToInstanceProfileCommand";
-import {
-  AddUserToGroupCommandInput,
-  AddUserToGroupCommandOutput
-} from "./commands/AddUserToGroupCommand";
-import {
-  AttachGroupPolicyCommandInput,
-  AttachGroupPolicyCommandOutput
-} from "./commands/AttachGroupPolicyCommand";
-import {
-  AttachRolePolicyCommandInput,
-  AttachRolePolicyCommandOutput
-} from "./commands/AttachRolePolicyCommand";
-import {
-  AttachUserPolicyCommandInput,
-  AttachUserPolicyCommandOutput
-} from "./commands/AttachUserPolicyCommand";
-import {
-  ChangePasswordCommandInput,
-  ChangePasswordCommandOutput
-} from "./commands/ChangePasswordCommand";
-import {
-  CreateAccessKeyCommandInput,
-  CreateAccessKeyCommandOutput
-} from "./commands/CreateAccessKeyCommand";
-import {
-  CreateAccountAliasCommandInput,
-  CreateAccountAliasCommandOutput
-} from "./commands/CreateAccountAliasCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
+import { AddUserToGroupCommandInput, AddUserToGroupCommandOutput } from "./commands/AddUserToGroupCommand";
+import { AttachGroupPolicyCommandInput, AttachGroupPolicyCommandOutput } from "./commands/AttachGroupPolicyCommand";
+import { AttachRolePolicyCommandInput, AttachRolePolicyCommandOutput } from "./commands/AttachRolePolicyCommand";
+import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "./commands/AttachUserPolicyCommand";
+import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
+import { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "./commands/CreateAccessKeyCommand";
+import { CreateAccountAliasCommandInput, CreateAccountAliasCommandOutput } from "./commands/CreateAccountAliasCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput
 } from "./commands/CreateInstanceProfileCommand";
-import {
-  CreateLoginProfileCommandInput,
-  CreateLoginProfileCommandOutput
-} from "./commands/CreateLoginProfileCommand";
+import { CreateLoginProfileCommandInput, CreateLoginProfileCommandOutput } from "./commands/CreateLoginProfileCommand";
 import {
   CreateOpenIDConnectProviderCommandInput,
   CreateOpenIDConnectProviderCommandOutput
 } from "./commands/CreateOpenIDConnectProviderCommand";
-import {
-  CreatePolicyCommandInput,
-  CreatePolicyCommandOutput
-} from "./commands/CreatePolicyCommand";
+import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand";
 import {
   CreatePolicyVersionCommandInput,
   CreatePolicyVersionCommandOutput
 } from "./commands/CreatePolicyVersionCommand";
-import {
-  CreateRoleCommandInput,
-  CreateRoleCommandOutput
-} from "./commands/CreateRoleCommand";
-import {
-  CreateSAMLProviderCommandInput,
-  CreateSAMLProviderCommandOutput
-} from "./commands/CreateSAMLProviderCommand";
+import { CreateRoleCommandInput, CreateRoleCommandOutput } from "./commands/CreateRoleCommand";
+import { CreateSAMLProviderCommandInput, CreateSAMLProviderCommandOutput } from "./commands/CreateSAMLProviderCommand";
 import {
   CreateServiceLinkedRoleCommandInput,
   CreateServiceLinkedRoleCommandOutput
@@ -74,10 +38,7 @@ import {
   CreateServiceSpecificCredentialCommandInput,
   CreateServiceSpecificCredentialCommandOutput
 } from "./commands/CreateServiceSpecificCredentialCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "./commands/CreateUserCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateVirtualMFADeviceCommandInput,
   CreateVirtualMFADeviceCommandOutput
@@ -86,66 +47,36 @@ import {
   DeactivateMFADeviceCommandInput,
   DeactivateMFADeviceCommandOutput
 } from "./commands/DeactivateMFADeviceCommand";
-import {
-  DeleteAccessKeyCommandInput,
-  DeleteAccessKeyCommandOutput
-} from "./commands/DeleteAccessKeyCommand";
-import {
-  DeleteAccountAliasCommandInput,
-  DeleteAccountAliasCommandOutput
-} from "./commands/DeleteAccountAliasCommand";
+import { DeleteAccessKeyCommandInput, DeleteAccessKeyCommandOutput } from "./commands/DeleteAccessKeyCommand";
+import { DeleteAccountAliasCommandInput, DeleteAccountAliasCommandOutput } from "./commands/DeleteAccountAliasCommand";
 import {
   DeleteAccountPasswordPolicyCommandInput,
   DeleteAccountPasswordPolicyCommandOutput
 } from "./commands/DeleteAccountPasswordPolicyCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
-import {
-  DeleteGroupPolicyCommandInput,
-  DeleteGroupPolicyCommandOutput
-} from "./commands/DeleteGroupPolicyCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import { DeleteGroupPolicyCommandInput, DeleteGroupPolicyCommandOutput } from "./commands/DeleteGroupPolicyCommand";
 import {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput
 } from "./commands/DeleteInstanceProfileCommand";
-import {
-  DeleteLoginProfileCommandInput,
-  DeleteLoginProfileCommandOutput
-} from "./commands/DeleteLoginProfileCommand";
+import { DeleteLoginProfileCommandInput, DeleteLoginProfileCommandOutput } from "./commands/DeleteLoginProfileCommand";
 import {
   DeleteOpenIDConnectProviderCommandInput,
   DeleteOpenIDConnectProviderCommandOutput
 } from "./commands/DeleteOpenIDConnectProviderCommand";
-import {
-  DeletePolicyCommandInput,
-  DeletePolicyCommandOutput
-} from "./commands/DeletePolicyCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DeletePolicyVersionCommandInput,
   DeletePolicyVersionCommandOutput
 } from "./commands/DeletePolicyVersionCommand";
-import {
-  DeleteRoleCommandInput,
-  DeleteRoleCommandOutput
-} from "./commands/DeleteRoleCommand";
+import { DeleteRoleCommandInput, DeleteRoleCommandOutput } from "./commands/DeleteRoleCommand";
 import {
   DeleteRolePermissionsBoundaryCommandInput,
   DeleteRolePermissionsBoundaryCommandOutput
 } from "./commands/DeleteRolePermissionsBoundaryCommand";
-import {
-  DeleteRolePolicyCommandInput,
-  DeleteRolePolicyCommandOutput
-} from "./commands/DeleteRolePolicyCommand";
-import {
-  DeleteSAMLProviderCommandInput,
-  DeleteSAMLProviderCommandOutput
-} from "./commands/DeleteSAMLProviderCommand";
-import {
-  DeleteSSHPublicKeyCommandInput,
-  DeleteSSHPublicKeyCommandOutput
-} from "./commands/DeleteSSHPublicKeyCommand";
+import { DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput } from "./commands/DeleteRolePolicyCommand";
+import { DeleteSAMLProviderCommandInput, DeleteSAMLProviderCommandOutput } from "./commands/DeleteSAMLProviderCommand";
+import { DeleteSSHPublicKeyCommandInput, DeleteSSHPublicKeyCommandOutput } from "./commands/DeleteSSHPublicKeyCommand";
 import {
   DeleteServerCertificateCommandInput,
   DeleteServerCertificateCommandOutput
@@ -162,38 +93,20 @@ import {
   DeleteSigningCertificateCommandInput,
   DeleteSigningCertificateCommandOutput
 } from "./commands/DeleteSigningCertificateCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "./commands/DeleteUserCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserPermissionsBoundaryCommandInput,
   DeleteUserPermissionsBoundaryCommandOutput
 } from "./commands/DeleteUserPermissionsBoundaryCommand";
-import {
-  DeleteUserPolicyCommandInput,
-  DeleteUserPolicyCommandOutput
-} from "./commands/DeleteUserPolicyCommand";
+import { DeleteUserPolicyCommandInput, DeleteUserPolicyCommandOutput } from "./commands/DeleteUserPolicyCommand";
 import {
   DeleteVirtualMFADeviceCommandInput,
   DeleteVirtualMFADeviceCommandOutput
 } from "./commands/DeleteVirtualMFADeviceCommand";
-import {
-  DetachGroupPolicyCommandInput,
-  DetachGroupPolicyCommandOutput
-} from "./commands/DetachGroupPolicyCommand";
-import {
-  DetachRolePolicyCommandInput,
-  DetachRolePolicyCommandOutput
-} from "./commands/DetachRolePolicyCommand";
-import {
-  DetachUserPolicyCommandInput,
-  DetachUserPolicyCommandOutput
-} from "./commands/DetachUserPolicyCommand";
-import {
-  EnableMFADeviceCommandInput,
-  EnableMFADeviceCommandOutput
-} from "./commands/EnableMFADeviceCommand";
+import { DetachGroupPolicyCommandInput, DetachGroupPolicyCommandOutput } from "./commands/DetachGroupPolicyCommand";
+import { DetachRolePolicyCommandInput, DetachRolePolicyCommandOutput } from "./commands/DetachRolePolicyCommand";
+import { DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput } from "./commands/DetachUserPolicyCommand";
+import { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "./commands/EnableMFADeviceCommand";
 import {
   GenerateCredentialReportCommandInput,
   GenerateCredentialReportCommandOutput
@@ -218,10 +131,7 @@ import {
   GetAccountPasswordPolicyCommandInput,
   GetAccountPasswordPolicyCommandOutput
 } from "./commands/GetAccountPasswordPolicyCommand";
-import {
-  GetAccountSummaryCommandInput,
-  GetAccountSummaryCommandOutput
-} from "./commands/GetAccountSummaryCommand";
+import { GetAccountSummaryCommandInput, GetAccountSummaryCommandOutput } from "./commands/GetAccountSummaryCommand";
 import {
   GetContextKeysForCustomPolicyCommandInput,
   GetContextKeysForCustomPolicyCommandOutput
@@ -234,22 +144,10 @@ import {
   GetCredentialReportCommandInput,
   GetCredentialReportCommandOutput
 } from "./commands/GetCredentialReportCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
-import {
-  GetGroupPolicyCommandInput,
-  GetGroupPolicyCommandOutput
-} from "./commands/GetGroupPolicyCommand";
-import {
-  GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput
-} from "./commands/GetInstanceProfileCommand";
-import {
-  GetLoginProfileCommandInput,
-  GetLoginProfileCommandOutput
-} from "./commands/GetLoginProfileCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "./commands/GetGroupPolicyCommand";
+import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand";
+import { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "./commands/GetLoginProfileCommand";
 import {
   GetOpenIDConnectProviderCommandInput,
   GetOpenIDConnectProviderCommandOutput
@@ -258,30 +156,12 @@ import {
   GetOrganizationsAccessReportCommandInput,
   GetOrganizationsAccessReportCommandOutput
 } from "./commands/GetOrganizationsAccessReportCommand";
-import {
-  GetPolicyCommandInput,
-  GetPolicyCommandOutput
-} from "./commands/GetPolicyCommand";
-import {
-  GetPolicyVersionCommandInput,
-  GetPolicyVersionCommandOutput
-} from "./commands/GetPolicyVersionCommand";
-import {
-  GetRoleCommandInput,
-  GetRoleCommandOutput
-} from "./commands/GetRoleCommand";
-import {
-  GetRolePolicyCommandInput,
-  GetRolePolicyCommandOutput
-} from "./commands/GetRolePolicyCommand";
-import {
-  GetSAMLProviderCommandInput,
-  GetSAMLProviderCommandOutput
-} from "./commands/GetSAMLProviderCommand";
-import {
-  GetSSHPublicKeyCommandInput,
-  GetSSHPublicKeyCommandOutput
-} from "./commands/GetSSHPublicKeyCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
+import { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
+import { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
+import { GetRolePolicyCommandInput, GetRolePolicyCommandOutput } from "./commands/GetRolePolicyCommand";
+import { GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput } from "./commands/GetSAMLProviderCommand";
+import { GetSSHPublicKeyCommandInput, GetSSHPublicKeyCommandOutput } from "./commands/GetSSHPublicKeyCommand";
 import {
   GetServerCertificateCommandInput,
   GetServerCertificateCommandOutput
@@ -298,22 +178,10 @@ import {
   GetServiceLinkedRoleDeletionStatusCommandInput,
   GetServiceLinkedRoleDeletionStatusCommandOutput
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand";
-import {
-  GetUserCommandInput,
-  GetUserCommandOutput
-} from "./commands/GetUserCommand";
-import {
-  GetUserPolicyCommandInput,
-  GetUserPolicyCommandOutput
-} from "./commands/GetUserPolicyCommand";
-import {
-  ListAccessKeysCommandInput,
-  ListAccessKeysCommandOutput
-} from "./commands/ListAccessKeysCommand";
-import {
-  ListAccountAliasesCommandInput,
-  ListAccountAliasesCommandOutput
-} from "./commands/ListAccountAliasesCommand";
+import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
+import { GetUserPolicyCommandInput, GetUserPolicyCommandOutput } from "./commands/GetUserPolicyCommand";
+import { ListAccessKeysCommandInput, ListAccessKeysCommandOutput } from "./commands/ListAccessKeysCommand";
+import { ListAccountAliasesCommandInput, ListAccountAliasesCommandOutput } from "./commands/ListAccountAliasesCommand";
 import {
   ListAttachedGroupPoliciesCommandInput,
   ListAttachedGroupPoliciesCommandOutput
@@ -330,18 +198,9 @@ import {
   ListEntitiesForPolicyCommandInput,
   ListEntitiesForPolicyCommandOutput
 } from "./commands/ListEntitiesForPolicyCommand";
-import {
-  ListGroupPoliciesCommandInput,
-  ListGroupPoliciesCommandOutput
-} from "./commands/ListGroupPoliciesCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
-import {
-  ListGroupsForUserCommandInput,
-  ListGroupsForUserCommandOutput
-} from "./commands/ListGroupsForUserCommand";
+import { ListGroupPoliciesCommandInput, ListGroupPoliciesCommandOutput } from "./commands/ListGroupPoliciesCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import { ListGroupsForUserCommandInput, ListGroupsForUserCommandOutput } from "./commands/ListGroupsForUserCommand";
 import {
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput
@@ -350,46 +209,22 @@ import {
   ListInstanceProfilesForRoleCommandInput,
   ListInstanceProfilesForRoleCommandOutput
 } from "./commands/ListInstanceProfilesForRoleCommand";
-import {
-  ListMFADevicesCommandInput,
-  ListMFADevicesCommandOutput
-} from "./commands/ListMFADevicesCommand";
+import { ListMFADevicesCommandInput, ListMFADevicesCommandOutput } from "./commands/ListMFADevicesCommand";
 import {
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput
 } from "./commands/ListOpenIDConnectProvidersCommand";
-import {
-  ListPoliciesCommandInput,
-  ListPoliciesCommandOutput
-} from "./commands/ListPoliciesCommand";
+import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPoliciesGrantingServiceAccessCommandInput,
   ListPoliciesGrantingServiceAccessCommandOutput
 } from "./commands/ListPoliciesGrantingServiceAccessCommand";
-import {
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput
-} from "./commands/ListPolicyVersionsCommand";
-import {
-  ListRolePoliciesCommandInput,
-  ListRolePoliciesCommandOutput
-} from "./commands/ListRolePoliciesCommand";
-import {
-  ListRoleTagsCommandInput,
-  ListRoleTagsCommandOutput
-} from "./commands/ListRoleTagsCommand";
-import {
-  ListRolesCommandInput,
-  ListRolesCommandOutput
-} from "./commands/ListRolesCommand";
-import {
-  ListSAMLProvidersCommandInput,
-  ListSAMLProvidersCommandOutput
-} from "./commands/ListSAMLProvidersCommand";
-import {
-  ListSSHPublicKeysCommandInput,
-  ListSSHPublicKeysCommandOutput
-} from "./commands/ListSSHPublicKeysCommand";
+import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "./commands/ListPolicyVersionsCommand";
+import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "./commands/ListRolePoliciesCommand";
+import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "./commands/ListRoleTagsCommand";
+import { ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
+import { ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput } from "./commands/ListSAMLProvidersCommand";
+import { ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput } from "./commands/ListSSHPublicKeysCommand";
 import {
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput
@@ -402,42 +237,24 @@ import {
   ListSigningCertificatesCommandInput,
   ListSigningCertificatesCommandOutput
 } from "./commands/ListSigningCertificatesCommand";
-import {
-  ListUserPoliciesCommandInput,
-  ListUserPoliciesCommandOutput
-} from "./commands/ListUserPoliciesCommand";
-import {
-  ListUserTagsCommandInput,
-  ListUserTagsCommandOutput
-} from "./commands/ListUserTagsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "./commands/ListUsersCommand";
+import { ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput } from "./commands/ListUserPoliciesCommand";
+import { ListUserTagsCommandInput, ListUserTagsCommandOutput } from "./commands/ListUserTagsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListVirtualMFADevicesCommandInput,
   ListVirtualMFADevicesCommandOutput
 } from "./commands/ListVirtualMFADevicesCommand";
-import {
-  PutGroupPolicyCommandInput,
-  PutGroupPolicyCommandOutput
-} from "./commands/PutGroupPolicyCommand";
+import { PutGroupPolicyCommandInput, PutGroupPolicyCommandOutput } from "./commands/PutGroupPolicyCommand";
 import {
   PutRolePermissionsBoundaryCommandInput,
   PutRolePermissionsBoundaryCommandOutput
 } from "./commands/PutRolePermissionsBoundaryCommand";
-import {
-  PutRolePolicyCommandInput,
-  PutRolePolicyCommandOutput
-} from "./commands/PutRolePolicyCommand";
+import { PutRolePolicyCommandInput, PutRolePolicyCommandOutput } from "./commands/PutRolePolicyCommand";
 import {
   PutUserPermissionsBoundaryCommandInput,
   PutUserPermissionsBoundaryCommandOutput
 } from "./commands/PutUserPermissionsBoundaryCommand";
-import {
-  PutUserPolicyCommandInput,
-  PutUserPolicyCommandOutput
-} from "./commands/PutUserPolicyCommand";
+import { PutUserPolicyCommandInput, PutUserPolicyCommandOutput } from "./commands/PutUserPolicyCommand";
 import {
   RemoveClientIDFromOpenIDConnectProviderCommandInput,
   RemoveClientIDFromOpenIDConnectProviderCommandOutput
@@ -454,10 +271,7 @@ import {
   ResetServiceSpecificCredentialCommandInput,
   ResetServiceSpecificCredentialCommandOutput
 } from "./commands/ResetServiceSpecificCredentialCommand";
-import {
-  ResyncMFADeviceCommandInput,
-  ResyncMFADeviceCommandOutput
-} from "./commands/ResyncMFADeviceCommand";
+import { ResyncMFADeviceCommandInput, ResyncMFADeviceCommandOutput } from "./commands/ResyncMFADeviceCommand";
 import {
   SetDefaultPolicyVersionCommandInput,
   SetDefaultPolicyVersionCommandOutput
@@ -474,26 +288,11 @@ import {
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput
 } from "./commands/SimulatePrincipalPolicyCommand";
-import {
-  TagRoleCommandInput,
-  TagRoleCommandOutput
-} from "./commands/TagRoleCommand";
-import {
-  TagUserCommandInput,
-  TagUserCommandOutput
-} from "./commands/TagUserCommand";
-import {
-  UntagRoleCommandInput,
-  UntagRoleCommandOutput
-} from "./commands/UntagRoleCommand";
-import {
-  UntagUserCommandInput,
-  UntagUserCommandOutput
-} from "./commands/UntagUserCommand";
-import {
-  UpdateAccessKeyCommandInput,
-  UpdateAccessKeyCommandOutput
-} from "./commands/UpdateAccessKeyCommand";
+import { TagRoleCommandInput, TagRoleCommandOutput } from "./commands/TagRoleCommand";
+import { TagUserCommandInput, TagUserCommandOutput } from "./commands/TagUserCommand";
+import { UntagRoleCommandInput, UntagRoleCommandOutput } from "./commands/UntagRoleCommand";
+import { UntagUserCommandInput, UntagUserCommandOutput } from "./commands/UntagUserCommand";
+import { UpdateAccessKeyCommandInput, UpdateAccessKeyCommandOutput } from "./commands/UpdateAccessKeyCommand";
 import {
   UpdateAccountPasswordPolicyCommandInput,
   UpdateAccountPasswordPolicyCommandOutput
@@ -502,34 +301,19 @@ import {
   UpdateAssumeRolePolicyCommandInput,
   UpdateAssumeRolePolicyCommandOutput
 } from "./commands/UpdateAssumeRolePolicyCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
-import {
-  UpdateLoginProfileCommandInput,
-  UpdateLoginProfileCommandOutput
-} from "./commands/UpdateLoginProfileCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import { UpdateLoginProfileCommandInput, UpdateLoginProfileCommandOutput } from "./commands/UpdateLoginProfileCommand";
 import {
   UpdateOpenIDConnectProviderThumbprintCommandInput,
   UpdateOpenIDConnectProviderThumbprintCommandOutput
 } from "./commands/UpdateOpenIDConnectProviderThumbprintCommand";
-import {
-  UpdateRoleCommandInput,
-  UpdateRoleCommandOutput
-} from "./commands/UpdateRoleCommand";
+import { UpdateRoleCommandInput, UpdateRoleCommandOutput } from "./commands/UpdateRoleCommand";
 import {
   UpdateRoleDescriptionCommandInput,
   UpdateRoleDescriptionCommandOutput
 } from "./commands/UpdateRoleDescriptionCommand";
-import {
-  UpdateSAMLProviderCommandInput,
-  UpdateSAMLProviderCommandOutput
-} from "./commands/UpdateSAMLProviderCommand";
-import {
-  UpdateSSHPublicKeyCommandInput,
-  UpdateSSHPublicKeyCommandOutput
-} from "./commands/UpdateSSHPublicKeyCommand";
+import { UpdateSAMLProviderCommandInput, UpdateSAMLProviderCommandOutput } from "./commands/UpdateSAMLProviderCommand";
+import { UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput } from "./commands/UpdateSSHPublicKeyCommand";
 import {
   UpdateServerCertificateCommandInput,
   UpdateServerCertificateCommandOutput
@@ -542,14 +326,8 @@ import {
   UpdateSigningCertificateCommandInput,
   UpdateSigningCertificateCommandOutput
 } from "./commands/UpdateSigningCertificateCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "./commands/UpdateUserCommand";
-import {
-  UploadSSHPublicKeyCommandInput,
-  UploadSSHPublicKeyCommandOutput
-} from "./commands/UploadSSHPublicKeyCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
+import { UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput } from "./commands/UploadSSHPublicKeyCommand";
 import {
   UploadServerCertificateCommandInput,
   UploadServerCertificateCommandOutput
@@ -574,12 +352,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -894,8 +667,7 @@ export type ServiceOutputTypes =
   | UploadServerCertificateCommandOutput
   | UploadSigningCertificateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -979,9 +751,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IAMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -990,9 +760,7 @@ export type IAMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

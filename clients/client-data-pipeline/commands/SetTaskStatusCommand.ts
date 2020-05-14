@@ -1,18 +1,11 @@
-import {
-  DataPipelineClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataPipelineClient";
+import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
 import { SetTaskStatusInput, SetTaskStatusOutput } from "../models/index";
 import {
   deserializeAws_json1_1SetTaskStatusCommand,
   serializeAws_json1_1SetTaskStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class SetTaskStatusCommand extends $Command<
     configuration: DataPipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetTaskStatusCommandInput, SetTaskStatusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class SetTaskStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetTaskStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetTaskStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1SetTaskStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetTaskStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTaskStatusCommandOutput> {
     return deserializeAws_json1_1SetTaskStatusCommand(output, context);
   }
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -45,33 +42,27 @@ export namespace AccountLimit {
 /**
  * <p>The resource with the name requested already exists.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>An error occurred during a CloudFormation registry operation.</p>
  */
-export interface CFNRegistryException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CFNRegistryException extends __SmithyException, $MetadataBearer {
   name: "CFNRegistryException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace CFNRegistryException {
-  export const isa = (o: any): o is CFNRegistryException =>
-    __isa(o, "CFNRegistryException");
+  export const isa = (o: any): o is CFNRegistryException => __isa(o, "CFNRegistryException");
 }
 
 /**
@@ -95,8 +86,7 @@ export interface CancelUpdateStackInput {
 }
 
 export namespace CancelUpdateStackInput {
-  export const isa = (o: any): o is CancelUpdateStackInput =>
-    __isa(o, "CancelUpdateStackInput");
+  export const isa = (o: any): o is CancelUpdateStackInput => __isa(o, "CancelUpdateStackInput");
 }
 
 export enum Capability {
@@ -139,17 +129,14 @@ export enum ChangeAction {
  * <p>The specified change set name or ID doesn't exit. To view valid change sets for a
  *          stack, use the <code>ListChangeSets</code> action.</p>
  */
-export interface ChangeSetNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ChangeSetNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ChangeSetNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ChangeSetNotFoundException {
-  export const isa = (o: any): o is ChangeSetNotFoundException =>
-    __isa(o, "ChangeSetNotFoundException");
+  export const isa = (o: any): o is ChangeSetNotFoundException => __isa(o, "ChangeSetNotFoundException");
 }
 
 export enum ChangeSetStatus {
@@ -219,8 +206,7 @@ export interface ChangeSetSummary {
 }
 
 export namespace ChangeSetSummary {
-  export const isa = (o: any): o is ChangeSetSummary =>
-    __isa(o, "ChangeSetSummary");
+  export const isa = (o: any): o is ChangeSetSummary => __isa(o, "ChangeSetSummary");
 }
 
 export enum ChangeSetType {
@@ -315,8 +301,7 @@ export interface ContinueUpdateRollbackInput {
 }
 
 export namespace ContinueUpdateRollbackInput {
-  export const isa = (o: any): o is ContinueUpdateRollbackInput =>
-    __isa(o, "ContinueUpdateRollbackInput");
+  export const isa = (o: any): o is ContinueUpdateRollbackInput => __isa(o, "ContinueUpdateRollbackInput");
 }
 
 /**
@@ -327,8 +312,7 @@ export interface ContinueUpdateRollbackOutput {
 }
 
 export namespace ContinueUpdateRollbackOutput {
-  export const isa = (o: any): o is ContinueUpdateRollbackOutput =>
-    __isa(o, "ContinueUpdateRollbackOutput");
+  export const isa = (o: any): o is ContinueUpdateRollbackOutput => __isa(o, "ContinueUpdateRollbackOutput");
 }
 
 /**
@@ -570,8 +554,7 @@ export interface CreateChangeSetInput {
 }
 
 export namespace CreateChangeSetInput {
-  export const isa = (o: any): o is CreateChangeSetInput =>
-    __isa(o, "CreateChangeSetInput");
+  export const isa = (o: any): o is CreateChangeSetInput => __isa(o, "CreateChangeSetInput");
 }
 
 /**
@@ -591,8 +574,7 @@ export interface CreateChangeSetOutput {
 }
 
 export namespace CreateChangeSetOutput {
-  export const isa = (o: any): o is CreateChangeSetOutput =>
-    __isa(o, "CreateChangeSetOutput");
+  export const isa = (o: any): o is CreateChangeSetOutput => __isa(o, "CreateChangeSetOutput");
 }
 
 /**
@@ -868,8 +850,7 @@ export interface CreateStackInput {
 }
 
 export namespace CreateStackInput {
-  export const isa = (o: any): o is CreateStackInput =>
-    __isa(o, "CreateStackInput");
+  export const isa = (o: any): o is CreateStackInput => __isa(o, "CreateStackInput");
 }
 
 /**
@@ -884,8 +865,7 @@ export interface CreateStackOutput {
 }
 
 export namespace CreateStackOutput {
-  export const isa = (o: any): o is CreateStackOutput =>
-    __isa(o, "CreateStackOutput");
+  export const isa = (o: any): o is CreateStackOutput => __isa(o, "CreateStackOutput");
 }
 
 /**
@@ -907,8 +887,7 @@ export interface DeleteChangeSetInput {
 }
 
 export namespace DeleteChangeSetInput {
-  export const isa = (o: any): o is DeleteChangeSetInput =>
-    __isa(o, "DeleteChangeSetInput");
+  export const isa = (o: any): o is DeleteChangeSetInput => __isa(o, "DeleteChangeSetInput");
 }
 
 /**
@@ -919,8 +898,7 @@ export interface DeleteChangeSetOutput {
 }
 
 export namespace DeleteChangeSetOutput {
-  export const isa = (o: any): o is DeleteChangeSetOutput =>
-    __isa(o, "DeleteChangeSetOutput");
+  export const isa = (o: any): o is DeleteChangeSetOutput => __isa(o, "DeleteChangeSetOutput");
 }
 
 /**
@@ -973,8 +951,7 @@ export interface DeleteStackInput {
 }
 
 export namespace DeleteStackInput {
-  export const isa = (o: any): o is DeleteStackInput =>
-    __isa(o, "DeleteStackInput");
+  export const isa = (o: any): o is DeleteStackInput => __isa(o, "DeleteStackInput");
 }
 
 export type DeprecatedStatus = "DEPRECATED" | "LIVE";
@@ -1006,8 +983,7 @@ export interface DeregisterTypeInput {
 }
 
 export namespace DeregisterTypeInput {
-  export const isa = (o: any): o is DeregisterTypeInput =>
-    __isa(o, "DeregisterTypeInput");
+  export const isa = (o: any): o is DeregisterTypeInput => __isa(o, "DeregisterTypeInput");
 }
 
 export interface DeregisterTypeOutput {
@@ -1015,8 +991,7 @@ export interface DeregisterTypeOutput {
 }
 
 export namespace DeregisterTypeOutput {
-  export const isa = (o: any): o is DeregisterTypeOutput =>
-    __isa(o, "DeregisterTypeOutput");
+  export const isa = (o: any): o is DeregisterTypeOutput => __isa(o, "DeregisterTypeOutput");
 }
 
 /**
@@ -1031,8 +1006,7 @@ export interface DescribeAccountLimitsInput {
 }
 
 export namespace DescribeAccountLimitsInput {
-  export const isa = (o: any): o is DescribeAccountLimitsInput =>
-    __isa(o, "DescribeAccountLimitsInput");
+  export const isa = (o: any): o is DescribeAccountLimitsInput => __isa(o, "DescribeAccountLimitsInput");
 }
 
 /**
@@ -1054,8 +1028,7 @@ export interface DescribeAccountLimitsOutput {
 }
 
 export namespace DescribeAccountLimitsOutput {
-  export const isa = (o: any): o is DescribeAccountLimitsOutput =>
-    __isa(o, "DescribeAccountLimitsOutput");
+  export const isa = (o: any): o is DescribeAccountLimitsOutput => __isa(o, "DescribeAccountLimitsOutput");
 }
 
 /**
@@ -1083,8 +1056,7 @@ export interface DescribeChangeSetInput {
 }
 
 export namespace DescribeChangeSetInput {
-  export const isa = (o: any): o is DescribeChangeSetInput =>
-    __isa(o, "DescribeChangeSetInput");
+  export const isa = (o: any): o is DescribeChangeSetInput => __isa(o, "DescribeChangeSetInput");
 }
 
 /**
@@ -1187,8 +1159,7 @@ export interface DescribeChangeSetOutput {
 }
 
 export namespace DescribeChangeSetOutput {
-  export const isa = (o: any): o is DescribeChangeSetOutput =>
-    __isa(o, "DescribeChangeSetOutput");
+  export const isa = (o: any): o is DescribeChangeSetOutput => __isa(o, "DescribeChangeSetOutput");
 }
 
 export interface DescribeStackDriftDetectionStatusInput {
@@ -1327,8 +1298,7 @@ export interface DescribeStackEventsInput {
 }
 
 export namespace DescribeStackEventsInput {
-  export const isa = (o: any): o is DescribeStackEventsInput =>
-    __isa(o, "DescribeStackEventsInput");
+  export const isa = (o: any): o is DescribeStackEventsInput => __isa(o, "DescribeStackEventsInput");
 }
 
 /**
@@ -1349,8 +1319,7 @@ export interface DescribeStackEventsOutput {
 }
 
 export namespace DescribeStackEventsOutput {
-  export const isa = (o: any): o is DescribeStackEventsOutput =>
-    __isa(o, "DescribeStackEventsOutput");
+  export const isa = (o: any): o is DescribeStackEventsOutput => __isa(o, "DescribeStackEventsOutput");
 }
 
 export interface DescribeStackResourceDriftsInput {
@@ -1402,8 +1371,7 @@ export interface DescribeStackResourceDriftsInput {
 }
 
 export namespace DescribeStackResourceDriftsInput {
-  export const isa = (o: any): o is DescribeStackResourceDriftsInput =>
-    __isa(o, "DescribeStackResourceDriftsInput");
+  export const isa = (o: any): o is DescribeStackResourceDriftsInput => __isa(o, "DescribeStackResourceDriftsInput");
 }
 
 export interface DescribeStackResourceDriftsOutput {
@@ -1431,8 +1399,7 @@ export interface DescribeStackResourceDriftsOutput {
 }
 
 export namespace DescribeStackResourceDriftsOutput {
-  export const isa = (o: any): o is DescribeStackResourceDriftsOutput =>
-    __isa(o, "DescribeStackResourceDriftsOutput");
+  export const isa = (o: any): o is DescribeStackResourceDriftsOutput => __isa(o, "DescribeStackResourceDriftsOutput");
 }
 
 /**
@@ -1464,8 +1431,7 @@ export interface DescribeStackResourceInput {
 }
 
 export namespace DescribeStackResourceInput {
-  export const isa = (o: any): o is DescribeStackResourceInput =>
-    __isa(o, "DescribeStackResourceInput");
+  export const isa = (o: any): o is DescribeStackResourceInput => __isa(o, "DescribeStackResourceInput");
 }
 
 /**
@@ -1481,8 +1447,7 @@ export interface DescribeStackResourceOutput {
 }
 
 export namespace DescribeStackResourceOutput {
-  export const isa = (o: any): o is DescribeStackResourceOutput =>
-    __isa(o, "DescribeStackResourceOutput");
+  export const isa = (o: any): o is DescribeStackResourceOutput => __isa(o, "DescribeStackResourceOutput");
 }
 
 /**
@@ -1529,8 +1494,7 @@ export interface DescribeStackResourcesInput {
 }
 
 export namespace DescribeStackResourcesInput {
-  export const isa = (o: any): o is DescribeStackResourcesInput =>
-    __isa(o, "DescribeStackResourcesInput");
+  export const isa = (o: any): o is DescribeStackResourcesInput => __isa(o, "DescribeStackResourcesInput");
 }
 
 /**
@@ -1545,8 +1509,7 @@ export interface DescribeStackResourcesOutput {
 }
 
 export namespace DescribeStackResourcesOutput {
-  export const isa = (o: any): o is DescribeStackResourcesOutput =>
-    __isa(o, "DescribeStackResourcesOutput");
+  export const isa = (o: any): o is DescribeStackResourcesOutput => __isa(o, "DescribeStackResourcesOutput");
 }
 
 /**
@@ -1577,8 +1540,7 @@ export interface DescribeStacksInput {
 }
 
 export namespace DescribeStacksInput {
-  export const isa = (o: any): o is DescribeStacksInput =>
-    __isa(o, "DescribeStacksInput");
+  export const isa = (o: any): o is DescribeStacksInput => __isa(o, "DescribeStacksInput");
 }
 
 /**
@@ -1599,8 +1561,7 @@ export interface DescribeStacksOutput {
 }
 
 export namespace DescribeStacksOutput {
-  export const isa = (o: any): o is DescribeStacksOutput =>
-    __isa(o, "DescribeStacksOutput");
+  export const isa = (o: any): o is DescribeStacksOutput => __isa(o, "DescribeStacksOutput");
 }
 
 export interface DescribeTypeInput {
@@ -1631,8 +1592,7 @@ export interface DescribeTypeInput {
 }
 
 export namespace DescribeTypeInput {
-  export const isa = (o: any): o is DescribeTypeInput =>
-    __isa(o, "DescribeTypeInput");
+  export const isa = (o: any): o is DescribeTypeInput => __isa(o, "DescribeTypeInput");
 }
 
 export interface DescribeTypeOutput {
@@ -1774,8 +1734,7 @@ export interface DescribeTypeOutput {
 }
 
 export namespace DescribeTypeOutput {
-  export const isa = (o: any): o is DescribeTypeOutput =>
-    __isa(o, "DescribeTypeOutput");
+  export const isa = (o: any): o is DescribeTypeOutput => __isa(o, "DescribeTypeOutput");
 }
 
 export interface DescribeTypeRegistrationInput {
@@ -1790,8 +1749,7 @@ export interface DescribeTypeRegistrationInput {
 }
 
 export namespace DescribeTypeRegistrationInput {
-  export const isa = (o: any): o is DescribeTypeRegistrationInput =>
-    __isa(o, "DescribeTypeRegistrationInput");
+  export const isa = (o: any): o is DescribeTypeRegistrationInput => __isa(o, "DescribeTypeRegistrationInput");
 }
 
 export interface DescribeTypeRegistrationOutput {
@@ -1820,8 +1778,7 @@ export interface DescribeTypeRegistrationOutput {
 }
 
 export namespace DescribeTypeRegistrationOutput {
-  export const isa = (o: any): o is DescribeTypeRegistrationOutput =>
-    __isa(o, "DescribeTypeRegistrationOutput");
+  export const isa = (o: any): o is DescribeTypeRegistrationOutput => __isa(o, "DescribeTypeRegistrationOutput");
 }
 
 export interface DetectStackDriftInput {
@@ -1838,8 +1795,7 @@ export interface DetectStackDriftInput {
 }
 
 export namespace DetectStackDriftInput {
-  export const isa = (o: any): o is DetectStackDriftInput =>
-    __isa(o, "DetectStackDriftInput");
+  export const isa = (o: any): o is DetectStackDriftInput => __isa(o, "DetectStackDriftInput");
 }
 
 export interface DetectStackDriftOutput {
@@ -1854,8 +1810,7 @@ export interface DetectStackDriftOutput {
 }
 
 export namespace DetectStackDriftOutput {
-  export const isa = (o: any): o is DetectStackDriftOutput =>
-    __isa(o, "DetectStackDriftOutput");
+  export const isa = (o: any): o is DetectStackDriftOutput => __isa(o, "DetectStackDriftOutput");
 }
 
 export interface DetectStackResourceDriftInput {
@@ -1872,8 +1827,7 @@ export interface DetectStackResourceDriftInput {
 }
 
 export namespace DetectStackResourceDriftInput {
-  export const isa = (o: any): o is DetectStackResourceDriftInput =>
-    __isa(o, "DetectStackResourceDriftInput");
+  export const isa = (o: any): o is DetectStackResourceDriftInput => __isa(o, "DetectStackResourceDriftInput");
 }
 
 export interface DetectStackResourceDriftOutput {
@@ -1887,8 +1841,7 @@ export interface DetectStackResourceDriftOutput {
 }
 
 export namespace DetectStackResourceDriftOutput {
-  export const isa = (o: any): o is DetectStackResourceDriftOutput =>
-    __isa(o, "DetectStackResourceDriftOutput");
+  export const isa = (o: any): o is DetectStackResourceDriftOutput => __isa(o, "DetectStackResourceDriftOutput");
 }
 
 export enum DifferenceType {
@@ -1927,8 +1880,7 @@ export interface EstimateTemplateCostInput {
 }
 
 export namespace EstimateTemplateCostInput {
-  export const isa = (o: any): o is EstimateTemplateCostInput =>
-    __isa(o, "EstimateTemplateCostInput");
+  export const isa = (o: any): o is EstimateTemplateCostInput => __isa(o, "EstimateTemplateCostInput");
 }
 
 /**
@@ -1944,8 +1896,7 @@ export interface EstimateTemplateCostOutput {
 }
 
 export namespace EstimateTemplateCostOutput {
-  export const isa = (o: any): o is EstimateTemplateCostOutput =>
-    __isa(o, "EstimateTemplateCostOutput");
+  export const isa = (o: any): o is EstimateTemplateCostOutput => __isa(o, "EstimateTemplateCostOutput");
 }
 
 export enum EvaluationType {
@@ -1981,8 +1932,7 @@ export interface ExecuteChangeSetInput {
 }
 
 export namespace ExecuteChangeSetInput {
-  export const isa = (o: any): o is ExecuteChangeSetInput =>
-    __isa(o, "ExecuteChangeSetInput");
+  export const isa = (o: any): o is ExecuteChangeSetInput => __isa(o, "ExecuteChangeSetInput");
 }
 
 /**
@@ -1993,8 +1943,7 @@ export interface ExecuteChangeSetOutput {
 }
 
 export namespace ExecuteChangeSetOutput {
-  export const isa = (o: any): o is ExecuteChangeSetOutput =>
-    __isa(o, "ExecuteChangeSetOutput");
+  export const isa = (o: any): o is ExecuteChangeSetOutput => __isa(o, "ExecuteChangeSetOutput");
 }
 
 export enum ExecutionStatus {
@@ -2050,8 +1999,7 @@ export interface GetStackPolicyInput {
 }
 
 export namespace GetStackPolicyInput {
-  export const isa = (o: any): o is GetStackPolicyInput =>
-    __isa(o, "GetStackPolicyInput");
+  export const isa = (o: any): o is GetStackPolicyInput => __isa(o, "GetStackPolicyInput");
 }
 
 /**
@@ -2067,8 +2015,7 @@ export interface GetStackPolicyOutput {
 }
 
 export namespace GetStackPolicyOutput {
-  export const isa = (o: any): o is GetStackPolicyOutput =>
-    __isa(o, "GetStackPolicyOutput");
+  export const isa = (o: any): o is GetStackPolicyOutput => __isa(o, "GetStackPolicyOutput");
 }
 
 /**
@@ -2112,8 +2059,7 @@ export interface GetTemplateInput {
 }
 
 export namespace GetTemplateInput {
-  export const isa = (o: any): o is GetTemplateInput =>
-    __isa(o, "GetTemplateInput");
+  export const isa = (o: any): o is GetTemplateInput => __isa(o, "GetTemplateInput");
 }
 
 /**
@@ -2139,8 +2085,7 @@ export interface GetTemplateOutput {
 }
 
 export namespace GetTemplateOutput {
-  export const isa = (o: any): o is GetTemplateOutput =>
-    __isa(o, "GetTemplateOutput");
+  export const isa = (o: any): o is GetTemplateOutput => __isa(o, "GetTemplateOutput");
 }
 
 /**
@@ -2188,8 +2133,7 @@ export interface GetTemplateSummaryInput {
 }
 
 export namespace GetTemplateSummaryInput {
-  export const isa = (o: any): o is GetTemplateSummaryInput =>
-    __isa(o, "GetTemplateSummaryInput");
+  export const isa = (o: any): o is GetTemplateSummaryInput => __isa(o, "GetTemplateSummaryInput");
 }
 
 /**
@@ -2258,8 +2202,7 @@ export interface GetTemplateSummaryOutput {
 }
 
 export namespace GetTemplateSummaryOutput {
-  export const isa = (o: any): o is GetTemplateSummaryOutput =>
-    __isa(o, "GetTemplateSummaryOutput");
+  export const isa = (o: any): o is GetTemplateSummaryOutput => __isa(o, "GetTemplateSummaryOutput");
 }
 
 export enum HandlerErrorCode {
@@ -2283,17 +2226,14 @@ export enum HandlerErrorCode {
  * <p>The template contains resources with capabilities that weren't specified in the
  *          Capabilities parameter.</p>
  */
-export interface InsufficientCapabilitiesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientCapabilitiesException extends __SmithyException, $MetadataBearer {
   name: "InsufficientCapabilitiesException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InsufficientCapabilitiesException {
-  export const isa = (o: any): o is InsufficientCapabilitiesException =>
-    __isa(o, "InsufficientCapabilitiesException");
+  export const isa = (o: any): o is InsufficientCapabilitiesException => __isa(o, "InsufficientCapabilitiesException");
 }
 
 /**
@@ -2301,33 +2241,27 @@ export namespace InsufficientCapabilitiesException {
  *          set status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
  *             <code>UPDATE_IN_PROGRESS</code>.</p>
  */
-export interface InvalidChangeSetStatusException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidChangeSetStatusException extends __SmithyException, $MetadataBearer {
   name: "InvalidChangeSetStatusException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidChangeSetStatusException {
-  export const isa = (o: any): o is InvalidChangeSetStatusException =>
-    __isa(o, "InvalidChangeSetStatusException");
+  export const isa = (o: any): o is InvalidChangeSetStatusException => __isa(o, "InvalidChangeSetStatusException");
 }
 
 /**
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>
  */
-export interface InvalidStateTransitionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
   name: "InvalidStateTransitionException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidStateTransitionException {
-  export const isa = (o: any): o is InvalidStateTransitionException =>
-    __isa(o, "InvalidStateTransitionException");
+  export const isa = (o: any): o is InvalidStateTransitionException => __isa(o, "InvalidStateTransitionException");
 }
 
 /**
@@ -2335,17 +2269,14 @@ export namespace InvalidStateTransitionException {
  *          <p>For information on resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">Limits</a> in
  *          the <i>AWS CloudFormation User Guide</i>.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -2367,8 +2298,7 @@ export interface ListChangeSetsInput {
 }
 
 export namespace ListChangeSetsInput {
-  export const isa = (o: any): o is ListChangeSetsInput =>
-    __isa(o, "ListChangeSetsInput");
+  export const isa = (o: any): o is ListChangeSetsInput => __isa(o, "ListChangeSetsInput");
 }
 
 /**
@@ -2390,8 +2320,7 @@ export interface ListChangeSetsOutput {
 }
 
 export namespace ListChangeSetsOutput {
-  export const isa = (o: any): o is ListChangeSetsOutput =>
-    __isa(o, "ListChangeSetsOutput");
+  export const isa = (o: any): o is ListChangeSetsOutput => __isa(o, "ListChangeSetsOutput");
 }
 
 export interface ListExportsInput {
@@ -2404,8 +2333,7 @@ export interface ListExportsInput {
 }
 
 export namespace ListExportsInput {
-  export const isa = (o: any): o is ListExportsInput =>
-    __isa(o, "ListExportsInput");
+  export const isa = (o: any): o is ListExportsInput => __isa(o, "ListExportsInput");
 }
 
 export interface ListExportsOutput {
@@ -2423,8 +2351,7 @@ export interface ListExportsOutput {
 }
 
 export namespace ListExportsOutput {
-  export const isa = (o: any): o is ListExportsOutput =>
-    __isa(o, "ListExportsOutput");
+  export const isa = (o: any): o is ListExportsOutput => __isa(o, "ListExportsOutput");
 }
 
 export interface ListImportsInput {
@@ -2444,8 +2371,7 @@ export interface ListImportsInput {
 }
 
 export namespace ListImportsInput {
-  export const isa = (o: any): o is ListImportsInput =>
-    __isa(o, "ListImportsInput");
+  export const isa = (o: any): o is ListImportsInput => __isa(o, "ListImportsInput");
 }
 
 export interface ListImportsOutput {
@@ -2464,8 +2390,7 @@ export interface ListImportsOutput {
 }
 
 export namespace ListImportsOutput {
-  export const isa = (o: any): o is ListImportsOutput =>
-    __isa(o, "ListImportsOutput");
+  export const isa = (o: any): o is ListImportsOutput => __isa(o, "ListImportsOutput");
 }
 
 /**
@@ -2497,8 +2422,7 @@ export interface ListStackResourcesInput {
 }
 
 export namespace ListStackResourcesInput {
-  export const isa = (o: any): o is ListStackResourcesInput =>
-    __isa(o, "ListStackResourcesInput");
+  export const isa = (o: any): o is ListStackResourcesInput => __isa(o, "ListStackResourcesInput");
 }
 
 /**
@@ -2519,8 +2443,7 @@ export interface ListStackResourcesOutput {
 }
 
 export namespace ListStackResourcesOutput {
-  export const isa = (o: any): o is ListStackResourcesOutput =>
-    __isa(o, "ListStackResourcesOutput");
+  export const isa = (o: any): o is ListStackResourcesOutput => __isa(o, "ListStackResourcesOutput");
 }
 
 /**
@@ -2542,8 +2465,7 @@ export interface ListStacksInput {
 }
 
 export namespace ListStacksInput {
-  export const isa = (o: any): o is ListStacksInput =>
-    __isa(o, "ListStacksInput");
+  export const isa = (o: any): o is ListStacksInput => __isa(o, "ListStacksInput");
 }
 
 /**
@@ -2565,8 +2487,7 @@ export interface ListStacksOutput {
 }
 
 export namespace ListStacksOutput {
-  export const isa = (o: any): o is ListStacksOutput =>
-    __isa(o, "ListStacksOutput");
+  export const isa = (o: any): o is ListStacksOutput => __isa(o, "ListStacksOutput");
 }
 
 export interface ListTypeRegistrationsInput {
@@ -2606,8 +2527,7 @@ export interface ListTypeRegistrationsInput {
 }
 
 export namespace ListTypeRegistrationsInput {
-  export const isa = (o: any): o is ListTypeRegistrationsInput =>
-    __isa(o, "ListTypeRegistrationsInput");
+  export const isa = (o: any): o is ListTypeRegistrationsInput => __isa(o, "ListTypeRegistrationsInput");
 }
 
 export interface ListTypeRegistrationsOutput {
@@ -2627,8 +2547,7 @@ export interface ListTypeRegistrationsOutput {
 }
 
 export namespace ListTypeRegistrationsOutput {
-  export const isa = (o: any): o is ListTypeRegistrationsOutput =>
-    __isa(o, "ListTypeRegistrationsOutput");
+  export const isa = (o: any): o is ListTypeRegistrationsOutput => __isa(o, "ListTypeRegistrationsOutput");
 }
 
 export interface ListTypeVersionsInput {
@@ -2679,8 +2598,7 @@ export interface ListTypeVersionsInput {
 }
 
 export namespace ListTypeVersionsInput {
-  export const isa = (o: any): o is ListTypeVersionsInput =>
-    __isa(o, "ListTypeVersionsInput");
+  export const isa = (o: any): o is ListTypeVersionsInput => __isa(o, "ListTypeVersionsInput");
 }
 
 export interface ListTypeVersionsOutput {
@@ -2697,8 +2615,7 @@ export interface ListTypeVersionsOutput {
 }
 
 export namespace ListTypeVersionsOutput {
-  export const isa = (o: any): o is ListTypeVersionsOutput =>
-    __isa(o, "ListTypeVersionsOutput");
+  export const isa = (o: any): o is ListTypeVersionsOutput => __isa(o, "ListTypeVersionsOutput");
 }
 
 export interface ListTypesInput {
@@ -2767,8 +2684,7 @@ export interface ListTypesInput {
 }
 
 export namespace ListTypesInput {
-  export const isa = (o: any): o is ListTypesInput =>
-    __isa(o, "ListTypesInput");
+  export const isa = (o: any): o is ListTypesInput => __isa(o, "ListTypesInput");
 }
 
 export interface ListTypesOutput {
@@ -2785,8 +2701,7 @@ export interface ListTypesOutput {
 }
 
 export namespace ListTypesOutput {
-  export const isa = (o: any): o is ListTypesOutput =>
-    __isa(o, "ListTypesOutput");
+  export const isa = (o: any): o is ListTypesOutput => __isa(o, "ListTypesOutput");
 }
 
 /**
@@ -2825,9 +2740,7 @@ export enum OperationStatus {
 /**
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>
  */
-export interface OperationStatusCheckFailedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationStatusCheckFailedException extends __SmithyException, $MetadataBearer {
   name: "OperationStatusCheckFailedException";
   $fault: "client";
   Message?: string;
@@ -2918,8 +2831,7 @@ export interface ParameterConstraints {
 }
 
 export namespace ParameterConstraints {
-  export const isa = (o: any): o is ParameterConstraints =>
-    __isa(o, "ParameterConstraints");
+  export const isa = (o: any): o is ParameterConstraints => __isa(o, "ParameterConstraints");
 }
 
 /**
@@ -2960,8 +2872,7 @@ export interface ParameterDeclaration {
 }
 
 export namespace ParameterDeclaration {
-  export const isa = (o: any): o is ParameterDeclaration =>
-    __isa(o, "ParameterDeclaration");
+  export const isa = (o: any): o is ParameterDeclaration => __isa(o, "ParameterDeclaration");
 }
 
 /**
@@ -3038,14 +2949,10 @@ export interface PropertyDifference {
 }
 
 export namespace PropertyDifference {
-  export const isa = (o: any): o is PropertyDifference =>
-    __isa(o, "PropertyDifference");
+  export const isa = (o: any): o is PropertyDifference => __isa(o, "PropertyDifference");
 }
 
-export type ProvisioningType =
-  | "FULLY_MUTABLE"
-  | "IMMUTABLE"
-  | "NON_PROVISIONABLE";
+export type ProvisioningType = "FULLY_MUTABLE" | "IMMUTABLE" | "NON_PROVISIONABLE";
 
 export interface RecordHandlerProgressInput {
   __type?: "RecordHandlerProgressInput";
@@ -3086,8 +2993,7 @@ export interface RecordHandlerProgressInput {
 }
 
 export namespace RecordHandlerProgressInput {
-  export const isa = (o: any): o is RecordHandlerProgressInput =>
-    __isa(o, "RecordHandlerProgressInput");
+  export const isa = (o: any): o is RecordHandlerProgressInput => __isa(o, "RecordHandlerProgressInput");
 }
 
 export interface RecordHandlerProgressOutput {
@@ -3095,8 +3001,7 @@ export interface RecordHandlerProgressOutput {
 }
 
 export namespace RecordHandlerProgressOutput {
-  export const isa = (o: any): o is RecordHandlerProgressOutput =>
-    __isa(o, "RecordHandlerProgressOutput");
+  export const isa = (o: any): o is RecordHandlerProgressOutput => __isa(o, "RecordHandlerProgressOutput");
 }
 
 export interface RegisterTypeInput {
@@ -3178,8 +3083,7 @@ export interface RegisterTypeInput {
 }
 
 export namespace RegisterTypeInput {
-  export const isa = (o: any): o is RegisterTypeInput =>
-    __isa(o, "RegisterTypeInput");
+  export const isa = (o: any): o is RegisterTypeInput => __isa(o, "RegisterTypeInput");
 }
 
 export interface RegisterTypeOutput {
@@ -3194,8 +3098,7 @@ export interface RegisterTypeOutput {
 }
 
 export namespace RegisterTypeOutput {
-  export const isa = (o: any): o is RegisterTypeOutput =>
-    __isa(o, "RegisterTypeOutput");
+  export const isa = (o: any): o is RegisterTypeOutput => __isa(o, "RegisterTypeOutput");
 }
 
 export type RegistrationStatus = "COMPLETE" | "FAILED" | "IN_PROGRESS";
@@ -3286,8 +3189,7 @@ export interface ResourceChange {
 }
 
 export namespace ResourceChange {
-  export const isa = (o: any): o is ResourceChange =>
-    __isa(o, "ResourceChange");
+  export const isa = (o: any): o is ResourceChange => __isa(o, "ResourceChange");
 }
 
 /**
@@ -3374,8 +3276,7 @@ export interface ResourceChangeDetail {
 }
 
 export namespace ResourceChangeDetail {
-  export const isa = (o: any): o is ResourceChangeDetail =>
-    __isa(o, "ResourceChangeDetail");
+  export const isa = (o: any): o is ResourceChangeDetail => __isa(o, "ResourceChangeDetail");
 }
 
 /**
@@ -3406,8 +3307,7 @@ export interface ResourceIdentifierSummary {
 }
 
 export namespace ResourceIdentifierSummary {
-  export const isa = (o: any): o is ResourceIdentifierSummary =>
-    __isa(o, "ResourceIdentifierSummary");
+  export const isa = (o: any): o is ResourceIdentifierSummary => __isa(o, "ResourceIdentifierSummary");
 }
 
 export enum ResourceSignalStatus {
@@ -3464,8 +3364,7 @@ export interface ResourceTargetDefinition {
 }
 
 export namespace ResourceTargetDefinition {
-  export const isa = (o: any): o is ResourceTargetDefinition =>
-    __isa(o, "ResourceTargetDefinition");
+  export const isa = (o: any): o is ResourceTargetDefinition => __isa(o, "ResourceTargetDefinition");
 }
 
 /**
@@ -3493,8 +3392,7 @@ export interface ResourceToImport {
 }
 
 export namespace ResourceToImport {
-  export const isa = (o: any): o is ResourceToImport =>
-    __isa(o, "ResourceToImport");
+  export const isa = (o: any): o is ResourceToImport => __isa(o, "ResourceToImport");
 }
 
 /**
@@ -3553,8 +3451,7 @@ export interface RollbackConfiguration {
 }
 
 export namespace RollbackConfiguration {
-  export const isa = (o: any): o is RollbackConfiguration =>
-    __isa(o, "RollbackConfiguration");
+  export const isa = (o: any): o is RollbackConfiguration => __isa(o, "RollbackConfiguration");
 }
 
 /**
@@ -3579,8 +3476,7 @@ export interface RollbackTrigger {
 }
 
 export namespace RollbackTrigger {
-  export const isa = (o: any): o is RollbackTrigger =>
-    __isa(o, "RollbackTrigger");
+  export const isa = (o: any): o is RollbackTrigger => __isa(o, "RollbackTrigger");
 }
 
 /**
@@ -3611,8 +3507,7 @@ export interface SetStackPolicyInput {
 }
 
 export namespace SetStackPolicyInput {
-  export const isa = (o: any): o is SetStackPolicyInput =>
-    __isa(o, "SetStackPolicyInput");
+  export const isa = (o: any): o is SetStackPolicyInput => __isa(o, "SetStackPolicyInput");
 }
 
 export interface SetTypeDefaultVersionInput {
@@ -3641,8 +3536,7 @@ export interface SetTypeDefaultVersionInput {
 }
 
 export namespace SetTypeDefaultVersionInput {
-  export const isa = (o: any): o is SetTypeDefaultVersionInput =>
-    __isa(o, "SetTypeDefaultVersionInput");
+  export const isa = (o: any): o is SetTypeDefaultVersionInput => __isa(o, "SetTypeDefaultVersionInput");
 }
 
 export interface SetTypeDefaultVersionOutput {
@@ -3650,8 +3544,7 @@ export interface SetTypeDefaultVersionOutput {
 }
 
 export namespace SetTypeDefaultVersionOutput {
-  export const isa = (o: any): o is SetTypeDefaultVersionOutput =>
-    __isa(o, "SetTypeDefaultVersionOutput");
+  export const isa = (o: any): o is SetTypeDefaultVersionOutput => __isa(o, "SetTypeDefaultVersionOutput");
 }
 
 /**
@@ -3687,8 +3580,7 @@ export interface SignalResourceInput {
 }
 
 export namespace SignalResourceInput {
-  export const isa = (o: any): o is SignalResourceInput =>
-    __isa(o, "SignalResourceInput");
+  export const isa = (o: any): o is SignalResourceInput => __isa(o, "SignalResourceInput");
 }
 
 /**
@@ -3889,8 +3781,7 @@ export interface StackDriftInformation {
 }
 
 export namespace StackDriftInformation {
-  export const isa = (o: any): o is StackDriftInformation =>
-    __isa(o, "StackDriftInformation");
+  export const isa = (o: any): o is StackDriftInformation => __isa(o, "StackDriftInformation");
 }
 
 /**
@@ -3937,8 +3828,7 @@ export interface StackDriftInformationSummary {
 }
 
 export namespace StackDriftInformationSummary {
-  export const isa = (o: any): o is StackDriftInformationSummary =>
-    __isa(o, "StackDriftInformationSummary");
+  export const isa = (o: any): o is StackDriftInformationSummary => __isa(o, "StackDriftInformationSummary");
 }
 
 export enum StackDriftStatus {
@@ -4160,8 +4050,7 @@ export interface StackResourceDetail {
 }
 
 export namespace StackResourceDetail {
-  export const isa = (o: any): o is StackResourceDetail =>
-    __isa(o, "StackResourceDetail");
+  export const isa = (o: any): o is StackResourceDetail => __isa(o, "StackResourceDetail");
 }
 
 /**
@@ -4267,8 +4156,7 @@ export interface StackResourceDrift {
 }
 
 export namespace StackResourceDrift {
-  export const isa = (o: any): o is StackResourceDrift =>
-    __isa(o, "StackResourceDrift");
+  export const isa = (o: any): o is StackResourceDrift => __isa(o, "StackResourceDrift");
 }
 
 /**
@@ -4315,8 +4203,7 @@ export interface StackResourceDriftInformation {
 }
 
 export namespace StackResourceDriftInformation {
-  export const isa = (o: any): o is StackResourceDriftInformation =>
-    __isa(o, "StackResourceDriftInformation");
+  export const isa = (o: any): o is StackResourceDriftInformation => __isa(o, "StackResourceDriftInformation");
 }
 
 /**
@@ -4423,24 +4310,20 @@ export interface StackResourceSummary {
 }
 
 export namespace StackResourceSummary {
-  export const isa = (o: any): o is StackResourceSummary =>
-    __isa(o, "StackResourceSummary");
+  export const isa = (o: any): o is StackResourceSummary => __isa(o, "StackResourceSummary");
 }
 
 /**
  * <p>The specified stack set doesn't exist.</p>
  */
-export interface StackSetNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StackSetNotFoundException extends __SmithyException, $MetadataBearer {
   name: "StackSetNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace StackSetNotFoundException {
-  export const isa = (o: any): o is StackSetNotFoundException =>
-    __isa(o, "StackSetNotFoundException");
+  export const isa = (o: any): o is StackSetNotFoundException => __isa(o, "StackSetNotFoundException");
 }
 
 export enum StackStatus {
@@ -4598,8 +4481,7 @@ export interface TemplateParameter {
 }
 
 export namespace TemplateParameter {
-  export const isa = (o: any): o is TemplateParameter =>
-    __isa(o, "TemplateParameter");
+  export const isa = (o: any): o is TemplateParameter => __isa(o, "TemplateParameter");
 }
 
 export enum TemplateStage {
@@ -4610,33 +4492,27 @@ export enum TemplateStage {
 /**
  * <p>A client request token already exists.</p>
  */
-export interface TokenAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TokenAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "TokenAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TokenAlreadyExistsException {
-  export const isa = (o: any): o is TokenAlreadyExistsException =>
-    __isa(o, "TokenAlreadyExistsException");
+  export const isa = (o: any): o is TokenAlreadyExistsException => __isa(o, "TokenAlreadyExistsException");
 }
 
 /**
  * <p>The specified type does not exist in the CloudFormation registry.</p>
  */
-export interface TypeNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TypeNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TypeNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TypeNotFoundException {
-  export const isa = (o: any): o is TypeNotFoundException =>
-    __isa(o, "TypeNotFoundException");
+  export const isa = (o: any): o is TypeNotFoundException => __isa(o, "TypeNotFoundException");
 }
 
 /**
@@ -4719,8 +4595,7 @@ export interface TypeVersionSummary {
 }
 
 export namespace TypeVersionSummary {
-  export const isa = (o: any): o is TypeVersionSummary =>
-    __isa(o, "TypeVersionSummary");
+  export const isa = (o: any): o is TypeVersionSummary => __isa(o, "TypeVersionSummary");
 }
 
 /**
@@ -4985,8 +4860,7 @@ export interface UpdateStackInput {
 }
 
 export namespace UpdateStackInput {
-  export const isa = (o: any): o is UpdateStackInput =>
-    __isa(o, "UpdateStackInput");
+  export const isa = (o: any): o is UpdateStackInput => __isa(o, "UpdateStackInput");
 }
 
 /**
@@ -5001,8 +4875,7 @@ export interface UpdateStackOutput {
 }
 
 export namespace UpdateStackOutput {
-  export const isa = (o: any): o is UpdateStackOutput =>
-    __isa(o, "UpdateStackOutput");
+  export const isa = (o: any): o is UpdateStackOutput => __isa(o, "UpdateStackOutput");
 }
 
 export interface UpdateTerminationProtectionInput {
@@ -5020,8 +4893,7 @@ export interface UpdateTerminationProtectionInput {
 }
 
 export namespace UpdateTerminationProtectionInput {
-  export const isa = (o: any): o is UpdateTerminationProtectionInput =>
-    __isa(o, "UpdateTerminationProtectionInput");
+  export const isa = (o: any): o is UpdateTerminationProtectionInput => __isa(o, "UpdateTerminationProtectionInput");
 }
 
 export interface UpdateTerminationProtectionOutput {
@@ -5033,8 +4905,7 @@ export interface UpdateTerminationProtectionOutput {
 }
 
 export namespace UpdateTerminationProtectionOutput {
-  export const isa = (o: any): o is UpdateTerminationProtectionOutput =>
-    __isa(o, "UpdateTerminationProtectionOutput");
+  export const isa = (o: any): o is UpdateTerminationProtectionOutput => __isa(o, "UpdateTerminationProtectionOutput");
 }
 
 /**
@@ -5063,8 +4934,7 @@ export interface ValidateTemplateInput {
 }
 
 export namespace ValidateTemplateInput {
-  export const isa = (o: any): o is ValidateTemplateInput =>
-    __isa(o, "ValidateTemplateInput");
+  export const isa = (o: any): o is ValidateTemplateInput => __isa(o, "ValidateTemplateInput");
 }
 
 /**
@@ -5104,8 +4974,7 @@ export interface ValidateTemplateOutput {
 }
 
 export namespace ValidateTemplateOutput {
-  export const isa = (o: any): o is ValidateTemplateOutput =>
-    __isa(o, "ValidateTemplateOutput");
+  export const isa = (o: any): o is ValidateTemplateOutput => __isa(o, "ValidateTemplateOutput");
 }
 
 export type Visibility = "PRIVATE" | "PUBLIC";
@@ -5179,8 +5048,7 @@ export interface AccountGateResult {
 }
 
 export namespace AccountGateResult {
-  export const isa = (o: any): o is AccountGateResult =>
-    __isa(o, "AccountGateResult");
+  export const isa = (o: any): o is AccountGateResult => __isa(o, "AccountGateResult");
 }
 
 export type AccountGateStatus = "FAILED" | "SKIPPED" | "SUCCEEDED";
@@ -5265,8 +5133,7 @@ export interface CreateStackInstancesInput {
 }
 
 export namespace CreateStackInstancesInput {
-  export const isa = (o: any): o is CreateStackInstancesInput =>
-    __isa(o, "CreateStackInstancesInput");
+  export const isa = (o: any): o is CreateStackInstancesInput => __isa(o, "CreateStackInstancesInput");
 }
 
 export interface CreateStackInstancesOutput {
@@ -5278,8 +5145,7 @@ export interface CreateStackInstancesOutput {
 }
 
 export namespace CreateStackInstancesOutput {
-  export const isa = (o: any): o is CreateStackInstancesOutput =>
-    __isa(o, "CreateStackInstancesOutput");
+  export const isa = (o: any): o is CreateStackInstancesOutput => __isa(o, "CreateStackInstancesOutput");
 }
 
 export interface CreateStackSetInput {
@@ -5467,8 +5333,7 @@ export interface CreateStackSetInput {
 }
 
 export namespace CreateStackSetInput {
-  export const isa = (o: any): o is CreateStackSetInput =>
-    __isa(o, "CreateStackSetInput");
+  export const isa = (o: any): o is CreateStackSetInput => __isa(o, "CreateStackSetInput");
 }
 
 export interface CreateStackSetOutput {
@@ -5480,24 +5345,20 @@ export interface CreateStackSetOutput {
 }
 
 export namespace CreateStackSetOutput {
-  export const isa = (o: any): o is CreateStackSetOutput =>
-    __isa(o, "CreateStackSetOutput");
+  export const isa = (o: any): o is CreateStackSetOutput => __isa(o, "CreateStackSetOutput");
 }
 
 /**
  * <p>The specified resource exists, but has been changed.</p>
  */
-export interface CreatedButModifiedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CreatedButModifiedException extends __SmithyException, $MetadataBearer {
   name: "CreatedButModifiedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace CreatedButModifiedException {
-  export const isa = (o: any): o is CreatedButModifiedException =>
-    __isa(o, "CreatedButModifiedException");
+  export const isa = (o: any): o is CreatedButModifiedException => __isa(o, "CreatedButModifiedException");
 }
 
 export interface DeleteStackInstancesInput {
@@ -5545,8 +5406,7 @@ export interface DeleteStackInstancesInput {
 }
 
 export namespace DeleteStackInstancesInput {
-  export const isa = (o: any): o is DeleteStackInstancesInput =>
-    __isa(o, "DeleteStackInstancesInput");
+  export const isa = (o: any): o is DeleteStackInstancesInput => __isa(o, "DeleteStackInstancesInput");
 }
 
 export interface DeleteStackInstancesOutput {
@@ -5558,8 +5418,7 @@ export interface DeleteStackInstancesOutput {
 }
 
 export namespace DeleteStackInstancesOutput {
-  export const isa = (o: any): o is DeleteStackInstancesOutput =>
-    __isa(o, "DeleteStackInstancesOutput");
+  export const isa = (o: any): o is DeleteStackInstancesOutput => __isa(o, "DeleteStackInstancesOutput");
 }
 
 export interface DeleteStackSetInput {
@@ -5572,8 +5431,7 @@ export interface DeleteStackSetInput {
 }
 
 export namespace DeleteStackSetInput {
-  export const isa = (o: any): o is DeleteStackSetInput =>
-    __isa(o, "DeleteStackSetInput");
+  export const isa = (o: any): o is DeleteStackSetInput => __isa(o, "DeleteStackSetInput");
 }
 
 export interface DeleteStackSetOutput {
@@ -5581,8 +5439,7 @@ export interface DeleteStackSetOutput {
 }
 
 export namespace DeleteStackSetOutput {
-  export const isa = (o: any): o is DeleteStackSetOutput =>
-    __isa(o, "DeleteStackSetOutput");
+  export const isa = (o: any): o is DeleteStackSetOutput => __isa(o, "DeleteStackSetOutput");
 }
 
 export interface DescribeStackInstanceInput {
@@ -5605,8 +5462,7 @@ export interface DescribeStackInstanceInput {
 }
 
 export namespace DescribeStackInstanceInput {
-  export const isa = (o: any): o is DescribeStackInstanceInput =>
-    __isa(o, "DescribeStackInstanceInput");
+  export const isa = (o: any): o is DescribeStackInstanceInput => __isa(o, "DescribeStackInstanceInput");
 }
 
 export interface DescribeStackInstanceOutput {
@@ -5618,8 +5474,7 @@ export interface DescribeStackInstanceOutput {
 }
 
 export namespace DescribeStackInstanceOutput {
-  export const isa = (o: any): o is DescribeStackInstanceOutput =>
-    __isa(o, "DescribeStackInstanceOutput");
+  export const isa = (o: any): o is DescribeStackInstanceOutput => __isa(o, "DescribeStackInstanceOutput");
 }
 
 export interface DescribeStackSetInput {
@@ -5631,8 +5486,7 @@ export interface DescribeStackSetInput {
 }
 
 export namespace DescribeStackSetInput {
-  export const isa = (o: any): o is DescribeStackSetInput =>
-    __isa(o, "DescribeStackSetInput");
+  export const isa = (o: any): o is DescribeStackSetInput => __isa(o, "DescribeStackSetInput");
 }
 
 export interface DescribeStackSetOperationInput {
@@ -5649,8 +5503,7 @@ export interface DescribeStackSetOperationInput {
 }
 
 export namespace DescribeStackSetOperationInput {
-  export const isa = (o: any): o is DescribeStackSetOperationInput =>
-    __isa(o, "DescribeStackSetOperationInput");
+  export const isa = (o: any): o is DescribeStackSetOperationInput => __isa(o, "DescribeStackSetOperationInput");
 }
 
 export interface DescribeStackSetOperationOutput {
@@ -5662,8 +5515,7 @@ export interface DescribeStackSetOperationOutput {
 }
 
 export namespace DescribeStackSetOperationOutput {
-  export const isa = (o: any): o is DescribeStackSetOperationOutput =>
-    __isa(o, "DescribeStackSetOperationOutput");
+  export const isa = (o: any): o is DescribeStackSetOperationOutput => __isa(o, "DescribeStackSetOperationOutput");
 }
 
 export interface DescribeStackSetOutput {
@@ -5675,8 +5527,7 @@ export interface DescribeStackSetOutput {
 }
 
 export namespace DescribeStackSetOutput {
-  export const isa = (o: any): o is DescribeStackSetOutput =>
-    __isa(o, "DescribeStackSetOutput");
+  export const isa = (o: any): o is DescribeStackSetOutput => __isa(o, "DescribeStackSetOutput");
 }
 
 export interface DetectStackSetDriftInput {
@@ -5702,8 +5553,7 @@ export interface DetectStackSetDriftInput {
 }
 
 export namespace DetectStackSetDriftInput {
-  export const isa = (o: any): o is DetectStackSetDriftInput =>
-    __isa(o, "DetectStackSetDriftInput");
+  export const isa = (o: any): o is DetectStackSetDriftInput => __isa(o, "DetectStackSetDriftInput");
 }
 
 export interface DetectStackSetDriftOutput {
@@ -5718,24 +5568,20 @@ export interface DetectStackSetDriftOutput {
 }
 
 export namespace DetectStackSetDriftOutput {
-  export const isa = (o: any): o is DetectStackSetDriftOutput =>
-    __isa(o, "DetectStackSetDriftOutput");
+  export const isa = (o: any): o is DetectStackSetDriftOutput => __isa(o, "DetectStackSetDriftOutput");
 }
 
 /**
  * <p>The specified operation isn't valid.</p>
  */
-export interface InvalidOperationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
   name: "InvalidOperationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidOperationException {
-  export const isa = (o: any): o is InvalidOperationException =>
-    __isa(o, "InvalidOperationException");
+  export const isa = (o: any): o is InvalidOperationException => __isa(o, "InvalidOperationException");
 }
 
 export interface ListStackInstancesInput {
@@ -5775,8 +5621,7 @@ export interface ListStackInstancesInput {
 }
 
 export namespace ListStackInstancesInput {
-  export const isa = (o: any): o is ListStackInstancesInput =>
-    __isa(o, "ListStackInstancesInput");
+  export const isa = (o: any): o is ListStackInstancesInput => __isa(o, "ListStackInstancesInput");
 }
 
 export interface ListStackInstancesOutput {
@@ -5798,8 +5643,7 @@ export interface ListStackInstancesOutput {
 }
 
 export namespace ListStackInstancesOutput {
-  export const isa = (o: any): o is ListStackInstancesOutput =>
-    __isa(o, "ListStackInstancesOutput");
+  export const isa = (o: any): o is ListStackInstancesOutput => __isa(o, "ListStackInstancesOutput");
 }
 
 export interface ListStackSetOperationResultsInput {
@@ -5835,8 +5679,7 @@ export interface ListStackSetOperationResultsInput {
 }
 
 export namespace ListStackSetOperationResultsInput {
-  export const isa = (o: any): o is ListStackSetOperationResultsInput =>
-    __isa(o, "ListStackSetOperationResultsInput");
+  export const isa = (o: any): o is ListStackSetOperationResultsInput => __isa(o, "ListStackSetOperationResultsInput");
 }
 
 export interface ListStackSetOperationResultsOutput {
@@ -5890,8 +5733,7 @@ export interface ListStackSetOperationsInput {
 }
 
 export namespace ListStackSetOperationsInput {
-  export const isa = (o: any): o is ListStackSetOperationsInput =>
-    __isa(o, "ListStackSetOperationsInput");
+  export const isa = (o: any): o is ListStackSetOperationsInput => __isa(o, "ListStackSetOperationsInput");
 }
 
 export interface ListStackSetOperationsOutput {
@@ -5912,8 +5754,7 @@ export interface ListStackSetOperationsOutput {
 }
 
 export namespace ListStackSetOperationsOutput {
-  export const isa = (o: any): o is ListStackSetOperationsOutput =>
-    __isa(o, "ListStackSetOperationsOutput");
+  export const isa = (o: any): o is ListStackSetOperationsOutput => __isa(o, "ListStackSetOperationsOutput");
 }
 
 export interface ListStackSetsInput {
@@ -5944,8 +5785,7 @@ export interface ListStackSetsInput {
 }
 
 export namespace ListStackSetsInput {
-  export const isa = (o: any): o is ListStackSetsInput =>
-    __isa(o, "ListStackSetsInput");
+  export const isa = (o: any): o is ListStackSetsInput => __isa(o, "ListStackSetsInput");
 }
 
 export interface ListStackSetsOutput {
@@ -5967,73 +5807,60 @@ export interface ListStackSetsOutput {
 }
 
 export namespace ListStackSetsOutput {
-  export const isa = (o: any): o is ListStackSetsOutput =>
-    __isa(o, "ListStackSetsOutput");
+  export const isa = (o: any): o is ListStackSetsOutput => __isa(o, "ListStackSetsOutput");
 }
 
 /**
  * <p>The specified name is already in use.</p>
  */
-export interface NameAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NameAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "NameAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace NameAlreadyExistsException {
-  export const isa = (o: any): o is NameAlreadyExistsException =>
-    __isa(o, "NameAlreadyExistsException");
+  export const isa = (o: any): o is NameAlreadyExistsException => __isa(o, "NameAlreadyExistsException");
 }
 
 /**
  * <p>The specified operation ID already exists.</p>
  */
-export interface OperationIdAlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationIdAlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "OperationIdAlreadyExistsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace OperationIdAlreadyExistsException {
-  export const isa = (o: any): o is OperationIdAlreadyExistsException =>
-    __isa(o, "OperationIdAlreadyExistsException");
+  export const isa = (o: any): o is OperationIdAlreadyExistsException => __isa(o, "OperationIdAlreadyExistsException");
 }
 
 /**
  * <p>Another operation is currently in progress for this stack set. Only one operation can
  *          be performed for a stack set at a given time.</p>
  */
-export interface OperationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationInProgressException extends __SmithyException, $MetadataBearer {
   name: "OperationInProgressException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace OperationInProgressException {
-  export const isa = (o: any): o is OperationInProgressException =>
-    __isa(o, "OperationInProgressException");
+  export const isa = (o: any): o is OperationInProgressException => __isa(o, "OperationInProgressException");
 }
 
 /**
  * <p>The specified ID refers to an operation that doesn't exist.</p>
  */
-export interface OperationNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationNotFoundException extends __SmithyException, $MetadataBearer {
   name: "OperationNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace OperationNotFoundException {
-  export const isa = (o: any): o is OperationNotFoundException =>
-    __isa(o, "OperationNotFoundException");
+  export const isa = (o: any): o is OperationNotFoundException => __isa(o, "OperationNotFoundException");
 }
 
 /**
@@ -6161,17 +5988,14 @@ export namespace StackInstance {
 /**
  * <p>The specified stack instance doesn't exist.</p>
  */
-export interface StackInstanceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StackInstanceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "StackInstanceNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace StackInstanceNotFoundException {
-  export const isa = (o: any): o is StackInstanceNotFoundException =>
-    __isa(o, "StackInstanceNotFoundException");
+  export const isa = (o: any): o is StackInstanceNotFoundException => __isa(o, "StackInstanceNotFoundException");
 }
 
 export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
@@ -6284,8 +6108,7 @@ export interface StackInstanceSummary {
 }
 
 export namespace StackInstanceSummary {
-  export const isa = (o: any): o is StackInstanceSummary =>
-    __isa(o, "StackInstanceSummary");
+  export const isa = (o: any): o is StackInstanceSummary => __isa(o, "StackInstanceSummary");
 }
 
 /**
@@ -6500,8 +6323,7 @@ export interface StackSetDriftDetectionDetails {
 }
 
 export namespace StackSetDriftDetectionDetails {
-  export const isa = (o: any): o is StackSetDriftDetectionDetails =>
-    __isa(o, "StackSetDriftDetectionDetails");
+  export const isa = (o: any): o is StackSetDriftDetectionDetails => __isa(o, "StackSetDriftDetectionDetails");
 }
 
 export enum StackSetDriftDetectionStatus {
@@ -6523,17 +6345,14 @@ export enum StackSetDriftStatus {
  *          instances. Delete all stack instances from the stack set before deleting the stack
  *          set.</p>
  */
-export interface StackSetNotEmptyException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StackSetNotEmptyException extends __SmithyException, $MetadataBearer {
   name: "StackSetNotEmptyException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace StackSetNotEmptyException {
-  export const isa = (o: any): o is StackSetNotEmptyException =>
-    __isa(o, "StackSetNotEmptyException");
+  export const isa = (o: any): o is StackSetNotEmptyException => __isa(o, "StackSetNotEmptyException");
 }
 
 /**
@@ -6656,15 +6475,10 @@ export interface StackSetOperation {
 }
 
 export namespace StackSetOperation {
-  export const isa = (o: any): o is StackSetOperation =>
-    __isa(o, "StackSetOperation");
+  export const isa = (o: any): o is StackSetOperation => __isa(o, "StackSetOperation");
 }
 
-export type StackSetOperationAction =
-  | "CREATE"
-  | "DELETE"
-  | "DETECT_DRIFT"
-  | "UPDATE";
+export type StackSetOperationAction = "CREATE" | "DELETE" | "DETECT_DRIFT" | "UPDATE";
 
 /**
  * <p>The user-specified preferences for how AWS CloudFormation performs a stack set
@@ -6729,16 +6543,10 @@ export interface StackSetOperationPreferences {
 }
 
 export namespace StackSetOperationPreferences {
-  export const isa = (o: any): o is StackSetOperationPreferences =>
-    __isa(o, "StackSetOperationPreferences");
+  export const isa = (o: any): o is StackSetOperationPreferences => __isa(o, "StackSetOperationPreferences");
 }
 
-export type StackSetOperationResultStatus =
-  | "CANCELLED"
-  | "FAILED"
-  | "PENDING"
-  | "RUNNING"
-  | "SUCCEEDED";
+export type StackSetOperationResultStatus = "CANCELLED" | "FAILED" | "PENDING" | "RUNNING" | "SUCCEEDED";
 
 /**
  * <p>The structure that contains information about a specified operation's results for a
@@ -6805,16 +6613,10 @@ export interface StackSetOperationResultSummary {
 }
 
 export namespace StackSetOperationResultSummary {
-  export const isa = (o: any): o is StackSetOperationResultSummary =>
-    __isa(o, "StackSetOperationResultSummary");
+  export const isa = (o: any): o is StackSetOperationResultSummary => __isa(o, "StackSetOperationResultSummary");
 }
 
-export type StackSetOperationStatus =
-  | "FAILED"
-  | "RUNNING"
-  | "STOPPED"
-  | "STOPPING"
-  | "SUCCEEDED";
+export type StackSetOperationStatus = "FAILED" | "RUNNING" | "STOPPED" | "STOPPING" | "SUCCEEDED";
 
 /**
  * <p>The structures that contain summary information about the specified
@@ -6890,8 +6692,7 @@ export interface StackSetOperationSummary {
 }
 
 export namespace StackSetOperationSummary {
-  export const isa = (o: any): o is StackSetOperationSummary =>
-    __isa(o, "StackSetOperationSummary");
+  export const isa = (o: any): o is StackSetOperationSummary => __isa(o, "StackSetOperationSummary");
 }
 
 export type StackSetStatus = "ACTIVE" | "DELETED";
@@ -6962,25 +6763,21 @@ export interface StackSetSummary {
 }
 
 export namespace StackSetSummary {
-  export const isa = (o: any): o is StackSetSummary =>
-    __isa(o, "StackSetSummary");
+  export const isa = (o: any): o is StackSetSummary => __isa(o, "StackSetSummary");
 }
 
 /**
  * <p>Another operation has been performed on this stack set since the specified operation
  *          was performed. </p>
  */
-export interface StaleRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface StaleRequestException extends __SmithyException, $MetadataBearer {
   name: "StaleRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace StaleRequestException {
-  export const isa = (o: any): o is StaleRequestException =>
-    __isa(o, "StaleRequestException");
+  export const isa = (o: any): o is StaleRequestException => __isa(o, "StaleRequestException");
 }
 
 export interface StopStackSetOperationInput {
@@ -6998,8 +6795,7 @@ export interface StopStackSetOperationInput {
 }
 
 export namespace StopStackSetOperationInput {
-  export const isa = (o: any): o is StopStackSetOperationInput =>
-    __isa(o, "StopStackSetOperationInput");
+  export const isa = (o: any): o is StopStackSetOperationInput => __isa(o, "StopStackSetOperationInput");
 }
 
 export interface StopStackSetOperationOutput {
@@ -7007,8 +6803,7 @@ export interface StopStackSetOperationOutput {
 }
 
 export namespace StopStackSetOperationOutput {
-  export const isa = (o: any): o is StopStackSetOperationOutput =>
-    __isa(o, "StopStackSetOperationOutput");
+  export const isa = (o: any): o is StopStackSetOperationOutput => __isa(o, "StopStackSetOperationOutput");
 }
 
 export interface UpdateStackInstancesInput {
@@ -7097,8 +6892,7 @@ export interface UpdateStackInstancesInput {
 }
 
 export namespace UpdateStackInstancesInput {
-  export const isa = (o: any): o is UpdateStackInstancesInput =>
-    __isa(o, "UpdateStackInstancesInput");
+  export const isa = (o: any): o is UpdateStackInstancesInput => __isa(o, "UpdateStackInstancesInput");
 }
 
 export interface UpdateStackInstancesOutput {
@@ -7110,8 +6904,7 @@ export interface UpdateStackInstancesOutput {
 }
 
 export namespace UpdateStackInstancesOutput {
-  export const isa = (o: any): o is UpdateStackInstancesOutput =>
-    __isa(o, "UpdateStackInstancesOutput");
+  export const isa = (o: any): o is UpdateStackInstancesOutput => __isa(o, "UpdateStackInstancesOutput");
 }
 
 export interface UpdateStackSetInput {
@@ -7371,8 +7164,7 @@ export interface UpdateStackSetInput {
 }
 
 export namespace UpdateStackSetInput {
-  export const isa = (o: any): o is UpdateStackSetInput =>
-    __isa(o, "UpdateStackSetInput");
+  export const isa = (o: any): o is UpdateStackSetInput => __isa(o, "UpdateStackSetInput");
 }
 
 export interface UpdateStackSetOutput {
@@ -7384,6 +7176,5 @@ export interface UpdateStackSetOutput {
 }
 
 export namespace UpdateStackSetOutput {
-  export const isa = (o: any): o is UpdateStackSetOutput =>
-    __isa(o, "UpdateStackSetOutput");
+  export const isa = (o: any): o is UpdateStackSetOutput => __isa(o, "UpdateStackSetOutput");
 }

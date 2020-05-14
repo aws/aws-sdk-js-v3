@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeLoggingStatusMessage, LoggingStatus } from "../models/index";
 import {
   deserializeAws_queryDescribeLoggingStatusCommand,
   serializeAws_queryDescribeLoggingStatusCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeLoggingStatusCommandInput = DescribeLoggingStatusMessage;
-export type DescribeLoggingStatusCommandOutput = LoggingStatus &
-  __MetadataBearer;
+export type DescribeLoggingStatusCommandOutput = LoggingStatus & __MetadataBearer;
 
 export class DescribeLoggingStatusCommand extends $Command<
   DescribeLoggingStatusCommandInput,
@@ -46,13 +38,8 @@ export class DescribeLoggingStatusCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeLoggingStatusCommandInput,
-    DescribeLoggingStatusCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeLoggingStatusCommandInput, DescribeLoggingStatusCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeLoggingStatusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeLoggingStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeLoggingStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeLoggingStatusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLoggingStatusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeLoggingStatusCommandOutput> {
     return deserializeAws_queryDescribeLoggingStatusCommand(output, context);
   }
 

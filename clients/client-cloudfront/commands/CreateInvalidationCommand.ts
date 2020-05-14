@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
-import {
-  CreateInvalidationRequest,
-  CreateInvalidationResult
-} from "../models/index";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { CreateInvalidationRequest, CreateInvalidationResult } from "../models/index";
 import {
   deserializeAws_restXmlCreateInvalidationCommand,
   serializeAws_restXmlCreateInvalidationCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInvalidationCommandInput = CreateInvalidationRequest;
-export type CreateInvalidationCommandOutput = CreateInvalidationResult &
-  __MetadataBearer;
+export type CreateInvalidationCommandOutput = CreateInvalidationResult & __MetadataBearer;
 
 export class CreateInvalidationCommand extends $Command<
   CreateInvalidationCommandInput,
@@ -50,9 +39,7 @@ export class CreateInvalidationCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInvalidationCommandInput, CreateInvalidationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateInvalidationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateInvalidationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateInvalidationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreateInvalidationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateInvalidationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInvalidationCommandOutput> {
     return deserializeAws_restXmlCreateInvalidationCommand(output, context);
   }
 

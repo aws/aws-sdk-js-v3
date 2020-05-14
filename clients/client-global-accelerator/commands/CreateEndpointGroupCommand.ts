@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
-import {
-  CreateEndpointGroupRequest,
-  CreateEndpointGroupResponse
-} from "../models/index";
+import { CreateEndpointGroupRequest, CreateEndpointGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateEndpointGroupCommand,
   serializeAws_json1_1CreateEndpointGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEndpointGroupCommandInput = CreateEndpointGroupRequest;
-export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse &
-  __MetadataBearer;
+export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse & __MetadataBearer;
 
 export class CreateEndpointGroupCommand extends $Command<
   CreateEndpointGroupCommandInput,
@@ -49,13 +42,8 @@ export class CreateEndpointGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEndpointGroupCommandInput,
-    CreateEndpointGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEndpointGroupCommandInput, CreateEndpointGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class CreateEndpointGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEndpointGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateEndpointGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateEndpointGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateEndpointGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEndpointGroupCommandOutput> {
     return deserializeAws_json1_1CreateEndpointGroupCommand(output, context);
   }
 

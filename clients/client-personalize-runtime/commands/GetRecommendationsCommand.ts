@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../PersonalizeRuntimeClient";
-import {
-  GetRecommendationsRequest,
-  GetRecommendationsResponse
-} from "../models/index";
+import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetRecommendationsCommand,
   serializeAws_restJson1_1GetRecommendationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRecommendationsCommandInput = GetRecommendationsRequest;
-export type GetRecommendationsCommandOutput = GetRecommendationsResponse &
-  __MetadataBearer;
+export type GetRecommendationsCommandOutput = GetRecommendationsResponse & __MetadataBearer;
 
 export class GetRecommendationsCommand extends $Command<
   GetRecommendationsCommandInput,
@@ -50,9 +43,7 @@ export class GetRecommendationsCommand extends $Command<
     configuration: PersonalizeRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRecommendationsCommandInput, GetRecommendationsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class GetRecommendationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRecommendationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetRecommendationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRecommendationsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
     return deserializeAws_restJson1_1GetRecommendationsCommand(output, context);
   }
 

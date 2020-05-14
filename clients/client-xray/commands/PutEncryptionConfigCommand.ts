@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  XRayClientResolvedConfig
-} from "../XRayClient";
-import {
-  PutEncryptionConfigRequest,
-  PutEncryptionConfigResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
+import { PutEncryptionConfigRequest, PutEncryptionConfigResult } from "../models/index";
 import {
   deserializeAws_restJson1_1PutEncryptionConfigCommand,
   serializeAws_restJson1_1PutEncryptionConfigCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutEncryptionConfigCommandInput = PutEncryptionConfigRequest;
-export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult &
-  __MetadataBearer;
+export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult & __MetadataBearer;
 
 export class PutEncryptionConfigCommand extends $Command<
   PutEncryptionConfigCommandInput,
@@ -49,13 +38,8 @@ export class PutEncryptionConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutEncryptionConfigCommandInput,
-    PutEncryptionConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutEncryptionConfigCommandInput, PutEncryptionConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class PutEncryptionConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutEncryptionConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutEncryptionConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutEncryptionConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1_1PutEncryptionConfigCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEncryptionConfigCommandOutput> {
+    return deserializeAws_restJson1_1PutEncryptionConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

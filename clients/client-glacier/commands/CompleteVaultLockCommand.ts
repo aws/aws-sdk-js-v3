@@ -1,18 +1,11 @@
-import {
-  GlacierClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlacierClient";
+import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
 import { CompleteVaultLockInput } from "../models/index";
 import {
   deserializeAws_restJson1_1CompleteVaultLockCommand,
   serializeAws_restJson1_1CompleteVaultLockCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class CompleteVaultLockCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteVaultLockCommandInput, CompleteVaultLockCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class CompleteVaultLockCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CompleteVaultLockCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CompleteVaultLockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CompleteVaultLockCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CompleteVaultLockCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CompleteVaultLockCommandOutput> {
     return deserializeAws_restJson1_1CompleteVaultLockCommand(output, context);
   }
 

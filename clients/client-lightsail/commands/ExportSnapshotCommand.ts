@@ -1,18 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import { ExportSnapshotRequest, ExportSnapshotResult } from "../models/index";
 import {
   deserializeAws_json1_1ExportSnapshotCommand,
   serializeAws_json1_1ExportSnapshotCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportSnapshotCommandInput = ExportSnapshotRequest;
-export type ExportSnapshotCommandOutput = ExportSnapshotResult &
-  __MetadataBearer;
+export type ExportSnapshotCommandOutput = ExportSnapshotResult & __MetadataBearer;
 
 export class ExportSnapshotCommand extends $Command<
   ExportSnapshotCommandInput,
@@ -47,9 +39,7 @@ export class ExportSnapshotCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportSnapshotCommandInput, ExportSnapshotCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ExportSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ExportSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ExportSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExportSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ExportSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportSnapshotCommandOutput> {
     return deserializeAws_json1_1ExportSnapshotCommand(output, context);
   }
 

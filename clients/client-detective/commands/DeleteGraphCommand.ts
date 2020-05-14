@@ -1,18 +1,11 @@
-import {
-  DetectiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DetectiveClient";
+import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { DeleteGraphRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteGraphCommand,
   serializeAws_restJson1_1DeleteGraphCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeleteGraphCommand extends $Command<
     configuration: DetectiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGraphCommandInput, DeleteGraphCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeleteGraphCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteGraphCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteGraphCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteGraphCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteGraphCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteGraphCommandOutput> {
     return deserializeAws_restJson1_1DeleteGraphCommand(output, context);
   }
 

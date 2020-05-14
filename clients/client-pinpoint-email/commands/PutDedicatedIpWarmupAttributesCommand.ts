@@ -1,21 +1,11 @@
-import {
-  PinpointEmailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointEmailClient";
-import {
-  PutDedicatedIpWarmupAttributesRequest,
-  PutDedicatedIpWarmupAttributesResponse
-} from "../models/index";
+import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
+import { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand,
   serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutDedicatedIpWarmupAttributesCommandInput = PutDedicatedIpWarmupAttributesRequest;
-export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse &
-  __MetadataBearer;
+export type PutDedicatedIpWarmupAttributesCommandOutput = PutDedicatedIpWarmupAttributesResponse & __MetadataBearer;
 
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<
   PutDedicatedIpWarmupAttributesCommandInput,
@@ -49,13 +38,8 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutDedicatedIpWarmupAttributesCommandInput,
-    PutDedicatedIpWarmupAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutDedicatedIpWarmupAttributesCommandInput, PutDedicatedIpWarmupAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class PutDedicatedIpWarmupAttributesCommand extends $Command<
     input: PutDedicatedIpWarmupAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> {
-    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

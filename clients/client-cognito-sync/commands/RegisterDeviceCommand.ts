@@ -1,18 +1,11 @@
-import {
-  CognitoSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoSyncClient";
+import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
 import { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RegisterDeviceCommand,
   serializeAws_restJson1_1RegisterDeviceCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterDeviceCommandInput = RegisterDeviceRequest;
-export type RegisterDeviceCommandOutput = RegisterDeviceResponse &
-  __MetadataBearer;
+export type RegisterDeviceCommandOutput = RegisterDeviceResponse & __MetadataBearer;
 
 export class RegisterDeviceCommand extends $Command<
   RegisterDeviceCommandInput,
@@ -47,9 +39,7 @@ export class RegisterDeviceCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterDeviceCommandInput, RegisterDeviceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class RegisterDeviceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterDeviceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterDeviceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RegisterDeviceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterDeviceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterDeviceCommandOutput> {
     return deserializeAws_restJson1_1RegisterDeviceCommand(output, context);
   }
 

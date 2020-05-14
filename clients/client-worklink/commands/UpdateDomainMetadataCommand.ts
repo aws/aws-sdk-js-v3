@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
-} from "../WorkLinkClient";
-import {
-  UpdateDomainMetadataRequest,
-  UpdateDomainMetadataResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
+import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDomainMetadataCommand,
   serializeAws_restJson1_1UpdateDomainMetadataCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainMetadataCommandInput = UpdateDomainMetadataRequest;
-export type UpdateDomainMetadataCommandOutput = UpdateDomainMetadataResponse &
-  __MetadataBearer;
+export type UpdateDomainMetadataCommandOutput = UpdateDomainMetadataResponse & __MetadataBearer;
 
 export class UpdateDomainMetadataCommand extends $Command<
   UpdateDomainMetadataCommandInput,
@@ -49,13 +38,8 @@ export class UpdateDomainMetadataCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateDomainMetadataCommandInput,
-    UpdateDomainMetadataCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateDomainMetadataCommandInput, UpdateDomainMetadataCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateDomainMetadataCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDomainMetadataCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDomainMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateDomainMetadataCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDomainMetadataCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDomainMetadataCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainMetadataCommandOutput> {
+    return deserializeAws_restJson1_1UpdateDomainMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

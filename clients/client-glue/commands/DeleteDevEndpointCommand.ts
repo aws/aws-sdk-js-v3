@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  DeleteDevEndpointRequest,
-  DeleteDevEndpointResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { DeleteDevEndpointRequest, DeleteDevEndpointResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteDevEndpointCommand,
   serializeAws_json1_1DeleteDevEndpointCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteDevEndpointCommandInput = DeleteDevEndpointRequest;
-export type DeleteDevEndpointCommandOutput = DeleteDevEndpointResponse &
-  __MetadataBearer;
+export type DeleteDevEndpointCommandOutput = DeleteDevEndpointResponse & __MetadataBearer;
 
 export class DeleteDevEndpointCommand extends $Command<
   DeleteDevEndpointCommandInput,
@@ -50,9 +39,7 @@ export class DeleteDevEndpointCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteDevEndpointCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteDevEndpointCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteDevEndpointCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteDevEndpointCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteDevEndpointCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDevEndpointCommandOutput> {
     return deserializeAws_json1_1DeleteDevEndpointCommand(output, context);
   }
 

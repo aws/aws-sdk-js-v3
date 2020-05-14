@@ -1,7 +1,4 @@
-import {
-  AddRoleToDBClusterCommandInput,
-  AddRoleToDBClusterCommandOutput
-} from "./commands/AddRoleToDBClusterCommand";
+import { AddRoleToDBClusterCommandInput, AddRoleToDBClusterCommandOutput } from "./commands/AddRoleToDBClusterCommand";
 import {
   AddRoleToDBInstanceCommandInput,
   AddRoleToDBInstanceCommandOutput
@@ -10,10 +7,7 @@ import {
   AddSourceIdentifierToSubscriptionCommandInput,
   AddSourceIdentifierToSubscriptionCommandOutput
 } from "./commands/AddSourceIdentifierToSubscriptionCommand";
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput
@@ -22,10 +16,7 @@ import {
   AuthorizeDBSecurityGroupIngressCommandInput,
   AuthorizeDBSecurityGroupIngressCommandOutput
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand";
-import {
-  BacktrackDBClusterCommandInput,
-  BacktrackDBClusterCommandOutput
-} from "./commands/BacktrackDBClusterCommand";
+import { BacktrackDBClusterCommandInput, BacktrackDBClusterCommandOutput } from "./commands/BacktrackDBClusterCommand";
 import {
   CopyDBClusterParameterGroupCommandInput,
   CopyDBClusterParameterGroupCommandOutput
@@ -38,22 +29,13 @@ import {
   CopyDBParameterGroupCommandInput,
   CopyDBParameterGroupCommandOutput
 } from "./commands/CopyDBParameterGroupCommand";
-import {
-  CopyDBSnapshotCommandInput,
-  CopyDBSnapshotCommandOutput
-} from "./commands/CopyDBSnapshotCommand";
-import {
-  CopyOptionGroupCommandInput,
-  CopyOptionGroupCommandOutput
-} from "./commands/CopyOptionGroupCommand";
+import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "./commands/CopyDBSnapshotCommand";
+import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "./commands/CopyOptionGroupCommand";
 import {
   CreateCustomAvailabilityZoneCommandInput,
   CreateCustomAvailabilityZoneCommandOutput
 } from "./commands/CreateCustomAvailabilityZoneCommand";
-import {
-  CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput
-} from "./commands/CreateDBClusterCommand";
+import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
 import {
   CreateDBClusterEndpointCommandInput,
   CreateDBClusterEndpointCommandOutput
@@ -66,10 +48,7 @@ import {
   CreateDBClusterSnapshotCommandInput,
   CreateDBClusterSnapshotCommandOutput
 } from "./commands/CreateDBClusterSnapshotCommand";
-import {
-  CreateDBInstanceCommandInput,
-  CreateDBInstanceCommandOutput
-} from "./commands/CreateDBInstanceCommand";
+import { CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput } from "./commands/CreateDBInstanceCommand";
 import {
   CreateDBInstanceReadReplicaCommandInput,
   CreateDBInstanceReadReplicaCommandOutput
@@ -78,18 +57,12 @@ import {
   CreateDBParameterGroupCommandInput,
   CreateDBParameterGroupCommandOutput
 } from "./commands/CreateDBParameterGroupCommand";
-import {
-  CreateDBProxyCommandInput,
-  CreateDBProxyCommandOutput
-} from "./commands/CreateDBProxyCommand";
+import { CreateDBProxyCommandInput, CreateDBProxyCommandOutput } from "./commands/CreateDBProxyCommand";
 import {
   CreateDBSecurityGroupCommandInput,
   CreateDBSecurityGroupCommandOutput
 } from "./commands/CreateDBSecurityGroupCommand";
-import {
-  CreateDBSnapshotCommandInput,
-  CreateDBSnapshotCommandOutput
-} from "./commands/CreateDBSnapshotCommand";
+import { CreateDBSnapshotCommandInput, CreateDBSnapshotCommandOutput } from "./commands/CreateDBSnapshotCommand";
 import {
   CreateDBSubnetGroupCommandInput,
   CreateDBSubnetGroupCommandOutput
@@ -102,18 +75,12 @@ import {
   CreateGlobalClusterCommandInput,
   CreateGlobalClusterCommandOutput
 } from "./commands/CreateGlobalClusterCommand";
-import {
-  CreateOptionGroupCommandInput,
-  CreateOptionGroupCommandOutput
-} from "./commands/CreateOptionGroupCommand";
+import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "./commands/CreateOptionGroupCommand";
 import {
   DeleteCustomAvailabilityZoneCommandInput,
   DeleteCustomAvailabilityZoneCommandOutput
 } from "./commands/DeleteCustomAvailabilityZoneCommand";
-import {
-  DeleteDBClusterCommandInput,
-  DeleteDBClusterCommandOutput
-} from "./commands/DeleteDBClusterCommand";
+import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterEndpointCommandInput,
   DeleteDBClusterEndpointCommandOutput
@@ -130,26 +97,17 @@ import {
   DeleteDBInstanceAutomatedBackupCommandInput,
   DeleteDBInstanceAutomatedBackupCommandOutput
 } from "./commands/DeleteDBInstanceAutomatedBackupCommand";
-import {
-  DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput
-} from "./commands/DeleteDBInstanceCommand";
+import { DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput } from "./commands/DeleteDBInstanceCommand";
 import {
   DeleteDBParameterGroupCommandInput,
   DeleteDBParameterGroupCommandOutput
 } from "./commands/DeleteDBParameterGroupCommand";
-import {
-  DeleteDBProxyCommandInput,
-  DeleteDBProxyCommandOutput
-} from "./commands/DeleteDBProxyCommand";
+import { DeleteDBProxyCommandInput, DeleteDBProxyCommandOutput } from "./commands/DeleteDBProxyCommand";
 import {
   DeleteDBSecurityGroupCommandInput,
   DeleteDBSecurityGroupCommandOutput
 } from "./commands/DeleteDBSecurityGroupCommand";
-import {
-  DeleteDBSnapshotCommandInput,
-  DeleteDBSnapshotCommandOutput
-} from "./commands/DeleteDBSnapshotCommand";
+import { DeleteDBSnapshotCommandInput, DeleteDBSnapshotCommandOutput } from "./commands/DeleteDBSnapshotCommand";
 import {
   DeleteDBSubnetGroupCommandInput,
   DeleteDBSubnetGroupCommandOutput
@@ -166,10 +124,7 @@ import {
   DeleteInstallationMediaCommandInput,
   DeleteInstallationMediaCommandOutput
 } from "./commands/DeleteInstallationMediaCommand";
-import {
-  DeleteOptionGroupCommandInput,
-  DeleteOptionGroupCommandOutput
-} from "./commands/DeleteOptionGroupCommand";
+import { DeleteOptionGroupCommandInput, DeleteOptionGroupCommandOutput } from "./commands/DeleteOptionGroupCommand";
 import {
   DeregisterDBProxyTargetsCommandInput,
   DeregisterDBProxyTargetsCommandOutput
@@ -210,10 +165,7 @@ import {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput
 } from "./commands/DescribeDBClusterSnapshotsCommand";
-import {
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput
-} from "./commands/DescribeDBClustersCommand";
+import { DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput } from "./commands/DescribeDBClustersCommand";
 import {
   DescribeDBEngineVersionsCommandInput,
   DescribeDBEngineVersionsCommandOutput
@@ -226,10 +178,7 @@ import {
   DescribeDBInstancesCommandInput,
   DescribeDBInstancesCommandOutput
 } from "./commands/DescribeDBInstancesCommand";
-import {
-  DescribeDBLogFilesCommandInput,
-  DescribeDBLogFilesCommandOutput
-} from "./commands/DescribeDBLogFilesCommand";
+import { DescribeDBLogFilesCommandInput, DescribeDBLogFilesCommandOutput } from "./commands/DescribeDBLogFilesCommand";
 import {
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput
@@ -238,10 +187,7 @@ import {
   DescribeDBParametersCommandInput,
   DescribeDBParametersCommandOutput
 } from "./commands/DescribeDBParametersCommand";
-import {
-  DescribeDBProxiesCommandInput,
-  DescribeDBProxiesCommandOutput
-} from "./commands/DescribeDBProxiesCommand";
+import { DescribeDBProxiesCommandInput, DescribeDBProxiesCommandOutput } from "./commands/DescribeDBProxiesCommand";
 import {
   DescribeDBProxyTargetGroupsCommandInput,
   DescribeDBProxyTargetGroupsCommandOutput
@@ -282,10 +228,7 @@ import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput
 } from "./commands/DescribeEventSubscriptionsCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput
@@ -330,10 +273,7 @@ import {
   DownloadDBLogFilePortionCommandInput,
   DownloadDBLogFilePortionCommandOutput
 } from "./commands/DownloadDBLogFilePortionCommand";
-import {
-  FailoverDBClusterCommandInput,
-  FailoverDBClusterCommandOutput
-} from "./commands/FailoverDBClusterCommand";
+import { FailoverDBClusterCommandInput, FailoverDBClusterCommandOutput } from "./commands/FailoverDBClusterCommand";
 import {
   ImportInstallationMediaCommandInput,
   ImportInstallationMediaCommandOutput
@@ -342,18 +282,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ModifyCertificatesCommandInput,
-  ModifyCertificatesCommandOutput
-} from "./commands/ModifyCertificatesCommand";
+import { ModifyCertificatesCommandInput, ModifyCertificatesCommandOutput } from "./commands/ModifyCertificatesCommand";
 import {
   ModifyCurrentDBClusterCapacityCommandInput,
   ModifyCurrentDBClusterCapacityCommandOutput
 } from "./commands/ModifyCurrentDBClusterCapacityCommand";
-import {
-  ModifyDBClusterCommandInput,
-  ModifyDBClusterCommandOutput
-} from "./commands/ModifyDBClusterCommand";
+import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
 import {
   ModifyDBClusterEndpointCommandInput,
   ModifyDBClusterEndpointCommandOutput
@@ -366,18 +300,12 @@ import {
   ModifyDBClusterSnapshotAttributeCommandInput,
   ModifyDBClusterSnapshotAttributeCommandOutput
 } from "./commands/ModifyDBClusterSnapshotAttributeCommand";
-import {
-  ModifyDBInstanceCommandInput,
-  ModifyDBInstanceCommandOutput
-} from "./commands/ModifyDBInstanceCommand";
+import { ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput } from "./commands/ModifyDBInstanceCommand";
 import {
   ModifyDBParameterGroupCommandInput,
   ModifyDBParameterGroupCommandOutput
 } from "./commands/ModifyDBParameterGroupCommand";
-import {
-  ModifyDBProxyCommandInput,
-  ModifyDBProxyCommandOutput
-} from "./commands/ModifyDBProxyCommand";
+import { ModifyDBProxyCommandInput, ModifyDBProxyCommandOutput } from "./commands/ModifyDBProxyCommand";
 import {
   ModifyDBProxyTargetGroupCommandInput,
   ModifyDBProxyTargetGroupCommandOutput
@@ -386,10 +314,7 @@ import {
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput
 } from "./commands/ModifyDBSnapshotAttributeCommand";
-import {
-  ModifyDBSnapshotCommandInput,
-  ModifyDBSnapshotCommandOutput
-} from "./commands/ModifyDBSnapshotCommand";
+import { ModifyDBSnapshotCommandInput, ModifyDBSnapshotCommandOutput } from "./commands/ModifyDBSnapshotCommand";
 import {
   ModifyDBSubnetGroupCommandInput,
   ModifyDBSubnetGroupCommandOutput
@@ -402,14 +327,8 @@ import {
   ModifyGlobalClusterCommandInput,
   ModifyGlobalClusterCommandOutput
 } from "./commands/ModifyGlobalClusterCommand";
-import {
-  ModifyOptionGroupCommandInput,
-  ModifyOptionGroupCommandOutput
-} from "./commands/ModifyOptionGroupCommand";
-import {
-  PromoteReadReplicaCommandInput,
-  PromoteReadReplicaCommandOutput
-} from "./commands/PromoteReadReplicaCommand";
+import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "./commands/ModifyOptionGroupCommand";
+import { PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput } from "./commands/PromoteReadReplicaCommand";
 import {
   PromoteReadReplicaDBClusterCommandInput,
   PromoteReadReplicaDBClusterCommandOutput
@@ -418,10 +337,7 @@ import {
   PurchaseReservedDBInstancesOfferingCommandInput,
   PurchaseReservedDBInstancesOfferingCommandOutput
 } from "./commands/PurchaseReservedDBInstancesOfferingCommand";
-import {
-  RebootDBInstanceCommandInput,
-  RebootDBInstanceCommandOutput
-} from "./commands/RebootDBInstanceCommand";
+import { RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput } from "./commands/RebootDBInstanceCommand";
 import {
   RegisterDBProxyTargetsCommandInput,
   RegisterDBProxyTargetsCommandOutput
@@ -486,26 +402,11 @@ import {
   StartActivityStreamCommandInput,
   StartActivityStreamCommandOutput
 } from "./commands/StartActivityStreamCommand";
-import {
-  StartDBClusterCommandInput,
-  StartDBClusterCommandOutput
-} from "./commands/StartDBClusterCommand";
-import {
-  StartDBInstanceCommandInput,
-  StartDBInstanceCommandOutput
-} from "./commands/StartDBInstanceCommand";
-import {
-  StopActivityStreamCommandInput,
-  StopActivityStreamCommandOutput
-} from "./commands/StopActivityStreamCommand";
-import {
-  StopDBClusterCommandInput,
-  StopDBClusterCommandOutput
-} from "./commands/StopDBClusterCommand";
-import {
-  StopDBInstanceCommandInput,
-  StopDBInstanceCommandOutput
-} from "./commands/StopDBInstanceCommand";
+import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand";
+import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "./commands/StartDBInstanceCommand";
+import { StopActivityStreamCommandInput, StopActivityStreamCommandOutput } from "./commands/StopActivityStreamCommand";
+import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand";
+import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -522,12 +423,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -816,8 +712,7 @@ export type ServiceOutputTypes =
   | StopDBClusterCommandOutput
   | StopDBInstanceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -901,9 +796,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RDSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RDSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -912,9 +805,7 @@ export type RDSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RDSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

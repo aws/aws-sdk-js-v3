@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient";
-import {
-  DescribeDetectorRequest,
-  DescribeDetectorResult
-} from "../models/index";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { DescribeDetectorRequest, DescribeDetectorResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDetectorCommand,
   serializeAws_json1_1DescribeDetectorCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDetectorCommandInput = DescribeDetectorRequest;
-export type DescribeDetectorCommandOutput = DescribeDetectorResult &
-  __MetadataBearer;
+export type DescribeDetectorCommandOutput = DescribeDetectorResult & __MetadataBearer;
 
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,
@@ -50,9 +39,7 @@ export class DescribeDetectorCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDetectorCommandInput, DescribeDetectorCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeDetectorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDetectorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDetectorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeDetectorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDetectorCommandOutput> {
     return deserializeAws_json1_1DescribeDetectorCommand(output, context);
   }
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -23,8 +20,7 @@ export interface AbortEnvironmentUpdateMessage {
 }
 
 export namespace AbortEnvironmentUpdateMessage {
-  export const isa = (o: any): o is AbortEnvironmentUpdateMessage =>
-    __isa(o, "AbortEnvironmentUpdateMessage");
+  export const isa = (o: any): o is AbortEnvironmentUpdateMessage => __isa(o, "AbortEnvironmentUpdateMessage");
 }
 
 export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
@@ -80,8 +76,7 @@ export interface ApplicationDescription {
 }
 
 export namespace ApplicationDescription {
-  export const isa = (o: any): o is ApplicationDescription =>
-    __isa(o, "ApplicationDescription");
+  export const isa = (o: any): o is ApplicationDescription => __isa(o, "ApplicationDescription");
 }
 
 /**
@@ -96,8 +91,7 @@ export interface ApplicationDescriptionMessage {
 }
 
 export namespace ApplicationDescriptionMessage {
-  export const isa = (o: any): o is ApplicationDescriptionMessage =>
-    __isa(o, "ApplicationDescriptionMessage");
+  export const isa = (o: any): o is ApplicationDescriptionMessage => __isa(o, "ApplicationDescriptionMessage");
 }
 
 /**
@@ -112,8 +106,7 @@ export interface ApplicationDescriptionsMessage {
 }
 
 export namespace ApplicationDescriptionsMessage {
-  export const isa = (o: any): o is ApplicationDescriptionsMessage =>
-    __isa(o, "ApplicationDescriptionsMessage");
+  export const isa = (o: any): o is ApplicationDescriptionsMessage => __isa(o, "ApplicationDescriptionsMessage");
 }
 
 /**
@@ -148,8 +141,7 @@ export interface ApplicationMetrics {
 }
 
 export namespace ApplicationMetrics {
-  export const isa = (o: any): o is ApplicationMetrics =>
-    __isa(o, "ApplicationMetrics");
+  export const isa = (o: any): o is ApplicationMetrics => __isa(o, "ApplicationMetrics");
 }
 
 /**
@@ -198,9 +190,7 @@ export interface ApplicationResourceLifecycleDescriptionMessage {
 }
 
 export namespace ApplicationResourceLifecycleDescriptionMessage {
-  export const isa = (
-    o: any
-  ): o is ApplicationResourceLifecycleDescriptionMessage =>
+  export const isa = (o: any): o is ApplicationResourceLifecycleDescriptionMessage =>
     __isa(o, "ApplicationResourceLifecycleDescriptionMessage");
 }
 
@@ -291,8 +281,7 @@ export interface ApplicationVersionDescription {
 }
 
 export namespace ApplicationVersionDescription {
-  export const isa = (o: any): o is ApplicationVersionDescription =>
-    __isa(o, "ApplicationVersionDescription");
+  export const isa = (o: any): o is ApplicationVersionDescription => __isa(o, "ApplicationVersionDescription");
 }
 
 /**
@@ -359,16 +348,10 @@ export interface ApplicationVersionLifecycleConfig {
 }
 
 export namespace ApplicationVersionLifecycleConfig {
-  export const isa = (o: any): o is ApplicationVersionLifecycleConfig =>
-    __isa(o, "ApplicationVersionLifecycleConfig");
+  export const isa = (o: any): o is ApplicationVersionLifecycleConfig => __isa(o, "ApplicationVersionLifecycleConfig");
 }
 
-export type ApplicationVersionStatus =
-  | "Building"
-  | "Failed"
-  | "Processed"
-  | "Processing"
-  | "Unprocessed";
+export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Processing" | "Unprocessed";
 
 /**
  * <p>Request to execute a scheduled managed action immediately.</p>
@@ -439,8 +422,7 @@ export interface AutoScalingGroup {
 }
 
 export namespace AutoScalingGroup {
-  export const isa = (o: any): o is AutoScalingGroup =>
-    __isa(o, "AutoScalingGroup");
+  export const isa = (o: any): o is AutoScalingGroup => __isa(o, "AutoScalingGroup");
 }
 
 /**
@@ -497,8 +479,7 @@ export interface BuildConfiguration {
 }
 
 export namespace BuildConfiguration {
-  export const isa = (o: any): o is BuildConfiguration =>
-    __isa(o, "BuildConfiguration");
+  export const isa = (o: any): o is BuildConfiguration => __isa(o, "BuildConfiguration");
 }
 
 /**
@@ -577,8 +558,7 @@ export interface CPUUtilization {
 }
 
 export namespace CPUUtilization {
-  export const isa = (o: any): o is CPUUtilization =>
-    __isa(o, "CPUUtilization");
+  export const isa = (o: any): o is CPUUtilization => __isa(o, "CPUUtilization");
 }
 
 /**
@@ -593,8 +573,7 @@ export interface CheckDNSAvailabilityMessage {
 }
 
 export namespace CheckDNSAvailabilityMessage {
-  export const isa = (o: any): o is CheckDNSAvailabilityMessage =>
-    __isa(o, "CheckDNSAvailabilityMessage");
+  export const isa = (o: any): o is CheckDNSAvailabilityMessage => __isa(o, "CheckDNSAvailabilityMessage");
 }
 
 /**
@@ -625,16 +604,13 @@ export interface CheckDNSAvailabilityResultMessage {
 }
 
 export namespace CheckDNSAvailabilityResultMessage {
-  export const isa = (o: any): o is CheckDNSAvailabilityResultMessage =>
-    __isa(o, "CheckDNSAvailabilityResultMessage");
+  export const isa = (o: any): o is CheckDNSAvailabilityResultMessage => __isa(o, "CheckDNSAvailabilityResultMessage");
 }
 
 /**
  * <p>AWS CodeBuild is not available in the specified region.</p>
  */
-export interface CodeBuildNotInServiceRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CodeBuildNotInServiceRegionException extends __SmithyException, $MetadataBearer {
   name: "CodeBuildNotInServiceRegionException";
   $fault: "client";
   /**
@@ -676,8 +652,7 @@ export interface ComposeEnvironmentsMessage {
 }
 
 export namespace ComposeEnvironmentsMessage {
-  export const isa = (o: any): o is ComposeEnvironmentsMessage =>
-    __isa(o, "ComposeEnvironmentsMessage");
+  export const isa = (o: any): o is ComposeEnvironmentsMessage => __isa(o, "ComposeEnvironmentsMessage");
 }
 
 export enum ComputeType {
@@ -814,8 +789,7 @@ export interface ConfigurationOptionDescription {
 }
 
 export namespace ConfigurationOptionDescription {
-  export const isa = (o: any): o is ConfigurationOptionDescription =>
-    __isa(o, "ConfigurationOptionDescription");
+  export const isa = (o: any): o is ConfigurationOptionDescription => __isa(o, "ConfigurationOptionDescription");
 }
 
 /**
@@ -847,8 +821,7 @@ export interface ConfigurationOptionSetting {
 }
 
 export namespace ConfigurationOptionSetting {
-  export const isa = (o: any): o is ConfigurationOptionSetting =>
-    __isa(o, "ConfigurationOptionSetting");
+  export const isa = (o: any): o is ConfigurationOptionSetting => __isa(o, "ConfigurationOptionSetting");
 }
 
 export type ConfigurationOptionValueType = "List" | "Scalar";
@@ -875,8 +848,7 @@ export interface ConfigurationOptionsDescription {
 }
 
 export namespace ConfigurationOptionsDescription {
-  export const isa = (o: any): o is ConfigurationOptionsDescription =>
-    __isa(o, "ConfigurationOptionsDescription");
+  export const isa = (o: any): o is ConfigurationOptionsDescription => __isa(o, "ConfigurationOptionsDescription");
 }
 
 /**
@@ -963,8 +935,7 @@ export interface ConfigurationSettingsDescription {
 }
 
 export namespace ConfigurationSettingsDescription {
-  export const isa = (o: any): o is ConfigurationSettingsDescription =>
-    __isa(o, "ConfigurationSettingsDescription");
+  export const isa = (o: any): o is ConfigurationSettingsDescription => __isa(o, "ConfigurationSettingsDescription");
 }
 
 /**
@@ -980,8 +951,7 @@ export interface ConfigurationSettingsDescriptions {
 }
 
 export namespace ConfigurationSettingsDescriptions {
-  export const isa = (o: any): o is ConfigurationSettingsDescriptions =>
-    __isa(o, "ConfigurationSettingsDescriptions");
+  export const isa = (o: any): o is ConfigurationSettingsDescriptions => __isa(o, "ConfigurationSettingsDescriptions");
 }
 
 /**
@@ -1032,8 +1002,7 @@ export interface CreateApplicationMessage {
 }
 
 export namespace CreateApplicationMessage {
-  export const isa = (o: any): o is CreateApplicationMessage =>
-    __isa(o, "CreateApplicationMessage");
+  export const isa = (o: any): o is CreateApplicationMessage => __isa(o, "CreateApplicationMessage");
 }
 
 /**
@@ -1117,8 +1086,7 @@ export interface CreateApplicationVersionMessage {
 }
 
 export namespace CreateApplicationVersionMessage {
-  export const isa = (o: any): o is CreateApplicationVersionMessage =>
-    __isa(o, "CreateApplicationVersionMessage");
+  export const isa = (o: any): o is CreateApplicationVersionMessage => __isa(o, "CreateApplicationVersionMessage");
 }
 
 /**
@@ -1304,8 +1272,7 @@ export interface CreateEnvironmentMessage {
 }
 
 export namespace CreateEnvironmentMessage {
-  export const isa = (o: any): o is CreateEnvironmentMessage =>
-    __isa(o, "CreateEnvironmentMessage");
+  export const isa = (o: any): o is CreateEnvironmentMessage => __isa(o, "CreateEnvironmentMessage");
 }
 
 /**
@@ -1347,8 +1314,7 @@ export interface CreatePlatformVersionRequest {
 }
 
 export namespace CreatePlatformVersionRequest {
-  export const isa = (o: any): o is CreatePlatformVersionRequest =>
-    __isa(o, "CreatePlatformVersionRequest");
+  export const isa = (o: any): o is CreatePlatformVersionRequest => __isa(o, "CreatePlatformVersionRequest");
 }
 
 export interface CreatePlatformVersionResult {
@@ -1365,8 +1331,7 @@ export interface CreatePlatformVersionResult {
 }
 
 export namespace CreatePlatformVersionResult {
-  export const isa = (o: any): o is CreatePlatformVersionResult =>
-    __isa(o, "CreatePlatformVersionResult");
+  export const isa = (o: any): o is CreatePlatformVersionResult => __isa(o, "CreatePlatformVersionResult");
 }
 
 /**
@@ -1423,8 +1388,7 @@ export interface DeleteApplicationMessage {
 }
 
 export namespace DeleteApplicationMessage {
-  export const isa = (o: any): o is DeleteApplicationMessage =>
-    __isa(o, "DeleteApplicationMessage");
+  export const isa = (o: any): o is DeleteApplicationMessage => __isa(o, "DeleteApplicationMessage");
 }
 
 /**
@@ -1451,8 +1415,7 @@ export interface DeleteApplicationVersionMessage {
 }
 
 export namespace DeleteApplicationVersionMessage {
-  export const isa = (o: any): o is DeleteApplicationVersionMessage =>
-    __isa(o, "DeleteApplicationVersionMessage");
+  export const isa = (o: any): o is DeleteApplicationVersionMessage => __isa(o, "DeleteApplicationVersionMessage");
 }
 
 /**
@@ -1506,8 +1469,7 @@ export interface DeletePlatformVersionRequest {
 }
 
 export namespace DeletePlatformVersionRequest {
-  export const isa = (o: any): o is DeletePlatformVersionRequest =>
-    __isa(o, "DeletePlatformVersionRequest");
+  export const isa = (o: any): o is DeletePlatformVersionRequest => __isa(o, "DeletePlatformVersionRequest");
 }
 
 export interface DeletePlatformVersionResult {
@@ -1519,8 +1481,7 @@ export interface DeletePlatformVersionResult {
 }
 
 export namespace DeletePlatformVersionResult {
-  export const isa = (o: any): o is DeletePlatformVersionResult =>
-    __isa(o, "DeletePlatformVersionResult");
+  export const isa = (o: any): o is DeletePlatformVersionResult => __isa(o, "DeletePlatformVersionResult");
 }
 
 /**
@@ -1578,8 +1539,7 @@ export interface DescribeAccountAttributesResult {
 }
 
 export namespace DescribeAccountAttributesResult {
-  export const isa = (o: any): o is DescribeAccountAttributesResult =>
-    __isa(o, "DescribeAccountAttributesResult");
+  export const isa = (o: any): o is DescribeAccountAttributesResult => __isa(o, "DescribeAccountAttributesResult");
 }
 
 /**
@@ -1632,8 +1592,7 @@ export interface DescribeApplicationsMessage {
 }
 
 export namespace DescribeApplicationsMessage {
-  export const isa = (o: any): o is DescribeApplicationsMessage =>
-    __isa(o, "DescribeApplicationsMessage");
+  export const isa = (o: any): o is DescribeApplicationsMessage => __isa(o, "DescribeApplicationsMessage");
 }
 
 /**
@@ -1742,8 +1701,7 @@ export interface DescribeEnvironmentHealthRequest {
 }
 
 export namespace DescribeEnvironmentHealthRequest {
-  export const isa = (o: any): o is DescribeEnvironmentHealthRequest =>
-    __isa(o, "DescribeEnvironmentHealthRequest");
+  export const isa = (o: any): o is DescribeEnvironmentHealthRequest => __isa(o, "DescribeEnvironmentHealthRequest");
 }
 
 /**
@@ -1797,8 +1755,7 @@ export interface DescribeEnvironmentHealthResult {
 }
 
 export namespace DescribeEnvironmentHealthResult {
-  export const isa = (o: any): o is DescribeEnvironmentHealthResult =>
-    __isa(o, "DescribeEnvironmentHealthResult");
+  export const isa = (o: any): o is DescribeEnvironmentHealthResult => __isa(o, "DescribeEnvironmentHealthResult");
 }
 
 /**
@@ -1828,9 +1785,7 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
 }
 
 export namespace DescribeEnvironmentManagedActionHistoryRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeEnvironmentManagedActionHistoryRequest =>
+  export const isa = (o: any): o is DescribeEnvironmentManagedActionHistoryRequest =>
     __isa(o, "DescribeEnvironmentManagedActionHistoryRequest");
 }
 
@@ -1852,9 +1807,7 @@ export interface DescribeEnvironmentManagedActionHistoryResult {
 }
 
 export namespace DescribeEnvironmentManagedActionHistoryResult {
-  export const isa = (
-    o: any
-  ): o is DescribeEnvironmentManagedActionHistoryResult =>
+  export const isa = (o: any): o is DescribeEnvironmentManagedActionHistoryResult =>
     __isa(o, "DescribeEnvironmentManagedActionHistoryResult");
 }
 
@@ -1989,8 +1942,7 @@ export interface DescribeEnvironmentsMessage {
 }
 
 export namespace DescribeEnvironmentsMessage {
-  export const isa = (o: any): o is DescribeEnvironmentsMessage =>
-    __isa(o, "DescribeEnvironmentsMessage");
+  export const isa = (o: any): o is DescribeEnvironmentsMessage => __isa(o, "DescribeEnvironmentsMessage");
 }
 
 /**
@@ -2070,8 +2022,7 @@ export interface DescribeEventsMessage {
 }
 
 export namespace DescribeEventsMessage {
-  export const isa = (o: any): o is DescribeEventsMessage =>
-    __isa(o, "DescribeEventsMessage");
+  export const isa = (o: any): o is DescribeEventsMessage => __isa(o, "DescribeEventsMessage");
 }
 
 /**
@@ -2103,8 +2054,7 @@ export interface DescribeInstancesHealthRequest {
 }
 
 export namespace DescribeInstancesHealthRequest {
-  export const isa = (o: any): o is DescribeInstancesHealthRequest =>
-    __isa(o, "DescribeInstancesHealthRequest");
+  export const isa = (o: any): o is DescribeInstancesHealthRequest => __isa(o, "DescribeInstancesHealthRequest");
 }
 
 /**
@@ -2132,8 +2082,7 @@ export interface DescribeInstancesHealthResult {
 }
 
 export namespace DescribeInstancesHealthResult {
-  export const isa = (o: any): o is DescribeInstancesHealthResult =>
-    __isa(o, "DescribeInstancesHealthResult");
+  export const isa = (o: any): o is DescribeInstancesHealthResult => __isa(o, "DescribeInstancesHealthResult");
 }
 
 export interface DescribePlatformVersionRequest {
@@ -2145,8 +2094,7 @@ export interface DescribePlatformVersionRequest {
 }
 
 export namespace DescribePlatformVersionRequest {
-  export const isa = (o: any): o is DescribePlatformVersionRequest =>
-    __isa(o, "DescribePlatformVersionRequest");
+  export const isa = (o: any): o is DescribePlatformVersionRequest => __isa(o, "DescribePlatformVersionRequest");
 }
 
 export interface DescribePlatformVersionResult {
@@ -2158,16 +2106,13 @@ export interface DescribePlatformVersionResult {
 }
 
 export namespace DescribePlatformVersionResult {
-  export const isa = (o: any): o is DescribePlatformVersionResult =>
-    __isa(o, "DescribePlatformVersionResult");
+  export const isa = (o: any): o is DescribePlatformVersionResult => __isa(o, "DescribePlatformVersionResult");
 }
 
 /**
  * <p>A generic service exception has occurred.</p>
  */
-export interface ElasticBeanstalkServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ElasticBeanstalkServiceException extends __SmithyException, $MetadataBearer {
   name: "ElasticBeanstalkServiceException";
   $fault: "client";
   /**
@@ -2177,8 +2122,7 @@ export interface ElasticBeanstalkServiceException
 }
 
 export namespace ElasticBeanstalkServiceException {
-  export const isa = (o: any): o is ElasticBeanstalkServiceException =>
-    __isa(o, "ElasticBeanstalkServiceException");
+  export const isa = (o: any): o is ElasticBeanstalkServiceException => __isa(o, "ElasticBeanstalkServiceException");
 }
 
 /**
@@ -2347,8 +2291,7 @@ export interface EnvironmentDescription {
 }
 
 export namespace EnvironmentDescription {
-  export const isa = (o: any): o is EnvironmentDescription =>
-    __isa(o, "EnvironmentDescription");
+  export const isa = (o: any): o is EnvironmentDescription => __isa(o, "EnvironmentDescription");
 }
 
 /**
@@ -2369,8 +2312,7 @@ export interface EnvironmentDescriptionsMessage {
 }
 
 export namespace EnvironmentDescriptionsMessage {
-  export const isa = (o: any): o is EnvironmentDescriptionsMessage =>
-    __isa(o, "EnvironmentDescriptionsMessage");
+  export const isa = (o: any): o is EnvironmentDescriptionsMessage => __isa(o, "EnvironmentDescriptionsMessage");
 }
 
 export type EnvironmentHealth = "Green" | "Grey" | "Red" | "Yellow";
@@ -2427,8 +2369,7 @@ export interface EnvironmentInfoDescription {
 }
 
 export namespace EnvironmentInfoDescription {
-  export const isa = (o: any): o is EnvironmentInfoDescription =>
-    __isa(o, "EnvironmentInfoDescription");
+  export const isa = (o: any): o is EnvironmentInfoDescription => __isa(o, "EnvironmentInfoDescription");
 }
 
 export type EnvironmentInfoType = "bundle" | "tail";
@@ -2453,8 +2394,7 @@ export interface EnvironmentLink {
 }
 
 export namespace EnvironmentLink {
-  export const isa = (o: any): o is EnvironmentLink =>
-    __isa(o, "EnvironmentLink");
+  export const isa = (o: any): o is EnvironmentLink => __isa(o, "EnvironmentLink");
 }
 
 /**
@@ -2504,8 +2444,7 @@ export interface EnvironmentResourceDescription {
 }
 
 export namespace EnvironmentResourceDescription {
-  export const isa = (o: any): o is EnvironmentResourceDescription =>
-    __isa(o, "EnvironmentResourceDescription");
+  export const isa = (o: any): o is EnvironmentResourceDescription => __isa(o, "EnvironmentResourceDescription");
 }
 
 /**
@@ -2537,16 +2476,10 @@ export interface EnvironmentResourcesDescription {
 }
 
 export namespace EnvironmentResourcesDescription {
-  export const isa = (o: any): o is EnvironmentResourcesDescription =>
-    __isa(o, "EnvironmentResourcesDescription");
+  export const isa = (o: any): o is EnvironmentResourcesDescription => __isa(o, "EnvironmentResourcesDescription");
 }
 
-export type EnvironmentStatus =
-  | "Launching"
-  | "Ready"
-  | "Terminated"
-  | "Terminating"
-  | "Updating";
+export type EnvironmentStatus = "Launching" | "Ready" | "Terminated" | "Terminating" | "Updating";
 
 /**
  * <p>Describes the properties of an environment tier</p>
@@ -2597,8 +2530,7 @@ export interface EnvironmentTier {
 }
 
 export namespace EnvironmentTier {
-  export const isa = (o: any): o is EnvironmentTier =>
-    __isa(o, "EnvironmentTier");
+  export const isa = (o: any): o is EnvironmentTier => __isa(o, "EnvironmentTier");
 }
 
 /**
@@ -2653,8 +2585,7 @@ export interface EventDescription {
 }
 
 export namespace EventDescription {
-  export const isa = (o: any): o is EventDescription =>
-    __isa(o, "EventDescription");
+  export const isa = (o: any): o is EventDescription => __isa(o, "EventDescription");
 }
 
 /**
@@ -2675,17 +2606,10 @@ export interface EventDescriptionsMessage {
 }
 
 export namespace EventDescriptionsMessage {
-  export const isa = (o: any): o is EventDescriptionsMessage =>
-    __isa(o, "EventDescriptionsMessage");
+  export const isa = (o: any): o is EventDescriptionsMessage => __isa(o, "EventDescriptionsMessage");
 }
 
-export type EventSeverity =
-  | "DEBUG"
-  | "ERROR"
-  | "FATAL"
-  | "INFO"
-  | "TRACE"
-  | "WARN";
+export type EventSeverity = "DEBUG" | "ERROR" | "FATAL" | "INFO" | "TRACE" | "WARN";
 
 export type FailureType =
   | "CancellationFailed"
@@ -2774,8 +2698,7 @@ export interface InstanceHealthSummary {
 }
 
 export namespace InstanceHealthSummary {
-  export const isa = (o: any): o is InstanceHealthSummary =>
-    __isa(o, "InstanceHealthSummary");
+  export const isa = (o: any): o is InstanceHealthSummary => __isa(o, "InstanceHealthSummary");
 }
 
 export enum InstancesHealthAttribute {
@@ -2796,9 +2719,7 @@ export enum InstancesHealthAttribute {
  * <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  */
-export interface InsufficientPrivilegesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientPrivilegesException extends __SmithyException, $MetadataBearer {
   name: "InsufficientPrivilegesException";
   $fault: "client";
   /**
@@ -2808,17 +2729,14 @@ export interface InsufficientPrivilegesException
 }
 
 export namespace InsufficientPrivilegesException {
-  export const isa = (o: any): o is InsufficientPrivilegesException =>
-    __isa(o, "InsufficientPrivilegesException");
+  export const isa = (o: any): o is InsufficientPrivilegesException => __isa(o, "InsufficientPrivilegesException");
 }
 
 /**
  * <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -2828,8 +2746,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -2903,8 +2820,7 @@ export interface LaunchConfiguration {
 }
 
 export namespace LaunchConfiguration {
-  export const isa = (o: any): o is LaunchConfiguration =>
-    __isa(o, "LaunchConfiguration");
+  export const isa = (o: any): o is LaunchConfiguration => __isa(o, "LaunchConfiguration");
 }
 
 /**
@@ -2919,8 +2835,7 @@ export interface LaunchTemplate {
 }
 
 export namespace LaunchTemplate {
-  export const isa = (o: any): o is LaunchTemplate =>
-    __isa(o, "LaunchTemplate");
+  export const isa = (o: any): o is LaunchTemplate => __isa(o, "LaunchTemplate");
 }
 
 /**
@@ -2966,8 +2881,7 @@ export interface ListPlatformVersionsRequest {
 }
 
 export namespace ListPlatformVersionsRequest {
-  export const isa = (o: any): o is ListPlatformVersionsRequest =>
-    __isa(o, "ListPlatformVersionsRequest");
+  export const isa = (o: any): o is ListPlatformVersionsRequest => __isa(o, "ListPlatformVersionsRequest");
 }
 
 export interface ListPlatformVersionsResult {
@@ -2987,8 +2901,7 @@ export interface ListPlatformVersionsResult {
 }
 
 export namespace ListPlatformVersionsResult {
-  export const isa = (o: any): o is ListPlatformVersionsResult =>
-    __isa(o, "ListPlatformVersionsResult");
+  export const isa = (o: any): o is ListPlatformVersionsResult => __isa(o, "ListPlatformVersionsResult");
 }
 
 export interface ListTagsForResourceMessage {
@@ -3001,8 +2914,7 @@ export interface ListTagsForResourceMessage {
 }
 
 export namespace ListTagsForResourceMessage {
-  export const isa = (o: any): o is ListTagsForResourceMessage =>
-    __isa(o, "ListTagsForResourceMessage");
+  export const isa = (o: any): o is ListTagsForResourceMessage => __isa(o, "ListTagsForResourceMessage");
 }
 
 /**
@@ -3062,8 +2974,7 @@ export interface LoadBalancerDescription {
 }
 
 export namespace LoadBalancerDescription {
-  export const isa = (o: any): o is LoadBalancerDescription =>
-    __isa(o, "LoadBalancerDescription");
+  export const isa = (o: any): o is LoadBalancerDescription => __isa(o, "LoadBalancerDescription");
 }
 
 /**
@@ -3150,16 +3061,13 @@ export interface ManagedActionHistoryItem {
 }
 
 export namespace ManagedActionHistoryItem {
-  export const isa = (o: any): o is ManagedActionHistoryItem =>
-    __isa(o, "ManagedActionHistoryItem");
+  export const isa = (o: any): o is ManagedActionHistoryItem => __isa(o, "ManagedActionHistoryItem");
 }
 
 /**
  * <p>Cannot modify the managed action in its current state.</p>
  */
-export interface ManagedActionInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ManagedActionInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "ManagedActionInvalidStateException";
   $fault: "client";
   /**
@@ -3233,9 +3141,7 @@ export namespace MaxCountRule {
  * <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  */
-export interface OperationInProgressException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationInProgressException extends __SmithyException, $MetadataBearer {
   name: "OperationInProgressException";
   $fault: "client";
   /**
@@ -3245,8 +3151,7 @@ export interface OperationInProgressException
 }
 
 export namespace OperationInProgressException {
-  export const isa = (o: any): o is OperationInProgressException =>
-    __isa(o, "OperationInProgressException");
+  export const isa = (o: any): o is OperationInProgressException => __isa(o, "OperationInProgressException");
 }
 
 /**
@@ -3268,8 +3173,7 @@ export interface OptionRestrictionRegex {
 }
 
 export namespace OptionRestrictionRegex {
-  export const isa = (o: any): o is OptionRestrictionRegex =>
-    __isa(o, "OptionRestrictionRegex");
+  export const isa = (o: any): o is OptionRestrictionRegex => __isa(o, "OptionRestrictionRegex");
 }
 
 /**
@@ -3294,8 +3198,7 @@ export interface OptionSpecification {
 }
 
 export namespace OptionSpecification {
-  export const isa = (o: any): o is OptionSpecification =>
-    __isa(o, "OptionSpecification");
+  export const isa = (o: any): o is OptionSpecification => __isa(o, "OptionSpecification");
 }
 
 /**
@@ -3395,8 +3298,7 @@ export interface PlatformDescription {
 }
 
 export namespace PlatformDescription {
-  export const isa = (o: any): o is PlatformDescription =>
-    __isa(o, "PlatformDescription");
+  export const isa = (o: any): o is PlatformDescription => __isa(o, "PlatformDescription");
 }
 
 /**
@@ -3453,8 +3355,7 @@ export interface PlatformFilter {
 }
 
 export namespace PlatformFilter {
-  export const isa = (o: any): o is PlatformFilter =>
-    __isa(o, "PlatformFilter");
+  export const isa = (o: any): o is PlatformFilter => __isa(o, "PlatformFilter");
 }
 
 /**
@@ -3474,8 +3375,7 @@ export interface PlatformFramework {
 }
 
 export namespace PlatformFramework {
-  export const isa = (o: any): o is PlatformFramework =>
-    __isa(o, "PlatformFramework");
+  export const isa = (o: any): o is PlatformFramework => __isa(o, "PlatformFramework");
 }
 
 /**
@@ -3495,16 +3395,10 @@ export interface PlatformProgrammingLanguage {
 }
 
 export namespace PlatformProgrammingLanguage {
-  export const isa = (o: any): o is PlatformProgrammingLanguage =>
-    __isa(o, "PlatformProgrammingLanguage");
+  export const isa = (o: any): o is PlatformProgrammingLanguage => __isa(o, "PlatformProgrammingLanguage");
 }
 
-export type PlatformStatus =
-  | "Creating"
-  | "Deleted"
-  | "Deleting"
-  | "Failed"
-  | "Ready";
+export type PlatformStatus = "Creating" | "Deleted" | "Deleting" | "Failed" | "Ready";
 
 /**
  * <p>Detailed information about a platform.</p>
@@ -3554,16 +3448,13 @@ export interface PlatformSummary {
 }
 
 export namespace PlatformSummary {
-  export const isa = (o: any): o is PlatformSummary =>
-    __isa(o, "PlatformSummary");
+  export const isa = (o: any): o is PlatformSummary => __isa(o, "PlatformSummary");
 }
 
 /**
  * <p>You cannot delete the platform version because there are still environments running on it.</p>
  */
-export interface PlatformVersionStillReferencedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PlatformVersionStillReferencedException extends __SmithyException, $MetadataBearer {
   name: "PlatformVersionStillReferencedException";
   $fault: "client";
   /**
@@ -3620,8 +3511,7 @@ export interface RebuildEnvironmentMessage {
 }
 
 export namespace RebuildEnvironmentMessage {
-  export const isa = (o: any): o is RebuildEnvironmentMessage =>
-    __isa(o, "RebuildEnvironmentMessage");
+  export const isa = (o: any): o is RebuildEnvironmentMessage => __isa(o, "RebuildEnvironmentMessage");
 }
 
 /**
@@ -3657,16 +3547,13 @@ export interface RequestEnvironmentInfoMessage {
 }
 
 export namespace RequestEnvironmentInfoMessage {
-  export const isa = (o: any): o is RequestEnvironmentInfoMessage =>
-    __isa(o, "RequestEnvironmentInfoMessage");
+  export const isa = (o: any): o is RequestEnvironmentInfoMessage => __isa(o, "RequestEnvironmentInfoMessage");
 }
 
 /**
  * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -3676,8 +3563,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
@@ -3730,8 +3616,7 @@ export interface ResourceQuotas {
 }
 
 export namespace ResourceQuotas {
-  export const isa = (o: any): o is ResourceQuotas =>
-    __isa(o, "ResourceQuotas");
+  export const isa = (o: any): o is ResourceQuotas => __isa(o, "ResourceQuotas");
 }
 
 export interface ResourceTagsDescriptionMessage {
@@ -3748,16 +3633,13 @@ export interface ResourceTagsDescriptionMessage {
 }
 
 export namespace ResourceTagsDescriptionMessage {
-  export const isa = (o: any): o is ResourceTagsDescriptionMessage =>
-    __isa(o, "ResourceTagsDescriptionMessage");
+  export const isa = (o: any): o is ResourceTagsDescriptionMessage => __isa(o, "ResourceTagsDescriptionMessage");
 }
 
 /**
  * <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  */
-export interface ResourceTypeNotSupportedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
   name: "ResourceTypeNotSupportedException";
   $fault: "client";
   /**
@@ -3767,8 +3649,7 @@ export interface ResourceTypeNotSupportedException
 }
 
 export namespace ResourceTypeNotSupportedException {
-  export const isa = (o: any): o is ResourceTypeNotSupportedException =>
-    __isa(o, "ResourceTypeNotSupportedException");
+  export const isa = (o: any): o is ResourceTypeNotSupportedException => __isa(o, "ResourceTypeNotSupportedException");
 }
 
 /**
@@ -3794,8 +3675,7 @@ export interface RestartAppServerMessage {
 }
 
 export namespace RestartAppServerMessage {
-  export const isa = (o: any): o is RestartAppServerMessage =>
-    __isa(o, "RestartAppServerMessage");
+  export const isa = (o: any): o is RestartAppServerMessage => __isa(o, "RestartAppServerMessage");
 }
 
 /**
@@ -3829,8 +3709,7 @@ export interface RetrieveEnvironmentInfoMessage {
 }
 
 export namespace RetrieveEnvironmentInfoMessage {
-  export const isa = (o: any): o is RetrieveEnvironmentInfoMessage =>
-    __isa(o, "RetrieveEnvironmentInfoMessage");
+  export const isa = (o: any): o is RetrieveEnvironmentInfoMessage => __isa(o, "RetrieveEnvironmentInfoMessage");
 }
 
 /**
@@ -3884,9 +3763,7 @@ export namespace S3Location {
  * 	           </li>
  *          </ul>
  */
-export interface S3LocationNotInServiceRegionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface S3LocationNotInServiceRegionException extends __SmithyException, $MetadataBearer {
   name: "S3LocationNotInServiceRegionException";
   $fault: "client";
   /**
@@ -3903,9 +3780,7 @@ export namespace S3LocationNotInServiceRegionException {
 /**
  * <p>The specified account does not have a subscription to Amazon S3.</p>
  */
-export interface S3SubscriptionRequiredException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface S3SubscriptionRequiredException extends __SmithyException, $MetadataBearer {
   name: "S3SubscriptionRequiredException";
   $fault: "client";
   /**
@@ -3915,8 +3790,7 @@ export interface S3SubscriptionRequiredException
 }
 
 export namespace S3SubscriptionRequiredException {
-  export const isa = (o: any): o is S3SubscriptionRequiredException =>
-    __isa(o, "S3SubscriptionRequiredException");
+  export const isa = (o: any): o is S3SubscriptionRequiredException => __isa(o, "S3SubscriptionRequiredException");
 }
 
 /**
@@ -3981,8 +3855,7 @@ export interface SingleInstanceHealth {
 }
 
 export namespace SingleInstanceHealth {
-  export const isa = (o: any): o is SingleInstanceHealth =>
-    __isa(o, "SingleInstanceHealth");
+  export const isa = (o: any): o is SingleInstanceHealth => __isa(o, "SingleInstanceHealth");
 }
 
 /**
@@ -4002,8 +3875,7 @@ export interface SolutionStackDescription {
 }
 
 export namespace SolutionStackDescription {
-  export const isa = (o: any): o is SolutionStackDescription =>
-    __isa(o, "SolutionStackDescription");
+  export const isa = (o: any): o is SolutionStackDescription => __isa(o, "SolutionStackDescription");
 }
 
 /**
@@ -4067,17 +3939,14 @@ export interface SourceBuildInformation {
 }
 
 export namespace SourceBuildInformation {
-  export const isa = (o: any): o is SourceBuildInformation =>
-    __isa(o, "SourceBuildInformation");
+  export const isa = (o: any): o is SourceBuildInformation => __isa(o, "SourceBuildInformation");
 }
 
 /**
  * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  */
-export interface SourceBundleDeletionException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface SourceBundleDeletionException extends __SmithyException, $MetadataBearer {
   name: "SourceBundleDeletionException";
   $fault: "client";
   /**
@@ -4087,8 +3956,7 @@ export interface SourceBundleDeletionException
 }
 
 export namespace SourceBundleDeletionException {
-  export const isa = (o: any): o is SourceBundleDeletionException =>
-    __isa(o, "SourceBundleDeletionException");
+  export const isa = (o: any): o is SourceBundleDeletionException => __isa(o, "SourceBundleDeletionException");
 }
 
 /**
@@ -4108,8 +3976,7 @@ export interface SourceConfiguration {
 }
 
 export namespace SourceConfiguration {
-  export const isa = (o: any): o is SourceConfiguration =>
-    __isa(o, "SourceConfiguration");
+  export const isa = (o: any): o is SourceConfiguration => __isa(o, "SourceConfiguration");
 }
 
 export type SourceRepository = "CodeCommit" | "S3";
@@ -4194,8 +4061,7 @@ export interface SwapEnvironmentCNAMEsMessage {
 }
 
 export namespace SwapEnvironmentCNAMEsMessage {
-  export const isa = (o: any): o is SwapEnvironmentCNAMEsMessage =>
-    __isa(o, "SwapEnvironmentCNAMEsMessage");
+  export const isa = (o: any): o is SwapEnvironmentCNAMEsMessage => __isa(o, "SwapEnvironmentCNAMEsMessage");
 }
 
 /**
@@ -4293,16 +4159,13 @@ export interface TerminateEnvironmentMessage {
 }
 
 export namespace TerminateEnvironmentMessage {
-  export const isa = (o: any): o is TerminateEnvironmentMessage =>
-    __isa(o, "TerminateEnvironmentMessage");
+  export const isa = (o: any): o is TerminateEnvironmentMessage => __isa(o, "TerminateEnvironmentMessage");
 }
 
 /**
  * <p>The specified account has reached its limit of application versions.</p>
  */
-export interface TooManyApplicationVersionsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyApplicationVersionsException extends __SmithyException, $MetadataBearer {
   name: "TooManyApplicationVersionsException";
   $fault: "client";
   /**
@@ -4319,9 +4182,7 @@ export namespace TooManyApplicationVersionsException {
 /**
  * <p>The specified account has reached its limit of applications.</p>
  */
-export interface TooManyApplicationsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyApplicationsException extends __SmithyException, $MetadataBearer {
   name: "TooManyApplicationsException";
   $fault: "client";
   /**
@@ -4331,16 +4192,13 @@ export interface TooManyApplicationsException
 }
 
 export namespace TooManyApplicationsException {
-  export const isa = (o: any): o is TooManyApplicationsException =>
-    __isa(o, "TooManyApplicationsException");
+  export const isa = (o: any): o is TooManyApplicationsException => __isa(o, "TooManyApplicationsException");
 }
 
 /**
  * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  */
-export interface TooManyBucketsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyBucketsException extends __SmithyException, $MetadataBearer {
   name: "TooManyBucketsException";
   $fault: "client";
   /**
@@ -4350,16 +4208,13 @@ export interface TooManyBucketsException
 }
 
 export namespace TooManyBucketsException {
-  export const isa = (o: any): o is TooManyBucketsException =>
-    __isa(o, "TooManyBucketsException");
+  export const isa = (o: any): o is TooManyBucketsException => __isa(o, "TooManyBucketsException");
 }
 
 /**
  * <p>The specified account has reached its limit of configuration templates.</p>
  */
-export interface TooManyConfigurationTemplatesException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyConfigurationTemplatesException extends __SmithyException, $MetadataBearer {
   name: "TooManyConfigurationTemplatesException";
   $fault: "client";
   /**
@@ -4376,9 +4231,7 @@ export namespace TooManyConfigurationTemplatesException {
 /**
  * <p>The specified account has reached its limit of environments.</p>
  */
-export interface TooManyEnvironmentsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyEnvironmentsException extends __SmithyException, $MetadataBearer {
   name: "TooManyEnvironmentsException";
   $fault: "client";
   /**
@@ -4388,16 +4241,13 @@ export interface TooManyEnvironmentsException
 }
 
 export namespace TooManyEnvironmentsException {
-  export const isa = (o: any): o is TooManyEnvironmentsException =>
-    __isa(o, "TooManyEnvironmentsException");
+  export const isa = (o: any): o is TooManyEnvironmentsException => __isa(o, "TooManyEnvironmentsException");
 }
 
 /**
  * <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
  */
-export interface TooManyPlatformsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyPlatformsException extends __SmithyException, $MetadataBearer {
   name: "TooManyPlatformsException";
   $fault: "client";
   /**
@@ -4407,8 +4257,7 @@ export interface TooManyPlatformsException
 }
 
 export namespace TooManyPlatformsException {
-  export const isa = (o: any): o is TooManyPlatformsException =>
-    __isa(o, "TooManyPlatformsException");
+  export const isa = (o: any): o is TooManyPlatformsException => __isa(o, "TooManyPlatformsException");
 }
 
 /**
@@ -4417,9 +4266,7 @@ export namespace TooManyPlatformsException {
  *          <p>To calculate this, the operation considers both the number of tags the resource already has
  *       and the tags this operation would add if it succeeded.</p>
  */
-export interface TooManyTagsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
   $fault: "client";
   /**
@@ -4429,8 +4276,7 @@ export interface TooManyTagsException
 }
 
 export namespace TooManyTagsException {
-  export const isa = (o: any): o is TooManyTagsException =>
-    __isa(o, "TooManyTagsException");
+  export const isa = (o: any): o is TooManyTagsException => __isa(o, "TooManyTagsException");
 }
 
 /**
@@ -4469,8 +4315,7 @@ export interface UpdateApplicationMessage {
 }
 
 export namespace UpdateApplicationMessage {
-  export const isa = (o: any): o is UpdateApplicationMessage =>
-    __isa(o, "UpdateApplicationMessage");
+  export const isa = (o: any): o is UpdateApplicationMessage => __isa(o, "UpdateApplicationMessage");
 }
 
 export interface UpdateApplicationResourceLifecycleMessage {
@@ -4517,8 +4362,7 @@ export interface UpdateApplicationVersionMessage {
 }
 
 export namespace UpdateApplicationVersionMessage {
-  export const isa = (o: any): o is UpdateApplicationVersionMessage =>
-    __isa(o, "UpdateApplicationVersionMessage");
+  export const isa = (o: any): o is UpdateApplicationVersionMessage => __isa(o, "UpdateApplicationVersionMessage");
 }
 
 /**
@@ -4656,8 +4500,7 @@ export interface UpdateEnvironmentMessage {
 }
 
 export namespace UpdateEnvironmentMessage {
-  export const isa = (o: any): o is UpdateEnvironmentMessage =>
-    __isa(o, "UpdateEnvironmentMessage");
+  export const isa = (o: any): o is UpdateEnvironmentMessage => __isa(o, "UpdateEnvironmentMessage");
 }
 
 export interface UpdateTagsForResourceMessage {
@@ -4682,8 +4525,7 @@ export interface UpdateTagsForResourceMessage {
 }
 
 export namespace UpdateTagsForResourceMessage {
-  export const isa = (o: any): o is UpdateTagsForResourceMessage =>
-    __isa(o, "UpdateTagsForResourceMessage");
+  export const isa = (o: any): o is UpdateTagsForResourceMessage => __isa(o, "UpdateTagsForResourceMessage");
 }
 
 /**
@@ -4759,8 +4601,7 @@ export interface ValidationMessage {
 }
 
 export namespace ValidationMessage {
-  export const isa = (o: any): o is ValidationMessage =>
-    __isa(o, "ValidationMessage");
+  export const isa = (o: any): o is ValidationMessage => __isa(o, "ValidationMessage");
 }
 
 export type ValidationSeverity = "error" | "warning";

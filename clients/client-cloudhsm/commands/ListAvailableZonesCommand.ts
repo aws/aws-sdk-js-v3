@@ -1,21 +1,11 @@
-import {
-  CloudHSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudHSMClient";
-import {
-  ListAvailableZonesRequest,
-  ListAvailableZonesResponse
-} from "../models/index";
+import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
+import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListAvailableZonesCommand,
   serializeAws_json1_1ListAvailableZonesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListAvailableZonesCommandInput = ListAvailableZonesRequest;
-export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse &
-  __MetadataBearer;
+export type ListAvailableZonesCommandOutput = ListAvailableZonesResponse & __MetadataBearer;
 
 export class ListAvailableZonesCommand extends $Command<
   ListAvailableZonesCommandInput,
@@ -50,9 +39,7 @@ export class ListAvailableZonesCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAvailableZonesCommandInput, ListAvailableZonesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListAvailableZonesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListAvailableZonesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListAvailableZonesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListAvailableZonesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAvailableZonesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAvailableZonesCommandOutput> {
     return deserializeAws_json1_1ListAvailableZonesCommand(output, context);
   }
 

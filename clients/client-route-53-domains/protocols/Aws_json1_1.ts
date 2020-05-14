@@ -30,38 +30,17 @@ import {
   GetContactReachabilityStatusCommandInput,
   GetContactReachabilityStatusCommandOutput
 } from "../commands/GetContactReachabilityStatusCommand";
-import {
-  GetDomainDetailCommandInput,
-  GetDomainDetailCommandOutput
-} from "../commands/GetDomainDetailCommand";
+import { GetDomainDetailCommandInput, GetDomainDetailCommandOutput } from "../commands/GetDomainDetailCommand";
 import {
   GetDomainSuggestionsCommandInput,
   GetDomainSuggestionsCommandOutput
 } from "../commands/GetDomainSuggestionsCommand";
-import {
-  GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput
-} from "../commands/GetOperationDetailCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "../commands/ListDomainsCommand";
-import {
-  ListOperationsCommandInput,
-  ListOperationsCommandOutput
-} from "../commands/ListOperationsCommand";
-import {
-  ListTagsForDomainCommandInput,
-  ListTagsForDomainCommandOutput
-} from "../commands/ListTagsForDomainCommand";
-import {
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
-} from "../commands/RegisterDomainCommand";
-import {
-  RenewDomainCommandInput,
-  RenewDomainCommandOutput
-} from "../commands/RenewDomainCommand";
+import { GetOperationDetailCommandInput, GetOperationDetailCommandOutput } from "../commands/GetOperationDetailCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
+import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
+import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "../commands/ListTagsForDomainCommand";
+import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "../commands/RegisterDomainCommand";
+import { RenewDomainCommandInput, RenewDomainCommandOutput } from "../commands/RenewDomainCommand";
 import {
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput
@@ -70,10 +49,7 @@ import {
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput
 } from "../commands/RetrieveDomainAuthCodeCommand";
-import {
-  TransferDomainCommandInput,
-  TransferDomainCommandOutput
-} from "../commands/TransferDomainCommand";
+import { TransferDomainCommandInput, TransferDomainCommandOutput } from "../commands/TransferDomainCommand";
 import {
   UpdateDomainContactCommandInput,
   UpdateDomainContactCommandOutput
@@ -90,10 +66,7 @@ import {
   UpdateTagsForDomainCommandInput,
   UpdateTagsForDomainCommandOutput
 } from "../commands/UpdateTagsForDomainCommand";
-import {
-  ViewBillingCommandInput,
-  ViewBillingCommandOutput
-} from "../commands/ViewBillingCommand";
+import { ViewBillingCommandInput, ViewBillingCommandOutput } from "../commands/ViewBillingCommand";
 import {
   BillingRecord,
   CheckDomainAvailabilityRequest,
@@ -159,10 +132,7 @@ import {
   ViewBillingRequest,
   ViewBillingResponse
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -181,9 +151,7 @@ export const serializeAws_json1_1CheckDomainAvailabilityCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.CheckDomainAvailability"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CheckDomainAvailabilityRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CheckDomainAvailabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -196,9 +164,7 @@ export const serializeAws_json1_1CheckDomainTransferabilityCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.CheckDomainTransferability"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CheckDomainTransferabilityRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CheckDomainTransferabilityRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -211,9 +177,7 @@ export const serializeAws_json1_1DeleteTagsForDomainCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.DeleteTagsForDomain"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteTagsForDomainRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteTagsForDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -226,9 +190,7 @@ export const serializeAws_json1_1DisableDomainAutoRenewCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.DisableDomainAutoRenew"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisableDomainAutoRenewRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisableDomainAutoRenewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -241,9 +203,7 @@ export const serializeAws_json1_1DisableDomainTransferLockCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.DisableDomainTransferLock"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DisableDomainTransferLockRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DisableDomainTransferLockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -256,9 +216,7 @@ export const serializeAws_json1_1EnableDomainAutoRenewCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.EnableDomainAutoRenew"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1EnableDomainAutoRenewRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1EnableDomainAutoRenewRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -271,9 +229,7 @@ export const serializeAws_json1_1EnableDomainTransferLockCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.EnableDomainTransferLock"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1EnableDomainTransferLockRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1EnableDomainTransferLockRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -286,9 +242,7 @@ export const serializeAws_json1_1GetContactReachabilityStatusCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.GetContactReachabilityStatus"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetContactReachabilityStatusRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetContactReachabilityStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -301,9 +255,7 @@ export const serializeAws_json1_1GetDomainDetailCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.GetDomainDetail"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDomainDetailRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDomainDetailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -316,9 +268,7 @@ export const serializeAws_json1_1GetDomainSuggestionsCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.GetDomainSuggestions"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetDomainSuggestionsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetDomainSuggestionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -331,9 +281,7 @@ export const serializeAws_json1_1GetOperationDetailCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.GetOperationDetail"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetOperationDetailRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1GetOperationDetailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -359,9 +307,7 @@ export const serializeAws_json1_1ListOperationsCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.ListOperations"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListOperationsRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListOperationsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -374,9 +320,7 @@ export const serializeAws_json1_1ListTagsForDomainCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.ListTagsForDomain"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ListTagsForDomainRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ListTagsForDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -389,9 +333,7 @@ export const serializeAws_json1_1RegisterDomainCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.RegisterDomain"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RegisterDomainRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RegisterDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -417,9 +359,7 @@ export const serializeAws_json1_1ResendContactReachabilityEmailCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.ResendContactReachabilityEmail"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1ResendContactReachabilityEmailRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1ResendContactReachabilityEmailRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -432,9 +372,7 @@ export const serializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.RetrieveDomainAuthCode"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1RetrieveDomainAuthCodeRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1RetrieveDomainAuthCodeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -447,9 +385,7 @@ export const serializeAws_json1_1TransferDomainCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.TransferDomain"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1TransferDomainRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1TransferDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -462,9 +398,7 @@ export const serializeAws_json1_1UpdateDomainContactCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainContact"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDomainContactRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDomainContactRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -477,9 +411,7 @@ export const serializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainContactPrivacy"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDomainContactPrivacyRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDomainContactPrivacyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -492,9 +424,7 @@ export const serializeAws_json1_1UpdateDomainNameserversCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.UpdateDomainNameservers"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateDomainNameserversRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateDomainNameserversRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -507,9 +437,7 @@ export const serializeAws_json1_1UpdateTagsForDomainCommand = async (
     "X-Amz-Target": "Route53Domains_v20140515.UpdateTagsForDomain"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateTagsForDomainRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateTagsForDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -531,17 +459,11 @@ export const deserializeAws_json1_1CheckDomainAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<CheckDomainAvailabilityCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CheckDomainAvailabilityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CheckDomainAvailabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CheckDomainAvailabilityResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CheckDomainAvailabilityResponse(data, context);
   const response: CheckDomainAvailabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CheckDomainAvailabilityResponse",
@@ -561,16 +483,12 @@ const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -578,10 +496,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -608,17 +523,11 @@ export const deserializeAws_json1_1CheckDomainTransferabilityCommand = async (
   context: __SerdeContext
 ): Promise<CheckDomainTransferabilityCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CheckDomainTransferabilityCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CheckDomainTransferabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CheckDomainTransferabilityResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1CheckDomainTransferabilityResponse(data, context);
   const response: CheckDomainTransferabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CheckDomainTransferabilityResponse",
@@ -638,16 +547,12 @@ const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -655,10 +560,7 @@ const deserializeAws_json1_1CheckDomainTransferabilityCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -685,10 +587,7 @@ export const deserializeAws_json1_1DeleteTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsForDomainCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteTagsForDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DeleteTagsForDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -712,16 +611,12 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -729,10 +624,7 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -740,10 +632,7 @@ const deserializeAws_json1_1DeleteTagsForDomainCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -770,17 +659,11 @@ export const deserializeAws_json1_1DisableDomainAutoRenewCommand = async (
   context: __SerdeContext
 ): Promise<DisableDomainAutoRenewCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisableDomainAutoRenewCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisableDomainAutoRenewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableDomainAutoRenewResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DisableDomainAutoRenewResponse(data, context);
   const response: DisableDomainAutoRenewCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableDomainAutoRenewResponse",
@@ -800,16 +683,12 @@ const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -817,10 +696,7 @@ const deserializeAws_json1_1DisableDomainAutoRenewCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -847,17 +723,11 @@ export const deserializeAws_json1_1DisableDomainTransferLockCommand = async (
   context: __SerdeContext
 ): Promise<DisableDomainTransferLockCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisableDomainTransferLockCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DisableDomainTransferLockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableDomainTransferLockResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DisableDomainTransferLockResponse(data, context);
   const response: DisableDomainTransferLockCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableDomainTransferLockResponse",
@@ -877,16 +747,12 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -894,10 +760,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -905,10 +768,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -916,10 +776,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -927,10 +784,7 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -957,10 +811,7 @@ export const deserializeAws_json1_1EnableDomainAutoRenewCommand = async (
   context: __SerdeContext
 ): Promise<EnableDomainAutoRenewCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1EnableDomainAutoRenewCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1EnableDomainAutoRenewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -984,16 +835,12 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1001,10 +848,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1012,10 +856,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1042,17 +883,11 @@ export const deserializeAws_json1_1EnableDomainTransferLockCommand = async (
   context: __SerdeContext
 ): Promise<EnableDomainTransferLockCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1EnableDomainTransferLockCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1EnableDomainTransferLockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableDomainTransferLockResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1EnableDomainTransferLockResponse(data, context);
   const response: EnableDomainTransferLockCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableDomainTransferLockResponse",
@@ -1072,16 +907,12 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1089,10 +920,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1100,10 +928,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1111,10 +936,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1122,10 +944,7 @@ const deserializeAws_json1_1EnableDomainTransferLockCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1152,17 +971,11 @@ export const deserializeAws_json1_1GetContactReachabilityStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetContactReachabilityStatusCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetContactReachabilityStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetContactReachabilityStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetContactReachabilityStatusResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetContactReachabilityStatusResponse(data, context);
   const response: GetContactReachabilityStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetContactReachabilityStatusResponse",
@@ -1182,16 +995,12 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1199,10 +1008,7 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1210,10 +1016,7 @@ const deserializeAws_json1_1GetContactReachabilityStatusCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1264,16 +1067,12 @@ const deserializeAws_json1_1GetDomainDetailCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1281,10 +1080,7 @@ const deserializeAws_json1_1GetDomainDetailCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1311,10 +1107,7 @@ export const deserializeAws_json1_1GetDomainSuggestionsCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainSuggestionsCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetDomainSuggestionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetDomainSuggestionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1338,16 +1131,12 @@ const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1355,10 +1144,7 @@ const deserializeAws_json1_1GetDomainSuggestionsCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1385,10 +1171,7 @@ export const deserializeAws_json1_1GetOperationDetailCommand = async (
   context: __SerdeContext
 ): Promise<GetOperationDetailCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetOperationDetailCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetOperationDetailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1412,16 +1195,12 @@ const deserializeAws_json1_1GetOperationDetailCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1472,16 +1251,12 @@ const deserializeAws_json1_1ListDomainsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1532,16 +1307,12 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1592,16 +1363,12 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1609,10 +1376,7 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1620,10 +1384,7 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1674,16 +1435,12 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#DomainLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1DomainLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1691,10 +1448,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1702,10 +1456,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1713,10 +1464,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1724,10 +1472,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1735,10 +1480,7 @@ const deserializeAws_json1_1RegisterDomainCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1789,16 +1531,12 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1806,10 +1544,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1817,10 +1552,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1828,10 +1560,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1839,10 +1568,7 @@ const deserializeAws_json1_1RenewDomainCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1869,17 +1595,11 @@ export const deserializeAws_json1_1ResendContactReachabilityEmailCommand = async
   context: __SerdeContext
 ): Promise<ResendContactReachabilityEmailCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ResendContactReachabilityEmailCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ResendContactReachabilityEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResendContactReachabilityEmailResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1ResendContactReachabilityEmailResponse(data, context);
   const response: ResendContactReachabilityEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResendContactReachabilityEmailResponse",
@@ -1899,16 +1619,12 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1916,10 +1632,7 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1927,10 +1640,7 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1957,17 +1667,11 @@ export const deserializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveDomainAuthCodeCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetrieveDomainAuthCodeResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1RetrieveDomainAuthCodeResponse(data, context);
   const response: RetrieveDomainAuthCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RetrieveDomainAuthCodeResponse",
@@ -1987,16 +1691,12 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2004,10 +1704,7 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2058,16 +1755,12 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DomainLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#DomainLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1DomainLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DomainLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2075,10 +1768,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2086,10 +1776,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2097,10 +1784,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2108,10 +1792,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2119,10 +1800,7 @@ const deserializeAws_json1_1TransferDomainCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2149,10 +1827,7 @@ export const deserializeAws_json1_1UpdateDomainContactCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainContactCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDomainContactCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDomainContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2176,16 +1851,12 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2193,10 +1864,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2204,10 +1872,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2215,10 +1880,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2226,10 +1888,7 @@ const deserializeAws_json1_1UpdateDomainContactCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2256,17 +1915,11 @@ export const deserializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainContactPrivacyCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDomainContactPrivacyResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDomainContactPrivacyResponse(data, context);
   const response: UpdateDomainContactPrivacyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDomainContactPrivacyResponse",
@@ -2286,16 +1939,12 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2303,10 +1952,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2314,10 +1960,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2325,10 +1968,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2336,10 +1976,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2366,17 +2003,11 @@ export const deserializeAws_json1_1UpdateDomainNameserversCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainNameserversCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateDomainNameserversCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateDomainNameserversCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDomainNameserversResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDomainNameserversResponse(data, context);
   const response: UpdateDomainNameserversCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDomainNameserversResponse",
@@ -2396,16 +2027,12 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53domains.v20140515#DuplicateRequest":
       response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2413,10 +2040,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2424,10 +2048,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2435,10 +2056,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
     case "TLDRulesViolation":
     case "com.amazonaws.route53domains.v20140515#TLDRulesViolation":
       response = {
-        ...(await deserializeAws_json1_1TLDRulesViolationResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2446,10 +2064,7 @@ const deserializeAws_json1_1UpdateDomainNameserversCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2476,10 +2091,7 @@ export const deserializeAws_json1_1UpdateTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTagsForDomainCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateTagsForDomainCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1UpdateTagsForDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2503,16 +2115,12 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2520,10 +2128,7 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains.v20140515#OperationLimitExceeded":
       response = {
-        ...(await deserializeAws_json1_1OperationLimitExceededResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2531,10 +2136,7 @@ const deserializeAws_json1_1UpdateTagsForDomainCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains.v20140515#UnsupportedTLD":
       response = {
-        ...(await deserializeAws_json1_1UnsupportedTLDResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2585,16 +2187,12 @@ const deserializeAws_json1_1ViewBillingCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53domains.v20140515#InvalidInput":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2621,10 +2219,7 @@ const deserializeAws_json1_1DomainLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<DomainLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DomainLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DomainLimitExceeded(body, context);
   const contents: DomainLimitExceeded = {
     name: "DomainLimitExceeded",
     $fault: "client",
@@ -2639,10 +2234,7 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
   context: __SerdeContext
 ): Promise<DuplicateRequest> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1DuplicateRequest(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1DuplicateRequest(body, context);
   const contents: DuplicateRequest = {
     name: "DuplicateRequest",
     $fault: "client",
@@ -2672,10 +2264,7 @@ const deserializeAws_json1_1OperationLimitExceededResponse = async (
   context: __SerdeContext
 ): Promise<OperationLimitExceeded> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1OperationLimitExceeded(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1OperationLimitExceeded(body, context);
   const contents: OperationLimitExceeded = {
     name: "OperationLimitExceeded",
     $fault: "client",
@@ -2690,10 +2279,7 @@ const deserializeAws_json1_1TLDRulesViolationResponse = async (
   context: __SerdeContext
 ): Promise<TLDRulesViolation> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1TLDRulesViolation(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1TLDRulesViolation(body, context);
   const contents: TLDRulesViolation = {
     name: "TLDRulesViolation",
     $fault: "client",
@@ -2738,10 +2324,7 @@ const serializeAws_json1_1CheckDomainTransferabilityRequest = (
   };
 };
 
-const serializeAws_json1_1ContactDetail = (
-  input: ContactDetail,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ContactDetail = (input: ContactDetail, context: __SerdeContext): any => {
   return {
     ...(input.AddressLine1 !== undefined && {
       AddressLine1: input.AddressLine1
@@ -2754,10 +2337,7 @@ const serializeAws_json1_1ContactDetail = (
     ...(input.CountryCode !== undefined && { CountryCode: input.CountryCode }),
     ...(input.Email !== undefined && { Email: input.Email }),
     ...(input.ExtraParams !== undefined && {
-      ExtraParams: serializeAws_json1_1ExtraParamList(
-        input.ExtraParams,
-        context
-      )
+      ExtraParams: serializeAws_json1_1ExtraParamList(input.ExtraParams, context)
     }),
     ...(input.Fax !== undefined && { Fax: input.Fax }),
     ...(input.FirstName !== undefined && { FirstName: input.FirstName }),
@@ -2819,20 +2399,14 @@ const serializeAws_json1_1EnableDomainTransferLockRequest = (
   };
 };
 
-const serializeAws_json1_1ExtraParam = (
-  input: ExtraParam,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExtraParam = (input: ExtraParam, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_json1_1ExtraParamList = (
-  input: ExtraParam[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ExtraParamList = (input: ExtraParam[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1ExtraParam(entry, context));
 };
 
@@ -2845,10 +2419,7 @@ const serializeAws_json1_1GetContactReachabilityStatusRequest = (
   };
 };
 
-const serializeAws_json1_1GetDomainDetailRequest = (
-  input: GetDomainDetailRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GetDomainDetailRequest = (input: GetDomainDetailRequest, context: __SerdeContext): any => {
   return {
     ...(input.DomainName !== undefined && { DomainName: input.DomainName })
   };
@@ -2878,27 +2449,18 @@ const serializeAws_json1_1GetOperationDetailRequest = (
   };
 };
 
-const serializeAws_json1_1GlueIpList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1GlueIpList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1ListDomainsRequest = (
-  input: ListDomainsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListDomainsRequest = (input: ListDomainsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems })
   };
 };
 
-const serializeAws_json1_1ListOperationsRequest = (
-  input: ListOperationsRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest, context: __SerdeContext): any => {
   return {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -2917,10 +2479,7 @@ const serializeAws_json1_1ListTagsForDomainRequest = (
   };
 };
 
-const serializeAws_json1_1Nameserver = (
-  input: Nameserver,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Nameserver = (input: Nameserver, context: __SerdeContext): any => {
   return {
     ...(input.GlueIps !== undefined && {
       GlueIps: serializeAws_json1_1GlueIpList(input.GlueIps, context)
@@ -2929,23 +2488,14 @@ const serializeAws_json1_1Nameserver = (
   };
 };
 
-const serializeAws_json1_1NameserverList = (
-  input: Nameserver[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1NameserverList = (input: Nameserver[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Nameserver(entry, context));
 };
 
-const serializeAws_json1_1RegisterDomainRequest = (
-  input: RegisterDomainRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.AdminContact !== undefined && {
-      AdminContact: serializeAws_json1_1ContactDetail(
-        input.AdminContact,
-        context
-      )
+      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context)
     }),
     ...(input.AutoRenew !== undefined && { AutoRenew: input.AutoRenew }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
@@ -2963,10 +2513,7 @@ const serializeAws_json1_1RegisterDomainRequest = (
       PrivacyProtectTechContact: input.PrivacyProtectTechContact
     }),
     ...(input.RegistrantContact !== undefined && {
-      RegistrantContact: serializeAws_json1_1ContactDetail(
-        input.RegistrantContact,
-        context
-      )
+      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context)
     }),
     ...(input.TechContact !== undefined && {
       TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context)
@@ -2974,10 +2521,7 @@ const serializeAws_json1_1RegisterDomainRequest = (
   };
 };
 
-const serializeAws_json1_1RenewDomainRequest = (
-  input: RenewDomainRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1RenewDomainRequest = (input: RenewDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.CurrentExpiryYear !== undefined && {
       CurrentExpiryYear: input.CurrentExpiryYear
@@ -3014,30 +2558,18 @@ const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   };
 };
 
-const serializeAws_json1_1TagKeyList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
-const serializeAws_json1_1TransferDomainRequest = (
-  input: TransferDomainRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TransferDomainRequest = (input: TransferDomainRequest, context: __SerdeContext): any => {
   return {
     ...(input.AdminContact !== undefined && {
-      AdminContact: serializeAws_json1_1ContactDetail(
-        input.AdminContact,
-        context
-      )
+      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context)
     }),
     ...(input.AuthCode !== undefined && { AuthCode: input.AuthCode }),
     ...(input.AutoRenew !== undefined && { AutoRenew: input.AutoRenew }),
@@ -3047,10 +2579,7 @@ const serializeAws_json1_1TransferDomainRequest = (
     }),
     ...(input.IdnLangCode !== undefined && { IdnLangCode: input.IdnLangCode }),
     ...(input.Nameservers !== undefined && {
-      Nameservers: serializeAws_json1_1NameserverList(
-        input.Nameservers,
-        context
-      )
+      Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context)
     }),
     ...(input.PrivacyProtectAdminContact !== undefined && {
       PrivacyProtectAdminContact: input.PrivacyProtectAdminContact
@@ -3062,10 +2591,7 @@ const serializeAws_json1_1TransferDomainRequest = (
       PrivacyProtectTechContact: input.PrivacyProtectTechContact
     }),
     ...(input.RegistrantContact !== undefined && {
-      RegistrantContact: serializeAws_json1_1ContactDetail(
-        input.RegistrantContact,
-        context
-      )
+      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context)
     }),
     ...(input.TechContact !== undefined && {
       TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context)
@@ -3095,17 +2621,11 @@ const serializeAws_json1_1UpdateDomainContactRequest = (
 ): any => {
   return {
     ...(input.AdminContact !== undefined && {
-      AdminContact: serializeAws_json1_1ContactDetail(
-        input.AdminContact,
-        context
-      )
+      AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context)
     }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.RegistrantContact !== undefined && {
-      RegistrantContact: serializeAws_json1_1ContactDetail(
-        input.RegistrantContact,
-        context
-      )
+      RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context)
     }),
     ...(input.TechContact !== undefined && {
       TechContact: serializeAws_json1_1ContactDetail(input.TechContact, context)
@@ -3121,10 +2641,7 @@ const serializeAws_json1_1UpdateDomainNameserversRequest = (
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.FIAuthKey !== undefined && { FIAuthKey: input.FIAuthKey }),
     ...(input.Nameservers !== undefined && {
-      Nameservers: serializeAws_json1_1NameserverList(
-        input.Nameservers,
-        context
-      )
+      Nameservers: serializeAws_json1_1NameserverList(input.Nameservers, context)
     })
   };
 };
@@ -3141,10 +2658,7 @@ const serializeAws_json1_1UpdateTagsForDomainRequest = (
   };
 };
 
-const serializeAws_json1_1ViewBillingRequest = (
-  input: ViewBillingRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ViewBillingRequest = (input: ViewBillingRequest, context: __SerdeContext): any => {
   return {
     ...(input.End !== undefined && {
       End: Math.round(input.End.getTime() / 1000)
@@ -3157,42 +2671,22 @@ const serializeAws_json1_1ViewBillingRequest = (
   };
 };
 
-const deserializeAws_json1_1BillingRecord = (
-  output: any,
-  context: __SerdeContext
-): BillingRecord => {
+const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContext): BillingRecord => {
   return {
     __type: "BillingRecord",
     BillDate:
       output.BillDate !== undefined && output.BillDate !== null
         ? new Date(Math.round(output.BillDate * 1000))
         : undefined,
-    DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
-    InvoiceId:
-      output.InvoiceId !== undefined && output.InvoiceId !== null
-        ? output.InvoiceId
-        : undefined,
-    Operation:
-      output.Operation !== undefined && output.Operation !== null
-        ? output.Operation
-        : undefined,
-    Price:
-      output.Price !== undefined && output.Price !== null
-        ? output.Price
-        : undefined
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    InvoiceId: output.InvoiceId !== undefined && output.InvoiceId !== null ? output.InvoiceId : undefined,
+    Operation: output.Operation !== undefined && output.Operation !== null ? output.Operation : undefined,
+    Price: output.Price !== undefined && output.Price !== null ? output.Price : undefined
   } as any;
 };
 
-const deserializeAws_json1_1BillingRecords = (
-  output: any,
-  context: __SerdeContext
-): BillingRecord[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BillingRecord(entry, context)
-  );
+const deserializeAws_json1_1BillingRecords = (output: any, context: __SerdeContext): BillingRecord[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1BillingRecord(entry, context));
 };
 
 const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
@@ -3201,10 +2695,7 @@ const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
 ): CheckDomainAvailabilityResponse => {
   return {
     __type: "CheckDomainAvailabilityResponse",
-    Availability:
-      output.Availability !== undefined && output.Availability !== null
-        ? output.Availability
-        : undefined
+    Availability: output.Availability !== undefined && output.Availability !== null ? output.Availability : undefined
   } as any;
 };
 
@@ -3216,74 +2707,32 @@ const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
     __type: "CheckDomainTransferabilityResponse",
     Transferability:
       output.Transferability !== undefined && output.Transferability !== null
-        ? deserializeAws_json1_1DomainTransferability(
-            output.Transferability,
-            context
-          )
+        ? deserializeAws_json1_1DomainTransferability(output.Transferability, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ContactDetail = (
-  output: any,
-  context: __SerdeContext
-): ContactDetail => {
+const deserializeAws_json1_1ContactDetail = (output: any, context: __SerdeContext): ContactDetail => {
   return {
     __type: "ContactDetail",
-    AddressLine1:
-      output.AddressLine1 !== undefined && output.AddressLine1 !== null
-        ? output.AddressLine1
-        : undefined,
-    AddressLine2:
-      output.AddressLine2 !== undefined && output.AddressLine2 !== null
-        ? output.AddressLine2
-        : undefined,
-    City:
-      output.City !== undefined && output.City !== null
-        ? output.City
-        : undefined,
-    ContactType:
-      output.ContactType !== undefined && output.ContactType !== null
-        ? output.ContactType
-        : undefined,
-    CountryCode:
-      output.CountryCode !== undefined && output.CountryCode !== null
-        ? output.CountryCode
-        : undefined,
-    Email:
-      output.Email !== undefined && output.Email !== null
-        ? output.Email
-        : undefined,
+    AddressLine1: output.AddressLine1 !== undefined && output.AddressLine1 !== null ? output.AddressLine1 : undefined,
+    AddressLine2: output.AddressLine2 !== undefined && output.AddressLine2 !== null ? output.AddressLine2 : undefined,
+    City: output.City !== undefined && output.City !== null ? output.City : undefined,
+    ContactType: output.ContactType !== undefined && output.ContactType !== null ? output.ContactType : undefined,
+    CountryCode: output.CountryCode !== undefined && output.CountryCode !== null ? output.CountryCode : undefined,
+    Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     ExtraParams:
       output.ExtraParams !== undefined && output.ExtraParams !== null
         ? deserializeAws_json1_1ExtraParamList(output.ExtraParams, context)
         : undefined,
-    Fax:
-      output.Fax !== undefined && output.Fax !== null ? output.Fax : undefined,
-    FirstName:
-      output.FirstName !== undefined && output.FirstName !== null
-        ? output.FirstName
-        : undefined,
-    LastName:
-      output.LastName !== undefined && output.LastName !== null
-        ? output.LastName
-        : undefined,
+    Fax: output.Fax !== undefined && output.Fax !== null ? output.Fax : undefined,
+    FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
+    LastName: output.LastName !== undefined && output.LastName !== null ? output.LastName : undefined,
     OrganizationName:
-      output.OrganizationName !== undefined && output.OrganizationName !== null
-        ? output.OrganizationName
-        : undefined,
-    PhoneNumber:
-      output.PhoneNumber !== undefined && output.PhoneNumber !== null
-        ? output.PhoneNumber
-        : undefined,
-    State:
-      output.State !== undefined && output.State !== null
-        ? output.State
-        : undefined,
-    ZipCode:
-      output.ZipCode !== undefined && output.ZipCode !== null
-        ? output.ZipCode
-        : undefined
+      output.OrganizationName !== undefined && output.OrganizationName !== null ? output.OrganizationName : undefined,
+    PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    ZipCode: output.ZipCode !== undefined && output.ZipCode !== null ? output.ZipCode : undefined
   } as any;
 };
 
@@ -3311,116 +2760,59 @@ const deserializeAws_json1_1DisableDomainTransferLockResponse = (
 ): DisableDomainTransferLockResponse => {
   return {
     __type: "DisableDomainTransferLockResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DomainLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): DomainLimitExceeded => {
+const deserializeAws_json1_1DomainLimitExceeded = (output: any, context: __SerdeContext): DomainLimitExceeded => {
   return {
     __type: "DomainLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DomainStatusList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1DomainStatusList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1DomainSuggestion = (
-  output: any,
-  context: __SerdeContext
-): DomainSuggestion => {
+const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeContext): DomainSuggestion => {
   return {
     __type: "DomainSuggestion",
-    Availability:
-      output.Availability !== undefined && output.Availability !== null
-        ? output.Availability
-        : undefined,
-    DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined
+    Availability: output.Availability !== undefined && output.Availability !== null ? output.Availability : undefined,
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DomainSuggestionsList = (
-  output: any,
-  context: __SerdeContext
-): DomainSuggestion[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DomainSuggestion(entry, context)
-  );
+const deserializeAws_json1_1DomainSuggestionsList = (output: any, context: __SerdeContext): DomainSuggestion[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DomainSuggestion(entry, context));
 };
 
-const deserializeAws_json1_1DomainSummary = (
-  output: any,
-  context: __SerdeContext
-): DomainSummary => {
+const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
     __type: "DomainSummary",
-    AutoRenew:
-      output.AutoRenew !== undefined && output.AutoRenew !== null
-        ? output.AutoRenew
-        : undefined,
-    DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
+    AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     Expiry:
-      output.Expiry !== undefined && output.Expiry !== null
-        ? new Date(Math.round(output.Expiry * 1000))
-        : undefined,
-    TransferLock:
-      output.TransferLock !== undefined && output.TransferLock !== null
-        ? output.TransferLock
-        : undefined
+      output.Expiry !== undefined && output.Expiry !== null ? new Date(Math.round(output.Expiry * 1000)) : undefined,
+    TransferLock: output.TransferLock !== undefined && output.TransferLock !== null ? output.TransferLock : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DomainSummaryList = (
-  output: any,
-  context: __SerdeContext
-): DomainSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DomainSummary(entry, context)
-  );
+const deserializeAws_json1_1DomainSummaryList = (output: any, context: __SerdeContext): DomainSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DomainSummary(entry, context));
 };
 
-const deserializeAws_json1_1DomainTransferability = (
-  output: any,
-  context: __SerdeContext
-): DomainTransferability => {
+const deserializeAws_json1_1DomainTransferability = (output: any, context: __SerdeContext): DomainTransferability => {
   return {
     __type: "DomainTransferability",
-    Transferable:
-      output.Transferable !== undefined && output.Transferable !== null
-        ? output.Transferable
-        : undefined
+    Transferable: output.Transferable !== undefined && output.Transferable !== null ? output.Transferable : undefined
   } as any;
 };
 
-const deserializeAws_json1_1DuplicateRequest = (
-  output: any,
-  context: __SerdeContext
-): DuplicateRequest => {
+const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
   return {
     __type: "DuplicateRequest",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -3439,37 +2831,20 @@ const deserializeAws_json1_1EnableDomainTransferLockResponse = (
 ): EnableDomainTransferLockResponse => {
   return {
     __type: "EnableDomainTransferLockResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ExtraParam = (
-  output: any,
-  context: __SerdeContext
-): ExtraParam => {
+const deserializeAws_json1_1ExtraParam = (output: any, context: __SerdeContext): ExtraParam => {
   return {
     __type: "ExtraParam",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ExtraParamList = (
-  output: any,
-  context: __SerdeContext
-): ExtraParam[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ExtraParam(entry, context)
-  );
+const deserializeAws_json1_1ExtraParamList = (output: any, context: __SerdeContext): ExtraParam[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ExtraParam(entry, context));
 };
 
 const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
@@ -3478,14 +2853,8 @@ const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
 ): GetContactReachabilityStatusResponse => {
   return {
     __type: "GetContactReachabilityStatusResponse",
-    domainName:
-      output.domainName !== undefined && output.domainName !== null
-        ? output.domainName
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -3496,39 +2865,25 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
   return {
     __type: "GetDomainDetailResponse",
     AbuseContactEmail:
-      output.AbuseContactEmail !== undefined &&
-      output.AbuseContactEmail !== null
+      output.AbuseContactEmail !== undefined && output.AbuseContactEmail !== null
         ? output.AbuseContactEmail
         : undefined,
     AbuseContactPhone:
-      output.AbuseContactPhone !== undefined &&
-      output.AbuseContactPhone !== null
+      output.AbuseContactPhone !== undefined && output.AbuseContactPhone !== null
         ? output.AbuseContactPhone
         : undefined,
     AdminContact:
       output.AdminContact !== undefined && output.AdminContact !== null
         ? deserializeAws_json1_1ContactDetail(output.AdminContact, context)
         : undefined,
-    AdminPrivacy:
-      output.AdminPrivacy !== undefined && output.AdminPrivacy !== null
-        ? output.AdminPrivacy
-        : undefined,
-    AutoRenew:
-      output.AutoRenew !== undefined && output.AutoRenew !== null
-        ? output.AutoRenew
-        : undefined,
+    AdminPrivacy: output.AdminPrivacy !== undefined && output.AdminPrivacy !== null ? output.AdminPrivacy : undefined,
+    AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    DnsSec:
-      output.DnsSec !== undefined && output.DnsSec !== null
-        ? output.DnsSec
-        : undefined,
-    DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
+    DnsSec: output.DnsSec !== undefined && output.DnsSec !== null ? output.DnsSec : undefined,
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? new Date(Math.round(output.ExpirationDate * 1000))
@@ -3538,31 +2893,19 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
         ? deserializeAws_json1_1NameserverList(output.Nameservers, context)
         : undefined,
     RegistrantContact:
-      output.RegistrantContact !== undefined &&
-      output.RegistrantContact !== null
+      output.RegistrantContact !== undefined && output.RegistrantContact !== null
         ? deserializeAws_json1_1ContactDetail(output.RegistrantContact, context)
         : undefined,
     RegistrantPrivacy:
-      output.RegistrantPrivacy !== undefined &&
-      output.RegistrantPrivacy !== null
+      output.RegistrantPrivacy !== undefined && output.RegistrantPrivacy !== null
         ? output.RegistrantPrivacy
         : undefined,
     RegistrarName:
-      output.RegistrarName !== undefined && output.RegistrarName !== null
-        ? output.RegistrarName
-        : undefined,
-    RegistrarUrl:
-      output.RegistrarUrl !== undefined && output.RegistrarUrl !== null
-        ? output.RegistrarUrl
-        : undefined,
+      output.RegistrarName !== undefined && output.RegistrarName !== null ? output.RegistrarName : undefined,
+    RegistrarUrl: output.RegistrarUrl !== undefined && output.RegistrarUrl !== null ? output.RegistrarUrl : undefined,
     RegistryDomainId:
-      output.RegistryDomainId !== undefined && output.RegistryDomainId !== null
-        ? output.RegistryDomainId
-        : undefined,
-    Reseller:
-      output.Reseller !== undefined && output.Reseller !== null
-        ? output.Reseller
-        : undefined,
+      output.RegistryDomainId !== undefined && output.RegistryDomainId !== null ? output.RegistryDomainId : undefined,
+    Reseller: output.Reseller !== undefined && output.Reseller !== null ? output.Reseller : undefined,
     StatusList:
       output.StatusList !== undefined && output.StatusList !== null
         ? deserializeAws_json1_1DomainStatusList(output.StatusList, context)
@@ -3571,18 +2914,12 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
       output.TechContact !== undefined && output.TechContact !== null
         ? deserializeAws_json1_1ContactDetail(output.TechContact, context)
         : undefined,
-    TechPrivacy:
-      output.TechPrivacy !== undefined && output.TechPrivacy !== null
-        ? output.TechPrivacy
-        : undefined,
+    TechPrivacy: output.TechPrivacy !== undefined && output.TechPrivacy !== null ? output.TechPrivacy : undefined,
     UpdatedDate:
       output.UpdatedDate !== undefined && output.UpdatedDate !== null
         ? new Date(Math.round(output.UpdatedDate * 1000))
         : undefined,
-    WhoIsServer:
-      output.WhoIsServer !== undefined && output.WhoIsServer !== null
-        ? output.WhoIsServer
-        : undefined
+    WhoIsServer: output.WhoIsServer !== undefined && output.WhoIsServer !== null ? output.WhoIsServer : undefined
   } as any;
 };
 
@@ -3594,10 +2931,7 @@ const deserializeAws_json1_1GetDomainSuggestionsResponse = (
     __type: "GetDomainSuggestionsResponse",
     SuggestionsList:
       output.SuggestionsList !== undefined && output.SuggestionsList !== null
-        ? deserializeAws_json1_1DomainSuggestionsList(
-            output.SuggestionsList,
-            context
-          )
+        ? deserializeAws_json1_1DomainSuggestionsList(output.SuggestionsList, context)
         : undefined
   } as any;
 };
@@ -3608,57 +2942,30 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
 ): GetOperationDetailResponse => {
   return {
     __type: "GetOperationDetailResponse",
-    DomainName:
-      output.DomainName !== undefined && output.DomainName !== null
-        ? output.DomainName
-        : undefined,
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     SubmittedDate:
       output.SubmittedDate !== undefined && output.SubmittedDate !== null
         ? new Date(Math.round(output.SubmittedDate * 1000))
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1GlueIpList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1GlueIpList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_json1_1InvalidInput = (
-  output: any,
-  context: __SerdeContext
-): InvalidInput => {
+const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
   return {
     __type: "InvalidInput",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListDomainsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListDomainsResponse => {
+const deserializeAws_json1_1ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
   return {
     __type: "ListDomainsResponse",
     Domains:
@@ -3666,22 +2973,15 @@ const deserializeAws_json1_1ListDomainsResponse = (
         ? deserializeAws_json1_1DomainSummaryList(output.Domains, context)
         : undefined,
     NextPageMarker:
-      output.NextPageMarker !== undefined && output.NextPageMarker !== null
-        ? output.NextPageMarker
-        : undefined
+      output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ListOperationsResponse = (
-  output: any,
-  context: __SerdeContext
-): ListOperationsResponse => {
+const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
   return {
     __type: "ListOperationsResponse",
     NextPageMarker:
-      output.NextPageMarker !== undefined && output.NextPageMarker !== null
-        ? output.NextPageMarker
-        : undefined,
+      output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined,
     Operations:
       output.Operations !== undefined && output.Operations !== null
         ? deserializeAws_json1_1OperationSummaryList(output.Operations, context)
@@ -3702,102 +3002,56 @@ const deserializeAws_json1_1ListTagsForDomainResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1Nameserver = (
-  output: any,
-  context: __SerdeContext
-): Nameserver => {
+const deserializeAws_json1_1Nameserver = (output: any, context: __SerdeContext): Nameserver => {
   return {
     __type: "Nameserver",
     GlueIps:
       output.GlueIps !== undefined && output.GlueIps !== null
         ? deserializeAws_json1_1GlueIpList(output.GlueIps, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_json1_1NameserverList = (
-  output: any,
-  context: __SerdeContext
-): Nameserver[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Nameserver(entry, context)
-  );
+const deserializeAws_json1_1NameserverList = (output: any, context: __SerdeContext): Nameserver[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Nameserver(entry, context));
 };
 
-const deserializeAws_json1_1OperationLimitExceeded = (
-  output: any,
-  context: __SerdeContext
-): OperationLimitExceeded => {
+const deserializeAws_json1_1OperationLimitExceeded = (output: any, context: __SerdeContext): OperationLimitExceeded => {
   return {
     __type: "OperationLimitExceeded",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OperationSummary = (
-  output: any,
-  context: __SerdeContext
-): OperationSummary => {
+const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
     __type: "OperationSummary",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     SubmittedDate:
       output.SubmittedDate !== undefined && output.SubmittedDate !== null
         ? new Date(Math.round(output.SubmittedDate * 1000))
         : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_json1_1OperationSummaryList = (
-  output: any,
-  context: __SerdeContext
-): OperationSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1OperationSummary(entry, context)
-  );
+const deserializeAws_json1_1OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1OperationSummary(entry, context));
 };
 
-const deserializeAws_json1_1RegisterDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): RegisterDomainResponse => {
+const deserializeAws_json1_1RegisterDomainResponse = (output: any, context: __SerdeContext): RegisterDomainResponse => {
   return {
     __type: "RegisterDomainResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1RenewDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): RenewDomainResponse => {
+const deserializeAws_json1_1RenewDomainResponse = (output: any, context: __SerdeContext): RenewDomainResponse => {
   return {
     __type: "RenewDomainResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
@@ -3807,19 +3061,10 @@ const deserializeAws_json1_1ResendContactReachabilityEmailResponse = (
 ): ResendContactReachabilityEmailResponse => {
   return {
     __type: "ResendContactReachabilityEmailResponse",
-    domainName:
-      output.domainName !== undefined && output.domainName !== null
-        ? output.domainName
-        : undefined,
-    emailAddress:
-      output.emailAddress !== undefined && output.emailAddress !== null
-        ? output.emailAddress
-        : undefined,
+    domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
+    emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
     isAlreadyVerified:
-      output.isAlreadyVerified !== undefined &&
-      output.isAlreadyVerified !== null
-        ? output.isAlreadyVerified
-        : undefined
+      output.isAlreadyVerified !== undefined && output.isAlreadyVerified !== null ? output.isAlreadyVerified : undefined
   } as any;
 };
 
@@ -3829,73 +3074,40 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeResponse = (
 ): RetrieveDomainAuthCodeResponse => {
   return {
     __type: "RetrieveDomainAuthCodeResponse",
-    AuthCode:
-      output.AuthCode !== undefined && output.AuthCode !== null
-        ? output.AuthCode
-        : undefined
+    AuthCode: output.AuthCode !== undefined && output.AuthCode !== null ? output.AuthCode : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TLDRulesViolation = (
-  output: any,
-  context: __SerdeContext
-): TLDRulesViolation => {
+const deserializeAws_json1_1TLDRulesViolation = (output: any, context: __SerdeContext): TLDRulesViolation => {
   return {
     __type: "TLDRulesViolation",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Tag(entry, context)
-  );
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
 };
 
-const deserializeAws_json1_1TransferDomainResponse = (
-  output: any,
-  context: __SerdeContext
-): TransferDomainResponse => {
+const deserializeAws_json1_1TransferDomainResponse = (output: any, context: __SerdeContext): TransferDomainResponse => {
   return {
     __type: "TransferDomainResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
-const deserializeAws_json1_1UnsupportedTLD = (
-  output: any,
-  context: __SerdeContext
-): UnsupportedTLD => {
+const deserializeAws_json1_1UnsupportedTLD = (output: any, context: __SerdeContext): UnsupportedTLD => {
   return {
     __type: "UnsupportedTLD",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined
   } as any;
 };
 
@@ -3905,10 +3117,7 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyResponse = (
 ): UpdateDomainContactPrivacyResponse => {
   return {
     __type: "UpdateDomainContactPrivacyResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
@@ -3918,10 +3127,7 @@ const deserializeAws_json1_1UpdateDomainContactResponse = (
 ): UpdateDomainContactResponse => {
   return {
     __type: "UpdateDomainContactResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
@@ -3931,10 +3137,7 @@ const deserializeAws_json1_1UpdateDomainNameserversResponse = (
 ): UpdateDomainNameserversResponse => {
   return {
     __type: "UpdateDomainNameserversResponse",
-    OperationId:
-      output.OperationId !== undefined && output.OperationId !== null
-        ? output.OperationId
-        : undefined
+    OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined
   } as any;
 };
 
@@ -3947,10 +3150,7 @@ const deserializeAws_json1_1UpdateTagsForDomainResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ViewBillingResponse = (
-  output: any,
-  context: __SerdeContext
-): ViewBillingResponse => {
+const deserializeAws_json1_1ViewBillingResponse = (output: any, context: __SerdeContext): ViewBillingResponse => {
   return {
     __type: "ViewBillingResponse",
     BillingRecords:
@@ -3958,9 +3158,7 @@ const deserializeAws_json1_1ViewBillingResponse = (
         ? deserializeAws_json1_1BillingRecords(output.BillingRecords, context)
         : undefined,
     NextPageMarker:
-      output.NextPageMarker !== undefined && output.NextPageMarker !== null
-        ? output.NextPageMarker
-        : undefined
+      output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined
   } as any;
 };
 
@@ -3971,23 +3169,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

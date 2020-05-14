@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  StopCrawlerScheduleRequest,
-  StopCrawlerScheduleResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopCrawlerScheduleCommand,
   serializeAws_json1_1StopCrawlerScheduleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopCrawlerScheduleCommandInput = StopCrawlerScheduleRequest;
-export type StopCrawlerScheduleCommandOutput = StopCrawlerScheduleResponse &
-  __MetadataBearer;
+export type StopCrawlerScheduleCommandOutput = StopCrawlerScheduleResponse & __MetadataBearer;
 
 export class StopCrawlerScheduleCommand extends $Command<
   StopCrawlerScheduleCommandInput,
@@ -49,13 +38,8 @@ export class StopCrawlerScheduleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopCrawlerScheduleCommandInput,
-    StopCrawlerScheduleCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopCrawlerScheduleCommandInput, StopCrawlerScheduleCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class StopCrawlerScheduleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopCrawlerScheduleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopCrawlerScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StopCrawlerScheduleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopCrawlerScheduleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopCrawlerScheduleCommandOutput> {
     return deserializeAws_json1_1StopCrawlerScheduleCommand(output, context);
   }
 

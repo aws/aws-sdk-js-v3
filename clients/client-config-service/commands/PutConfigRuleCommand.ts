@@ -1,18 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { PutConfigRuleRequest } from "../models/index";
 import {
   deserializeAws_json1_1PutConfigRuleCommand,
   serializeAws_json1_1PutConfigRuleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class PutConfigRuleCommand extends $Command<
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutConfigRuleCommandInput, PutConfigRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class PutConfigRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutConfigRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutConfigRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutConfigRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutConfigRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutConfigRuleCommandOutput> {
     return deserializeAws_json1_1PutConfigRuleCommand(output, context);
   }
 

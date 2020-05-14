@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  RestoreDBInstanceToPointInTimeMessage,
-  RestoreDBInstanceToPointInTimeResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/index";
 import {
   deserializeAws_queryRestoreDBInstanceToPointInTimeCommand,
   serializeAws_queryRestoreDBInstanceToPointInTimeCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreDBInstanceToPointInTimeCommandInput = RestoreDBInstanceToPointInTimeMessage;
-export type RestoreDBInstanceToPointInTimeCommandOutput = RestoreDBInstanceToPointInTimeResult &
-  __MetadataBearer;
+export type RestoreDBInstanceToPointInTimeCommandOutput = RestoreDBInstanceToPointInTimeResult & __MetadataBearer;
 
 export class RestoreDBInstanceToPointInTimeCommand extends $Command<
   RestoreDBInstanceToPointInTimeCommandInput,
@@ -49,13 +38,8 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RestoreDBInstanceToPointInTimeCommandInput,
-    RestoreDBInstanceToPointInTimeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RestoreDBInstanceToPointInTimeCommandInput, RestoreDBInstanceToPointInTimeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     input: RestoreDBInstanceToPointInTimeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryRestoreDBInstanceToPointInTimeCommand(
-      input,
-      context
-    );
+    return serializeAws_queryRestoreDBInstanceToPointInTimeCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> {
-    return deserializeAws_queryRestoreDBInstanceToPointInTimeCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryRestoreDBInstanceToPointInTimeCommand(output, context);
   }
 
   // Start section: command_body_extra

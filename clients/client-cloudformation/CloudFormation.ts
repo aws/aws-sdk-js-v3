@@ -14,11 +14,7 @@ import {
   CreateChangeSetCommandInput,
   CreateChangeSetCommandOutput
 } from "./commands/CreateChangeSetCommand";
-import {
-  CreateStackCommand,
-  CreateStackCommandInput,
-  CreateStackCommandOutput
-} from "./commands/CreateStackCommand";
+import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand";
 import {
   CreateStackInstancesCommand,
   CreateStackInstancesCommandInput,
@@ -34,11 +30,7 @@ import {
   DeleteChangeSetCommandInput,
   DeleteChangeSetCommandOutput
 } from "./commands/DeleteChangeSetCommand";
-import {
-  DeleteStackCommand,
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput
-} from "./commands/DeleteStackCommand";
+import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand";
 import {
   DeleteStackInstancesCommand,
   DeleteStackInstancesCommandInput,
@@ -149,11 +141,7 @@ import {
   GetStackPolicyCommandInput,
   GetStackPolicyCommandOutput
 } from "./commands/GetStackPolicyCommand";
-import {
-  GetTemplateCommand,
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput
-} from "./commands/GetTemplateCommand";
+import { GetTemplateCommand, GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand";
 import {
   GetTemplateSummaryCommand,
   GetTemplateSummaryCommandInput,
@@ -164,16 +152,8 @@ import {
   ListChangeSetsCommandInput,
   ListChangeSetsCommandOutput
 } from "./commands/ListChangeSetsCommand";
-import {
-  ListExportsCommand,
-  ListExportsCommandInput,
-  ListExportsCommandOutput
-} from "./commands/ListExportsCommand";
-import {
-  ListImportsCommand,
-  ListImportsCommandInput,
-  ListImportsCommandOutput
-} from "./commands/ListImportsCommand";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListStackInstancesCommand,
   ListStackInstancesCommandInput,
@@ -199,11 +179,7 @@ import {
   ListStackSetsCommandInput,
   ListStackSetsCommandOutput
 } from "./commands/ListStackSetsCommand";
-import {
-  ListStacksCommand,
-  ListStacksCommandInput,
-  ListStacksCommandOutput
-} from "./commands/ListStacksCommand";
+import { ListStacksCommand, ListStacksCommandInput, ListStacksCommandOutput } from "./commands/ListStacksCommand";
 import {
   ListTypeRegistrationsCommand,
   ListTypeRegistrationsCommandInput,
@@ -214,11 +190,7 @@ import {
   ListTypeVersionsCommandInput,
   ListTypeVersionsCommandOutput
 } from "./commands/ListTypeVersionsCommand";
-import {
-  ListTypesCommand,
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "./commands/ListTypesCommand";
+import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   RecordHandlerProgressCommand,
   RecordHandlerProgressCommandInput,
@@ -249,11 +221,7 @@ import {
   StopStackSetOperationCommandInput,
   StopStackSetOperationCommandOutput
 } from "./commands/StopStackSetOperationCommand";
-import {
-  UpdateStackCommand,
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput
-} from "./commands/UpdateStackCommand";
+import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand";
 import {
   UpdateStackInstancesCommand,
   UpdateStackInstancesCommandInput,
@@ -316,17 +284,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public cancelUpdateStack(
     args: CancelUpdateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelUpdateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelUpdateStackCommandOutput) => void),
     cb?: (err: any, data?: CancelUpdateStackCommandOutput) => void
   ): Promise<CancelUpdateStackCommandOutput> | void {
     const command = new CancelUpdateStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -361,17 +326,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public continueUpdateRollback(
     args: ContinueUpdateRollbackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ContinueUpdateRollbackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ContinueUpdateRollbackCommandOutput) => void),
     cb?: (err: any, data?: ContinueUpdateRollbackCommandOutput) => void
   ): Promise<ContinueUpdateRollbackCommandOutput> | void {
     const command = new ContinueUpdateRollbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -414,17 +376,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createChangeSet(
     args: CreateChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChangeSetCommandOutput) => void),
     cb?: (err: any, data?: CreateChangeSetCommandOutput) => void
   ): Promise<CreateChangeSetCommandOutput> | void {
     const command = new CreateChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -435,14 +394,8 @@ export class CloudFormation extends CloudFormationClient {
    * <p>Creates a stack as specified in the template. After the call completes successfully,
    *          the stack creation starts. You can check the status of the stack via the <a>DescribeStacks</a> API.</p>
    */
-  public createStack(
-    args: CreateStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreateStackCommandOutput>;
-  public createStack(
-    args: CreateStackCommandInput,
-    cb: (err: any, data?: CreateStackCommandOutput) => void
-  ): void;
+  public createStack(args: CreateStackCommandInput, options?: __HttpHandlerOptions): Promise<CreateStackCommandOutput>;
+  public createStack(args: CreateStackCommandInput, cb: (err: any, data?: CreateStackCommandOutput) => void): void;
   public createStack(
     args: CreateStackCommandInput,
     options: __HttpHandlerOptions,
@@ -450,17 +403,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createStack(
     args: CreateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
     cb?: (err: any, data?: CreateStackCommandOutput) => void
   ): Promise<CreateStackCommandOutput> | void {
     const command = new CreateStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -488,17 +438,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteChangeSet(
     args: DeleteChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChangeSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteChangeSetCommandOutput) => void
   ): Promise<DeleteChangeSetCommandOutput> | void {
     const command = new DeleteChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -510,14 +457,8 @@ export class CloudFormation extends CloudFormationClient {
    *          starts. Deleted stacks do not show up in the <a>DescribeStacks</a> API if the
    *          deletion has been completed successfully.</p>
    */
-  public deleteStack(
-    args: DeleteStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DeleteStackCommandOutput>;
-  public deleteStack(
-    args: DeleteStackCommandInput,
-    cb: (err: any, data?: DeleteStackCommandOutput) => void
-  ): void;
+  public deleteStack(args: DeleteStackCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStackCommandOutput>;
+  public deleteStack(args: DeleteStackCommandInput, cb: (err: any, data?: DeleteStackCommandOutput) => void): void;
   public deleteStack(
     args: DeleteStackCommandInput,
     options: __HttpHandlerOptions,
@@ -525,17 +466,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteStack(
     args: DeleteStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -562,17 +500,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deregisterType(
     args: DeregisterTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeregisterTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterTypeCommandOutput) => void),
     cb?: (err: any, data?: DeregisterTypeCommandOutput) => void
   ): Promise<DeregisterTypeCommandOutput> | void {
     const command = new DeregisterTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -600,17 +535,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeAccountLimitsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountLimitsCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
   ): Promise<DescribeAccountLimitsCommandOutput> | void {
     const command = new DescribeAccountLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -637,17 +569,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeChangeSet(
     args: DescribeChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChangeSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeChangeSetCommandOutput) => void
   ): Promise<DescribeChangeSetCommandOutput> | void {
     const command = new DescribeChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -675,38 +604,23 @@ export class CloudFormation extends CloudFormationClient {
   ): Promise<DescribeStackDriftDetectionStatusCommandOutput>;
   public describeStackDriftDetectionStatus(
     args: DescribeStackDriftDetectionStatusCommandInput,
-    cb: (
-      err: any,
-      data?: DescribeStackDriftDetectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void
   ): void;
   public describeStackDriftDetectionStatus(
     args: DescribeStackDriftDetectionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (
-      err: any,
-      data?: DescribeStackDriftDetectionStatusCommandOutput
-    ) => void
+    cb: (err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void
   ): void;
   public describeStackDriftDetectionStatus(
     args: DescribeStackDriftDetectionStatusCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((
-          err: any,
-          data?: DescribeStackDriftDetectionStatusCommandOutput
-        ) => void),
-    cb?: (
-      err: any,
-      data?: DescribeStackDriftDetectionStatusCommandOutput
-    ) => void
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void),
+    cb?: (err: any, data?: DescribeStackDriftDetectionStatusCommandOutput) => void
   ): Promise<DescribeStackDriftDetectionStatusCommandOutput> | void {
     const command = new DescribeStackDriftDetectionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -736,17 +650,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackEvents(
     args: DescribeStackEventsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackEventsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackEventsCommandOutput) => void
   ): Promise<DescribeStackEventsCommandOutput> | void {
     const command = new DescribeStackEventsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -773,17 +684,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackResource(
     args: DescribeStackResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackResourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackResourceCommandOutput) => void
   ): Promise<DescribeStackResourceCommandOutput> | void {
     const command = new DescribeStackResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -818,17 +726,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackResourceDrifts(
     args: DescribeStackResourceDriftsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackResourceDriftsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackResourceDriftsCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackResourceDriftsCommandOutput) => void
   ): Promise<DescribeStackResourceDriftsCommandOutput> | void {
     const command = new DescribeStackResourceDriftsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -872,17 +777,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackResources(
     args: DescribeStackResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackResourcesCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackResourcesCommandOutput) => void
   ): Promise<DescribeStackResourcesCommandOutput> | void {
     const command = new DescribeStackResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -912,17 +814,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStacks(
     args: DescribeStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -937,10 +836,7 @@ export class CloudFormation extends CloudFormationClient {
     args: DescribeTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<DescribeTypeCommandOutput>;
-  public describeType(
-    args: DescribeTypeCommandInput,
-    cb: (err: any, data?: DescribeTypeCommandOutput) => void
-  ): void;
+  public describeType(args: DescribeTypeCommandInput, cb: (err: any, data?: DescribeTypeCommandOutput) => void): void;
   public describeType(
     args: DescribeTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -948,17 +844,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeType(
     args: DescribeTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTypeCommandOutput) => void),
     cb?: (err: any, data?: DescribeTypeCommandOutput) => void
   ): Promise<DescribeTypeCommandOutput> | void {
     const command = new DescribeTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -991,17 +884,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeTypeRegistration(
     args: DescribeTypeRegistrationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeTypeRegistrationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTypeRegistrationCommandOutput) => void),
     cb?: (err: any, data?: DescribeTypeRegistrationCommandOutput) => void
   ): Promise<DescribeTypeRegistrationCommandOutput> | void {
     const command = new DescribeTypeRegistrationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1046,17 +936,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public detectStackDrift(
     args: DetectStackDriftCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectStackDriftCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectStackDriftCommandOutput) => void),
     cb?: (err: any, data?: DetectStackDriftCommandOutput) => void
   ): Promise<DetectStackDriftCommandOutput> | void {
     const command = new DetectStackDriftCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1092,17 +979,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public detectStackResourceDrift(
     args: DetectStackResourceDriftCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectStackResourceDriftCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectStackResourceDriftCommandOutput) => void),
     cb?: (err: any, data?: DetectStackResourceDriftCommandOutput) => void
   ): Promise<DetectStackResourceDriftCommandOutput> | void {
     const command = new DetectStackResourceDriftCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1129,17 +1013,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public estimateTemplateCost(
     args: EstimateTemplateCostCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: EstimateTemplateCostCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EstimateTemplateCostCommandOutput) => void),
     cb?: (err: any, data?: EstimateTemplateCostCommandOutput) => void
   ): Promise<EstimateTemplateCostCommandOutput> | void {
     const command = new EstimateTemplateCostCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1172,17 +1053,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public executeChangeSet(
     args: ExecuteChangeSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ExecuteChangeSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteChangeSetCommandOutput) => void),
     cb?: (err: any, data?: ExecuteChangeSetCommandOutput) => void
   ): Promise<ExecuteChangeSetCommandOutput> | void {
     const command = new ExecuteChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1208,17 +1086,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public getStackPolicy(
     args: GetStackPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetStackPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStackPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetStackPolicyCommandOutput) => void
   ): Promise<GetStackPolicyCommandOutput> | void {
     const command = new GetStackPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1235,14 +1110,8 @@ export class CloudFormation extends CloudFormationClient {
    *          </p>
    *          </note>
    */
-  public getTemplate(
-    args: GetTemplateCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GetTemplateCommandOutput>;
-  public getTemplate(
-    args: GetTemplateCommandInput,
-    cb: (err: any, data?: GetTemplateCommandOutput) => void
-  ): void;
+  public getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
+  public getTemplate(args: GetTemplateCommandInput, cb: (err: any, data?: GetTemplateCommandOutput) => void): void;
   public getTemplate(
     args: GetTemplateCommandInput,
     options: __HttpHandlerOptions,
@@ -1250,17 +1119,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public getTemplate(
     args: GetTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetTemplateCommandOutput) => void
   ): Promise<GetTemplateCommandOutput> | void {
     const command = new GetTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1293,17 +1159,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public getTemplateSummary(
     args: GetTemplateSummaryCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetTemplateSummaryCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTemplateSummaryCommandOutput) => void),
     cb?: (err: any, data?: GetTemplateSummaryCommandOutput) => void
   ): Promise<GetTemplateSummaryCommandOutput> | void {
     const command = new GetTemplateSummaryCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1330,17 +1193,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listChangeSets(
     args: ListChangeSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChangeSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChangeSetsCommandOutput) => void),
     cb?: (err: any, data?: ListChangeSetsCommandOutput) => void
   ): Promise<ListChangeSetsCommandOutput> | void {
     const command = new ListChangeSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1356,14 +1216,8 @@ export class CloudFormation extends CloudFormationClient {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html"> AWS
    *             CloudFormation Export Stack Output Values</a>.</p>
    */
-  public listExports(
-    args: ListExportsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListExportsCommandOutput>;
-  public listExports(
-    args: ListExportsCommandInput,
-    cb: (err: any, data?: ListExportsCommandOutput) => void
-  ): void;
+  public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
+  public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
   public listExports(
     args: ListExportsCommandInput,
     options: __HttpHandlerOptions,
@@ -1371,17 +1225,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listExports(
     args: ListExportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListExportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportsCommandOutput) => void),
     cb?: (err: any, data?: ListExportsCommandOutput) => void
   ): Promise<ListExportsCommandOutput> | void {
     const command = new ListExportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1396,14 +1247,8 @@ export class CloudFormation extends CloudFormationClient {
    *                <code>Fn::ImportValue</code>
    *             </a> function. </p>
    */
-  public listImports(
-    args: ListImportsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListImportsCommandOutput>;
-  public listImports(
-    args: ListImportsCommandInput,
-    cb: (err: any, data?: ListImportsCommandOutput) => void
-  ): void;
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
   public listImports(
     args: ListImportsCommandInput,
     options: __HttpHandlerOptions,
@@ -1411,17 +1256,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listImports(
     args: ListImportsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListImportsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
     cb?: (err: any, data?: ListImportsCommandOutput) => void
   ): Promise<ListImportsCommandOutput> | void {
     const command = new ListImportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1448,17 +1290,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStackResources(
     args: ListStackResourcesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackResourcesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStackResourcesCommandOutput) => void),
     cb?: (err: any, data?: ListStackResourcesCommandOutput) => void
   ): Promise<ListStackResourcesCommandOutput> | void {
     const command = new ListStackResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1472,14 +1311,8 @@ export class CloudFormation extends CloudFormationClient {
    *          for all stacks is returned (including existing stacks and stacks that have been
    *          deleted).</p>
    */
-  public listStacks(
-    args: ListStacksCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStacksCommandOutput>;
-  public listStacks(
-    args: ListStacksCommandInput,
-    cb: (err: any, data?: ListStacksCommandOutput) => void
-  ): void;
+  public listStacks(args: ListStacksCommandInput, options?: __HttpHandlerOptions): Promise<ListStacksCommandOutput>;
+  public listStacks(args: ListStacksCommandInput, cb: (err: any, data?: ListStacksCommandOutput) => void): void;
   public listStacks(
     args: ListStacksCommandInput,
     options: __HttpHandlerOptions,
@@ -1487,17 +1320,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStacks(
     args: ListStacksCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStacksCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStacksCommandOutput) => void),
     cb?: (err: any, data?: ListStacksCommandOutput) => void
   ): Promise<ListStacksCommandOutput> | void {
     const command = new ListStacksCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1522,17 +1352,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listTypeRegistrations(
     args: ListTypeRegistrationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTypeRegistrationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypeRegistrationsCommandOutput) => void),
     cb?: (err: any, data?: ListTypeRegistrationsCommandOutput) => void
   ): Promise<ListTypeRegistrationsCommandOutput> | void {
     const command = new ListTypeRegistrationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1557,17 +1384,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listTypeVersions(
     args: ListTypeVersionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTypeVersionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypeVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListTypeVersionsCommandOutput) => void
   ): Promise<ListTypeVersionsCommandOutput> | void {
     const command = new ListTypeVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1577,14 +1401,8 @@ export class CloudFormation extends CloudFormationClient {
   /**
    * <p>Returns summary information about types that have been registered with CloudFormation.</p>
    */
-  public listTypes(
-    args: ListTypesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListTypesCommandOutput>;
-  public listTypes(
-    args: ListTypesCommandInput,
-    cb: (err: any, data?: ListTypesCommandOutput) => void
-  ): void;
+  public listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
+  public listTypes(args: ListTypesCommandInput, cb: (err: any, data?: ListTypesCommandOutput) => void): void;
   public listTypes(
     args: ListTypesCommandInput,
     options: __HttpHandlerOptions,
@@ -1592,17 +1410,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listTypes(
     args: ListTypesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTypesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypesCommandOutput) => void),
     cb?: (err: any, data?: ListTypesCommandOutput) => void
   ): Promise<ListTypesCommandOutput> | void {
     const command = new ListTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1628,17 +1443,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public recordHandlerProgress(
     args: RecordHandlerProgressCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RecordHandlerProgressCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecordHandlerProgressCommandOutput) => void),
     cb?: (err: any, data?: RecordHandlerProgressCommandOutput) => void
   ): Promise<RecordHandlerProgressCommandOutput> | void {
     const command = new RecordHandlerProgressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1669,10 +1481,7 @@ export class CloudFormation extends CloudFormationClient {
     args: RegisterTypeCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<RegisterTypeCommandOutput>;
-  public registerType(
-    args: RegisterTypeCommandInput,
-    cb: (err: any, data?: RegisterTypeCommandOutput) => void
-  ): void;
+  public registerType(args: RegisterTypeCommandInput, cb: (err: any, data?: RegisterTypeCommandOutput) => void): void;
   public registerType(
     args: RegisterTypeCommandInput,
     options: __HttpHandlerOptions,
@@ -1680,17 +1489,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public registerType(
     args: RegisterTypeCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RegisterTypeCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterTypeCommandOutput) => void),
     cb?: (err: any, data?: RegisterTypeCommandOutput) => void
   ): Promise<RegisterTypeCommandOutput> | void {
     const command = new RegisterTypeCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1715,17 +1521,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public setStackPolicy(
     args: SetStackPolicyCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetStackPolicyCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetStackPolicyCommandOutput) => void),
     cb?: (err: any, data?: SetStackPolicyCommandOutput) => void
   ): Promise<SetStackPolicyCommandOutput> | void {
     const command = new SetStackPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1750,17 +1553,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public setTypeDefaultVersion(
     args: SetTypeDefaultVersionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SetTypeDefaultVersionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTypeDefaultVersionCommandOutput) => void),
     cb?: (err: any, data?: SetTypeDefaultVersionCommandOutput) => void
   ): Promise<SetTypeDefaultVersionCommandOutput> | void {
     const command = new SetTypeDefaultVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1790,17 +1590,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public signalResource(
     args: SignalResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SignalResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignalResourceCommandOutput) => void),
     cb?: (err: any, data?: SignalResourceCommandOutput) => void
   ): Promise<SignalResourceCommandOutput> | void {
     const command = new SignalResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1815,14 +1612,8 @@ export class CloudFormation extends CloudFormationClient {
    *          monitoring the progress of the update, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">Updating a
    *             Stack</a>.</p>
    */
-  public updateStack(
-    args: UpdateStackCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateStackCommandOutput>;
-  public updateStack(
-    args: UpdateStackCommandInput,
-    cb: (err: any, data?: UpdateStackCommandOutput) => void
-  ): void;
+  public updateStack(args: UpdateStackCommandInput, options?: __HttpHandlerOptions): Promise<UpdateStackCommandOutput>;
+  public updateStack(args: UpdateStackCommandInput, cb: (err: any, data?: UpdateStackCommandOutput) => void): void;
   public updateStack(
     args: UpdateStackCommandInput,
     options: __HttpHandlerOptions,
@@ -1830,17 +1621,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public updateStack(
     args: UpdateStackCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1871,17 +1659,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public updateTerminationProtection(
     args: UpdateTerminationProtectionCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateTerminationProtectionCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTerminationProtectionCommandOutput) => void),
     cb?: (err: any, data?: UpdateTerminationProtectionCommandOutput) => void
   ): Promise<UpdateTerminationProtectionCommandOutput> | void {
     const command = new UpdateTerminationProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1908,17 +1693,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public validateTemplate(
     args: ValidateTemplateCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ValidateTemplateCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateTemplateCommandOutput) => void),
     cb?: (err: any, data?: ValidateTemplateCommandOutput) => void
   ): Promise<ValidateTemplateCommandOutput> | void {
     const command = new ValidateTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1946,17 +1728,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createStackInstances(
     args: CreateStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackInstancesCommandOutput) => void),
     cb?: (err: any, data?: CreateStackInstancesCommandOutput) => void
   ): Promise<CreateStackInstancesCommandOutput> | void {
     const command = new CreateStackInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1981,17 +1760,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public createStackSet(
     args: CreateStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackSetCommandOutput) => void),
     cb?: (err: any, data?: CreateStackSetCommandOutput) => void
   ): Promise<CreateStackSetCommandOutput> | void {
     const command = new CreateStackSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2016,17 +1792,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteStackInstances(
     args: DeleteStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackInstancesCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackInstancesCommandOutput) => void
   ): Promise<DeleteStackInstancesCommandOutput> | void {
     const command = new DeleteStackInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2052,17 +1825,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public deleteStackSet(
     args: DeleteStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackSetCommandOutput) => void
   ): Promise<DeleteStackSetCommandOutput> | void {
     const command = new DeleteStackSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2090,17 +1860,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackInstance(
     args: DescribeStackInstanceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackInstanceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackInstanceCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackInstanceCommandOutput) => void
   ): Promise<DescribeStackInstanceCommandOutput> | void {
     const command = new DescribeStackInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2125,17 +1892,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackSet(
     args: DescribeStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackSetCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackSetCommandOutput) => void
   ): Promise<DescribeStackSetCommandOutput> | void {
     const command = new DescribeStackSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2160,17 +1924,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public describeStackSetOperation(
     args: DescribeStackSetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeStackSetOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStackSetOperationCommandOutput) => void),
     cb?: (err: any, data?: DescribeStackSetOperationCommandOutput) => void
   ): Promise<DescribeStackSetOperationCommandOutput> | void {
     const command = new DescribeStackSetOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2239,17 +2000,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public detectStackSetDrift(
     args: DetectStackSetDriftCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DetectStackSetDriftCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectStackSetDriftCommandOutput) => void),
     cb?: (err: any, data?: DetectStackSetDriftCommandOutput) => void
   ): Promise<DetectStackSetDriftCommandOutput> | void {
     const command = new DetectStackSetDriftCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2276,17 +2034,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStackInstances(
     args: ListStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStackInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListStackInstancesCommandOutput) => void
   ): Promise<ListStackInstancesCommandOutput> | void {
     const command = new ListStackInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2311,17 +2066,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStackSetOperationResults(
     args: ListStackSetOperationResultsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetOperationResultsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStackSetOperationResultsCommandOutput) => void),
     cb?: (err: any, data?: ListStackSetOperationResultsCommandOutput) => void
   ): Promise<ListStackSetOperationResultsCommandOutput> | void {
     const command = new ListStackSetOperationResultsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2346,17 +2098,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStackSetOperations(
     args: ListStackSetOperationsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetOperationsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStackSetOperationsCommandOutput) => void),
     cb?: (err: any, data?: ListStackSetOperationsCommandOutput) => void
   ): Promise<ListStackSetOperationsCommandOutput> | void {
     const command = new ListStackSetOperationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2382,17 +2131,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public listStackSets(
     args: ListStackSetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListStackSetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStackSetsCommandOutput) => void),
     cb?: (err: any, data?: ListStackSetsCommandOutput) => void
   ): Promise<ListStackSetsCommandOutput> | void {
     const command = new ListStackSetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2417,17 +2163,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public stopStackSetOperation(
     args: StopStackSetOperationCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StopStackSetOperationCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStackSetOperationCommandOutput) => void),
     cb?: (err: any, data?: StopStackSetOperationCommandOutput) => void
   ): Promise<StopStackSetOperationCommandOutput> | void {
     const command = new StopStackSetOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2464,17 +2207,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public updateStackInstances(
     args: UpdateStackInstancesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackInstancesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackInstancesCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackInstancesCommandOutput) => void
   ): Promise<UpdateStackInstancesCommandOutput> | void {
     const command = new UpdateStackInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -2504,17 +2244,14 @@ export class CloudFormation extends CloudFormationClient {
   ): void;
   public updateStackSet(
     args: UpdateStackSetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateStackSetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackSetCommandOutput) => void
   ): Promise<UpdateStackSetCommandOutput> | void {
     const command = new UpdateStackSetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

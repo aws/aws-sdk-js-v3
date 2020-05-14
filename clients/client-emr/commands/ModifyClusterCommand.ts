@@ -1,18 +1,11 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ModifyClusterInput, ModifyClusterOutput } from "../models/index";
 import {
   deserializeAws_json1_1ModifyClusterCommand,
   serializeAws_json1_1ModifyClusterCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ModifyClusterCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyClusterCommandInput, ModifyClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ModifyClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ModifyClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ModifyClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
     return deserializeAws_json1_1ModifyClusterCommand(output, context);
   }
 

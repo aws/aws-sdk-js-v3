@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  StartContinuousExportRequest,
-  StartContinuousExportResponse
-} from "../models/index";
+import { StartContinuousExportRequest, StartContinuousExportResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartContinuousExportCommand,
   serializeAws_json1_1StartContinuousExportCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartContinuousExportCommandInput = StartContinuousExportRequest;
-export type StartContinuousExportCommandOutput = StartContinuousExportResponse &
-  __MetadataBearer;
+export type StartContinuousExportCommandOutput = StartContinuousExportResponse & __MetadataBearer;
 
 export class StartContinuousExportCommand extends $Command<
   StartContinuousExportCommandInput,
@@ -49,13 +42,8 @@ export class StartContinuousExportCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartContinuousExportCommandInput,
-    StartContinuousExportCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartContinuousExportCommandInput, StartContinuousExportCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class StartContinuousExportCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartContinuousExportCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartContinuousExportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartContinuousExportCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartContinuousExportCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContinuousExportCommandOutput> {
     return deserializeAws_json1_1StartContinuousExportCommand(output, context);
   }
 

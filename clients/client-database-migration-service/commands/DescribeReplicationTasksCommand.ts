@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeReplicationTasksMessage,
-  DescribeReplicationTasksResponse
-} from "../models/index";
+import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeReplicationTasksCommand,
   serializeAws_json1_1DescribeReplicationTasksCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReplicationTasksCommandInput = DescribeReplicationTasksMessage;
-export type DescribeReplicationTasksCommandOutput = DescribeReplicationTasksResponse &
-  __MetadataBearer;
+export type DescribeReplicationTasksCommandOutput = DescribeReplicationTasksResponse & __MetadataBearer;
 
 export class DescribeReplicationTasksCommand extends $Command<
   DescribeReplicationTasksCommandInput,
@@ -49,13 +42,8 @@ export class DescribeReplicationTasksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReplicationTasksCommandInput,
-    DescribeReplicationTasksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReplicationTasksCommandInput, DescribeReplicationTasksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +58,12 @@ export class DescribeReplicationTasksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeReplicationTasksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeReplicationTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeReplicationTasksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeReplicationTasksCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTasksCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeReplicationTasksCommandOutput> {
+    return deserializeAws_json1_1DescribeReplicationTasksCommand(output, context);
   }
 
   // Start section: command_body_extra

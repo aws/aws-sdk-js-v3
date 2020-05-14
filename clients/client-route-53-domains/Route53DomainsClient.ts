@@ -30,38 +30,17 @@ import {
   GetContactReachabilityStatusCommandInput,
   GetContactReachabilityStatusCommandOutput
 } from "./commands/GetContactReachabilityStatusCommand";
-import {
-  GetDomainDetailCommandInput,
-  GetDomainDetailCommandOutput
-} from "./commands/GetDomainDetailCommand";
+import { GetDomainDetailCommandInput, GetDomainDetailCommandOutput } from "./commands/GetDomainDetailCommand";
 import {
   GetDomainSuggestionsCommandInput,
   GetDomainSuggestionsCommandOutput
 } from "./commands/GetDomainSuggestionsCommand";
-import {
-  GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput
-} from "./commands/GetOperationDetailCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
-import {
-  ListOperationsCommandInput,
-  ListOperationsCommandOutput
-} from "./commands/ListOperationsCommand";
-import {
-  ListTagsForDomainCommandInput,
-  ListTagsForDomainCommandOutput
-} from "./commands/ListTagsForDomainCommand";
-import {
-  RegisterDomainCommandInput,
-  RegisterDomainCommandOutput
-} from "./commands/RegisterDomainCommand";
-import {
-  RenewDomainCommandInput,
-  RenewDomainCommandOutput
-} from "./commands/RenewDomainCommand";
+import { GetOperationDetailCommandInput, GetOperationDetailCommandOutput } from "./commands/GetOperationDetailCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
+import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand";
+import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
+import { RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand";
 import {
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput
@@ -70,10 +49,7 @@ import {
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput
 } from "./commands/RetrieveDomainAuthCodeCommand";
-import {
-  TransferDomainCommandInput,
-  TransferDomainCommandOutput
-} from "./commands/TransferDomainCommand";
+import { TransferDomainCommandInput, TransferDomainCommandOutput } from "./commands/TransferDomainCommand";
 import {
   UpdateDomainContactCommandInput,
   UpdateDomainContactCommandOutput
@@ -90,10 +66,7 @@ import {
   UpdateTagsForDomainCommandInput,
   UpdateTagsForDomainCommandOutput
 } from "./commands/UpdateTagsForDomainCommand";
-import {
-  ViewBillingCommandInput,
-  ViewBillingCommandOutput
-} from "./commands/ViewBillingCommand";
+import { ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -110,12 +83,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -198,8 +166,7 @@ export type ServiceOutputTypes =
   | UpdateTagsForDomainCommandOutput
   | ViewBillingCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -283,9 +250,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Route53DomainsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Route53DomainsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -294,9 +259,7 @@ export type Route53DomainsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Route53DomainsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Route53DomainsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

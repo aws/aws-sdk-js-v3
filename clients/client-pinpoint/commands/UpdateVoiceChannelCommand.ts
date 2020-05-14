@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  UpdateVoiceChannelRequest,
-  UpdateVoiceChannelResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { UpdateVoiceChannelRequest, UpdateVoiceChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVoiceChannelCommand,
   serializeAws_restJson1_1UpdateVoiceChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVoiceChannelCommandInput = UpdateVoiceChannelRequest;
-export type UpdateVoiceChannelCommandOutput = UpdateVoiceChannelResponse &
-  __MetadataBearer;
+export type UpdateVoiceChannelCommandOutput = UpdateVoiceChannelResponse & __MetadataBearer;
 
 export class UpdateVoiceChannelCommand extends $Command<
   UpdateVoiceChannelCommandInput,
@@ -50,9 +39,7 @@ export class UpdateVoiceChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVoiceChannelCommandInput, UpdateVoiceChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateVoiceChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVoiceChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVoiceChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateVoiceChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVoiceChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVoiceChannelCommandOutput> {
     return deserializeAws_restJson1_1UpdateVoiceChannelCommand(output, context);
   }
 

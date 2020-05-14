@@ -22,10 +22,7 @@ import {
   CreateCoreDefinitionVersionCommandInput,
   CreateCoreDefinitionVersionCommandOutput
 } from "./commands/CreateCoreDefinitionVersionCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
 import {
   CreateDeviceDefinitionCommandInput,
   CreateDeviceDefinitionCommandOutput
@@ -46,14 +43,8 @@ import {
   CreateGroupCertificateAuthorityCommandInput,
   CreateGroupCertificateAuthorityCommandOutput
 } from "./commands/CreateGroupCertificateAuthorityCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "./commands/CreateGroupCommand";
-import {
-  CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput
-} from "./commands/CreateGroupVersionCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
+import { CreateGroupVersionCommandInput, CreateGroupVersionCommandOutput } from "./commands/CreateGroupVersionCommand";
 import {
   CreateLoggerDefinitionCommandInput,
   CreateLoggerDefinitionCommandOutput
@@ -98,10 +89,7 @@ import {
   DeleteFunctionDefinitionCommandInput,
   DeleteFunctionDefinitionCommandOutput
 } from "./commands/DeleteFunctionDefinitionCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "./commands/DeleteGroupCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
   DeleteLoggerDefinitionCommandInput,
   DeleteLoggerDefinitionCommandOutput
@@ -122,10 +110,7 @@ import {
   DisassociateServiceRoleFromAccountCommandInput,
   DisassociateServiceRoleFromAccountCommandOutput
 } from "./commands/DisassociateServiceRoleFromAccountCommand";
-import {
-  GetAssociatedRoleCommandInput,
-  GetAssociatedRoleCommandOutput
-} from "./commands/GetAssociatedRoleCommand";
+import { GetAssociatedRoleCommandInput, GetAssociatedRoleCommandOutput } from "./commands/GetAssociatedRoleCommand";
 import {
   GetBulkDeploymentStatusCommandInput,
   GetBulkDeploymentStatusCommandOutput
@@ -142,10 +127,7 @@ import {
   GetConnectorDefinitionVersionCommandInput,
   GetConnectorDefinitionVersionCommandOutput
 } from "./commands/GetConnectorDefinitionVersionCommand";
-import {
-  GetCoreDefinitionCommandInput,
-  GetCoreDefinitionCommandOutput
-} from "./commands/GetCoreDefinitionCommand";
+import { GetCoreDefinitionCommandInput, GetCoreDefinitionCommandOutput } from "./commands/GetCoreDefinitionCommand";
 import {
   GetCoreDefinitionVersionCommandInput,
   GetCoreDefinitionVersionCommandOutput
@@ -178,14 +160,8 @@ import {
   GetGroupCertificateConfigurationCommandInput,
   GetGroupCertificateConfigurationCommandOutput
 } from "./commands/GetGroupCertificateConfigurationCommand";
-import {
-  GetGroupCommandInput,
-  GetGroupCommandOutput
-} from "./commands/GetGroupCommand";
-import {
-  GetGroupVersionCommandInput,
-  GetGroupVersionCommandOutput
-} from "./commands/GetGroupVersionCommand";
+import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
+import { GetGroupVersionCommandInput, GetGroupVersionCommandOutput } from "./commands/GetGroupVersionCommand";
 import {
   GetLoggerDefinitionCommandInput,
   GetLoggerDefinitionCommandOutput
@@ -238,10 +214,7 @@ import {
   ListCoreDefinitionsCommandInput,
   ListCoreDefinitionsCommandOutput
 } from "./commands/ListCoreDefinitionsCommand";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListDeviceDefinitionVersionsCommandInput,
   ListDeviceDefinitionVersionsCommandOutput
@@ -262,14 +235,8 @@ import {
   ListGroupCertificateAuthoritiesCommandInput,
   ListGroupCertificateAuthoritiesCommandOutput
 } from "./commands/ListGroupCertificateAuthoritiesCommand";
-import {
-  ListGroupVersionsCommandInput,
-  ListGroupVersionsCommandOutput
-} from "./commands/ListGroupVersionsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "./commands/ListGroupsCommand";
+import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "./commands/ListGroupVersionsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListLoggerDefinitionVersionsCommandInput,
   ListLoggerDefinitionVersionsCommandOutput
@@ -298,26 +265,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ResetDeploymentsCommandInput,
-  ResetDeploymentsCommandOutput
-} from "./commands/ResetDeploymentsCommand";
+import { ResetDeploymentsCommandInput, ResetDeploymentsCommandOutput } from "./commands/ResetDeploymentsCommand";
 import {
   StartBulkDeploymentCommandInput,
   StartBulkDeploymentCommandOutput
 } from "./commands/StartBulkDeploymentCommand";
-import {
-  StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput
-} from "./commands/StopBulkDeploymentCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput } from "./commands/StopBulkDeploymentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateConnectivityInfoCommandInput,
   UpdateConnectivityInfoCommandOutput
@@ -342,10 +297,7 @@ import {
   UpdateGroupCertificateConfigurationCommandInput,
   UpdateGroupCertificateConfigurationCommandOutput
 } from "./commands/UpdateGroupCertificateConfigurationCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "./commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateLoggerDefinitionCommandInput,
   UpdateLoggerDefinitionCommandOutput
@@ -374,12 +326,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -594,8 +541,7 @@ export type ServiceOutputTypes =
   | UpdateResourceDefinitionCommandOutput
   | UpdateSubscriptionDefinitionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -679,9 +625,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GreengrassClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GreengrassClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -690,9 +634,7 @@ export type GreengrassClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GreengrassClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

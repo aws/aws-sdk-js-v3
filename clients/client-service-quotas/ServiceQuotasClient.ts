@@ -22,10 +22,7 @@ import {
   GetRequestedServiceQuotaChangeCommandInput,
   GetRequestedServiceQuotaChangeCommandOutput
 } from "./commands/GetRequestedServiceQuotaChangeCommand";
-import {
-  GetServiceQuotaCommandInput,
-  GetServiceQuotaCommandOutput
-} from "./commands/GetServiceQuotaCommand";
+import { GetServiceQuotaCommandInput, GetServiceQuotaCommandOutput } from "./commands/GetServiceQuotaCommand";
 import {
   GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
   GetServiceQuotaIncreaseRequestFromTemplateCommandOutput
@@ -46,14 +43,8 @@ import {
   ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
 } from "./commands/ListServiceQuotaIncreaseRequestsInTemplateCommand";
-import {
-  ListServiceQuotasCommandInput,
-  ListServiceQuotasCommandOutput
-} from "./commands/ListServiceQuotasCommand";
-import {
-  ListServicesCommandInput,
-  ListServicesCommandOutput
-} from "./commands/ListServicesCommand";
+import { ListServiceQuotasCommandInput, ListServiceQuotasCommandOutput } from "./commands/ListServiceQuotasCommand";
+import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
   PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
@@ -78,12 +69,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -150,8 +136,7 @@ export type ServiceOutputTypes =
   | PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
   | RequestServiceQuotaIncreaseCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -235,9 +220,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServiceQuotasClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServiceQuotasClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -246,9 +229,7 @@ export type ServiceQuotasClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ServiceQuotasClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ServiceQuotasClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

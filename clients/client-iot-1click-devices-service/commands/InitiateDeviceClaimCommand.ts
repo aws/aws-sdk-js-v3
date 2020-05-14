@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../IoT1ClickDevicesServiceClient";
-import {
-  InitiateDeviceClaimRequest,
-  InitiateDeviceClaimResponse
-} from "../models/index";
+import { InitiateDeviceClaimRequest, InitiateDeviceClaimResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1InitiateDeviceClaimCommand,
   serializeAws_restJson1_1InitiateDeviceClaimCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type InitiateDeviceClaimCommandInput = InitiateDeviceClaimRequest;
-export type InitiateDeviceClaimCommandOutput = InitiateDeviceClaimResponse &
-  __MetadataBearer;
+export type InitiateDeviceClaimCommandOutput = InitiateDeviceClaimResponse & __MetadataBearer;
 
 export class InitiateDeviceClaimCommand extends $Command<
   InitiateDeviceClaimCommandInput,
@@ -49,13 +42,8 @@ export class InitiateDeviceClaimCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    InitiateDeviceClaimCommandInput,
-    InitiateDeviceClaimCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<InitiateDeviceClaimCommandInput, InitiateDeviceClaimCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +58,12 @@ export class InitiateDeviceClaimCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: InitiateDeviceClaimCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: InitiateDeviceClaimCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1InitiateDeviceClaimCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<InitiateDeviceClaimCommandOutput> {
-    return deserializeAws_restJson1_1InitiateDeviceClaimCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateDeviceClaimCommandOutput> {
+    return deserializeAws_restJson1_1InitiateDeviceClaimCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  PhoneNumberValidateRequest,
-  PhoneNumberValidateResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { PhoneNumberValidateRequest, PhoneNumberValidateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PhoneNumberValidateCommand,
   serializeAws_restJson1_1PhoneNumberValidateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PhoneNumberValidateCommandInput = PhoneNumberValidateRequest;
-export type PhoneNumberValidateCommandOutput = PhoneNumberValidateResponse &
-  __MetadataBearer;
+export type PhoneNumberValidateCommandOutput = PhoneNumberValidateResponse & __MetadataBearer;
 
 export class PhoneNumberValidateCommand extends $Command<
   PhoneNumberValidateCommandInput,
@@ -49,13 +38,8 @@ export class PhoneNumberValidateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PhoneNumberValidateCommandInput,
-    PhoneNumberValidateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PhoneNumberValidateCommandInput, PhoneNumberValidateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class PhoneNumberValidateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PhoneNumberValidateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PhoneNumberValidateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PhoneNumberValidateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PhoneNumberValidateCommandOutput> {
-    return deserializeAws_restJson1_1PhoneNumberValidateCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PhoneNumberValidateCommandOutput> {
+    return deserializeAws_restJson1_1PhoneNumberValidateCommand(output, context);
   }
 
   // Start section: command_body_extra

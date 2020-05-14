@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  TestRenderTemplateRequest,
-  TestRenderTemplateResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { TestRenderTemplateRequest, TestRenderTemplateResponse } from "../models/index";
 import {
   deserializeAws_queryTestRenderTemplateCommand,
   serializeAws_queryTestRenderTemplateCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestRenderTemplateCommandInput = TestRenderTemplateRequest;
-export type TestRenderTemplateCommandOutput = TestRenderTemplateResponse &
-  __MetadataBearer;
+export type TestRenderTemplateCommandOutput = TestRenderTemplateResponse & __MetadataBearer;
 
 export class TestRenderTemplateCommand extends $Command<
   TestRenderTemplateCommandInput,
@@ -50,9 +39,7 @@ export class TestRenderTemplateCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestRenderTemplateCommandInput, TestRenderTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class TestRenderTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TestRenderTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TestRenderTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryTestRenderTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TestRenderTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestRenderTemplateCommandOutput> {
     return deserializeAws_queryTestRenderTemplateCommand(output, context);
   }
 

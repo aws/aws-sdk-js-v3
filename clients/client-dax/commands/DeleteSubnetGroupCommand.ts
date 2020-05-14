@@ -1,21 +1,11 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSubnetGroupCommand,
   serializeAws_json1_1DeleteSubnetGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteSubnetGroupCommandInput = DeleteSubnetGroupRequest;
-export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse &
-  __MetadataBearer;
+export type DeleteSubnetGroupCommandOutput = DeleteSubnetGroupResponse & __MetadataBearer;
 
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,
@@ -50,9 +39,7 @@ export class DeleteSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubnetGroupCommandInput, DeleteSubnetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteSubnetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteSubnetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteSubnetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteSubnetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteSubnetGroupCommandOutput> {
     return deserializeAws_json1_1DeleteSubnetGroupCommand(output, context);
   }
 

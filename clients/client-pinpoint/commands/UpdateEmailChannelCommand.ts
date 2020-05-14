@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  UpdateEmailChannelRequest,
-  UpdateEmailChannelResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { UpdateEmailChannelRequest, UpdateEmailChannelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateEmailChannelCommand,
   serializeAws_restJson1_1UpdateEmailChannelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateEmailChannelCommandInput = UpdateEmailChannelRequest;
-export type UpdateEmailChannelCommandOutput = UpdateEmailChannelResponse &
-  __MetadataBearer;
+export type UpdateEmailChannelCommandOutput = UpdateEmailChannelResponse & __MetadataBearer;
 
 export class UpdateEmailChannelCommand extends $Command<
   UpdateEmailChannelCommandInput,
@@ -50,9 +39,7 @@ export class UpdateEmailChannelCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEmailChannelCommandInput, UpdateEmailChannelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateEmailChannelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateEmailChannelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateEmailChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateEmailChannelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateEmailChannelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEmailChannelCommandOutput> {
     return deserializeAws_restJson1_1UpdateEmailChannelCommand(output, context);
   }
 

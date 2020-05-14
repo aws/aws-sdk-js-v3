@@ -1,7 +1,4 @@
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateApplicationVersionCommandInput,
   CreateApplicationVersionCommandOutput
@@ -14,14 +11,8 @@ import {
   CreateCloudFormationTemplateCommandInput,
   CreateCloudFormationTemplateCommandOutput
 } from "./commands/CreateCloudFormationTemplateCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
-import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetApplicationPolicyCommandInput,
   GetApplicationPolicyCommandOutput
@@ -38,18 +29,12 @@ import {
   ListApplicationVersionsCommandInput,
   ListApplicationVersionsCommandOutput
 } from "./commands/ListApplicationVersionsCommand";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   PutApplicationPolicyCommandInput,
   PutApplicationPolicyCommandOutput
 } from "./commands/PutApplicationPolicyCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -66,12 +51,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +112,7 @@ export type ServiceOutputTypes =
   | PutApplicationPolicyCommandOutput
   | UpdateApplicationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +196,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServerlessApplicationRepositoryClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServerlessApplicationRepositoryClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +205,7 @@ export type ServerlessApplicationRepositoryClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ServerlessApplicationRepositoryClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

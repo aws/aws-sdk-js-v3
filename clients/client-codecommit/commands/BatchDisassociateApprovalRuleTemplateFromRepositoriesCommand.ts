@@ -1,8 +1,4 @@
-import {
-  CodeCommitClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeCommitClient";
+import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput
-  ) {
+  constructor(readonly input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,22 +65,14 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
     input: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput
-  > {
-    return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(
-      output,
-      context
-    );
+  ): Promise<BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput> {
+    return deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand(output, context);
   }
 
   // Start section: command_body_extra

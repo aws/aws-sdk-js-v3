@@ -1,18 +1,11 @@
-import {
-  IoTEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTEventsClient";
+import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
 import { PutLoggingOptionsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1PutLoggingOptionsCommand,
   serializeAws_restJson1_1PutLoggingOptionsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class PutLoggingOptionsCommand extends $Command<
     configuration: IoTEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class PutLoggingOptionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutLoggingOptionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutLoggingOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PutLoggingOptionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutLoggingOptionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutLoggingOptionsCommandOutput> {
     return deserializeAws_restJson1_1PutLoggingOptionsCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListPolicyPrincipalsRequest,
-  ListPolicyPrincipalsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListPolicyPrincipalsRequest, ListPolicyPrincipalsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPolicyPrincipalsCommand,
   serializeAws_restJson1_1ListPolicyPrincipalsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPolicyPrincipalsCommandInput = ListPolicyPrincipalsRequest;
-export type ListPolicyPrincipalsCommandOutput = ListPolicyPrincipalsResponse &
-  __MetadataBearer;
+export type ListPolicyPrincipalsCommandOutput = ListPolicyPrincipalsResponse & __MetadataBearer;
 
 export class ListPolicyPrincipalsCommand extends $Command<
   ListPolicyPrincipalsCommandInput,
@@ -49,13 +38,8 @@ export class ListPolicyPrincipalsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPolicyPrincipalsCommandInput,
-    ListPolicyPrincipalsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListPolicyPrincipalsCommandInput, ListPolicyPrincipalsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListPolicyPrincipalsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPolicyPrincipalsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPolicyPrincipalsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListPolicyPrincipalsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPolicyPrincipalsCommandOutput> {
-    return deserializeAws_restJson1_1ListPolicyPrincipalsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPolicyPrincipalsCommandOutput> {
+    return deserializeAws_restJson1_1ListPolicyPrincipalsCommand(output, context);
   }
 
   // Start section: command_body_extra

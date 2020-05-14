@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteVpcEndpointConnectionNotificationsRequest,
   DeleteVpcEndpointConnectionNotificationsResult
@@ -12,10 +8,7 @@ import {
   serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DeleteVpcEndpointConnectionNotificationsCommandInput
-  ) {
+  constructor(readonly input: DeleteVpcEndpointConnectionNotificationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     DeleteVpcEndpointConnectionNotificationsCommandInput,
     DeleteVpcEndpointConnectionNotificationsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class DeleteVpcEndpointConnectionNotificationsCommand extends $Command<
     input: DeleteVpcEndpointConnectionNotificationsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> {
-    return deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand(output, context);
   }
 
   // Start section: command_body_extra

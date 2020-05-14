@@ -32,10 +32,7 @@ export class FetchHttpHandler implements HttpHandler {
     // browser.
   }
 
-  handle(
-    request: HttpRequest,
-    options: HttpHandlerOptions
-  ): Promise<{ response: HttpResponse }> {
+  handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     const abortSignal = options?.abortSignal;
     const requestTimeoutInMs = this.httpOptions.requestTimeout;
 
@@ -55,9 +52,7 @@ export class FetchHttpHandler implements HttpHandler {
     }
 
     const port = request.port;
-    const url = `${request.protocol}//${request.hostname}${
-      port ? `:${port}` : ""
-    }${path}`;
+    const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ""}${path}`;
     const requestOptions: RequestInit = {
       body: request.body,
       headers: new Headers(request.headers),

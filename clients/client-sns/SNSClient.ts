@@ -1,7 +1,4 @@
-import {
-  AddPermissionCommandInput,
-  AddPermissionCommandOutput
-} from "./commands/AddPermissionCommand";
+import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
 import {
   CheckIfPhoneNumberIsOptedOutCommandInput,
   CheckIfPhoneNumberIsOptedOutCommandOutput
@@ -18,22 +15,13 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput
 } from "./commands/CreatePlatformEndpointCommand";
-import {
-  CreateTopicCommandInput,
-  CreateTopicCommandOutput
-} from "./commands/CreateTopicCommand";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand";
+import { CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput
 } from "./commands/DeletePlatformApplicationCommand";
-import {
-  DeleteTopicCommandInput,
-  DeleteTopicCommandOutput
-} from "./commands/DeleteTopicCommand";
+import { DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand";
 import {
   GetEndpointAttributesCommandInput,
   GetEndpointAttributesCommandOutput
@@ -42,18 +30,12 @@ import {
   GetPlatformApplicationAttributesCommandInput,
   GetPlatformApplicationAttributesCommandOutput
 } from "./commands/GetPlatformApplicationAttributesCommand";
-import {
-  GetSMSAttributesCommandInput,
-  GetSMSAttributesCommandOutput
-} from "./commands/GetSMSAttributesCommand";
+import { GetSMSAttributesCommandInput, GetSMSAttributesCommandOutput } from "./commands/GetSMSAttributesCommand";
 import {
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput
 } from "./commands/GetSubscriptionAttributesCommand";
-import {
-  GetTopicAttributesCommandInput,
-  GetTopicAttributesCommandOutput
-} from "./commands/GetTopicAttributesCommand";
+import { GetTopicAttributesCommandInput, GetTopicAttributesCommandOutput } from "./commands/GetTopicAttributesCommand";
 import {
   ListEndpointsByPlatformApplicationCommandInput,
   ListEndpointsByPlatformApplicationCommandOutput
@@ -70,30 +52,15 @@ import {
   ListSubscriptionsByTopicCommandInput,
   ListSubscriptionsByTopicCommandOutput
 } from "./commands/ListSubscriptionsByTopicCommand";
-import {
-  ListSubscriptionsCommandInput,
-  ListSubscriptionsCommandOutput
-} from "./commands/ListSubscriptionsCommand";
+import { ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput } from "./commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListTopicsCommandInput,
-  ListTopicsCommandOutput
-} from "./commands/ListTopicsCommand";
-import {
-  OptInPhoneNumberCommandInput,
-  OptInPhoneNumberCommandOutput
-} from "./commands/OptInPhoneNumberCommand";
-import {
-  PublishCommandInput,
-  PublishCommandOutput
-} from "./commands/PublishCommand";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "./commands/RemovePermissionCommand";
+import { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
+import { OptInPhoneNumberCommandInput, OptInPhoneNumberCommandOutput } from "./commands/OptInPhoneNumberCommand";
+import { PublishCommandInput, PublishCommandOutput } from "./commands/PublishCommand";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
 import {
   SetEndpointAttributesCommandInput,
   SetEndpointAttributesCommandOutput
@@ -102,34 +69,16 @@ import {
   SetPlatformApplicationAttributesCommandInput,
   SetPlatformApplicationAttributesCommandOutput
 } from "./commands/SetPlatformApplicationAttributesCommand";
-import {
-  SetSMSAttributesCommandInput,
-  SetSMSAttributesCommandOutput
-} from "./commands/SetSMSAttributesCommand";
+import { SetSMSAttributesCommandInput, SetSMSAttributesCommandOutput } from "./commands/SetSMSAttributesCommand";
 import {
   SetSubscriptionAttributesCommandInput,
   SetSubscriptionAttributesCommandOutput
 } from "./commands/SetSubscriptionAttributesCommand";
-import {
-  SetTopicAttributesCommandInput,
-  SetTopicAttributesCommandOutput
-} from "./commands/SetTopicAttributesCommand";
-import {
-  SubscribeCommandInput,
-  SubscribeCommandOutput
-} from "./commands/SubscribeCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput
-} from "./commands/UnsubscribeCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { SetTopicAttributesCommandInput, SetTopicAttributesCommandOutput } from "./commands/SetTopicAttributesCommand";
+import { SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -146,12 +95,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -252,8 +196,7 @@ export type ServiceOutputTypes =
   | UnsubscribeCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -337,9 +280,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SNSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SNSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -348,9 +289,7 @@ export type SNSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SNSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

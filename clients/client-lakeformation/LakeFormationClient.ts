@@ -6,14 +6,8 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput
 } from "./commands/BatchRevokePermissionsCommand";
-import {
-  DeregisterResourceCommandInput,
-  DeregisterResourceCommandOutput
-} from "./commands/DeregisterResourceCommand";
-import {
-  DescribeResourceCommandInput,
-  DescribeResourceCommandOutput
-} from "./commands/DescribeResourceCommand";
+import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
+import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
 import {
   GetDataLakeSettingsCommandInput,
   GetDataLakeSettingsCommandOutput
@@ -22,34 +16,16 @@ import {
   GetEffectivePermissionsForPathCommandInput,
   GetEffectivePermissionsForPathCommandOutput
 } from "./commands/GetEffectivePermissionsForPathCommand";
-import {
-  GrantPermissionsCommandInput,
-  GrantPermissionsCommandOutput
-} from "./commands/GrantPermissionsCommand";
-import {
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
-} from "./commands/ListPermissionsCommand";
-import {
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput
-} from "./commands/ListResourcesCommand";
+import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
+import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
   PutDataLakeSettingsCommandInput,
   PutDataLakeSettingsCommandOutput
 } from "./commands/PutDataLakeSettingsCommand";
-import {
-  RegisterResourceCommandInput,
-  RegisterResourceCommandOutput
-} from "./commands/RegisterResourceCommand";
-import {
-  RevokePermissionsCommandInput,
-  RevokePermissionsCommandOutput
-} from "./commands/RevokePermissionsCommand";
-import {
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput
-} from "./commands/UpdateResourceCommand";
+import { RegisterResourceCommandInput, RegisterResourceCommandOutput } from "./commands/RegisterResourceCommand";
+import { RevokePermissionsCommandInput, RevokePermissionsCommandOutput } from "./commands/RevokePermissionsCommand";
+import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -66,12 +42,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +103,7 @@ export type ServiceOutputTypes =
   | RevokePermissionsCommandOutput
   | UpdateResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +187,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LakeFormationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LakeFormationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +196,7 @@ export type LakeFormationClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LakeFormationClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LakeFormationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

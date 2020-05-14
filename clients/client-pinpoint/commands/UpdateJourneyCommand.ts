@@ -1,18 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateJourneyRequest, UpdateJourneyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateJourneyCommand,
   serializeAws_restJson1_1UpdateJourneyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateJourneyCommandInput = UpdateJourneyRequest;
-export type UpdateJourneyCommandOutput = UpdateJourneyResponse &
-  __MetadataBearer;
+export type UpdateJourneyCommandOutput = UpdateJourneyResponse & __MetadataBearer;
 
 export class UpdateJourneyCommand extends $Command<
   UpdateJourneyCommandInput,
@@ -47,9 +39,7 @@ export class UpdateJourneyCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateJourneyCommandInput, UpdateJourneyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateJourneyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateJourneyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateJourneyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateJourneyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateJourneyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateJourneyCommandOutput> {
     return deserializeAws_restJson1_1UpdateJourneyCommand(output, context);
   }
 

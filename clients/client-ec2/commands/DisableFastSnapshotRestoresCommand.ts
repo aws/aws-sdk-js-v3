@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DisableFastSnapshotRestoresRequest,
-  DisableFastSnapshotRestoresResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DisableFastSnapshotRestoresRequest, DisableFastSnapshotRestoresResult } from "../models/index";
 import {
   deserializeAws_ec2DisableFastSnapshotRestoresCommand,
   serializeAws_ec2DisableFastSnapshotRestoresCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisableFastSnapshotRestoresCommandInput = DisableFastSnapshotRestoresRequest;
-export type DisableFastSnapshotRestoresCommandOutput = DisableFastSnapshotRestoresResult &
-  __MetadataBearer;
+export type DisableFastSnapshotRestoresCommandOutput = DisableFastSnapshotRestoresResult & __MetadataBearer;
 
 export class DisableFastSnapshotRestoresCommand extends $Command<
   DisableFastSnapshotRestoresCommandInput,
@@ -49,13 +38,8 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisableFastSnapshotRestoresCommandInput,
-    DisableFastSnapshotRestoresCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisableFastSnapshotRestoresCommandInput, DisableFastSnapshotRestoresCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisableFastSnapshotRestoresCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DisableFastSnapshotRestoresCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DisableFastSnapshotRestoresCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DisableFastSnapshotRestoresCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DisableFastSnapshotRestoresCommandOutput> {
-    return deserializeAws_ec2DisableFastSnapshotRestoresCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DisableFastSnapshotRestoresCommand(output, context);
   }
 
   // Start section: command_body_extra

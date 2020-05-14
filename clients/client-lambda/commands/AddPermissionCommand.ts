@@ -1,18 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import { AddPermissionRequest, AddPermissionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AddPermissionCommand,
   serializeAws_restJson1_1AddPermissionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddPermissionCommandInput = AddPermissionRequest;
-export type AddPermissionCommandOutput = AddPermissionResponse &
-  __MetadataBearer;
+export type AddPermissionCommandOutput = AddPermissionResponse & __MetadataBearer;
 
 export class AddPermissionCommand extends $Command<
   AddPermissionCommandInput,
@@ -47,9 +39,7 @@ export class AddPermissionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddPermissionCommandInput, AddPermissionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class AddPermissionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddPermissionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddPermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AddPermissionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddPermissionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddPermissionCommandOutput> {
     return deserializeAws_restJson1_1AddPermissionCommand(output, context);
   }
 

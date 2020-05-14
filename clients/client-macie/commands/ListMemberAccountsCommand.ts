@@ -1,21 +1,11 @@
-import {
-  MacieClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MacieClient";
-import {
-  ListMemberAccountsRequest,
-  ListMemberAccountsResult
-} from "../models/index";
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
+import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/index";
 import {
   deserializeAws_json1_1ListMemberAccountsCommand,
   serializeAws_json1_1ListMemberAccountsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
-export type ListMemberAccountsCommandOutput = ListMemberAccountsResult &
-  __MetadataBearer;
+export type ListMemberAccountsCommandOutput = ListMemberAccountsResult & __MetadataBearer;
 
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,
@@ -50,9 +39,7 @@ export class ListMemberAccountsCommand extends $Command<
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListMemberAccountsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListMemberAccountsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListMemberAccountsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListMemberAccountsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListMemberAccountsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMemberAccountsCommandOutput> {
     return deserializeAws_json1_1ListMemberAccountsCommand(output, context);
   }
 

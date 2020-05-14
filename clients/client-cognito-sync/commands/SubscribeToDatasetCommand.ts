@@ -1,21 +1,11 @@
-import {
-  CognitoSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoSyncClient";
-import {
-  SubscribeToDatasetRequest,
-  SubscribeToDatasetResponse
-} from "../models/index";
+import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
+import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SubscribeToDatasetCommand,
   serializeAws_restJson1_1SubscribeToDatasetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
-export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse &
-  __MetadataBearer;
+export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse & __MetadataBearer;
 
 export class SubscribeToDatasetCommand extends $Command<
   SubscribeToDatasetCommandInput,
@@ -50,9 +39,7 @@ export class SubscribeToDatasetCommand extends $Command<
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeToDatasetCommandInput, SubscribeToDatasetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class SubscribeToDatasetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SubscribeToDatasetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SubscribeToDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SubscribeToDatasetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SubscribeToDatasetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SubscribeToDatasetCommandOutput> {
     return deserializeAws_restJson1_1SubscribeToDatasetCommand(output, context);
   }
 

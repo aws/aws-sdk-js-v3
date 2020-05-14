@@ -1,18 +1,11 @@
-import {
-  EMRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EMRClient";
+import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import { ListInstancesInput, ListInstancesOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListInstancesCommand,
   serializeAws_json1_1ListInstancesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ListInstancesCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListInstancesCommandInput, ListInstancesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ListInstancesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListInstancesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListInstancesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListInstancesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInstancesCommandOutput> {
     return deserializeAws_json1_1ListInstancesCommand(output, context);
   }
 

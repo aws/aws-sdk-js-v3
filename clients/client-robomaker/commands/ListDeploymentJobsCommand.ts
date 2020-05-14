@@ -1,21 +1,11 @@
-import {
-  RoboMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RoboMakerClient";
-import {
-  ListDeploymentJobsRequest,
-  ListDeploymentJobsResponse
-} from "../models/index";
+import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
+import { ListDeploymentJobsRequest, ListDeploymentJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDeploymentJobsCommand,
   serializeAws_restJson1_1ListDeploymentJobsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeploymentJobsCommandInput = ListDeploymentJobsRequest;
-export type ListDeploymentJobsCommandOutput = ListDeploymentJobsResponse &
-  __MetadataBearer;
+export type ListDeploymentJobsCommandOutput = ListDeploymentJobsResponse & __MetadataBearer;
 
 export class ListDeploymentJobsCommand extends $Command<
   ListDeploymentJobsCommandInput,
@@ -50,9 +39,7 @@ export class ListDeploymentJobsCommand extends $Command<
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeploymentJobsCommandInput, ListDeploymentJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListDeploymentJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDeploymentJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDeploymentJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListDeploymentJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDeploymentJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDeploymentJobsCommandOutput> {
     return deserializeAws_restJson1_1ListDeploymentJobsCommand(output, context);
   }
 

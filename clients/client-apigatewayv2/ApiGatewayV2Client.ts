@@ -1,87 +1,36 @@
-import {
-  CreateApiCommandInput,
-  CreateApiCommandOutput
-} from "./commands/CreateApiCommand";
-import {
-  CreateApiMappingCommandInput,
-  CreateApiMappingCommandOutput
-} from "./commands/CreateApiMappingCommand";
-import {
-  CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput
-} from "./commands/CreateAuthorizerCommand";
-import {
-  CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput
-} from "./commands/CreateDeploymentCommand";
-import {
-  CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput
-} from "./commands/CreateDomainNameCommand";
-import {
-  CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput
-} from "./commands/CreateIntegrationCommand";
+import { CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
+import { CreateApiMappingCommandInput, CreateApiMappingCommandOutput } from "./commands/CreateApiMappingCommand";
+import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand";
+import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand";
+import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "./commands/CreateDomainNameCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "./commands/CreateIntegrationCommand";
 import {
   CreateIntegrationResponseCommandInput,
   CreateIntegrationResponseCommandOutput
 } from "./commands/CreateIntegrationResponseCommand";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand";
-import {
-  CreateRouteCommandInput,
-  CreateRouteCommandOutput
-} from "./commands/CreateRouteCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand";
 import {
   CreateRouteResponseCommandInput,
   CreateRouteResponseCommandOutput
 } from "./commands/CreateRouteResponseCommand";
-import {
-  CreateStageCommandInput,
-  CreateStageCommandOutput
-} from "./commands/CreateStageCommand";
-import {
-  DeleteApiCommandInput,
-  DeleteApiCommandOutput
-} from "./commands/DeleteApiCommand";
-import {
-  DeleteApiMappingCommandInput,
-  DeleteApiMappingCommandOutput
-} from "./commands/DeleteApiMappingCommand";
-import {
-  DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput
-} from "./commands/DeleteAuthorizerCommand";
+import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import { DeleteApiCommandInput, DeleteApiCommandOutput } from "./commands/DeleteApiCommand";
+import { DeleteApiMappingCommandInput, DeleteApiMappingCommandOutput } from "./commands/DeleteApiMappingCommand";
+import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand";
 import {
   DeleteCorsConfigurationCommandInput,
   DeleteCorsConfigurationCommandOutput
 } from "./commands/DeleteCorsConfigurationCommand";
-import {
-  DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput
-} from "./commands/DeleteDeploymentCommand";
-import {
-  DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput
-} from "./commands/DeleteDomainNameCommand";
-import {
-  DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput
-} from "./commands/DeleteIntegrationCommand";
+import { DeleteDeploymentCommandInput, DeleteDeploymentCommandOutput } from "./commands/DeleteDeploymentCommand";
+import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "./commands/DeleteDomainNameCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import {
   DeleteIntegrationResponseCommandInput,
   DeleteIntegrationResponseCommandOutput
 } from "./commands/DeleteIntegrationResponseCommand";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand";
-import {
-  DeleteRouteCommandInput,
-  DeleteRouteCommandOutput
-} from "./commands/DeleteRouteCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteResponseCommandInput,
   DeleteRouteResponseCommandOutput
@@ -90,54 +39,18 @@ import {
   DeleteRouteSettingsCommandInput,
   DeleteRouteSettingsCommandOutput
 } from "./commands/DeleteRouteSettingsCommand";
-import {
-  DeleteStageCommandInput,
-  DeleteStageCommandOutput
-} from "./commands/DeleteStageCommand";
-import {
-  GetApiCommandInput,
-  GetApiCommandOutput
-} from "./commands/GetApiCommand";
-import {
-  GetApiMappingCommandInput,
-  GetApiMappingCommandOutput
-} from "./commands/GetApiMappingCommand";
-import {
-  GetApiMappingsCommandInput,
-  GetApiMappingsCommandOutput
-} from "./commands/GetApiMappingsCommand";
-import {
-  GetApisCommandInput,
-  GetApisCommandOutput
-} from "./commands/GetApisCommand";
-import {
-  GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput
-} from "./commands/GetAuthorizerCommand";
-import {
-  GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput
-} from "./commands/GetAuthorizersCommand";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand";
-import {
-  GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput
-} from "./commands/GetDeploymentsCommand";
-import {
-  GetDomainNameCommandInput,
-  GetDomainNameCommandOutput
-} from "./commands/GetDomainNameCommand";
-import {
-  GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput
-} from "./commands/GetDomainNamesCommand";
-import {
-  GetIntegrationCommandInput,
-  GetIntegrationCommandOutput
-} from "./commands/GetIntegrationCommand";
+import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import { GetApiCommandInput, GetApiCommandOutput } from "./commands/GetApiCommand";
+import { GetApiMappingCommandInput, GetApiMappingCommandOutput } from "./commands/GetApiMappingCommand";
+import { GetApiMappingsCommandInput, GetApiMappingsCommandOutput } from "./commands/GetApiMappingsCommand";
+import { GetApisCommandInput, GetApisCommandOutput } from "./commands/GetApisCommand";
+import { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "./commands/GetAuthorizerCommand";
+import { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "./commands/GetAuthorizersCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
+import { GetDeploymentsCommandInput, GetDeploymentsCommandOutput } from "./commands/GetDeploymentsCommand";
+import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
+import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "./commands/GetDomainNamesCommand";
+import { GetIntegrationCommandInput, GetIntegrationCommandOutput } from "./commands/GetIntegrationCommand";
 import {
   GetIntegrationResponseCommandInput,
   GetIntegrationResponseCommandOutput
@@ -146,110 +59,38 @@ import {
   GetIntegrationResponsesCommandInput,
   GetIntegrationResponsesCommandOutput
 } from "./commands/GetIntegrationResponsesCommand";
-import {
-  GetIntegrationsCommandInput,
-  GetIntegrationsCommandOutput
-} from "./commands/GetIntegrationsCommand";
-import {
-  GetModelCommandInput,
-  GetModelCommandOutput
-} from "./commands/GetModelCommand";
-import {
-  GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput
-} from "./commands/GetModelTemplateCommand";
-import {
-  GetModelsCommandInput,
-  GetModelsCommandOutput
-} from "./commands/GetModelsCommand";
-import {
-  GetRouteCommandInput,
-  GetRouteCommandOutput
-} from "./commands/GetRouteCommand";
-import {
-  GetRouteResponseCommandInput,
-  GetRouteResponseCommandOutput
-} from "./commands/GetRouteResponseCommand";
-import {
-  GetRouteResponsesCommandInput,
-  GetRouteResponsesCommandOutput
-} from "./commands/GetRouteResponsesCommand";
-import {
-  GetRoutesCommandInput,
-  GetRoutesCommandOutput
-} from "./commands/GetRoutesCommand";
-import {
-  GetStageCommandInput,
-  GetStageCommandOutput
-} from "./commands/GetStageCommand";
-import {
-  GetStagesCommandInput,
-  GetStagesCommandOutput
-} from "./commands/GetStagesCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
-import {
-  ImportApiCommandInput,
-  ImportApiCommandOutput
-} from "./commands/ImportApiCommand";
-import {
-  ReimportApiCommandInput,
-  ReimportApiCommandOutput
-} from "./commands/ReimportApiCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateApiCommandInput,
-  UpdateApiCommandOutput
-} from "./commands/UpdateApiCommand";
-import {
-  UpdateApiMappingCommandInput,
-  UpdateApiMappingCommandOutput
-} from "./commands/UpdateApiMappingCommand";
-import {
-  UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput
-} from "./commands/UpdateAuthorizerCommand";
-import {
-  UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput
-} from "./commands/UpdateDeploymentCommand";
-import {
-  UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput
-} from "./commands/UpdateDomainNameCommand";
-import {
-  UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput
-} from "./commands/UpdateIntegrationCommand";
+import { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "./commands/GetIntegrationsCommand";
+import { GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
+import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "./commands/GetModelTemplateCommand";
+import { GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
+import { GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
+import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "./commands/GetRouteResponseCommand";
+import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "./commands/GetRouteResponsesCommand";
+import { GetRoutesCommandInput, GetRoutesCommandOutput } from "./commands/GetRoutesCommand";
+import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
+import { GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
+import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
+import { UpdateApiMappingCommandInput, UpdateApiMappingCommandOutput } from "./commands/UpdateApiMappingCommand";
+import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand";
+import { UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput } from "./commands/UpdateDeploymentCommand";
+import { UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput } from "./commands/UpdateDomainNameCommand";
+import { UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput } from "./commands/UpdateIntegrationCommand";
 import {
   UpdateIntegrationResponseCommandInput,
   UpdateIntegrationResponseCommandOutput
 } from "./commands/UpdateIntegrationResponseCommand";
-import {
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput
-} from "./commands/UpdateModelCommand";
-import {
-  UpdateRouteCommandInput,
-  UpdateRouteCommandOutput
-} from "./commands/UpdateRouteCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand";
 import {
   UpdateRouteResponseCommandInput,
   UpdateRouteResponseCommandOutput
 } from "./commands/UpdateRouteResponseCommand";
-import {
-  UpdateStageCommandInput,
-  UpdateStageCommandOutput
-} from "./commands/UpdateStageCommand";
+import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -266,12 +107,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -432,8 +268,7 @@ export type ServiceOutputTypes =
   | UpdateRouteResponseCommandOutput
   | UpdateStageCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -517,9 +352,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApiGatewayV2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApiGatewayV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -528,9 +361,7 @@ export type ApiGatewayV2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApiGatewayV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

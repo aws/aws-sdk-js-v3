@@ -6,14 +6,8 @@ import {
   CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput
 } from "./commands/CompleteMultipartUploadCommand";
-import {
-  CopyObjectCommandInput,
-  CopyObjectCommandOutput
-} from "./commands/CopyObjectCommand";
-import {
-  CreateBucketCommandInput,
-  CreateBucketCommandOutput
-} from "./commands/CreateBucketCommand";
+import { CopyObjectCommandInput, CopyObjectCommandOutput } from "./commands/CopyObjectCommand";
+import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand";
 import {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput
@@ -22,14 +16,8 @@ import {
   DeleteBucketAnalyticsConfigurationCommandInput,
   DeleteBucketAnalyticsConfigurationCommandOutput
 } from "./commands/DeleteBucketAnalyticsConfigurationCommand";
-import {
-  DeleteBucketCommandInput,
-  DeleteBucketCommandOutput
-} from "./commands/DeleteBucketCommand";
-import {
-  DeleteBucketCorsCommandInput,
-  DeleteBucketCorsCommandOutput
-} from "./commands/DeleteBucketCorsCommand";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand";
+import { DeleteBucketCorsCommandInput, DeleteBucketCorsCommandOutput } from "./commands/DeleteBucketCorsCommand";
 import {
   DeleteBucketEncryptionCommandInput,
   DeleteBucketEncryptionCommandOutput
@@ -46,10 +34,7 @@ import {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput
 } from "./commands/DeleteBucketMetricsConfigurationCommand";
-import {
-  DeleteBucketPolicyCommandInput,
-  DeleteBucketPolicyCommandOutput
-} from "./commands/DeleteBucketPolicyCommand";
+import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
 import {
   DeleteBucketReplicationCommandInput,
   DeleteBucketReplicationCommandOutput
@@ -62,18 +47,12 @@ import {
   DeleteBucketWebsiteCommandInput,
   DeleteBucketWebsiteCommandOutput
 } from "./commands/DeleteBucketWebsiteCommand";
-import {
-  DeleteObjectCommandInput,
-  DeleteObjectCommandOutput
-} from "./commands/DeleteObjectCommand";
+import { DeleteObjectCommandInput, DeleteObjectCommandOutput } from "./commands/DeleteObjectCommand";
 import {
   DeleteObjectTaggingCommandInput,
   DeleteObjectTaggingCommandOutput
 } from "./commands/DeleteObjectTaggingCommand";
-import {
-  DeleteObjectsCommandInput,
-  DeleteObjectsCommandOutput
-} from "./commands/DeleteObjectsCommand";
+import { DeleteObjectsCommandInput, DeleteObjectsCommandOutput } from "./commands/DeleteObjectsCommand";
 import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput
@@ -82,18 +61,12 @@ import {
   GetBucketAccelerateConfigurationCommandInput,
   GetBucketAccelerateConfigurationCommandOutput
 } from "./commands/GetBucketAccelerateConfigurationCommand";
-import {
-  GetBucketAclCommandInput,
-  GetBucketAclCommandOutput
-} from "./commands/GetBucketAclCommand";
+import { GetBucketAclCommandInput, GetBucketAclCommandOutput } from "./commands/GetBucketAclCommand";
 import {
   GetBucketAnalyticsConfigurationCommandInput,
   GetBucketAnalyticsConfigurationCommandOutput
 } from "./commands/GetBucketAnalyticsConfigurationCommand";
-import {
-  GetBucketCorsCommandInput,
-  GetBucketCorsCommandOutput
-} from "./commands/GetBucketCorsCommand";
+import { GetBucketCorsCommandInput, GetBucketCorsCommandOutput } from "./commands/GetBucketCorsCommand";
 import {
   GetBucketEncryptionCommandInput,
   GetBucketEncryptionCommandOutput
@@ -106,14 +79,8 @@ import {
   GetBucketLifecycleConfigurationCommandInput,
   GetBucketLifecycleConfigurationCommandOutput
 } from "./commands/GetBucketLifecycleConfigurationCommand";
-import {
-  GetBucketLocationCommandInput,
-  GetBucketLocationCommandOutput
-} from "./commands/GetBucketLocationCommand";
-import {
-  GetBucketLoggingCommandInput,
-  GetBucketLoggingCommandOutput
-} from "./commands/GetBucketLoggingCommand";
+import { GetBucketLocationCommandInput, GetBucketLocationCommandOutput } from "./commands/GetBucketLocationCommand";
+import { GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput } from "./commands/GetBucketLoggingCommand";
 import {
   GetBucketMetricsConfigurationCommandInput,
   GetBucketMetricsConfigurationCommandOutput
@@ -122,10 +89,7 @@ import {
   GetBucketNotificationConfigurationCommandInput,
   GetBucketNotificationConfigurationCommandOutput
 } from "./commands/GetBucketNotificationConfigurationCommand";
-import {
-  GetBucketPolicyCommandInput,
-  GetBucketPolicyCommandOutput
-} from "./commands/GetBucketPolicyCommand";
+import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
 import {
   GetBucketPolicyStatusCommandInput,
   GetBucketPolicyStatusCommandOutput
@@ -138,58 +102,28 @@ import {
   GetBucketRequestPaymentCommandInput,
   GetBucketRequestPaymentCommandOutput
 } from "./commands/GetBucketRequestPaymentCommand";
-import {
-  GetBucketTaggingCommandInput,
-  GetBucketTaggingCommandOutput
-} from "./commands/GetBucketTaggingCommand";
+import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
 import {
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput
 } from "./commands/GetBucketVersioningCommand";
-import {
-  GetBucketWebsiteCommandInput,
-  GetBucketWebsiteCommandOutput
-} from "./commands/GetBucketWebsiteCommand";
-import {
-  GetObjectAclCommandInput,
-  GetObjectAclCommandOutput
-} from "./commands/GetObjectAclCommand";
-import {
-  GetObjectCommandInput,
-  GetObjectCommandOutput
-} from "./commands/GetObjectCommand";
-import {
-  GetObjectLegalHoldCommandInput,
-  GetObjectLegalHoldCommandOutput
-} from "./commands/GetObjectLegalHoldCommand";
+import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand";
+import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand";
+import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
+import { GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput } from "./commands/GetObjectLegalHoldCommand";
 import {
   GetObjectLockConfigurationCommandInput,
   GetObjectLockConfigurationCommandOutput
 } from "./commands/GetObjectLockConfigurationCommand";
-import {
-  GetObjectRetentionCommandInput,
-  GetObjectRetentionCommandOutput
-} from "./commands/GetObjectRetentionCommand";
-import {
-  GetObjectTaggingCommandInput,
-  GetObjectTaggingCommandOutput
-} from "./commands/GetObjectTaggingCommand";
-import {
-  GetObjectTorrentCommandInput,
-  GetObjectTorrentCommandOutput
-} from "./commands/GetObjectTorrentCommand";
+import { GetObjectRetentionCommandInput, GetObjectRetentionCommandOutput } from "./commands/GetObjectRetentionCommand";
+import { GetObjectTaggingCommandInput, GetObjectTaggingCommandOutput } from "./commands/GetObjectTaggingCommand";
+import { GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput } from "./commands/GetObjectTorrentCommand";
 import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput
 } from "./commands/GetPublicAccessBlockCommand";
-import {
-  HeadBucketCommandInput,
-  HeadBucketCommandOutput
-} from "./commands/HeadBucketCommand";
-import {
-  HeadObjectCommandInput,
-  HeadObjectCommandOutput
-} from "./commands/HeadObjectCommand";
+import { HeadBucketCommandInput, HeadBucketCommandOutput } from "./commands/HeadBucketCommand";
+import { HeadObjectCommandInput, HeadObjectCommandOutput } from "./commands/HeadObjectCommand";
 import {
   ListBucketAnalyticsConfigurationsCommandInput,
   ListBucketAnalyticsConfigurationsCommandOutput
@@ -202,46 +136,25 @@ import {
   ListBucketMetricsConfigurationsCommandInput,
   ListBucketMetricsConfigurationsCommandOutput
 } from "./commands/ListBucketMetricsConfigurationsCommand";
-import {
-  ListBucketsCommandInput,
-  ListBucketsCommandOutput
-} from "./commands/ListBucketsCommand";
+import { ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand";
 import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput
 } from "./commands/ListMultipartUploadsCommand";
-import {
-  ListObjectVersionsCommandInput,
-  ListObjectVersionsCommandOutput
-} from "./commands/ListObjectVersionsCommand";
-import {
-  ListObjectsCommandInput,
-  ListObjectsCommandOutput
-} from "./commands/ListObjectsCommand";
-import {
-  ListObjectsV2CommandInput,
-  ListObjectsV2CommandOutput
-} from "./commands/ListObjectsV2Command";
-import {
-  ListPartsCommandInput,
-  ListPartsCommandOutput
-} from "./commands/ListPartsCommand";
+import { ListObjectVersionsCommandInput, ListObjectVersionsCommandOutput } from "./commands/ListObjectVersionsCommand";
+import { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand";
+import { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command";
+import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
 import {
   PutBucketAccelerateConfigurationCommandInput,
   PutBucketAccelerateConfigurationCommandOutput
 } from "./commands/PutBucketAccelerateConfigurationCommand";
-import {
-  PutBucketAclCommandInput,
-  PutBucketAclCommandOutput
-} from "./commands/PutBucketAclCommand";
+import { PutBucketAclCommandInput, PutBucketAclCommandOutput } from "./commands/PutBucketAclCommand";
 import {
   PutBucketAnalyticsConfigurationCommandInput,
   PutBucketAnalyticsConfigurationCommandOutput
 } from "./commands/PutBucketAnalyticsConfigurationCommand";
-import {
-  PutBucketCorsCommandInput,
-  PutBucketCorsCommandOutput
-} from "./commands/PutBucketCorsCommand";
+import { PutBucketCorsCommandInput, PutBucketCorsCommandOutput } from "./commands/PutBucketCorsCommand";
 import {
   PutBucketEncryptionCommandInput,
   PutBucketEncryptionCommandOutput
@@ -254,10 +167,7 @@ import {
   PutBucketLifecycleConfigurationCommandInput,
   PutBucketLifecycleConfigurationCommandOutput
 } from "./commands/PutBucketLifecycleConfigurationCommand";
-import {
-  PutBucketLoggingCommandInput,
-  PutBucketLoggingCommandOutput
-} from "./commands/PutBucketLoggingCommand";
+import { PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput } from "./commands/PutBucketLoggingCommand";
 import {
   PutBucketMetricsConfigurationCommandInput,
   PutBucketMetricsConfigurationCommandOutput
@@ -266,10 +176,7 @@ import {
   PutBucketNotificationConfigurationCommandInput,
   PutBucketNotificationConfigurationCommandOutput
 } from "./commands/PutBucketNotificationConfigurationCommand";
-import {
-  PutBucketPolicyCommandInput,
-  PutBucketPolicyCommandOutput
-} from "./commands/PutBucketPolicyCommand";
+import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
 import {
   PutBucketReplicationCommandInput,
   PutBucketReplicationCommandOutput
@@ -278,62 +185,32 @@ import {
   PutBucketRequestPaymentCommandInput,
   PutBucketRequestPaymentCommandOutput
 } from "./commands/PutBucketRequestPaymentCommand";
-import {
-  PutBucketTaggingCommandInput,
-  PutBucketTaggingCommandOutput
-} from "./commands/PutBucketTaggingCommand";
+import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
 import {
   PutBucketVersioningCommandInput,
   PutBucketVersioningCommandOutput
 } from "./commands/PutBucketVersioningCommand";
-import {
-  PutBucketWebsiteCommandInput,
-  PutBucketWebsiteCommandOutput
-} from "./commands/PutBucketWebsiteCommand";
-import {
-  PutObjectAclCommandInput,
-  PutObjectAclCommandOutput
-} from "./commands/PutObjectAclCommand";
-import {
-  PutObjectCommandInput,
-  PutObjectCommandOutput
-} from "./commands/PutObjectCommand";
-import {
-  PutObjectLegalHoldCommandInput,
-  PutObjectLegalHoldCommandOutput
-} from "./commands/PutObjectLegalHoldCommand";
+import { PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput } from "./commands/PutBucketWebsiteCommand";
+import { PutObjectAclCommandInput, PutObjectAclCommandOutput } from "./commands/PutObjectAclCommand";
+import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
+import { PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput } from "./commands/PutObjectLegalHoldCommand";
 import {
   PutObjectLockConfigurationCommandInput,
   PutObjectLockConfigurationCommandOutput
 } from "./commands/PutObjectLockConfigurationCommand";
-import {
-  PutObjectRetentionCommandInput,
-  PutObjectRetentionCommandOutput
-} from "./commands/PutObjectRetentionCommand";
-import {
-  PutObjectTaggingCommandInput,
-  PutObjectTaggingCommandOutput
-} from "./commands/PutObjectTaggingCommand";
+import { PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput } from "./commands/PutObjectRetentionCommand";
+import { PutObjectTaggingCommandInput, PutObjectTaggingCommandOutput } from "./commands/PutObjectTaggingCommand";
 import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput
 } from "./commands/PutPublicAccessBlockCommand";
-import {
-  RestoreObjectCommandInput,
-  RestoreObjectCommandOutput
-} from "./commands/RestoreObjectCommand";
+import { RestoreObjectCommandInput, RestoreObjectCommandOutput } from "./commands/RestoreObjectCommand";
 import {
   SelectObjectContentCommandInput,
   SelectObjectContentCommandOutput
 } from "./commands/SelectObjectContentCommand";
-import {
-  UploadPartCommandInput,
-  UploadPartCommandOutput
-} from "./commands/UploadPartCommand";
-import {
-  UploadPartCopyCommandInput,
-  UploadPartCopyCommandOutput
-} from "./commands/UploadPartCopyCommand";
+import { UploadPartCommandInput, UploadPartCommandOutput } from "./commands/UploadPartCommand";
+import { UploadPartCopyCommandInput, UploadPartCopyCommandOutput } from "./commands/UploadPartCopyCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -361,12 +238,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import { getValidateBucketNamePlugin } from "@aws-sdk/middleware-sdk-s3";
 import {
   AwsAuthInputConfig,
@@ -573,8 +445,7 @@ export type ServiceOutputTypes =
   | UploadPartCommandOutput
   | UploadPartCopyCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -680,9 +551,7 @@ export interface ClientDefaults
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type S3ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -693,9 +562,7 @@ export type S3ClientConfig = Partial<
   HostHeaderInputConfig &
   EventStreamSerdeInputConfig;
 
-export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

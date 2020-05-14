@@ -1,18 +1,8 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { ListHITsRequest, ListHITsResponse } from "../models/index";
-import {
-  deserializeAws_json1_1ListHITsCommand,
-  serializeAws_json1_1ListHITsCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1ListHITsCommand, serializeAws_json1_1ListHITsCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type ListHITsCommandInput = ListHITsRequest;
 export type ListHITsCommandOutput = ListHITsResponse & __MetadataBearer;
 
-export class ListHITsCommand extends $Command<
-  ListHITsCommandInput,
-  ListHITsCommandOutput,
-  MTurkClientResolvedConfig
-> {
+export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class ListHITsCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHITsCommandInput, ListHITsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class ListHITsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHITsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHITsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHITsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHITsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHITsCommandOutput> {
     return deserializeAws_json1_1ListHITsCommand(output, context);
   }
 

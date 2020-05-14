@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -25,8 +22,7 @@ export interface ActivateGatewayOutput {
 }
 
 export namespace ActivateGatewayOutput {
-  export const isa = (o: any): o is ActivateGatewayOutput =>
-    __isa(o, "ActivateGatewayOutput");
+  export const isa = (o: any): o is ActivateGatewayOutput => __isa(o, "ActivateGatewayOutput");
 }
 
 /**
@@ -56,8 +52,7 @@ export interface AddWorkingStorageInput {
 }
 
 export namespace AddWorkingStorageInput {
-  export const isa = (o: any): o is AddWorkingStorageInput =>
-    __isa(o, "AddWorkingStorageInput");
+  export const isa = (o: any): o is AddWorkingStorageInput => __isa(o, "AddWorkingStorageInput");
 }
 
 /**
@@ -74,8 +69,7 @@ export interface AddWorkingStorageOutput {
 }
 
 export namespace AddWorkingStorageOutput {
-  export const isa = (o: any): o is AddWorkingStorageOutput =>
-    __isa(o, "AddWorkingStorageOutput");
+  export const isa = (o: any): o is AddWorkingStorageOutput => __isa(o, "AddWorkingStorageOutput");
 }
 
 /**
@@ -157,8 +151,7 @@ export interface CreateSnapshotInput {
 }
 
 export namespace CreateSnapshotInput {
-  export const isa = (o: any): o is CreateSnapshotInput =>
-    __isa(o, "CreateSnapshotInput");
+  export const isa = (o: any): o is CreateSnapshotInput => __isa(o, "CreateSnapshotInput");
 }
 
 /**
@@ -181,8 +174,7 @@ export interface CreateSnapshotOutput {
 }
 
 export namespace CreateSnapshotOutput {
-  export const isa = (o: any): o is CreateSnapshotOutput =>
-    __isa(o, "CreateSnapshotOutput");
+  export const isa = (o: any): o is CreateSnapshotOutput => __isa(o, "CreateSnapshotOutput");
 }
 
 /**
@@ -289,8 +281,7 @@ export interface CreateStorediSCSIVolumeInput {
 }
 
 export namespace CreateStorediSCSIVolumeInput {
-  export const isa = (o: any): o is CreateStorediSCSIVolumeInput =>
-    __isa(o, "CreateStorediSCSIVolumeInput");
+  export const isa = (o: any): o is CreateStorediSCSIVolumeInput => __isa(o, "CreateStorediSCSIVolumeInput");
 }
 
 /**
@@ -316,8 +307,7 @@ export interface CreateStorediSCSIVolumeOutput {
 }
 
 export namespace CreateStorediSCSIVolumeOutput {
-  export const isa = (o: any): o is CreateStorediSCSIVolumeOutput =>
-    __isa(o, "CreateStorediSCSIVolumeOutput");
+  export const isa = (o: any): o is CreateStorediSCSIVolumeOutput => __isa(o, "CreateStorediSCSIVolumeOutput");
 }
 
 /**
@@ -334,8 +324,7 @@ export interface DeleteBandwidthRateLimitOutput {
 }
 
 export namespace DeleteBandwidthRateLimitOutput {
-  export const isa = (o: any): o is DeleteBandwidthRateLimitOutput =>
-    __isa(o, "DeleteBandwidthRateLimitOutput");
+  export const isa = (o: any): o is DeleteBandwidthRateLimitOutput => __isa(o, "DeleteBandwidthRateLimitOutput");
 }
 
 /**
@@ -368,8 +357,7 @@ export interface DeleteChapCredentialsInput {
 }
 
 export namespace DeleteChapCredentialsInput {
-  export const isa = (o: any): o is DeleteChapCredentialsInput =>
-    __isa(o, "DeleteChapCredentialsInput");
+  export const isa = (o: any): o is DeleteChapCredentialsInput => __isa(o, "DeleteChapCredentialsInput");
 }
 
 /**
@@ -389,8 +377,7 @@ export interface DeleteChapCredentialsOutput {
 }
 
 export namespace DeleteChapCredentialsOutput {
-  export const isa = (o: any): o is DeleteChapCredentialsOutput =>
-    __isa(o, "DeleteChapCredentialsOutput");
+  export const isa = (o: any): o is DeleteChapCredentialsOutput => __isa(o, "DeleteChapCredentialsOutput");
 }
 
 /**
@@ -406,8 +393,7 @@ export interface DeleteGatewayInput {
 }
 
 export namespace DeleteGatewayInput {
-  export const isa = (o: any): o is DeleteGatewayInput =>
-    __isa(o, "DeleteGatewayInput");
+  export const isa = (o: any): o is DeleteGatewayInput => __isa(o, "DeleteGatewayInput");
 }
 
 /**
@@ -423,8 +409,7 @@ export interface DeleteGatewayOutput {
 }
 
 export namespace DeleteGatewayOutput {
-  export const isa = (o: any): o is DeleteGatewayOutput =>
-    __isa(o, "DeleteGatewayOutput");
+  export const isa = (o: any): o is DeleteGatewayOutput => __isa(o, "DeleteGatewayOutput");
 }
 
 /**
@@ -441,8 +426,7 @@ export interface DeleteVolumeInput {
 }
 
 export namespace DeleteVolumeInput {
-  export const isa = (o: any): o is DeleteVolumeInput =>
-    __isa(o, "DeleteVolumeInput");
+  export const isa = (o: any): o is DeleteVolumeInput => __isa(o, "DeleteVolumeInput");
 }
 
 /**
@@ -458,8 +442,7 @@ export interface DeleteVolumeOutput {
 }
 
 export namespace DeleteVolumeOutput {
-  export const isa = (o: any): o is DeleteVolumeOutput =>
-    __isa(o, "DeleteVolumeOutput");
+  export const isa = (o: any): o is DeleteVolumeOutput => __isa(o, "DeleteVolumeOutput");
 }
 
 /**
@@ -475,8 +458,7 @@ export interface DescribeBandwidthRateLimitInput {
 }
 
 export namespace DescribeBandwidthRateLimitInput {
-  export const isa = (o: any): o is DescribeBandwidthRateLimitInput =>
-    __isa(o, "DescribeBandwidthRateLimitInput");
+  export const isa = (o: any): o is DescribeBandwidthRateLimitInput => __isa(o, "DescribeBandwidthRateLimitInput");
 }
 
 /**
@@ -504,8 +486,7 @@ export interface DescribeBandwidthRateLimitOutput {
 }
 
 export namespace DescribeBandwidthRateLimitOutput {
-  export const isa = (o: any): o is DescribeBandwidthRateLimitOutput =>
-    __isa(o, "DescribeBandwidthRateLimitOutput");
+  export const isa = (o: any): o is DescribeBandwidthRateLimitOutput => __isa(o, "DescribeBandwidthRateLimitOutput");
 }
 
 /**
@@ -522,8 +503,7 @@ export interface DescribeChapCredentialsInput {
 }
 
 export namespace DescribeChapCredentialsInput {
-  export const isa = (o: any): o is DescribeChapCredentialsInput =>
-    __isa(o, "DescribeChapCredentialsInput");
+  export const isa = (o: any): o is DescribeChapCredentialsInput => __isa(o, "DescribeChapCredentialsInput");
 }
 
 /**
@@ -569,8 +549,7 @@ export interface DescribeChapCredentialsOutput {
 }
 
 export namespace DescribeChapCredentialsOutput {
-  export const isa = (o: any): o is DescribeChapCredentialsOutput =>
-    __isa(o, "DescribeChapCredentialsOutput");
+  export const isa = (o: any): o is DescribeChapCredentialsOutput => __isa(o, "DescribeChapCredentialsOutput");
 }
 
 /**
@@ -586,8 +565,7 @@ export interface DescribeGatewayInformationInput {
 }
 
 export namespace DescribeGatewayInformationInput {
-  export const isa = (o: any): o is DescribeGatewayInformationInput =>
-    __isa(o, "DescribeGatewayInformationInput");
+  export const isa = (o: any): o is DescribeGatewayInformationInput => __isa(o, "DescribeGatewayInformationInput");
 }
 
 /**
@@ -603,8 +581,7 @@ export interface DescribeMaintenanceStartTimeInput {
 }
 
 export namespace DescribeMaintenanceStartTimeInput {
-  export const isa = (o: any): o is DescribeMaintenanceStartTimeInput =>
-    __isa(o, "DescribeMaintenanceStartTimeInput");
+  export const isa = (o: any): o is DescribeMaintenanceStartTimeInput => __isa(o, "DescribeMaintenanceStartTimeInput");
 }
 
 /**
@@ -620,8 +597,7 @@ export interface DescribeSnapshotScheduleInput {
 }
 
 export namespace DescribeSnapshotScheduleInput {
-  export const isa = (o: any): o is DescribeSnapshotScheduleInput =>
-    __isa(o, "DescribeSnapshotScheduleInput");
+  export const isa = (o: any): o is DescribeSnapshotScheduleInput => __isa(o, "DescribeSnapshotScheduleInput");
 }
 
 /**
@@ -637,8 +613,7 @@ export interface DescribeStorediSCSIVolumesInput {
 }
 
 export namespace DescribeStorediSCSIVolumesInput {
-  export const isa = (o: any): o is DescribeStorediSCSIVolumesInput =>
-    __isa(o, "DescribeStorediSCSIVolumesInput");
+  export const isa = (o: any): o is DescribeStorediSCSIVolumesInput => __isa(o, "DescribeStorediSCSIVolumesInput");
 }
 
 /**
@@ -654,8 +629,7 @@ export interface DescribeWorkingStorageInput {
 }
 
 export namespace DescribeWorkingStorageInput {
-  export const isa = (o: any): o is DescribeWorkingStorageInput =>
-    __isa(o, "DescribeWorkingStorageInput");
+  export const isa = (o: any): o is DescribeWorkingStorageInput => __isa(o, "DescribeWorkingStorageInput");
 }
 
 /**
@@ -691,8 +665,7 @@ export interface DescribeWorkingStorageOutput {
 }
 
 export namespace DescribeWorkingStorageOutput {
-  export const isa = (o: any): o is DescribeWorkingStorageOutput =>
-    __isa(o, "DescribeWorkingStorageOutput");
+  export const isa = (o: any): o is DescribeWorkingStorageOutput => __isa(o, "DescribeWorkingStorageOutput");
 }
 
 export type ErrorCode =
@@ -763,9 +736,7 @@ export type ErrorCode =
  * <p>An internal server error has occurred during the request. For more information, see
  *          the error and message fields.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -781,17 +752,14 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>An exception occurred because an invalid gateway request was issued to the service.
  *          For more information, see the error and message fields.</p>
  */
-export interface InvalidGatewayRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidGatewayRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidGatewayRequestException";
   $fault: "client";
   /**
@@ -807,8 +775,7 @@ export interface InvalidGatewayRequestException
 }
 
 export namespace InvalidGatewayRequestException {
-  export const isa = (o: any): o is InvalidGatewayRequestException =>
-    __isa(o, "InvalidGatewayRequestException");
+  export const isa = (o: any): o is InvalidGatewayRequestException => __isa(o, "InvalidGatewayRequestException");
 }
 
 /**
@@ -842,8 +809,7 @@ export interface ListGatewaysInput {
 }
 
 export namespace ListGatewaysInput {
-  export const isa = (o: any): o is ListGatewaysInput =>
-    __isa(o, "ListGatewaysInput");
+  export const isa = (o: any): o is ListGatewaysInput => __isa(o, "ListGatewaysInput");
 }
 
 /**
@@ -859,8 +825,7 @@ export interface ListLocalDisksInput {
 }
 
 export namespace ListLocalDisksInput {
-  export const isa = (o: any): o is ListLocalDisksInput =>
-    __isa(o, "ListLocalDisksInput");
+  export const isa = (o: any): o is ListLocalDisksInput => __isa(o, "ListLocalDisksInput");
 }
 
 /**
@@ -900,8 +865,7 @@ export interface ListVolumesInput {
 }
 
 export namespace ListVolumesInput {
-  export const isa = (o: any): o is ListVolumesInput =>
-    __isa(o, "ListVolumesInput");
+  export const isa = (o: any): o is ListVolumesInput => __isa(o, "ListVolumesInput");
 }
 
 /**
@@ -930,17 +894,14 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
-  export const isa = (o: any): o is NetworkInterface =>
-    __isa(o, "NetworkInterface");
+  export const isa = (o: any): o is NetworkInterface => __isa(o, "NetworkInterface");
 }
 
 /**
  * <p>An internal server error has occurred because the service is unavailable. For more
  *          information, see the error and message fields.</p>
  */
-export interface ServiceUnavailableError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableError extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableError";
   $fault: "server";
   /**
@@ -956,8 +917,7 @@ export interface ServiceUnavailableError
 }
 
 export namespace ServiceUnavailableError {
-  export const isa = (o: any): o is ServiceUnavailableError =>
-    __isa(o, "ServiceUnavailableError");
+  export const isa = (o: any): o is ServiceUnavailableError => __isa(o, "ServiceUnavailableError");
 }
 
 /**
@@ -973,8 +933,7 @@ export interface ShutdownGatewayInput {
 }
 
 export namespace ShutdownGatewayInput {
-  export const isa = (o: any): o is ShutdownGatewayInput =>
-    __isa(o, "ShutdownGatewayInput");
+  export const isa = (o: any): o is ShutdownGatewayInput => __isa(o, "ShutdownGatewayInput");
 }
 
 /**
@@ -990,8 +949,7 @@ export interface ShutdownGatewayOutput {
 }
 
 export namespace ShutdownGatewayOutput {
-  export const isa = (o: any): o is ShutdownGatewayOutput =>
-    __isa(o, "ShutdownGatewayOutput");
+  export const isa = (o: any): o is ShutdownGatewayOutput => __isa(o, "ShutdownGatewayOutput");
 }
 
 /**
@@ -1007,8 +965,7 @@ export interface StartGatewayInput {
 }
 
 export namespace StartGatewayInput {
-  export const isa = (o: any): o is StartGatewayInput =>
-    __isa(o, "StartGatewayInput");
+  export const isa = (o: any): o is StartGatewayInput => __isa(o, "StartGatewayInput");
 }
 
 /**
@@ -1024,8 +981,7 @@ export interface StartGatewayOutput {
 }
 
 export namespace StartGatewayOutput {
-  export const isa = (o: any): o is StartGatewayOutput =>
-    __isa(o, "StartGatewayOutput");
+  export const isa = (o: any): o is StartGatewayOutput => __isa(o, "StartGatewayOutput");
 }
 
 /**
@@ -1047,8 +1003,7 @@ export interface StorageGatewayError {
 }
 
 export namespace StorageGatewayError {
-  export const isa = (o: any): o is StorageGatewayError =>
-    __isa(o, "StorageGatewayError");
+  export const isa = (o: any): o is StorageGatewayError => __isa(o, "StorageGatewayError");
 }
 
 /**
@@ -1086,8 +1041,7 @@ export interface UpdateBandwidthRateLimitInput {
 }
 
 export namespace UpdateBandwidthRateLimitInput {
-  export const isa = (o: any): o is UpdateBandwidthRateLimitInput =>
-    __isa(o, "UpdateBandwidthRateLimitInput");
+  export const isa = (o: any): o is UpdateBandwidthRateLimitInput => __isa(o, "UpdateBandwidthRateLimitInput");
 }
 
 /**
@@ -1104,8 +1058,7 @@ export interface UpdateBandwidthRateLimitOutput {
 }
 
 export namespace UpdateBandwidthRateLimitOutput {
-  export const isa = (o: any): o is UpdateBandwidthRateLimitOutput =>
-    __isa(o, "UpdateBandwidthRateLimitOutput");
+  export const isa = (o: any): o is UpdateBandwidthRateLimitOutput => __isa(o, "UpdateBandwidthRateLimitOutput");
 }
 
 /**
@@ -1168,8 +1121,7 @@ export interface UpdateChapCredentialsInput {
 }
 
 export namespace UpdateChapCredentialsInput {
-  export const isa = (o: any): o is UpdateChapCredentialsInput =>
-    __isa(o, "UpdateChapCredentialsInput");
+  export const isa = (o: any): o is UpdateChapCredentialsInput => __isa(o, "UpdateChapCredentialsInput");
 }
 
 /**
@@ -1191,8 +1143,7 @@ export interface UpdateChapCredentialsOutput {
 }
 
 export namespace UpdateChapCredentialsOutput {
-  export const isa = (o: any): o is UpdateChapCredentialsOutput =>
-    __isa(o, "UpdateChapCredentialsOutput");
+  export const isa = (o: any): o is UpdateChapCredentialsOutput => __isa(o, "UpdateChapCredentialsOutput");
 }
 
 /**
@@ -1213,8 +1164,7 @@ export interface UpdateGatewayInformationOutput {
 }
 
 export namespace UpdateGatewayInformationOutput {
-  export const isa = (o: any): o is UpdateGatewayInformationOutput =>
-    __isa(o, "UpdateGatewayInformationOutput");
+  export const isa = (o: any): o is UpdateGatewayInformationOutput => __isa(o, "UpdateGatewayInformationOutput");
 }
 
 /**
@@ -1230,8 +1180,7 @@ export interface UpdateGatewaySoftwareNowInput {
 }
 
 export namespace UpdateGatewaySoftwareNowInput {
-  export const isa = (o: any): o is UpdateGatewaySoftwareNowInput =>
-    __isa(o, "UpdateGatewaySoftwareNowInput");
+  export const isa = (o: any): o is UpdateGatewaySoftwareNowInput => __isa(o, "UpdateGatewaySoftwareNowInput");
 }
 
 /**
@@ -1247,8 +1196,7 @@ export interface UpdateGatewaySoftwareNowOutput {
 }
 
 export namespace UpdateGatewaySoftwareNowOutput {
-  export const isa = (o: any): o is UpdateGatewaySoftwareNowOutput =>
-    __isa(o, "UpdateGatewaySoftwareNowOutput");
+  export const isa = (o: any): o is UpdateGatewaySoftwareNowOutput => __isa(o, "UpdateGatewaySoftwareNowOutput");
 }
 
 /**
@@ -1316,8 +1264,7 @@ export interface UpdateMaintenanceStartTimeInput {
 }
 
 export namespace UpdateMaintenanceStartTimeInput {
-  export const isa = (o: any): o is UpdateMaintenanceStartTimeInput =>
-    __isa(o, "UpdateMaintenanceStartTimeInput");
+  export const isa = (o: any): o is UpdateMaintenanceStartTimeInput => __isa(o, "UpdateMaintenanceStartTimeInput");
 }
 
 /**
@@ -1334,8 +1281,7 @@ export interface UpdateMaintenanceStartTimeOutput {
 }
 
 export namespace UpdateMaintenanceStartTimeOutput {
-  export const isa = (o: any): o is UpdateMaintenanceStartTimeOutput =>
-    __isa(o, "UpdateMaintenanceStartTimeOutput");
+  export const isa = (o: any): o is UpdateMaintenanceStartTimeOutput => __isa(o, "UpdateMaintenanceStartTimeOutput");
 }
 
 /**
@@ -1402,8 +1348,7 @@ export interface UpdateSnapshotScheduleInput {
 }
 
 export namespace UpdateSnapshotScheduleInput {
-  export const isa = (o: any): o is UpdateSnapshotScheduleInput =>
-    __isa(o, "UpdateSnapshotScheduleInput");
+  export const isa = (o: any): o is UpdateSnapshotScheduleInput => __isa(o, "UpdateSnapshotScheduleInput");
 }
 
 /**
@@ -1419,8 +1364,7 @@ export interface UpdateSnapshotScheduleOutput {
 }
 
 export namespace UpdateSnapshotScheduleOutput {
-  export const isa = (o: any): o is UpdateSnapshotScheduleOutput =>
-    __isa(o, "UpdateSnapshotScheduleOutput");
+  export const isa = (o: any): o is UpdateSnapshotScheduleOutput => __isa(o, "UpdateSnapshotScheduleOutput");
 }
 
 /**
@@ -1455,8 +1399,7 @@ export interface VolumeiSCSIAttributes {
 }
 
 export namespace VolumeiSCSIAttributes {
-  export const isa = (o: any): o is VolumeiSCSIAttributes =>
-    __isa(o, "VolumeiSCSIAttributes");
+  export const isa = (o: any): o is VolumeiSCSIAttributes => __isa(o, "VolumeiSCSIAttributes");
 }
 
 export interface AddCacheInput {
@@ -1489,8 +1432,7 @@ export interface AddCacheOutput {
 }
 
 export namespace AddCacheOutput {
-  export const isa = (o: any): o is AddCacheOutput =>
-    __isa(o, "AddCacheOutput");
+  export const isa = (o: any): o is AddCacheOutput => __isa(o, "AddCacheOutput");
 }
 
 export interface AddUploadBufferInput {
@@ -1510,8 +1452,7 @@ export interface AddUploadBufferInput {
 }
 
 export namespace AddUploadBufferInput {
-  export const isa = (o: any): o is AddUploadBufferInput =>
-    __isa(o, "AddUploadBufferInput");
+  export const isa = (o: any): o is AddUploadBufferInput => __isa(o, "AddUploadBufferInput");
 }
 
 export interface AddUploadBufferOutput {
@@ -1524,8 +1465,7 @@ export interface AddUploadBufferOutput {
 }
 
 export namespace AddUploadBufferOutput {
-  export const isa = (o: any): o is AddUploadBufferOutput =>
-    __isa(o, "AddUploadBufferOutput");
+  export const isa = (o: any): o is AddUploadBufferOutput => __isa(o, "AddUploadBufferOutput");
 }
 
 export interface CreateCachediSCSIVolumeInput {
@@ -1608,8 +1548,7 @@ export interface CreateCachediSCSIVolumeInput {
 }
 
 export namespace CreateCachediSCSIVolumeInput {
-  export const isa = (o: any): o is CreateCachediSCSIVolumeInput =>
-    __isa(o, "CreateCachediSCSIVolumeInput");
+  export const isa = (o: any): o is CreateCachediSCSIVolumeInput => __isa(o, "CreateCachediSCSIVolumeInput");
 }
 
 export interface CreateCachediSCSIVolumeOutput {
@@ -1627,8 +1566,7 @@ export interface CreateCachediSCSIVolumeOutput {
 }
 
 export namespace CreateCachediSCSIVolumeOutput {
-  export const isa = (o: any): o is CreateCachediSCSIVolumeOutput =>
-    __isa(o, "CreateCachediSCSIVolumeOutput");
+  export const isa = (o: any): o is CreateCachediSCSIVolumeOutput => __isa(o, "CreateCachediSCSIVolumeOutput");
 }
 
 export interface CreateSnapshotFromVolumeRecoveryPointOutput {
@@ -1651,9 +1589,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput {
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
-  export const isa = (
-    o: any
-  ): o is CreateSnapshotFromVolumeRecoveryPointOutput =>
+  export const isa = (o: any): o is CreateSnapshotFromVolumeRecoveryPointOutput =>
     __isa(o, "CreateSnapshotFromVolumeRecoveryPointOutput");
 }
 
@@ -1666,8 +1602,7 @@ export interface DeleteSnapshotScheduleInput {
 }
 
 export namespace DeleteSnapshotScheduleInput {
-  export const isa = (o: any): o is DeleteSnapshotScheduleInput =>
-    __isa(o, "DeleteSnapshotScheduleInput");
+  export const isa = (o: any): o is DeleteSnapshotScheduleInput => __isa(o, "DeleteSnapshotScheduleInput");
 }
 
 export interface DeleteSnapshotScheduleOutput {
@@ -1679,8 +1614,7 @@ export interface DeleteSnapshotScheduleOutput {
 }
 
 export namespace DeleteSnapshotScheduleOutput {
-  export const isa = (o: any): o is DeleteSnapshotScheduleOutput =>
-    __isa(o, "DeleteSnapshotScheduleOutput");
+  export const isa = (o: any): o is DeleteSnapshotScheduleOutput => __isa(o, "DeleteSnapshotScheduleOutput");
 }
 
 export interface DescribeCacheInput {
@@ -1693,8 +1627,7 @@ export interface DescribeCacheInput {
 }
 
 export namespace DescribeCacheInput {
-  export const isa = (o: any): o is DescribeCacheInput =>
-    __isa(o, "DescribeCacheInput");
+  export const isa = (o: any): o is DescribeCacheInput => __isa(o, "DescribeCacheInput");
 }
 
 export interface DescribeCacheOutput {
@@ -1743,8 +1676,7 @@ export interface DescribeCacheOutput {
 }
 
 export namespace DescribeCacheOutput {
-  export const isa = (o: any): o is DescribeCacheOutput =>
-    __isa(o, "DescribeCacheOutput");
+  export const isa = (o: any): o is DescribeCacheOutput => __isa(o, "DescribeCacheOutput");
 }
 
 export interface DescribeCachediSCSIVolumesInput {
@@ -1757,8 +1689,7 @@ export interface DescribeCachediSCSIVolumesInput {
 }
 
 export namespace DescribeCachediSCSIVolumesInput {
-  export const isa = (o: any): o is DescribeCachediSCSIVolumesInput =>
-    __isa(o, "DescribeCachediSCSIVolumesInput");
+  export const isa = (o: any): o is DescribeCachediSCSIVolumesInput => __isa(o, "DescribeCachediSCSIVolumesInput");
 }
 
 export interface DescribeUploadBufferInput {
@@ -1771,8 +1702,7 @@ export interface DescribeUploadBufferInput {
 }
 
 export namespace DescribeUploadBufferInput {
-  export const isa = (o: any): o is DescribeUploadBufferInput =>
-    __isa(o, "DescribeUploadBufferInput");
+  export const isa = (o: any): o is DescribeUploadBufferInput => __isa(o, "DescribeUploadBufferInput");
 }
 
 export interface DescribeUploadBufferOutput {
@@ -1803,8 +1733,7 @@ export interface DescribeUploadBufferOutput {
 }
 
 export namespace DescribeUploadBufferOutput {
-  export const isa = (o: any): o is DescribeUploadBufferOutput =>
-    __isa(o, "DescribeUploadBufferOutput");
+  export const isa = (o: any): o is DescribeUploadBufferOutput => __isa(o, "DescribeUploadBufferOutput");
 }
 
 export interface ListVolumeRecoveryPointsInput {
@@ -1817,8 +1746,7 @@ export interface ListVolumeRecoveryPointsInput {
 }
 
 export namespace ListVolumeRecoveryPointsInput {
-  export const isa = (o: any): o is ListVolumeRecoveryPointsInput =>
-    __isa(o, "ListVolumeRecoveryPointsInput");
+  export const isa = (o: any): o is ListVolumeRecoveryPointsInput => __isa(o, "ListVolumeRecoveryPointsInput");
 }
 
 export interface ListVolumeRecoveryPointsOutput {
@@ -1836,8 +1764,7 @@ export interface ListVolumeRecoveryPointsOutput {
 }
 
 export namespace ListVolumeRecoveryPointsOutput {
-  export const isa = (o: any): o is ListVolumeRecoveryPointsOutput =>
-    __isa(o, "ListVolumeRecoveryPointsOutput");
+  export const isa = (o: any): o is ListVolumeRecoveryPointsOutput => __isa(o, "ListVolumeRecoveryPointsOutput");
 }
 
 /**
@@ -1871,8 +1798,7 @@ export interface VolumeRecoveryPointInfo {
 }
 
 export namespace VolumeRecoveryPointInfo {
-  export const isa = (o: any): o is VolumeRecoveryPointInfo =>
-    __isa(o, "VolumeRecoveryPointInfo");
+  export const isa = (o: any): o is VolumeRecoveryPointInfo => __isa(o, "VolumeRecoveryPointInfo");
 }
 
 /**
@@ -1995,8 +1921,7 @@ export interface ActivateGatewayInput {
 }
 
 export namespace ActivateGatewayInput {
-  export const isa = (o: any): o is ActivateGatewayInput =>
-    __isa(o, "ActivateGatewayInput");
+  export const isa = (o: any): o is ActivateGatewayInput => __isa(o, "ActivateGatewayInput");
 }
 
 export type ActiveDirectoryStatus =
@@ -2032,8 +1957,7 @@ export interface AddTagsToResourceInput {
 }
 
 export namespace AddTagsToResourceInput {
-  export const isa = (o: any): o is AddTagsToResourceInput =>
-    __isa(o, "AddTagsToResourceInput");
+  export const isa = (o: any): o is AddTagsToResourceInput => __isa(o, "AddTagsToResourceInput");
 }
 
 /**
@@ -2048,8 +1972,7 @@ export interface AddTagsToResourceOutput {
 }
 
 export namespace AddTagsToResourceOutput {
-  export const isa = (o: any): o is AddTagsToResourceOutput =>
-    __isa(o, "AddTagsToResourceOutput");
+  export const isa = (o: any): o is AddTagsToResourceOutput => __isa(o, "AddTagsToResourceOutput");
 }
 
 export interface AssignTapePoolInput {
@@ -2069,8 +1992,7 @@ export interface AssignTapePoolInput {
 }
 
 export namespace AssignTapePoolInput {
-  export const isa = (o: any): o is AssignTapePoolInput =>
-    __isa(o, "AssignTapePoolInput");
+  export const isa = (o: any): o is AssignTapePoolInput => __isa(o, "AssignTapePoolInput");
 }
 
 export interface AssignTapePoolOutput {
@@ -2083,8 +2005,7 @@ export interface AssignTapePoolOutput {
 }
 
 export namespace AssignTapePoolOutput {
-  export const isa = (o: any): o is AssignTapePoolOutput =>
-    __isa(o, "AssignTapePoolOutput");
+  export const isa = (o: any): o is AssignTapePoolOutput => __isa(o, "AssignTapePoolOutput");
 }
 
 /**
@@ -2132,8 +2053,7 @@ export interface AttachVolumeInput {
 }
 
 export namespace AttachVolumeInput {
-  export const isa = (o: any): o is AttachVolumeInput =>
-    __isa(o, "AttachVolumeInput");
+  export const isa = (o: any): o is AttachVolumeInput => __isa(o, "AttachVolumeInput");
 }
 
 /**
@@ -2155,8 +2075,7 @@ export interface AttachVolumeOutput {
 }
 
 export namespace AttachVolumeOutput {
-  export const isa = (o: any): o is AttachVolumeOutput =>
-    __isa(o, "AttachVolumeOutput");
+  export const isa = (o: any): o is AttachVolumeOutput => __isa(o, "AttachVolumeOutput");
 }
 
 export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
@@ -2258,8 +2177,7 @@ export interface CachediSCSIVolume {
 }
 
 export namespace CachediSCSIVolume {
-  export const isa = (o: any): o is CachediSCSIVolume =>
-    __isa(o, "CachediSCSIVolume");
+  export const isa = (o: any): o is CachediSCSIVolume => __isa(o, "CachediSCSIVolume");
 }
 
 /**
@@ -2281,8 +2199,7 @@ export interface CancelArchivalInput {
 }
 
 export namespace CancelArchivalInput {
-  export const isa = (o: any): o is CancelArchivalInput =>
-    __isa(o, "CancelArchivalInput");
+  export const isa = (o: any): o is CancelArchivalInput => __isa(o, "CancelArchivalInput");
 }
 
 /**
@@ -2298,8 +2215,7 @@ export interface CancelArchivalOutput {
 }
 
 export namespace CancelArchivalOutput {
-  export const isa = (o: any): o is CancelArchivalOutput =>
-    __isa(o, "CancelArchivalOutput");
+  export const isa = (o: any): o is CancelArchivalOutput => __isa(o, "CancelArchivalOutput");
 }
 
 /**
@@ -2321,8 +2237,7 @@ export interface CancelRetrievalInput {
 }
 
 export namespace CancelRetrievalInput {
-  export const isa = (o: any): o is CancelRetrievalInput =>
-    __isa(o, "CancelRetrievalInput");
+  export const isa = (o: any): o is CancelRetrievalInput => __isa(o, "CancelRetrievalInput");
 }
 
 /**
@@ -2338,8 +2253,7 @@ export interface CancelRetrievalOutput {
 }
 
 export namespace CancelRetrievalOutput {
-  export const isa = (o: any): o is CancelRetrievalOutput =>
-    __isa(o, "CancelRetrievalOutput");
+  export const isa = (o: any): o is CancelRetrievalOutput => __isa(o, "CancelRetrievalOutput");
 }
 
 /**
@@ -2464,8 +2378,7 @@ export interface CreateNFSFileShareInput {
 }
 
 export namespace CreateNFSFileShareInput {
-  export const isa = (o: any): o is CreateNFSFileShareInput =>
-    __isa(o, "CreateNFSFileShareInput");
+  export const isa = (o: any): o is CreateNFSFileShareInput => __isa(o, "CreateNFSFileShareInput");
 }
 
 /**
@@ -2480,8 +2393,7 @@ export interface CreateNFSFileShareOutput {
 }
 
 export namespace CreateNFSFileShareOutput {
-  export const isa = (o: any): o is CreateNFSFileShareOutput =>
-    __isa(o, "CreateNFSFileShareOutput");
+  export const isa = (o: any): o is CreateNFSFileShareOutput => __isa(o, "CreateNFSFileShareOutput");
 }
 
 /**
@@ -2619,8 +2531,7 @@ export interface CreateSMBFileShareInput {
 }
 
 export namespace CreateSMBFileShareInput {
-  export const isa = (o: any): o is CreateSMBFileShareInput =>
-    __isa(o, "CreateSMBFileShareInput");
+  export const isa = (o: any): o is CreateSMBFileShareInput => __isa(o, "CreateSMBFileShareInput");
 }
 
 /**
@@ -2635,8 +2546,7 @@ export interface CreateSMBFileShareOutput {
 }
 
 export namespace CreateSMBFileShareOutput {
-  export const isa = (o: any): o is CreateSMBFileShareOutput =>
-    __isa(o, "CreateSMBFileShareOutput");
+  export const isa = (o: any): o is CreateSMBFileShareOutput => __isa(o, "CreateSMBFileShareOutput");
 }
 
 export interface CreateSnapshotFromVolumeRecoveryPointInput {
@@ -2668,9 +2578,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointInput {
-  export const isa = (
-    o: any
-  ): o is CreateSnapshotFromVolumeRecoveryPointInput =>
+  export const isa = (o: any): o is CreateSnapshotFromVolumeRecoveryPointInput =>
     __isa(o, "CreateSnapshotFromVolumeRecoveryPointInput");
 }
 
@@ -2736,8 +2644,7 @@ export interface CreateTapeWithBarcodeInput {
 }
 
 export namespace CreateTapeWithBarcodeInput {
-  export const isa = (o: any): o is CreateTapeWithBarcodeInput =>
-    __isa(o, "CreateTapeWithBarcodeInput");
+  export const isa = (o: any): o is CreateTapeWithBarcodeInput => __isa(o, "CreateTapeWithBarcodeInput");
 }
 
 /**
@@ -2753,8 +2660,7 @@ export interface CreateTapeWithBarcodeOutput {
 }
 
 export namespace CreateTapeWithBarcodeOutput {
-  export const isa = (o: any): o is CreateTapeWithBarcodeOutput =>
-    __isa(o, "CreateTapeWithBarcodeOutput");
+  export const isa = (o: any): o is CreateTapeWithBarcodeOutput => __isa(o, "CreateTapeWithBarcodeOutput");
 }
 
 /**
@@ -2835,8 +2741,7 @@ export interface CreateTapesInput {
 }
 
 export namespace CreateTapesInput {
-  export const isa = (o: any): o is CreateTapesInput =>
-    __isa(o, "CreateTapesInput");
+  export const isa = (o: any): o is CreateTapesInput => __isa(o, "CreateTapesInput");
 }
 
 /**
@@ -2852,8 +2757,7 @@ export interface CreateTapesOutput {
 }
 
 export namespace CreateTapesOutput {
-  export const isa = (o: any): o is CreateTapesOutput =>
-    __isa(o, "CreateTapesOutput");
+  export const isa = (o: any): o is CreateTapesOutput => __isa(o, "CreateTapesOutput");
 }
 
 /**
@@ -2883,8 +2787,7 @@ export interface DeleteBandwidthRateLimitInput {
 }
 
 export namespace DeleteBandwidthRateLimitInput {
-  export const isa = (o: any): o is DeleteBandwidthRateLimitInput =>
-    __isa(o, "DeleteBandwidthRateLimitInput");
+  export const isa = (o: any): o is DeleteBandwidthRateLimitInput => __isa(o, "DeleteBandwidthRateLimitInput");
 }
 
 /**
@@ -2907,8 +2810,7 @@ export interface DeleteFileShareInput {
 }
 
 export namespace DeleteFileShareInput {
-  export const isa = (o: any): o is DeleteFileShareInput =>
-    __isa(o, "DeleteFileShareInput");
+  export const isa = (o: any): o is DeleteFileShareInput => __isa(o, "DeleteFileShareInput");
 }
 
 /**
@@ -2923,8 +2825,7 @@ export interface DeleteFileShareOutput {
 }
 
 export namespace DeleteFileShareOutput {
-  export const isa = (o: any): o is DeleteFileShareOutput =>
-    __isa(o, "DeleteFileShareOutput");
+  export const isa = (o: any): o is DeleteFileShareOutput => __isa(o, "DeleteFileShareOutput");
 }
 
 /**
@@ -2940,8 +2841,7 @@ export interface DeleteTapeArchiveInput {
 }
 
 export namespace DeleteTapeArchiveInput {
-  export const isa = (o: any): o is DeleteTapeArchiveInput =>
-    __isa(o, "DeleteTapeArchiveInput");
+  export const isa = (o: any): o is DeleteTapeArchiveInput => __isa(o, "DeleteTapeArchiveInput");
 }
 
 /**
@@ -2957,8 +2857,7 @@ export interface DeleteTapeArchiveOutput {
 }
 
 export namespace DeleteTapeArchiveOutput {
-  export const isa = (o: any): o is DeleteTapeArchiveOutput =>
-    __isa(o, "DeleteTapeArchiveOutput");
+  export const isa = (o: any): o is DeleteTapeArchiveOutput => __isa(o, "DeleteTapeArchiveOutput");
 }
 
 /**
@@ -2980,8 +2879,7 @@ export interface DeleteTapeInput {
 }
 
 export namespace DeleteTapeInput {
-  export const isa = (o: any): o is DeleteTapeInput =>
-    __isa(o, "DeleteTapeInput");
+  export const isa = (o: any): o is DeleteTapeInput => __isa(o, "DeleteTapeInput");
 }
 
 /**
@@ -2996,8 +2894,7 @@ export interface DeleteTapeOutput {
 }
 
 export namespace DeleteTapeOutput {
-  export const isa = (o: any): o is DeleteTapeOutput =>
-    __isa(o, "DeleteTapeOutput");
+  export const isa = (o: any): o is DeleteTapeOutput => __isa(o, "DeleteTapeOutput");
 }
 
 export interface DescribeAvailabilityMonitorTestInput {
@@ -3053,8 +2950,7 @@ export interface DescribeCachediSCSIVolumesOutput {
 }
 
 export namespace DescribeCachediSCSIVolumesOutput {
-  export const isa = (o: any): o is DescribeCachediSCSIVolumesOutput =>
-    __isa(o, "DescribeCachediSCSIVolumesOutput");
+  export const isa = (o: any): o is DescribeCachediSCSIVolumesOutput => __isa(o, "DescribeCachediSCSIVolumesOutput");
 }
 
 /**
@@ -3149,8 +3045,7 @@ export interface DescribeGatewayInformationOutput {
 }
 
 export namespace DescribeGatewayInformationOutput {
-  export const isa = (o: any): o is DescribeGatewayInformationOutput =>
-    __isa(o, "DescribeGatewayInformationOutput");
+  export const isa = (o: any): o is DescribeGatewayInformationOutput => __isa(o, "DescribeGatewayInformationOutput");
 }
 
 /**
@@ -3247,8 +3142,7 @@ export interface DescribeNFSFileSharesInput {
 }
 
 export namespace DescribeNFSFileSharesInput {
-  export const isa = (o: any): o is DescribeNFSFileSharesInput =>
-    __isa(o, "DescribeNFSFileSharesInput");
+  export const isa = (o: any): o is DescribeNFSFileSharesInput => __isa(o, "DescribeNFSFileSharesInput");
 }
 
 /**
@@ -3263,8 +3157,7 @@ export interface DescribeNFSFileSharesOutput {
 }
 
 export namespace DescribeNFSFileSharesOutput {
-  export const isa = (o: any): o is DescribeNFSFileSharesOutput =>
-    __isa(o, "DescribeNFSFileSharesOutput");
+  export const isa = (o: any): o is DescribeNFSFileSharesOutput => __isa(o, "DescribeNFSFileSharesOutput");
 }
 
 /**
@@ -3280,8 +3173,7 @@ export interface DescribeSMBFileSharesInput {
 }
 
 export namespace DescribeSMBFileSharesInput {
-  export const isa = (o: any): o is DescribeSMBFileSharesInput =>
-    __isa(o, "DescribeSMBFileSharesInput");
+  export const isa = (o: any): o is DescribeSMBFileSharesInput => __isa(o, "DescribeSMBFileSharesInput");
 }
 
 /**
@@ -3296,8 +3188,7 @@ export interface DescribeSMBFileSharesOutput {
 }
 
 export namespace DescribeSMBFileSharesOutput {
-  export const isa = (o: any): o is DescribeSMBFileSharesOutput =>
-    __isa(o, "DescribeSMBFileSharesOutput");
+  export const isa = (o: any): o is DescribeSMBFileSharesOutput => __isa(o, "DescribeSMBFileSharesOutput");
 }
 
 export interface DescribeSMBSettingsInput {
@@ -3310,8 +3201,7 @@ export interface DescribeSMBSettingsInput {
 }
 
 export namespace DescribeSMBSettingsInput {
-  export const isa = (o: any): o is DescribeSMBSettingsInput =>
-    __isa(o, "DescribeSMBSettingsInput");
+  export const isa = (o: any): o is DescribeSMBSettingsInput => __isa(o, "DescribeSMBSettingsInput");
 }
 
 export interface DescribeSMBSettingsOutput {
@@ -3383,8 +3273,7 @@ export interface DescribeSMBSettingsOutput {
 }
 
 export namespace DescribeSMBSettingsOutput {
-  export const isa = (o: any): o is DescribeSMBSettingsOutput =>
-    __isa(o, "DescribeSMBSettingsOutput");
+  export const isa = (o: any): o is DescribeSMBSettingsOutput => __isa(o, "DescribeSMBSettingsOutput");
 }
 
 export interface DescribeSnapshotScheduleOutput {
@@ -3426,8 +3315,7 @@ export interface DescribeSnapshotScheduleOutput {
 }
 
 export namespace DescribeSnapshotScheduleOutput {
-  export const isa = (o: any): o is DescribeSnapshotScheduleOutput =>
-    __isa(o, "DescribeSnapshotScheduleOutput");
+  export const isa = (o: any): o is DescribeSnapshotScheduleOutput => __isa(o, "DescribeSnapshotScheduleOutput");
 }
 
 export interface DescribeStorediSCSIVolumesOutput {
@@ -3540,8 +3428,7 @@ export interface DescribeStorediSCSIVolumesOutput {
 }
 
 export namespace DescribeStorediSCSIVolumesOutput {
-  export const isa = (o: any): o is DescribeStorediSCSIVolumesOutput =>
-    __isa(o, "DescribeStorediSCSIVolumesOutput");
+  export const isa = (o: any): o is DescribeStorediSCSIVolumesOutput => __isa(o, "DescribeStorediSCSIVolumesOutput");
 }
 
 /**
@@ -3569,8 +3456,7 @@ export interface DescribeTapeArchivesInput {
 }
 
 export namespace DescribeTapeArchivesInput {
-  export const isa = (o: any): o is DescribeTapeArchivesInput =>
-    __isa(o, "DescribeTapeArchivesInput");
+  export const isa = (o: any): o is DescribeTapeArchivesInput => __isa(o, "DescribeTapeArchivesInput");
 }
 
 /**
@@ -3596,8 +3482,7 @@ export interface DescribeTapeArchivesOutput {
 }
 
 export namespace DescribeTapeArchivesOutput {
-  export const isa = (o: any): o is DescribeTapeArchivesOutput =>
-    __isa(o, "DescribeTapeArchivesOutput");
+  export const isa = (o: any): o is DescribeTapeArchivesOutput => __isa(o, "DescribeTapeArchivesOutput");
 }
 
 /**
@@ -3625,8 +3510,7 @@ export interface DescribeTapeRecoveryPointsInput {
 }
 
 export namespace DescribeTapeRecoveryPointsInput {
-  export const isa = (o: any): o is DescribeTapeRecoveryPointsInput =>
-    __isa(o, "DescribeTapeRecoveryPointsInput");
+  export const isa = (o: any): o is DescribeTapeRecoveryPointsInput => __isa(o, "DescribeTapeRecoveryPointsInput");
 }
 
 /**
@@ -3657,8 +3541,7 @@ export interface DescribeTapeRecoveryPointsOutput {
 }
 
 export namespace DescribeTapeRecoveryPointsOutput {
-  export const isa = (o: any): o is DescribeTapeRecoveryPointsOutput =>
-    __isa(o, "DescribeTapeRecoveryPointsOutput");
+  export const isa = (o: any): o is DescribeTapeRecoveryPointsOutput => __isa(o, "DescribeTapeRecoveryPointsOutput");
 }
 
 /**
@@ -3697,8 +3580,7 @@ export interface DescribeTapesInput {
 }
 
 export namespace DescribeTapesInput {
-  export const isa = (o: any): o is DescribeTapesInput =>
-    __isa(o, "DescribeTapesInput");
+  export const isa = (o: any): o is DescribeTapesInput => __isa(o, "DescribeTapesInput");
 }
 
 /**
@@ -3721,8 +3603,7 @@ export interface DescribeTapesOutput {
 }
 
 export namespace DescribeTapesOutput {
-  export const isa = (o: any): o is DescribeTapesOutput =>
-    __isa(o, "DescribeTapesOutput");
+  export const isa = (o: any): o is DescribeTapesOutput => __isa(o, "DescribeTapesOutput");
 }
 
 /**
@@ -3760,8 +3641,7 @@ export interface DescribeVTLDevicesInput {
 }
 
 export namespace DescribeVTLDevicesInput {
-  export const isa = (o: any): o is DescribeVTLDevicesInput =>
-    __isa(o, "DescribeVTLDevicesInput");
+  export const isa = (o: any): o is DescribeVTLDevicesInput => __isa(o, "DescribeVTLDevicesInput");
 }
 
 /**
@@ -3791,8 +3671,7 @@ export interface DescribeVTLDevicesOutput {
 }
 
 export namespace DescribeVTLDevicesOutput {
-  export const isa = (o: any): o is DescribeVTLDevicesOutput =>
-    __isa(o, "DescribeVTLDevicesOutput");
+  export const isa = (o: any): o is DescribeVTLDevicesOutput => __isa(o, "DescribeVTLDevicesOutput");
 }
 
 /**
@@ -3815,8 +3694,7 @@ export interface DetachVolumeInput {
 }
 
 export namespace DetachVolumeInput {
-  export const isa = (o: any): o is DetachVolumeInput =>
-    __isa(o, "DetachVolumeInput");
+  export const isa = (o: any): o is DetachVolumeInput => __isa(o, "DetachVolumeInput");
 }
 
 /**
@@ -3831,8 +3709,7 @@ export interface DetachVolumeOutput {
 }
 
 export namespace DetachVolumeOutput {
-  export const isa = (o: any): o is DetachVolumeOutput =>
-    __isa(o, "DetachVolumeOutput");
+  export const isa = (o: any): o is DetachVolumeOutput => __isa(o, "DetachVolumeOutput");
 }
 
 /**
@@ -3863,8 +3740,7 @@ export interface DeviceiSCSIAttributes {
 }
 
 export namespace DeviceiSCSIAttributes {
-  export const isa = (o: any): o is DeviceiSCSIAttributes =>
-    __isa(o, "DeviceiSCSIAttributes");
+  export const isa = (o: any): o is DeviceiSCSIAttributes => __isa(o, "DeviceiSCSIAttributes");
 }
 
 /**
@@ -3880,8 +3756,7 @@ export interface DisableGatewayInput {
 }
 
 export namespace DisableGatewayInput {
-  export const isa = (o: any): o is DisableGatewayInput =>
-    __isa(o, "DisableGatewayInput");
+  export const isa = (o: any): o is DisableGatewayInput => __isa(o, "DisableGatewayInput");
 }
 
 /**
@@ -3896,8 +3771,7 @@ export interface DisableGatewayOutput {
 }
 
 export namespace DisableGatewayOutput {
-  export const isa = (o: any): o is DisableGatewayOutput =>
-    __isa(o, "DisableGatewayOutput");
+  export const isa = (o: any): o is DisableGatewayOutput => __isa(o, "DisableGatewayOutput");
 }
 
 /**
@@ -4098,8 +3972,7 @@ export interface JoinDomainInput {
 }
 
 export namespace JoinDomainInput {
-  export const isa = (o: any): o is JoinDomainInput =>
-    __isa(o, "JoinDomainInput");
+  export const isa = (o: any): o is JoinDomainInput => __isa(o, "JoinDomainInput");
 }
 
 /**
@@ -4147,8 +4020,7 @@ export interface JoinDomainOutput {
 }
 
 export namespace JoinDomainOutput {
-  export const isa = (o: any): o is JoinDomainOutput =>
-    __isa(o, "JoinDomainOutput");
+  export const isa = (o: any): o is JoinDomainOutput => __isa(o, "JoinDomainOutput");
 }
 
 /**
@@ -4177,8 +4049,7 @@ export interface ListFileSharesInput {
 }
 
 export namespace ListFileSharesInput {
-  export const isa = (o: any): o is ListFileSharesInput =>
-    __isa(o, "ListFileSharesInput");
+  export const isa = (o: any): o is ListFileSharesInput => __isa(o, "ListFileSharesInput");
 }
 
 /**
@@ -4206,8 +4077,7 @@ export interface ListFileSharesOutput {
 }
 
 export namespace ListFileSharesOutput {
-  export const isa = (o: any): o is ListFileSharesOutput =>
-    __isa(o, "ListFileSharesOutput");
+  export const isa = (o: any): o is ListFileSharesOutput => __isa(o, "ListFileSharesOutput");
 }
 
 export interface ListGatewaysOutput {
@@ -4225,8 +4095,7 @@ export interface ListGatewaysOutput {
 }
 
 export namespace ListGatewaysOutput {
-  export const isa = (o: any): o is ListGatewaysOutput =>
-    __isa(o, "ListGatewaysOutput");
+  export const isa = (o: any): o is ListGatewaysOutput => __isa(o, "ListGatewaysOutput");
 }
 
 export interface ListLocalDisksOutput {
@@ -4251,8 +4120,7 @@ export interface ListLocalDisksOutput {
 }
 
 export namespace ListLocalDisksOutput {
-  export const isa = (o: any): o is ListLocalDisksOutput =>
-    __isa(o, "ListLocalDisksOutput");
+  export const isa = (o: any): o is ListLocalDisksOutput => __isa(o, "ListLocalDisksOutput");
 }
 
 /**
@@ -4280,8 +4148,7 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
-  export const isa = (o: any): o is ListTagsForResourceInput =>
-    __isa(o, "ListTagsForResourceInput");
+  export const isa = (o: any): o is ListTagsForResourceInput => __isa(o, "ListTagsForResourceInput");
 }
 
 /**
@@ -4308,8 +4175,7 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
-  export const isa = (o: any): o is ListTagsForResourceOutput =>
-    __isa(o, "ListTagsForResourceOutput");
+  export const isa = (o: any): o is ListTagsForResourceOutput => __isa(o, "ListTagsForResourceOutput");
 }
 
 /**
@@ -4353,8 +4219,7 @@ export interface ListTapesInput {
 }
 
 export namespace ListTapesInput {
-  export const isa = (o: any): o is ListTapesInput =>
-    __isa(o, "ListTapesInput");
+  export const isa = (o: any): o is ListTapesInput => __isa(o, "ListTapesInput");
 }
 
 /**
@@ -4390,8 +4255,7 @@ export interface ListTapesOutput {
 }
 
 export namespace ListTapesOutput {
-  export const isa = (o: any): o is ListTapesOutput =>
-    __isa(o, "ListTapesOutput");
+  export const isa = (o: any): o is ListTapesOutput => __isa(o, "ListTapesOutput");
 }
 
 /**
@@ -4407,8 +4271,7 @@ export interface ListVolumeInitiatorsInput {
 }
 
 export namespace ListVolumeInitiatorsInput {
-  export const isa = (o: any): o is ListVolumeInitiatorsInput =>
-    __isa(o, "ListVolumeInitiatorsInput");
+  export const isa = (o: any): o is ListVolumeInitiatorsInput => __isa(o, "ListVolumeInitiatorsInput");
 }
 
 /**
@@ -4424,8 +4287,7 @@ export interface ListVolumeInitiatorsOutput {
 }
 
 export namespace ListVolumeInitiatorsOutput {
-  export const isa = (o: any): o is ListVolumeInitiatorsOutput =>
-    __isa(o, "ListVolumeInitiatorsOutput");
+  export const isa = (o: any): o is ListVolumeInitiatorsOutput => __isa(o, "ListVolumeInitiatorsOutput");
 }
 
 /**
@@ -4466,8 +4328,7 @@ export interface ListVolumesOutput {
 }
 
 export namespace ListVolumesOutput {
-  export const isa = (o: any): o is ListVolumesOutput =>
-    __isa(o, "ListVolumesOutput");
+  export const isa = (o: any): o is ListVolumesOutput => __isa(o, "ListVolumesOutput");
 }
 
 /**
@@ -4506,8 +4367,7 @@ export interface NFSFileShareDefaults {
 }
 
 export namespace NFSFileShareDefaults {
-  export const isa = (o: any): o is NFSFileShareDefaults =>
-    __isa(o, "NFSFileShareDefaults");
+  export const isa = (o: any): o is NFSFileShareDefaults => __isa(o, "NFSFileShareDefaults");
 }
 
 /**
@@ -4650,8 +4510,7 @@ export interface NFSFileShareInfo {
 }
 
 export namespace NFSFileShareInfo {
-  export const isa = (o: any): o is NFSFileShareInfo =>
-    __isa(o, "NFSFileShareInfo");
+  export const isa = (o: any): o is NFSFileShareInfo => __isa(o, "NFSFileShareInfo");
 }
 
 export interface NotifyWhenUploadedInput {
@@ -4663,8 +4522,7 @@ export interface NotifyWhenUploadedInput {
 }
 
 export namespace NotifyWhenUploadedInput {
-  export const isa = (o: any): o is NotifyWhenUploadedInput =>
-    __isa(o, "NotifyWhenUploadedInput");
+  export const isa = (o: any): o is NotifyWhenUploadedInput => __isa(o, "NotifyWhenUploadedInput");
 }
 
 export interface NotifyWhenUploadedOutput {
@@ -4682,8 +4540,7 @@ export interface NotifyWhenUploadedOutput {
 }
 
 export namespace NotifyWhenUploadedOutput {
-  export const isa = (o: any): o is NotifyWhenUploadedOutput =>
-    __isa(o, "NotifyWhenUploadedOutput");
+  export const isa = (o: any): o is NotifyWhenUploadedOutput => __isa(o, "NotifyWhenUploadedOutput");
 }
 
 export type ObjectACL =
@@ -4726,8 +4583,7 @@ export interface RefreshCacheInput {
 }
 
 export namespace RefreshCacheInput {
-  export const isa = (o: any): o is RefreshCacheInput =>
-    __isa(o, "RefreshCacheInput");
+  export const isa = (o: any): o is RefreshCacheInput => __isa(o, "RefreshCacheInput");
 }
 
 /**
@@ -4748,8 +4604,7 @@ export interface RefreshCacheOutput {
 }
 
 export namespace RefreshCacheOutput {
-  export const isa = (o: any): o is RefreshCacheOutput =>
-    __isa(o, "RefreshCacheOutput");
+  export const isa = (o: any): o is RefreshCacheOutput => __isa(o, "RefreshCacheOutput");
 }
 
 /**
@@ -4771,8 +4626,7 @@ export interface RemoveTagsFromResourceInput {
 }
 
 export namespace RemoveTagsFromResourceInput {
-  export const isa = (o: any): o is RemoveTagsFromResourceInput =>
-    __isa(o, "RemoveTagsFromResourceInput");
+  export const isa = (o: any): o is RemoveTagsFromResourceInput => __isa(o, "RemoveTagsFromResourceInput");
 }
 
 /**
@@ -4788,8 +4642,7 @@ export interface RemoveTagsFromResourceOutput {
 }
 
 export namespace RemoveTagsFromResourceOutput {
-  export const isa = (o: any): o is RemoveTagsFromResourceOutput =>
-    __isa(o, "RemoveTagsFromResourceOutput");
+  export const isa = (o: any): o is RemoveTagsFromResourceOutput => __isa(o, "RemoveTagsFromResourceOutput");
 }
 
 export interface ResetCacheInput {
@@ -4802,8 +4655,7 @@ export interface ResetCacheInput {
 }
 
 export namespace ResetCacheInput {
-  export const isa = (o: any): o is ResetCacheInput =>
-    __isa(o, "ResetCacheInput");
+  export const isa = (o: any): o is ResetCacheInput => __isa(o, "ResetCacheInput");
 }
 
 export interface ResetCacheOutput {
@@ -4816,8 +4668,7 @@ export interface ResetCacheOutput {
 }
 
 export namespace ResetCacheOutput {
-  export const isa = (o: any): o is ResetCacheOutput =>
-    __isa(o, "ResetCacheOutput");
+  export const isa = (o: any): o is ResetCacheOutput => __isa(o, "ResetCacheOutput");
 }
 
 /**
@@ -4842,8 +4693,7 @@ export interface RetrieveTapeArchiveInput {
 }
 
 export namespace RetrieveTapeArchiveInput {
-  export const isa = (o: any): o is RetrieveTapeArchiveInput =>
-    __isa(o, "RetrieveTapeArchiveInput");
+  export const isa = (o: any): o is RetrieveTapeArchiveInput => __isa(o, "RetrieveTapeArchiveInput");
 }
 
 /**
@@ -4858,8 +4708,7 @@ export interface RetrieveTapeArchiveOutput {
 }
 
 export namespace RetrieveTapeArchiveOutput {
-  export const isa = (o: any): o is RetrieveTapeArchiveOutput =>
-    __isa(o, "RetrieveTapeArchiveOutput");
+  export const isa = (o: any): o is RetrieveTapeArchiveOutput => __isa(o, "RetrieveTapeArchiveOutput");
 }
 
 /**
@@ -4881,8 +4730,7 @@ export interface RetrieveTapeRecoveryPointInput {
 }
 
 export namespace RetrieveTapeRecoveryPointInput {
-  export const isa = (o: any): o is RetrieveTapeRecoveryPointInput =>
-    __isa(o, "RetrieveTapeRecoveryPointInput");
+  export const isa = (o: any): o is RetrieveTapeRecoveryPointInput => __isa(o, "RetrieveTapeRecoveryPointInput");
 }
 
 /**
@@ -4898,8 +4746,7 @@ export interface RetrieveTapeRecoveryPointOutput {
 }
 
 export namespace RetrieveTapeRecoveryPointOutput {
-  export const isa = (o: any): o is RetrieveTapeRecoveryPointOutput =>
-    __isa(o, "RetrieveTapeRecoveryPointOutput");
+  export const isa = (o: any): o is RetrieveTapeRecoveryPointOutput => __isa(o, "RetrieveTapeRecoveryPointOutput");
 }
 
 /**
@@ -5048,14 +4895,10 @@ export interface SMBFileShareInfo {
 }
 
 export namespace SMBFileShareInfo {
-  export const isa = (o: any): o is SMBFileShareInfo =>
-    __isa(o, "SMBFileShareInfo");
+  export const isa = (o: any): o is SMBFileShareInfo => __isa(o, "SMBFileShareInfo");
 }
 
-export type SMBSecurityStrategy =
-  | "ClientSpecified"
-  | "MandatoryEncryption"
-  | "MandatorySigning";
+export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "MandatorySigning";
 
 /**
  * <p>SetLocalConsolePasswordInput</p>
@@ -5075,8 +4918,7 @@ export interface SetLocalConsolePasswordInput {
 }
 
 export namespace SetLocalConsolePasswordInput {
-  export const isa = (o: any): o is SetLocalConsolePasswordInput =>
-    __isa(o, "SetLocalConsolePasswordInput");
+  export const isa = (o: any): o is SetLocalConsolePasswordInput => __isa(o, "SetLocalConsolePasswordInput");
 }
 
 export interface SetLocalConsolePasswordOutput {
@@ -5089,8 +4931,7 @@ export interface SetLocalConsolePasswordOutput {
 }
 
 export namespace SetLocalConsolePasswordOutput {
-  export const isa = (o: any): o is SetLocalConsolePasswordOutput =>
-    __isa(o, "SetLocalConsolePasswordOutput");
+  export const isa = (o: any): o is SetLocalConsolePasswordOutput => __isa(o, "SetLocalConsolePasswordOutput");
 }
 
 /**
@@ -5111,8 +4952,7 @@ export interface SetSMBGuestPasswordInput {
 }
 
 export namespace SetSMBGuestPasswordInput {
-  export const isa = (o: any): o is SetSMBGuestPasswordInput =>
-    __isa(o, "SetSMBGuestPasswordInput");
+  export const isa = (o: any): o is SetSMBGuestPasswordInput => __isa(o, "SetSMBGuestPasswordInput");
 }
 
 export interface SetSMBGuestPasswordOutput {
@@ -5125,8 +4965,7 @@ export interface SetSMBGuestPasswordOutput {
 }
 
 export namespace SetSMBGuestPasswordOutput {
-  export const isa = (o: any): o is SetSMBGuestPasswordOutput =>
-    __isa(o, "SetSMBGuestPasswordOutput");
+  export const isa = (o: any): o is SetSMBGuestPasswordOutput => __isa(o, "SetSMBGuestPasswordOutput");
 }
 
 export interface StartAvailabilityMonitorTestInput {
@@ -5139,8 +4978,7 @@ export interface StartAvailabilityMonitorTestInput {
 }
 
 export namespace StartAvailabilityMonitorTestInput {
-  export const isa = (o: any): o is StartAvailabilityMonitorTestInput =>
-    __isa(o, "StartAvailabilityMonitorTestInput");
+  export const isa = (o: any): o is StartAvailabilityMonitorTestInput => __isa(o, "StartAvailabilityMonitorTestInput");
 }
 
 export interface StartAvailabilityMonitorTestOutput {
@@ -5264,8 +5102,7 @@ export interface StorediSCSIVolume {
 }
 
 export namespace StorediSCSIVolume {
-  export const isa = (o: any): o is StorediSCSIVolume =>
-    __isa(o, "StorediSCSIVolume");
+  export const isa = (o: any): o is StorediSCSIVolume => __isa(o, "StorediSCSIVolume");
 }
 
 /**
@@ -5502,8 +5339,7 @@ export interface TapeRecoveryPointInfo {
 }
 
 export namespace TapeRecoveryPointInfo {
-  export const isa = (o: any): o is TapeRecoveryPointInfo =>
-    __isa(o, "TapeRecoveryPointInfo");
+  export const isa = (o: any): o is TapeRecoveryPointInfo => __isa(o, "TapeRecoveryPointInfo");
 }
 
 export interface UpdateGatewayInformationInput {
@@ -5532,8 +5368,7 @@ export interface UpdateGatewayInformationInput {
 }
 
 export namespace UpdateGatewayInformationInput {
-  export const isa = (o: any): o is UpdateGatewayInformationInput =>
-    __isa(o, "UpdateGatewayInformationInput");
+  export const isa = (o: any): o is UpdateGatewayInformationInput => __isa(o, "UpdateGatewayInformationInput");
 }
 
 /**
@@ -5629,8 +5464,7 @@ export interface UpdateNFSFileShareInput {
 }
 
 export namespace UpdateNFSFileShareInput {
-  export const isa = (o: any): o is UpdateNFSFileShareInput =>
-    __isa(o, "UpdateNFSFileShareInput");
+  export const isa = (o: any): o is UpdateNFSFileShareInput => __isa(o, "UpdateNFSFileShareInput");
 }
 
 /**
@@ -5645,8 +5479,7 @@ export interface UpdateNFSFileShareOutput {
 }
 
 export namespace UpdateNFSFileShareOutput {
-  export const isa = (o: any): o is UpdateNFSFileShareOutput =>
-    __isa(o, "UpdateNFSFileShareOutput");
+  export const isa = (o: any): o is UpdateNFSFileShareOutput => __isa(o, "UpdateNFSFileShareOutput");
 }
 
 /**
@@ -5746,8 +5579,7 @@ export interface UpdateSMBFileShareInput {
 }
 
 export namespace UpdateSMBFileShareInput {
-  export const isa = (o: any): o is UpdateSMBFileShareInput =>
-    __isa(o, "UpdateSMBFileShareInput");
+  export const isa = (o: any): o is UpdateSMBFileShareInput => __isa(o, "UpdateSMBFileShareInput");
 }
 
 /**
@@ -5762,8 +5594,7 @@ export interface UpdateSMBFileShareOutput {
 }
 
 export namespace UpdateSMBFileShareOutput {
-  export const isa = (o: any): o is UpdateSMBFileShareOutput =>
-    __isa(o, "UpdateSMBFileShareOutput");
+  export const isa = (o: any): o is UpdateSMBFileShareOutput => __isa(o, "UpdateSMBFileShareOutput");
 }
 
 export interface UpdateSMBSecurityStrategyInput {
@@ -5791,8 +5622,7 @@ export interface UpdateSMBSecurityStrategyInput {
 }
 
 export namespace UpdateSMBSecurityStrategyInput {
-  export const isa = (o: any): o is UpdateSMBSecurityStrategyInput =>
-    __isa(o, "UpdateSMBSecurityStrategyInput");
+  export const isa = (o: any): o is UpdateSMBSecurityStrategyInput => __isa(o, "UpdateSMBSecurityStrategyInput");
 }
 
 export interface UpdateSMBSecurityStrategyOutput {
@@ -5805,8 +5635,7 @@ export interface UpdateSMBSecurityStrategyOutput {
 }
 
 export namespace UpdateSMBSecurityStrategyOutput {
-  export const isa = (o: any): o is UpdateSMBSecurityStrategyOutput =>
-    __isa(o, "UpdateSMBSecurityStrategyOutput");
+  export const isa = (o: any): o is UpdateSMBSecurityStrategyOutput => __isa(o, "UpdateSMBSecurityStrategyOutput");
 }
 
 export interface UpdateVTLDeviceTypeInput {
@@ -5824,8 +5653,7 @@ export interface UpdateVTLDeviceTypeInput {
 }
 
 export namespace UpdateVTLDeviceTypeInput {
-  export const isa = (o: any): o is UpdateVTLDeviceTypeInput =>
-    __isa(o, "UpdateVTLDeviceTypeInput");
+  export const isa = (o: any): o is UpdateVTLDeviceTypeInput => __isa(o, "UpdateVTLDeviceTypeInput");
 }
 
 /**
@@ -5840,8 +5668,7 @@ export interface UpdateVTLDeviceTypeOutput {
 }
 
 export namespace UpdateVTLDeviceTypeOutput {
-  export const isa = (o: any): o is UpdateVTLDeviceTypeOutput =>
-    __isa(o, "UpdateVTLDeviceTypeOutput");
+  export const isa = (o: any): o is UpdateVTLDeviceTypeOutput => __isa(o, "UpdateVTLDeviceTypeOutput");
 }
 
 /**

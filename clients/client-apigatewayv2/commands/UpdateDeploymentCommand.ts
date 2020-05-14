@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
-import {
-  UpdateDeploymentRequest,
-  UpdateDeploymentResponse
-} from "../models/index";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
+import { UpdateDeploymentRequest, UpdateDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDeploymentCommand,
   serializeAws_restJson1_1UpdateDeploymentCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDeploymentCommandInput = UpdateDeploymentRequest;
-export type UpdateDeploymentCommandOutput = UpdateDeploymentResponse &
-  __MetadataBearer;
+export type UpdateDeploymentCommandOutput = UpdateDeploymentResponse & __MetadataBearer;
 
 export class UpdateDeploymentCommand extends $Command<
   UpdateDeploymentCommandInput,
@@ -50,9 +39,7 @@ export class UpdateDeploymentCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeploymentCommandInput, UpdateDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateDeploymentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDeploymentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateDeploymentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDeploymentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentCommandOutput> {
     return deserializeAws_restJson1_1UpdateDeploymentCommand(output, context);
   }
 

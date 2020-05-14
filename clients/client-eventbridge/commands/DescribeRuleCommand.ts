@@ -1,18 +1,11 @@
-import {
-  EventBridgeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EventBridgeClient";
+import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { DescribeRuleRequest, DescribeRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeRuleCommand,
   serializeAws_json1_1DescribeRuleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DescribeRuleCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRuleCommandInput, DescribeRuleCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DescribeRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeRuleCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeRuleCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeRuleCommandOutput> {
     return deserializeAws_json1_1DescribeRuleCommand(output, context);
   }
 

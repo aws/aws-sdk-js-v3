@@ -1,18 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { ListDetectorsRequest, ListDetectorsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDetectorsCommand,
   serializeAws_restJson1_1ListDetectorsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDetectorsCommandInput = ListDetectorsRequest;
-export type ListDetectorsCommandOutput = ListDetectorsResponse &
-  __MetadataBearer;
+export type ListDetectorsCommandOutput = ListDetectorsResponse & __MetadataBearer;
 
 export class ListDetectorsCommand extends $Command<
   ListDetectorsCommandInput,
@@ -47,9 +39,7 @@ export class ListDetectorsCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDetectorsCommandInput, ListDetectorsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListDetectorsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDetectorsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDetectorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListDetectorsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDetectorsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDetectorsCommandOutput> {
     return deserializeAws_restJson1_1ListDetectorsCommand(output, context);
   }
 

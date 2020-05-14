@@ -1,21 +1,11 @@
-import {
-  BackupClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../BackupClient";
-import {
-  GetBackupPlanFromTemplateInput,
-  GetBackupPlanFromTemplateOutput
-} from "../models/index";
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { GetBackupPlanFromTemplateInput, GetBackupPlanFromTemplateOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand,
   serializeAws_restJson1_1GetBackupPlanFromTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBackupPlanFromTemplateCommandInput = GetBackupPlanFromTemplateInput;
-export type GetBackupPlanFromTemplateCommandOutput = GetBackupPlanFromTemplateOutput &
-  __MetadataBearer;
+export type GetBackupPlanFromTemplateCommandOutput = GetBackupPlanFromTemplateOutput & __MetadataBearer;
 
 export class GetBackupPlanFromTemplateCommand extends $Command<
   GetBackupPlanFromTemplateCommandInput,
@@ -49,13 +38,8 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBackupPlanFromTemplateCommandInput,
-    GetBackupPlanFromTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBackupPlanFromTemplateCommandInput, GetBackupPlanFromTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class GetBackupPlanFromTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBackupPlanFromTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
-      input,
-      context
-    );
+  private serialize(input: GetBackupPlanFromTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetBackupPlanFromTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetBackupPlanFromTemplateCommandOutput> {
-    return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBackupPlanFromTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

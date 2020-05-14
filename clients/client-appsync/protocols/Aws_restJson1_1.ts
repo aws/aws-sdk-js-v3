@@ -1,167 +1,59 @@
-import {
-  CreateApiCacheCommandInput,
-  CreateApiCacheCommandOutput
-} from "../commands/CreateApiCacheCommand";
-import {
-  CreateApiKeyCommandInput,
-  CreateApiKeyCommandOutput
-} from "../commands/CreateApiKeyCommand";
-import {
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
-} from "../commands/CreateDataSourceCommand";
-import {
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput
-} from "../commands/CreateFunctionCommand";
-import {
-  CreateGraphqlApiCommandInput,
-  CreateGraphqlApiCommandOutput
-} from "../commands/CreateGraphqlApiCommand";
-import {
-  CreateResolverCommandInput,
-  CreateResolverCommandOutput
-} from "../commands/CreateResolverCommand";
-import {
-  CreateTypeCommandInput,
-  CreateTypeCommandOutput
-} from "../commands/CreateTypeCommand";
-import {
-  DeleteApiCacheCommandInput,
-  DeleteApiCacheCommandOutput
-} from "../commands/DeleteApiCacheCommand";
-import {
-  DeleteApiKeyCommandInput,
-  DeleteApiKeyCommandOutput
-} from "../commands/DeleteApiKeyCommand";
-import {
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
-} from "../commands/DeleteDataSourceCommand";
-import {
-  DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput
-} from "../commands/DeleteFunctionCommand";
-import {
-  DeleteGraphqlApiCommandInput,
-  DeleteGraphqlApiCommandOutput
-} from "../commands/DeleteGraphqlApiCommand";
-import {
-  DeleteResolverCommandInput,
-  DeleteResolverCommandOutput
-} from "../commands/DeleteResolverCommand";
-import {
-  DeleteTypeCommandInput,
-  DeleteTypeCommandOutput
-} from "../commands/DeleteTypeCommand";
-import {
-  FlushApiCacheCommandInput,
-  FlushApiCacheCommandOutput
-} from "../commands/FlushApiCacheCommand";
-import {
-  GetApiCacheCommandInput,
-  GetApiCacheCommandOutput
-} from "../commands/GetApiCacheCommand";
-import {
-  GetDataSourceCommandInput,
-  GetDataSourceCommandOutput
-} from "../commands/GetDataSourceCommand";
-import {
-  GetFunctionCommandInput,
-  GetFunctionCommandOutput
-} from "../commands/GetFunctionCommand";
-import {
-  GetGraphqlApiCommandInput,
-  GetGraphqlApiCommandOutput
-} from "../commands/GetGraphqlApiCommand";
+import { CreateApiCacheCommandInput, CreateApiCacheCommandOutput } from "../commands/CreateApiCacheCommand";
+import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "../commands/CreateApiKeyCommand";
+import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
+import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "../commands/CreateFunctionCommand";
+import { CreateGraphqlApiCommandInput, CreateGraphqlApiCommandOutput } from "../commands/CreateGraphqlApiCommand";
+import { CreateResolverCommandInput, CreateResolverCommandOutput } from "../commands/CreateResolverCommand";
+import { CreateTypeCommandInput, CreateTypeCommandOutput } from "../commands/CreateTypeCommand";
+import { DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput } from "../commands/DeleteApiCacheCommand";
+import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "../commands/DeleteApiKeyCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "../commands/DeleteFunctionCommand";
+import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "../commands/DeleteGraphqlApiCommand";
+import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "../commands/DeleteResolverCommand";
+import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "../commands/DeleteTypeCommand";
+import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "../commands/FlushApiCacheCommand";
+import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "../commands/GetApiCacheCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
+import { GetFunctionCommandInput, GetFunctionCommandOutput } from "../commands/GetFunctionCommand";
+import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "../commands/GetGraphqlApiCommand";
 import {
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput
 } from "../commands/GetIntrospectionSchemaCommand";
-import {
-  GetResolverCommandInput,
-  GetResolverCommandOutput
-} from "../commands/GetResolverCommand";
+import { GetResolverCommandInput, GetResolverCommandOutput } from "../commands/GetResolverCommand";
 import {
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput
 } from "../commands/GetSchemaCreationStatusCommand";
-import {
-  GetTypeCommandInput,
-  GetTypeCommandOutput
-} from "../commands/GetTypeCommand";
-import {
-  ListApiKeysCommandInput,
-  ListApiKeysCommandOutput
-} from "../commands/ListApiKeysCommand";
-import {
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
-} from "../commands/ListDataSourcesCommand";
-import {
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput
-} from "../commands/ListFunctionsCommand";
-import {
-  ListGraphqlApisCommandInput,
-  ListGraphqlApisCommandOutput
-} from "../commands/ListGraphqlApisCommand";
+import { GetTypeCommandInput, GetTypeCommandOutput } from "../commands/GetTypeCommand";
+import { ListApiKeysCommandInput, ListApiKeysCommandOutput } from "../commands/ListApiKeysCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
+import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "../commands/ListFunctionsCommand";
+import { ListGraphqlApisCommandInput, ListGraphqlApisCommandOutput } from "../commands/ListGraphqlApisCommand";
 import {
   ListResolversByFunctionCommandInput,
   ListResolversByFunctionCommandOutput
 } from "../commands/ListResolversByFunctionCommand";
-import {
-  ListResolversCommandInput,
-  ListResolversCommandOutput
-} from "../commands/ListResolversCommand";
+import { ListResolversCommandInput, ListResolversCommandOutput } from "../commands/ListResolversCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  ListTypesCommandInput,
-  ListTypesCommandOutput
-} from "../commands/ListTypesCommand";
+import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
 import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput
 } from "../commands/StartSchemaCreationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateApiCacheCommandInput,
-  UpdateApiCacheCommandOutput
-} from "../commands/UpdateApiCacheCommand";
-import {
-  UpdateApiKeyCommandInput,
-  UpdateApiKeyCommandOutput
-} from "../commands/UpdateApiKeyCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "../commands/UpdateDataSourceCommand";
-import {
-  UpdateFunctionCommandInput,
-  UpdateFunctionCommandOutput
-} from "../commands/UpdateFunctionCommand";
-import {
-  UpdateGraphqlApiCommandInput,
-  UpdateGraphqlApiCommandOutput
-} from "../commands/UpdateGraphqlApiCommand";
-import {
-  UpdateResolverCommandInput,
-  UpdateResolverCommandOutput
-} from "../commands/UpdateResolverCommand";
-import {
-  UpdateTypeCommandInput,
-  UpdateTypeCommandOutput
-} from "../commands/UpdateTypeCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateApiCacheCommandInput, UpdateApiCacheCommandOutput } from "../commands/UpdateApiCacheCommand";
+import { UpdateApiKeyCommandInput, UpdateApiKeyCommandOutput } from "../commands/UpdateApiKeyCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
+import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "../commands/UpdateFunctionCommand";
+import { UpdateGraphqlApiCommandInput, UpdateGraphqlApiCommandOutput } from "../commands/UpdateGraphqlApiCommand";
+import { UpdateResolverCommandInput, UpdateResolverCommandOutput } from "../commands/UpdateResolverCommand";
+import { UpdateTypeCommandInput, UpdateTypeCommandOutput } from "../commands/UpdateTypeCommand";
 import {
   AccessDeniedException,
   AdditionalAuthenticationProvider,
@@ -200,10 +92,7 @@ import {
   UnauthorizedException,
   UserPoolConfig
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -228,10 +117,7 @@ export const serializeAws_restJson1_1CreateApiCacheCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -274,10 +160,7 @@ export const serializeAws_restJson1_1CreateApiKeyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -311,10 +194,7 @@ export const serializeAws_restJson1_1CreateDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -322,28 +202,16 @@ export const serializeAws_restJson1_1CreateDataSourceCommand = async (
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
     ...(input.dynamodbConfig !== undefined && {
-      dynamodbConfig: serializeAws_restJson1_1DynamodbDataSourceConfig(
-        input.dynamodbConfig,
-        context
-      )
+      dynamodbConfig: serializeAws_restJson1_1DynamodbDataSourceConfig(input.dynamodbConfig, context)
     }),
     ...(input.elasticsearchConfig !== undefined && {
-      elasticsearchConfig: serializeAws_restJson1_1ElasticsearchDataSourceConfig(
-        input.elasticsearchConfig,
-        context
-      )
+      elasticsearchConfig: serializeAws_restJson1_1ElasticsearchDataSourceConfig(input.elasticsearchConfig, context)
     }),
     ...(input.httpConfig !== undefined && {
-      httpConfig: serializeAws_restJson1_1HttpDataSourceConfig(
-        input.httpConfig,
-        context
-      )
+      httpConfig: serializeAws_restJson1_1HttpDataSourceConfig(input.httpConfig, context)
     }),
     ...(input.lambdaConfig !== undefined && {
-      lambdaConfig: serializeAws_restJson1_1LambdaDataSourceConfig(
-        input.lambdaConfig,
-        context
-      )
+      lambdaConfig: serializeAws_restJson1_1LambdaDataSourceConfig(input.lambdaConfig, context)
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.relationalDatabaseConfig !== undefined && {
@@ -382,10 +250,7 @@ export const serializeAws_restJson1_1CreateFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -442,19 +307,13 @@ export const serializeAws_restJson1_1CreateGraphqlApiCommand = async (
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.openIDConnectConfig !== undefined && {
-      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(
-        input.openIDConnectConfig,
-        context
-      )
+      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(input.openIDConnectConfig, context)
     }),
     ...(input.tags !== undefined && {
       tags: serializeAws_restJson1_1TagMap(input.tags, context)
     }),
     ...(input.userPoolConfig !== undefined && {
-      userPoolConfig: serializeAws_restJson1_1UserPoolConfig(
-        input.userPoolConfig,
-        context
-      )
+      userPoolConfig: serializeAws_restJson1_1UserPoolConfig(input.userPoolConfig, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -482,10 +341,7 @@ export const serializeAws_restJson1_1CreateResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -494,20 +350,14 @@ export const serializeAws_restJson1_1CreateResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.cachingConfig !== undefined && {
-      cachingConfig: serializeAws_restJson1_1CachingConfig(
-        input.cachingConfig,
-        context
-      )
+      cachingConfig: serializeAws_restJson1_1CachingConfig(input.cachingConfig, context)
     }),
     ...(input.dataSourceName !== undefined && {
       dataSourceName: input.dataSourceName
@@ -515,10 +365,7 @@ export const serializeAws_restJson1_1CreateResolverCommand = async (
     ...(input.fieldName !== undefined && { fieldName: input.fieldName }),
     ...(input.kind !== undefined && { kind: input.kind }),
     ...(input.pipelineConfig !== undefined && {
-      pipelineConfig: serializeAws_restJson1_1PipelineConfig(
-        input.pipelineConfig,
-        context
-      )
+      pipelineConfig: serializeAws_restJson1_1PipelineConfig(input.pipelineConfig, context)
     }),
     ...(input.requestMappingTemplate !== undefined && {
       requestMappingTemplate: input.requestMappingTemplate
@@ -555,10 +402,7 @@ export const serializeAws_restJson1_1CreateTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -592,10 +436,7 @@ export const serializeAws_restJson1_1DeleteApiCacheCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -625,10 +466,7 @@ export const serializeAws_restJson1_1DeleteApiKeyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -637,10 +475,7 @@ export const serializeAws_restJson1_1DeleteApiKeyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{id}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
@@ -670,10 +505,7 @@ export const serializeAws_restJson1_1DeleteDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -682,10 +514,7 @@ export const serializeAws_restJson1_1DeleteDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -715,10 +544,7 @@ export const serializeAws_restJson1_1DeleteFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -727,10 +553,7 @@ export const serializeAws_restJson1_1DeleteFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{functionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{functionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
   }
@@ -760,10 +583,7 @@ export const serializeAws_restJson1_1DeleteGraphqlApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -793,10 +613,7 @@ export const serializeAws_restJson1_1DeleteResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -805,10 +622,7 @@ export const serializeAws_restJson1_1DeleteResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: fieldName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{fieldName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{fieldName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: fieldName.");
   }
@@ -817,10 +631,7 @@ export const serializeAws_restJson1_1DeleteResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
@@ -850,10 +661,7 @@ export const serializeAws_restJson1_1DeleteTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -862,10 +670,7 @@ export const serializeAws_restJson1_1DeleteTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
@@ -895,10 +700,7 @@ export const serializeAws_restJson1_1FlushApiCacheCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -928,10 +730,7 @@ export const serializeAws_restJson1_1GetApiCacheCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -961,10 +760,7 @@ export const serializeAws_restJson1_1GetDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -973,10 +769,7 @@ export const serializeAws_restJson1_1GetDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1006,10 +799,7 @@ export const serializeAws_restJson1_1GetFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1018,10 +808,7 @@ export const serializeAws_restJson1_1GetFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{functionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{functionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
   }
@@ -1051,10 +838,7 @@ export const serializeAws_restJson1_1GetGraphqlApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1084,10 +868,7 @@ export const serializeAws_restJson1_1GetIntrospectionSchemaCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1124,10 +905,7 @@ export const serializeAws_restJson1_1GetResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1136,10 +914,7 @@ export const serializeAws_restJson1_1GetResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: fieldName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{fieldName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{fieldName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: fieldName.");
   }
@@ -1148,10 +923,7 @@ export const serializeAws_restJson1_1GetResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
@@ -1181,10 +953,7 @@ export const serializeAws_restJson1_1GetSchemaCreationStatusCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1214,10 +983,7 @@ export const serializeAws_restJson1_1GetTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1226,10 +992,7 @@ export const serializeAws_restJson1_1GetTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
@@ -1263,10 +1026,7 @@ export const serializeAws_restJson1_1ListApiKeysCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1303,10 +1063,7 @@ export const serializeAws_restJson1_1ListDataSourcesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1343,10 +1100,7 @@ export const serializeAws_restJson1_1ListFunctionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1411,10 +1165,7 @@ export const serializeAws_restJson1_1ListResolversCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1423,10 +1174,7 @@ export const serializeAws_restJson1_1ListResolversCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
@@ -1463,10 +1211,7 @@ export const serializeAws_restJson1_1ListResolversByFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1475,10 +1220,7 @@ export const serializeAws_restJson1_1ListResolversByFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{functionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{functionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
   }
@@ -1513,14 +1255,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -1550,10 +1287,7 @@ export const serializeAws_restJson1_1ListTypesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1591,10 +1325,7 @@ export const serializeAws_restJson1_1StartSchemaCreationCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1627,14 +1358,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -1667,14 +1393,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -1710,10 +1431,7 @@ export const serializeAws_restJson1_1UpdateApiCacheCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1750,10 +1468,7 @@ export const serializeAws_restJson1_1UpdateApiKeyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1762,10 +1477,7 @@ export const serializeAws_restJson1_1UpdateApiKeyCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{id}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
@@ -1799,10 +1511,7 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1811,10 +1520,7 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: name.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{name}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
@@ -1822,28 +1528,16 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
     ...(input.dynamodbConfig !== undefined && {
-      dynamodbConfig: serializeAws_restJson1_1DynamodbDataSourceConfig(
-        input.dynamodbConfig,
-        context
-      )
+      dynamodbConfig: serializeAws_restJson1_1DynamodbDataSourceConfig(input.dynamodbConfig, context)
     }),
     ...(input.elasticsearchConfig !== undefined && {
-      elasticsearchConfig: serializeAws_restJson1_1ElasticsearchDataSourceConfig(
-        input.elasticsearchConfig,
-        context
-      )
+      elasticsearchConfig: serializeAws_restJson1_1ElasticsearchDataSourceConfig(input.elasticsearchConfig, context)
     }),
     ...(input.httpConfig !== undefined && {
-      httpConfig: serializeAws_restJson1_1HttpDataSourceConfig(
-        input.httpConfig,
-        context
-      )
+      httpConfig: serializeAws_restJson1_1HttpDataSourceConfig(input.httpConfig, context)
     }),
     ...(input.lambdaConfig !== undefined && {
-      lambdaConfig: serializeAws_restJson1_1LambdaDataSourceConfig(
-        input.lambdaConfig,
-        context
-      )
+      lambdaConfig: serializeAws_restJson1_1LambdaDataSourceConfig(input.lambdaConfig, context)
     }),
     ...(input.relationalDatabaseConfig !== undefined && {
       relationalDatabaseConfig: serializeAws_restJson1_1RelationalDatabaseDataSourceConfig(
@@ -1881,10 +1575,7 @@ export const serializeAws_restJson1_1UpdateFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1893,10 +1584,7 @@ export const serializeAws_restJson1_1UpdateFunctionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: functionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{functionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{functionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: functionId.");
   }
@@ -1942,10 +1630,7 @@ export const serializeAws_restJson1_1UpdateGraphqlApiCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -1965,16 +1650,10 @@ export const serializeAws_restJson1_1UpdateGraphqlApiCommand = async (
     }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.openIDConnectConfig !== undefined && {
-      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(
-        input.openIDConnectConfig,
-        context
-      )
+      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(input.openIDConnectConfig, context)
     }),
     ...(input.userPoolConfig !== undefined && {
-      userPoolConfig: serializeAws_restJson1_1UserPoolConfig(
-        input.userPoolConfig,
-        context
-      )
+      userPoolConfig: serializeAws_restJson1_1UserPoolConfig(input.userPoolConfig, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2002,10 +1681,7 @@ export const serializeAws_restJson1_1UpdateResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -2014,10 +1690,7 @@ export const serializeAws_restJson1_1UpdateResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: fieldName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{fieldName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{fieldName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: fieldName.");
   }
@@ -2026,30 +1699,21 @@ export const serializeAws_restJson1_1UpdateResolverCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.cachingConfig !== undefined && {
-      cachingConfig: serializeAws_restJson1_1CachingConfig(
-        input.cachingConfig,
-        context
-      )
+      cachingConfig: serializeAws_restJson1_1CachingConfig(input.cachingConfig, context)
     }),
     ...(input.dataSourceName !== undefined && {
       dataSourceName: input.dataSourceName
     }),
     ...(input.kind !== undefined && { kind: input.kind }),
     ...(input.pipelineConfig !== undefined && {
-      pipelineConfig: serializeAws_restJson1_1PipelineConfig(
-        input.pipelineConfig,
-        context
-      )
+      pipelineConfig: serializeAws_restJson1_1PipelineConfig(input.pipelineConfig, context)
     }),
     ...(input.requestMappingTemplate !== undefined && {
       requestMappingTemplate: input.requestMappingTemplate
@@ -2086,10 +1750,7 @@ export const serializeAws_restJson1_1UpdateTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: apiId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{apiId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{apiId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: apiId.");
   }
@@ -2098,10 +1759,7 @@ export const serializeAws_restJson1_1UpdateTypeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: typeName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{typeName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{typeName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: typeName.");
   }
@@ -2127,10 +1785,7 @@ export const deserializeAws_restJson1_1CreateApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateApiCacheCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateApiCacheCommandError(output, context);
   }
   const contents: CreateApiCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2139,10 +1794,7 @@ export const deserializeAws_restJson1_1CreateApiCacheCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiCache !== undefined && data.apiCache !== null) {
-    contents.apiCache = deserializeAws_restJson1_1ApiCache(
-      data.apiCache,
-      context
-    );
+    contents.apiCache = deserializeAws_restJson1_1ApiCache(data.apiCache, context);
   }
   return Promise.resolve(contents);
 };
@@ -2162,10 +1814,7 @@ const deserializeAws_restJson1_1CreateApiCacheCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2173,10 +1822,7 @@ const deserializeAws_restJson1_1CreateApiCacheCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2184,10 +1830,7 @@ const deserializeAws_restJson1_1CreateApiCacheCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2195,10 +1838,7 @@ const deserializeAws_restJson1_1CreateApiCacheCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2206,10 +1846,7 @@ const deserializeAws_restJson1_1CreateApiCacheCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2265,10 +1902,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "ApiKeyLimitExceededException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ApiKeyLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2276,10 +1910,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "ApiKeyValidityOutOfBoundsException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException":
       response = {
-        ...(await deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2287,10 +1918,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2298,10 +1926,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2309,10 +1934,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2320,10 +1942,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2331,10 +1950,7 @@ const deserializeAws_restJson1_1CreateApiKeyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2361,10 +1977,7 @@ export const deserializeAws_restJson1_1CreateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDataSourceCommandError(output, context);
   }
   const contents: CreateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2373,10 +1986,7 @@ export const deserializeAws_restJson1_1CreateDataSourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dataSource !== undefined && data.dataSource !== null) {
-    contents.dataSource = deserializeAws_restJson1_1DataSource(
-      data.dataSource,
-      context
-    );
+    contents.dataSource = deserializeAws_restJson1_1DataSource(data.dataSource, context);
   }
   return Promise.resolve(contents);
 };
@@ -2396,10 +2006,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2407,10 +2014,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2418,10 +2022,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2429,10 +2030,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2440,10 +2038,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2470,10 +2065,7 @@ export const deserializeAws_restJson1_1CreateFunctionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateFunctionCommandError(output, context);
   }
   const contents: CreateFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2481,10 +2073,7 @@ export const deserializeAws_restJson1_1CreateFunctionCommand = async (
     functionConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.functionConfiguration !== undefined &&
-    data.functionConfiguration !== null
-  ) {
+  if (data.functionConfiguration !== undefined && data.functionConfiguration !== null) {
     contents.functionConfiguration = deserializeAws_restJson1_1FunctionConfiguration(
       data.functionConfiguration,
       context
@@ -2508,10 +2097,7 @@ const deserializeAws_restJson1_1CreateFunctionCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2519,10 +2105,7 @@ const deserializeAws_restJson1_1CreateFunctionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2530,10 +2113,7 @@ const deserializeAws_restJson1_1CreateFunctionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2541,10 +2121,7 @@ const deserializeAws_restJson1_1CreateFunctionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2571,10 +2148,7 @@ export const deserializeAws_restJson1_1CreateGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<CreateGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateGraphqlApiCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateGraphqlApiCommandError(output, context);
   }
   const contents: CreateGraphqlApiCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2583,10 +2157,7 @@ export const deserializeAws_restJson1_1CreateGraphqlApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.graphqlApi !== undefined && data.graphqlApi !== null) {
-    contents.graphqlApi = deserializeAws_restJson1_1GraphqlApi(
-      data.graphqlApi,
-      context
-    );
+    contents.graphqlApi = deserializeAws_restJson1_1GraphqlApi(data.graphqlApi, context);
   }
   return Promise.resolve(contents);
 };
@@ -2606,10 +2177,7 @@ const deserializeAws_restJson1_1CreateGraphqlApiCommandError = async (
     case "ApiLimitExceededException":
     case "com.amazonaws.deepdish.controlplane#ApiLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ApiLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ApiLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2617,10 +2185,7 @@ const deserializeAws_restJson1_1CreateGraphqlApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2628,10 +2193,7 @@ const deserializeAws_restJson1_1CreateGraphqlApiCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2639,10 +2201,7 @@ const deserializeAws_restJson1_1CreateGraphqlApiCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2650,10 +2209,7 @@ const deserializeAws_restJson1_1CreateGraphqlApiCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2661,10 +2217,7 @@ const deserializeAws_restJson1_1CreateGraphqlApiCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2691,10 +2244,7 @@ export const deserializeAws_restJson1_1CreateResolverCommand = async (
   context: __SerdeContext
 ): Promise<CreateResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateResolverCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateResolverCommandError(output, context);
   }
   const contents: CreateResolverCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2703,10 +2253,7 @@ export const deserializeAws_restJson1_1CreateResolverCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.resolver !== undefined && data.resolver !== null) {
-    contents.resolver = deserializeAws_restJson1_1Resolver(
-      data.resolver,
-      context
-    );
+    contents.resolver = deserializeAws_restJson1_1Resolver(data.resolver, context);
   }
   return Promise.resolve(contents);
 };
@@ -2726,10 +2273,7 @@ const deserializeAws_restJson1_1CreateResolverCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2737,10 +2281,7 @@ const deserializeAws_restJson1_1CreateResolverCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2748,10 +2289,7 @@ const deserializeAws_restJson1_1CreateResolverCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2759,10 +2297,7 @@ const deserializeAws_restJson1_1CreateResolverCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2818,10 +2353,7 @@ const deserializeAws_restJson1_1CreateTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2829,10 +2361,7 @@ const deserializeAws_restJson1_1CreateTypeCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2840,10 +2369,7 @@ const deserializeAws_restJson1_1CreateTypeCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2851,10 +2377,7 @@ const deserializeAws_restJson1_1CreateTypeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2862,10 +2385,7 @@ const deserializeAws_restJson1_1CreateTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2892,10 +2412,7 @@ export const deserializeAws_restJson1_1DeleteApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteApiCacheCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteApiCacheCommandError(output, context);
   }
   const contents: DeleteApiCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2920,10 +2437,7 @@ const deserializeAws_restJson1_1DeleteApiCacheCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2931,10 +2445,7 @@ const deserializeAws_restJson1_1DeleteApiCacheCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2942,10 +2453,7 @@ const deserializeAws_restJson1_1DeleteApiCacheCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2953,10 +2461,7 @@ const deserializeAws_restJson1_1DeleteApiCacheCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2964,10 +2469,7 @@ const deserializeAws_restJson1_1DeleteApiCacheCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3019,10 +2521,7 @@ const deserializeAws_restJson1_1DeleteApiKeyCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3030,10 +2529,7 @@ const deserializeAws_restJson1_1DeleteApiKeyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3041,10 +2537,7 @@ const deserializeAws_restJson1_1DeleteApiKeyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3052,10 +2545,7 @@ const deserializeAws_restJson1_1DeleteApiKeyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3082,10 +2572,7 @@ export const deserializeAws_restJson1_1DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDataSourceCommandError(output, context);
   }
   const contents: DeleteDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3110,10 +2597,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3121,10 +2605,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3132,10 +2613,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3143,10 +2621,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3154,10 +2629,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3184,10 +2656,7 @@ export const deserializeAws_restJson1_1DeleteFunctionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteFunctionCommandError(output, context);
   }
   const contents: DeleteFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3212,10 +2681,7 @@ const deserializeAws_restJson1_1DeleteFunctionCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3223,10 +2689,7 @@ const deserializeAws_restJson1_1DeleteFunctionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3234,10 +2697,7 @@ const deserializeAws_restJson1_1DeleteFunctionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3245,10 +2705,7 @@ const deserializeAws_restJson1_1DeleteFunctionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3275,10 +2732,7 @@ export const deserializeAws_restJson1_1DeleteGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteGraphqlApiCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteGraphqlApiCommandError(output, context);
   }
   const contents: DeleteGraphqlApiCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3303,10 +2757,7 @@ const deserializeAws_restJson1_1DeleteGraphqlApiCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3314,10 +2765,7 @@ const deserializeAws_restJson1_1DeleteGraphqlApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3325,10 +2773,7 @@ const deserializeAws_restJson1_1DeleteGraphqlApiCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3336,10 +2781,7 @@ const deserializeAws_restJson1_1DeleteGraphqlApiCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3347,10 +2789,7 @@ const deserializeAws_restJson1_1DeleteGraphqlApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3358,10 +2797,7 @@ const deserializeAws_restJson1_1DeleteGraphqlApiCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3388,10 +2824,7 @@ export const deserializeAws_restJson1_1DeleteResolverCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteResolverCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteResolverCommandError(output, context);
   }
   const contents: DeleteResolverCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3416,10 +2849,7 @@ const deserializeAws_restJson1_1DeleteResolverCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3427,10 +2857,7 @@ const deserializeAws_restJson1_1DeleteResolverCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3438,10 +2865,7 @@ const deserializeAws_restJson1_1DeleteResolverCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3449,10 +2873,7 @@ const deserializeAws_restJson1_1DeleteResolverCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3504,10 +2925,7 @@ const deserializeAws_restJson1_1DeleteTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3515,10 +2933,7 @@ const deserializeAws_restJson1_1DeleteTypeCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3526,10 +2941,7 @@ const deserializeAws_restJson1_1DeleteTypeCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3537,10 +2949,7 @@ const deserializeAws_restJson1_1DeleteTypeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3548,10 +2957,7 @@ const deserializeAws_restJson1_1DeleteTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3603,10 +3009,7 @@ const deserializeAws_restJson1_1FlushApiCacheCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3614,10 +3017,7 @@ const deserializeAws_restJson1_1FlushApiCacheCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3625,10 +3025,7 @@ const deserializeAws_restJson1_1FlushApiCacheCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3636,10 +3033,7 @@ const deserializeAws_restJson1_1FlushApiCacheCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3647,10 +3041,7 @@ const deserializeAws_restJson1_1FlushApiCacheCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3686,10 +3077,7 @@ export const deserializeAws_restJson1_1GetApiCacheCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiCache !== undefined && data.apiCache !== null) {
-    contents.apiCache = deserializeAws_restJson1_1ApiCache(
-      data.apiCache,
-      context
-    );
+    contents.apiCache = deserializeAws_restJson1_1ApiCache(data.apiCache, context);
   }
   return Promise.resolve(contents);
 };
@@ -3709,10 +3097,7 @@ const deserializeAws_restJson1_1GetApiCacheCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3720,10 +3105,7 @@ const deserializeAws_restJson1_1GetApiCacheCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3731,10 +3113,7 @@ const deserializeAws_restJson1_1GetApiCacheCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3742,10 +3121,7 @@ const deserializeAws_restJson1_1GetApiCacheCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3753,10 +3129,7 @@ const deserializeAws_restJson1_1GetApiCacheCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3792,10 +3165,7 @@ export const deserializeAws_restJson1_1GetDataSourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dataSource !== undefined && data.dataSource !== null) {
-    contents.dataSource = deserializeAws_restJson1_1DataSource(
-      data.dataSource,
-      context
-    );
+    contents.dataSource = deserializeAws_restJson1_1DataSource(data.dataSource, context);
   }
   return Promise.resolve(contents);
 };
@@ -3815,10 +3185,7 @@ const deserializeAws_restJson1_1GetDataSourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3826,10 +3193,7 @@ const deserializeAws_restJson1_1GetDataSourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3837,10 +3201,7 @@ const deserializeAws_restJson1_1GetDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3848,10 +3209,7 @@ const deserializeAws_restJson1_1GetDataSourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3859,10 +3217,7 @@ const deserializeAws_restJson1_1GetDataSourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3897,10 +3252,7 @@ export const deserializeAws_restJson1_1GetFunctionCommand = async (
     functionConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.functionConfiguration !== undefined &&
-    data.functionConfiguration !== null
-  ) {
+  if (data.functionConfiguration !== undefined && data.functionConfiguration !== null) {
     contents.functionConfiguration = deserializeAws_restJson1_1FunctionConfiguration(
       data.functionConfiguration,
       context
@@ -3924,10 +3276,7 @@ const deserializeAws_restJson1_1GetFunctionCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3935,10 +3284,7 @@ const deserializeAws_restJson1_1GetFunctionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3946,10 +3292,7 @@ const deserializeAws_restJson1_1GetFunctionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3985,10 +3328,7 @@ export const deserializeAws_restJson1_1GetGraphqlApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.graphqlApi !== undefined && data.graphqlApi !== null) {
-    contents.graphqlApi = deserializeAws_restJson1_1GraphqlApi(
-      data.graphqlApi,
-      context
-    );
+    contents.graphqlApi = deserializeAws_restJson1_1GraphqlApi(data.graphqlApi, context);
   }
   return Promise.resolve(contents);
 };
@@ -4008,10 +3348,7 @@ const deserializeAws_restJson1_1GetGraphqlApiCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4019,10 +3356,7 @@ const deserializeAws_restJson1_1GetGraphqlApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4030,10 +3364,7 @@ const deserializeAws_restJson1_1GetGraphqlApiCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4041,10 +3372,7 @@ const deserializeAws_restJson1_1GetGraphqlApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4052,10 +3380,7 @@ const deserializeAws_restJson1_1GetGraphqlApiCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4082,10 +3407,7 @@ export const deserializeAws_restJson1_1GetIntrospectionSchemaCommand = async (
   context: __SerdeContext
 ): Promise<GetIntrospectionSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(output, context);
   }
   const contents: GetIntrospectionSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4112,10 +3434,7 @@ const deserializeAws_restJson1_1GetIntrospectionSchemaCommandError = async (
     case "GraphQLSchemaException":
     case "com.amazonaws.deepdish.controlplane#GraphQLSchemaException":
       response = {
-        ...(await deserializeAws_restJson1_1GraphQLSchemaExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1GraphQLSchemaExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4123,10 +3442,7 @@ const deserializeAws_restJson1_1GetIntrospectionSchemaCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4134,10 +3450,7 @@ const deserializeAws_restJson1_1GetIntrospectionSchemaCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4145,10 +3458,7 @@ const deserializeAws_restJson1_1GetIntrospectionSchemaCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4184,10 +3494,7 @@ export const deserializeAws_restJson1_1GetResolverCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.resolver !== undefined && data.resolver !== null) {
-    contents.resolver = deserializeAws_restJson1_1Resolver(
-      data.resolver,
-      context
-    );
+    contents.resolver = deserializeAws_restJson1_1Resolver(data.resolver, context);
   }
   return Promise.resolve(contents);
 };
@@ -4207,10 +3514,7 @@ const deserializeAws_restJson1_1GetResolverCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4218,10 +3522,7 @@ const deserializeAws_restJson1_1GetResolverCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4229,10 +3530,7 @@ const deserializeAws_restJson1_1GetResolverCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4259,10 +3557,7 @@ export const deserializeAws_restJson1_1GetSchemaCreationStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaCreationStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(output, context);
   }
   const contents: GetSchemaCreationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4295,10 +3590,7 @@ const deserializeAws_restJson1_1GetSchemaCreationStatusCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4306,10 +3598,7 @@ const deserializeAws_restJson1_1GetSchemaCreationStatusCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4317,10 +3606,7 @@ const deserializeAws_restJson1_1GetSchemaCreationStatusCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4328,10 +3614,7 @@ const deserializeAws_restJson1_1GetSchemaCreationStatusCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4387,10 +3670,7 @@ const deserializeAws_restJson1_1GetTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4398,10 +3678,7 @@ const deserializeAws_restJson1_1GetTypeCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4409,10 +3686,7 @@ const deserializeAws_restJson1_1GetTypeCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4420,10 +3694,7 @@ const deserializeAws_restJson1_1GetTypeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4431,10 +3702,7 @@ const deserializeAws_restJson1_1GetTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4494,10 +3762,7 @@ const deserializeAws_restJson1_1ListApiKeysCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4505,10 +3770,7 @@ const deserializeAws_restJson1_1ListApiKeysCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4516,10 +3778,7 @@ const deserializeAws_restJson1_1ListApiKeysCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4527,10 +3786,7 @@ const deserializeAws_restJson1_1ListApiKeysCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4557,10 +3813,7 @@ export const deserializeAws_restJson1_1ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDataSourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDataSourcesCommandError(output, context);
   }
   const contents: ListDataSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4570,10 +3823,7 @@ export const deserializeAws_restJson1_1ListDataSourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dataSources !== undefined && data.dataSources !== null) {
-    contents.dataSources = deserializeAws_restJson1_1DataSources(
-      data.dataSources,
-      context
-    );
+    contents.dataSources = deserializeAws_restJson1_1DataSources(data.dataSources, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4596,10 +3846,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4607,10 +3854,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4618,10 +3862,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4629,10 +3870,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4669,10 +3907,7 @@ export const deserializeAws_restJson1_1ListFunctionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.functions !== undefined && data.functions !== null) {
-    contents.functions = deserializeAws_restJson1_1Functions(
-      data.functions,
-      context
-    );
+    contents.functions = deserializeAws_restJson1_1Functions(data.functions, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4695,10 +3930,7 @@ const deserializeAws_restJson1_1ListFunctionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4706,10 +3938,7 @@ const deserializeAws_restJson1_1ListFunctionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4717,10 +3946,7 @@ const deserializeAws_restJson1_1ListFunctionsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4728,10 +3954,7 @@ const deserializeAws_restJson1_1ListFunctionsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4758,10 +3981,7 @@ export const deserializeAws_restJson1_1ListGraphqlApisCommand = async (
   context: __SerdeContext
 ): Promise<ListGraphqlApisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListGraphqlApisCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListGraphqlApisCommandError(output, context);
   }
   const contents: ListGraphqlApisCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4771,10 +3991,7 @@ export const deserializeAws_restJson1_1ListGraphqlApisCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.graphqlApis !== undefined && data.graphqlApis !== null) {
-    contents.graphqlApis = deserializeAws_restJson1_1GraphqlApis(
-      data.graphqlApis,
-      context
-    );
+    contents.graphqlApis = deserializeAws_restJson1_1GraphqlApis(data.graphqlApis, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -4797,10 +4014,7 @@ const deserializeAws_restJson1_1ListGraphqlApisCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4808,10 +4022,7 @@ const deserializeAws_restJson1_1ListGraphqlApisCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4819,10 +4030,7 @@ const deserializeAws_restJson1_1ListGraphqlApisCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4862,10 +4070,7 @@ export const deserializeAws_restJson1_1ListResolversCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.resolvers !== undefined && data.resolvers !== null) {
-    contents.resolvers = deserializeAws_restJson1_1Resolvers(
-      data.resolvers,
-      context
-    );
+    contents.resolvers = deserializeAws_restJson1_1Resolvers(data.resolvers, context);
   }
   return Promise.resolve(contents);
 };
@@ -4885,10 +4090,7 @@ const deserializeAws_restJson1_1ListResolversCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4896,10 +4098,7 @@ const deserializeAws_restJson1_1ListResolversCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4907,10 +4106,7 @@ const deserializeAws_restJson1_1ListResolversCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4918,10 +4114,7 @@ const deserializeAws_restJson1_1ListResolversCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4948,10 +4141,7 @@ export const deserializeAws_restJson1_1ListResolversByFunctionCommand = async (
   context: __SerdeContext
 ): Promise<ListResolversByFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListResolversByFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListResolversByFunctionCommandError(output, context);
   }
   const contents: ListResolversByFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4964,10 +4154,7 @@ export const deserializeAws_restJson1_1ListResolversByFunctionCommand = async (
     contents.nextToken = data.nextToken;
   }
   if (data.resolvers !== undefined && data.resolvers !== null) {
-    contents.resolvers = deserializeAws_restJson1_1Resolvers(
-      data.resolvers,
-      context
-    );
+    contents.resolvers = deserializeAws_restJson1_1Resolvers(data.resolvers, context);
   }
   return Promise.resolve(contents);
 };
@@ -4987,10 +4174,7 @@ const deserializeAws_restJson1_1ListResolversByFunctionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4998,10 +4182,7 @@ const deserializeAws_restJson1_1ListResolversByFunctionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5009,10 +4190,7 @@ const deserializeAws_restJson1_1ListResolversByFunctionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5020,10 +4198,7 @@ const deserializeAws_restJson1_1ListResolversByFunctionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5050,10 +4225,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5082,10 +4254,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5093,10 +4262,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5104,10 +4270,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5115,10 +4278,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5126,10 +4286,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5137,10 +4294,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5200,10 +4354,7 @@ const deserializeAws_restJson1_1ListTypesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5211,10 +4362,7 @@ const deserializeAws_restJson1_1ListTypesCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5222,10 +4370,7 @@ const deserializeAws_restJson1_1ListTypesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5233,10 +4378,7 @@ const deserializeAws_restJson1_1ListTypesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5244,10 +4386,7 @@ const deserializeAws_restJson1_1ListTypesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5274,10 +4413,7 @@ export const deserializeAws_restJson1_1StartSchemaCreationCommand = async (
   context: __SerdeContext
 ): Promise<StartSchemaCreationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartSchemaCreationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartSchemaCreationCommandError(output, context);
   }
   const contents: StartSchemaCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5306,10 +4442,7 @@ const deserializeAws_restJson1_1StartSchemaCreationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5317,10 +4450,7 @@ const deserializeAws_restJson1_1StartSchemaCreationCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5328,10 +4458,7 @@ const deserializeAws_restJson1_1StartSchemaCreationCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5339,10 +4466,7 @@ const deserializeAws_restJson1_1StartSchemaCreationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5350,10 +4474,7 @@ const deserializeAws_restJson1_1StartSchemaCreationCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5405,10 +4526,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5416,10 +4534,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5427,10 +4542,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5438,10 +4550,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5449,10 +4558,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5460,10 +4566,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5515,10 +4618,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5526,10 +4626,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5537,10 +4634,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5548,10 +4642,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5559,10 +4650,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5570,10 +4658,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5600,10 +4685,7 @@ export const deserializeAws_restJson1_1UpdateApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateApiCacheCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateApiCacheCommandError(output, context);
   }
   const contents: UpdateApiCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5612,10 +4694,7 @@ export const deserializeAws_restJson1_1UpdateApiCacheCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.apiCache !== undefined && data.apiCache !== null) {
-    contents.apiCache = deserializeAws_restJson1_1ApiCache(
-      data.apiCache,
-      context
-    );
+    contents.apiCache = deserializeAws_restJson1_1ApiCache(data.apiCache, context);
   }
   return Promise.resolve(contents);
 };
@@ -5635,10 +4714,7 @@ const deserializeAws_restJson1_1UpdateApiCacheCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5646,10 +4722,7 @@ const deserializeAws_restJson1_1UpdateApiCacheCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5657,10 +4730,7 @@ const deserializeAws_restJson1_1UpdateApiCacheCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5668,10 +4738,7 @@ const deserializeAws_restJson1_1UpdateApiCacheCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5679,10 +4746,7 @@ const deserializeAws_restJson1_1UpdateApiCacheCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5738,10 +4802,7 @@ const deserializeAws_restJson1_1UpdateApiKeyCommandError = async (
     case "ApiKeyValidityOutOfBoundsException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException":
       response = {
-        ...(await deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ApiKeyValidityOutOfBoundsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5749,10 +4810,7 @@ const deserializeAws_restJson1_1UpdateApiKeyCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5760,10 +4818,7 @@ const deserializeAws_restJson1_1UpdateApiKeyCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5771,10 +4826,7 @@ const deserializeAws_restJson1_1UpdateApiKeyCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.deepdish.controlplane#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5782,10 +4834,7 @@ const deserializeAws_restJson1_1UpdateApiKeyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5793,10 +4842,7 @@ const deserializeAws_restJson1_1UpdateApiKeyCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5823,10 +4869,7 @@ export const deserializeAws_restJson1_1UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDataSourceCommandError(output, context);
   }
   const contents: UpdateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5835,10 +4878,7 @@ export const deserializeAws_restJson1_1UpdateDataSourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.dataSource !== undefined && data.dataSource !== null) {
-    contents.dataSource = deserializeAws_restJson1_1DataSource(
-      data.dataSource,
-      context
-    );
+    contents.dataSource = deserializeAws_restJson1_1DataSource(data.dataSource, context);
   }
   return Promise.resolve(contents);
 };
@@ -5858,10 +4898,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5869,10 +4906,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5880,10 +4914,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5891,10 +4922,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5902,10 +4930,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5932,10 +4957,7 @@ export const deserializeAws_restJson1_1UpdateFunctionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFunctionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFunctionCommandError(output, context);
   }
   const contents: UpdateFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5943,10 +4965,7 @@ export const deserializeAws_restJson1_1UpdateFunctionCommand = async (
     functionConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.functionConfiguration !== undefined &&
-    data.functionConfiguration !== null
-  ) {
+  if (data.functionConfiguration !== undefined && data.functionConfiguration !== null) {
     contents.functionConfiguration = deserializeAws_restJson1_1FunctionConfiguration(
       data.functionConfiguration,
       context
@@ -5970,10 +4989,7 @@ const deserializeAws_restJson1_1UpdateFunctionCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5981,10 +4997,7 @@ const deserializeAws_restJson1_1UpdateFunctionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5992,10 +5005,7 @@ const deserializeAws_restJson1_1UpdateFunctionCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6003,10 +5013,7 @@ const deserializeAws_restJson1_1UpdateFunctionCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6033,10 +5040,7 @@ export const deserializeAws_restJson1_1UpdateGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateGraphqlApiCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateGraphqlApiCommandError(output, context);
   }
   const contents: UpdateGraphqlApiCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6045,10 +5049,7 @@ export const deserializeAws_restJson1_1UpdateGraphqlApiCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.graphqlApi !== undefined && data.graphqlApi !== null) {
-    contents.graphqlApi = deserializeAws_restJson1_1GraphqlApi(
-      data.graphqlApi,
-      context
-    );
+    contents.graphqlApi = deserializeAws_restJson1_1GraphqlApi(data.graphqlApi, context);
   }
   return Promise.resolve(contents);
 };
@@ -6068,10 +5069,7 @@ const deserializeAws_restJson1_1UpdateGraphqlApiCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6079,10 +5077,7 @@ const deserializeAws_restJson1_1UpdateGraphqlApiCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6090,10 +5085,7 @@ const deserializeAws_restJson1_1UpdateGraphqlApiCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6101,10 +5093,7 @@ const deserializeAws_restJson1_1UpdateGraphqlApiCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6112,10 +5101,7 @@ const deserializeAws_restJson1_1UpdateGraphqlApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6123,10 +5109,7 @@ const deserializeAws_restJson1_1UpdateGraphqlApiCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6153,10 +5136,7 @@ export const deserializeAws_restJson1_1UpdateResolverCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateResolverCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateResolverCommandError(output, context);
   }
   const contents: UpdateResolverCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6165,10 +5145,7 @@ export const deserializeAws_restJson1_1UpdateResolverCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.resolver !== undefined && data.resolver !== null) {
-    contents.resolver = deserializeAws_restJson1_1Resolver(
-      data.resolver,
-      context
-    );
+    contents.resolver = deserializeAws_restJson1_1Resolver(data.resolver, context);
   }
   return Promise.resolve(contents);
 };
@@ -6188,10 +5165,7 @@ const deserializeAws_restJson1_1UpdateResolverCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6199,10 +5173,7 @@ const deserializeAws_restJson1_1UpdateResolverCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6210,10 +5181,7 @@ const deserializeAws_restJson1_1UpdateResolverCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6221,10 +5189,7 @@ const deserializeAws_restJson1_1UpdateResolverCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6280,10 +5245,7 @@ const deserializeAws_restJson1_1UpdateTypeCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6291,10 +5253,7 @@ const deserializeAws_restJson1_1UpdateTypeCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6302,10 +5261,7 @@ const deserializeAws_restJson1_1UpdateTypeCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.deepdish.controlplane#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6313,10 +5269,7 @@ const deserializeAws_restJson1_1UpdateTypeCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.deepdish.controlplane#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6324,10 +5277,7 @@ const deserializeAws_restJson1_1UpdateTypeCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.deepdish.controlplane#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6545,16 +5495,10 @@ const serializeAws_restJson1_1AdditionalAuthenticationProvider = (
       authenticationType: input.authenticationType
     }),
     ...(input.openIDConnectConfig !== undefined && {
-      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(
-        input.openIDConnectConfig,
-        context
-      )
+      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(input.openIDConnectConfig, context)
     }),
     ...(input.userPoolConfig !== undefined && {
-      userPoolConfig: serializeAws_restJson1_1CognitoUserPoolConfig(
-        input.userPoolConfig,
-        context
-      )
+      userPoolConfig: serializeAws_restJson1_1CognitoUserPoolConfig(input.userPoolConfig, context)
     })
   };
 };
@@ -6563,32 +5507,21 @@ const serializeAws_restJson1_1AdditionalAuthenticationProviders = (
   input: AdditionalAuthenticationProvider[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context));
 };
 
-const serializeAws_restJson1_1AuthorizationConfig = (
-  input: AuthorizationConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AuthorizationConfig = (input: AuthorizationConfig, context: __SerdeContext): any => {
   return {
     ...(input.authorizationType !== undefined && {
       authorizationType: input.authorizationType
     }),
     ...(input.awsIamConfig !== undefined && {
-      awsIamConfig: serializeAws_restJson1_1AwsIamConfig(
-        input.awsIamConfig,
-        context
-      )
+      awsIamConfig: serializeAws_restJson1_1AwsIamConfig(input.awsIamConfig, context)
     })
   };
 };
 
-const serializeAws_restJson1_1AwsIamConfig = (
-  input: AwsIamConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AwsIamConfig = (input: AwsIamConfig, context: __SerdeContext): any => {
   return {
     ...(input.signingRegion !== undefined && {
       signingRegion: input.signingRegion
@@ -6599,32 +5532,20 @@ const serializeAws_restJson1_1AwsIamConfig = (
   };
 };
 
-const serializeAws_restJson1_1CachingConfig = (
-  input: CachingConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CachingConfig = (input: CachingConfig, context: __SerdeContext): any => {
   return {
     ...(input.cachingKeys !== undefined && {
-      cachingKeys: serializeAws_restJson1_1CachingKeys(
-        input.cachingKeys,
-        context
-      )
+      cachingKeys: serializeAws_restJson1_1CachingKeys(input.cachingKeys, context)
     }),
     ...(input.ttl !== undefined && { ttl: input.ttl })
   };
 };
 
-const serializeAws_restJson1_1CachingKeys = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CachingKeys = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1CognitoUserPoolConfig = (
-  input: CognitoUserPoolConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CognitoUserPoolConfig = (input: CognitoUserPoolConfig, context: __SerdeContext): any => {
   return {
     ...(input.appIdClientRegex !== undefined && {
       appIdClientRegex: input.appIdClientRegex
@@ -6634,10 +5555,7 @@ const serializeAws_restJson1_1CognitoUserPoolConfig = (
   };
 };
 
-const serializeAws_restJson1_1DeltaSyncConfig = (
-  input: DeltaSyncConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DeltaSyncConfig = (input: DeltaSyncConfig, context: __SerdeContext): any => {
   return {
     ...(input.baseTableTTL !== undefined && {
       baseTableTTL: input.baseTableTTL
@@ -6658,10 +5576,7 @@ const serializeAws_restJson1_1DynamodbDataSourceConfig = (
   return {
     ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
     ...(input.deltaSyncConfig !== undefined && {
-      deltaSyncConfig: serializeAws_restJson1_1DeltaSyncConfig(
-        input.deltaSyncConfig,
-        context
-      )
+      deltaSyncConfig: serializeAws_restJson1_1DeltaSyncConfig(input.deltaSyncConfig, context)
     }),
     ...(input.tableName !== undefined && { tableName: input.tableName }),
     ...(input.useCallerCredentials !== undefined && {
@@ -6681,23 +5596,14 @@ const serializeAws_restJson1_1ElasticsearchDataSourceConfig = (
   };
 };
 
-const serializeAws_restJson1_1FunctionsIds = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1FunctionsIds = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1HttpDataSourceConfig = (
-  input: HttpDataSourceConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1HttpDataSourceConfig = (input: HttpDataSourceConfig, context: __SerdeContext): any => {
   return {
     ...(input.authorizationConfig !== undefined && {
-      authorizationConfig: serializeAws_restJson1_1AuthorizationConfig(
-        input.authorizationConfig,
-        context
-      )
+      authorizationConfig: serializeAws_restJson1_1AuthorizationConfig(input.authorizationConfig, context)
     }),
     ...(input.endpoint !== undefined && { endpoint: input.endpoint })
   };
@@ -6725,10 +5631,7 @@ const serializeAws_restJson1_1LambdaDataSourceConfig = (
   };
 };
 
-const serializeAws_restJson1_1LogConfig = (
-  input: LogConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LogConfig = (input: LogConfig, context: __SerdeContext): any => {
   return {
     ...(input.cloudWatchLogsRoleArn !== undefined && {
       cloudWatchLogsRoleArn: input.cloudWatchLogsRoleArn
@@ -6742,10 +5645,7 @@ const serializeAws_restJson1_1LogConfig = (
   };
 };
 
-const serializeAws_restJson1_1OpenIDConnectConfig = (
-  input: OpenIDConnectConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1OpenIDConnectConfig = (input: OpenIDConnectConfig, context: __SerdeContext): any => {
   return {
     ...(input.authTTL !== undefined && { authTTL: input.authTTL }),
     ...(input.clientId !== undefined && { clientId: input.clientId }),
@@ -6754,10 +5654,7 @@ const serializeAws_restJson1_1OpenIDConnectConfig = (
   };
 };
 
-const serializeAws_restJson1_1PipelineConfig = (
-  input: PipelineConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PipelineConfig = (input: PipelineConfig, context: __SerdeContext): any => {
   return {
     ...(input.functions !== undefined && {
       functions: serializeAws_restJson1_1FunctionsIds(input.functions, context)
@@ -6765,10 +5662,7 @@ const serializeAws_restJson1_1PipelineConfig = (
   };
 };
 
-const serializeAws_restJson1_1RdsHttpEndpointConfig = (
-  input: RdsHttpEndpointConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RdsHttpEndpointConfig = (input: RdsHttpEndpointConfig, context: __SerdeContext): any => {
   return {
     ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
     ...(input.awsSecretStoreArn !== undefined && {
@@ -6790,10 +5684,7 @@ const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
 ): any => {
   return {
     ...(input.rdsHttpEndpointConfig !== undefined && {
-      rdsHttpEndpointConfig: serializeAws_restJson1_1RdsHttpEndpointConfig(
-        input.rdsHttpEndpointConfig,
-        context
-      )
+      rdsHttpEndpointConfig: serializeAws_restJson1_1RdsHttpEndpointConfig(input.rdsHttpEndpointConfig, context)
     }),
     ...(input.relationalDatabaseSourceType !== undefined && {
       relationalDatabaseSourceType: input.relationalDatabaseSourceType
@@ -6801,10 +5692,7 @@ const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
   };
 };
 
-const serializeAws_restJson1_1SyncConfig = (
-  input: SyncConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SyncConfig = (input: SyncConfig, context: __SerdeContext): any => {
   return {
     ...(input.conflictDetection !== undefined && {
       conflictDetection: input.conflictDetection
@@ -6821,10 +5709,7 @@ const serializeAws_restJson1_1SyncConfig = (
   };
 };
 
-const serializeAws_restJson1_1TagMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -6834,10 +5719,7 @@ const serializeAws_restJson1_1TagMap = (
   );
 };
 
-const serializeAws_restJson1_1UserPoolConfig = (
-  input: UserPoolConfig,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1UserPoolConfig = (input: UserPoolConfig, context: __SerdeContext): any => {
   return {
     ...(input.appIdClientRegex !== undefined && {
       appIdClientRegex: input.appIdClientRegex
@@ -6857,24 +5739,16 @@ const deserializeAws_restJson1_1AdditionalAuthenticationProvider = (
   return {
     __type: "AdditionalAuthenticationProvider",
     authenticationType:
-      output.authenticationType !== undefined &&
-      output.authenticationType !== null
+      output.authenticationType !== undefined && output.authenticationType !== null
         ? output.authenticationType
         : undefined,
     openIDConnectConfig:
-      output.openIDConnectConfig !== undefined &&
-      output.openIDConnectConfig !== null
-        ? deserializeAws_restJson1_1OpenIDConnectConfig(
-            output.openIDConnectConfig,
-            context
-          )
+      output.openIDConnectConfig !== undefined && output.openIDConnectConfig !== null
+        ? deserializeAws_restJson1_1OpenIDConnectConfig(output.openIDConnectConfig, context)
         : undefined,
     userPoolConfig:
       output.userPoolConfig !== undefined && output.userPoolConfig !== null
-        ? deserializeAws_restJson1_1CognitoUserPoolConfig(
-            output.userPoolConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1CognitoUserPoolConfig(output.userPoolConfig, context)
         : undefined
   } as any;
 };
@@ -6883,81 +5757,48 @@ const deserializeAws_restJson1_1AdditionalAuthenticationProviders = (
   output: any,
   context: __SerdeContext
 ): AdditionalAuthenticationProvider[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AdditionalAuthenticationProvider(entry, context));
 };
 
-const deserializeAws_restJson1_1ApiCache = (
-  output: any,
-  context: __SerdeContext
-): ApiCache => {
+const deserializeAws_restJson1_1ApiCache = (output: any, context: __SerdeContext): ApiCache => {
   return {
     __type: "ApiCache",
     apiCachingBehavior:
-      output.apiCachingBehavior !== undefined &&
-      output.apiCachingBehavior !== null
+      output.apiCachingBehavior !== undefined && output.apiCachingBehavior !== null
         ? output.apiCachingBehavior
         : undefined,
     atRestEncryptionEnabled:
-      output.atRestEncryptionEnabled !== undefined &&
-      output.atRestEncryptionEnabled !== null
+      output.atRestEncryptionEnabled !== undefined && output.atRestEncryptionEnabled !== null
         ? output.atRestEncryptionEnabled
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     transitEncryptionEnabled:
-      output.transitEncryptionEnabled !== undefined &&
-      output.transitEncryptionEnabled !== null
+      output.transitEncryptionEnabled !== undefined && output.transitEncryptionEnabled !== null
         ? output.transitEncryptionEnabled
         : undefined,
-    ttl:
-      output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    ttl: output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ApiKey = (
-  output: any,
-  context: __SerdeContext
-): ApiKey => {
+const deserializeAws_restJson1_1ApiKey = (output: any, context: __SerdeContext): ApiKey => {
   return {
     __type: "ApiKey",
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    expires:
-      output.expires !== undefined && output.expires !== null
-        ? output.expires
-        : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    expires: output.expires !== undefined && output.expires !== null ? output.expires : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ApiKeys = (
-  output: any,
-  context: __SerdeContext
-): ApiKey[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ApiKey(entry, context)
-  );
+const deserializeAws_restJson1_1ApiKeys = (output: any, context: __SerdeContext): ApiKey[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ApiKey(entry, context));
 };
 
-const deserializeAws_restJson1_1AuthorizationConfig = (
-  output: any,
-  context: __SerdeContext
-): AuthorizationConfig => {
+const deserializeAws_restJson1_1AuthorizationConfig = (output: any, context: __SerdeContext): AuthorizationConfig => {
   return {
     __type: "AuthorizationConfig",
     authorizationType:
-      output.authorizationType !== undefined &&
-      output.authorizationType !== null
+      output.authorizationType !== undefined && output.authorizationType !== null
         ? output.authorizationType
         : undefined,
     awsIamConfig:
@@ -6967,43 +5808,30 @@ const deserializeAws_restJson1_1AuthorizationConfig = (
   } as any;
 };
 
-const deserializeAws_restJson1_1AwsIamConfig = (
-  output: any,
-  context: __SerdeContext
-): AwsIamConfig => {
+const deserializeAws_restJson1_1AwsIamConfig = (output: any, context: __SerdeContext): AwsIamConfig => {
   return {
     __type: "AwsIamConfig",
     signingRegion:
-      output.signingRegion !== undefined && output.signingRegion !== null
-        ? output.signingRegion
-        : undefined,
+      output.signingRegion !== undefined && output.signingRegion !== null ? output.signingRegion : undefined,
     signingServiceName:
-      output.signingServiceName !== undefined &&
-      output.signingServiceName !== null
+      output.signingServiceName !== undefined && output.signingServiceName !== null
         ? output.signingServiceName
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CachingConfig = (
-  output: any,
-  context: __SerdeContext
-): CachingConfig => {
+const deserializeAws_restJson1_1CachingConfig = (output: any, context: __SerdeContext): CachingConfig => {
   return {
     __type: "CachingConfig",
     cachingKeys:
       output.cachingKeys !== undefined && output.cachingKeys !== null
         ? deserializeAws_restJson1_1CachingKeys(output.cachingKeys, context)
         : undefined,
-    ttl:
-      output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined
+    ttl: output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CachingKeys = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1CachingKeys = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -7014,115 +5842,59 @@ const deserializeAws_restJson1_1CognitoUserPoolConfig = (
   return {
     __type: "CognitoUserPoolConfig",
     appIdClientRegex:
-      output.appIdClientRegex !== undefined && output.appIdClientRegex !== null
-        ? output.appIdClientRegex
-        : undefined,
-    awsRegion:
-      output.awsRegion !== undefined && output.awsRegion !== null
-        ? output.awsRegion
-        : undefined,
-    userPoolId:
-      output.userPoolId !== undefined && output.userPoolId !== null
-        ? output.userPoolId
-        : undefined
+      output.appIdClientRegex !== undefined && output.appIdClientRegex !== null ? output.appIdClientRegex : undefined,
+    awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
+    userPoolId: output.userPoolId !== undefined && output.userPoolId !== null ? output.userPoolId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSource = (
-  output: any,
-  context: __SerdeContext
-): DataSource => {
+const deserializeAws_restJson1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     __type: "DataSource",
     dataSourceArn:
-      output.dataSourceArn !== undefined && output.dataSourceArn !== null
-        ? output.dataSourceArn
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
+      output.dataSourceArn !== undefined && output.dataSourceArn !== null ? output.dataSourceArn : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
     dynamodbConfig:
       output.dynamodbConfig !== undefined && output.dynamodbConfig !== null
-        ? deserializeAws_restJson1_1DynamodbDataSourceConfig(
-            output.dynamodbConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1DynamodbDataSourceConfig(output.dynamodbConfig, context)
         : undefined,
     elasticsearchConfig:
-      output.elasticsearchConfig !== undefined &&
-      output.elasticsearchConfig !== null
-        ? deserializeAws_restJson1_1ElasticsearchDataSourceConfig(
-            output.elasticsearchConfig,
-            context
-          )
+      output.elasticsearchConfig !== undefined && output.elasticsearchConfig !== null
+        ? deserializeAws_restJson1_1ElasticsearchDataSourceConfig(output.elasticsearchConfig, context)
         : undefined,
     httpConfig:
       output.httpConfig !== undefined && output.httpConfig !== null
-        ? deserializeAws_restJson1_1HttpDataSourceConfig(
-            output.httpConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1HttpDataSourceConfig(output.httpConfig, context)
         : undefined,
     lambdaConfig:
       output.lambdaConfig !== undefined && output.lambdaConfig !== null
-        ? deserializeAws_restJson1_1LambdaDataSourceConfig(
-            output.lambdaConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1LambdaDataSourceConfig(output.lambdaConfig, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     relationalDatabaseConfig:
-      output.relationalDatabaseConfig !== undefined &&
-      output.relationalDatabaseConfig !== null
-        ? deserializeAws_restJson1_1RelationalDatabaseDataSourceConfig(
-            output.relationalDatabaseConfig,
-            context
-          )
+      output.relationalDatabaseConfig !== undefined && output.relationalDatabaseConfig !== null
+        ? deserializeAws_restJson1_1RelationalDatabaseDataSourceConfig(output.relationalDatabaseConfig, context)
         : undefined,
     serviceRoleArn:
-      output.serviceRoleArn !== undefined && output.serviceRoleArn !== null
-        ? output.serviceRoleArn
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+      output.serviceRoleArn !== undefined && output.serviceRoleArn !== null ? output.serviceRoleArn : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSources = (
-  output: any,
-  context: __SerdeContext
-): DataSource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DataSource(entry, context)
-  );
+const deserializeAws_restJson1_1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DataSource(entry, context));
 };
 
-const deserializeAws_restJson1_1DeltaSyncConfig = (
-  output: any,
-  context: __SerdeContext
-): DeltaSyncConfig => {
+const deserializeAws_restJson1_1DeltaSyncConfig = (output: any, context: __SerdeContext): DeltaSyncConfig => {
   return {
     __type: "DeltaSyncConfig",
-    baseTableTTL:
-      output.baseTableTTL !== undefined && output.baseTableTTL !== null
-        ? output.baseTableTTL
-        : undefined,
+    baseTableTTL: output.baseTableTTL !== undefined && output.baseTableTTL !== null ? output.baseTableTTL : undefined,
     deltaSyncTableName:
-      output.deltaSyncTableName !== undefined &&
-      output.deltaSyncTableName !== null
+      output.deltaSyncTableName !== undefined && output.deltaSyncTableName !== null
         ? output.deltaSyncTableName
         : undefined,
     deltaSyncTableTTL:
-      output.deltaSyncTableTTL !== undefined &&
-      output.deltaSyncTableTTL !== null
-        ? output.deltaSyncTableTTL
-        : undefined
+      output.deltaSyncTableTTL !== undefined && output.deltaSyncTableTTL !== null ? output.deltaSyncTableTTL : undefined
   } as any;
 };
 
@@ -7132,30 +5904,17 @@ const deserializeAws_restJson1_1DynamodbDataSourceConfig = (
 ): DynamodbDataSourceConfig => {
   return {
     __type: "DynamodbDataSourceConfig",
-    awsRegion:
-      output.awsRegion !== undefined && output.awsRegion !== null
-        ? output.awsRegion
-        : undefined,
+    awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
     deltaSyncConfig:
       output.deltaSyncConfig !== undefined && output.deltaSyncConfig !== null
-        ? deserializeAws_restJson1_1DeltaSyncConfig(
-            output.deltaSyncConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1DeltaSyncConfig(output.deltaSyncConfig, context)
         : undefined,
-    tableName:
-      output.tableName !== undefined && output.tableName !== null
-        ? output.tableName
-        : undefined,
+    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
     useCallerCredentials:
-      output.useCallerCredentials !== undefined &&
-      output.useCallerCredentials !== null
+      output.useCallerCredentials !== undefined && output.useCallerCredentials !== null
         ? output.useCallerCredentials
         : undefined,
-    versioned:
-      output.versioned !== undefined && output.versioned !== null
-        ? output.versioned
-        : undefined
+    versioned: output.versioned !== undefined && output.versioned !== null ? output.versioned : undefined
   } as any;
 };
 
@@ -7165,14 +5924,8 @@ const deserializeAws_restJson1_1ElasticsearchDataSourceConfig = (
 ): ElasticsearchDataSourceConfig => {
   return {
     __type: "ElasticsearchDataSourceConfig",
-    awsRegion:
-      output.awsRegion !== undefined && output.awsRegion !== null
-        ? output.awsRegion
-        : undefined,
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? output.endpoint
-        : undefined
+    awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
+    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined
   } as any;
 };
 
@@ -7183,98 +5936,53 @@ const deserializeAws_restJson1_1FunctionConfiguration = (
   return {
     __type: "FunctionConfiguration",
     dataSourceName:
-      output.dataSourceName !== undefined && output.dataSourceName !== null
-        ? output.dataSourceName
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    functionArn:
-      output.functionArn !== undefined && output.functionArn !== null
-        ? output.functionArn
-        : undefined,
-    functionId:
-      output.functionId !== undefined && output.functionId !== null
-        ? output.functionId
-        : undefined,
+      output.dataSourceName !== undefined && output.dataSourceName !== null ? output.dataSourceName : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
+    functionId: output.functionId !== undefined && output.functionId !== null ? output.functionId : undefined,
     functionVersion:
-      output.functionVersion !== undefined && output.functionVersion !== null
-        ? output.functionVersion
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+      output.functionVersion !== undefined && output.functionVersion !== null ? output.functionVersion : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     requestMappingTemplate:
-      output.requestMappingTemplate !== undefined &&
-      output.requestMappingTemplate !== null
+      output.requestMappingTemplate !== undefined && output.requestMappingTemplate !== null
         ? output.requestMappingTemplate
         : undefined,
     responseMappingTemplate:
-      output.responseMappingTemplate !== undefined &&
-      output.responseMappingTemplate !== null
+      output.responseMappingTemplate !== undefined && output.responseMappingTemplate !== null
         ? output.responseMappingTemplate
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Functions = (
-  output: any,
-  context: __SerdeContext
-): FunctionConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1FunctionConfiguration(entry, context)
-  );
+const deserializeAws_restJson1_1Functions = (output: any, context: __SerdeContext): FunctionConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1FunctionConfiguration(entry, context));
 };
 
-const deserializeAws_restJson1_1FunctionsIds = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1FunctionsIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1GraphqlApi = (
-  output: any,
-  context: __SerdeContext
-): GraphqlApi => {
+const deserializeAws_restJson1_1GraphqlApi = (output: any, context: __SerdeContext): GraphqlApi => {
   return {
     __type: "GraphqlApi",
     additionalAuthenticationProviders:
-      output.additionalAuthenticationProviders !== undefined &&
-      output.additionalAuthenticationProviders !== null
-        ? deserializeAws_restJson1_1AdditionalAuthenticationProviders(
-            output.additionalAuthenticationProviders,
-            context
-          )
+      output.additionalAuthenticationProviders !== undefined && output.additionalAuthenticationProviders !== null
+        ? deserializeAws_restJson1_1AdditionalAuthenticationProviders(output.additionalAuthenticationProviders, context)
         : undefined,
-    apiId:
-      output.apiId !== undefined && output.apiId !== null
-        ? output.apiId
-        : undefined,
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    apiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     authenticationType:
-      output.authenticationType !== undefined &&
-      output.authenticationType !== null
+      output.authenticationType !== undefined && output.authenticationType !== null
         ? output.authenticationType
         : undefined,
     logConfig:
       output.logConfig !== undefined && output.logConfig !== null
         ? deserializeAws_restJson1_1LogConfig(output.logConfig, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     openIDConnectConfig:
-      output.openIDConnectConfig !== undefined &&
-      output.openIDConnectConfig !== null
-        ? deserializeAws_restJson1_1OpenIDConnectConfig(
-            output.openIDConnectConfig,
-            context
-          )
+      output.openIDConnectConfig !== undefined && output.openIDConnectConfig !== null
+        ? deserializeAws_restJson1_1OpenIDConnectConfig(output.openIDConnectConfig, context)
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
@@ -7286,41 +5994,23 @@ const deserializeAws_restJson1_1GraphqlApi = (
         : undefined,
     userPoolConfig:
       output.userPoolConfig !== undefined && output.userPoolConfig !== null
-        ? deserializeAws_restJson1_1UserPoolConfig(
-            output.userPoolConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1UserPoolConfig(output.userPoolConfig, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1GraphqlApis = (
-  output: any,
-  context: __SerdeContext
-): GraphqlApi[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1GraphqlApi(entry, context)
-  );
+const deserializeAws_restJson1_1GraphqlApis = (output: any, context: __SerdeContext): GraphqlApi[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1GraphqlApi(entry, context));
 };
 
-const deserializeAws_restJson1_1HttpDataSourceConfig = (
-  output: any,
-  context: __SerdeContext
-): HttpDataSourceConfig => {
+const deserializeAws_restJson1_1HttpDataSourceConfig = (output: any, context: __SerdeContext): HttpDataSourceConfig => {
   return {
     __type: "HttpDataSourceConfig",
     authorizationConfig:
-      output.authorizationConfig !== undefined &&
-      output.authorizationConfig !== null
-        ? deserializeAws_restJson1_1AuthorizationConfig(
-            output.authorizationConfig,
-            context
-          )
+      output.authorizationConfig !== undefined && output.authorizationConfig !== null
+        ? deserializeAws_restJson1_1AuthorizationConfig(output.authorizationConfig, context)
         : undefined,
-    endpoint:
-      output.endpoint !== undefined && output.endpoint !== null
-        ? output.endpoint
-        : undefined
+    endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined
   } as any;
 };
 
@@ -7331,8 +6021,7 @@ const deserializeAws_restJson1_1LambdaConflictHandlerConfig = (
   return {
     __type: "LambdaConflictHandlerConfig",
     lambdaConflictHandlerArn:
-      output.lambdaConflictHandlerArn !== undefined &&
-      output.lambdaConflictHandlerArn !== null
+      output.lambdaConflictHandlerArn !== undefined && output.lambdaConflictHandlerArn !== null
         ? output.lambdaConflictHandlerArn
         : undefined
   } as any;
@@ -7345,33 +6034,23 @@ const deserializeAws_restJson1_1LambdaDataSourceConfig = (
   return {
     __type: "LambdaDataSourceConfig",
     lambdaFunctionArn:
-      output.lambdaFunctionArn !== undefined &&
-      output.lambdaFunctionArn !== null
-        ? output.lambdaFunctionArn
-        : undefined
+      output.lambdaFunctionArn !== undefined && output.lambdaFunctionArn !== null ? output.lambdaFunctionArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1LogConfig = (
-  output: any,
-  context: __SerdeContext
-): LogConfig => {
+const deserializeAws_restJson1_1LogConfig = (output: any, context: __SerdeContext): LogConfig => {
   return {
     __type: "LogConfig",
     cloudWatchLogsRoleArn:
-      output.cloudWatchLogsRoleArn !== undefined &&
-      output.cloudWatchLogsRoleArn !== null
+      output.cloudWatchLogsRoleArn !== undefined && output.cloudWatchLogsRoleArn !== null
         ? output.cloudWatchLogsRoleArn
         : undefined,
     excludeVerboseContent:
-      output.excludeVerboseContent !== undefined &&
-      output.excludeVerboseContent !== null
+      output.excludeVerboseContent !== undefined && output.excludeVerboseContent !== null
         ? output.excludeVerboseContent
         : undefined,
     fieldLogLevel:
-      output.fieldLogLevel !== undefined && output.fieldLogLevel !== null
-        ? output.fieldLogLevel
-        : undefined
+      output.fieldLogLevel !== undefined && output.fieldLogLevel !== null ? output.fieldLogLevel : undefined
   } as any;
 };
 
@@ -7388,35 +6067,17 @@ const deserializeAws_restJson1_1MapOfStringToString = (
   );
 };
 
-const deserializeAws_restJson1_1OpenIDConnectConfig = (
-  output: any,
-  context: __SerdeContext
-): OpenIDConnectConfig => {
+const deserializeAws_restJson1_1OpenIDConnectConfig = (output: any, context: __SerdeContext): OpenIDConnectConfig => {
   return {
     __type: "OpenIDConnectConfig",
-    authTTL:
-      output.authTTL !== undefined && output.authTTL !== null
-        ? output.authTTL
-        : undefined,
-    clientId:
-      output.clientId !== undefined && output.clientId !== null
-        ? output.clientId
-        : undefined,
-    iatTTL:
-      output.iatTTL !== undefined && output.iatTTL !== null
-        ? output.iatTTL
-        : undefined,
-    issuer:
-      output.issuer !== undefined && output.issuer !== null
-        ? output.issuer
-        : undefined
+    authTTL: output.authTTL !== undefined && output.authTTL !== null ? output.authTTL : undefined,
+    clientId: output.clientId !== undefined && output.clientId !== null ? output.clientId : undefined,
+    iatTTL: output.iatTTL !== undefined && output.iatTTL !== null ? output.iatTTL : undefined,
+    issuer: output.issuer !== undefined && output.issuer !== null ? output.issuer : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1PipelineConfig = (
-  output: any,
-  context: __SerdeContext
-): PipelineConfig => {
+const deserializeAws_restJson1_1PipelineConfig = (output: any, context: __SerdeContext): PipelineConfig => {
   return {
     __type: "PipelineConfig",
     functions:
@@ -7432,28 +6093,17 @@ const deserializeAws_restJson1_1RdsHttpEndpointConfig = (
 ): RdsHttpEndpointConfig => {
   return {
     __type: "RdsHttpEndpointConfig",
-    awsRegion:
-      output.awsRegion !== undefined && output.awsRegion !== null
-        ? output.awsRegion
-        : undefined,
+    awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
     awsSecretStoreArn:
-      output.awsSecretStoreArn !== undefined &&
-      output.awsSecretStoreArn !== null
+      output.awsSecretStoreArn !== undefined && output.awsSecretStoreArn !== null
         ? output.awsSecretStoreArn
         : undefined,
-    databaseName:
-      output.databaseName !== undefined && output.databaseName !== null
-        ? output.databaseName
-        : undefined,
+    databaseName: output.databaseName !== undefined && output.databaseName !== null ? output.databaseName : undefined,
     dbClusterIdentifier:
-      output.dbClusterIdentifier !== undefined &&
-      output.dbClusterIdentifier !== null
+      output.dbClusterIdentifier !== undefined && output.dbClusterIdentifier !== null
         ? output.dbClusterIdentifier
         : undefined,
-    schema:
-      output.schema !== undefined && output.schema !== null
-        ? output.schema
-        : undefined
+    schema: output.schema !== undefined && output.schema !== null ? output.schema : undefined
   } as any;
 };
 
@@ -7464,25 +6114,17 @@ const deserializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
   return {
     __type: "RelationalDatabaseDataSourceConfig",
     rdsHttpEndpointConfig:
-      output.rdsHttpEndpointConfig !== undefined &&
-      output.rdsHttpEndpointConfig !== null
-        ? deserializeAws_restJson1_1RdsHttpEndpointConfig(
-            output.rdsHttpEndpointConfig,
-            context
-          )
+      output.rdsHttpEndpointConfig !== undefined && output.rdsHttpEndpointConfig !== null
+        ? deserializeAws_restJson1_1RdsHttpEndpointConfig(output.rdsHttpEndpointConfig, context)
         : undefined,
     relationalDatabaseSourceType:
-      output.relationalDatabaseSourceType !== undefined &&
-      output.relationalDatabaseSourceType !== null
+      output.relationalDatabaseSourceType !== undefined && output.relationalDatabaseSourceType !== null
         ? output.relationalDatabaseSourceType
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Resolver = (
-  output: any,
-  context: __SerdeContext
-): Resolver => {
+const deserializeAws_restJson1_1Resolver = (output: any, context: __SerdeContext): Resolver => {
   return {
     __type: "Resolver",
     cachingConfig:
@@ -7490,88 +6132,51 @@ const deserializeAws_restJson1_1Resolver = (
         ? deserializeAws_restJson1_1CachingConfig(output.cachingConfig, context)
         : undefined,
     dataSourceName:
-      output.dataSourceName !== undefined && output.dataSourceName !== null
-        ? output.dataSourceName
-        : undefined,
-    fieldName:
-      output.fieldName !== undefined && output.fieldName !== null
-        ? output.fieldName
-        : undefined,
-    kind:
-      output.kind !== undefined && output.kind !== null
-        ? output.kind
-        : undefined,
+      output.dataSourceName !== undefined && output.dataSourceName !== null ? output.dataSourceName : undefined,
+    fieldName: output.fieldName !== undefined && output.fieldName !== null ? output.fieldName : undefined,
+    kind: output.kind !== undefined && output.kind !== null ? output.kind : undefined,
     pipelineConfig:
       output.pipelineConfig !== undefined && output.pipelineConfig !== null
-        ? deserializeAws_restJson1_1PipelineConfig(
-            output.pipelineConfig,
-            context
-          )
+        ? deserializeAws_restJson1_1PipelineConfig(output.pipelineConfig, context)
         : undefined,
     requestMappingTemplate:
-      output.requestMappingTemplate !== undefined &&
-      output.requestMappingTemplate !== null
+      output.requestMappingTemplate !== undefined && output.requestMappingTemplate !== null
         ? output.requestMappingTemplate
         : undefined,
-    resolverArn:
-      output.resolverArn !== undefined && output.resolverArn !== null
-        ? output.resolverArn
-        : undefined,
+    resolverArn: output.resolverArn !== undefined && output.resolverArn !== null ? output.resolverArn : undefined,
     responseMappingTemplate:
-      output.responseMappingTemplate !== undefined &&
-      output.responseMappingTemplate !== null
+      output.responseMappingTemplate !== undefined && output.responseMappingTemplate !== null
         ? output.responseMappingTemplate
         : undefined,
     syncConfig:
       output.syncConfig !== undefined && output.syncConfig !== null
         ? deserializeAws_restJson1_1SyncConfig(output.syncConfig, context)
         : undefined,
-    typeName:
-      output.typeName !== undefined && output.typeName !== null
-        ? output.typeName
-        : undefined
+    typeName: output.typeName !== undefined && output.typeName !== null ? output.typeName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Resolvers = (
-  output: any,
-  context: __SerdeContext
-): Resolver[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Resolver(entry, context)
-  );
+const deserializeAws_restJson1_1Resolvers = (output: any, context: __SerdeContext): Resolver[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Resolver(entry, context));
 };
 
-const deserializeAws_restJson1_1SyncConfig = (
-  output: any,
-  context: __SerdeContext
-): SyncConfig => {
+const deserializeAws_restJson1_1SyncConfig = (output: any, context: __SerdeContext): SyncConfig => {
   return {
     __type: "SyncConfig",
     conflictDetection:
-      output.conflictDetection !== undefined &&
-      output.conflictDetection !== null
+      output.conflictDetection !== undefined && output.conflictDetection !== null
         ? output.conflictDetection
         : undefined,
     conflictHandler:
-      output.conflictHandler !== undefined && output.conflictHandler !== null
-        ? output.conflictHandler
-        : undefined,
+      output.conflictHandler !== undefined && output.conflictHandler !== null ? output.conflictHandler : undefined,
     lambdaConflictHandlerConfig:
-      output.lambdaConflictHandlerConfig !== undefined &&
-      output.lambdaConflictHandlerConfig !== null
-        ? deserializeAws_restJson1_1LambdaConflictHandlerConfig(
-            output.lambdaConflictHandlerConfig,
-            context
-          )
+      output.lambdaConflictHandlerConfig !== undefined && output.lambdaConflictHandlerConfig !== null
+        ? deserializeAws_restJson1_1LambdaConflictHandlerConfig(output.lambdaConflictHandlerConfig, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -7581,64 +6186,30 @@ const deserializeAws_restJson1_1TagMap = (
   );
 };
 
-const deserializeAws_restJson1_1Type = (
-  output: any,
-  context: __SerdeContext
-): Type => {
+const deserializeAws_restJson1_1Type = (output: any, context: __SerdeContext): Type => {
   return {
     __type: "Type",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    definition:
-      output.definition !== undefined && output.definition !== null
-        ? output.definition
-        : undefined,
-    description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    format:
-      output.format !== undefined && output.format !== null
-        ? output.format
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    definition: output.definition !== undefined && output.definition !== null ? output.definition : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    format: output.format !== undefined && output.format !== null ? output.format : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TypeList = (
-  output: any,
-  context: __SerdeContext
-): Type[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Type(entry, context)
-  );
+const deserializeAws_restJson1_1TypeList = (output: any, context: __SerdeContext): Type[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Type(entry, context));
 };
 
-const deserializeAws_restJson1_1UserPoolConfig = (
-  output: any,
-  context: __SerdeContext
-): UserPoolConfig => {
+const deserializeAws_restJson1_1UserPoolConfig = (output: any, context: __SerdeContext): UserPoolConfig => {
   return {
     __type: "UserPoolConfig",
     appIdClientRegex:
-      output.appIdClientRegex !== undefined && output.appIdClientRegex !== null
-        ? output.appIdClientRegex
-        : undefined,
-    awsRegion:
-      output.awsRegion !== undefined && output.awsRegion !== null
-        ? output.awsRegion
-        : undefined,
+      output.appIdClientRegex !== undefined && output.appIdClientRegex !== null ? output.appIdClientRegex : undefined,
+    awsRegion: output.awsRegion !== undefined && output.awsRegion !== null ? output.awsRegion : undefined,
     defaultAction:
-      output.defaultAction !== undefined && output.defaultAction !== null
-        ? output.defaultAction
-        : undefined,
-    userPoolId:
-      output.userPoolId !== undefined && output.userPoolId !== null
-        ? output.userPoolId
-        : undefined
+      output.defaultAction !== undefined && output.defaultAction !== null ? output.defaultAction : undefined,
+    userPoolId: output.userPoolId !== undefined && output.userPoolId !== null ? output.userPoolId : undefined
   } as any;
 };
 
@@ -7649,30 +6220,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -7687,8 +6249,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

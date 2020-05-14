@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
-import {
-  ListHandshakesForAccountRequest,
-  ListHandshakesForAccountResponse
-} from "../models/index";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
+import { ListHandshakesForAccountRequest, ListHandshakesForAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListHandshakesForAccountCommand,
   serializeAws_json1_1ListHandshakesForAccountCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHandshakesForAccountCommandInput = ListHandshakesForAccountRequest;
-export type ListHandshakesForAccountCommandOutput = ListHandshakesForAccountResponse &
-  __MetadataBearer;
+export type ListHandshakesForAccountCommandOutput = ListHandshakesForAccountResponse & __MetadataBearer;
 
 export class ListHandshakesForAccountCommand extends $Command<
   ListHandshakesForAccountCommandInput,
@@ -49,13 +38,8 @@ export class ListHandshakesForAccountCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListHandshakesForAccountCommandInput,
-    ListHandshakesForAccountCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListHandshakesForAccountCommandInput, ListHandshakesForAccountCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListHandshakesForAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHandshakesForAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHandshakesForAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHandshakesForAccountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHandshakesForAccountCommandOutput> {
-    return deserializeAws_json1_1ListHandshakesForAccountCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHandshakesForAccountCommandOutput> {
+    return deserializeAws_json1_1ListHandshakesForAccountCommand(output, context);
   }
 
   // Start section: command_body_extra

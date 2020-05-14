@@ -1,39 +1,21 @@
-import {
-  DeleteLexiconCommandInput,
-  DeleteLexiconCommandOutput
-} from "./commands/DeleteLexiconCommand";
-import {
-  DescribeVoicesCommandInput,
-  DescribeVoicesCommandOutput
-} from "./commands/DescribeVoicesCommand";
-import {
-  GetLexiconCommandInput,
-  GetLexiconCommandOutput
-} from "./commands/GetLexiconCommand";
+import { DeleteLexiconCommandInput, DeleteLexiconCommandOutput } from "./commands/DeleteLexiconCommand";
+import { DescribeVoicesCommandInput, DescribeVoicesCommandOutput } from "./commands/DescribeVoicesCommand";
+import { GetLexiconCommandInput, GetLexiconCommandOutput } from "./commands/GetLexiconCommand";
 import {
   GetSpeechSynthesisTaskCommandInput,
   GetSpeechSynthesisTaskCommandOutput
 } from "./commands/GetSpeechSynthesisTaskCommand";
-import {
-  ListLexiconsCommandInput,
-  ListLexiconsCommandOutput
-} from "./commands/ListLexiconsCommand";
+import { ListLexiconsCommandInput, ListLexiconsCommandOutput } from "./commands/ListLexiconsCommand";
 import {
   ListSpeechSynthesisTasksCommandInput,
   ListSpeechSynthesisTasksCommandOutput
 } from "./commands/ListSpeechSynthesisTasksCommand";
-import {
-  PutLexiconCommandInput,
-  PutLexiconCommandOutput
-} from "./commands/PutLexiconCommand";
+import { PutLexiconCommandInput, PutLexiconCommandOutput } from "./commands/PutLexiconCommand";
 import {
   StartSpeechSynthesisTaskCommandInput,
   StartSpeechSynthesisTaskCommandOutput
 } from "./commands/StartSpeechSynthesisTaskCommand";
-import {
-  SynthesizeSpeechCommandInput,
-  SynthesizeSpeechCommandOutput
-} from "./commands/SynthesizeSpeechCommand";
+import { SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput } from "./commands/SynthesizeSpeechCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -50,12 +32,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -108,8 +85,7 @@ export type ServiceOutputTypes =
   | StartSpeechSynthesisTaskCommandOutput
   | SynthesizeSpeechCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -193,9 +169,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type PollyClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type PollyClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +178,7 @@ export type PollyClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type PollyClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

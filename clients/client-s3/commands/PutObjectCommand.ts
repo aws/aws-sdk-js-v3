@@ -1,20 +1,10 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutObjectOutput, PutObjectRequest } from "../models/index";
-import {
-  deserializeAws_restXmlPutObjectCommand,
-  serializeAws_restXmlPutObjectCommand
-} from "../protocols/Aws_restXml";
+import { deserializeAws_restXmlPutObjectCommand, serializeAws_restXmlPutObjectCommand } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -31,11 +21,7 @@ export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
 };
 export type PutObjectCommandOutput = PutObjectOutput & __MetadataBearer;
 
-export class PutObjectCommand extends $Command<
-  PutObjectCommandInput,
-  PutObjectCommandOutput,
-  S3ClientResolvedConfig
-> {
+export class PutObjectCommand extends $Command<PutObjectCommandInput, PutObjectCommandOutput, S3ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,9 +36,7 @@ export class PutObjectCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutObjectCommandInput, PutObjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
@@ -69,17 +53,11 @@ export class PutObjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutObjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PutObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlPutObjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutObjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectCommandOutput> {
     return deserializeAws_restXmlPutObjectCommand(output, context);
   }
 

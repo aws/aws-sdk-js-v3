@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  RemoveAttributesRequest,
-  RemoveAttributesResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { RemoveAttributesRequest, RemoveAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RemoveAttributesCommand,
   serializeAws_restJson1_1RemoveAttributesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RemoveAttributesCommandInput = RemoveAttributesRequest;
-export type RemoveAttributesCommandOutput = RemoveAttributesResponse &
-  __MetadataBearer;
+export type RemoveAttributesCommandOutput = RemoveAttributesResponse & __MetadataBearer;
 
 export class RemoveAttributesCommand extends $Command<
   RemoveAttributesCommandInput,
@@ -50,9 +39,7 @@ export class RemoveAttributesCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveAttributesCommandInput, RemoveAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class RemoveAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RemoveAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RemoveAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RemoveAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveAttributesCommandOutput> {
     return deserializeAws_restJson1_1RemoveAttributesCommand(output, context);
   }
 

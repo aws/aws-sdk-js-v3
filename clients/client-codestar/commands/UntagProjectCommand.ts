@@ -1,18 +1,11 @@
-import {
-  CodeStarClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeStarClient";
+import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import { UntagProjectRequest, UntagProjectResult } from "../models/index";
 import {
   deserializeAws_json1_1UntagProjectCommand,
   serializeAws_json1_1UntagProjectCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class UntagProjectCommand extends $Command<
     configuration: CodeStarClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagProjectCommandInput, UntagProjectCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class UntagProjectCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UntagProjectCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UntagProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagProjectCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UntagProjectCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagProjectCommandOutput> {
     return deserializeAws_json1_1UntagProjectCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  PutEventsConfigurationRequest,
-  PutEventsConfigurationResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { PutEventsConfigurationRequest, PutEventsConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PutEventsConfigurationCommand,
   serializeAws_restJson1_1PutEventsConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type PutEventsConfigurationCommandInput = PutEventsConfigurationRequest;
-export type PutEventsConfigurationCommandOutput = PutEventsConfigurationResponse &
-  __MetadataBearer;
+export type PutEventsConfigurationCommandOutput = PutEventsConfigurationResponse & __MetadataBearer;
 
 export class PutEventsConfigurationCommand extends $Command<
   PutEventsConfigurationCommandInput,
@@ -49,13 +38,8 @@ export class PutEventsConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    PutEventsConfigurationCommandInput,
-    PutEventsConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<PutEventsConfigurationCommandInput, PutEventsConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class PutEventsConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PutEventsConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutEventsConfigurationCommand(
-      input,
-      context
-    );
+  private serialize(input: PutEventsConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1PutEventsConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutEventsConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutEventsConfigurationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsConfigurationCommandOutput> {
+    return deserializeAws_restJson1_1PutEventsConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

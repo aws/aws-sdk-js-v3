@@ -1,18 +1,11 @@
-import {
-  S3ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../S3Client";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { ListBucketsOutput } from "../models/index";
 import {
   deserializeAws_restXmlListBucketsCommand,
   serializeAws_restXmlListBucketsCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ListBucketsCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBucketsCommandInput, ListBucketsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ListBucketsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListBucketsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlListBucketsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListBucketsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBucketsCommandOutput> {
     return deserializeAws_restXmlListBucketsCommand(output, context);
   }
 

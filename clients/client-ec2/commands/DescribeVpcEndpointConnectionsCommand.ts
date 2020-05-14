@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeVpcEndpointConnectionsRequest,
-  DescribeVpcEndpointConnectionsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeVpcEndpointConnectionsRequest, DescribeVpcEndpointConnectionsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeVpcEndpointConnectionsCommand,
   serializeAws_ec2DescribeVpcEndpointConnectionsCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVpcEndpointConnectionsCommandInput = DescribeVpcEndpointConnectionsRequest;
-export type DescribeVpcEndpointConnectionsCommandOutput = DescribeVpcEndpointConnectionsResult &
-  __MetadataBearer;
+export type DescribeVpcEndpointConnectionsCommandOutput = DescribeVpcEndpointConnectionsResult & __MetadataBearer;
 
 export class DescribeVpcEndpointConnectionsCommand extends $Command<
   DescribeVpcEndpointConnectionsCommandInput,
@@ -49,13 +38,8 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVpcEndpointConnectionsCommandInput,
-    DescribeVpcEndpointConnectionsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVpcEndpointConnectionsCommandInput, DescribeVpcEndpointConnectionsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class DescribeVpcEndpointConnectionsCommand extends $Command<
     input: DescribeVpcEndpointConnectionsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeVpcEndpointConnectionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeVpcEndpointConnectionsCommandOutput> {
-    return deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeVpcEndpointConnectionsCommand(output, context);
   }
 
   // Start section: command_body_extra

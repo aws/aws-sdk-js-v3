@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -21,8 +18,7 @@ export interface AddTagsToStreamInput {
 }
 
 export namespace AddTagsToStreamInput {
-  export const isa = (o: any): o is AddTagsToStreamInput =>
-    __isa(o, "AddTagsToStreamInput");
+  export const isa = (o: any): o is AddTagsToStreamInput => __isa(o, "AddTagsToStreamInput");
 }
 
 /**
@@ -96,8 +92,7 @@ export interface ConsumerDescription {
 }
 
 export namespace ConsumerDescription {
-  export const isa = (o: any): o is ConsumerDescription =>
-    __isa(o, "ConsumerDescription");
+  export const isa = (o: any): o is ConsumerDescription => __isa(o, "ConsumerDescription");
 }
 
 export enum ConsumerStatus {
@@ -127,8 +122,7 @@ export interface CreateStreamInput {
 }
 
 export namespace CreateStreamInput {
-  export const isa = (o: any): o is CreateStreamInput =>
-    __isa(o, "CreateStreamInput");
+  export const isa = (o: any): o is CreateStreamInput => __isa(o, "CreateStreamInput");
 }
 
 /**
@@ -171,8 +165,7 @@ export interface DeleteStreamInput {
 }
 
 export namespace DeleteStreamInput {
-  export const isa = (o: any): o is DeleteStreamInput =>
-    __isa(o, "DeleteStreamInput");
+  export const isa = (o: any): o is DeleteStreamInput => __isa(o, "DeleteStreamInput");
 }
 
 export interface DeregisterStreamConsumerInput {
@@ -199,8 +192,7 @@ export interface DeregisterStreamConsumerInput {
 }
 
 export namespace DeregisterStreamConsumerInput {
-  export const isa = (o: any): o is DeregisterStreamConsumerInput =>
-    __isa(o, "DeregisterStreamConsumerInput");
+  export const isa = (o: any): o is DeregisterStreamConsumerInput => __isa(o, "DeregisterStreamConsumerInput");
 }
 
 export interface DescribeLimitsInput {
@@ -208,8 +200,7 @@ export interface DescribeLimitsInput {
 }
 
 export namespace DescribeLimitsInput {
-  export const isa = (o: any): o is DescribeLimitsInput =>
-    __isa(o, "DescribeLimitsInput");
+  export const isa = (o: any): o is DescribeLimitsInput => __isa(o, "DescribeLimitsInput");
 }
 
 export interface DescribeLimitsOutput {
@@ -226,8 +217,7 @@ export interface DescribeLimitsOutput {
 }
 
 export namespace DescribeLimitsOutput {
-  export const isa = (o: any): o is DescribeLimitsOutput =>
-    __isa(o, "DescribeLimitsOutput");
+  export const isa = (o: any): o is DescribeLimitsOutput => __isa(o, "DescribeLimitsOutput");
 }
 
 export interface DescribeStreamConsumerInput {
@@ -250,8 +240,7 @@ export interface DescribeStreamConsumerInput {
 }
 
 export namespace DescribeStreamConsumerInput {
-  export const isa = (o: any): o is DescribeStreamConsumerInput =>
-    __isa(o, "DescribeStreamConsumerInput");
+  export const isa = (o: any): o is DescribeStreamConsumerInput => __isa(o, "DescribeStreamConsumerInput");
 }
 
 export interface DescribeStreamConsumerOutput {
@@ -263,8 +252,7 @@ export interface DescribeStreamConsumerOutput {
 }
 
 export namespace DescribeStreamConsumerOutput {
-  export const isa = (o: any): o is DescribeStreamConsumerOutput =>
-    __isa(o, "DescribeStreamConsumerOutput");
+  export const isa = (o: any): o is DescribeStreamConsumerOutput => __isa(o, "DescribeStreamConsumerOutput");
 }
 
 /**
@@ -290,8 +278,7 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
-  export const isa = (o: any): o is DescribeStreamInput =>
-    __isa(o, "DescribeStreamInput");
+  export const isa = (o: any): o is DescribeStreamInput => __isa(o, "DescribeStreamInput");
 }
 
 /**
@@ -308,8 +295,7 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
-  export const isa = (o: any): o is DescribeStreamOutput =>
-    __isa(o, "DescribeStreamOutput");
+  export const isa = (o: any): o is DescribeStreamOutput => __isa(o, "DescribeStreamOutput");
 }
 
 export interface DescribeStreamSummaryInput {
@@ -321,8 +307,7 @@ export interface DescribeStreamSummaryInput {
 }
 
 export namespace DescribeStreamSummaryInput {
-  export const isa = (o: any): o is DescribeStreamSummaryInput =>
-    __isa(o, "DescribeStreamSummaryInput");
+  export const isa = (o: any): o is DescribeStreamSummaryInput => __isa(o, "DescribeStreamSummaryInput");
 }
 
 export interface DescribeStreamSummaryOutput {
@@ -334,8 +319,7 @@ export interface DescribeStreamSummaryOutput {
 }
 
 export namespace DescribeStreamSummaryOutput {
-  export const isa = (o: any): o is DescribeStreamSummaryOutput =>
-    __isa(o, "DescribeStreamSummaryOutput");
+  export const isa = (o: any): o is DescribeStreamSummaryOutput => __isa(o, "DescribeStreamSummaryOutput");
 }
 
 /**
@@ -403,8 +387,7 @@ export interface DisableEnhancedMonitoringInput {
 }
 
 export namespace DisableEnhancedMonitoringInput {
-  export const isa = (o: any): o is DisableEnhancedMonitoringInput =>
-    __isa(o, "DisableEnhancedMonitoringInput");
+  export const isa = (o: any): o is DisableEnhancedMonitoringInput => __isa(o, "DisableEnhancedMonitoringInput");
 }
 
 /**
@@ -471,8 +454,7 @@ export interface EnableEnhancedMonitoringInput {
 }
 
 export namespace EnableEnhancedMonitoringInput {
-  export const isa = (o: any): o is EnableEnhancedMonitoringInput =>
-    __isa(o, "EnableEnhancedMonitoringInput");
+  export const isa = (o: any): o is EnableEnhancedMonitoringInput => __isa(o, "EnableEnhancedMonitoringInput");
 }
 
 export enum EncryptionType {
@@ -539,8 +521,7 @@ export interface EnhancedMetrics {
 }
 
 export namespace EnhancedMetrics {
-  export const isa = (o: any): o is EnhancedMetrics =>
-    __isa(o, "EnhancedMetrics");
+  export const isa = (o: any): o is EnhancedMetrics => __isa(o, "EnhancedMetrics");
 }
 
 /**
@@ -566,16 +547,13 @@ export interface EnhancedMonitoringOutput {
 }
 
 export namespace EnhancedMonitoringOutput {
-  export const isa = (o: any): o is EnhancedMonitoringOutput =>
-    __isa(o, "EnhancedMonitoringOutput");
+  export const isa = (o: any): o is EnhancedMonitoringOutput => __isa(o, "EnhancedMonitoringOutput");
 }
 
 /**
  * <p>The provided iterator exceeds the maximum age allowed.</p>
  */
-export interface ExpiredIteratorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredIteratorException extends __SmithyException, $MetadataBearer {
   name: "ExpiredIteratorException";
   $fault: "client";
   /**
@@ -585,24 +563,20 @@ export interface ExpiredIteratorException
 }
 
 export namespace ExpiredIteratorException {
-  export const isa = (o: any): o is ExpiredIteratorException =>
-    __isa(o, "ExpiredIteratorException");
+  export const isa = (o: any): o is ExpiredIteratorException => __isa(o, "ExpiredIteratorException");
 }
 
 /**
  * <p>The pagination token passed to the operation is expired.</p>
  */
-export interface ExpiredNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
   name: "ExpiredNextTokenException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ExpiredNextTokenException {
-  export const isa = (o: any): o is ExpiredNextTokenException =>
-    __isa(o, "ExpiredNextTokenException");
+  export const isa = (o: any): o is ExpiredNextTokenException => __isa(o, "ExpiredNextTokenException");
 }
 
 /**
@@ -624,8 +598,7 @@ export interface GetRecordsInput {
 }
 
 export namespace GetRecordsInput {
-  export const isa = (o: any): o is GetRecordsInput =>
-    __isa(o, "GetRecordsInput");
+  export const isa = (o: any): o is GetRecordsInput => __isa(o, "GetRecordsInput");
 }
 
 /**
@@ -655,8 +628,7 @@ export interface GetRecordsOutput {
 }
 
 export namespace GetRecordsOutput {
-  export const isa = (o: any): o is GetRecordsOutput =>
-    __isa(o, "GetRecordsOutput");
+  export const isa = (o: any): o is GetRecordsOutput => __isa(o, "GetRecordsOutput");
 }
 
 /**
@@ -718,8 +690,7 @@ export interface GetShardIteratorInput {
 }
 
 export namespace GetShardIteratorInput {
-  export const isa = (o: any): o is GetShardIteratorInput =>
-    __isa(o, "GetShardIteratorInput");
+  export const isa = (o: any): o is GetShardIteratorInput => __isa(o, "GetShardIteratorInput");
 }
 
 /**
@@ -734,8 +705,7 @@ export interface GetShardIteratorOutput {
 }
 
 export namespace GetShardIteratorOutput {
-  export const isa = (o: any): o is GetShardIteratorOutput =>
-    __isa(o, "GetShardIteratorOutput");
+  export const isa = (o: any): o is GetShardIteratorOutput => __isa(o, "GetShardIteratorOutput");
 }
 
 /**
@@ -786,16 +756,13 @@ export interface InternalFailureException extends __SmithyException {
 }
 
 export namespace InternalFailureException {
-  export const isa = (o: any): o is InternalFailureException =>
-    __isa(o, "InternalFailureException");
+  export const isa = (o: any): o is InternalFailureException => __isa(o, "InternalFailureException");
 }
 
 /**
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used. For more information, see the returned message.</p>
  */
-export interface InvalidArgumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
   name: "InvalidArgumentException";
   $fault: "client";
   /**
@@ -805,16 +772,13 @@ export interface InvalidArgumentException
 }
 
 export namespace InvalidArgumentException {
-  export const isa = (o: any): o is InvalidArgumentException =>
-    __isa(o, "InvalidArgumentException");
+  export const isa = (o: any): o is InvalidArgumentException => __isa(o, "InvalidArgumentException");
 }
 
 /**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access to.</p>
  */
-export interface KMSAccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "client";
   /**
@@ -824,17 +788,14 @@ export interface KMSAccessDeniedException
 }
 
 export namespace KMSAccessDeniedException {
-  export const isa = (o: any): o is KMSAccessDeniedException =>
-    __isa(o, "KMSAccessDeniedException");
+  export const isa = (o: any): o is KMSAccessDeniedException => __isa(o, "KMSAccessDeniedException");
 }
 
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
-export interface KMSDisabledException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledException";
   $fault: "client";
   /**
@@ -844,8 +805,7 @@ export interface KMSDisabledException
 }
 
 export namespace KMSDisabledException {
-  export const isa = (o: any): o is KMSDisabledException =>
-    __isa(o, "KMSDisabledException");
+  export const isa = (o: any): o is KMSDisabledException => __isa(o, "KMSDisabledException");
 }
 
 /**
@@ -853,9 +813,7 @@ export namespace KMSDisabledException {
  *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master Key</a> in the
  *             <i>AWS Key Management Service Developer Guide</i>.</p>
  */
-export interface KMSInvalidStateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "client";
   /**
@@ -865,17 +823,14 @@ export interface KMSInvalidStateException
 }
 
 export namespace KMSInvalidStateException {
-  export const isa = (o: any): o is KMSInvalidStateException =>
-    __isa(o, "KMSInvalidStateException");
+  export const isa = (o: any): o is KMSInvalidStateException => __isa(o, "KMSInvalidStateException");
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
-export interface KMSNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "client";
   /**
@@ -885,8 +840,7 @@ export interface KMSNotFoundException
 }
 
 export namespace KMSNotFoundException {
-  export const isa = (o: any): o is KMSNotFoundException =>
-    __isa(o, "KMSNotFoundException");
+  export const isa = (o: any): o is KMSNotFoundException => __isa(o, "KMSNotFoundException");
 }
 
 /**
@@ -902,17 +856,14 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSOptInRequired {
-  export const isa = (o: any): o is KMSOptInRequired =>
-    __isa(o, "KMSOptInRequired");
+  export const isa = (o: any): o is KMSOptInRequired => __isa(o, "KMSOptInRequired");
 }
 
 /**
  * <p>The request was denied due to request throttling. For more information about throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in the
  *             <i>AWS Key Management Service Developer Guide</i>.</p>
  */
-export interface KMSThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
   name: "KMSThrottlingException";
   $fault: "client";
   /**
@@ -922,16 +873,13 @@ export interface KMSThrottlingException
 }
 
 export namespace KMSThrottlingException {
-  export const isa = (o: any): o is KMSThrottlingException =>
-    __isa(o, "KMSThrottlingException");
+  export const isa = (o: any): o is KMSThrottlingException => __isa(o, "KMSThrottlingException");
 }
 
 /**
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent stream requests exceeds the maximum number allowed. </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   /**
@@ -941,8 +889,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export interface ListShardsInput {
@@ -1010,8 +957,7 @@ export interface ListShardsInput {
 }
 
 export namespace ListShardsInput {
-  export const isa = (o: any): o is ListShardsInput =>
-    __isa(o, "ListShardsInput");
+  export const isa = (o: any): o is ListShardsInput => __isa(o, "ListShardsInput");
 }
 
 export interface ListShardsOutput {
@@ -1041,8 +987,7 @@ export interface ListShardsOutput {
 }
 
 export namespace ListShardsOutput {
-  export const isa = (o: any): o is ListShardsOutput =>
-    __isa(o, "ListShardsOutput");
+  export const isa = (o: any): o is ListShardsOutput => __isa(o, "ListShardsOutput");
 }
 
 export interface ListStreamConsumersInput {
@@ -1095,8 +1040,7 @@ export interface ListStreamConsumersInput {
 }
 
 export namespace ListStreamConsumersInput {
-  export const isa = (o: any): o is ListStreamConsumersInput =>
-    __isa(o, "ListStreamConsumersInput");
+  export const isa = (o: any): o is ListStreamConsumersInput => __isa(o, "ListStreamConsumersInput");
 }
 
 export interface ListStreamConsumersOutput {
@@ -1125,8 +1069,7 @@ export interface ListStreamConsumersOutput {
 }
 
 export namespace ListStreamConsumersOutput {
-  export const isa = (o: any): o is ListStreamConsumersOutput =>
-    __isa(o, "ListStreamConsumersOutput");
+  export const isa = (o: any): o is ListStreamConsumersOutput => __isa(o, "ListStreamConsumersOutput");
 }
 
 /**
@@ -1146,8 +1089,7 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
-  export const isa = (o: any): o is ListStreamsInput =>
-    __isa(o, "ListStreamsInput");
+  export const isa = (o: any): o is ListStreamsInput => __isa(o, "ListStreamsInput");
 }
 
 /**
@@ -1168,8 +1110,7 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
-  export const isa = (o: any): o is ListStreamsOutput =>
-    __isa(o, "ListStreamsOutput");
+  export const isa = (o: any): o is ListStreamsOutput => __isa(o, "ListStreamsOutput");
 }
 
 /**
@@ -1199,8 +1140,7 @@ export interface ListTagsForStreamInput {
 }
 
 export namespace ListTagsForStreamInput {
-  export const isa = (o: any): o is ListTagsForStreamInput =>
-    __isa(o, "ListTagsForStreamInput");
+  export const isa = (o: any): o is ListTagsForStreamInput => __isa(o, "ListTagsForStreamInput");
 }
 
 /**
@@ -1222,8 +1162,7 @@ export interface ListTagsForStreamOutput {
 }
 
 export namespace ListTagsForStreamOutput {
-  export const isa = (o: any): o is ListTagsForStreamOutput =>
-    __isa(o, "ListTagsForStreamOutput");
+  export const isa = (o: any): o is ListTagsForStreamOutput => __isa(o, "ListTagsForStreamOutput");
 }
 
 /**
@@ -1248,8 +1187,7 @@ export interface MergeShardsInput {
 }
 
 export namespace MergeShardsInput {
-  export const isa = (o: any): o is MergeShardsInput =>
-    __isa(o, "MergeShardsInput");
+  export const isa = (o: any): o is MergeShardsInput => __isa(o, "MergeShardsInput");
 }
 
 export enum MetricsName {
@@ -1271,9 +1209,7 @@ export enum MetricsName {
  *                 Exponential Backoff in AWS</a> in the <i>AWS General
  *             Reference</i>.</p>
  */
-export interface ProvisionedThroughputExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   /**
@@ -1329,8 +1265,7 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
-  export const isa = (o: any): o is PutRecordInput =>
-    __isa(o, "PutRecordInput");
+  export const isa = (o: any): o is PutRecordInput => __isa(o, "PutRecordInput");
 }
 
 /**
@@ -1366,8 +1301,7 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
-  export const isa = (o: any): o is PutRecordOutput =>
-    __isa(o, "PutRecordOutput");
+  export const isa = (o: any): o is PutRecordOutput => __isa(o, "PutRecordOutput");
 }
 
 /**
@@ -1387,8 +1321,7 @@ export interface PutRecordsInput {
 }
 
 export namespace PutRecordsInput {
-  export const isa = (o: any): o is PutRecordsInput =>
-    __isa(o, "PutRecordsInput");
+  export const isa = (o: any): o is PutRecordsInput => __isa(o, "PutRecordsInput");
 }
 
 /**
@@ -1429,8 +1362,7 @@ export interface PutRecordsOutput {
 }
 
 export namespace PutRecordsOutput {
-  export const isa = (o: any): o is PutRecordsOutput =>
-    __isa(o, "PutRecordsOutput");
+  export const isa = (o: any): o is PutRecordsOutput => __isa(o, "PutRecordsOutput");
 }
 
 /**
@@ -1461,8 +1393,7 @@ export interface PutRecordsRequestEntry {
 }
 
 export namespace PutRecordsRequestEntry {
-  export const isa = (o: any): o is PutRecordsRequestEntry =>
-    __isa(o, "PutRecordsRequestEntry");
+  export const isa = (o: any): o is PutRecordsRequestEntry => __isa(o, "PutRecordsRequestEntry");
 }
 
 /**
@@ -1501,8 +1432,7 @@ export interface PutRecordsResultEntry {
 }
 
 export namespace PutRecordsResultEntry {
-  export const isa = (o: any): o is PutRecordsResultEntry =>
-    __isa(o, "PutRecordsResultEntry");
+  export const isa = (o: any): o is PutRecordsResultEntry => __isa(o, "PutRecordsResultEntry");
 }
 
 /**
@@ -1570,8 +1500,7 @@ export interface RegisterStreamConsumerInput {
 }
 
 export namespace RegisterStreamConsumerInput {
-  export const isa = (o: any): o is RegisterStreamConsumerInput =>
-    __isa(o, "RegisterStreamConsumerInput");
+  export const isa = (o: any): o is RegisterStreamConsumerInput => __isa(o, "RegisterStreamConsumerInput");
 }
 
 export interface RegisterStreamConsumerOutput {
@@ -1584,8 +1513,7 @@ export interface RegisterStreamConsumerOutput {
 }
 
 export namespace RegisterStreamConsumerOutput {
-  export const isa = (o: any): o is RegisterStreamConsumerOutput =>
-    __isa(o, "RegisterStreamConsumerOutput");
+  export const isa = (o: any): o is RegisterStreamConsumerOutput => __isa(o, "RegisterStreamConsumerOutput");
 }
 
 /**
@@ -1605,17 +1533,14 @@ export interface RemoveTagsFromStreamInput {
 }
 
 export namespace RemoveTagsFromStreamInput {
-  export const isa = (o: any): o is RemoveTagsFromStreamInput =>
-    __isa(o, "RemoveTagsFromStreamInput");
+  export const isa = (o: any): o is RemoveTagsFromStreamInput => __isa(o, "RemoveTagsFromStreamInput");
 }
 
 /**
  * <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
  */
-export interface ResourceInUseException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
   /**
@@ -1625,16 +1550,13 @@ export interface ResourceInUseException
 }
 
 export namespace ResourceInUseException {
-  export const isa = (o: any): o is ResourceInUseException =>
-    __isa(o, "ResourceInUseException");
+  export const isa = (o: any): o is ResourceInUseException => __isa(o, "ResourceInUseException");
 }
 
 /**
  * <p>The requested resource could not be found. The stream might not be specified correctly.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1644,8 +1566,7 @@ export interface ResourceNotFoundException
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 export enum ScalingType {
@@ -1670,8 +1591,7 @@ export interface SequenceNumberRange {
 }
 
 export namespace SequenceNumberRange {
-  export const isa = (o: any): o is SequenceNumberRange =>
-    __isa(o, "SequenceNumberRange");
+  export const isa = (o: any): o is SequenceNumberRange => __isa(o, "SequenceNumberRange");
 }
 
 /**
@@ -1745,8 +1665,7 @@ export interface SplitShardInput {
 }
 
 export namespace SplitShardInput {
-  export const isa = (o: any): o is SplitShardInput =>
-    __isa(o, "SplitShardInput");
+  export const isa = (o: any): o is SplitShardInput => __isa(o, "SplitShardInput");
 }
 
 export interface StartStreamEncryptionInput {
@@ -1796,8 +1715,7 @@ export interface StartStreamEncryptionInput {
 }
 
 export namespace StartStreamEncryptionInput {
-  export const isa = (o: any): o is StartStreamEncryptionInput =>
-    __isa(o, "StartStreamEncryptionInput");
+  export const isa = (o: any): o is StartStreamEncryptionInput => __isa(o, "StartStreamEncryptionInput");
 }
 
 export interface StartingPosition {
@@ -1808,8 +1726,7 @@ export interface StartingPosition {
 }
 
 export namespace StartingPosition {
-  export const isa = (o: any): o is StartingPosition =>
-    __isa(o, "StartingPosition");
+  export const isa = (o: any): o is StartingPosition => __isa(o, "StartingPosition");
 }
 
 export interface StopStreamEncryptionInput {
@@ -1859,8 +1776,7 @@ export interface StopStreamEncryptionInput {
 }
 
 export namespace StopStreamEncryptionInput {
-  export const isa = (o: any): o is StopStreamEncryptionInput =>
-    __isa(o, "StopStreamEncryptionInput");
+  export const isa = (o: any): o is StopStreamEncryptionInput => __isa(o, "StopStreamEncryptionInput");
 }
 
 /**
@@ -1984,8 +1900,7 @@ export interface StreamDescription {
 }
 
 export namespace StreamDescription {
-  export const isa = (o: any): o is StreamDescription =>
-    __isa(o, "StreamDescription");
+  export const isa = (o: any): o is StreamDescription => __isa(o, "StreamDescription");
 }
 
 /**
@@ -2111,8 +2026,7 @@ export interface StreamDescriptionSummary {
 }
 
 export namespace StreamDescriptionSummary {
-  export const isa = (o: any): o is StreamDescriptionSummary =>
-    __isa(o, "StreamDescriptionSummary");
+  export const isa = (o: any): o is StreamDescriptionSummary => __isa(o, "StreamDescriptionSummary");
 }
 
 export enum StreamStatus {
@@ -2145,8 +2059,7 @@ export interface SubscribeToShardEvent {
 }
 
 export namespace SubscribeToShardEvent {
-  export const isa = (o: any): o is SubscribeToShardEvent =>
-    __isa(o, "SubscribeToShardEvent");
+  export const isa = (o: any): o is SubscribeToShardEvent => __isa(o, "SubscribeToShardEvent");
 }
 
 export type SubscribeToShardEventStream =
@@ -2355,30 +2268,21 @@ export namespace SubscribeToShardEventStream {
     SubscribeToShardEvent: (value: SubscribeToShardEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export const visit = <T>(
-    value: SubscribeToShardEventStream,
-    visitor: Visitor<T>
-  ): T => {
+  export const visit = <T>(value: SubscribeToShardEventStream, visitor: Visitor<T>): T => {
     if (value.InternalFailureException !== undefined)
       return visitor.InternalFailureException(value.InternalFailureException);
     if (value.KMSAccessDeniedException !== undefined)
       return visitor.KMSAccessDeniedException(value.KMSAccessDeniedException);
-    if (value.KMSDisabledException !== undefined)
-      return visitor.KMSDisabledException(value.KMSDisabledException);
+    if (value.KMSDisabledException !== undefined) return visitor.KMSDisabledException(value.KMSDisabledException);
     if (value.KMSInvalidStateException !== undefined)
       return visitor.KMSInvalidStateException(value.KMSInvalidStateException);
-    if (value.KMSNotFoundException !== undefined)
-      return visitor.KMSNotFoundException(value.KMSNotFoundException);
-    if (value.KMSOptInRequired !== undefined)
-      return visitor.KMSOptInRequired(value.KMSOptInRequired);
-    if (value.KMSThrottlingException !== undefined)
-      return visitor.KMSThrottlingException(value.KMSThrottlingException);
-    if (value.ResourceInUseException !== undefined)
-      return visitor.ResourceInUseException(value.ResourceInUseException);
+    if (value.KMSNotFoundException !== undefined) return visitor.KMSNotFoundException(value.KMSNotFoundException);
+    if (value.KMSOptInRequired !== undefined) return visitor.KMSOptInRequired(value.KMSOptInRequired);
+    if (value.KMSThrottlingException !== undefined) return visitor.KMSThrottlingException(value.KMSThrottlingException);
+    if (value.ResourceInUseException !== undefined) return visitor.ResourceInUseException(value.ResourceInUseException);
     if (value.ResourceNotFoundException !== undefined)
       return visitor.ResourceNotFoundException(value.ResourceNotFoundException);
-    if (value.SubscribeToShardEvent !== undefined)
-      return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
+    if (value.SubscribeToShardEvent !== undefined) return visitor.SubscribeToShardEvent(value.SubscribeToShardEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2400,8 +2304,7 @@ export interface SubscribeToShardInput {
 }
 
 export namespace SubscribeToShardInput {
-  export const isa = (o: any): o is SubscribeToShardInput =>
-    __isa(o, "SubscribeToShardInput");
+  export const isa = (o: any): o is SubscribeToShardInput => __isa(o, "SubscribeToShardInput");
 }
 
 export interface SubscribeToShardOutput {
@@ -2413,8 +2316,7 @@ export interface SubscribeToShardOutput {
 }
 
 export namespace SubscribeToShardOutput {
-  export const isa = (o: any): o is SubscribeToShardOutput =>
-    __isa(o, "SubscribeToShardOutput");
+  export const isa = (o: any): o is SubscribeToShardOutput => __isa(o, "SubscribeToShardOutput");
 }
 
 /**
@@ -2456,8 +2358,7 @@ export interface UpdateShardCountInput {
 }
 
 export namespace UpdateShardCountInput {
-  export const isa = (o: any): o is UpdateShardCountInput =>
-    __isa(o, "UpdateShardCountInput");
+  export const isa = (o: any): o is UpdateShardCountInput => __isa(o, "UpdateShardCountInput");
 }
 
 export interface UpdateShardCountOutput {
@@ -2479,6 +2380,5 @@ export interface UpdateShardCountOutput {
 }
 
 export namespace UpdateShardCountOutput {
-  export const isa = (o: any): o is UpdateShardCountOutput =>
-    __isa(o, "UpdateShardCountOutput");
+  export const isa = (o: any): o is UpdateShardCountOutput => __isa(o, "UpdateShardCountOutput");
 }

@@ -1,8 +1,4 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult
@@ -12,10 +8,7 @@ import {
   serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: StartVpcEndpointServicePrivateDnsVerificationCommandInput
-  ) {
+  constructor(readonly input: StartVpcEndpointServicePrivateDnsVerificationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     StartVpcEndpointServicePrivateDnsVerificationCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Comma
     input: StartVpcEndpointServicePrivateDnsVerificationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> {
-    return deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand(output, context);
   }
 
   // Start section: command_body_extra

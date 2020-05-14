@@ -1,21 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
-import {
-  GetIdentityNotificationAttributesRequest,
-  GetIdentityNotificationAttributesResponse
-} from "../models/index";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
+import { GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetIdentityNotificationAttributesCommand,
   serializeAws_queryGetIdentityNotificationAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetIdentityNotificationAttributesCommandInput,
-    GetIdentityNotificationAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetIdentityNotificationAttributesCommandInput, GetIdentityNotificationAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     input: GetIdentityNotificationAttributesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryGetIdentityNotificationAttributesCommand(
-      input,
-      context
-    );
+    return serializeAws_queryGetIdentityNotificationAttributesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetIdentityNotificationAttributesCommandOutput> {
-    return deserializeAws_queryGetIdentityNotificationAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetIdentityNotificationAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

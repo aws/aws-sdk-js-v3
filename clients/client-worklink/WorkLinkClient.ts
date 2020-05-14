@@ -1,7 +1,4 @@
-import {
-  AssociateDomainCommandInput,
-  AssociateDomainCommandOutput
-} from "./commands/AssociateDomainCommand";
+import { AssociateDomainCommandInput, AssociateDomainCommandOutput } from "./commands/AssociateDomainCommand";
 import {
   AssociateWebsiteAuthorizationProviderCommandInput,
   AssociateWebsiteAuthorizationProviderCommandOutput
@@ -10,14 +7,8 @@ import {
   AssociateWebsiteCertificateAuthorityCommandInput,
   AssociateWebsiteCertificateAuthorityCommandOutput
 } from "./commands/AssociateWebsiteCertificateAuthorityCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DescribeAuditStreamConfigurationCommandInput,
   DescribeAuditStreamConfigurationCommandOutput
@@ -26,18 +17,12 @@ import {
   DescribeCompanyNetworkConfigurationCommandInput,
   DescribeCompanyNetworkConfigurationCommandOutput
 } from "./commands/DescribeCompanyNetworkConfigurationCommand";
-import {
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
-} from "./commands/DescribeDeviceCommand";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
 import {
   DescribeDevicePolicyConfigurationCommandInput,
   DescribeDevicePolicyConfigurationCommandOutput
 } from "./commands/DescribeDevicePolicyConfigurationCommand";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import {
   DescribeFleetMetadataCommandInput,
   DescribeFleetMetadataCommandOutput
@@ -50,10 +35,7 @@ import {
   DescribeWebsiteCertificateAuthorityCommandInput,
   DescribeWebsiteCertificateAuthorityCommandOutput
 } from "./commands/DescribeWebsiteCertificateAuthorityCommand";
-import {
-  DisassociateDomainCommandInput,
-  DisassociateDomainCommandOutput
-} from "./commands/DisassociateDomainCommand";
+import { DisassociateDomainCommandInput, DisassociateDomainCommandOutput } from "./commands/DisassociateDomainCommand";
 import {
   DisassociateWebsiteAuthorizationProviderCommandInput,
   DisassociateWebsiteAuthorizationProviderCommandOutput
@@ -62,18 +44,9 @@ import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
   DisassociateWebsiteCertificateAuthorityCommandOutput
 } from "./commands/DisassociateWebsiteCertificateAuthorityCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListWebsiteAuthorizationProvidersCommandInput,
   ListWebsiteAuthorizationProvidersCommandOutput
@@ -86,14 +59,8 @@ import {
   RestoreDomainAccessCommandInput,
   RestoreDomainAccessCommandOutput
 } from "./commands/RestoreDomainAccessCommand";
-import {
-  RevokeDomainAccessCommandInput,
-  RevokeDomainAccessCommandOutput
-} from "./commands/RevokeDomainAccessCommand";
-import {
-  SignOutUserCommandInput,
-  SignOutUserCommandOutput
-} from "./commands/SignOutUserCommand";
+import { RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput } from "./commands/RevokeDomainAccessCommand";
+import { SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
   UpdateAuditStreamConfigurationCommandOutput
@@ -134,12 +101,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -234,8 +196,7 @@ export type ServiceOutputTypes =
   | UpdateFleetMetadataCommandOutput
   | UpdateIdentityProviderConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -319,9 +280,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkLinkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkLinkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -330,9 +289,7 @@ export type WorkLinkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkLinkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

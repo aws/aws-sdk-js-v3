@@ -1,9 +1,4 @@
-import {
-  Decoder,
-  Encoder,
-  MessageHeaders,
-  MessageHeaderValue
-} from "@aws-sdk/types";
+import { Decoder, Encoder, MessageHeaders, MessageHeaderValue } from "@aws-sdk/types";
 import { fromHex, toHex } from "@aws-sdk/util-hex-encoding";
 import { Int64 } from "./Int64";
 
@@ -11,26 +6,17 @@ import { Int64 } from "./Int64";
  * @internal
  */
 export class HeaderMarshaller {
-  constructor(
-    private readonly toUtf8: Encoder,
-    private readonly fromUtf8: Decoder
-  ) {}
+  constructor(private readonly toUtf8: Encoder, private readonly fromUtf8: Decoder) {}
 
   format(headers: MessageHeaders): Uint8Array {
     const chunks: Array<Uint8Array> = [];
 
     for (const headerName of Object.keys(headers)) {
       const bytes = this.fromUtf8(headerName);
-      chunks.push(
-        Uint8Array.from([bytes.byteLength]),
-        bytes,
-        this.formatHeaderValue(headers[headerName])
-      );
+      chunks.push(Uint8Array.from([bytes.byteLength]), bytes, this.formatHeaderValue(headers[headerName]));
     }
 
-    const out = new Uint8Array(
-      chunks.reduce((carry, bytes) => carry + bytes.byteLength, 0)
-    );
+    const out = new Uint8Array(chunks.reduce((carry, bytes) => carry + bytes.byteLength, 0));
     let position = 0;
     for (const chunk of chunks) {
       out.set(chunk, position);
@@ -43,11 +29,7 @@ export class HeaderMarshaller {
   private formatHeaderValue(header: MessageHeaderValue): Uint8Array {
     switch (header.type) {
       case "boolean":
-        return Uint8Array.from([
-          header.value
-            ? HEADER_VALUE_TYPE.boolTrue
-            : HEADER_VALUE_TYPE.boolFalse
-        ]);
+        return Uint8Array.from([header.value ? HEADER_VALUE_TYPE.boolTrue : HEADER_VALUE_TYPE.boolFalse]);
       case "byte":
         return Uint8Array.from([HEADER_VALUE_TYPE.byte, header.value]);
       case "short":
@@ -66,9 +48,7 @@ export class HeaderMarshaller {
         longBytes.set(header.value.bytes, 1);
         return longBytes;
       case "binary":
-        const binView = new DataView(
-          new ArrayBuffer(3 + header.value.byteLength)
-        );
+        const binView = new DataView(new ArrayBuffer(3 + header.value.byteLength));
         binView.setUint8(0, HEADER_VALUE_TYPE.byteArray);
         binView.setUint16(1, header.value.byteLength, false);
         const binBytes = new Uint8Array(binView.buffer);
@@ -105,13 +85,7 @@ export class HeaderMarshaller {
 
     while (position < headers.byteLength) {
       const nameLength = headers.getUint8(position++);
-      const name = this.toUtf8(
-        new Uint8Array(
-          headers.buffer,
-          headers.byteOffset + position,
-          nameLength
-        )
-      );
+      const name = this.toUtf8(new Uint8Array(headers.buffer, headers.byteOffset + position, nameLength));
       position += nameLength;
 
       switch (headers.getUint8(position++)) {
@@ -150,9 +124,7 @@ export class HeaderMarshaller {
         case HEADER_VALUE_TYPE.long:
           out[name] = {
             type: LONG_TAG,
-            value: new Int64(
-              new Uint8Array(headers.buffer, headers.byteOffset + position, 8)
-            )
+            value: new Int64(new Uint8Array(headers.buffer, headers.byteOffset + position, 8))
           };
           position += 8;
           break;
@@ -161,11 +133,7 @@ export class HeaderMarshaller {
           position += 2;
           out[name] = {
             type: BINARY_TAG,
-            value: new Uint8Array(
-              headers.buffer,
-              headers.byteOffset + position,
-              binaryLength
-            )
+            value: new Uint8Array(headers.buffer, headers.byteOffset + position, binaryLength)
           };
           position += binaryLength;
           break;
@@ -174,41 +142,25 @@ export class HeaderMarshaller {
           position += 2;
           out[name] = {
             type: STRING_TAG,
-            value: this.toUtf8(
-              new Uint8Array(
-                headers.buffer,
-                headers.byteOffset + position,
-                stringLength
-              )
-            )
+            value: this.toUtf8(new Uint8Array(headers.buffer, headers.byteOffset + position, stringLength))
           };
           position += stringLength;
           break;
         case HEADER_VALUE_TYPE.timestamp:
           out[name] = {
             type: TIMESTAMP_TAG,
-            value: new Date(
-              new Int64(
-                new Uint8Array(headers.buffer, headers.byteOffset + position, 8)
-              ).valueOf()
-            )
+            value: new Date(new Int64(new Uint8Array(headers.buffer, headers.byteOffset + position, 8)).valueOf())
           };
           position += 8;
           break;
         case HEADER_VALUE_TYPE.uuid:
-          const uuidBytes = new Uint8Array(
-            headers.buffer,
-            headers.byteOffset + position,
-            16
-          );
+          const uuidBytes = new Uint8Array(headers.buffer, headers.byteOffset + position, 16);
           position += 16;
           out[name] = {
             type: UUID_TAG,
-            value: `${toHex(uuidBytes.subarray(0, 4))}-${toHex(
-              uuidBytes.subarray(4, 6)
-            )}-${toHex(uuidBytes.subarray(6, 8))}-${toHex(
-              uuidBytes.subarray(8, 10)
-            )}-${toHex(uuidBytes.subarray(10))}`
+            value: `${toHex(uuidBytes.subarray(0, 4))}-${toHex(uuidBytes.subarray(4, 6))}-${toHex(
+              uuidBytes.subarray(6, 8)
+            )}-${toHex(uuidBytes.subarray(8, 10))}-${toHex(uuidBytes.subarray(10))}`
           };
           break;
         default:

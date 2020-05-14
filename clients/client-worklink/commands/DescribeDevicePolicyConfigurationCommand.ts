@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
-} from "../WorkLinkClient";
-import {
-  DescribeDevicePolicyConfigurationRequest,
-  DescribeDevicePolicyConfigurationResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
+import { DescribeDevicePolicyConfigurationRequest, DescribeDevicePolicyConfigurationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand,
   serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDevicePolicyConfigurationCommandInput,
-    DescribeDevicePolicyConfigurationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDevicePolicyConfigurationCommandInput, DescribeDevicePolicyConfigurationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     input: DescribeDevicePolicyConfigurationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDevicePolicyConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  PollyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PollyClient";
+import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { GetLexiconInput, GetLexiconOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLexiconCommand,
   serializeAws_restJson1_1GetLexiconCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class GetLexiconCommand extends $Command<
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLexiconCommandInput, GetLexiconCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class GetLexiconCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLexiconCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLexiconCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetLexiconCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLexiconCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLexiconCommandOutput> {
     return deserializeAws_restJson1_1GetLexiconCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
-import {
-  UpdateRouteResponseRequest,
-  UpdateRouteResponseResponse
-} from "../models/index";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
+import { UpdateRouteResponseRequest, UpdateRouteResponseResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRouteResponseCommand,
   serializeAws_restJson1_1UpdateRouteResponseCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRouteResponseCommandInput = UpdateRouteResponseRequest;
-export type UpdateRouteResponseCommandOutput = UpdateRouteResponseResponse &
-  __MetadataBearer;
+export type UpdateRouteResponseCommandOutput = UpdateRouteResponseResponse & __MetadataBearer;
 
 export class UpdateRouteResponseCommand extends $Command<
   UpdateRouteResponseCommandInput,
@@ -49,13 +38,8 @@ export class UpdateRouteResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateRouteResponseCommandInput,
-    UpdateRouteResponseCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateRouteResponseCommandInput, UpdateRouteResponseCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateRouteResponseCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRouteResponseCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateRouteResponseCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRouteResponseCommandOutput> {
-    return deserializeAws_restJson1_1UpdateRouteResponseCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRouteResponseCommandOutput> {
+    return deserializeAws_restJson1_1UpdateRouteResponseCommand(output, context);
   }
 
   // Start section: command_body_extra

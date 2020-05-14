@@ -1,18 +1,11 @@
-import {
-  InspectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../InspectorClient";
+import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { UnsubscribeFromEventRequest } from "../models/index";
 import {
   deserializeAws_json1_1UnsubscribeFromEventCommand,
   serializeAws_json1_1UnsubscribeFromEventCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class UnsubscribeFromEventCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UnsubscribeFromEventCommandInput,
-    UnsubscribeFromEventCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UnsubscribeFromEventCommandInput, UnsubscribeFromEventCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class UnsubscribeFromEventCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UnsubscribeFromEventCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UnsubscribeFromEventCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UnsubscribeFromEventCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UnsubscribeFromEventCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnsubscribeFromEventCommandOutput> {
     return deserializeAws_json1_1UnsubscribeFromEventCommand(output, context);
   }
 

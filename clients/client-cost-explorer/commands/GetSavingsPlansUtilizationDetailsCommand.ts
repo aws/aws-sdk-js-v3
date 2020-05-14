@@ -1,21 +1,11 @@
-import {
-  CostExplorerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CostExplorerClient";
-import {
-  GetSavingsPlansUtilizationDetailsRequest,
-  GetSavingsPlansUtilizationDetailsResponse
-} from "../models/index";
+import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { GetSavingsPlansUtilizationDetailsRequest, GetSavingsPlansUtilizationDetailsResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand,
   serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSavingsPlansUtilizationDetailsCommandInput,
-    GetSavingsPlansUtilizationDetailsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSavingsPlansUtilizationDetailsCommandInput, GetSavingsPlansUtilizationDetailsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
     input: GetSavingsPlansUtilizationDetailsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,18 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 import { CreateInsightRequest, CreateInsightResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateInsightCommand,
   serializeAws_restJson1_1CreateInsightCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInsightCommandInput = CreateInsightRequest;
-export type CreateInsightCommandOutput = CreateInsightResponse &
-  __MetadataBearer;
+export type CreateInsightCommandOutput = CreateInsightResponse & __MetadataBearer;
 
 export class CreateInsightCommand extends $Command<
   CreateInsightCommandInput,
@@ -47,9 +39,7 @@ export class CreateInsightCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInsightCommandInput, CreateInsightCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateInsightCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateInsightCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateInsightCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateInsightCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInsightCommandOutput> {
     return deserializeAws_restJson1_1CreateInsightCommand(output, context);
   }
 

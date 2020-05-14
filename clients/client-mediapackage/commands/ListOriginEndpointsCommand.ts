@@ -1,21 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient";
-import {
-  ListOriginEndpointsRequest,
-  ListOriginEndpointsResponse
-} from "../models/index";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
+import { ListOriginEndpointsRequest, ListOriginEndpointsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListOriginEndpointsCommand,
   serializeAws_restJson1_1ListOriginEndpointsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOriginEndpointsCommandInput = ListOriginEndpointsRequest;
-export type ListOriginEndpointsCommandOutput = ListOriginEndpointsResponse &
-  __MetadataBearer;
+export type ListOriginEndpointsCommandOutput = ListOriginEndpointsResponse & __MetadataBearer;
 
 export class ListOriginEndpointsCommand extends $Command<
   ListOriginEndpointsCommandInput,
@@ -49,13 +38,8 @@ export class ListOriginEndpointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListOriginEndpointsCommandInput,
-    ListOriginEndpointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListOriginEndpointsCommandInput, ListOriginEndpointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListOriginEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListOriginEndpointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListOriginEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListOriginEndpointsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListOriginEndpointsCommandOutput> {
-    return deserializeAws_restJson1_1ListOriginEndpointsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginEndpointsCommandOutput> {
+    return deserializeAws_restJson1_1ListOriginEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

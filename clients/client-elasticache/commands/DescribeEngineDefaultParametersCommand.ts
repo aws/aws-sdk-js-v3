@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DescribeEngineDefaultParametersMessage,
-  DescribeEngineDefaultParametersResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/index";
 import {
   deserializeAws_queryDescribeEngineDefaultParametersCommand,
   serializeAws_queryDescribeEngineDefaultParametersCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEngineDefaultParametersCommandInput = DescribeEngineDefaultParametersMessage;
-export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult &
-  __MetadataBearer;
+export type DescribeEngineDefaultParametersCommandOutput = DescribeEngineDefaultParametersResult & __MetadataBearer;
 
 export class DescribeEngineDefaultParametersCommand extends $Command<
   DescribeEngineDefaultParametersCommandInput,
@@ -49,13 +38,8 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEngineDefaultParametersCommandInput,
-    DescribeEngineDefaultParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEngineDefaultParametersCommandInput, DescribeEngineDefaultParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     input: DescribeEngineDefaultParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEngineDefaultParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEngineDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

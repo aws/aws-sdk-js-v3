@@ -1,18 +1,11 @@
-import {
-  RedshiftClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RedshiftClient";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { CustomerStorageMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeStorageCommand,
   serializeAws_queryDescribeStorageCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeStorageCommandInput = {};
-export type DescribeStorageCommandOutput = CustomerStorageMessage &
-  __MetadataBearer;
+export type DescribeStorageCommandOutput = CustomerStorageMessage & __MetadataBearer;
 
 export class DescribeStorageCommand extends $Command<
   DescribeStorageCommandInput,
@@ -47,9 +39,7 @@ export class DescribeStorageCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeStorageCommandInput, DescribeStorageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DescribeStorageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeStorageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeStorageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeStorageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeStorageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeStorageCommandOutput> {
     return deserializeAws_queryDescribeStorageCommand(output, context);
   }
 

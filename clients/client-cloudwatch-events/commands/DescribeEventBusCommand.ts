@@ -1,21 +1,11 @@
-import {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchEventsClient";
-import {
-  DescribeEventBusRequest,
-  DescribeEventBusResponse
-} from "../models/index";
+import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
+import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeEventBusCommand,
   serializeAws_json1_1DescribeEventBusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeEventBusCommandInput = DescribeEventBusRequest;
-export type DescribeEventBusCommandOutput = DescribeEventBusResponse &
-  __MetadataBearer;
+export type DescribeEventBusCommandOutput = DescribeEventBusResponse & __MetadataBearer;
 
 export class DescribeEventBusCommand extends $Command<
   DescribeEventBusCommandInput,
@@ -50,9 +39,7 @@ export class DescribeEventBusCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventBusCommandInput, DescribeEventBusCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeEventBusCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeEventBusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeEventBusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeEventBusCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeEventBusCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEventBusCommandOutput> {
     return deserializeAws_json1_1DescribeEventBusCommand(output, context);
   }
 

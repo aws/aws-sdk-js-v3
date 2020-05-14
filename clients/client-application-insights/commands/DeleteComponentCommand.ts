@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DeleteComponentRequest,
-  DeleteComponentResponse
-} from "../models/index";
+import { DeleteComponentRequest, DeleteComponentResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteComponentCommand,
   serializeAws_json1_1DeleteComponentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteComponentCommandInput = DeleteComponentRequest;
-export type DeleteComponentCommandOutput = DeleteComponentResponse &
-  __MetadataBearer;
+export type DeleteComponentCommandOutput = DeleteComponentResponse & __MetadataBearer;
 
 export class DeleteComponentCommand extends $Command<
   DeleteComponentCommandInput,
@@ -50,9 +43,7 @@ export class DeleteComponentCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteComponentCommandInput, DeleteComponentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeleteComponentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteComponentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteComponentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteComponentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteComponentCommandOutput> {
     return deserializeAws_json1_1DeleteComponentCommand(output, context);
   }
 

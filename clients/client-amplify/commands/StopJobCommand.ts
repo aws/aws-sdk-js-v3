@@ -1,18 +1,11 @@
-import {
-  AmplifyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AmplifyClient";
+import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { StopJobRequest, StopJobResult } from "../models/index";
 import {
   deserializeAws_restJson1_1StopJobCommand,
   serializeAws_restJson1_1StopJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +20,7 @@ import {
 export type StopJobCommandInput = StopJobRequest;
 export type StopJobCommandOutput = StopJobResult & __MetadataBearer;
 
-export class StopJobCommand extends $Command<
-  StopJobCommandInput,
-  StopJobCommandOutput,
-  AmplifyClientResolvedConfig
-> {
+export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +35,7 @@ export class StopJobCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopJobCommandInput, StopJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +50,11 @@ export class StopJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StopJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopJobCommandOutput> {
     return deserializeAws_restJson1_1StopJobCommand(output, context);
   }
 

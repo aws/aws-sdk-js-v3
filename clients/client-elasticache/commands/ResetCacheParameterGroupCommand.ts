@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  CacheParameterGroupNameMessage,
-  ResetCacheParameterGroupMessage
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { CacheParameterGroupNameMessage, ResetCacheParameterGroupMessage } from "../models/index";
 import {
   deserializeAws_queryResetCacheParameterGroupCommand,
   serializeAws_queryResetCacheParameterGroupCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ResetCacheParameterGroupCommandInput = ResetCacheParameterGroupMessage;
-export type ResetCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage &
-  __MetadataBearer;
+export type ResetCacheParameterGroupCommandOutput = CacheParameterGroupNameMessage & __MetadataBearer;
 
 export class ResetCacheParameterGroupCommand extends $Command<
   ResetCacheParameterGroupCommandInput,
@@ -49,13 +38,8 @@ export class ResetCacheParameterGroupCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ResetCacheParameterGroupCommandInput,
-    ResetCacheParameterGroupCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ResetCacheParameterGroupCommandInput, ResetCacheParameterGroupCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class ResetCacheParameterGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ResetCacheParameterGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ResetCacheParameterGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryResetCacheParameterGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ResetCacheParameterGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ResetCacheParameterGroupCommandOutput> {
     return deserializeAws_queryResetCacheParameterGroupCommand(output, context);
   }
 

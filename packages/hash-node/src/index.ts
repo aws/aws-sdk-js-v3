@@ -7,9 +7,7 @@ export class Hash implements IHash {
   private readonly hash: NodeHash | Hmac;
 
   constructor(algorithmIdentifier: string, secret?: SourceData) {
-    this.hash = secret
-      ? createHmac(algorithmIdentifier, castSourceData(secret))
-      : createHash(algorithmIdentifier);
+    this.hash = secret ? createHmac(algorithmIdentifier, castSourceData(secret)) : createHash(algorithmIdentifier);
   }
 
   update(toHash: SourceData, encoding?: "utf8" | "ascii" | "latin1"): void {

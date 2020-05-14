@@ -1,18 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { CreatePublicKeyRequest, CreatePublicKeyResult } from "../models/index";
 import {
   deserializeAws_restXmlCreatePublicKeyCommand,
   serializeAws_restXmlCreatePublicKeyCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePublicKeyCommandInput = CreatePublicKeyRequest;
-export type CreatePublicKeyCommandOutput = CreatePublicKeyResult &
-  __MetadataBearer;
+export type CreatePublicKeyCommandOutput = CreatePublicKeyResult & __MetadataBearer;
 
 export class CreatePublicKeyCommand extends $Command<
   CreatePublicKeyCommandInput,
@@ -47,9 +39,7 @@ export class CreatePublicKeyCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreatePublicKeyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePublicKeyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePublicKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlCreatePublicKeyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePublicKeyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePublicKeyCommandOutput> {
     return deserializeAws_restXmlCreatePublicKeyCommand(output, context);
   }
 

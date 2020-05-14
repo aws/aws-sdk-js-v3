@@ -1,18 +1,11 @@
-import {
-  SSOOIDCClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOOIDCClient";
+import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient";
 import { RegisterClientRequest, RegisterClientResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RegisterClientCommand,
   serializeAws_restJson1_1RegisterClientCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RegisterClientCommandInput = RegisterClientRequest;
-export type RegisterClientCommandOutput = RegisterClientResponse &
-  __MetadataBearer;
+export type RegisterClientCommandOutput = RegisterClientResponse & __MetadataBearer;
 
 export class RegisterClientCommand extends $Command<
   RegisterClientCommandInput,
@@ -47,9 +39,7 @@ export class RegisterClientCommand extends $Command<
     configuration: SSOOIDCClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RegisterClientCommandInput, RegisterClientCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class RegisterClientCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RegisterClientCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RegisterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RegisterClientCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterClientCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterClientCommandOutput> {
     return deserializeAws_restJson1_1RegisterClientCommand(output, context);
   }
 

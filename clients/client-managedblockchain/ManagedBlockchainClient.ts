@@ -1,75 +1,21 @@
-import {
-  CreateMemberCommandInput,
-  CreateMemberCommandOutput
-} from "./commands/CreateMemberCommand";
-import {
-  CreateNetworkCommandInput,
-  CreateNetworkCommandOutput
-} from "./commands/CreateNetworkCommand";
-import {
-  CreateNodeCommandInput,
-  CreateNodeCommandOutput
-} from "./commands/CreateNodeCommand";
-import {
-  CreateProposalCommandInput,
-  CreateProposalCommandOutput
-} from "./commands/CreateProposalCommand";
-import {
-  DeleteMemberCommandInput,
-  DeleteMemberCommandOutput
-} from "./commands/DeleteMemberCommand";
-import {
-  DeleteNodeCommandInput,
-  DeleteNodeCommandOutput
-} from "./commands/DeleteNodeCommand";
-import {
-  GetMemberCommandInput,
-  GetMemberCommandOutput
-} from "./commands/GetMemberCommand";
-import {
-  GetNetworkCommandInput,
-  GetNetworkCommandOutput
-} from "./commands/GetNetworkCommand";
-import {
-  GetNodeCommandInput,
-  GetNodeCommandOutput
-} from "./commands/GetNodeCommand";
-import {
-  GetProposalCommandInput,
-  GetProposalCommandOutput
-} from "./commands/GetProposalCommand";
-import {
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
-} from "./commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "./commands/ListMembersCommand";
-import {
-  ListNetworksCommandInput,
-  ListNetworksCommandOutput
-} from "./commands/ListNetworksCommand";
-import {
-  ListNodesCommandInput,
-  ListNodesCommandOutput
-} from "./commands/ListNodesCommand";
-import {
-  ListProposalVotesCommandInput,
-  ListProposalVotesCommandOutput
-} from "./commands/ListProposalVotesCommand";
-import {
-  ListProposalsCommandInput,
-  ListProposalsCommandOutput
-} from "./commands/ListProposalsCommand";
-import {
-  RejectInvitationCommandInput,
-  RejectInvitationCommandOutput
-} from "./commands/RejectInvitationCommand";
-import {
-  VoteOnProposalCommandInput,
-  VoteOnProposalCommandOutput
-} from "./commands/VoteOnProposalCommand";
+import { CreateMemberCommandInput, CreateMemberCommandOutput } from "./commands/CreateMemberCommand";
+import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "./commands/CreateNetworkCommand";
+import { CreateNodeCommandInput, CreateNodeCommandOutput } from "./commands/CreateNodeCommand";
+import { CreateProposalCommandInput, CreateProposalCommandOutput } from "./commands/CreateProposalCommand";
+import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "./commands/DeleteMemberCommand";
+import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "./commands/DeleteNodeCommand";
+import { GetMemberCommandInput, GetMemberCommandOutput } from "./commands/GetMemberCommand";
+import { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
+import { GetNodeCommandInput, GetNodeCommandOutput } from "./commands/GetNodeCommand";
+import { GetProposalCommandInput, GetProposalCommandOutput } from "./commands/GetProposalCommand";
+import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
+import { ListNetworksCommandInput, ListNetworksCommandOutput } from "./commands/ListNetworksCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { ListProposalVotesCommandInput, ListProposalVotesCommandOutput } from "./commands/ListProposalVotesCommand";
+import { ListProposalsCommandInput, ListProposalsCommandOutput } from "./commands/ListProposalsCommand";
+import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
+import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "./commands/VoteOnProposalCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -86,12 +32,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -162,8 +103,7 @@ export type ServiceOutputTypes =
   | RejectInvitationCommandOutput
   | VoteOnProposalCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -247,9 +187,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ManagedBlockchainClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ManagedBlockchainClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -258,9 +196,7 @@ export type ManagedBlockchainClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ManagedBlockchainClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ManagedBlockchainClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

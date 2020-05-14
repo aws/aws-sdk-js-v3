@@ -1,21 +1,11 @@
-import {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchLogsClient";
-import {
-  FilterLogEventsRequest,
-  FilterLogEventsResponse
-} from "../models/index";
+import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/index";
 import {
   deserializeAws_json1_1FilterLogEventsCommand,
   serializeAws_json1_1FilterLogEventsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type FilterLogEventsCommandInput = FilterLogEventsRequest;
-export type FilterLogEventsCommandOutput = FilterLogEventsResponse &
-  __MetadataBearer;
+export type FilterLogEventsCommandOutput = FilterLogEventsResponse & __MetadataBearer;
 
 export class FilterLogEventsCommand extends $Command<
   FilterLogEventsCommandInput,
@@ -50,9 +39,7 @@ export class FilterLogEventsCommand extends $Command<
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FilterLogEventsCommandInput, FilterLogEventsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class FilterLogEventsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: FilterLogEventsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: FilterLogEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1FilterLogEventsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<FilterLogEventsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<FilterLogEventsCommandOutput> {
     return deserializeAws_json1_1FilterLogEventsCommand(output, context);
   }
 

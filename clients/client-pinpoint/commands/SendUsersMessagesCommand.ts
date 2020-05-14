@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  SendUsersMessagesRequest,
-  SendUsersMessagesResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SendUsersMessagesCommand,
   serializeAws_restJson1_1SendUsersMessagesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type SendUsersMessagesCommandInput = SendUsersMessagesRequest;
-export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse &
-  __MetadataBearer;
+export type SendUsersMessagesCommandOutput = SendUsersMessagesResponse & __MetadataBearer;
 
 export class SendUsersMessagesCommand extends $Command<
   SendUsersMessagesCommandInput,
@@ -50,9 +39,7 @@ export class SendUsersMessagesCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendUsersMessagesCommandInput, SendUsersMessagesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class SendUsersMessagesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendUsersMessagesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendUsersMessagesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1SendUsersMessagesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendUsersMessagesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendUsersMessagesCommandOutput> {
     return deserializeAws_restJson1_1SendUsersMessagesCommand(output, context);
   }
 

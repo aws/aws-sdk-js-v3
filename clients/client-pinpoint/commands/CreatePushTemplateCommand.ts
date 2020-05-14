@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  CreatePushTemplateRequest,
-  CreatePushTemplateResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { CreatePushTemplateRequest, CreatePushTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreatePushTemplateCommand,
   serializeAws_restJson1_1CreatePushTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePushTemplateCommandInput = CreatePushTemplateRequest;
-export type CreatePushTemplateCommandOutput = CreatePushTemplateResponse &
-  __MetadataBearer;
+export type CreatePushTemplateCommandOutput = CreatePushTemplateResponse & __MetadataBearer;
 
 export class CreatePushTemplateCommand extends $Command<
   CreatePushTemplateCommandInput,
@@ -50,9 +39,7 @@ export class CreatePushTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePushTemplateCommandInput, CreatePushTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreatePushTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePushTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreatePushTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreatePushTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePushTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePushTemplateCommandOutput> {
     return deserializeAws_restJson1_1CreatePushTemplateCommand(output, context);
   }
 

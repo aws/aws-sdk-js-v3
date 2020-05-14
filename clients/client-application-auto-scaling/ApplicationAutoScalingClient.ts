@@ -26,14 +26,8 @@ import {
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput
 } from "./commands/DescribeScheduledActionsCommand";
-import {
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
-} from "./commands/PutScalingPolicyCommand";
-import {
-  PutScheduledActionCommandInput,
-  PutScheduledActionCommandOutput
-} from "./commands/PutScheduledActionCommand";
+import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
+import { PutScheduledActionCommandInput, PutScheduledActionCommandOutput } from "./commands/PutScheduledActionCommand";
 import {
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput
@@ -54,12 +48,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -114,8 +103,7 @@ export type ServiceOutputTypes =
   | PutScheduledActionCommandOutput
   | RegisterScalableTargetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -199,9 +187,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApplicationAutoScalingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ApplicationAutoScalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -210,9 +196,7 @@ export type ApplicationAutoScalingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ApplicationAutoScalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

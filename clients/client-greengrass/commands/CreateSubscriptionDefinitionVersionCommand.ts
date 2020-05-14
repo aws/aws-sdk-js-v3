@@ -1,8 +1,4 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   CreateSubscriptionDefinitionVersionRequest,
   CreateSubscriptionDefinitionVersionResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +42,8 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateSubscriptionDefinitionVersionCommandInput,
-    CreateSubscriptionDefinitionVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateSubscriptionDefinitionVersionCommandInput, CreateSubscriptionDefinitionVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class CreateSubscriptionDefinitionVersionCommand extends $Command<
     input: CreateSubscriptionDefinitionVersionCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

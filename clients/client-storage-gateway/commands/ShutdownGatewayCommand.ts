@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 import { ShutdownGatewayInput, ShutdownGatewayOutput } from "../models/index";
 import {
   deserializeAws_json1_1ShutdownGatewayCommand,
   serializeAws_json1_1ShutdownGatewayCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ShutdownGatewayCommandInput = ShutdownGatewayInput;
-export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput &
-  __MetadataBearer;
+export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput & __MetadataBearer;
 
 export class ShutdownGatewayCommand extends $Command<
   ShutdownGatewayCommandInput,
@@ -47,9 +39,7 @@ export class ShutdownGatewayCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ShutdownGatewayCommandInput, ShutdownGatewayCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ShutdownGatewayCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ShutdownGatewayCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ShutdownGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ShutdownGatewayCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ShutdownGatewayCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShutdownGatewayCommandOutput> {
     return deserializeAws_json1_1ShutdownGatewayCommand(output, context);
   }
 

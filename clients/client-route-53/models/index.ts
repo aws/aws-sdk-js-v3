@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -94,8 +91,7 @@ export interface AlarmIdentifier {
 }
 
 export namespace AlarmIdentifier {
-  export const isa = (o: any): o is AlarmIdentifier =>
-    __isa(o, "AlarmIdentifier");
+  export const isa = (o: any): o is AlarmIdentifier => __isa(o, "AlarmIdentifier");
 }
 
 /**
@@ -479,8 +475,7 @@ export interface AssociateVPCWithHostedZoneRequest {
 }
 
 export namespace AssociateVPCWithHostedZoneRequest {
-  export const isa = (o: any): o is AssociateVPCWithHostedZoneRequest =>
-    __isa(o, "AssociateVPCWithHostedZoneRequest");
+  export const isa = (o: any): o is AssociateVPCWithHostedZoneRequest => __isa(o, "AssociateVPCWithHostedZoneRequest");
 }
 
 /**
@@ -620,8 +615,7 @@ export interface ChangeResourceRecordSetsRequest {
 }
 
 export namespace ChangeResourceRecordSetsRequest {
-  export const isa = (o: any): o is ChangeResourceRecordSetsRequest =>
-    __isa(o, "ChangeResourceRecordSetsRequest");
+  export const isa = (o: any): o is ChangeResourceRecordSetsRequest => __isa(o, "ChangeResourceRecordSetsRequest");
 }
 
 /**
@@ -639,8 +633,7 @@ export interface ChangeResourceRecordSetsResponse {
 }
 
 export namespace ChangeResourceRecordSetsResponse {
-  export const isa = (o: any): o is ChangeResourceRecordSetsResponse =>
-    __isa(o, "ChangeResourceRecordSetsResponse");
+  export const isa = (o: any): o is ChangeResourceRecordSetsResponse => __isa(o, "ChangeResourceRecordSetsResponse");
 }
 
 export type ChangeStatus = "INSYNC" | "PENDING";
@@ -683,8 +676,7 @@ export interface ChangeTagsForResourceRequest {
 }
 
 export namespace ChangeTagsForResourceRequest {
-  export const isa = (o: any): o is ChangeTagsForResourceRequest =>
-    __isa(o, "ChangeTagsForResourceRequest");
+  export const isa = (o: any): o is ChangeTagsForResourceRequest => __isa(o, "ChangeTagsForResourceRequest");
 }
 
 /**
@@ -695,8 +687,7 @@ export interface ChangeTagsForResourceResponse {
 }
 
 export namespace ChangeTagsForResourceResponse {
-  export const isa = (o: any): o is ChangeTagsForResourceResponse =>
-    __isa(o, "ChangeTagsForResourceResponse");
+  export const isa = (o: any): o is ChangeTagsForResourceResponse => __isa(o, "ChangeTagsForResourceResponse");
 }
 
 /**
@@ -750,8 +741,7 @@ export interface CloudWatchAlarmConfiguration {
 }
 
 export namespace CloudWatchAlarmConfiguration {
-  export const isa = (o: any): o is CloudWatchAlarmConfiguration =>
-    __isa(o, "CloudWatchAlarmConfiguration");
+  export const isa = (o: any): o is CloudWatchAlarmConfiguration => __isa(o, "CloudWatchAlarmConfiguration");
 }
 
 export type CloudWatchRegion =
@@ -786,9 +776,7 @@ export type ComparisonOperator =
 /**
  * <p>Another user submitted a request to create, update, or delete the object at the same time that you did. Retry the request. </p>
  */
-export interface ConcurrentModification
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModification extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModification";
   $fault: "client";
   /**
@@ -798,8 +786,7 @@ export interface ConcurrentModification
 }
 
 export namespace ConcurrentModification {
-  export const isa = (o: any): o is ConcurrentModification =>
-    __isa(o, "ConcurrentModification");
+  export const isa = (o: any): o is ConcurrentModification => __isa(o, "ConcurrentModification");
 }
 
 /**
@@ -821,17 +808,14 @@ export namespace ConcurrentModification {
  *             </li>
  *          </ul>
  */
-export interface ConflictingDomainExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConflictingDomainExists extends __SmithyException, $MetadataBearer {
   name: "ConflictingDomainExists";
   $fault: "client";
   message?: string;
 }
 
 export namespace ConflictingDomainExists {
-  export const isa = (o: any): o is ConflictingDomainExists =>
-    __isa(o, "ConflictingDomainExists");
+  export const isa = (o: any): o is ConflictingDomainExists => __isa(o, "ConflictingDomainExists");
 }
 
 /**
@@ -849,8 +833,7 @@ export interface ConflictingTypes extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictingTypes {
-  export const isa = (o: any): o is ConflictingTypes =>
-    __isa(o, "ConflictingTypes");
+  export const isa = (o: any): o is ConflictingTypes => __isa(o, "ConflictingTypes");
 }
 
 /**
@@ -890,8 +873,7 @@ export interface CreateHealthCheckRequest {
 }
 
 export namespace CreateHealthCheckRequest {
-  export const isa = (o: any): o is CreateHealthCheckRequest =>
-    __isa(o, "CreateHealthCheckRequest");
+  export const isa = (o: any): o is CreateHealthCheckRequest => __isa(o, "CreateHealthCheckRequest");
 }
 
 /**
@@ -911,8 +893,7 @@ export interface CreateHealthCheckResponse {
 }
 
 export namespace CreateHealthCheckResponse {
-  export const isa = (o: any): o is CreateHealthCheckResponse =>
-    __isa(o, "CreateHealthCheckResponse");
+  export const isa = (o: any): o is CreateHealthCheckResponse => __isa(o, "CreateHealthCheckResponse");
 }
 
 /**
@@ -969,8 +950,7 @@ export interface CreateHostedZoneRequest {
 }
 
 export namespace CreateHostedZoneRequest {
-  export const isa = (o: any): o is CreateHostedZoneRequest =>
-    __isa(o, "CreateHostedZoneRequest");
+  export const isa = (o: any): o is CreateHostedZoneRequest => __isa(o, "CreateHostedZoneRequest");
 }
 
 /**
@@ -1005,8 +985,7 @@ export interface CreateHostedZoneResponse {
 }
 
 export namespace CreateHostedZoneResponse {
-  export const isa = (o: any): o is CreateHostedZoneResponse =>
-    __isa(o, "CreateHostedZoneResponse");
+  export const isa = (o: any): o is CreateHostedZoneResponse => __isa(o, "CreateHostedZoneResponse");
 }
 
 export interface CreateQueryLoggingConfigRequest {
@@ -1032,8 +1011,7 @@ export interface CreateQueryLoggingConfigRequest {
 }
 
 export namespace CreateQueryLoggingConfigRequest {
-  export const isa = (o: any): o is CreateQueryLoggingConfigRequest =>
-    __isa(o, "CreateQueryLoggingConfigRequest");
+  export const isa = (o: any): o is CreateQueryLoggingConfigRequest => __isa(o, "CreateQueryLoggingConfigRequest");
 }
 
 export interface CreateQueryLoggingConfigResponse {
@@ -1051,8 +1029,7 @@ export interface CreateQueryLoggingConfigResponse {
 }
 
 export namespace CreateQueryLoggingConfigResponse {
-  export const isa = (o: any): o is CreateQueryLoggingConfigResponse =>
-    __isa(o, "CreateQueryLoggingConfigResponse");
+  export const isa = (o: any): o is CreateQueryLoggingConfigResponse => __isa(o, "CreateQueryLoggingConfigResponse");
 }
 
 export interface CreateReusableDelegationSetRequest {
@@ -1177,8 +1154,7 @@ export interface CreateTrafficPolicyRequest {
 }
 
 export namespace CreateTrafficPolicyRequest {
-  export const isa = (o: any): o is CreateTrafficPolicyRequest =>
-    __isa(o, "CreateTrafficPolicyRequest");
+  export const isa = (o: any): o is CreateTrafficPolicyRequest => __isa(o, "CreateTrafficPolicyRequest");
 }
 
 /**
@@ -1198,8 +1174,7 @@ export interface CreateTrafficPolicyResponse {
 }
 
 export namespace CreateTrafficPolicyResponse {
-  export const isa = (o: any): o is CreateTrafficPolicyResponse =>
-    __isa(o, "CreateTrafficPolicyResponse");
+  export const isa = (o: any): o is CreateTrafficPolicyResponse => __isa(o, "CreateTrafficPolicyResponse");
 }
 
 /**
@@ -1226,8 +1201,7 @@ export interface CreateTrafficPolicyVersionRequest {
 }
 
 export namespace CreateTrafficPolicyVersionRequest {
-  export const isa = (o: any): o is CreateTrafficPolicyVersionRequest =>
-    __isa(o, "CreateTrafficPolicyVersionRequest");
+  export const isa = (o: any): o is CreateTrafficPolicyVersionRequest => __isa(o, "CreateTrafficPolicyVersionRequest");
 }
 
 /**
@@ -1324,9 +1298,7 @@ export namespace DelegationSet {
 /**
  * <p>A delegation set with the same owner and caller reference combination has already been created.</p>
  */
-export interface DelegationSetAlreadyCreated
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DelegationSetAlreadyCreated extends __SmithyException, $MetadataBearer {
   name: "DelegationSetAlreadyCreated";
   $fault: "client";
   /**
@@ -1336,16 +1308,13 @@ export interface DelegationSetAlreadyCreated
 }
 
 export namespace DelegationSetAlreadyCreated {
-  export const isa = (o: any): o is DelegationSetAlreadyCreated =>
-    __isa(o, "DelegationSetAlreadyCreated");
+  export const isa = (o: any): o is DelegationSetAlreadyCreated => __isa(o, "DelegationSetAlreadyCreated");
 }
 
 /**
  * <p>The specified delegation set has already been marked as reusable.</p>
  */
-export interface DelegationSetAlreadyReusable
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DelegationSetAlreadyReusable extends __SmithyException, $MetadataBearer {
   name: "DelegationSetAlreadyReusable";
   $fault: "client";
   /**
@@ -1355,8 +1324,7 @@ export interface DelegationSetAlreadyReusable
 }
 
 export namespace DelegationSetAlreadyReusable {
-  export const isa = (o: any): o is DelegationSetAlreadyReusable =>
-    __isa(o, "DelegationSetAlreadyReusable");
+  export const isa = (o: any): o is DelegationSetAlreadyReusable => __isa(o, "DelegationSetAlreadyReusable");
 }
 
 /**
@@ -1373,8 +1341,7 @@ export interface DelegationSetInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DelegationSetInUse {
-  export const isa = (o: any): o is DelegationSetInUse =>
-    __isa(o, "DelegationSetInUse");
+  export const isa = (o: any): o is DelegationSetInUse => __isa(o, "DelegationSetInUse");
 }
 
 /**
@@ -1382,9 +1349,7 @@ export namespace DelegationSetInUse {
  * 			limit to the number of hosted zones that have the same name. If you get this error, Amazon Route 53 has reached that limit. If you own
  * 			the domain name and Route 53 generates this error, contact Customer Support.</p>
  */
-export interface DelegationSetNotAvailable
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DelegationSetNotAvailable extends __SmithyException, $MetadataBearer {
   name: "DelegationSetNotAvailable";
   $fault: "client";
   /**
@@ -1394,16 +1359,13 @@ export interface DelegationSetNotAvailable
 }
 
 export namespace DelegationSetNotAvailable {
-  export const isa = (o: any): o is DelegationSetNotAvailable =>
-    __isa(o, "DelegationSetNotAvailable");
+  export const isa = (o: any): o is DelegationSetNotAvailable => __isa(o, "DelegationSetNotAvailable");
 }
 
 /**
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
-export interface DelegationSetNotReusable
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DelegationSetNotReusable extends __SmithyException, $MetadataBearer {
   name: "DelegationSetNotReusable";
   $fault: "client";
   /**
@@ -1413,8 +1375,7 @@ export interface DelegationSetNotReusable
 }
 
 export namespace DelegationSetNotReusable {
-  export const isa = (o: any): o is DelegationSetNotReusable =>
-    __isa(o, "DelegationSetNotReusable");
+  export const isa = (o: any): o is DelegationSetNotReusable => __isa(o, "DelegationSetNotReusable");
 }
 
 /**
@@ -1429,8 +1390,7 @@ export interface DeleteHealthCheckRequest {
 }
 
 export namespace DeleteHealthCheckRequest {
-  export const isa = (o: any): o is DeleteHealthCheckRequest =>
-    __isa(o, "DeleteHealthCheckRequest");
+  export const isa = (o: any): o is DeleteHealthCheckRequest => __isa(o, "DeleteHealthCheckRequest");
 }
 
 /**
@@ -1441,8 +1401,7 @@ export interface DeleteHealthCheckResponse {
 }
 
 export namespace DeleteHealthCheckResponse {
-  export const isa = (o: any): o is DeleteHealthCheckResponse =>
-    __isa(o, "DeleteHealthCheckResponse");
+  export const isa = (o: any): o is DeleteHealthCheckResponse => __isa(o, "DeleteHealthCheckResponse");
 }
 
 /**
@@ -1457,8 +1416,7 @@ export interface DeleteHostedZoneRequest {
 }
 
 export namespace DeleteHostedZoneRequest {
-  export const isa = (o: any): o is DeleteHostedZoneRequest =>
-    __isa(o, "DeleteHostedZoneRequest");
+  export const isa = (o: any): o is DeleteHostedZoneRequest => __isa(o, "DeleteHostedZoneRequest");
 }
 
 /**
@@ -1473,8 +1431,7 @@ export interface DeleteHostedZoneResponse {
 }
 
 export namespace DeleteHostedZoneResponse {
-  export const isa = (o: any): o is DeleteHostedZoneResponse =>
-    __isa(o, "DeleteHostedZoneResponse");
+  export const isa = (o: any): o is DeleteHostedZoneResponse => __isa(o, "DeleteHostedZoneResponse");
 }
 
 export interface DeleteQueryLoggingConfigRequest {
@@ -1486,8 +1443,7 @@ export interface DeleteQueryLoggingConfigRequest {
 }
 
 export namespace DeleteQueryLoggingConfigRequest {
-  export const isa = (o: any): o is DeleteQueryLoggingConfigRequest =>
-    __isa(o, "DeleteQueryLoggingConfigRequest");
+  export const isa = (o: any): o is DeleteQueryLoggingConfigRequest => __isa(o, "DeleteQueryLoggingConfigRequest");
 }
 
 export interface DeleteQueryLoggingConfigResponse {
@@ -1495,8 +1451,7 @@ export interface DeleteQueryLoggingConfigResponse {
 }
 
 export namespace DeleteQueryLoggingConfigResponse {
-  export const isa = (o: any): o is DeleteQueryLoggingConfigResponse =>
-    __isa(o, "DeleteQueryLoggingConfigResponse");
+  export const isa = (o: any): o is DeleteQueryLoggingConfigResponse => __isa(o, "DeleteQueryLoggingConfigResponse");
 }
 
 /**
@@ -1576,8 +1531,7 @@ export interface DeleteTrafficPolicyRequest {
 }
 
 export namespace DeleteTrafficPolicyRequest {
-  export const isa = (o: any): o is DeleteTrafficPolicyRequest =>
-    __isa(o, "DeleteTrafficPolicyRequest");
+  export const isa = (o: any): o is DeleteTrafficPolicyRequest => __isa(o, "DeleteTrafficPolicyRequest");
 }
 
 /**
@@ -1588,8 +1542,7 @@ export interface DeleteTrafficPolicyResponse {
 }
 
 export namespace DeleteTrafficPolicyResponse {
-  export const isa = (o: any): o is DeleteTrafficPolicyResponse =>
-    __isa(o, "DeleteTrafficPolicyResponse");
+  export const isa = (o: any): o is DeleteTrafficPolicyResponse => __isa(o, "DeleteTrafficPolicyResponse");
 }
 
 /**
@@ -1759,8 +1712,7 @@ export interface GeoLocationDetails {
 }
 
 export namespace GeoLocationDetails {
-  export const isa = (o: any): o is GeoLocationDetails =>
-    __isa(o, "GeoLocationDetails");
+  export const isa = (o: any): o is GeoLocationDetails => __isa(o, "GeoLocationDetails");
 }
 
 /**
@@ -1803,8 +1755,7 @@ export interface GetAccountLimitRequest {
 }
 
 export namespace GetAccountLimitRequest {
-  export const isa = (o: any): o is GetAccountLimitRequest =>
-    __isa(o, "GetAccountLimitRequest");
+  export const isa = (o: any): o is GetAccountLimitRequest => __isa(o, "GetAccountLimitRequest");
 }
 
 /**
@@ -1828,8 +1779,7 @@ export interface GetAccountLimitResponse {
 }
 
 export namespace GetAccountLimitResponse {
-  export const isa = (o: any): o is GetAccountLimitResponse =>
-    __isa(o, "GetAccountLimitResponse");
+  export const isa = (o: any): o is GetAccountLimitResponse => __isa(o, "GetAccountLimitResponse");
 }
 
 /**
@@ -1845,8 +1795,7 @@ export interface GetChangeRequest {
 }
 
 export namespace GetChangeRequest {
-  export const isa = (o: any): o is GetChangeRequest =>
-    __isa(o, "GetChangeRequest");
+  export const isa = (o: any): o is GetChangeRequest => __isa(o, "GetChangeRequest");
 }
 
 /**
@@ -1861,8 +1810,7 @@ export interface GetChangeResponse {
 }
 
 export namespace GetChangeResponse {
-  export const isa = (o: any): o is GetChangeResponse =>
-    __isa(o, "GetChangeResponse");
+  export const isa = (o: any): o is GetChangeResponse => __isa(o, "GetChangeResponse");
 }
 
 /**
@@ -1873,8 +1821,7 @@ export interface GetCheckerIpRangesRequest {
 }
 
 export namespace GetCheckerIpRangesRequest {
-  export const isa = (o: any): o is GetCheckerIpRangesRequest =>
-    __isa(o, "GetCheckerIpRangesRequest");
+  export const isa = (o: any): o is GetCheckerIpRangesRequest => __isa(o, "GetCheckerIpRangesRequest");
 }
 
 /**
@@ -1890,8 +1837,7 @@ export interface GetCheckerIpRangesResponse {
 }
 
 export namespace GetCheckerIpRangesResponse {
-  export const isa = (o: any): o is GetCheckerIpRangesResponse =>
-    __isa(o, "GetCheckerIpRangesResponse");
+  export const isa = (o: any): o is GetCheckerIpRangesResponse => __isa(o, "GetCheckerIpRangesResponse");
 }
 
 /**
@@ -1949,8 +1895,7 @@ export interface GetGeoLocationRequest {
 }
 
 export namespace GetGeoLocationRequest {
-  export const isa = (o: any): o is GetGeoLocationRequest =>
-    __isa(o, "GetGeoLocationRequest");
+  export const isa = (o: any): o is GetGeoLocationRequest => __isa(o, "GetGeoLocationRequest");
 }
 
 /**
@@ -1965,8 +1910,7 @@ export interface GetGeoLocationResponse {
 }
 
 export namespace GetGeoLocationResponse {
-  export const isa = (o: any): o is GetGeoLocationResponse =>
-    __isa(o, "GetGeoLocationResponse");
+  export const isa = (o: any): o is GetGeoLocationResponse => __isa(o, "GetGeoLocationResponse");
 }
 
 /**
@@ -1977,8 +1921,7 @@ export interface GetHealthCheckCountRequest {
 }
 
 export namespace GetHealthCheckCountRequest {
-  export const isa = (o: any): o is GetHealthCheckCountRequest =>
-    __isa(o, "GetHealthCheckCountRequest");
+  export const isa = (o: any): o is GetHealthCheckCountRequest => __isa(o, "GetHealthCheckCountRequest");
 }
 
 /**
@@ -1993,8 +1936,7 @@ export interface GetHealthCheckCountResponse {
 }
 
 export namespace GetHealthCheckCountResponse {
-  export const isa = (o: any): o is GetHealthCheckCountResponse =>
-    __isa(o, "GetHealthCheckCountResponse");
+  export const isa = (o: any): o is GetHealthCheckCountResponse => __isa(o, "GetHealthCheckCountResponse");
 }
 
 /**
@@ -2047,8 +1989,7 @@ export interface GetHealthCheckRequest {
 }
 
 export namespace GetHealthCheckRequest {
-  export const isa = (o: any): o is GetHealthCheckRequest =>
-    __isa(o, "GetHealthCheckRequest");
+  export const isa = (o: any): o is GetHealthCheckRequest => __isa(o, "GetHealthCheckRequest");
 }
 
 /**
@@ -2064,8 +2005,7 @@ export interface GetHealthCheckResponse {
 }
 
 export namespace GetHealthCheckResponse {
-  export const isa = (o: any): o is GetHealthCheckResponse =>
-    __isa(o, "GetHealthCheckResponse");
+  export const isa = (o: any): o is GetHealthCheckResponse => __isa(o, "GetHealthCheckResponse");
 }
 
 /**
@@ -2085,8 +2025,7 @@ export interface GetHealthCheckStatusRequest {
 }
 
 export namespace GetHealthCheckStatusRequest {
-  export const isa = (o: any): o is GetHealthCheckStatusRequest =>
-    __isa(o, "GetHealthCheckStatusRequest");
+  export const isa = (o: any): o is GetHealthCheckStatusRequest => __isa(o, "GetHealthCheckStatusRequest");
 }
 
 /**
@@ -2103,8 +2042,7 @@ export interface GetHealthCheckStatusResponse {
 }
 
 export namespace GetHealthCheckStatusResponse {
-  export const isa = (o: any): o is GetHealthCheckStatusResponse =>
-    __isa(o, "GetHealthCheckStatusResponse");
+  export const isa = (o: any): o is GetHealthCheckStatusResponse => __isa(o, "GetHealthCheckStatusResponse");
 }
 
 /**
@@ -2115,8 +2053,7 @@ export interface GetHostedZoneCountRequest {
 }
 
 export namespace GetHostedZoneCountRequest {
-  export const isa = (o: any): o is GetHostedZoneCountRequest =>
-    __isa(o, "GetHostedZoneCountRequest");
+  export const isa = (o: any): o is GetHostedZoneCountRequest => __isa(o, "GetHostedZoneCountRequest");
 }
 
 /**
@@ -2131,8 +2068,7 @@ export interface GetHostedZoneCountResponse {
 }
 
 export namespace GetHostedZoneCountResponse {
-  export const isa = (o: any): o is GetHostedZoneCountResponse =>
-    __isa(o, "GetHostedZoneCountResponse");
+  export const isa = (o: any): o is GetHostedZoneCountResponse => __isa(o, "GetHostedZoneCountResponse");
 }
 
 /**
@@ -2164,8 +2100,7 @@ export interface GetHostedZoneLimitRequest {
 }
 
 export namespace GetHostedZoneLimitRequest {
-  export const isa = (o: any): o is GetHostedZoneLimitRequest =>
-    __isa(o, "GetHostedZoneLimitRequest");
+  export const isa = (o: any): o is GetHostedZoneLimitRequest => __isa(o, "GetHostedZoneLimitRequest");
 }
 
 /**
@@ -2189,8 +2124,7 @@ export interface GetHostedZoneLimitResponse {
 }
 
 export namespace GetHostedZoneLimitResponse {
-  export const isa = (o: any): o is GetHostedZoneLimitResponse =>
-    __isa(o, "GetHostedZoneLimitResponse");
+  export const isa = (o: any): o is GetHostedZoneLimitResponse => __isa(o, "GetHostedZoneLimitResponse");
 }
 
 /**
@@ -2205,8 +2139,7 @@ export interface GetHostedZoneRequest {
 }
 
 export namespace GetHostedZoneRequest {
-  export const isa = (o: any): o is GetHostedZoneRequest =>
-    __isa(o, "GetHostedZoneRequest");
+  export const isa = (o: any): o is GetHostedZoneRequest => __isa(o, "GetHostedZoneRequest");
 }
 
 /**
@@ -2231,8 +2164,7 @@ export interface GetHostedZoneResponse {
 }
 
 export namespace GetHostedZoneResponse {
-  export const isa = (o: any): o is GetHostedZoneResponse =>
-    __isa(o, "GetHostedZoneResponse");
+  export const isa = (o: any): o is GetHostedZoneResponse => __isa(o, "GetHostedZoneResponse");
 }
 
 export interface GetQueryLoggingConfigRequest {
@@ -2244,8 +2176,7 @@ export interface GetQueryLoggingConfigRequest {
 }
 
 export namespace GetQueryLoggingConfigRequest {
-  export const isa = (o: any): o is GetQueryLoggingConfigRequest =>
-    __isa(o, "GetQueryLoggingConfigRequest");
+  export const isa = (o: any): o is GetQueryLoggingConfigRequest => __isa(o, "GetQueryLoggingConfigRequest");
 }
 
 export interface GetQueryLoggingConfigResponse {
@@ -2258,8 +2189,7 @@ export interface GetQueryLoggingConfigResponse {
 }
 
 export namespace GetQueryLoggingConfigResponse {
-  export const isa = (o: any): o is GetQueryLoggingConfigResponse =>
-    __isa(o, "GetQueryLoggingConfigResponse");
+  export const isa = (o: any): o is GetQueryLoggingConfigResponse => __isa(o, "GetQueryLoggingConfigResponse");
 }
 
 /**
@@ -2317,8 +2247,7 @@ export interface GetReusableDelegationSetRequest {
 }
 
 export namespace GetReusableDelegationSetRequest {
-  export const isa = (o: any): o is GetReusableDelegationSetRequest =>
-    __isa(o, "GetReusableDelegationSetRequest");
+  export const isa = (o: any): o is GetReusableDelegationSetRequest => __isa(o, "GetReusableDelegationSetRequest");
 }
 
 /**
@@ -2333,8 +2262,7 @@ export interface GetReusableDelegationSetResponse {
 }
 
 export namespace GetReusableDelegationSetResponse {
-  export const isa = (o: any): o is GetReusableDelegationSetResponse =>
-    __isa(o, "GetReusableDelegationSetResponse");
+  export const isa = (o: any): o is GetReusableDelegationSetResponse => __isa(o, "GetReusableDelegationSetResponse");
 }
 
 /**
@@ -2377,8 +2305,7 @@ export interface GetTrafficPolicyInstanceRequest {
 }
 
 export namespace GetTrafficPolicyInstanceRequest {
-  export const isa = (o: any): o is GetTrafficPolicyInstanceRequest =>
-    __isa(o, "GetTrafficPolicyInstanceRequest");
+  export const isa = (o: any): o is GetTrafficPolicyInstanceRequest => __isa(o, "GetTrafficPolicyInstanceRequest");
 }
 
 /**
@@ -2393,8 +2320,7 @@ export interface GetTrafficPolicyInstanceResponse {
 }
 
 export namespace GetTrafficPolicyInstanceResponse {
-  export const isa = (o: any): o is GetTrafficPolicyInstanceResponse =>
-    __isa(o, "GetTrafficPolicyInstanceResponse");
+  export const isa = (o: any): o is GetTrafficPolicyInstanceResponse => __isa(o, "GetTrafficPolicyInstanceResponse");
 }
 
 /**
@@ -2414,8 +2340,7 @@ export interface GetTrafficPolicyRequest {
 }
 
 export namespace GetTrafficPolicyRequest {
-  export const isa = (o: any): o is GetTrafficPolicyRequest =>
-    __isa(o, "GetTrafficPolicyRequest");
+  export const isa = (o: any): o is GetTrafficPolicyRequest => __isa(o, "GetTrafficPolicyRequest");
 }
 
 /**
@@ -2430,8 +2355,7 @@ export interface GetTrafficPolicyResponse {
 }
 
 export namespace GetTrafficPolicyResponse {
-  export const isa = (o: any): o is GetTrafficPolicyResponse =>
-    __isa(o, "GetTrafficPolicyResponse");
+  export const isa = (o: any): o is GetTrafficPolicyResponse => __isa(o, "GetTrafficPolicyResponse");
 }
 
 /**
@@ -2491,9 +2415,7 @@ export namespace HealthCheck {
  *             </li>
  *          </ul>
  */
-export interface HealthCheckAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HealthCheckAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "HealthCheckAlreadyExists";
   $fault: "client";
   /**
@@ -2503,8 +2425,7 @@ export interface HealthCheckAlreadyExists
 }
 
 export namespace HealthCheckAlreadyExists {
-  export const isa = (o: any): o is HealthCheckAlreadyExists =>
-    __isa(o, "HealthCheckAlreadyExists");
+  export const isa = (o: any): o is HealthCheckAlreadyExists => __isa(o, "HealthCheckAlreadyExists");
 }
 
 /**
@@ -2832,8 +2753,7 @@ export interface HealthCheckConfig {
 }
 
 export namespace HealthCheckConfig {
-  export const isa = (o: any): o is HealthCheckConfig =>
-    __isa(o, "HealthCheckConfig");
+  export const isa = (o: any): o is HealthCheckConfig => __isa(o, "HealthCheckConfig");
 }
 
 /**
@@ -2849,8 +2769,7 @@ export interface HealthCheckInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace HealthCheckInUse {
-  export const isa = (o: any): o is HealthCheckInUse =>
-    __isa(o, "HealthCheckInUse");
+  export const isa = (o: any): o is HealthCheckInUse => __isa(o, "HealthCheckInUse");
 }
 
 /**
@@ -2875,8 +2794,7 @@ export interface HealthCheckObservation {
 }
 
 export namespace HealthCheckObservation {
-  export const isa = (o: any): o is HealthCheckObservation =>
-    __isa(o, "HealthCheckObservation");
+  export const isa = (o: any): o is HealthCheckObservation => __isa(o, "HealthCheckObservation");
 }
 
 export type HealthCheckRegion =
@@ -2903,17 +2821,14 @@ export enum HealthCheckType {
  * <p>The value of <code>HealthCheckVersion</code> in the request doesn't match the value of <code>HealthCheckVersion</code>
  * 			in the health check.</p>
  */
-export interface HealthCheckVersionMismatch
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HealthCheckVersionMismatch extends __SmithyException, $MetadataBearer {
   name: "HealthCheckVersionMismatch";
   $fault: "client";
   message?: string;
 }
 
 export namespace HealthCheckVersionMismatch {
-  export const isa = (o: any): o is HealthCheckVersionMismatch =>
-    __isa(o, "HealthCheckVersionMismatch");
+  export const isa = (o: any): o is HealthCheckVersionMismatch => __isa(o, "HealthCheckVersionMismatch");
 }
 
 /**
@@ -2969,9 +2884,7 @@ export namespace HostedZone {
  * <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this error when a hosted zone has already been created
  * 			with the specified <code>CallerReference</code>.</p>
  */
-export interface HostedZoneAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HostedZoneAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "HostedZoneAlreadyExists";
   $fault: "client";
   /**
@@ -2981,8 +2894,7 @@ export interface HostedZoneAlreadyExists
 }
 
 export namespace HostedZoneAlreadyExists {
-  export const isa = (o: any): o is HostedZoneAlreadyExists =>
-    __isa(o, "HostedZoneAlreadyExists");
+  export const isa = (o: any): o is HostedZoneAlreadyExists => __isa(o, "HostedZoneAlreadyExists");
 }
 
 /**
@@ -3004,8 +2916,7 @@ export interface HostedZoneConfig {
 }
 
 export namespace HostedZoneConfig {
-  export const isa = (o: any): o is HostedZoneConfig =>
-    __isa(o, "HostedZoneConfig");
+  export const isa = (o: any): o is HostedZoneConfig => __isa(o, "HostedZoneConfig");
 }
 
 /**
@@ -3037,13 +2948,10 @@ export interface HostedZoneLimit {
 }
 
 export namespace HostedZoneLimit {
-  export const isa = (o: any): o is HostedZoneLimit =>
-    __isa(o, "HostedZoneLimit");
+  export const isa = (o: any): o is HostedZoneLimit => __isa(o, "HostedZoneLimit");
 }
 
-export type HostedZoneLimitType =
-  | "MAX_RRSETS_BY_ZONE"
-  | "MAX_VPCS_ASSOCIATED_BY_ZONE";
+export type HostedZoneLimitType = "MAX_RRSETS_BY_ZONE" | "MAX_VPCS_ASSOCIATED_BY_ZONE";
 
 /**
  * <p>The hosted zone contains resource records that are not SOA or NS records.</p>
@@ -3058,8 +2966,7 @@ export interface HostedZoneNotEmpty extends __SmithyException, $MetadataBearer {
 }
 
 export namespace HostedZoneNotEmpty {
-  export const isa = (o: any): o is HostedZoneNotEmpty =>
-    __isa(o, "HostedZoneNotEmpty");
+  export const isa = (o: any): o is HostedZoneNotEmpty => __isa(o, "HostedZoneNotEmpty");
 }
 
 /**
@@ -3075,16 +2982,13 @@ export interface HostedZoneNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace HostedZoneNotFound {
-  export const isa = (o: any): o is HostedZoneNotFound =>
-    __isa(o, "HostedZoneNotFound");
+  export const isa = (o: any): o is HostedZoneNotFound => __isa(o, "HostedZoneNotFound");
 }
 
 /**
  * <p>The specified hosted zone is a public hosted zone, not a private hosted zone.</p>
  */
-export interface HostedZoneNotPrivate
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HostedZoneNotPrivate extends __SmithyException, $MetadataBearer {
   name: "HostedZoneNotPrivate";
   $fault: "client";
   /**
@@ -3094,24 +2998,20 @@ export interface HostedZoneNotPrivate
 }
 
 export namespace HostedZoneNotPrivate {
-  export const isa = (o: any): o is HostedZoneNotPrivate =>
-    __isa(o, "HostedZoneNotPrivate");
+  export const isa = (o: any): o is HostedZoneNotPrivate => __isa(o, "HostedZoneNotPrivate");
 }
 
 /**
  * <p>The resource you're trying to access is unsupported on this Amazon Route 53 endpoint.</p>
  */
-export interface IncompatibleVersion
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IncompatibleVersion extends __SmithyException, $MetadataBearer {
   name: "IncompatibleVersion";
   $fault: "client";
   message?: string;
 }
 
 export namespace IncompatibleVersion {
-  export const isa = (o: any): o is IncompatibleVersion =>
-    __isa(o, "IncompatibleVersion");
+  export const isa = (o: any): o is IncompatibleVersion => __isa(o, "IncompatibleVersion");
 }
 
 /**
@@ -3130,9 +3030,7 @@ export namespace IncompatibleVersion {
  *             </li>
  *          </ul>
  */
-export interface InsufficientCloudWatchLogsResourcePolicy
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InsufficientCloudWatchLogsResourcePolicy extends __SmithyException, $MetadataBearer {
   name: "InsufficientCloudWatchLogsResourcePolicy";
   $fault: "client";
   message?: string;
@@ -3143,10 +3041,7 @@ export namespace InsufficientCloudWatchLogsResourcePolicy {
     __isa(o, "InsufficientCloudWatchLogsResourcePolicy");
 }
 
-export type InsufficientDataHealthStatus =
-  | "Healthy"
-  | "LastKnownStatus"
-  | "Unhealthy";
+export type InsufficientDataHealthStatus = "Healthy" | "LastKnownStatus" | "Unhealthy";
 
 /**
  * <p>Parameter name is invalid.</p>
@@ -3161,8 +3056,7 @@ export interface InvalidArgument extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidArgument {
-  export const isa = (o: any): o is InvalidArgument =>
-    __isa(o, "InvalidArgument");
+  export const isa = (o: any): o is InvalidArgument => __isa(o, "InvalidArgument");
 }
 
 /**
@@ -3180,8 +3074,7 @@ export interface InvalidChangeBatch extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidChangeBatch {
-  export const isa = (o: any): o is InvalidChangeBatch =>
-    __isa(o, "InvalidChangeBatch");
+  export const isa = (o: any): o is InvalidChangeBatch => __isa(o, "InvalidChangeBatch");
 }
 
 /**
@@ -3197,8 +3090,7 @@ export interface InvalidDomainName extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidDomainName {
-  export const isa = (o: any): o is InvalidDomainName =>
-    __isa(o, "InvalidDomainName");
+  export const isa = (o: any): o is InvalidDomainName => __isa(o, "InvalidDomainName");
 }
 
 /**
@@ -3220,25 +3112,20 @@ export namespace InvalidInput {
 /**
  * <p>The value that you specified to get the second or subsequent page of results is invalid.</p>
  */
-export interface InvalidPaginationToken
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidPaginationToken extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationToken";
   $fault: "client";
   message?: string;
 }
 
 export namespace InvalidPaginationToken {
-  export const isa = (o: any): o is InvalidPaginationToken =>
-    __isa(o, "InvalidPaginationToken");
+  export const isa = (o: any): o is InvalidPaginationToken => __isa(o, "InvalidPaginationToken");
 }
 
 /**
  * <p>The format of the traffic policy document that you specified in the <code>Document</code> element is invalid.</p>
  */
-export interface InvalidTrafficPolicyDocument
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidTrafficPolicyDocument extends __SmithyException, $MetadataBearer {
   name: "InvalidTrafficPolicyDocument";
   $fault: "client";
   /**
@@ -3248,8 +3135,7 @@ export interface InvalidTrafficPolicyDocument
 }
 
 export namespace InvalidTrafficPolicyDocument {
-  export const isa = (o: any): o is InvalidTrafficPolicyDocument =>
-    __isa(o, "InvalidTrafficPolicyDocument");
+  export const isa = (o: any): o is InvalidTrafficPolicyDocument => __isa(o, "InvalidTrafficPolicyDocument");
 }
 
 /**
@@ -3282,8 +3168,7 @@ export interface LastVPCAssociation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace LastVPCAssociation {
-  export const isa = (o: any): o is LastVPCAssociation =>
-    __isa(o, "LastVPCAssociation");
+  export const isa = (o: any): o is LastVPCAssociation => __isa(o, "LastVPCAssociation");
 }
 
 /**
@@ -3305,8 +3190,7 @@ export interface LimitsExceeded extends __SmithyException, $MetadataBearer {
 }
 
 export namespace LimitsExceeded {
-  export const isa = (o: any): o is LimitsExceeded =>
-    __isa(o, "LimitsExceeded");
+  export const isa = (o: any): o is LimitsExceeded => __isa(o, "LimitsExceeded");
 }
 
 /**
@@ -3372,8 +3256,7 @@ export interface ListGeoLocationsRequest {
 }
 
 export namespace ListGeoLocationsRequest {
-  export const isa = (o: any): o is ListGeoLocationsRequest =>
-    __isa(o, "ListGeoLocationsRequest");
+  export const isa = (o: any): o is ListGeoLocationsRequest => __isa(o, "ListGeoLocationsRequest");
 }
 
 /**
@@ -3419,8 +3302,7 @@ export interface ListGeoLocationsResponse {
 }
 
 export namespace ListGeoLocationsResponse {
-  export const isa = (o: any): o is ListGeoLocationsResponse =>
-    __isa(o, "ListGeoLocationsResponse");
+  export const isa = (o: any): o is ListGeoLocationsResponse => __isa(o, "ListGeoLocationsResponse");
 }
 
 /**
@@ -3445,8 +3327,7 @@ export interface ListHealthChecksRequest {
 }
 
 export namespace ListHealthChecksRequest {
-  export const isa = (o: any): o is ListHealthChecksRequest =>
-    __isa(o, "ListHealthChecksRequest");
+  export const isa = (o: any): o is ListHealthChecksRequest => __isa(o, "ListHealthChecksRequest");
 }
 
 /**
@@ -3488,8 +3369,7 @@ export interface ListHealthChecksResponse {
 }
 
 export namespace ListHealthChecksResponse {
-  export const isa = (o: any): o is ListHealthChecksResponse =>
-    __isa(o, "ListHealthChecksResponse");
+  export const isa = (o: any): o is ListHealthChecksResponse => __isa(o, "ListHealthChecksResponse");
 }
 
 /**
@@ -3524,8 +3404,7 @@ export interface ListHostedZonesByNameRequest {
 }
 
 export namespace ListHostedZonesByNameRequest {
-  export const isa = (o: any): o is ListHostedZonesByNameRequest =>
-    __isa(o, "ListHostedZonesByNameRequest");
+  export const isa = (o: any): o is ListHostedZonesByNameRequest => __isa(o, "ListHostedZonesByNameRequest");
 }
 
 /**
@@ -3580,8 +3459,7 @@ export interface ListHostedZonesByNameResponse {
 }
 
 export namespace ListHostedZonesByNameResponse {
-  export const isa = (o: any): o is ListHostedZonesByNameResponse =>
-    __isa(o, "ListHostedZonesByNameResponse");
+  export const isa = (o: any): o is ListHostedZonesByNameResponse => __isa(o, "ListHostedZonesByNameResponse");
 }
 
 /**
@@ -3613,8 +3491,7 @@ export interface ListHostedZonesRequest {
 }
 
 export namespace ListHostedZonesRequest {
-  export const isa = (o: any): o is ListHostedZonesRequest =>
-    __isa(o, "ListHostedZonesRequest");
+  export const isa = (o: any): o is ListHostedZonesRequest => __isa(o, "ListHostedZonesRequest");
 }
 
 export interface ListHostedZonesResponse {
@@ -3653,8 +3530,7 @@ export interface ListHostedZonesResponse {
 }
 
 export namespace ListHostedZonesResponse {
-  export const isa = (o: any): o is ListHostedZonesResponse =>
-    __isa(o, "ListHostedZonesResponse");
+  export const isa = (o: any): o is ListHostedZonesResponse => __isa(o, "ListHostedZonesResponse");
 }
 
 export interface ListQueryLoggingConfigsRequest {
@@ -3687,8 +3563,7 @@ export interface ListQueryLoggingConfigsRequest {
 }
 
 export namespace ListQueryLoggingConfigsRequest {
-  export const isa = (o: any): o is ListQueryLoggingConfigsRequest =>
-    __isa(o, "ListQueryLoggingConfigsRequest");
+  export const isa = (o: any): o is ListQueryLoggingConfigsRequest => __isa(o, "ListQueryLoggingConfigsRequest");
 }
 
 export interface ListQueryLoggingConfigsResponse {
@@ -3712,8 +3587,7 @@ export interface ListQueryLoggingConfigsResponse {
 }
 
 export namespace ListQueryLoggingConfigsResponse {
-  export const isa = (o: any): o is ListQueryLoggingConfigsResponse =>
-    __isa(o, "ListQueryLoggingConfigsResponse");
+  export const isa = (o: any): o is ListQueryLoggingConfigsResponse => __isa(o, "ListQueryLoggingConfigsResponse");
 }
 
 /**
@@ -3793,8 +3667,7 @@ export interface ListResourceRecordSetsRequest {
 }
 
 export namespace ListResourceRecordSetsRequest {
-  export const isa = (o: any): o is ListResourceRecordSetsRequest =>
-    __isa(o, "ListResourceRecordSetsRequest");
+  export const isa = (o: any): o is ListResourceRecordSetsRequest => __isa(o, "ListResourceRecordSetsRequest");
 }
 
 /**
@@ -3842,8 +3715,7 @@ export interface ListResourceRecordSetsResponse {
 }
 
 export namespace ListResourceRecordSetsResponse {
-  export const isa = (o: any): o is ListResourceRecordSetsResponse =>
-    __isa(o, "ListResourceRecordSetsResponse");
+  export const isa = (o: any): o is ListResourceRecordSetsResponse => __isa(o, "ListResourceRecordSetsResponse");
 }
 
 /**
@@ -3868,8 +3740,7 @@ export interface ListReusableDelegationSetsRequest {
 }
 
 export namespace ListReusableDelegationSetsRequest {
-  export const isa = (o: any): o is ListReusableDelegationSetsRequest =>
-    __isa(o, "ListReusableDelegationSetsRequest");
+  export const isa = (o: any): o is ListReusableDelegationSetsRequest => __isa(o, "ListReusableDelegationSetsRequest");
 }
 
 /**
@@ -3938,8 +3809,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 /**
@@ -3954,8 +3824,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -3983,8 +3852,7 @@ export interface ListTagsForResourcesRequest {
 }
 
 export namespace ListTagsForResourcesRequest {
-  export const isa = (o: any): o is ListTagsForResourcesRequest =>
-    __isa(o, "ListTagsForResourcesRequest");
+  export const isa = (o: any): o is ListTagsForResourcesRequest => __isa(o, "ListTagsForResourcesRequest");
 }
 
 /**
@@ -3999,8 +3867,7 @@ export interface ListTagsForResourcesResponse {
 }
 
 export namespace ListTagsForResourcesResponse {
-  export const isa = (o: any): o is ListTagsForResourcesResponse =>
-    __isa(o, "ListTagsForResourcesResponse");
+  export const isa = (o: any): o is ListTagsForResourcesResponse => __isa(o, "ListTagsForResourcesResponse");
 }
 
 /**
@@ -4028,8 +3895,7 @@ export interface ListTrafficPoliciesRequest {
 }
 
 export namespace ListTrafficPoliciesRequest {
-  export const isa = (o: any): o is ListTrafficPoliciesRequest =>
-    __isa(o, "ListTrafficPoliciesRequest");
+  export const isa = (o: any): o is ListTrafficPoliciesRequest => __isa(o, "ListTrafficPoliciesRequest");
 }
 
 /**
@@ -4063,8 +3929,7 @@ export interface ListTrafficPoliciesResponse {
 }
 
 export namespace ListTrafficPoliciesResponse {
-  export const isa = (o: any): o is ListTrafficPoliciesResponse =>
-    __isa(o, "ListTrafficPoliciesResponse");
+  export const isa = (o: any): o is ListTrafficPoliciesResponse => __isa(o, "ListTrafficPoliciesResponse");
 }
 
 /**
@@ -4105,9 +3970,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
 }
 
 export namespace ListTrafficPolicyInstancesByHostedZoneRequest {
-  export const isa = (
-    o: any
-  ): o is ListTrafficPolicyInstancesByHostedZoneRequest =>
+  export const isa = (o: any): o is ListTrafficPolicyInstancesByHostedZoneRequest =>
     __isa(o, "ListTrafficPolicyInstancesByHostedZoneRequest");
 }
 
@@ -4149,9 +4012,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
 }
 
 export namespace ListTrafficPolicyInstancesByHostedZoneResponse {
-  export const isa = (
-    o: any
-  ): o is ListTrafficPolicyInstancesByHostedZoneResponse =>
+  export const isa = (o: any): o is ListTrafficPolicyInstancesByHostedZoneResponse =>
     __isa(o, "ListTrafficPolicyInstancesByHostedZoneResponse");
 }
 
@@ -4255,9 +4116,7 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
 }
 
 export namespace ListTrafficPolicyInstancesByPolicyResponse {
-  export const isa = (
-    o: any
-  ): o is ListTrafficPolicyInstancesByPolicyResponse =>
+  export const isa = (o: any): o is ListTrafficPolicyInstancesByPolicyResponse =>
     __isa(o, "ListTrafficPolicyInstancesByPolicyResponse");
 }
 
@@ -4304,8 +4163,7 @@ export interface ListTrafficPolicyInstancesRequest {
 }
 
 export namespace ListTrafficPolicyInstancesRequest {
-  export const isa = (o: any): o is ListTrafficPolicyInstancesRequest =>
-    __isa(o, "ListTrafficPolicyInstancesRequest");
+  export const isa = (o: any): o is ListTrafficPolicyInstancesRequest => __isa(o, "ListTrafficPolicyInstancesRequest");
 }
 
 /**
@@ -4387,8 +4245,7 @@ export interface ListTrafficPolicyVersionsRequest {
 }
 
 export namespace ListTrafficPolicyVersionsRequest {
-  export const isa = (o: any): o is ListTrafficPolicyVersionsRequest =>
-    __isa(o, "ListTrafficPolicyVersionsRequest");
+  export const isa = (o: any): o is ListTrafficPolicyVersionsRequest => __isa(o, "ListTrafficPolicyVersionsRequest");
 }
 
 /**
@@ -4425,8 +4282,7 @@ export interface ListTrafficPolicyVersionsResponse {
 }
 
 export namespace ListTrafficPolicyVersionsResponse {
-  export const isa = (o: any): o is ListTrafficPolicyVersionsResponse =>
-    __isa(o, "ListTrafficPolicyVersionsResponse");
+  export const isa = (o: any): o is ListTrafficPolicyVersionsResponse => __isa(o, "ListTrafficPolicyVersionsResponse");
 }
 
 /**
@@ -4505,25 +4361,20 @@ export namespace NoSuchChange {
 /**
  * <p>There is no CloudWatch Logs log group with the specified ARN.</p>
  */
-export interface NoSuchCloudWatchLogsLogGroup
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchCloudWatchLogsLogGroup extends __SmithyException, $MetadataBearer {
   name: "NoSuchCloudWatchLogsLogGroup";
   $fault: "client";
   message?: string;
 }
 
 export namespace NoSuchCloudWatchLogsLogGroup {
-  export const isa = (o: any): o is NoSuchCloudWatchLogsLogGroup =>
-    __isa(o, "NoSuchCloudWatchLogsLogGroup");
+  export const isa = (o: any): o is NoSuchCloudWatchLogsLogGroup => __isa(o, "NoSuchCloudWatchLogsLogGroup");
 }
 
 /**
  * <p>A reusable delegation set with the specified ID does not exist.</p>
  */
-export interface NoSuchDelegationSet
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchDelegationSet extends __SmithyException, $MetadataBearer {
   name: "NoSuchDelegationSet";
   $fault: "client";
   /**
@@ -4533,8 +4384,7 @@ export interface NoSuchDelegationSet
 }
 
 export namespace NoSuchDelegationSet {
-  export const isa = (o: any): o is NoSuchDelegationSet =>
-    __isa(o, "NoSuchDelegationSet");
+  export const isa = (o: any): o is NoSuchDelegationSet => __isa(o, "NoSuchDelegationSet");
 }
 
 /**
@@ -4550,8 +4400,7 @@ export interface NoSuchGeoLocation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchGeoLocation {
-  export const isa = (o: any): o is NoSuchGeoLocation =>
-    __isa(o, "NoSuchGeoLocation");
+  export const isa = (o: any): o is NoSuchGeoLocation => __isa(o, "NoSuchGeoLocation");
 }
 
 /**
@@ -4567,8 +4416,7 @@ export interface NoSuchHealthCheck extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchHealthCheck {
-  export const isa = (o: any): o is NoSuchHealthCheck =>
-    __isa(o, "NoSuchHealthCheck");
+  export const isa = (o: any): o is NoSuchHealthCheck => __isa(o, "NoSuchHealthCheck");
 }
 
 /**
@@ -4584,32 +4432,26 @@ export interface NoSuchHostedZone extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NoSuchHostedZone {
-  export const isa = (o: any): o is NoSuchHostedZone =>
-    __isa(o, "NoSuchHostedZone");
+  export const isa = (o: any): o is NoSuchHostedZone => __isa(o, "NoSuchHostedZone");
 }
 
 /**
  * <p>There is no DNS query logging configuration with the specified ID.</p>
  */
-export interface NoSuchQueryLoggingConfig
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchQueryLoggingConfig extends __SmithyException, $MetadataBearer {
   name: "NoSuchQueryLoggingConfig";
   $fault: "client";
   message?: string;
 }
 
 export namespace NoSuchQueryLoggingConfig {
-  export const isa = (o: any): o is NoSuchQueryLoggingConfig =>
-    __isa(o, "NoSuchQueryLoggingConfig");
+  export const isa = (o: any): o is NoSuchQueryLoggingConfig => __isa(o, "NoSuchQueryLoggingConfig");
 }
 
 /**
  * <p>No traffic policy exists with the specified ID.</p>
  */
-export interface NoSuchTrafficPolicy
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchTrafficPolicy extends __SmithyException, $MetadataBearer {
   name: "NoSuchTrafficPolicy";
   $fault: "client";
   /**
@@ -4619,16 +4461,13 @@ export interface NoSuchTrafficPolicy
 }
 
 export namespace NoSuchTrafficPolicy {
-  export const isa = (o: any): o is NoSuchTrafficPolicy =>
-    __isa(o, "NoSuchTrafficPolicy");
+  export const isa = (o: any): o is NoSuchTrafficPolicy => __isa(o, "NoSuchTrafficPolicy");
 }
 
 /**
  * <p>No traffic policy instance exists with the specified ID.</p>
  */
-export interface NoSuchTrafficPolicyInstance
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NoSuchTrafficPolicyInstance extends __SmithyException, $MetadataBearer {
   name: "NoSuchTrafficPolicyInstance";
   $fault: "client";
   /**
@@ -4638,16 +4477,13 @@ export interface NoSuchTrafficPolicyInstance
 }
 
 export namespace NoSuchTrafficPolicyInstance {
-  export const isa = (o: any): o is NoSuchTrafficPolicyInstance =>
-    __isa(o, "NoSuchTrafficPolicyInstance");
+  export const isa = (o: any): o is NoSuchTrafficPolicyInstance => __isa(o, "NoSuchTrafficPolicyInstance");
 }
 
 /**
  * <p>Associating the specified VPC with the specified hosted zone has not been authorized.</p>
  */
-export interface NotAuthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
   name: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -4657,8 +4493,7 @@ export interface NotAuthorizedException
 }
 
 export namespace NotAuthorizedException {
-  export const isa = (o: any): o is NotAuthorizedException =>
-    __isa(o, "NotAuthorizedException");
+  export const isa = (o: any): o is NotAuthorizedException => __isa(o, "NotAuthorizedException");
 }
 
 /**
@@ -4668,26 +4503,21 @@ export namespace NotAuthorizedException {
  * 			recommend that you wait, in intervals of increasing duration, before you try the request
  * 			again.</p>
  */
-export interface PriorRequestNotComplete
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PriorRequestNotComplete extends __SmithyException, $MetadataBearer {
   name: "PriorRequestNotComplete";
   $fault: "client";
   message?: string;
 }
 
 export namespace PriorRequestNotComplete {
-  export const isa = (o: any): o is PriorRequestNotComplete =>
-    __isa(o, "PriorRequestNotComplete");
+  export const isa = (o: any): o is PriorRequestNotComplete => __isa(o, "PriorRequestNotComplete");
 }
 
 /**
  * <p>You're trying to associate a VPC with a public hosted zone. Amazon Route 53 doesn't support associating a
  * 			VPC with a public hosted zone.</p>
  */
-export interface PublicZoneVPCAssociation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PublicZoneVPCAssociation extends __SmithyException, $MetadataBearer {
   name: "PublicZoneVPCAssociation";
   $fault: "client";
   /**
@@ -4697,8 +4527,7 @@ export interface PublicZoneVPCAssociation
 }
 
 export namespace PublicZoneVPCAssociation {
-  export const isa = (o: any): o is PublicZoneVPCAssociation =>
-    __isa(o, "PublicZoneVPCAssociation");
+  export const isa = (o: any): o is PublicZoneVPCAssociation => __isa(o, "PublicZoneVPCAssociation");
 }
 
 /**
@@ -4723,46 +4552,26 @@ export interface QueryLoggingConfig {
 }
 
 export namespace QueryLoggingConfig {
-  export const isa = (o: any): o is QueryLoggingConfig =>
-    __isa(o, "QueryLoggingConfig");
+  export const isa = (o: any): o is QueryLoggingConfig => __isa(o, "QueryLoggingConfig");
 }
 
 /**
  * <p>You can create only one query logging configuration for a hosted zone, and a query logging configuration already exists
  * 			for this hosted zone.</p>
  */
-export interface QueryLoggingConfigAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface QueryLoggingConfigAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "QueryLoggingConfigAlreadyExists";
   $fault: "client";
   message?: string;
 }
 
 export namespace QueryLoggingConfigAlreadyExists {
-  export const isa = (o: any): o is QueryLoggingConfigAlreadyExists =>
-    __isa(o, "QueryLoggingConfigAlreadyExists");
+  export const isa = (o: any): o is QueryLoggingConfigAlreadyExists => __isa(o, "QueryLoggingConfigAlreadyExists");
 }
 
-export type RRType =
-  | "A"
-  | "AAAA"
-  | "CAA"
-  | "CNAME"
-  | "MX"
-  | "NAPTR"
-  | "NS"
-  | "PTR"
-  | "SOA"
-  | "SPF"
-  | "SRV"
-  | "TXT";
+export type RRType = "A" | "AAAA" | "CAA" | "CNAME" | "MX" | "NAPTR" | "NS" | "PTR" | "SOA" | "SPF" | "SRV" | "TXT";
 
-export type ResettableElementName =
-  | "ChildHealthChecks"
-  | "FullyQualifiedDomainName"
-  | "Regions"
-  | "ResourcePath";
+export type ResettableElementName = "ChildHealthChecks" | "FullyQualifiedDomainName" | "Regions" | "ResourcePath";
 
 /**
  * <p>Information specific to the resource record.</p>
@@ -4787,8 +4596,7 @@ export interface ResourceRecord {
 }
 
 export namespace ResourceRecord {
-  export const isa = (o: any): o is ResourceRecord =>
-    __isa(o, "ResourceRecord");
+  export const isa = (o: any): o is ResourceRecord => __isa(o, "ResourceRecord");
 }
 
 /**
@@ -5290,8 +5098,7 @@ export interface ResourceRecordSet {
 }
 
 export namespace ResourceRecordSet {
-  export const isa = (o: any): o is ResourceRecordSet =>
-    __isa(o, "ResourceRecordSet");
+  export const isa = (o: any): o is ResourceRecordSet => __isa(o, "ResourceRecordSet");
 }
 
 export type ResourceRecordSetFailover = "PRIMARY" | "SECONDARY";
@@ -5349,8 +5156,7 @@ export interface ResourceTagSet {
 }
 
 export namespace ResourceTagSet {
-  export const isa = (o: any): o is ResourceTagSet =>
-    __isa(o, "ResourceTagSet");
+  export const isa = (o: any): o is ResourceTagSet => __isa(o, "ResourceTagSet");
 }
 
 /**
@@ -5371,18 +5177,12 @@ export interface ReusableDelegationSetLimit {
 }
 
 export namespace ReusableDelegationSetLimit {
-  export const isa = (o: any): o is ReusableDelegationSetLimit =>
-    __isa(o, "ReusableDelegationSetLimit");
+  export const isa = (o: any): o is ReusableDelegationSetLimit => __isa(o, "ReusableDelegationSetLimit");
 }
 
 export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
 
-export type Statistic =
-  | "Average"
-  | "Maximum"
-  | "Minimum"
-  | "SampleCount"
-  | "Sum";
+export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum";
 
 /**
  * <p>A complex type that contains the status that one Amazon Route 53 health checker reports and the time of the health check.</p>
@@ -5514,8 +5314,7 @@ export interface TestDNSAnswerRequest {
 }
 
 export namespace TestDNSAnswerRequest {
-  export const isa = (o: any): o is TestDNSAnswerRequest =>
-    __isa(o, "TestDNSAnswerRequest");
+  export const isa = (o: any): o is TestDNSAnswerRequest => __isa(o, "TestDNSAnswerRequest");
 }
 
 /**
@@ -5558,24 +5357,20 @@ export interface TestDNSAnswerResponse {
 }
 
 export namespace TestDNSAnswerResponse {
-  export const isa = (o: any): o is TestDNSAnswerResponse =>
-    __isa(o, "TestDNSAnswerResponse");
+  export const isa = (o: any): o is TestDNSAnswerResponse => __isa(o, "TestDNSAnswerResponse");
 }
 
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
@@ -5589,17 +5384,14 @@ export namespace ThrottlingException {
  * 		       <p>You have reached the maximum number of active health checks for an AWS account. To request a higher limit,
  * 			<a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
-export interface TooManyHealthChecks
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyHealthChecks extends __SmithyException, $MetadataBearer {
   name: "TooManyHealthChecks";
   $fault: "client";
   message?: string;
 }
 
 export namespace TooManyHealthChecks {
-  export const isa = (o: any): o is TooManyHealthChecks =>
-    __isa(o, "TooManyHealthChecks");
+  export const isa = (o: any): o is TooManyHealthChecks => __isa(o, "TooManyHealthChecks");
 }
 
 /**
@@ -5623,8 +5415,7 @@ export interface TooManyHostedZones extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyHostedZones {
-  export const isa = (o: any): o is TooManyHostedZones =>
-    __isa(o, "TooManyHostedZones");
+  export const isa = (o: any): o is TooManyHostedZones => __isa(o, "TooManyHostedZones");
 }
 
 /**
@@ -5636,9 +5427,7 @@ export namespace TooManyHostedZones {
  * 		</p>
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
-export interface TooManyTrafficPolicies
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTrafficPolicies extends __SmithyException, $MetadataBearer {
   name: "TooManyTrafficPolicies";
   $fault: "client";
   /**
@@ -5648,8 +5437,7 @@ export interface TooManyTrafficPolicies
 }
 
 export namespace TooManyTrafficPolicies {
-  export const isa = (o: any): o is TooManyTrafficPolicies =>
-    __isa(o, "TooManyTrafficPolicies");
+  export const isa = (o: any): o is TooManyTrafficPolicies => __isa(o, "TooManyTrafficPolicies");
 }
 
 /**
@@ -5662,9 +5450,7 @@ export namespace TooManyTrafficPolicies {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
  * 		       <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the AWS Support Center.</p>
  */
-export interface TooManyTrafficPolicyInstances
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTrafficPolicyInstances extends __SmithyException, $MetadataBearer {
   name: "TooManyTrafficPolicyInstances";
   $fault: "client";
   /**
@@ -5674,8 +5460,7 @@ export interface TooManyTrafficPolicyInstances
 }
 
 export namespace TooManyTrafficPolicyInstances {
-  export const isa = (o: any): o is TooManyTrafficPolicyInstances =>
-    __isa(o, "TooManyTrafficPolicyInstances");
+  export const isa = (o: any): o is TooManyTrafficPolicyInstances => __isa(o, "TooManyTrafficPolicyInstances");
 }
 
 /**
@@ -5687,9 +5472,7 @@ export namespace TooManyTrafficPolicyInstances {
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>
  * 			to create a new traffic policy using the traffic policy document.</p>
  */
-export interface TooManyTrafficPolicyVersionsForCurrentPolicy
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyTrafficPolicyVersionsForCurrentPolicy extends __SmithyException, $MetadataBearer {
   name: "TooManyTrafficPolicyVersionsForCurrentPolicy";
   $fault: "client";
   /**
@@ -5699,9 +5482,7 @@ export interface TooManyTrafficPolicyVersionsForCurrentPolicy
 }
 
 export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
-  export const isa = (
-    o: any
-  ): o is TooManyTrafficPolicyVersionsForCurrentPolicy =>
+  export const isa = (o: any): o is TooManyTrafficPolicyVersionsForCurrentPolicy =>
     __isa(o, "TooManyTrafficPolicyVersionsForCurrentPolicy");
 }
 
@@ -5711,9 +5492,7 @@ export namespace TooManyTrafficPolicyVersionsForCurrentPolicy {
  * 			to remove an existing authorization. To get a list of existing authorizations, submit a
  * 			<code>ListVPCAssociationAuthorizations</code> request.</p>
  */
-export interface TooManyVPCAssociationAuthorizations
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyVPCAssociationAuthorizations extends __SmithyException, $MetadataBearer {
   name: "TooManyVPCAssociationAuthorizations";
   $fault: "client";
   /**
@@ -5774,9 +5553,7 @@ export namespace TrafficPolicy {
 /**
  * <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
  */
-export interface TrafficPolicyAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrafficPolicyAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "TrafficPolicyAlreadyExists";
   $fault: "client";
   /**
@@ -5786,8 +5563,7 @@ export interface TrafficPolicyAlreadyExists
 }
 
 export namespace TrafficPolicyAlreadyExists {
-  export const isa = (o: any): o is TrafficPolicyAlreadyExists =>
-    __isa(o, "TrafficPolicyAlreadyExists");
+  export const isa = (o: any): o is TrafficPolicyAlreadyExists => __isa(o, "TrafficPolicyAlreadyExists");
 }
 
 /**
@@ -5803,8 +5579,7 @@ export interface TrafficPolicyInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TrafficPolicyInUse {
-  export const isa = (o: any): o is TrafficPolicyInUse =>
-    __isa(o, "TrafficPolicyInUse");
+  export const isa = (o: any): o is TrafficPolicyInUse => __isa(o, "TrafficPolicyInUse");
 }
 
 /**
@@ -5877,16 +5652,13 @@ export interface TrafficPolicyInstance {
 }
 
 export namespace TrafficPolicyInstance {
-  export const isa = (o: any): o is TrafficPolicyInstance =>
-    __isa(o, "TrafficPolicyInstance");
+  export const isa = (o: any): o is TrafficPolicyInstance => __isa(o, "TrafficPolicyInstance");
 }
 
 /**
  * <p>There is already a traffic policy instance with the specified ID.</p>
  */
-export interface TrafficPolicyInstanceAlreadyExists
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TrafficPolicyInstanceAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "TrafficPolicyInstanceAlreadyExists";
   $fault: "client";
   /**
@@ -5934,8 +5706,7 @@ export interface TrafficPolicySummary {
 }
 
 export namespace TrafficPolicySummary {
-  export const isa = (o: any): o is TrafficPolicySummary =>
-    __isa(o, "TrafficPolicySummary");
+  export const isa = (o: any): o is TrafficPolicySummary => __isa(o, "TrafficPolicySummary");
 }
 
 /**
@@ -6261,8 +6032,7 @@ export interface UpdateHealthCheckRequest {
 }
 
 export namespace UpdateHealthCheckRequest {
-  export const isa = (o: any): o is UpdateHealthCheckRequest =>
-    __isa(o, "UpdateHealthCheckRequest");
+  export const isa = (o: any): o is UpdateHealthCheckRequest => __isa(o, "UpdateHealthCheckRequest");
 }
 
 /**
@@ -6277,8 +6047,7 @@ export interface UpdateHealthCheckResponse {
 }
 
 export namespace UpdateHealthCheckResponse {
-  export const isa = (o: any): o is UpdateHealthCheckResponse =>
-    __isa(o, "UpdateHealthCheckResponse");
+  export const isa = (o: any): o is UpdateHealthCheckResponse => __isa(o, "UpdateHealthCheckResponse");
 }
 
 /**
@@ -6299,8 +6068,7 @@ export interface UpdateHostedZoneCommentRequest {
 }
 
 export namespace UpdateHostedZoneCommentRequest {
-  export const isa = (o: any): o is UpdateHostedZoneCommentRequest =>
-    __isa(o, "UpdateHostedZoneCommentRequest");
+  export const isa = (o: any): o is UpdateHostedZoneCommentRequest => __isa(o, "UpdateHostedZoneCommentRequest");
 }
 
 /**
@@ -6315,8 +6083,7 @@ export interface UpdateHostedZoneCommentResponse {
 }
 
 export namespace UpdateHostedZoneCommentResponse {
-  export const isa = (o: any): o is UpdateHostedZoneCommentResponse =>
-    __isa(o, "UpdateHostedZoneCommentResponse");
+  export const isa = (o: any): o is UpdateHostedZoneCommentResponse => __isa(o, "UpdateHostedZoneCommentResponse");
 }
 
 /**
@@ -6341,8 +6108,7 @@ export interface UpdateTrafficPolicyCommentRequest {
 }
 
 export namespace UpdateTrafficPolicyCommentRequest {
-  export const isa = (o: any): o is UpdateTrafficPolicyCommentRequest =>
-    __isa(o, "UpdateTrafficPolicyCommentRequest");
+  export const isa = (o: any): o is UpdateTrafficPolicyCommentRequest => __isa(o, "UpdateTrafficPolicyCommentRequest");
 }
 
 /**
@@ -6432,9 +6198,7 @@ export namespace VPC {
 /**
  * <p>The VPC that you specified is not authorized to be associated with the hosted zone.</p>
  */
-export interface VPCAssociationAuthorizationNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface VPCAssociationAuthorizationNotFound extends __SmithyException, $MetadataBearer {
   name: "VPCAssociationAuthorizationNotFound";
   $fault: "client";
   /**
@@ -6451,9 +6215,7 @@ export namespace VPCAssociationAuthorizationNotFound {
 /**
  * <p>The specified VPC and hosted zone are not currently associated.</p>
  */
-export interface VPCAssociationNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface VPCAssociationNotFound extends __SmithyException, $MetadataBearer {
   name: "VPCAssociationNotFound";
   $fault: "client";
   /**
@@ -6463,8 +6225,7 @@ export interface VPCAssociationNotFound
 }
 
 export namespace VPCAssociationNotFound {
-  export const isa = (o: any): o is VPCAssociationNotFound =>
-    __isa(o, "VPCAssociationNotFound");
+  export const isa = (o: any): o is VPCAssociationNotFound => __isa(o, "VPCAssociationNotFound");
 }
 
 export type VPCRegion =

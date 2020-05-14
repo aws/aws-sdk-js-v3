@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListViolationEventsRequest,
-  ListViolationEventsResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListViolationEventsRequest, ListViolationEventsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListViolationEventsCommand,
   serializeAws_restJson1_1ListViolationEventsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListViolationEventsCommandInput = ListViolationEventsRequest;
-export type ListViolationEventsCommandOutput = ListViolationEventsResponse &
-  __MetadataBearer;
+export type ListViolationEventsCommandOutput = ListViolationEventsResponse & __MetadataBearer;
 
 export class ListViolationEventsCommand extends $Command<
   ListViolationEventsCommandInput,
@@ -49,13 +38,8 @@ export class ListViolationEventsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListViolationEventsCommandInput,
-    ListViolationEventsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListViolationEventsCommandInput, ListViolationEventsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListViolationEventsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListViolationEventsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListViolationEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListViolationEventsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListViolationEventsCommandOutput> {
-    return deserializeAws_restJson1_1ListViolationEventsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListViolationEventsCommandOutput> {
+    return deserializeAws_restJson1_1ListViolationEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

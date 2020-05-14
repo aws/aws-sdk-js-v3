@@ -1,21 +1,11 @@
-import {
-  STSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../STSClient";
-import {
-  GetFederationTokenRequest,
-  GetFederationTokenResponse
-} from "../models/index";
+import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient";
+import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/index";
 import {
   deserializeAws_queryGetFederationTokenCommand,
   serializeAws_queryGetFederationTokenCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetFederationTokenCommandInput = GetFederationTokenRequest;
-export type GetFederationTokenCommandOutput = GetFederationTokenResponse &
-  __MetadataBearer;
+export type GetFederationTokenCommandOutput = GetFederationTokenResponse & __MetadataBearer;
 
 export class GetFederationTokenCommand extends $Command<
   GetFederationTokenCommandInput,
@@ -50,9 +39,7 @@ export class GetFederationTokenCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFederationTokenCommandInput, GetFederationTokenCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetFederationTokenCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetFederationTokenCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetFederationTokenCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetFederationTokenCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
     return deserializeAws_queryGetFederationTokenCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ApiGatewayV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ApiGatewayV2Client";
-import {
-  GetRouteResponseRequest,
-  GetRouteResponseResponse
-} from "../models/index";
+import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
+import { GetRouteResponseRequest, GetRouteResponseResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetRouteResponseCommand,
   serializeAws_restJson1_1GetRouteResponseCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetRouteResponseCommandInput = GetRouteResponseRequest;
-export type GetRouteResponseCommandOutput = GetRouteResponseResponse &
-  __MetadataBearer;
+export type GetRouteResponseCommandOutput = GetRouteResponseResponse & __MetadataBearer;
 
 export class GetRouteResponseCommand extends $Command<
   GetRouteResponseCommandInput,
@@ -50,9 +39,7 @@ export class GetRouteResponseCommand extends $Command<
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRouteResponseCommandInput, GetRouteResponseCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetRouteResponseCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetRouteResponseCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetRouteResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetRouteResponseCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetRouteResponseCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRouteResponseCommandOutput> {
     return deserializeAws_restJson1_1GetRouteResponseCommand(output, context);
   }
 

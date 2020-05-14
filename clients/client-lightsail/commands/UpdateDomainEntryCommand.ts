@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  UpdateDomainEntryRequest,
-  UpdateDomainEntryResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDomainEntryCommand,
   serializeAws_json1_1UpdateDomainEntryCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateDomainEntryCommandInput = UpdateDomainEntryRequest;
-export type UpdateDomainEntryCommandOutput = UpdateDomainEntryResult &
-  __MetadataBearer;
+export type UpdateDomainEntryCommandOutput = UpdateDomainEntryResult & __MetadataBearer;
 
 export class UpdateDomainEntryCommand extends $Command<
   UpdateDomainEntryCommandInput,
@@ -50,9 +39,7 @@ export class UpdateDomainEntryCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateDomainEntryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateDomainEntryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateDomainEntryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateDomainEntryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDomainEntryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainEntryCommandOutput> {
     return deserializeAws_json1_1UpdateDomainEntryCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
-import {
-  CreateRuleGroupRequest,
-  CreateRuleGroupResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
+import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateRuleGroupCommand,
   serializeAws_json1_1CreateRuleGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
-export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse &
-  __MetadataBearer;
+export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
 
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,
@@ -50,9 +39,7 @@ export class CreateRuleGroupCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateRuleGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateRuleGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRuleGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateRuleGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
     return deserializeAws_json1_1CreateRuleGroupCommand(output, context);
   }
 

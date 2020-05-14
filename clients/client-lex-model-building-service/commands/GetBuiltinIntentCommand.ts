@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetBuiltinIntentRequest,
-  GetBuiltinIntentResponse
-} from "../models/index";
+import { GetBuiltinIntentRequest, GetBuiltinIntentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBuiltinIntentCommand,
   serializeAws_restJson1_1GetBuiltinIntentCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBuiltinIntentCommandInput = GetBuiltinIntentRequest;
-export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse &
-  __MetadataBearer;
+export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse & __MetadataBearer;
 
 export class GetBuiltinIntentCommand extends $Command<
   GetBuiltinIntentCommandInput,
@@ -50,9 +43,7 @@ export class GetBuiltinIntentCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBuiltinIntentCommandInput, GetBuiltinIntentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class GetBuiltinIntentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBuiltinIntentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBuiltinIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetBuiltinIntentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBuiltinIntentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinIntentCommandOutput> {
     return deserializeAws_restJson1_1GetBuiltinIntentCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
-import {
-  GetSubscriptionAttributesInput,
-  GetSubscriptionAttributesResponse
-} from "../models/index";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
+import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/index";
 import {
   deserializeAws_queryGetSubscriptionAttributesCommand,
   serializeAws_queryGetSubscriptionAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSubscriptionAttributesCommandInput = GetSubscriptionAttributesInput;
-export type GetSubscriptionAttributesCommandOutput = GetSubscriptionAttributesResponse &
-  __MetadataBearer;
+export type GetSubscriptionAttributesCommandOutput = GetSubscriptionAttributesResponse & __MetadataBearer;
 
 export class GetSubscriptionAttributesCommand extends $Command<
   GetSubscriptionAttributesCommandInput,
@@ -49,13 +38,8 @@ export class GetSubscriptionAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSubscriptionAttributesCommandInput,
-    GetSubscriptionAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSubscriptionAttributesCommandInput, GetSubscriptionAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class GetSubscriptionAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSubscriptionAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSubscriptionAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetSubscriptionAttributesCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class GetSubscriptionAttributesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetSubscriptionAttributesCommandOutput> {
-    return deserializeAws_queryGetSubscriptionAttributesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryGetSubscriptionAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

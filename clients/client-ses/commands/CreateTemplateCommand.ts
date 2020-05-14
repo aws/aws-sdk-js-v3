@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { CreateTemplateRequest, CreateTemplateResponse } from "../models/index";
 import {
   deserializeAws_queryCreateTemplateCommand,
   serializeAws_queryCreateTemplateCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateTemplateCommandInput = CreateTemplateRequest;
-export type CreateTemplateCommandOutput = CreateTemplateResponse &
-  __MetadataBearer;
+export type CreateTemplateCommandOutput = CreateTemplateResponse & __MetadataBearer;
 
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,
@@ -47,9 +39,7 @@ export class CreateTemplateCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTemplateCommandInput, CreateTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTemplateCommandOutput> {
     return deserializeAws_queryCreateTemplateCommand(output, context);
   }
 

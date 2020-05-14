@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  AttachLoadBalancerToSubnetsInput,
-  AttachLoadBalancerToSubnetsOutput
-} from "../models/index";
+import { AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput } from "../models/index";
 import {
   deserializeAws_queryAttachLoadBalancerToSubnetsCommand,
   serializeAws_queryAttachLoadBalancerToSubnetsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachLoadBalancerToSubnetsCommandInput = AttachLoadBalancerToSubnetsInput;
-export type AttachLoadBalancerToSubnetsCommandOutput = AttachLoadBalancerToSubnetsOutput &
-  __MetadataBearer;
+export type AttachLoadBalancerToSubnetsCommandOutput = AttachLoadBalancerToSubnetsOutput & __MetadataBearer;
 
 export class AttachLoadBalancerToSubnetsCommand extends $Command<
   AttachLoadBalancerToSubnetsCommandInput,
@@ -49,13 +42,8 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachLoadBalancerToSubnetsCommandInput,
-    AttachLoadBalancerToSubnetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachLoadBalancerToSubnetsCommandInput, AttachLoadBalancerToSubnetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +58,7 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachLoadBalancerToSubnetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AttachLoadBalancerToSubnetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachLoadBalancerToSubnetsCommand(input, context);
   }
 
@@ -81,10 +66,7 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AttachLoadBalancerToSubnetsCommandOutput> {
-    return deserializeAws_queryAttachLoadBalancerToSubnetsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryAttachLoadBalancerToSubnetsCommand(output, context);
   }
 
   // Start section: command_body_extra

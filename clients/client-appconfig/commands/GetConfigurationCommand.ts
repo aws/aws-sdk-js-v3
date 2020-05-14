@@ -1,18 +1,11 @@
-import {
-  AppConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppConfigClient";
+import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { Configuration, GetConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1GetConfigurationCommand,
   serializeAws_restJson1_1GetConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class GetConfigurationCommand extends $Command<
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConfigurationCommandInput, GetConfigurationCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class GetConfigurationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetConfigurationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetConfigurationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationCommandOutput> {
     return deserializeAws_restJson1_1GetConfigurationCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  EKSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EKSClient";
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import { CreateClusterRequest, CreateClusterResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateClusterCommand,
   serializeAws_restJson1_1CreateClusterCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateClusterCommandInput = CreateClusterRequest;
-export type CreateClusterCommandOutput = CreateClusterResponse &
-  __MetadataBearer;
+export type CreateClusterCommandOutput = CreateClusterResponse & __MetadataBearer;
 
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,
@@ -47,9 +39,7 @@ export class CreateClusterCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateClusterCommandInput, CreateClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
     return deserializeAws_restJson1_1CreateClusterCommand(output, context);
   }
 

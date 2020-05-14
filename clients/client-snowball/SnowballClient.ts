@@ -1,79 +1,25 @@
-import {
-  CancelClusterCommandInput,
-  CancelClusterCommandOutput
-} from "./commands/CancelClusterCommand";
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "./commands/CancelJobCommand";
-import {
-  CreateAddressCommandInput,
-  CreateAddressCommandOutput
-} from "./commands/CreateAddressCommand";
-import {
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput
-} from "./commands/CreateClusterCommand";
-import {
-  CreateJobCommandInput,
-  CreateJobCommandOutput
-} from "./commands/CreateJobCommand";
-import {
-  DescribeAddressCommandInput,
-  DescribeAddressCommandOutput
-} from "./commands/DescribeAddressCommand";
-import {
-  DescribeAddressesCommandInput,
-  DescribeAddressesCommandOutput
-} from "./commands/DescribeAddressesCommand";
-import {
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput
-} from "./commands/DescribeClusterCommand";
-import {
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput
-} from "./commands/DescribeJobCommand";
-import {
-  GetJobManifestCommandInput,
-  GetJobManifestCommandOutput
-} from "./commands/GetJobManifestCommand";
-import {
-  GetJobUnlockCodeCommandInput,
-  GetJobUnlockCodeCommandOutput
-} from "./commands/GetJobUnlockCodeCommand";
-import {
-  GetSnowballUsageCommandInput,
-  GetSnowballUsageCommandOutput
-} from "./commands/GetSnowballUsageCommand";
-import {
-  GetSoftwareUpdatesCommandInput,
-  GetSoftwareUpdatesCommandOutput
-} from "./commands/GetSoftwareUpdatesCommand";
-import {
-  ListClusterJobsCommandInput,
-  ListClusterJobsCommandOutput
-} from "./commands/ListClusterJobsCommand";
-import {
-  ListClustersCommandInput,
-  ListClustersCommandOutput
-} from "./commands/ListClustersCommand";
+import { CancelClusterCommandInput, CancelClusterCommandOutput } from "./commands/CancelClusterCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
+import { CreateAddressCommandInput, CreateAddressCommandOutput } from "./commands/CreateAddressCommand";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
+import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import { DescribeAddressCommandInput, DescribeAddressCommandOutput } from "./commands/DescribeAddressCommand";
+import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import { GetJobManifestCommandInput, GetJobManifestCommandOutput } from "./commands/GetJobManifestCommand";
+import { GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput } from "./commands/GetJobUnlockCodeCommand";
+import { GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput } from "./commands/GetSnowballUsageCommand";
+import { GetSoftwareUpdatesCommandInput, GetSoftwareUpdatesCommandOutput } from "./commands/GetSoftwareUpdatesCommand";
+import { ListClusterJobsCommandInput, ListClusterJobsCommandOutput } from "./commands/ListClusterJobsCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListCompatibleImagesCommandInput,
   ListCompatibleImagesCommandOutput
 } from "./commands/ListCompatibleImagesCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "./commands/ListJobsCommand";
-import {
-  UpdateClusterCommandInput,
-  UpdateClusterCommandOutput
-} from "./commands/UpdateClusterCommand";
-import {
-  UpdateJobCommandInput,
-  UpdateJobCommandOutput
-} from "./commands/UpdateJobCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
+import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -90,12 +36,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -168,8 +109,7 @@ export type ServiceOutputTypes =
   | UpdateClusterCommandOutput
   | UpdateJobCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -253,9 +193,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SnowballClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SnowballClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +202,7 @@ export type SnowballClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  CreateInstanceProfileRequest,
-  CreateInstanceProfileResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { CreateInstanceProfileRequest, CreateInstanceProfileResponse } from "../models/index";
 import {
   deserializeAws_queryCreateInstanceProfileCommand,
   serializeAws_queryCreateInstanceProfileCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateInstanceProfileCommandInput = CreateInstanceProfileRequest;
-export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResponse &
-  __MetadataBearer;
+export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResponse & __MetadataBearer;
 
 export class CreateInstanceProfileCommand extends $Command<
   CreateInstanceProfileCommandInput,
@@ -49,13 +38,8 @@ export class CreateInstanceProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateInstanceProfileCommandInput,
-    CreateInstanceProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateInstanceProfileCommandInput, CreateInstanceProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class CreateInstanceProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateInstanceProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateInstanceProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCreateInstanceProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateInstanceProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateInstanceProfileCommandOutput> {
     return deserializeAws_queryCreateInstanceProfileCommand(output, context);
   }
 

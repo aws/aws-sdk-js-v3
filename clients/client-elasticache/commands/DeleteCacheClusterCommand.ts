@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DeleteCacheClusterMessage,
-  DeleteCacheClusterResult
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/index";
 import {
   deserializeAws_queryDeleteCacheClusterCommand,
   serializeAws_queryDeleteCacheClusterCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteCacheClusterCommandInput = DeleteCacheClusterMessage;
-export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult &
-  __MetadataBearer;
+export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult & __MetadataBearer;
 
 export class DeleteCacheClusterCommand extends $Command<
   DeleteCacheClusterCommandInput,
@@ -50,9 +39,7 @@ export class DeleteCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteCacheClusterCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteCacheClusterCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteCacheClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteCacheClusterCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteCacheClusterCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteCacheClusterCommandOutput> {
     return deserializeAws_queryDeleteCacheClusterCommand(output, context);
   }
 

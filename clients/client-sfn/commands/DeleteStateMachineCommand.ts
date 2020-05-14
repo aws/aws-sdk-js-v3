@@ -1,21 +1,11 @@
-import {
-  SFNClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SFNClient";
-import {
-  DeleteStateMachineInput,
-  DeleteStateMachineOutput
-} from "../models/index";
+import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient";
+import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/index";
 import {
   deserializeAws_json1_0DeleteStateMachineCommand,
   serializeAws_json1_0DeleteStateMachineCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteStateMachineCommandInput = DeleteStateMachineInput;
-export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput &
-  __MetadataBearer;
+export type DeleteStateMachineCommandOutput = DeleteStateMachineOutput & __MetadataBearer;
 
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,
@@ -50,9 +39,7 @@ export class DeleteStateMachineCommand extends $Command<
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteStateMachineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteStateMachineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteStateMachineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteStateMachineCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStateMachineCommandOutput> {
     return deserializeAws_json1_0DeleteStateMachineCommand(output, context);
   }
 

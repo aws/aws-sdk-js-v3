@@ -1,18 +1,8 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFClientResolvedConfig
-} from "../WAFClient";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 import { GetWebACLRequest, GetWebACLResponse } from "../models/index";
-import {
-  deserializeAws_json1_1GetWebACLCommand,
-  serializeAws_json1_1GetWebACLCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type GetWebACLCommandInput = GetWebACLRequest;
 export type GetWebACLCommandOutput = GetWebACLResponse & __MetadataBearer;
 
-export class GetWebACLCommand extends $Command<
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput,
-  WAFClientResolvedConfig
-> {
+export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLCommandOutput, WAFClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class GetWebACLCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetWebACLCommandInput, GetWebACLCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class GetWebACLCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetWebACLCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetWebACLCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetWebACLCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLCommandOutput> {
     return deserializeAws_json1_1GetWebACLCommand(output, context);
   }
 

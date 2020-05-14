@@ -1,18 +1,11 @@
-import {
-  SNSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SNSClient";
+import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient";
 import { SetTopicAttributesInput } from "../models/index";
 import {
   deserializeAws_querySetTopicAttributesCommand,
   serializeAws_querySetTopicAttributesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class SetTopicAttributesCommand extends $Command<
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetTopicAttributesCommandInput, SetTopicAttributesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class SetTopicAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SetTopicAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SetTopicAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySetTopicAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SetTopicAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetTopicAttributesCommandOutput> {
     return deserializeAws_querySetTopicAttributesCommand(output, context);
   }
 

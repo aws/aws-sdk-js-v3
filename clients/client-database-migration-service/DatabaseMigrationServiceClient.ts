@@ -1,15 +1,9 @@
-import {
-  AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput
-} from "./commands/AddTagsToResourceCommand";
+import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "./commands/AddTagsToResourceCommand";
 import {
   ApplyPendingMaintenanceActionCommandInput,
   ApplyPendingMaintenanceActionCommandOutput
 } from "./commands/ApplyPendingMaintenanceActionCommand";
-import {
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
-} from "./commands/CreateEndpointCommand";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
   CreateEventSubscriptionCommandInput,
   CreateEventSubscriptionCommandOutput
@@ -26,18 +20,9 @@ import {
   CreateReplicationTaskCommandInput,
   CreateReplicationTaskCommandOutput
 } from "./commands/CreateReplicationTaskCommand";
-import {
-  DeleteCertificateCommandInput,
-  DeleteCertificateCommandOutput
-} from "./commands/DeleteCertificateCommand";
-import {
-  DeleteConnectionCommandInput,
-  DeleteConnectionCommandOutput
-} from "./commands/DeleteConnectionCommand";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
+import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput
@@ -70,10 +55,7 @@ import {
   DescribeEndpointTypesCommandInput,
   DescribeEndpointTypesCommandOutput
 } from "./commands/DescribeEndpointTypesCommand";
-import {
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
-} from "./commands/DescribeEndpointsCommand";
+import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
 import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput
@@ -82,10 +64,7 @@ import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput
 } from "./commands/DescribeEventSubscriptionsCommand";
-import {
-  DescribeEventsCommandInput,
-  DescribeEventsCommandOutput
-} from "./commands/DescribeEventsCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "./commands/DescribeEventsCommand";
 import {
   DescribeOrderableReplicationInstancesCommandInput,
   DescribeOrderableReplicationInstancesCommandOutput
@@ -118,26 +97,17 @@ import {
   DescribeReplicationTasksCommandInput,
   DescribeReplicationTasksCommandOutput
 } from "./commands/DescribeReplicationTasksCommand";
-import {
-  DescribeSchemasCommandInput,
-  DescribeSchemasCommandOutput
-} from "./commands/DescribeSchemasCommand";
+import { DescribeSchemasCommandInput, DescribeSchemasCommandOutput } from "./commands/DescribeSchemasCommand";
 import {
   DescribeTableStatisticsCommandInput,
   DescribeTableStatisticsCommandOutput
 } from "./commands/DescribeTableStatisticsCommand";
-import {
-  ImportCertificateCommandInput,
-  ImportCertificateCommandOutput
-} from "./commands/ImportCertificateCommand";
+import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ModifyEndpointCommandInput,
-  ModifyEndpointCommandOutput
-} from "./commands/ModifyEndpointCommand";
+import { ModifyEndpointCommandInput, ModifyEndpointCommandOutput } from "./commands/ModifyEndpointCommand";
 import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput
@@ -158,14 +128,8 @@ import {
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput
 } from "./commands/RebootReplicationInstanceCommand";
-import {
-  RefreshSchemasCommandInput,
-  RefreshSchemasCommandOutput
-} from "./commands/RefreshSchemasCommand";
-import {
-  ReloadTablesCommandInput,
-  ReloadTablesCommandOutput
-} from "./commands/ReloadTablesCommand";
+import { RefreshSchemasCommandInput, RefreshSchemasCommandOutput } from "./commands/RefreshSchemasCommand";
+import { ReloadTablesCommandInput, ReloadTablesCommandOutput } from "./commands/ReloadTablesCommand";
 import {
   RemoveTagsFromResourceCommandInput,
   RemoveTagsFromResourceCommandOutput
@@ -182,10 +146,7 @@ import {
   StopReplicationTaskCommandInput,
   StopReplicationTaskCommandOutput
 } from "./commands/StopReplicationTaskCommand";
-import {
-  TestConnectionCommandInput,
-  TestConnectionCommandOutput
-} from "./commands/TestConnectionCommand";
+import { TestConnectionCommandInput, TestConnectionCommandOutput } from "./commands/TestConnectionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -202,12 +163,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -336,8 +292,7 @@ export type ServiceOutputTypes =
   | StopReplicationTaskCommandOutput
   | TestConnectionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -421,9 +376,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DatabaseMigrationServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DatabaseMigrationServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -432,9 +385,7 @@ export type DatabaseMigrationServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DatabaseMigrationServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DatabaseMigrationServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

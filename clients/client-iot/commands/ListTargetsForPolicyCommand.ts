@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListTargetsForPolicyRequest,
-  ListTargetsForPolicyResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListTargetsForPolicyRequest, ListTargetsForPolicyResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTargetsForPolicyCommand,
   serializeAws_restJson1_1ListTargetsForPolicyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
-export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse &
-  __MetadataBearer;
+export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
 
 export class ListTargetsForPolicyCommand extends $Command<
   ListTargetsForPolicyCommandInput,
@@ -49,13 +38,8 @@ export class ListTargetsForPolicyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListTargetsForPolicyCommandInput,
-    ListTargetsForPolicyCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListTargetsForPolicyCommandInput, ListTargetsForPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListTargetsForPolicyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListTargetsForPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListTargetsForPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListTargetsForPolicyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListTargetsForPolicyCommandOutput> {
-    return deserializeAws_restJson1_1ListTargetsForPolicyCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTargetsForPolicyCommandOutput> {
+    return deserializeAws_restJson1_1ListTargetsForPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

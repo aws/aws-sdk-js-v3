@@ -1,23 +1,14 @@
-import {
-  CancelJobCommandInput,
-  CancelJobCommandOutput
-} from "../commands/CancelJobCommand";
+import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import {
   CreateComputeEnvironmentCommandInput,
   CreateComputeEnvironmentCommandOutput
 } from "../commands/CreateComputeEnvironmentCommand";
-import {
-  CreateJobQueueCommandInput,
-  CreateJobQueueCommandOutput
-} from "../commands/CreateJobQueueCommand";
+import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "../commands/CreateJobQueueCommand";
 import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput
 } from "../commands/DeleteComputeEnvironmentCommand";
-import {
-  DeleteJobQueueCommandInput,
-  DeleteJobQueueCommandOutput
-} from "../commands/DeleteJobQueueCommand";
+import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "../commands/DeleteJobQueueCommand";
 import {
   DeregisterJobDefinitionCommandInput,
   DeregisterJobDefinitionCommandOutput
@@ -30,38 +21,20 @@ import {
   DescribeJobDefinitionsCommandInput,
   DescribeJobDefinitionsCommandOutput
 } from "../commands/DescribeJobDefinitionsCommand";
-import {
-  DescribeJobQueuesCommandInput,
-  DescribeJobQueuesCommandOutput
-} from "../commands/DescribeJobQueuesCommand";
-import {
-  DescribeJobsCommandInput,
-  DescribeJobsCommandOutput
-} from "../commands/DescribeJobsCommand";
-import {
-  ListJobsCommandInput,
-  ListJobsCommandOutput
-} from "../commands/ListJobsCommand";
+import { DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput } from "../commands/DescribeJobQueuesCommand";
+import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "../commands/DescribeJobsCommand";
+import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import {
   RegisterJobDefinitionCommandInput,
   RegisterJobDefinitionCommandOutput
 } from "../commands/RegisterJobDefinitionCommand";
-import {
-  SubmitJobCommandInput,
-  SubmitJobCommandOutput
-} from "../commands/SubmitJobCommand";
-import {
-  TerminateJobCommandInput,
-  TerminateJobCommandOutput
-} from "../commands/TerminateJobCommand";
+import { SubmitJobCommandInput, SubmitJobCommandOutput } from "../commands/SubmitJobCommand";
+import { TerminateJobCommandInput, TerminateJobCommandOutput } from "../commands/TerminateJobCommand";
 import {
   UpdateComputeEnvironmentCommandInput,
   UpdateComputeEnvironmentCommandOutput
 } from "../commands/UpdateComputeEnvironmentCommand";
-import {
-  UpdateJobQueueCommandInput,
-  UpdateJobQueueCommandOutput
-} from "../commands/UpdateJobQueueCommand";
+import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "../commands/UpdateJobQueueCommand";
 import {
   ArrayProperties,
   ArrayPropertiesDetail,
@@ -103,10 +76,7 @@ import {
   Ulimit,
   Volume
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -154,10 +124,7 @@ export const serializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
       computeEnvironmentName: input.computeEnvironmentName
     }),
     ...(input.computeResources !== undefined && {
-      computeResources: serializeAws_restJson1_1ComputeResource(
-        input.computeResources,
-        context
-      )
+      computeResources: serializeAws_restJson1_1ComputeResource(input.computeResources, context)
     }),
     ...(input.serviceRole !== undefined && { serviceRole: input.serviceRole }),
     ...(input.state !== undefined && { state: input.state }),
@@ -186,10 +153,7 @@ export const serializeAws_restJson1_1CreateJobQueueCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.computeEnvironmentOrder !== undefined && {
-      computeEnvironmentOrder: serializeAws_restJson1_1ComputeEnvironmentOrders(
-        input.computeEnvironmentOrder,
-        context
-      )
+      computeEnvironmentOrder: serializeAws_restJson1_1ComputeEnvironmentOrders(input.computeEnvironmentOrder, context)
     }),
     ...(input.jobQueueName !== undefined && {
       jobQueueName: input.jobQueueName
@@ -296,10 +260,7 @@ export const serializeAws_restJson1_1DescribeComputeEnvironmentsCommand = async 
   let body: any;
   body = JSON.stringify({
     ...(input.computeEnvironments !== undefined && {
-      computeEnvironments: serializeAws_restJson1_1StringList(
-        input.computeEnvironments,
-        context
-      )
+      computeEnvironments: serializeAws_restJson1_1StringList(input.computeEnvironments, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
@@ -330,10 +291,7 @@ export const serializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
       jobDefinitionName: input.jobDefinitionName
     }),
     ...(input.jobDefinitions !== undefined && {
-      jobDefinitions: serializeAws_restJson1_1StringList(
-        input.jobDefinitions,
-        context
-      )
+      jobDefinitions: serializeAws_restJson1_1StringList(input.jobDefinitions, context)
     }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -447,31 +405,19 @@ export const serializeAws_restJson1_1RegisterJobDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.containerProperties !== undefined && {
-      containerProperties: serializeAws_restJson1_1ContainerProperties(
-        input.containerProperties,
-        context
-      )
+      containerProperties: serializeAws_restJson1_1ContainerProperties(input.containerProperties, context)
     }),
     ...(input.jobDefinitionName !== undefined && {
       jobDefinitionName: input.jobDefinitionName
     }),
     ...(input.nodeProperties !== undefined && {
-      nodeProperties: serializeAws_restJson1_1NodeProperties(
-        input.nodeProperties,
-        context
-      )
+      nodeProperties: serializeAws_restJson1_1NodeProperties(input.nodeProperties, context)
     }),
     ...(input.parameters !== undefined && {
-      parameters: serializeAws_restJson1_1ParametersMap(
-        input.parameters,
-        context
-      )
+      parameters: serializeAws_restJson1_1ParametersMap(input.parameters, context)
     }),
     ...(input.retryStrategy !== undefined && {
-      retryStrategy: serializeAws_restJson1_1RetryStrategy(
-        input.retryStrategy,
-        context
-      )
+      retryStrategy: serializeAws_restJson1_1RetryStrategy(input.retryStrategy, context)
     }),
     ...(input.timeout !== undefined && {
       timeout: serializeAws_restJson1_1JobTimeout(input.timeout, context)
@@ -501,22 +447,13 @@ export const serializeAws_restJson1_1SubmitJobCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.arrayProperties !== undefined && {
-      arrayProperties: serializeAws_restJson1_1ArrayProperties(
-        input.arrayProperties,
-        context
-      )
+      arrayProperties: serializeAws_restJson1_1ArrayProperties(input.arrayProperties, context)
     }),
     ...(input.containerOverrides !== undefined && {
-      containerOverrides: serializeAws_restJson1_1ContainerOverrides(
-        input.containerOverrides,
-        context
-      )
+      containerOverrides: serializeAws_restJson1_1ContainerOverrides(input.containerOverrides, context)
     }),
     ...(input.dependsOn !== undefined && {
-      dependsOn: serializeAws_restJson1_1JobDependencyList(
-        input.dependsOn,
-        context
-      )
+      dependsOn: serializeAws_restJson1_1JobDependencyList(input.dependsOn, context)
     }),
     ...(input.jobDefinition !== undefined && {
       jobDefinition: input.jobDefinition
@@ -524,22 +461,13 @@ export const serializeAws_restJson1_1SubmitJobCommand = async (
     ...(input.jobName !== undefined && { jobName: input.jobName }),
     ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
     ...(input.nodeOverrides !== undefined && {
-      nodeOverrides: serializeAws_restJson1_1NodeOverrides(
-        input.nodeOverrides,
-        context
-      )
+      nodeOverrides: serializeAws_restJson1_1NodeOverrides(input.nodeOverrides, context)
     }),
     ...(input.parameters !== undefined && {
-      parameters: serializeAws_restJson1_1ParametersMap(
-        input.parameters,
-        context
-      )
+      parameters: serializeAws_restJson1_1ParametersMap(input.parameters, context)
     }),
     ...(input.retryStrategy !== undefined && {
-      retryStrategy: serializeAws_restJson1_1RetryStrategy(
-        input.retryStrategy,
-        context
-      )
+      retryStrategy: serializeAws_restJson1_1RetryStrategy(input.retryStrategy, context)
     }),
     ...(input.timeout !== undefined && {
       timeout: serializeAws_restJson1_1JobTimeout(input.timeout, context)
@@ -596,10 +524,7 @@ export const serializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
       computeEnvironment: input.computeEnvironment
     }),
     ...(input.computeResources !== undefined && {
-      computeResources: serializeAws_restJson1_1ComputeResourceUpdate(
-        input.computeResources,
-        context
-      )
+      computeResources: serializeAws_restJson1_1ComputeResourceUpdate(input.computeResources, context)
     }),
     ...(input.serviceRole !== undefined && { serviceRole: input.serviceRole }),
     ...(input.state !== undefined && { state: input.state })
@@ -627,10 +552,7 @@ export const serializeAws_restJson1_1UpdateJobQueueCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.computeEnvironmentOrder !== undefined && {
-      computeEnvironmentOrder: serializeAws_restJson1_1ComputeEnvironmentOrders(
-        input.computeEnvironmentOrder,
-        context
-      )
+      computeEnvironmentOrder: serializeAws_restJson1_1ComputeEnvironmentOrders(input.computeEnvironmentOrder, context)
     }),
     ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
     ...(input.priority !== undefined && { priority: input.priority }),
@@ -678,10 +600,7 @@ const deserializeAws_restJson1_1CancelJobCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -689,10 +608,7 @@ const deserializeAws_restJson1_1CancelJobCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -719,10 +635,7 @@ export const deserializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(output, context);
   }
   const contents: CreateComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -731,16 +644,10 @@ export const deserializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
     computeEnvironmentName: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.computeEnvironmentArn !== undefined &&
-    data.computeEnvironmentArn !== null
-  ) {
+  if (data.computeEnvironmentArn !== undefined && data.computeEnvironmentArn !== null) {
     contents.computeEnvironmentArn = data.computeEnvironmentArn;
   }
-  if (
-    data.computeEnvironmentName !== undefined &&
-    data.computeEnvironmentName !== null
-  ) {
+  if (data.computeEnvironmentName !== undefined && data.computeEnvironmentName !== null) {
     contents.computeEnvironmentName = data.computeEnvironmentName;
   }
   return Promise.resolve(contents);
@@ -761,10 +668,7 @@ const deserializeAws_restJson1_1CreateComputeEnvironmentCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -772,10 +676,7 @@ const deserializeAws_restJson1_1CreateComputeEnvironmentCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -802,10 +703,7 @@ export const deserializeAws_restJson1_1CreateJobQueueCommand = async (
   context: __SerdeContext
 ): Promise<CreateJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateJobQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateJobQueueCommandError(output, context);
   }
   const contents: CreateJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -838,10 +736,7 @@ const deserializeAws_restJson1_1CreateJobQueueCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -849,10 +744,7 @@ const deserializeAws_restJson1_1CreateJobQueueCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -879,10 +771,7 @@ export const deserializeAws_restJson1_1DeleteComputeEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(output, context);
   }
   const contents: DeleteComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -907,10 +796,7 @@ const deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -918,10 +804,7 @@ const deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -948,10 +831,7 @@ export const deserializeAws_restJson1_1DeleteJobQueueCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteJobQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteJobQueueCommandError(output, context);
   }
   const contents: DeleteJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -976,10 +856,7 @@ const deserializeAws_restJson1_1DeleteJobQueueCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -987,10 +864,7 @@ const deserializeAws_restJson1_1DeleteJobQueueCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1017,10 +891,7 @@ export const deserializeAws_restJson1_1DeregisterJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterJobDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(output, context);
   }
   const contents: DeregisterJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1045,10 +916,7 @@ const deserializeAws_restJson1_1DeregisterJobDefinitionCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1056,10 +924,7 @@ const deserializeAws_restJson1_1DeregisterJobDefinitionCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1086,10 +951,7 @@ export const deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeComputeEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError(output, context);
   }
   const contents: DescribeComputeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1098,10 +960,7 @@ export const deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand = asyn
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.computeEnvironments !== undefined &&
-    data.computeEnvironments !== null
-  ) {
+  if (data.computeEnvironments !== undefined && data.computeEnvironments !== null) {
     contents.computeEnvironments = deserializeAws_restJson1_1ComputeEnvironmentDetailList(
       data.computeEnvironments,
       context
@@ -1128,10 +987,7 @@ const deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError = async 
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1139,10 +995,7 @@ const deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError = async 
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1169,10 +1022,7 @@ export const deserializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(output, context);
   }
   const contents: DescribeJobDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1182,10 +1032,7 @@ export const deserializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobDefinitions !== undefined && data.jobDefinitions !== null) {
-    contents.jobDefinitions = deserializeAws_restJson1_1JobDefinitionList(
-      data.jobDefinitions,
-      context
-    );
+    contents.jobDefinitions = deserializeAws_restJson1_1JobDefinitionList(data.jobDefinitions, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1208,10 +1055,7 @@ const deserializeAws_restJson1_1DescribeJobDefinitionsCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1219,10 +1063,7 @@ const deserializeAws_restJson1_1DescribeJobDefinitionsCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1249,10 +1090,7 @@ export const deserializeAws_restJson1_1DescribeJobQueuesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobQueuesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeJobQueuesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeJobQueuesCommandError(output, context);
   }
   const contents: DescribeJobQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1262,10 +1100,7 @@ export const deserializeAws_restJson1_1DescribeJobQueuesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobQueues !== undefined && data.jobQueues !== null) {
-    contents.jobQueues = deserializeAws_restJson1_1JobQueueDetailList(
-      data.jobQueues,
-      context
-    );
+    contents.jobQueues = deserializeAws_restJson1_1JobQueueDetailList(data.jobQueues, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1288,10 +1123,7 @@ const deserializeAws_restJson1_1DescribeJobQueuesCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1299,10 +1131,7 @@ const deserializeAws_restJson1_1DescribeJobQueuesCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1358,10 +1187,7 @@ const deserializeAws_restJson1_1DescribeJobsCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1369,10 +1195,7 @@ const deserializeAws_restJson1_1DescribeJobsCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1409,10 +1232,7 @@ export const deserializeAws_restJson1_1ListJobsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.jobSummaryList !== undefined && data.jobSummaryList !== null) {
-    contents.jobSummaryList = deserializeAws_restJson1_1JobSummaryList(
-      data.jobSummaryList,
-      context
-    );
+    contents.jobSummaryList = deserializeAws_restJson1_1JobSummaryList(data.jobSummaryList, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1435,10 +1255,7 @@ const deserializeAws_restJson1_1ListJobsCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1446,10 +1263,7 @@ const deserializeAws_restJson1_1ListJobsCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1476,10 +1290,7 @@ export const deserializeAws_restJson1_1RegisterJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<RegisterJobDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterJobDefinitionCommandError(output, context);
   }
   const contents: RegisterJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1516,10 +1327,7 @@ const deserializeAws_restJson1_1RegisterJobDefinitionCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1527,10 +1335,7 @@ const deserializeAws_restJson1_1RegisterJobDefinitionCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1590,10 +1395,7 @@ const deserializeAws_restJson1_1SubmitJobCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1601,10 +1403,7 @@ const deserializeAws_restJson1_1SubmitJobCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1656,10 +1455,7 @@ const deserializeAws_restJson1_1TerminateJobCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1667,10 +1463,7 @@ const deserializeAws_restJson1_1TerminateJobCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1697,10 +1490,7 @@ export const deserializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(output, context);
   }
   const contents: UpdateComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1709,16 +1499,10 @@ export const deserializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
     computeEnvironmentName: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.computeEnvironmentArn !== undefined &&
-    data.computeEnvironmentArn !== null
-  ) {
+  if (data.computeEnvironmentArn !== undefined && data.computeEnvironmentArn !== null) {
     contents.computeEnvironmentArn = data.computeEnvironmentArn;
   }
-  if (
-    data.computeEnvironmentName !== undefined &&
-    data.computeEnvironmentName !== null
-  ) {
+  if (data.computeEnvironmentName !== undefined && data.computeEnvironmentName !== null) {
     contents.computeEnvironmentName = data.computeEnvironmentName;
   }
   return Promise.resolve(contents);
@@ -1739,10 +1523,7 @@ const deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1750,10 +1531,7 @@ const deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1780,10 +1558,7 @@ export const deserializeAws_restJson1_1UpdateJobQueueCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateJobQueueCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateJobQueueCommandError(output, context);
   }
   const contents: UpdateJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1816,10 +1591,7 @@ const deserializeAws_restJson1_1UpdateJobQueueCommandError = async (
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
       response = {
-        ...(await deserializeAws_restJson1_1ClientExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1827,10 +1599,7 @@ const deserializeAws_restJson1_1UpdateJobQueueCommandError = async (
     case "ServerException":
     case "com.amazonaws.dilithium.frontend#ServerException":
       response = {
-        ...(await deserializeAws_restJson1_1ServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1886,10 +1655,7 @@ const deserializeAws_restJson1_1ServerExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1ArrayProperties = (
-  input: ArrayProperties,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ArrayProperties = (input: ArrayProperties, context: __SerdeContext): any => {
   return {
     ...(input.size !== undefined && { size: input.size })
   };
@@ -1911,15 +1677,10 @@ const serializeAws_restJson1_1ComputeEnvironmentOrders = (
   input: ComputeEnvironmentOrder[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ComputeEnvironmentOrder(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1ComputeEnvironmentOrder(entry, context));
 };
 
-const serializeAws_restJson1_1ComputeResource = (
-  input: ComputeResource,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ComputeResource = (input: ComputeResource, context: __SerdeContext): any => {
   return {
     ...(input.allocationStrategy !== undefined && {
       allocationStrategy: input.allocationStrategy
@@ -1936,16 +1697,10 @@ const serializeAws_restJson1_1ComputeResource = (
       instanceRole: input.instanceRole
     }),
     ...(input.instanceTypes !== undefined && {
-      instanceTypes: serializeAws_restJson1_1StringList(
-        input.instanceTypes,
-        context
-      )
+      instanceTypes: serializeAws_restJson1_1StringList(input.instanceTypes, context)
     }),
     ...(input.launchTemplate !== undefined && {
-      launchTemplate: serializeAws_restJson1_1LaunchTemplateSpecification(
-        input.launchTemplate,
-        context
-      )
+      launchTemplate: serializeAws_restJson1_1LaunchTemplateSpecification(input.launchTemplate, context)
     }),
     ...(input.maxvCpus !== undefined && { maxvCpus: input.maxvCpus }),
     ...(input.minvCpus !== undefined && { minvCpus: input.minvCpus }),
@@ -1953,10 +1708,7 @@ const serializeAws_restJson1_1ComputeResource = (
       placementGroup: input.placementGroup
     }),
     ...(input.securityGroupIds !== undefined && {
-      securityGroupIds: serializeAws_restJson1_1StringList(
-        input.securityGroupIds,
-        context
-      )
+      securityGroupIds: serializeAws_restJson1_1StringList(input.securityGroupIds, context)
     }),
     ...(input.spotIamFleetRole !== undefined && {
       spotIamFleetRole: input.spotIamFleetRole
@@ -1971,10 +1723,7 @@ const serializeAws_restJson1_1ComputeResource = (
   };
 };
 
-const serializeAws_restJson1_1ComputeResourceUpdate = (
-  input: ComputeResourceUpdate,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ComputeResourceUpdate = (input: ComputeResourceUpdate, context: __SerdeContext): any => {
   return {
     ...(input.desiredvCpus !== undefined && {
       desiredvCpus: input.desiredvCpus
@@ -1984,47 +1733,32 @@ const serializeAws_restJson1_1ComputeResourceUpdate = (
   };
 };
 
-const serializeAws_restJson1_1ContainerOverrides = (
-  input: ContainerOverrides,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ContainerOverrides = (input: ContainerOverrides, context: __SerdeContext): any => {
   return {
     ...(input.command !== undefined && {
       command: serializeAws_restJson1_1StringList(input.command, context)
     }),
     ...(input.environment !== undefined && {
-      environment: serializeAws_restJson1_1EnvironmentVariables(
-        input.environment,
-        context
-      )
+      environment: serializeAws_restJson1_1EnvironmentVariables(input.environment, context)
     }),
     ...(input.instanceType !== undefined && {
       instanceType: input.instanceType
     }),
     ...(input.memory !== undefined && { memory: input.memory }),
     ...(input.resourceRequirements !== undefined && {
-      resourceRequirements: serializeAws_restJson1_1ResourceRequirements(
-        input.resourceRequirements,
-        context
-      )
+      resourceRequirements: serializeAws_restJson1_1ResourceRequirements(input.resourceRequirements, context)
     }),
     ...(input.vcpus !== undefined && { vcpus: input.vcpus })
   };
 };
 
-const serializeAws_restJson1_1ContainerProperties = (
-  input: ContainerProperties,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ContainerProperties = (input: ContainerProperties, context: __SerdeContext): any => {
   return {
     ...(input.command !== undefined && {
       command: serializeAws_restJson1_1StringList(input.command, context)
     }),
     ...(input.environment !== undefined && {
-      environment: serializeAws_restJson1_1EnvironmentVariables(
-        input.environment,
-        context
-      )
+      environment: serializeAws_restJson1_1EnvironmentVariables(input.environment, context)
     }),
     ...(input.image !== undefined && { image: input.image }),
     ...(input.instanceType !== undefined && {
@@ -2032,27 +1766,18 @@ const serializeAws_restJson1_1ContainerProperties = (
     }),
     ...(input.jobRoleArn !== undefined && { jobRoleArn: input.jobRoleArn }),
     ...(input.linuxParameters !== undefined && {
-      linuxParameters: serializeAws_restJson1_1LinuxParameters(
-        input.linuxParameters,
-        context
-      )
+      linuxParameters: serializeAws_restJson1_1LinuxParameters(input.linuxParameters, context)
     }),
     ...(input.memory !== undefined && { memory: input.memory }),
     ...(input.mountPoints !== undefined && {
-      mountPoints: serializeAws_restJson1_1MountPoints(
-        input.mountPoints,
-        context
-      )
+      mountPoints: serializeAws_restJson1_1MountPoints(input.mountPoints, context)
     }),
     ...(input.privileged !== undefined && { privileged: input.privileged }),
     ...(input.readonlyRootFilesystem !== undefined && {
       readonlyRootFilesystem: input.readonlyRootFilesystem
     }),
     ...(input.resourceRequirements !== undefined && {
-      resourceRequirements: serializeAws_restJson1_1ResourceRequirements(
-        input.resourceRequirements,
-        context
-      )
+      resourceRequirements: serializeAws_restJson1_1ResourceRequirements(input.resourceRequirements, context)
     }),
     ...(input.ulimits !== undefined && {
       ulimits: serializeAws_restJson1_1Ulimits(input.ulimits, context)
@@ -2065,20 +1790,14 @@ const serializeAws_restJson1_1ContainerProperties = (
   };
 };
 
-const serializeAws_restJson1_1Device = (
-  input: Device,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Device = (input: Device, context: __SerdeContext): any => {
   return {
     ...(input.containerPath !== undefined && {
       containerPath: input.containerPath
     }),
     ...(input.hostPath !== undefined && { hostPath: input.hostPath }),
     ...(input.permissions !== undefined && {
-      permissions: serializeAws_restJson1_1DeviceCgroupPermissions(
-        input.permissions,
-        context
-      )
+      permissions: serializeAws_restJson1_1DeviceCgroupPermissions(input.permissions, context)
     })
   };
 };
@@ -2090,54 +1809,32 @@ const serializeAws_restJson1_1DeviceCgroupPermissions = (
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1DevicesList = (
-  input: Device[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DevicesList = (input: Device[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Device(entry, context));
 };
 
-const serializeAws_restJson1_1EnvironmentVariables = (
-  input: KeyValuePair[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1KeyValuePair(entry, context)
-  );
+const serializeAws_restJson1_1EnvironmentVariables = (input: KeyValuePair[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1KeyValuePair(entry, context));
 };
 
-const serializeAws_restJson1_1Host = (
-  input: Host,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Host = (input: Host, context: __SerdeContext): any => {
   return {
     ...(input.sourcePath !== undefined && { sourcePath: input.sourcePath })
   };
 };
 
-const serializeAws_restJson1_1JobDependency = (
-  input: JobDependency,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1JobDependency = (input: JobDependency, context: __SerdeContext): any => {
   return {
     ...(input.jobId !== undefined && { jobId: input.jobId }),
     ...(input.type !== undefined && { type: input.type })
   };
 };
 
-const serializeAws_restJson1_1JobDependencyList = (
-  input: JobDependency[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1JobDependency(entry, context)
-  );
+const serializeAws_restJson1_1JobDependencyList = (input: JobDependency[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1JobDependency(entry, context));
 };
 
-const serializeAws_restJson1_1JobTimeout = (
-  input: JobTimeout,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1JobTimeout = (input: JobTimeout, context: __SerdeContext): any => {
   return {
     ...(input.attemptDurationSeconds !== undefined && {
       attemptDurationSeconds: input.attemptDurationSeconds
@@ -2145,10 +1842,7 @@ const serializeAws_restJson1_1JobTimeout = (
   };
 };
 
-const serializeAws_restJson1_1KeyValuePair = (
-  input: KeyValuePair,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1KeyValuePair = (input: KeyValuePair, context: __SerdeContext): any => {
   return {
     ...(input.name !== undefined && { name: input.name }),
     ...(input.value !== undefined && { value: input.value })
@@ -2170,10 +1864,7 @@ const serializeAws_restJson1_1LaunchTemplateSpecification = (
   };
 };
 
-const serializeAws_restJson1_1LinuxParameters = (
-  input: LinuxParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LinuxParameters = (input: LinuxParameters, context: __SerdeContext): any => {
   return {
     ...(input.devices !== undefined && {
       devices: serializeAws_restJson1_1DevicesList(input.devices, context)
@@ -2181,10 +1872,7 @@ const serializeAws_restJson1_1LinuxParameters = (
   };
 };
 
-const serializeAws_restJson1_1MountPoint = (
-  input: MountPoint,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MountPoint = (input: MountPoint, context: __SerdeContext): any => {
   return {
     ...(input.containerPath !== undefined && {
       containerPath: input.containerPath
@@ -2196,96 +1884,56 @@ const serializeAws_restJson1_1MountPoint = (
   };
 };
 
-const serializeAws_restJson1_1MountPoints = (
-  input: MountPoint[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MountPoints = (input: MountPoint[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1MountPoint(entry, context));
 };
 
-const serializeAws_restJson1_1NodeOverrides = (
-  input: NodeOverrides,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1NodeOverrides = (input: NodeOverrides, context: __SerdeContext): any => {
   return {
     ...(input.nodePropertyOverrides !== undefined && {
-      nodePropertyOverrides: serializeAws_restJson1_1NodePropertyOverrides(
-        input.nodePropertyOverrides,
-        context
-      )
+      nodePropertyOverrides: serializeAws_restJson1_1NodePropertyOverrides(input.nodePropertyOverrides, context)
     }),
     ...(input.numNodes !== undefined && { numNodes: input.numNodes })
   };
 };
 
-const serializeAws_restJson1_1NodeProperties = (
-  input: NodeProperties,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1NodeProperties = (input: NodeProperties, context: __SerdeContext): any => {
   return {
     ...(input.mainNode !== undefined && { mainNode: input.mainNode }),
     ...(input.nodeRangeProperties !== undefined && {
-      nodeRangeProperties: serializeAws_restJson1_1NodeRangeProperties(
-        input.nodeRangeProperties,
-        context
-      )
+      nodeRangeProperties: serializeAws_restJson1_1NodeRangeProperties(input.nodeRangeProperties, context)
     }),
     ...(input.numNodes !== undefined && { numNodes: input.numNodes })
   };
 };
 
-const serializeAws_restJson1_1NodePropertyOverride = (
-  input: NodePropertyOverride,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1NodePropertyOverride = (input: NodePropertyOverride, context: __SerdeContext): any => {
   return {
     ...(input.containerOverrides !== undefined && {
-      containerOverrides: serializeAws_restJson1_1ContainerOverrides(
-        input.containerOverrides,
-        context
-      )
+      containerOverrides: serializeAws_restJson1_1ContainerOverrides(input.containerOverrides, context)
     }),
     ...(input.targetNodes !== undefined && { targetNodes: input.targetNodes })
   };
 };
 
-const serializeAws_restJson1_1NodePropertyOverrides = (
-  input: NodePropertyOverride[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1NodePropertyOverride(entry, context)
-  );
+const serializeAws_restJson1_1NodePropertyOverrides = (input: NodePropertyOverride[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1NodePropertyOverride(entry, context));
 };
 
-const serializeAws_restJson1_1NodeRangeProperties = (
-  input: NodeRangeProperty[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1NodeRangeProperty(entry, context)
-  );
+const serializeAws_restJson1_1NodeRangeProperties = (input: NodeRangeProperty[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1NodeRangeProperty(entry, context));
 };
 
-const serializeAws_restJson1_1NodeRangeProperty = (
-  input: NodeRangeProperty,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1NodeRangeProperty = (input: NodeRangeProperty, context: __SerdeContext): any => {
   return {
     ...(input.container !== undefined && {
-      container: serializeAws_restJson1_1ContainerProperties(
-        input.container,
-        context
-      )
+      container: serializeAws_restJson1_1ContainerProperties(input.container, context)
     }),
     ...(input.targetNodes !== undefined && { targetNodes: input.targetNodes })
   };
 };
 
-const serializeAws_restJson1_1ParametersMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ParametersMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2295,45 +1943,28 @@ const serializeAws_restJson1_1ParametersMap = (
   );
 };
 
-const serializeAws_restJson1_1ResourceRequirement = (
-  input: ResourceRequirement,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ResourceRequirement = (input: ResourceRequirement, context: __SerdeContext): any => {
   return {
     ...(input.type !== undefined && { type: input.type }),
     ...(input.value !== undefined && { value: input.value })
   };
 };
 
-const serializeAws_restJson1_1ResourceRequirements = (
-  input: ResourceRequirement[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ResourceRequirement(entry, context)
-  );
+const serializeAws_restJson1_1ResourceRequirements = (input: ResourceRequirement[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1ResourceRequirement(entry, context));
 };
 
-const serializeAws_restJson1_1RetryStrategy = (
-  input: RetryStrategy,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RetryStrategy = (input: RetryStrategy, context: __SerdeContext): any => {
   return {
     ...(input.attempts !== undefined && { attempts: input.attempts })
   };
 };
 
-const serializeAws_restJson1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1TagsMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2343,10 +1974,7 @@ const serializeAws_restJson1_1TagsMap = (
   );
 };
 
-const serializeAws_restJson1_1Ulimit = (
-  input: Ulimit,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Ulimit = (input: Ulimit, context: __SerdeContext): any => {
   return {
     ...(input.hardLimit !== undefined && { hardLimit: input.hardLimit }),
     ...(input.name !== undefined && { name: input.name }),
@@ -2354,17 +1982,11 @@ const serializeAws_restJson1_1Ulimit = (
   };
 };
 
-const serializeAws_restJson1_1Ulimits = (
-  input: Ulimit[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Ulimits = (input: Ulimit[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Ulimit(entry, context));
 };
 
-const serializeAws_restJson1_1Volume = (
-  input: Volume,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Volume = (input: Volume, context: __SerdeContext): any => {
   return {
     ...(input.host !== undefined && {
       host: serializeAws_restJson1_1Host(input.host, context)
@@ -2373,10 +1995,7 @@ const serializeAws_restJson1_1Volume = (
   };
 };
 
-const serializeAws_restJson1_1Volumes = (
-  input: Volume[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Volumes = (input: Volume[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Volume(entry, context));
 };
 
@@ -2399,20 +2018,11 @@ const deserializeAws_restJson1_1ArrayPropertiesDetail = (
 ): ArrayPropertiesDetail => {
   return {
     __type: "ArrayPropertiesDetail",
-    index:
-      output.index !== undefined && output.index !== null
-        ? output.index
-        : undefined,
-    size:
-      output.size !== undefined && output.size !== null
-        ? output.size
-        : undefined,
+    index: output.index !== undefined && output.index !== null ? output.index : undefined,
+    size: output.size !== undefined && output.size !== null ? output.size : undefined,
     statusSummary:
       output.statusSummary !== undefined && output.statusSummary !== null
-        ? deserializeAws_restJson1_1ArrayJobStatusSummary(
-            output.statusSummary,
-            context
-          )
+        ? deserializeAws_restJson1_1ArrayJobStatusSummary(output.statusSummary, context)
         : undefined
   } as any;
 };
@@ -2423,14 +2033,8 @@ const deserializeAws_restJson1_1ArrayPropertiesSummary = (
 ): ArrayPropertiesSummary => {
   return {
     __type: "ArrayPropertiesSummary",
-    index:
-      output.index !== undefined && output.index !== null
-        ? output.index
-        : undefined,
-    size:
-      output.size !== undefined && output.size !== null
-        ? output.size
-        : undefined
+    index: output.index !== undefined && output.index !== null ? output.index : undefined,
+    size: output.size !== undefined && output.size !== null ? output.size : undefined
   } as any;
 };
 
@@ -2441,72 +2045,36 @@ const deserializeAws_restJson1_1AttemptContainerDetail = (
   return {
     __type: "AttemptContainerDetail",
     containerInstanceArn:
-      output.containerInstanceArn !== undefined &&
-      output.containerInstanceArn !== null
+      output.containerInstanceArn !== undefined && output.containerInstanceArn !== null
         ? output.containerInstanceArn
         : undefined,
-    exitCode:
-      output.exitCode !== undefined && output.exitCode !== null
-        ? output.exitCode
-        : undefined,
+    exitCode: output.exitCode !== undefined && output.exitCode !== null ? output.exitCode : undefined,
     logStreamName:
-      output.logStreamName !== undefined && output.logStreamName !== null
-        ? output.logStreamName
-        : undefined,
+      output.logStreamName !== undefined && output.logStreamName !== null ? output.logStreamName : undefined,
     networkInterfaces:
-      output.networkInterfaces !== undefined &&
-      output.networkInterfaces !== null
-        ? deserializeAws_restJson1_1NetworkInterfaceList(
-            output.networkInterfaces,
-            context
-          )
+      output.networkInterfaces !== undefined && output.networkInterfaces !== null
+        ? deserializeAws_restJson1_1NetworkInterfaceList(output.networkInterfaces, context)
         : undefined,
-    reason:
-      output.reason !== undefined && output.reason !== null
-        ? output.reason
-        : undefined,
-    taskArn:
-      output.taskArn !== undefined && output.taskArn !== null
-        ? output.taskArn
-        : undefined
+    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
+    taskArn: output.taskArn !== undefined && output.taskArn !== null ? output.taskArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AttemptDetail = (
-  output: any,
-  context: __SerdeContext
-): AttemptDetail => {
+const deserializeAws_restJson1_1AttemptDetail = (output: any, context: __SerdeContext): AttemptDetail => {
   return {
     __type: "AttemptDetail",
     container:
       output.container !== undefined && output.container !== null
-        ? deserializeAws_restJson1_1AttemptContainerDetail(
-            output.container,
-            context
-          )
+        ? deserializeAws_restJson1_1AttemptContainerDetail(output.container, context)
         : undefined,
-    startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? output.startedAt
-        : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined,
-    stoppedAt:
-      output.stoppedAt !== undefined && output.stoppedAt !== null
-        ? output.stoppedAt
-        : undefined
+    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    stoppedAt: output.stoppedAt !== undefined && output.stoppedAt !== null ? output.stoppedAt : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AttemptDetails = (
-  output: any,
-  context: __SerdeContext
-): AttemptDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AttemptDetail(entry, context)
-  );
+const deserializeAws_restJson1_1AttemptDetails = (output: any, context: __SerdeContext): AttemptDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AttemptDetail(entry, context));
 };
 
 const deserializeAws_restJson1_1ComputeEnvironmentDetail = (
@@ -2516,46 +2084,24 @@ const deserializeAws_restJson1_1ComputeEnvironmentDetail = (
   return {
     __type: "ComputeEnvironmentDetail",
     computeEnvironmentArn:
-      output.computeEnvironmentArn !== undefined &&
-      output.computeEnvironmentArn !== null
+      output.computeEnvironmentArn !== undefined && output.computeEnvironmentArn !== null
         ? output.computeEnvironmentArn
         : undefined,
     computeEnvironmentName:
-      output.computeEnvironmentName !== undefined &&
-      output.computeEnvironmentName !== null
+      output.computeEnvironmentName !== undefined && output.computeEnvironmentName !== null
         ? output.computeEnvironmentName
         : undefined,
     computeResources:
       output.computeResources !== undefined && output.computeResources !== null
-        ? deserializeAws_restJson1_1ComputeResource(
-            output.computeResources,
-            context
-          )
+        ? deserializeAws_restJson1_1ComputeResource(output.computeResources, context)
         : undefined,
     ecsClusterArn:
-      output.ecsClusterArn !== undefined && output.ecsClusterArn !== null
-        ? output.ecsClusterArn
-        : undefined,
-    serviceRole:
-      output.serviceRole !== undefined && output.serviceRole !== null
-        ? output.serviceRole
-        : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+      output.ecsClusterArn !== undefined && output.ecsClusterArn !== null ? output.ecsClusterArn : undefined,
+    serviceRole: output.serviceRole !== undefined && output.serviceRole !== null ? output.serviceRole : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -2563,9 +2109,7 @@ const deserializeAws_restJson1_1ComputeEnvironmentDetailList = (
   output: any,
   context: __SerdeContext
 ): ComputeEnvironmentDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ComputeEnvironmentDetail(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ComputeEnvironmentDetail(entry, context));
 };
 
 const deserializeAws_restJson1_1ComputeEnvironmentOrder = (
@@ -2575,14 +2119,10 @@ const deserializeAws_restJson1_1ComputeEnvironmentOrder = (
   return {
     __type: "ComputeEnvironmentOrder",
     computeEnvironment:
-      output.computeEnvironment !== undefined &&
-      output.computeEnvironment !== null
+      output.computeEnvironment !== undefined && output.computeEnvironment !== null
         ? output.computeEnvironment
         : undefined,
-    order:
-      output.order !== undefined && output.order !== null
-        ? output.order
-        : undefined
+    order: output.order !== undefined && output.order !== null ? output.order : undefined
   } as any;
 };
 
@@ -2590,73 +2130,40 @@ const deserializeAws_restJson1_1ComputeEnvironmentOrders = (
   output: any,
   context: __SerdeContext
 ): ComputeEnvironmentOrder[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ComputeEnvironmentOrder(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ComputeEnvironmentOrder(entry, context));
 };
 
-const deserializeAws_restJson1_1ComputeResource = (
-  output: any,
-  context: __SerdeContext
-): ComputeResource => {
+const deserializeAws_restJson1_1ComputeResource = (output: any, context: __SerdeContext): ComputeResource => {
   return {
     __type: "ComputeResource",
     allocationStrategy:
-      output.allocationStrategy !== undefined &&
-      output.allocationStrategy !== null
+      output.allocationStrategy !== undefined && output.allocationStrategy !== null
         ? output.allocationStrategy
         : undefined,
     bidPercentage:
-      output.bidPercentage !== undefined && output.bidPercentage !== null
-        ? output.bidPercentage
-        : undefined,
-    desiredvCpus:
-      output.desiredvCpus !== undefined && output.desiredvCpus !== null
-        ? output.desiredvCpus
-        : undefined,
-    ec2KeyPair:
-      output.ec2KeyPair !== undefined && output.ec2KeyPair !== null
-        ? output.ec2KeyPair
-        : undefined,
-    imageId:
-      output.imageId !== undefined && output.imageId !== null
-        ? output.imageId
-        : undefined,
-    instanceRole:
-      output.instanceRole !== undefined && output.instanceRole !== null
-        ? output.instanceRole
-        : undefined,
+      output.bidPercentage !== undefined && output.bidPercentage !== null ? output.bidPercentage : undefined,
+    desiredvCpus: output.desiredvCpus !== undefined && output.desiredvCpus !== null ? output.desiredvCpus : undefined,
+    ec2KeyPair: output.ec2KeyPair !== undefined && output.ec2KeyPair !== null ? output.ec2KeyPair : undefined,
+    imageId: output.imageId !== undefined && output.imageId !== null ? output.imageId : undefined,
+    instanceRole: output.instanceRole !== undefined && output.instanceRole !== null ? output.instanceRole : undefined,
     instanceTypes:
       output.instanceTypes !== undefined && output.instanceTypes !== null
         ? deserializeAws_restJson1_1StringList(output.instanceTypes, context)
         : undefined,
     launchTemplate:
       output.launchTemplate !== undefined && output.launchTemplate !== null
-        ? deserializeAws_restJson1_1LaunchTemplateSpecification(
-            output.launchTemplate,
-            context
-          )
+        ? deserializeAws_restJson1_1LaunchTemplateSpecification(output.launchTemplate, context)
         : undefined,
-    maxvCpus:
-      output.maxvCpus !== undefined && output.maxvCpus !== null
-        ? output.maxvCpus
-        : undefined,
-    minvCpus:
-      output.minvCpus !== undefined && output.minvCpus !== null
-        ? output.minvCpus
-        : undefined,
+    maxvCpus: output.maxvCpus !== undefined && output.maxvCpus !== null ? output.maxvCpus : undefined,
+    minvCpus: output.minvCpus !== undefined && output.minvCpus !== null ? output.minvCpus : undefined,
     placementGroup:
-      output.placementGroup !== undefined && output.placementGroup !== null
-        ? output.placementGroup
-        : undefined,
+      output.placementGroup !== undefined && output.placementGroup !== null ? output.placementGroup : undefined,
     securityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null
         ? deserializeAws_restJson1_1StringList(output.securityGroupIds, context)
         : undefined,
     spotIamFleetRole:
-      output.spotIamFleetRole !== undefined && output.spotIamFleetRole !== null
-        ? output.spotIamFleetRole
-        : undefined,
+      output.spotIamFleetRole !== undefined && output.spotIamFleetRole !== null ? output.spotIamFleetRole : undefined,
     subnets:
       output.subnets !== undefined && output.subnets !== null
         ? deserializeAws_restJson1_1StringList(output.subnets, context)
@@ -2665,17 +2172,11 @@ const deserializeAws_restJson1_1ComputeResource = (
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1TagsMap(output.tags, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ContainerDetail = (
-  output: any,
-  context: __SerdeContext
-): ContainerDetail => {
+const deserializeAws_restJson1_1ContainerDetail = (output: any, context: __SerdeContext): ContainerDetail => {
   return {
     __type: "ContainerDetail",
     command:
@@ -2683,97 +2184,49 @@ const deserializeAws_restJson1_1ContainerDetail = (
         ? deserializeAws_restJson1_1StringList(output.command, context)
         : undefined,
     containerInstanceArn:
-      output.containerInstanceArn !== undefined &&
-      output.containerInstanceArn !== null
+      output.containerInstanceArn !== undefined && output.containerInstanceArn !== null
         ? output.containerInstanceArn
         : undefined,
     environment:
       output.environment !== undefined && output.environment !== null
-        ? deserializeAws_restJson1_1EnvironmentVariables(
-            output.environment,
-            context
-          )
+        ? deserializeAws_restJson1_1EnvironmentVariables(output.environment, context)
         : undefined,
-    exitCode:
-      output.exitCode !== undefined && output.exitCode !== null
-        ? output.exitCode
-        : undefined,
-    image:
-      output.image !== undefined && output.image !== null
-        ? output.image
-        : undefined,
-    instanceType:
-      output.instanceType !== undefined && output.instanceType !== null
-        ? output.instanceType
-        : undefined,
-    jobRoleArn:
-      output.jobRoleArn !== undefined && output.jobRoleArn !== null
-        ? output.jobRoleArn
-        : undefined,
+    exitCode: output.exitCode !== undefined && output.exitCode !== null ? output.exitCode : undefined,
+    image: output.image !== undefined && output.image !== null ? output.image : undefined,
+    instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
+    jobRoleArn: output.jobRoleArn !== undefined && output.jobRoleArn !== null ? output.jobRoleArn : undefined,
     linuxParameters:
       output.linuxParameters !== undefined && output.linuxParameters !== null
-        ? deserializeAws_restJson1_1LinuxParameters(
-            output.linuxParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1LinuxParameters(output.linuxParameters, context)
         : undefined,
     logStreamName:
-      output.logStreamName !== undefined && output.logStreamName !== null
-        ? output.logStreamName
-        : undefined,
-    memory:
-      output.memory !== undefined && output.memory !== null
-        ? output.memory
-        : undefined,
+      output.logStreamName !== undefined && output.logStreamName !== null ? output.logStreamName : undefined,
+    memory: output.memory !== undefined && output.memory !== null ? output.memory : undefined,
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_restJson1_1MountPoints(output.mountPoints, context)
         : undefined,
     networkInterfaces:
-      output.networkInterfaces !== undefined &&
-      output.networkInterfaces !== null
-        ? deserializeAws_restJson1_1NetworkInterfaceList(
-            output.networkInterfaces,
-            context
-          )
+      output.networkInterfaces !== undefined && output.networkInterfaces !== null
+        ? deserializeAws_restJson1_1NetworkInterfaceList(output.networkInterfaces, context)
         : undefined,
-    privileged:
-      output.privileged !== undefined && output.privileged !== null
-        ? output.privileged
-        : undefined,
+    privileged: output.privileged !== undefined && output.privileged !== null ? output.privileged : undefined,
     readonlyRootFilesystem:
-      output.readonlyRootFilesystem !== undefined &&
-      output.readonlyRootFilesystem !== null
+      output.readonlyRootFilesystem !== undefined && output.readonlyRootFilesystem !== null
         ? output.readonlyRootFilesystem
         : undefined,
-    reason:
-      output.reason !== undefined && output.reason !== null
-        ? output.reason
-        : undefined,
+    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
     resourceRequirements:
-      output.resourceRequirements !== undefined &&
-      output.resourceRequirements !== null
-        ? deserializeAws_restJson1_1ResourceRequirements(
-            output.resourceRequirements,
-            context
-          )
+      output.resourceRequirements !== undefined && output.resourceRequirements !== null
+        ? deserializeAws_restJson1_1ResourceRequirements(output.resourceRequirements, context)
         : undefined,
-    taskArn:
-      output.taskArn !== undefined && output.taskArn !== null
-        ? output.taskArn
-        : undefined,
+    taskArn: output.taskArn !== undefined && output.taskArn !== null ? output.taskArn : undefined,
     ulimits:
       output.ulimits !== undefined && output.ulimits !== null
         ? deserializeAws_restJson1_1Ulimits(output.ulimits, context)
         : undefined,
-    user:
-      output.user !== undefined && output.user !== null
-        ? output.user
-        : undefined,
-    vcpus:
-      output.vcpus !== undefined && output.vcpus !== null
-        ? output.vcpus
-        : undefined,
+    user: output.user !== undefined && output.user !== null ? output.user : undefined,
+    vcpus: output.vcpus !== undefined && output.vcpus !== null ? output.vcpus : undefined,
     volumes:
       output.volumes !== undefined && output.volumes !== null
         ? deserializeAws_restJson1_1Volumes(output.volumes, context)
@@ -2781,10 +2234,7 @@ const deserializeAws_restJson1_1ContainerDetail = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ContainerProperties = (
-  output: any,
-  context: __SerdeContext
-): ContainerProperties => {
+const deserializeAws_restJson1_1ContainerProperties = (output: any, context: __SerdeContext): ContainerProperties => {
   return {
     __type: "ContainerProperties",
     command:
@@ -2793,67 +2243,35 @@ const deserializeAws_restJson1_1ContainerProperties = (
         : undefined,
     environment:
       output.environment !== undefined && output.environment !== null
-        ? deserializeAws_restJson1_1EnvironmentVariables(
-            output.environment,
-            context
-          )
+        ? deserializeAws_restJson1_1EnvironmentVariables(output.environment, context)
         : undefined,
-    image:
-      output.image !== undefined && output.image !== null
-        ? output.image
-        : undefined,
-    instanceType:
-      output.instanceType !== undefined && output.instanceType !== null
-        ? output.instanceType
-        : undefined,
-    jobRoleArn:
-      output.jobRoleArn !== undefined && output.jobRoleArn !== null
-        ? output.jobRoleArn
-        : undefined,
+    image: output.image !== undefined && output.image !== null ? output.image : undefined,
+    instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
+    jobRoleArn: output.jobRoleArn !== undefined && output.jobRoleArn !== null ? output.jobRoleArn : undefined,
     linuxParameters:
       output.linuxParameters !== undefined && output.linuxParameters !== null
-        ? deserializeAws_restJson1_1LinuxParameters(
-            output.linuxParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1LinuxParameters(output.linuxParameters, context)
         : undefined,
-    memory:
-      output.memory !== undefined && output.memory !== null
-        ? output.memory
-        : undefined,
+    memory: output.memory !== undefined && output.memory !== null ? output.memory : undefined,
     mountPoints:
       output.mountPoints !== undefined && output.mountPoints !== null
         ? deserializeAws_restJson1_1MountPoints(output.mountPoints, context)
         : undefined,
-    privileged:
-      output.privileged !== undefined && output.privileged !== null
-        ? output.privileged
-        : undefined,
+    privileged: output.privileged !== undefined && output.privileged !== null ? output.privileged : undefined,
     readonlyRootFilesystem:
-      output.readonlyRootFilesystem !== undefined &&
-      output.readonlyRootFilesystem !== null
+      output.readonlyRootFilesystem !== undefined && output.readonlyRootFilesystem !== null
         ? output.readonlyRootFilesystem
         : undefined,
     resourceRequirements:
-      output.resourceRequirements !== undefined &&
-      output.resourceRequirements !== null
-        ? deserializeAws_restJson1_1ResourceRequirements(
-            output.resourceRequirements,
-            context
-          )
+      output.resourceRequirements !== undefined && output.resourceRequirements !== null
+        ? deserializeAws_restJson1_1ResourceRequirements(output.resourceRequirements, context)
         : undefined,
     ulimits:
       output.ulimits !== undefined && output.ulimits !== null
         ? deserializeAws_restJson1_1Ulimits(output.ulimits, context)
         : undefined,
-    user:
-      output.user !== undefined && output.user !== null
-        ? output.user
-        : undefined,
-    vcpus:
-      output.vcpus !== undefined && output.vcpus !== null
-        ? output.vcpus
-        : undefined,
+    user: output.user !== undefined && output.user !== null ? output.user : undefined,
+    vcpus: output.vcpus !== undefined && output.vcpus !== null ? output.vcpus : undefined,
     volumes:
       output.volumes !== undefined && output.volumes !== null
         ? deserializeAws_restJson1_1Volumes(output.volumes, context)
@@ -2861,43 +2279,23 @@ const deserializeAws_restJson1_1ContainerProperties = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ContainerSummary = (
-  output: any,
-  context: __SerdeContext
-): ContainerSummary => {
+const deserializeAws_restJson1_1ContainerSummary = (output: any, context: __SerdeContext): ContainerSummary => {
   return {
     __type: "ContainerSummary",
-    exitCode:
-      output.exitCode !== undefined && output.exitCode !== null
-        ? output.exitCode
-        : undefined,
-    reason:
-      output.reason !== undefined && output.reason !== null
-        ? output.reason
-        : undefined
+    exitCode: output.exitCode !== undefined && output.exitCode !== null ? output.exitCode : undefined,
+    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Device = (
-  output: any,
-  context: __SerdeContext
-): Device => {
+const deserializeAws_restJson1_1Device = (output: any, context: __SerdeContext): Device => {
   return {
     __type: "Device",
     containerPath:
-      output.containerPath !== undefined && output.containerPath !== null
-        ? output.containerPath
-        : undefined,
-    hostPath:
-      output.hostPath !== undefined && output.hostPath !== null
-        ? output.hostPath
-        : undefined,
+      output.containerPath !== undefined && output.containerPath !== null ? output.containerPath : undefined,
+    hostPath: output.hostPath !== undefined && output.hostPath !== null ? output.hostPath : undefined,
     permissions:
       output.permissions !== undefined && output.permissions !== null
-        ? deserializeAws_restJson1_1DeviceCgroupPermissions(
-            output.permissions,
-            context
-          )
+        ? deserializeAws_restJson1_1DeviceCgroupPermissions(output.permissions, context)
         : undefined
   } as any;
 };
@@ -2909,66 +2307,37 @@ const deserializeAws_restJson1_1DeviceCgroupPermissions = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1DevicesList = (
-  output: any,
-  context: __SerdeContext
-): Device[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Device(entry, context)
-  );
+const deserializeAws_restJson1_1DevicesList = (output: any, context: __SerdeContext): Device[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Device(entry, context));
 };
 
-const deserializeAws_restJson1_1EnvironmentVariables = (
-  output: any,
-  context: __SerdeContext
-): KeyValuePair[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1KeyValuePair(entry, context)
-  );
+const deserializeAws_restJson1_1EnvironmentVariables = (output: any, context: __SerdeContext): KeyValuePair[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1KeyValuePair(entry, context));
 };
 
-const deserializeAws_restJson1_1Host = (
-  output: any,
-  context: __SerdeContext
-): Host => {
+const deserializeAws_restJson1_1Host = (output: any, context: __SerdeContext): Host => {
   return {
     __type: "Host",
-    sourcePath:
-      output.sourcePath !== undefined && output.sourcePath !== null
-        ? output.sourcePath
-        : undefined
+    sourcePath: output.sourcePath !== undefined && output.sourcePath !== null ? output.sourcePath : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobDefinition = (
-  output: any,
-  context: __SerdeContext
-): JobDefinition => {
+const deserializeAws_restJson1_1JobDefinition = (output: any, context: __SerdeContext): JobDefinition => {
   return {
     __type: "JobDefinition",
     containerProperties:
-      output.containerProperties !== undefined &&
-      output.containerProperties !== null
-        ? deserializeAws_restJson1_1ContainerProperties(
-            output.containerProperties,
-            context
-          )
+      output.containerProperties !== undefined && output.containerProperties !== null
+        ? deserializeAws_restJson1_1ContainerProperties(output.containerProperties, context)
         : undefined,
     jobDefinitionArn:
-      output.jobDefinitionArn !== undefined && output.jobDefinitionArn !== null
-        ? output.jobDefinitionArn
-        : undefined,
+      output.jobDefinitionArn !== undefined && output.jobDefinitionArn !== null ? output.jobDefinitionArn : undefined,
     jobDefinitionName:
-      output.jobDefinitionName !== undefined &&
-      output.jobDefinitionName !== null
+      output.jobDefinitionName !== undefined && output.jobDefinitionName !== null
         ? output.jobDefinitionName
         : undefined,
     nodeProperties:
       output.nodeProperties !== undefined && output.nodeProperties !== null
-        ? deserializeAws_restJson1_1NodeProperties(
-            output.nodeProperties,
-            context
-          )
+        ? deserializeAws_restJson1_1NodeProperties(output.nodeProperties, context)
         : undefined,
     parameters:
       output.parameters !== undefined && output.parameters !== null
@@ -2978,72 +2347,38 @@ const deserializeAws_restJson1_1JobDefinition = (
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1_1RetryStrategy(output.retryStrategy, context)
         : undefined,
-    revision:
-      output.revision !== undefined && output.revision !== null
-        ? output.revision
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
+    revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
     timeout:
       output.timeout !== undefined && output.timeout !== null
         ? deserializeAws_restJson1_1JobTimeout(output.timeout, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobDefinitionList = (
-  output: any,
-  context: __SerdeContext
-): JobDefinition[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobDefinition(entry, context)
-  );
+const deserializeAws_restJson1_1JobDefinitionList = (output: any, context: __SerdeContext): JobDefinition[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobDefinition(entry, context));
 };
 
-const deserializeAws_restJson1_1JobDependency = (
-  output: any,
-  context: __SerdeContext
-): JobDependency => {
+const deserializeAws_restJson1_1JobDependency = (output: any, context: __SerdeContext): JobDependency => {
   return {
     __type: "JobDependency",
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobDependencyList = (
-  output: any,
-  context: __SerdeContext
-): JobDependency[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobDependency(entry, context)
-  );
+const deserializeAws_restJson1_1JobDependencyList = (output: any, context: __SerdeContext): JobDependency[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobDependency(entry, context));
 };
 
-const deserializeAws_restJson1_1JobDetail = (
-  output: any,
-  context: __SerdeContext
-): JobDetail => {
+const deserializeAws_restJson1_1JobDetail = (output: any, context: __SerdeContext): JobDetail => {
   return {
     __type: "JobDetail",
     arrayProperties:
       output.arrayProperties !== undefined && output.arrayProperties !== null
-        ? deserializeAws_restJson1_1ArrayPropertiesDetail(
-            output.arrayProperties,
-            context
-          )
+        ? deserializeAws_restJson1_1ArrayPropertiesDetail(output.arrayProperties, context)
         : undefined,
     attempts:
       output.attempts !== undefined && output.attempts !== null
@@ -3053,40 +2388,23 @@ const deserializeAws_restJson1_1JobDetail = (
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1_1ContainerDetail(output.container, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? output.createdAt
-        : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? output.createdAt : undefined,
     dependsOn:
       output.dependsOn !== undefined && output.dependsOn !== null
         ? deserializeAws_restJson1_1JobDependencyList(output.dependsOn, context)
         : undefined,
     jobDefinition:
-      output.jobDefinition !== undefined && output.jobDefinition !== null
-        ? output.jobDefinition
-        : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
-    jobName:
-      output.jobName !== undefined && output.jobName !== null
-        ? output.jobName
-        : undefined,
-    jobQueue:
-      output.jobQueue !== undefined && output.jobQueue !== null
-        ? output.jobQueue
-        : undefined,
+      output.jobDefinition !== undefined && output.jobDefinition !== null ? output.jobDefinition : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    jobQueue: output.jobQueue !== undefined && output.jobQueue !== null ? output.jobQueue : undefined,
     nodeDetails:
       output.nodeDetails !== undefined && output.nodeDetails !== null
         ? deserializeAws_restJson1_1NodeDetails(output.nodeDetails, context)
         : undefined,
     nodeProperties:
       output.nodeProperties !== undefined && output.nodeProperties !== null
-        ? deserializeAws_restJson1_1NodeProperties(
-            output.nodeProperties,
-            context
-          )
+        ? deserializeAws_restJson1_1NodeProperties(output.nodeProperties, context)
         : undefined,
     parameters:
       output.parameters !== undefined && output.parameters !== null
@@ -3096,22 +2414,10 @@ const deserializeAws_restJson1_1JobDetail = (
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1_1RetryStrategy(output.retryStrategy, context)
         : undefined,
-    startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? output.startedAt
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined,
-    stoppedAt:
-      output.stoppedAt !== undefined && output.stoppedAt !== null
-        ? output.stoppedAt
-        : undefined,
+    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    stoppedAt: output.stoppedAt !== undefined && output.stoppedAt !== null ? output.stoppedAt : undefined,
     timeout:
       output.timeout !== undefined && output.timeout !== null
         ? deserializeAws_restJson1_1JobTimeout(output.timeout, context)
@@ -3119,157 +2425,74 @@ const deserializeAws_restJson1_1JobDetail = (
   } as any;
 };
 
-const deserializeAws_restJson1_1JobDetailList = (
-  output: any,
-  context: __SerdeContext
-): JobDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobDetail(entry, context)
-  );
+const deserializeAws_restJson1_1JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobDetail(entry, context));
 };
 
-const deserializeAws_restJson1_1JobQueueDetail = (
-  output: any,
-  context: __SerdeContext
-): JobQueueDetail => {
+const deserializeAws_restJson1_1JobQueueDetail = (output: any, context: __SerdeContext): JobQueueDetail => {
   return {
     __type: "JobQueueDetail",
     computeEnvironmentOrder:
-      output.computeEnvironmentOrder !== undefined &&
-      output.computeEnvironmentOrder !== null
-        ? deserializeAws_restJson1_1ComputeEnvironmentOrders(
-            output.computeEnvironmentOrder,
-            context
-          )
+      output.computeEnvironmentOrder !== undefined && output.computeEnvironmentOrder !== null
+        ? deserializeAws_restJson1_1ComputeEnvironmentOrders(output.computeEnvironmentOrder, context)
         : undefined,
-    jobQueueArn:
-      output.jobQueueArn !== undefined && output.jobQueueArn !== null
-        ? output.jobQueueArn
-        : undefined,
-    jobQueueName:
-      output.jobQueueName !== undefined && output.jobQueueName !== null
-        ? output.jobQueueName
-        : undefined,
-    priority:
-      output.priority !== undefined && output.priority !== null
-        ? output.priority
-        : undefined,
-    state:
-      output.state !== undefined && output.state !== null
-        ? output.state
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined
+    jobQueueArn: output.jobQueueArn !== undefined && output.jobQueueArn !== null ? output.jobQueueArn : undefined,
+    jobQueueName: output.jobQueueName !== undefined && output.jobQueueName !== null ? output.jobQueueName : undefined,
+    priority: output.priority !== undefined && output.priority !== null ? output.priority : undefined,
+    state: output.state !== undefined && output.state !== null ? output.state : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobQueueDetailList = (
-  output: any,
-  context: __SerdeContext
-): JobQueueDetail[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobQueueDetail(entry, context)
-  );
+const deserializeAws_restJson1_1JobQueueDetailList = (output: any, context: __SerdeContext): JobQueueDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobQueueDetail(entry, context));
 };
 
-const deserializeAws_restJson1_1JobSummary = (
-  output: any,
-  context: __SerdeContext
-): JobSummary => {
+const deserializeAws_restJson1_1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
     __type: "JobSummary",
     arrayProperties:
       output.arrayProperties !== undefined && output.arrayProperties !== null
-        ? deserializeAws_restJson1_1ArrayPropertiesSummary(
-            output.arrayProperties,
-            context
-          )
+        ? deserializeAws_restJson1_1ArrayPropertiesSummary(output.arrayProperties, context)
         : undefined,
     container:
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1_1ContainerSummary(output.container, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? output.createdAt
-        : undefined,
-    jobId:
-      output.jobId !== undefined && output.jobId !== null
-        ? output.jobId
-        : undefined,
-    jobName:
-      output.jobName !== undefined && output.jobName !== null
-        ? output.jobName
-        : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? output.createdAt : undefined,
+    jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
+    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
     nodeProperties:
       output.nodeProperties !== undefined && output.nodeProperties !== null
-        ? deserializeAws_restJson1_1NodePropertiesSummary(
-            output.nodeProperties,
-            context
-          )
+        ? deserializeAws_restJson1_1NodePropertiesSummary(output.nodeProperties, context)
         : undefined,
-    startedAt:
-      output.startedAt !== undefined && output.startedAt !== null
-        ? output.startedAt
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    statusReason:
-      output.statusReason !== undefined && output.statusReason !== null
-        ? output.statusReason
-        : undefined,
-    stoppedAt:
-      output.stoppedAt !== undefined && output.stoppedAt !== null
-        ? output.stoppedAt
-        : undefined
+    startedAt: output.startedAt !== undefined && output.startedAt !== null ? output.startedAt : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusReason: output.statusReason !== undefined && output.statusReason !== null ? output.statusReason : undefined,
+    stoppedAt: output.stoppedAt !== undefined && output.stoppedAt !== null ? output.stoppedAt : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JobSummaryList = (
-  output: any,
-  context: __SerdeContext
-): JobSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1JobSummary(entry, context)
-  );
+const deserializeAws_restJson1_1JobSummaryList = (output: any, context: __SerdeContext): JobSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1JobSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1JobTimeout = (
-  output: any,
-  context: __SerdeContext
-): JobTimeout => {
+const deserializeAws_restJson1_1JobTimeout = (output: any, context: __SerdeContext): JobTimeout => {
   return {
     __type: "JobTimeout",
     attemptDurationSeconds:
-      output.attemptDurationSeconds !== undefined &&
-      output.attemptDurationSeconds !== null
+      output.attemptDurationSeconds !== undefined && output.attemptDurationSeconds !== null
         ? output.attemptDurationSeconds
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1KeyValuePair = (
-  output: any,
-  context: __SerdeContext
-): KeyValuePair => {
+const deserializeAws_restJson1_1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
     __type: "KeyValuePair",
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -3280,25 +2503,16 @@ const deserializeAws_restJson1_1LaunchTemplateSpecification = (
   return {
     __type: "LaunchTemplateSpecification",
     launchTemplateId:
-      output.launchTemplateId !== undefined && output.launchTemplateId !== null
-        ? output.launchTemplateId
-        : undefined,
+      output.launchTemplateId !== undefined && output.launchTemplateId !== null ? output.launchTemplateId : undefined,
     launchTemplateName:
-      output.launchTemplateName !== undefined &&
-      output.launchTemplateName !== null
+      output.launchTemplateName !== undefined && output.launchTemplateName !== null
         ? output.launchTemplateName
         : undefined,
-    version:
-      output.version !== undefined && output.version !== null
-        ? output.version
-        : undefined
+    version: output.version !== undefined && output.version !== null ? output.version : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1LinuxParameters = (
-  output: any,
-  context: __SerdeContext
-): LinuxParameters => {
+const deserializeAws_restJson1_1LinuxParameters = (output: any, context: __SerdeContext): LinuxParameters => {
   return {
     __type: "LinuxParameters",
     devices:
@@ -3308,106 +2522,53 @@ const deserializeAws_restJson1_1LinuxParameters = (
   } as any;
 };
 
-const deserializeAws_restJson1_1MountPoint = (
-  output: any,
-  context: __SerdeContext
-): MountPoint => {
+const deserializeAws_restJson1_1MountPoint = (output: any, context: __SerdeContext): MountPoint => {
   return {
     __type: "MountPoint",
     containerPath:
-      output.containerPath !== undefined && output.containerPath !== null
-        ? output.containerPath
-        : undefined,
-    readOnly:
-      output.readOnly !== undefined && output.readOnly !== null
-        ? output.readOnly
-        : undefined,
-    sourceVolume:
-      output.sourceVolume !== undefined && output.sourceVolume !== null
-        ? output.sourceVolume
-        : undefined
+      output.containerPath !== undefined && output.containerPath !== null ? output.containerPath : undefined,
+    readOnly: output.readOnly !== undefined && output.readOnly !== null ? output.readOnly : undefined,
+    sourceVolume: output.sourceVolume !== undefined && output.sourceVolume !== null ? output.sourceVolume : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MountPoints = (
-  output: any,
-  context: __SerdeContext
-): MountPoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1MountPoint(entry, context)
-  );
+const deserializeAws_restJson1_1MountPoints = (output: any, context: __SerdeContext): MountPoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1MountPoint(entry, context));
 };
 
-const deserializeAws_restJson1_1NetworkInterface = (
-  output: any,
-  context: __SerdeContext
-): NetworkInterface => {
+const deserializeAws_restJson1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
     __type: "NetworkInterface",
-    attachmentId:
-      output.attachmentId !== undefined && output.attachmentId !== null
-        ? output.attachmentId
-        : undefined,
-    ipv6Address:
-      output.ipv6Address !== undefined && output.ipv6Address !== null
-        ? output.ipv6Address
-        : undefined,
+    attachmentId: output.attachmentId !== undefined && output.attachmentId !== null ? output.attachmentId : undefined,
+    ipv6Address: output.ipv6Address !== undefined && output.ipv6Address !== null ? output.ipv6Address : undefined,
     privateIpv4Address:
-      output.privateIpv4Address !== undefined &&
-      output.privateIpv4Address !== null
+      output.privateIpv4Address !== undefined && output.privateIpv4Address !== null
         ? output.privateIpv4Address
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NetworkInterfaceList = (
-  output: any,
-  context: __SerdeContext
-): NetworkInterface[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1NetworkInterface(entry, context)
-  );
+const deserializeAws_restJson1_1NetworkInterfaceList = (output: any, context: __SerdeContext): NetworkInterface[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1NetworkInterface(entry, context));
 };
 
-const deserializeAws_restJson1_1NodeDetails = (
-  output: any,
-  context: __SerdeContext
-): NodeDetails => {
+const deserializeAws_restJson1_1NodeDetails = (output: any, context: __SerdeContext): NodeDetails => {
   return {
     __type: "NodeDetails",
-    isMainNode:
-      output.isMainNode !== undefined && output.isMainNode !== null
-        ? output.isMainNode
-        : undefined,
-    nodeIndex:
-      output.nodeIndex !== undefined && output.nodeIndex !== null
-        ? output.nodeIndex
-        : undefined
+    isMainNode: output.isMainNode !== undefined && output.isMainNode !== null ? output.isMainNode : undefined,
+    nodeIndex: output.nodeIndex !== undefined && output.nodeIndex !== null ? output.nodeIndex : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NodeProperties = (
-  output: any,
-  context: __SerdeContext
-): NodeProperties => {
+const deserializeAws_restJson1_1NodeProperties = (output: any, context: __SerdeContext): NodeProperties => {
   return {
     __type: "NodeProperties",
-    mainNode:
-      output.mainNode !== undefined && output.mainNode !== null
-        ? output.mainNode
-        : undefined,
+    mainNode: output.mainNode !== undefined && output.mainNode !== null ? output.mainNode : undefined,
     nodeRangeProperties:
-      output.nodeRangeProperties !== undefined &&
-      output.nodeRangeProperties !== null
-        ? deserializeAws_restJson1_1NodeRangeProperties(
-            output.nodeRangeProperties,
-            context
-          )
+      output.nodeRangeProperties !== undefined && output.nodeRangeProperties !== null
+        ? deserializeAws_restJson1_1NodeRangeProperties(output.nodeRangeProperties, context)
         : undefined,
-    numNodes:
-      output.numNodes !== undefined && output.numNodes !== null
-        ? output.numNodes
-        : undefined
+    numNodes: output.numNodes !== undefined && output.numNodes !== null ? output.numNodes : undefined
   } as any;
 };
 
@@ -3417,54 +2578,28 @@ const deserializeAws_restJson1_1NodePropertiesSummary = (
 ): NodePropertiesSummary => {
   return {
     __type: "NodePropertiesSummary",
-    isMainNode:
-      output.isMainNode !== undefined && output.isMainNode !== null
-        ? output.isMainNode
-        : undefined,
-    nodeIndex:
-      output.nodeIndex !== undefined && output.nodeIndex !== null
-        ? output.nodeIndex
-        : undefined,
-    numNodes:
-      output.numNodes !== undefined && output.numNodes !== null
-        ? output.numNodes
-        : undefined
+    isMainNode: output.isMainNode !== undefined && output.isMainNode !== null ? output.isMainNode : undefined,
+    nodeIndex: output.nodeIndex !== undefined && output.nodeIndex !== null ? output.nodeIndex : undefined,
+    numNodes: output.numNodes !== undefined && output.numNodes !== null ? output.numNodes : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NodeRangeProperties = (
-  output: any,
-  context: __SerdeContext
-): NodeRangeProperty[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1NodeRangeProperty(entry, context)
-  );
+const deserializeAws_restJson1_1NodeRangeProperties = (output: any, context: __SerdeContext): NodeRangeProperty[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1NodeRangeProperty(entry, context));
 };
 
-const deserializeAws_restJson1_1NodeRangeProperty = (
-  output: any,
-  context: __SerdeContext
-): NodeRangeProperty => {
+const deserializeAws_restJson1_1NodeRangeProperty = (output: any, context: __SerdeContext): NodeRangeProperty => {
   return {
     __type: "NodeRangeProperty",
     container:
       output.container !== undefined && output.container !== null
-        ? deserializeAws_restJson1_1ContainerProperties(
-            output.container,
-            context
-          )
+        ? deserializeAws_restJson1_1ContainerProperties(output.container, context)
         : undefined,
-    targetNodes:
-      output.targetNodes !== undefined && output.targetNodes !== null
-        ? output.targetNodes
-        : undefined
+    targetNodes: output.targetNodes !== undefined && output.targetNodes !== null ? output.targetNodes : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ParametersMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1ParametersMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3474,20 +2609,11 @@ const deserializeAws_restJson1_1ParametersMap = (
   );
 };
 
-const deserializeAws_restJson1_1ResourceRequirement = (
-  output: any,
-  context: __SerdeContext
-): ResourceRequirement => {
+const deserializeAws_restJson1_1ResourceRequirement = (output: any, context: __SerdeContext): ResourceRequirement => {
   return {
     __type: "ResourceRequirement",
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
@@ -3495,35 +2621,21 @@ const deserializeAws_restJson1_1ResourceRequirements = (
   output: any,
   context: __SerdeContext
 ): ResourceRequirement[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ResourceRequirement(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ResourceRequirement(entry, context));
 };
 
-const deserializeAws_restJson1_1RetryStrategy = (
-  output: any,
-  context: __SerdeContext
-): RetryStrategy => {
+const deserializeAws_restJson1_1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
     __type: "RetryStrategy",
-    attempts:
-      output.attempts !== undefined && output.attempts !== null
-        ? output.attempts
-        : undefined
+    attempts: output.attempts !== undefined && output.attempts !== null ? output.attempts : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1StringList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1StringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1TagsMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3533,60 +2645,32 @@ const deserializeAws_restJson1_1TagsMap = (
   );
 };
 
-const deserializeAws_restJson1_1Ulimit = (
-  output: any,
-  context: __SerdeContext
-): Ulimit => {
+const deserializeAws_restJson1_1Ulimit = (output: any, context: __SerdeContext): Ulimit => {
   return {
     __type: "Ulimit",
-    hardLimit:
-      output.hardLimit !== undefined && output.hardLimit !== null
-        ? output.hardLimit
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
-    softLimit:
-      output.softLimit !== undefined && output.softLimit !== null
-        ? output.softLimit
-        : undefined
+    hardLimit: output.hardLimit !== undefined && output.hardLimit !== null ? output.hardLimit : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    softLimit: output.softLimit !== undefined && output.softLimit !== null ? output.softLimit : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Ulimits = (
-  output: any,
-  context: __SerdeContext
-): Ulimit[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Ulimit(entry, context)
-  );
+const deserializeAws_restJson1_1Ulimits = (output: any, context: __SerdeContext): Ulimit[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Ulimit(entry, context));
 };
 
-const deserializeAws_restJson1_1Volume = (
-  output: any,
-  context: __SerdeContext
-): Volume => {
+const deserializeAws_restJson1_1Volume = (output: any, context: __SerdeContext): Volume => {
   return {
     __type: "Volume",
     host:
       output.host !== undefined && output.host !== null
         ? deserializeAws_restJson1_1Host(output.host, context)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Volumes = (
-  output: any,
-  context: __SerdeContext
-): Volume[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Volume(entry, context)
-  );
+const deserializeAws_restJson1_1Volumes = (output: any, context: __SerdeContext): Volume[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Volume(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3596,30 +2680,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -3634,8 +2709,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

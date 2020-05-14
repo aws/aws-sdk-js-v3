@@ -1,21 +1,11 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  CreateSubnetGroupRequest,
-  CreateSubnetGroupResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateSubnetGroupCommand,
   serializeAws_json1_1CreateSubnetGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateSubnetGroupCommandInput = CreateSubnetGroupRequest;
-export type CreateSubnetGroupCommandOutput = CreateSubnetGroupResponse &
-  __MetadataBearer;
+export type CreateSubnetGroupCommandOutput = CreateSubnetGroupResponse & __MetadataBearer;
 
 export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandInput,
@@ -50,9 +39,7 @@ export class CreateSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateSubnetGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateSubnetGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateSubnetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateSubnetGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateSubnetGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetGroupCommandOutput> {
     return deserializeAws_json1_1CreateSubnetGroupCommand(output, context);
   }
 

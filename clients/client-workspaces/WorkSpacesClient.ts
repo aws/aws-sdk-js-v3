@@ -1,35 +1,11 @@
-import {
-  AssociateIpGroupsCommandInput,
-  AssociateIpGroupsCommandOutput
-} from "./commands/AssociateIpGroupsCommand";
-import {
-  AuthorizeIpRulesCommandInput,
-  AuthorizeIpRulesCommandOutput
-} from "./commands/AuthorizeIpRulesCommand";
-import {
-  CopyWorkspaceImageCommandInput,
-  CopyWorkspaceImageCommandOutput
-} from "./commands/CopyWorkspaceImageCommand";
-import {
-  CreateIpGroupCommandInput,
-  CreateIpGroupCommandOutput
-} from "./commands/CreateIpGroupCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "./commands/CreateTagsCommand";
-import {
-  CreateWorkspacesCommandInput,
-  CreateWorkspacesCommandOutput
-} from "./commands/CreateWorkspacesCommand";
-import {
-  DeleteIpGroupCommandInput,
-  DeleteIpGroupCommandOutput
-} from "./commands/DeleteIpGroupCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
+import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from "./commands/AssociateIpGroupsCommand";
+import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
+import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "./commands/CopyWorkspaceImageCommand";
+import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
+import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
+import { DeleteIpGroupCommandInput, DeleteIpGroupCommandOutput } from "./commands/DeleteIpGroupCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DeleteWorkspaceImageCommandInput,
   DeleteWorkspaceImageCommandOutput
@@ -38,10 +14,7 @@ import {
   DeregisterWorkspaceDirectoryCommandInput,
   DeregisterWorkspaceDirectoryCommandOutput
 } from "./commands/DeregisterWorkspaceDirectoryCommand";
-import {
-  DescribeAccountCommandInput,
-  DescribeAccountCommandOutput
-} from "./commands/DescribeAccountCommand";
+import { DescribeAccountCommandInput, DescribeAccountCommandOutput } from "./commands/DescribeAccountCommand";
 import {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput
@@ -50,14 +23,8 @@ import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput
 } from "./commands/DescribeClientPropertiesCommand";
-import {
-  DescribeIpGroupsCommandInput,
-  DescribeIpGroupsCommandOutput
-} from "./commands/DescribeIpGroupsCommand";
-import {
-  DescribeTagsCommandInput,
-  DescribeTagsCommandOutput
-} from "./commands/DescribeTagsCommand";
+import { DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput } from "./commands/DescribeIpGroupsCommand";
+import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DescribeWorkspaceBundlesCommandInput,
   DescribeWorkspaceBundlesCommandOutput
@@ -74,10 +41,7 @@ import {
   DescribeWorkspaceSnapshotsCommandInput,
   DescribeWorkspaceSnapshotsCommandOutput
 } from "./commands/DescribeWorkspaceSnapshotsCommand";
-import {
-  DescribeWorkspacesCommandInput,
-  DescribeWorkspacesCommandOutput
-} from "./commands/DescribeWorkspacesCommand";
+import { DescribeWorkspacesCommandInput, DescribeWorkspacesCommandOutput } from "./commands/DescribeWorkspacesCommand";
 import {
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput
@@ -94,14 +58,8 @@ import {
   ListAvailableManagementCidrRangesCommandInput,
   ListAvailableManagementCidrRangesCommandOutput
 } from "./commands/ListAvailableManagementCidrRangesCommand";
-import {
-  MigrateWorkspaceCommandInput,
-  MigrateWorkspaceCommandOutput
-} from "./commands/MigrateWorkspaceCommand";
-import {
-  ModifyAccountCommandInput,
-  ModifyAccountCommandOutput
-} from "./commands/ModifyAccountCommand";
+import { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "./commands/MigrateWorkspaceCommand";
+import { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "./commands/ModifyAccountCommand";
 import {
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput
@@ -126,34 +84,16 @@ import {
   ModifyWorkspaceStateCommandInput,
   ModifyWorkspaceStateCommandOutput
 } from "./commands/ModifyWorkspaceStateCommand";
-import {
-  RebootWorkspacesCommandInput,
-  RebootWorkspacesCommandOutput
-} from "./commands/RebootWorkspacesCommand";
-import {
-  RebuildWorkspacesCommandInput,
-  RebuildWorkspacesCommandOutput
-} from "./commands/RebuildWorkspacesCommand";
+import { RebootWorkspacesCommandInput, RebootWorkspacesCommandOutput } from "./commands/RebootWorkspacesCommand";
+import { RebuildWorkspacesCommandInput, RebuildWorkspacesCommandOutput } from "./commands/RebuildWorkspacesCommand";
 import {
   RegisterWorkspaceDirectoryCommandInput,
   RegisterWorkspaceDirectoryCommandOutput
 } from "./commands/RegisterWorkspaceDirectoryCommand";
-import {
-  RestoreWorkspaceCommandInput,
-  RestoreWorkspaceCommandOutput
-} from "./commands/RestoreWorkspaceCommand";
-import {
-  RevokeIpRulesCommandInput,
-  RevokeIpRulesCommandOutput
-} from "./commands/RevokeIpRulesCommand";
-import {
-  StartWorkspacesCommandInput,
-  StartWorkspacesCommandOutput
-} from "./commands/StartWorkspacesCommand";
-import {
-  StopWorkspacesCommandInput,
-  StopWorkspacesCommandOutput
-} from "./commands/StopWorkspacesCommand";
+import { RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput } from "./commands/RestoreWorkspaceCommand";
+import { RevokeIpRulesCommandInput, RevokeIpRulesCommandOutput } from "./commands/RevokeIpRulesCommand";
+import { StartWorkspacesCommandInput, StartWorkspacesCommandOutput } from "./commands/StartWorkspacesCommand";
+import { StopWorkspacesCommandInput, StopWorkspacesCommandOutput } from "./commands/StopWorkspacesCommand";
 import {
   TerminateWorkspacesCommandInput,
   TerminateWorkspacesCommandOutput
@@ -178,12 +118,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -300,8 +235,7 @@ export type ServiceOutputTypes =
   | TerminateWorkspacesCommandOutput
   | UpdateRulesOfIpGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -385,9 +319,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WorkSpacesClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WorkSpacesClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -396,9 +328,7 @@ export type WorkSpacesClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WorkSpacesClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WorkSpacesClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  AppMeshClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppMeshClient";
-import {
-  DescribeVirtualServiceInput,
-  DescribeVirtualServiceOutput
-} from "../models/index";
+import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
+import { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeVirtualServiceCommand,
   serializeAws_restJson1_1DescribeVirtualServiceCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeVirtualServiceCommandInput = DescribeVirtualServiceInput;
-export type DescribeVirtualServiceCommandOutput = DescribeVirtualServiceOutput &
-  __MetadataBearer;
+export type DescribeVirtualServiceCommandOutput = DescribeVirtualServiceOutput & __MetadataBearer;
 
 export class DescribeVirtualServiceCommand extends $Command<
   DescribeVirtualServiceCommandInput,
@@ -49,13 +38,8 @@ export class DescribeVirtualServiceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppMeshClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeVirtualServiceCommandInput,
-    DescribeVirtualServiceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeVirtualServiceCommandInput, DescribeVirtualServiceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class DescribeVirtualServiceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeVirtualServiceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeVirtualServiceCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeVirtualServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DescribeVirtualServiceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeVirtualServiceCommandOutput> {
-    return deserializeAws_restJson1_1DescribeVirtualServiceCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVirtualServiceCommandOutput> {
+    return deserializeAws_restJson1_1DescribeVirtualServiceCommand(output, context);
   }
 
   // Start section: command_body_extra

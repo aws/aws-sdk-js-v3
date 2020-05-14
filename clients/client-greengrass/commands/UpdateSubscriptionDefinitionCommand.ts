@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  UpdateSubscriptionDefinitionRequest,
-  UpdateSubscriptionDefinitionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { UpdateSubscriptionDefinitionRequest, UpdateSubscriptionDefinitionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommand,
   serializeAws_restJson1_1UpdateSubscriptionDefinitionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSubscriptionDefinitionCommandInput = UpdateSubscriptionDefinitionRequest;
-export type UpdateSubscriptionDefinitionCommandOutput = UpdateSubscriptionDefinitionResponse &
-  __MetadataBearer;
+export type UpdateSubscriptionDefinitionCommandOutput = UpdateSubscriptionDefinitionResponse & __MetadataBearer;
 
 export class UpdateSubscriptionDefinitionCommand extends $Command<
   UpdateSubscriptionDefinitionCommandInput,
@@ -49,13 +38,8 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSubscriptionDefinitionCommandInput,
-    UpdateSubscriptionDefinitionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSubscriptionDefinitionCommandInput, UpdateSubscriptionDefinitionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class UpdateSubscriptionDefinitionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateSubscriptionDefinitionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateSubscriptionDefinitionCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateSubscriptionDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateSubscriptionDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateSubscriptionDefinitionCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateSubscriptionDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

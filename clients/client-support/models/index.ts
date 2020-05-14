@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -44,8 +41,7 @@ export interface AttachmentDetails {
 }
 
 export namespace AttachmentDetails {
-  export const isa = (o: any): o is AttachmentDetails =>
-    __isa(o, "AttachmentDetails");
+  export const isa = (o: any): o is AttachmentDetails => __isa(o, "AttachmentDetails");
 }
 
 /**
@@ -285,8 +281,7 @@ export interface RecentCaseCommunications {
 }
 
 export namespace RecentCaseCommunications {
-  export const isa = (o: any): o is RecentCaseCommunications =>
-    __isa(o, "RecentCaseCommunications");
+  export const isa = (o: any): o is RecentCaseCommunications => __isa(o, "RecentCaseCommunications");
 }
 
 /**
@@ -323,9 +318,7 @@ export namespace Service {
 /**
  * <p>An attachment with the specified ID could not be found.</p>
  */
-export interface AttachmentIdNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentIdNotFound extends __SmithyException, $MetadataBearer {
   name: "AttachmentIdNotFound";
   $fault: "client";
   /**
@@ -335,17 +328,14 @@ export interface AttachmentIdNotFound
 }
 
 export namespace AttachmentIdNotFound {
-  export const isa = (o: any): o is AttachmentIdNotFound =>
-    __isa(o, "AttachmentIdNotFound");
+  export const isa = (o: any): o is AttachmentIdNotFound => __isa(o, "AttachmentIdNotFound");
 }
 
 /**
  * <p>The limit for the number of attachment sets created in a short period of time has
  *             been exceeded.</p>
  */
-export interface AttachmentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -356,17 +346,14 @@ export interface AttachmentLimitExceeded
 }
 
 export namespace AttachmentLimitExceeded {
-  export const isa = (o: any): o is AttachmentLimitExceeded =>
-    __isa(o, "AttachmentLimitExceeded");
+  export const isa = (o: any): o is AttachmentLimitExceeded => __isa(o, "AttachmentLimitExceeded");
 }
 
 /**
  * <p>The expiration time of the attachment set has passed. The set expires 1 hour after
  *             it is created.</p>
  */
-export interface AttachmentSetExpired
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentSetExpired extends __SmithyException, $MetadataBearer {
   name: "AttachmentSetExpired";
   $fault: "client";
   /**
@@ -377,16 +364,13 @@ export interface AttachmentSetExpired
 }
 
 export namespace AttachmentSetExpired {
-  export const isa = (o: any): o is AttachmentSetExpired =>
-    __isa(o, "AttachmentSetExpired");
+  export const isa = (o: any): o is AttachmentSetExpired => __isa(o, "AttachmentSetExpired");
 }
 
 /**
  * <p>An attachment set with the specified ID could not be found.</p>
  */
-export interface AttachmentSetIdNotFound
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentSetIdNotFound extends __SmithyException, $MetadataBearer {
   name: "AttachmentSetIdNotFound";
   $fault: "client";
   /**
@@ -396,17 +380,14 @@ export interface AttachmentSetIdNotFound
 }
 
 export namespace AttachmentSetIdNotFound {
-  export const isa = (o: any): o is AttachmentSetIdNotFound =>
-    __isa(o, "AttachmentSetIdNotFound");
+  export const isa = (o: any): o is AttachmentSetIdNotFound => __isa(o, "AttachmentSetIdNotFound");
 }
 
 /**
  * <p>A limit for the size of an attachment set has been exceeded. The limits are 3
  *             attachments and 5 MB per attachment.</p>
  */
-export interface AttachmentSetSizeLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AttachmentSetSizeLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AttachmentSetSizeLimitExceeded";
   $fault: "client";
   /**
@@ -417,16 +398,13 @@ export interface AttachmentSetSizeLimitExceeded
 }
 
 export namespace AttachmentSetSizeLimitExceeded {
-  export const isa = (o: any): o is AttachmentSetSizeLimitExceeded =>
-    __isa(o, "AttachmentSetSizeLimitExceeded");
+  export const isa = (o: any): o is AttachmentSetSizeLimitExceeded => __isa(o, "AttachmentSetSizeLimitExceeded");
 }
 
 /**
  * <p>The case creation limit for the account has been exceeded.</p>
  */
-export interface CaseCreationLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CaseCreationLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "CaseCreationLimitExceeded";
   $fault: "client";
   /**
@@ -437,8 +415,7 @@ export interface CaseCreationLimitExceeded
 }
 
 export namespace CaseCreationLimitExceeded {
-  export const isa = (o: any): o is CaseCreationLimitExceeded =>
-    __isa(o, "CaseCreationLimitExceeded");
+  export const isa = (o: any): o is CaseCreationLimitExceeded => __isa(o, "CaseCreationLimitExceeded");
 }
 
 /**
@@ -454,17 +431,14 @@ export interface CaseIdNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace CaseIdNotFound {
-  export const isa = (o: any): o is CaseIdNotFound =>
-    __isa(o, "CaseIdNotFound");
+  export const isa = (o: any): o is CaseIdNotFound => __isa(o, "CaseIdNotFound");
 }
 
 /**
  * <p>The limit for the number of <a>DescribeAttachment</a> requests in a
  *             short period of time has been exceeded.</p>
  */
-export interface DescribeAttachmentLimitExceeded
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DescribeAttachmentLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "DescribeAttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -475,16 +449,13 @@ export interface DescribeAttachmentLimitExceeded
 }
 
 export namespace DescribeAttachmentLimitExceeded {
-  export const isa = (o: any): o is DescribeAttachmentLimitExceeded =>
-    __isa(o, "DescribeAttachmentLimitExceeded");
+  export const isa = (o: any): o is DescribeAttachmentLimitExceeded => __isa(o, "DescribeAttachmentLimitExceeded");
 }
 
 /**
  * <p>An internal server error occurred.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   /**
@@ -494,8 +465,7 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
@@ -519,8 +489,7 @@ export interface AddAttachmentsToSetRequest {
 }
 
 export namespace AddAttachmentsToSetRequest {
-  export const isa = (o: any): o is AddAttachmentsToSetRequest =>
-    __isa(o, "AddAttachmentsToSetRequest");
+  export const isa = (o: any): o is AddAttachmentsToSetRequest => __isa(o, "AddAttachmentsToSetRequest");
 }
 
 /**
@@ -543,8 +512,7 @@ export interface AddAttachmentsToSetResponse {
 }
 
 export namespace AddAttachmentsToSetResponse {
-  export const isa = (o: any): o is AddAttachmentsToSetResponse =>
-    __isa(o, "AddAttachmentsToSetResponse");
+  export const isa = (o: any): o is AddAttachmentsToSetResponse => __isa(o, "AddAttachmentsToSetResponse");
 }
 
 /**
@@ -580,8 +548,7 @@ export interface AddCommunicationToCaseRequest {
 }
 
 export namespace AddCommunicationToCaseRequest {
-  export const isa = (o: any): o is AddCommunicationToCaseRequest =>
-    __isa(o, "AddCommunicationToCaseRequest");
+  export const isa = (o: any): o is AddCommunicationToCaseRequest => __isa(o, "AddCommunicationToCaseRequest");
 }
 
 /**
@@ -597,8 +564,7 @@ export interface AddCommunicationToCaseResponse {
 }
 
 export namespace AddCommunicationToCaseResponse {
-  export const isa = (o: any): o is AddCommunicationToCaseResponse =>
-    __isa(o, "AddCommunicationToCaseResponse");
+  export const isa = (o: any): o is AddCommunicationToCaseResponse => __isa(o, "AddCommunicationToCaseResponse");
 }
 
 export interface CreateCaseRequest {
@@ -663,8 +629,7 @@ export interface CreateCaseRequest {
 }
 
 export namespace CreateCaseRequest {
-  export const isa = (o: any): o is CreateCaseRequest =>
-    __isa(o, "CreateCaseRequest");
+  export const isa = (o: any): o is CreateCaseRequest => __isa(o, "CreateCaseRequest");
 }
 
 /**
@@ -682,8 +647,7 @@ export interface CreateCaseResponse {
 }
 
 export namespace CreateCaseResponse {
-  export const isa = (o: any): o is CreateCaseResponse =>
-    __isa(o, "CreateCaseResponse");
+  export const isa = (o: any): o is CreateCaseResponse => __isa(o, "CreateCaseResponse");
 }
 
 export interface DescribeAttachmentRequest {
@@ -695,8 +659,7 @@ export interface DescribeAttachmentRequest {
 }
 
 export namespace DescribeAttachmentRequest {
-  export const isa = (o: any): o is DescribeAttachmentRequest =>
-    __isa(o, "DescribeAttachmentRequest");
+  export const isa = (o: any): o is DescribeAttachmentRequest => __isa(o, "DescribeAttachmentRequest");
 }
 
 /**
@@ -711,8 +674,7 @@ export interface DescribeAttachmentResponse {
 }
 
 export namespace DescribeAttachmentResponse {
-  export const isa = (o: any): o is DescribeAttachmentResponse =>
-    __isa(o, "DescribeAttachmentResponse");
+  export const isa = (o: any): o is DescribeAttachmentResponse => __isa(o, "DescribeAttachmentResponse");
 }
 
 export interface DescribeCasesRequest {
@@ -771,8 +733,7 @@ export interface DescribeCasesRequest {
 }
 
 export namespace DescribeCasesRequest {
-  export const isa = (o: any): o is DescribeCasesRequest =>
-    __isa(o, "DescribeCasesRequest");
+  export const isa = (o: any): o is DescribeCasesRequest => __isa(o, "DescribeCasesRequest");
 }
 
 /**
@@ -794,8 +755,7 @@ export interface DescribeCasesResponse {
 }
 
 export namespace DescribeCasesResponse {
-  export const isa = (o: any): o is DescribeCasesResponse =>
-    __isa(o, "DescribeCasesResponse");
+  export const isa = (o: any): o is DescribeCasesResponse => __isa(o, "DescribeCasesResponse");
 }
 
 export interface DescribeCommunicationsRequest {
@@ -832,8 +792,7 @@ export interface DescribeCommunicationsRequest {
 }
 
 export namespace DescribeCommunicationsRequest {
-  export const isa = (o: any): o is DescribeCommunicationsRequest =>
-    __isa(o, "DescribeCommunicationsRequest");
+  export const isa = (o: any): o is DescribeCommunicationsRequest => __isa(o, "DescribeCommunicationsRequest");
 }
 
 /**
@@ -854,8 +813,7 @@ export interface DescribeCommunicationsResponse {
 }
 
 export namespace DescribeCommunicationsResponse {
-  export const isa = (o: any): o is DescribeCommunicationsResponse =>
-    __isa(o, "DescribeCommunicationsResponse");
+  export const isa = (o: any): o is DescribeCommunicationsResponse => __isa(o, "DescribeCommunicationsResponse");
 }
 
 export interface DescribeServicesRequest {
@@ -874,8 +832,7 @@ export interface DescribeServicesRequest {
 }
 
 export namespace DescribeServicesRequest {
-  export const isa = (o: any): o is DescribeServicesRequest =>
-    __isa(o, "DescribeServicesRequest");
+  export const isa = (o: any): o is DescribeServicesRequest => __isa(o, "DescribeServicesRequest");
 }
 
 /**
@@ -891,8 +848,7 @@ export interface DescribeServicesResponse {
 }
 
 export namespace DescribeServicesResponse {
-  export const isa = (o: any): o is DescribeServicesResponse =>
-    __isa(o, "DescribeServicesResponse");
+  export const isa = (o: any): o is DescribeServicesResponse => __isa(o, "DescribeServicesResponse");
 }
 
 export interface DescribeSeverityLevelsRequest {
@@ -906,8 +862,7 @@ export interface DescribeSeverityLevelsRequest {
 }
 
 export namespace DescribeSeverityLevelsRequest {
-  export const isa = (o: any): o is DescribeSeverityLevelsRequest =>
-    __isa(o, "DescribeSeverityLevelsRequest");
+  export const isa = (o: any): o is DescribeSeverityLevelsRequest => __isa(o, "DescribeSeverityLevelsRequest");
 }
 
 /**
@@ -923,8 +878,7 @@ export interface DescribeSeverityLevelsResponse {
 }
 
 export namespace DescribeSeverityLevelsResponse {
-  export const isa = (o: any): o is DescribeSeverityLevelsResponse =>
-    __isa(o, "DescribeSeverityLevelsResponse");
+  export const isa = (o: any): o is DescribeSeverityLevelsResponse => __isa(o, "DescribeSeverityLevelsResponse");
 }
 
 export interface ResolveCaseRequest {
@@ -939,8 +893,7 @@ export interface ResolveCaseRequest {
 }
 
 export namespace ResolveCaseRequest {
-  export const isa = (o: any): o is ResolveCaseRequest =>
-    __isa(o, "ResolveCaseRequest");
+  export const isa = (o: any): o is ResolveCaseRequest => __isa(o, "ResolveCaseRequest");
 }
 
 /**
@@ -963,8 +916,7 @@ export interface ResolveCaseResponse {
 }
 
 export namespace ResolveCaseResponse {
-  export const isa = (o: any): o is ResolveCaseResponse =>
-    __isa(o, "ResolveCaseResponse");
+  export const isa = (o: any): o is ResolveCaseResponse => __isa(o, "ResolveCaseResponse");
 }
 
 /**
@@ -1038,9 +990,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest =>
     __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
 }
 
@@ -1056,9 +1006,7 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse =>
     __isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
 }
 
@@ -1110,9 +1058,7 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesRequest =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckSummariesRequest =>
     __isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
 }
 
@@ -1128,9 +1074,7 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
-  export const isa = (
-    o: any
-  ): o is DescribeTrustedAdvisorCheckSummariesResponse =>
+  export const isa = (o: any): o is DescribeTrustedAdvisorCheckSummariesResponse =>
     __isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
 }
 
@@ -1181,8 +1125,7 @@ export interface RefreshTrustedAdvisorCheckRequest {
 }
 
 export namespace RefreshTrustedAdvisorCheckRequest {
-  export const isa = (o: any): o is RefreshTrustedAdvisorCheckRequest =>
-    __isa(o, "RefreshTrustedAdvisorCheckRequest");
+  export const isa = (o: any): o is RefreshTrustedAdvisorCheckRequest => __isa(o, "RefreshTrustedAdvisorCheckRequest");
 }
 
 /**
@@ -1257,8 +1200,7 @@ export interface TrustedAdvisorCheckDescription {
 }
 
 export namespace TrustedAdvisorCheckDescription {
-  export const isa = (o: any): o is TrustedAdvisorCheckDescription =>
-    __isa(o, "TrustedAdvisorCheckDescription");
+  export const isa = (o: any): o is TrustedAdvisorCheckDescription => __isa(o, "TrustedAdvisorCheckDescription");
 }
 
 /**
@@ -1310,8 +1252,7 @@ export interface TrustedAdvisorCheckRefreshStatus {
 }
 
 export namespace TrustedAdvisorCheckRefreshStatus {
-  export const isa = (o: any): o is TrustedAdvisorCheckRefreshStatus =>
-    __isa(o, "TrustedAdvisorCheckRefreshStatus");
+  export const isa = (o: any): o is TrustedAdvisorCheckRefreshStatus => __isa(o, "TrustedAdvisorCheckRefreshStatus");
 }
 
 /**
@@ -1353,8 +1294,7 @@ export interface TrustedAdvisorCheckResult {
 }
 
 export namespace TrustedAdvisorCheckResult {
-  export const isa = (o: any): o is TrustedAdvisorCheckResult =>
-    __isa(o, "TrustedAdvisorCheckResult");
+  export const isa = (o: any): o is TrustedAdvisorCheckResult => __isa(o, "TrustedAdvisorCheckResult");
 }
 
 /**
@@ -1397,8 +1337,7 @@ export interface TrustedAdvisorCheckSummary {
 }
 
 export namespace TrustedAdvisorCheckSummary {
-  export const isa = (o: any): o is TrustedAdvisorCheckSummary =>
-    __isa(o, "TrustedAdvisorCheckSummary");
+  export const isa = (o: any): o is TrustedAdvisorCheckSummary => __isa(o, "TrustedAdvisorCheckSummary");
 }
 
 /**
@@ -1462,8 +1401,7 @@ export interface TrustedAdvisorResourceDetail {
 }
 
 export namespace TrustedAdvisorResourceDetail {
-  export const isa = (o: any): o is TrustedAdvisorResourceDetail =>
-    __isa(o, "TrustedAdvisorResourceDetail");
+  export const isa = (o: any): o is TrustedAdvisorResourceDetail => __isa(o, "TrustedAdvisorResourceDetail");
 }
 
 /**
@@ -1497,6 +1435,5 @@ export interface TrustedAdvisorResourcesSummary {
 }
 
 export namespace TrustedAdvisorResourcesSummary {
-  export const isa = (o: any): o is TrustedAdvisorResourcesSummary =>
-    __isa(o, "TrustedAdvisorResourcesSummary");
+  export const isa = (o: any): o is TrustedAdvisorResourcesSummary => __isa(o, "TrustedAdvisorResourcesSummary");
 }

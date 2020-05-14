@@ -1,47 +1,17 @@
-import {
-  BatchGetNamedQueryCommandInput,
-  BatchGetNamedQueryCommandOutput
-} from "./commands/BatchGetNamedQueryCommand";
+import { BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput } from "./commands/BatchGetNamedQueryCommand";
 import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput
 } from "./commands/BatchGetQueryExecutionCommand";
-import {
-  CreateNamedQueryCommandInput,
-  CreateNamedQueryCommandOutput
-} from "./commands/CreateNamedQueryCommand";
-import {
-  CreateWorkGroupCommandInput,
-  CreateWorkGroupCommandOutput
-} from "./commands/CreateWorkGroupCommand";
-import {
-  DeleteNamedQueryCommandInput,
-  DeleteNamedQueryCommandOutput
-} from "./commands/DeleteNamedQueryCommand";
-import {
-  DeleteWorkGroupCommandInput,
-  DeleteWorkGroupCommandOutput
-} from "./commands/DeleteWorkGroupCommand";
-import {
-  GetNamedQueryCommandInput,
-  GetNamedQueryCommandOutput
-} from "./commands/GetNamedQueryCommand";
-import {
-  GetQueryExecutionCommandInput,
-  GetQueryExecutionCommandOutput
-} from "./commands/GetQueryExecutionCommand";
-import {
-  GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput
-} from "./commands/GetQueryResultsCommand";
-import {
-  GetWorkGroupCommandInput,
-  GetWorkGroupCommandOutput
-} from "./commands/GetWorkGroupCommand";
-import {
-  ListNamedQueriesCommandInput,
-  ListNamedQueriesCommandOutput
-} from "./commands/ListNamedQueriesCommand";
+import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
+import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
+import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
+import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
+import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
+import { GetQueryExecutionCommandInput, GetQueryExecutionCommandOutput } from "./commands/GetQueryExecutionCommand";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
+import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand";
 import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput
@@ -50,30 +20,15 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWorkGroupsCommandInput,
-  ListWorkGroupsCommandOutput
-} from "./commands/ListWorkGroupsCommand";
+import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
 import {
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput
 } from "./commands/StartQueryExecutionCommand";
-import {
-  StopQueryExecutionCommandInput,
-  StopQueryExecutionCommandOutput
-} from "./commands/StopQueryExecutionCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateWorkGroupCommandInput,
-  UpdateWorkGroupCommandOutput
-} from "./commands/UpdateWorkGroupCommand";
+import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from "./commands/StopQueryExecutionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "./commands/UpdateWorkGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -90,12 +45,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -168,8 +118,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateWorkGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -253,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AthenaClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AthenaClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +211,7 @@ export type AthenaClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AthenaClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

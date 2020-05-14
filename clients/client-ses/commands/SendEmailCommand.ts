@@ -1,18 +1,8 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { SendEmailRequest, SendEmailResponse } from "../models/index";
-import {
-  deserializeAws_querySendEmailCommand,
-  serializeAws_querySendEmailCommand
-} from "../protocols/Aws_query";
+import { deserializeAws_querySendEmailCommand, serializeAws_querySendEmailCommand } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type SendEmailCommandInput = SendEmailRequest;
 export type SendEmailCommandOutput = SendEmailResponse & __MetadataBearer;
 
-export class SendEmailCommand extends $Command<
-  SendEmailCommandInput,
-  SendEmailCommandOutput,
-  SESClientResolvedConfig
-> {
+export class SendEmailCommand extends $Command<SendEmailCommandInput, SendEmailCommandOutput, SESClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class SendEmailCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendEmailCommandInput, SendEmailCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class SendEmailCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: SendEmailCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: SendEmailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_querySendEmailCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<SendEmailCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SendEmailCommandOutput> {
     return deserializeAws_querySendEmailCommand(output, context);
   }
 

@@ -1,22 +1,12 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  CopyDBClusterSnapshotMessage,
-  CopyDBClusterSnapshotResult
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/index";
 import {
   deserializeAws_queryCopyDBClusterSnapshotCommand,
   serializeAws_queryCopyDBClusterSnapshotCommand
 } from "../protocols/Aws_query";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -29,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyDBClusterSnapshotCommandInput = CopyDBClusterSnapshotMessage;
-export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult &
-  __MetadataBearer;
+export type CopyDBClusterSnapshotCommandOutput = CopyDBClusterSnapshotResult & __MetadataBearer;
 
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,
@@ -50,13 +39,8 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CopyDBClusterSnapshotCommandInput,
-    CopyDBClusterSnapshotCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CopyDBClusterSnapshotCommandInput, CopyDBClusterSnapshotCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,17 +56,11 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CopyDBClusterSnapshotCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CopyDBClusterSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryCopyDBClusterSnapshotCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CopyDBClusterSnapshotCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDBClusterSnapshotCommandOutput> {
     return deserializeAws_queryCopyDBClusterSnapshotCommand(output, context);
   }
 

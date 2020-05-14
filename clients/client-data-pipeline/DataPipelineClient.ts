@@ -1,75 +1,30 @@
-import {
-  ActivatePipelineCommandInput,
-  ActivatePipelineCommandOutput
-} from "./commands/ActivatePipelineCommand";
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
-import {
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
-} from "./commands/CreatePipelineCommand";
-import {
-  DeactivatePipelineCommandInput,
-  DeactivatePipelineCommandOutput
-} from "./commands/DeactivatePipelineCommand";
-import {
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
-} from "./commands/DeletePipelineCommand";
-import {
-  DescribeObjectsCommandInput,
-  DescribeObjectsCommandOutput
-} from "./commands/DescribeObjectsCommand";
-import {
-  DescribePipelinesCommandInput,
-  DescribePipelinesCommandOutput
-} from "./commands/DescribePipelinesCommand";
-import {
-  EvaluateExpressionCommandInput,
-  EvaluateExpressionCommandOutput
-} from "./commands/EvaluateExpressionCommand";
+import { ActivatePipelineCommandInput, ActivatePipelineCommandOutput } from "./commands/ActivatePipelineCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
+import { DeactivatePipelineCommandInput, DeactivatePipelineCommandOutput } from "./commands/DeactivatePipelineCommand";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import { DescribeObjectsCommandInput, DescribeObjectsCommandOutput } from "./commands/DescribeObjectsCommand";
+import { DescribePipelinesCommandInput, DescribePipelinesCommandOutput } from "./commands/DescribePipelinesCommand";
+import { EvaluateExpressionCommandInput, EvaluateExpressionCommandOutput } from "./commands/EvaluateExpressionCommand";
 import {
   GetPipelineDefinitionCommandInput,
   GetPipelineDefinitionCommandOutput
 } from "./commands/GetPipelineDefinitionCommand";
-import {
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
-} from "./commands/ListPipelinesCommand";
-import {
-  PollForTaskCommandInput,
-  PollForTaskCommandOutput
-} from "./commands/PollForTaskCommand";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import { PollForTaskCommandInput, PollForTaskCommandOutput } from "./commands/PollForTaskCommand";
 import {
   PutPipelineDefinitionCommandInput,
   PutPipelineDefinitionCommandOutput
 } from "./commands/PutPipelineDefinitionCommand";
-import {
-  QueryObjectsCommandInput,
-  QueryObjectsCommandOutput
-} from "./commands/QueryObjectsCommand";
-import {
-  RemoveTagsCommandInput,
-  RemoveTagsCommandOutput
-} from "./commands/RemoveTagsCommand";
-import {
-  ReportTaskProgressCommandInput,
-  ReportTaskProgressCommandOutput
-} from "./commands/ReportTaskProgressCommand";
+import { QueryObjectsCommandInput, QueryObjectsCommandOutput } from "./commands/QueryObjectsCommand";
+import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import { ReportTaskProgressCommandInput, ReportTaskProgressCommandOutput } from "./commands/ReportTaskProgressCommand";
 import {
   ReportTaskRunnerHeartbeatCommandInput,
   ReportTaskRunnerHeartbeatCommandOutput
 } from "./commands/ReportTaskRunnerHeartbeatCommand";
-import {
-  SetStatusCommandInput,
-  SetStatusCommandOutput
-} from "./commands/SetStatusCommand";
-import {
-  SetTaskStatusCommandInput,
-  SetTaskStatusCommandOutput
-} from "./commands/SetTaskStatusCommand";
+import { SetStatusCommandInput, SetStatusCommandOutput } from "./commands/SetStatusCommand";
+import { SetTaskStatusCommandInput, SetTaskStatusCommandOutput } from "./commands/SetTaskStatusCommand";
 import {
   ValidatePipelineDefinitionCommandInput,
   ValidatePipelineDefinitionCommandOutput
@@ -90,12 +45,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -168,8 +118,7 @@ export type ServiceOutputTypes =
   | SetTaskStatusCommandOutput
   | ValidatePipelineDefinitionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -253,9 +202,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DataPipelineClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DataPipelineClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +211,7 @@ export type DataPipelineClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DataPipelineClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DataPipelineClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

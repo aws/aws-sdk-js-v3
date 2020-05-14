@@ -1,11 +1,5 @@
-import {
-  CancelContactCommandInput,
-  CancelContactCommandOutput
-} from "./commands/CancelContactCommand";
-import {
-  CreateConfigCommandInput,
-  CreateConfigCommandOutput
-} from "./commands/CreateConfigCommand";
+import { CancelContactCommandInput, CancelContactCommandOutput } from "./commands/CancelContactCommand";
+import { CreateConfigCommandInput, CreateConfigCommandOutput } from "./commands/CreateConfigCommand";
 import {
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput
@@ -14,10 +8,7 @@ import {
   CreateMissionProfileCommandInput,
   CreateMissionProfileCommandOutput
 } from "./commands/CreateMissionProfileCommand";
-import {
-  DeleteConfigCommandInput,
-  DeleteConfigCommandOutput
-} from "./commands/DeleteConfigCommand";
+import { DeleteConfigCommandInput, DeleteConfigCommandOutput } from "./commands/DeleteConfigCommand";
 import {
   DeleteDataflowEndpointGroupCommandInput,
   DeleteDataflowEndpointGroupCommandOutput
@@ -26,74 +17,35 @@ import {
   DeleteMissionProfileCommandInput,
   DeleteMissionProfileCommandOutput
 } from "./commands/DeleteMissionProfileCommand";
-import {
-  DescribeContactCommandInput,
-  DescribeContactCommandOutput
-} from "./commands/DescribeContactCommand";
-import {
-  GetConfigCommandInput,
-  GetConfigCommandOutput
-} from "./commands/GetConfigCommand";
+import { DescribeContactCommandInput, DescribeContactCommandOutput } from "./commands/DescribeContactCommand";
+import { GetConfigCommandInput, GetConfigCommandOutput } from "./commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
   GetDataflowEndpointGroupCommandOutput
 } from "./commands/GetDataflowEndpointGroupCommand";
-import {
-  GetMinuteUsageCommandInput,
-  GetMinuteUsageCommandOutput
-} from "./commands/GetMinuteUsageCommand";
-import {
-  GetMissionProfileCommandInput,
-  GetMissionProfileCommandOutput
-} from "./commands/GetMissionProfileCommand";
-import {
-  GetSatelliteCommandInput,
-  GetSatelliteCommandOutput
-} from "./commands/GetSatelliteCommand";
-import {
-  ListConfigsCommandInput,
-  ListConfigsCommandOutput
-} from "./commands/ListConfigsCommand";
-import {
-  ListContactsCommandInput,
-  ListContactsCommandOutput
-} from "./commands/ListContactsCommand";
+import { GetMinuteUsageCommandInput, GetMinuteUsageCommandOutput } from "./commands/GetMinuteUsageCommand";
+import { GetMissionProfileCommandInput, GetMissionProfileCommandOutput } from "./commands/GetMissionProfileCommand";
+import { GetSatelliteCommandInput, GetSatelliteCommandOutput } from "./commands/GetSatelliteCommand";
+import { ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand";
+import { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
 import {
   ListDataflowEndpointGroupsCommandInput,
   ListDataflowEndpointGroupsCommandOutput
 } from "./commands/ListDataflowEndpointGroupsCommand";
-import {
-  ListGroundStationsCommandInput,
-  ListGroundStationsCommandOutput
-} from "./commands/ListGroundStationsCommand";
+import { ListGroundStationsCommandInput, ListGroundStationsCommandOutput } from "./commands/ListGroundStationsCommand";
 import {
   ListMissionProfilesCommandInput,
   ListMissionProfilesCommandOutput
 } from "./commands/ListMissionProfilesCommand";
-import {
-  ListSatellitesCommandInput,
-  ListSatellitesCommandOutput
-} from "./commands/ListSatellitesCommand";
+import { ListSatellitesCommandInput, ListSatellitesCommandOutput } from "./commands/ListSatellitesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ReserveContactCommandInput,
-  ReserveContactCommandOutput
-} from "./commands/ReserveContactCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateConfigCommandInput,
-  UpdateConfigCommandOutput
-} from "./commands/UpdateConfigCommand";
+import { ReserveContactCommandInput, ReserveContactCommandOutput } from "./commands/ReserveContactCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "./commands/UpdateConfigCommand";
 import {
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput
@@ -114,12 +66,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -204,8 +151,7 @@ export type ServiceOutputTypes =
   | UpdateConfigCommandOutput
   | UpdateMissionProfileCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -289,9 +235,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GroundStationClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GroundStationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -300,9 +244,7 @@ export type GroundStationClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GroundStationClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GroundStationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

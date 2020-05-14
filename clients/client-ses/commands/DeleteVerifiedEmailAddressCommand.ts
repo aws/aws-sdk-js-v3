@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { DeleteVerifiedEmailAddressRequest } from "../models/index";
 import {
   deserializeAws_queryDeleteVerifiedEmailAddressCommand,
   serializeAws_queryDeleteVerifiedEmailAddressCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteVerifiedEmailAddressCommandInput,
-    DeleteVerifiedEmailAddressCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteVerifiedEmailAddressCommandInput, DeleteVerifiedEmailAddressCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,10 +54,7 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteVerifiedEmailAddressCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteVerifiedEmailAddressCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteVerifiedEmailAddressCommand(input, context);
   }
 
@@ -77,10 +62,7 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DeleteVerifiedEmailAddressCommandOutput> {
-    return deserializeAws_queryDeleteVerifiedEmailAddressCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDeleteVerifiedEmailAddressCommand(output, context);
   }
 
   // Start section: command_body_extra

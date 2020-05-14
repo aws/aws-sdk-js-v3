@@ -1,18 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { CreateResolverRequest, CreateResolverResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateResolverCommand,
   serializeAws_restJson1_1CreateResolverCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateResolverCommandInput = CreateResolverRequest;
-export type CreateResolverCommandOutput = CreateResolverResponse &
-  __MetadataBearer;
+export type CreateResolverCommandOutput = CreateResolverResponse & __MetadataBearer;
 
 export class CreateResolverCommand extends $Command<
   CreateResolverCommandInput,
@@ -47,9 +39,7 @@ export class CreateResolverCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateResolverCommandInput, CreateResolverCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateResolverCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateResolverCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateResolverCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateResolverCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateResolverCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResolverCommandOutput> {
     return deserializeAws_restJson1_1CreateResolverCommand(output, context);
   }
 

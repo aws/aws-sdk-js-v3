@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1StartChangeSetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartChangeSetCommandInput = StartChangeSetRequest;
-export type StartChangeSetCommandOutput = StartChangeSetResponse &
-  __MetadataBearer;
+export type StartChangeSetCommandOutput = StartChangeSetResponse & __MetadataBearer;
 
 export class StartChangeSetCommand extends $Command<
   StartChangeSetCommandInput,
@@ -47,9 +43,7 @@ export class StartChangeSetCommand extends $Command<
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartChangeSetCommandInput, StartChangeSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class StartChangeSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartChangeSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StartChangeSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartChangeSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartChangeSetCommandOutput> {
     return deserializeAws_restJson1_1StartChangeSetCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  ComprehendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ComprehendClient";
-import {
-  StopDominantLanguageDetectionJobRequest,
-  StopDominantLanguageDetectionJobResponse
-} from "../models/index";
+import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { StopDominantLanguageDetectionJobRequest, StopDominantLanguageDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StopDominantLanguageDetectionJobCommand,
   serializeAws_json1_1StopDominantLanguageDetectionJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopDominantLanguageDetectionJobCommandInput = StopDominantLanguageDetectionJobRequest;
-export type StopDominantLanguageDetectionJobCommandOutput = StopDominantLanguageDetectionJobResponse &
-  __MetadataBearer;
+export type StopDominantLanguageDetectionJobCommandOutput = StopDominantLanguageDetectionJobResponse & __MetadataBearer;
 
 export class StopDominantLanguageDetectionJobCommand extends $Command<
   StopDominantLanguageDetectionJobCommandInput,
@@ -49,13 +38,8 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopDominantLanguageDetectionJobCommandInput,
-    StopDominantLanguageDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopDominantLanguageDetectionJobCommandInput, StopDominantLanguageDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class StopDominantLanguageDetectionJobCommand extends $Command<
     input: StopDominantLanguageDetectionJobCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StopDominantLanguageDetectionJobCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1StopDominantLanguageDetectionJobCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<StopDominantLanguageDetectionJobCommandOutput> {
-    return deserializeAws_json1_1StopDominantLanguageDetectionJobCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1StopDominantLanguageDetectionJobCommand(output, context);
   }
 
   // Start section: command_body_extra

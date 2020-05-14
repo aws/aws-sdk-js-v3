@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListUserPoliciesRequest,
-  ListUserPoliciesResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListUserPoliciesRequest, ListUserPoliciesResponse } from "../models/index";
 import {
   deserializeAws_queryListUserPoliciesCommand,
   serializeAws_queryListUserPoliciesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUserPoliciesCommandInput = ListUserPoliciesRequest;
-export type ListUserPoliciesCommandOutput = ListUserPoliciesResponse &
-  __MetadataBearer;
+export type ListUserPoliciesCommandOutput = ListUserPoliciesResponse & __MetadataBearer;
 
 export class ListUserPoliciesCommand extends $Command<
   ListUserPoliciesCommandInput,
@@ -50,9 +39,7 @@ export class ListUserPoliciesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListUserPoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListUserPoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListUserPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListUserPoliciesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListUserPoliciesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoliciesCommandOutput> {
     return deserializeAws_queryListUserPoliciesCommand(output, context);
   }
 

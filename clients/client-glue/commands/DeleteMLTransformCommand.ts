@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  DeleteMLTransformRequest,
-  DeleteMLTransformResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { DeleteMLTransformRequest, DeleteMLTransformResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteMLTransformCommand,
   serializeAws_json1_1DeleteMLTransformCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteMLTransformCommandInput = DeleteMLTransformRequest;
-export type DeleteMLTransformCommandOutput = DeleteMLTransformResponse &
-  __MetadataBearer;
+export type DeleteMLTransformCommandOutput = DeleteMLTransformResponse & __MetadataBearer;
 
 export class DeleteMLTransformCommand extends $Command<
   DeleteMLTransformCommandInput,
@@ -50,9 +39,7 @@ export class DeleteMLTransformCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteMLTransformCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteMLTransformCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteMLTransformCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeleteMLTransformCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteMLTransformCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMLTransformCommandOutput> {
     return deserializeAws_json1_1DeleteMLTransformCommand(output, context);
   }
 

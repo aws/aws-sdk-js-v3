@@ -1,7 +1,4 @@
-import {
-  AddPermissionCommandInput,
-  AddPermissionCommandOutput
-} from "./commands/AddPermissionCommand";
+import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
 import {
   ChangeMessageVisibilityBatchCommandInput,
   ChangeMessageVisibilityBatchCommandOutput
@@ -10,74 +7,26 @@ import {
   ChangeMessageVisibilityCommandInput,
   ChangeMessageVisibilityCommandOutput
 } from "./commands/ChangeMessageVisibilityCommand";
-import {
-  CreateQueueCommandInput,
-  CreateQueueCommandOutput
-} from "./commands/CreateQueueCommand";
-import {
-  DeleteMessageBatchCommandInput,
-  DeleteMessageBatchCommandOutput
-} from "./commands/DeleteMessageBatchCommand";
-import {
-  DeleteMessageCommandInput,
-  DeleteMessageCommandOutput
-} from "./commands/DeleteMessageCommand";
-import {
-  DeleteQueueCommandInput,
-  DeleteQueueCommandOutput
-} from "./commands/DeleteQueueCommand";
-import {
-  GetQueueAttributesCommandInput,
-  GetQueueAttributesCommandOutput
-} from "./commands/GetQueueAttributesCommand";
-import {
-  GetQueueUrlCommandInput,
-  GetQueueUrlCommandOutput
-} from "./commands/GetQueueUrlCommand";
+import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
+import { DeleteMessageBatchCommandInput, DeleteMessageBatchCommandOutput } from "./commands/DeleteMessageBatchCommand";
+import { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "./commands/DeleteMessageCommand";
+import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
+import { GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput } from "./commands/GetQueueAttributesCommand";
+import { GetQueueUrlCommandInput, GetQueueUrlCommandOutput } from "./commands/GetQueueUrlCommand";
 import {
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput
 } from "./commands/ListDeadLetterSourceQueuesCommand";
-import {
-  ListQueueTagsCommandInput,
-  ListQueueTagsCommandOutput
-} from "./commands/ListQueueTagsCommand";
-import {
-  ListQueuesCommandInput,
-  ListQueuesCommandOutput
-} from "./commands/ListQueuesCommand";
-import {
-  PurgeQueueCommandInput,
-  PurgeQueueCommandOutput
-} from "./commands/PurgeQueueCommand";
-import {
-  ReceiveMessageCommandInput,
-  ReceiveMessageCommandOutput
-} from "./commands/ReceiveMessageCommand";
-import {
-  RemovePermissionCommandInput,
-  RemovePermissionCommandOutput
-} from "./commands/RemovePermissionCommand";
-import {
-  SendMessageBatchCommandInput,
-  SendMessageBatchCommandOutput
-} from "./commands/SendMessageBatchCommand";
-import {
-  SendMessageCommandInput,
-  SendMessageCommandOutput
-} from "./commands/SendMessageCommand";
-import {
-  SetQueueAttributesCommandInput,
-  SetQueueAttributesCommandOutput
-} from "./commands/SetQueueAttributesCommand";
-import {
-  TagQueueCommandInput,
-  TagQueueCommandOutput
-} from "./commands/TagQueueCommand";
-import {
-  UntagQueueCommandInput,
-  UntagQueueCommandOutput
-} from "./commands/UntagQueueCommand";
+import { ListQueueTagsCommandInput, ListQueueTagsCommandOutput } from "./commands/ListQueueTagsCommand";
+import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import { PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand";
+import { ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from "./commands/ReceiveMessageCommand";
+import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
+import { SendMessageBatchCommandInput, SendMessageBatchCommandOutput } from "./commands/SendMessageBatchCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
+import { SetQueueAttributesCommandInput, SetQueueAttributesCommandOutput } from "./commands/SetQueueAttributesCommand";
+import { TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
+import { UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -94,12 +43,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -174,8 +118,7 @@ export type ServiceOutputTypes =
   | TagQueueCommandOutput
   | UntagQueueCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -265,9 +208,7 @@ export interface ClientDefaults
   md5?: __HashConstructor;
 }
 
-export type SQSClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SQSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -276,9 +217,7 @@ export type SQSClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SQSClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SQSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -8,18 +8,14 @@ describe("ChecksumGenerator", () => {
     const treeHash = new TreeHash(Sha256, fromUtf8);
     treeHash.update("bar");
     const results = await treeHash.digest();
-    expect(toHex(results)).toEqual(
-      "fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9"
-    );
+    expect(toHex(results)).toEqual("fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9");
   });
 
   it("computes tree hashes of Uint8Array bodies < 1 MB", async () => {
     const treeHash = new TreeHash(Sha256, fromUtf8);
     treeHash.update(fromUtf8("bar"));
     const results = await treeHash.digest();
-    expect(toHex(results)).toEqual(
-      "fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9"
-    );
+    expect(toHex(results)).toEqual("fcde2b2edba56bf408601fb721fe9b5c338d10ee429ea04fae5511b68fbf8fb9");
   });
 
   it("computes tree hashes of bodies > 1 MB", async () => {
@@ -30,9 +26,7 @@ describe("ChecksumGenerator", () => {
     treeHash.update(payload);
     let results = await treeHash.digest();
 
-    expect(toHex(results)).toEqual(
-      "a3a82dbe3644dd6046be472f2e3ec1f8ef47f8f3adb86d0de4de7a254f255455"
-    );
+    expect(toHex(results)).toEqual("a3a82dbe3644dd6046be472f2e3ec1f8ef47f8f3adb86d0de4de7a254f255455");
   });
 
   it("computes tree hashes of bodies = 1 MB", async () => {
@@ -43,9 +37,7 @@ describe("ChecksumGenerator", () => {
     treeHash.update(payload);
     let results = await treeHash.digest();
 
-    expect(toHex(results)).toEqual(
-      "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58"
-    );
+    expect(toHex(results)).toEqual("30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58");
   });
 
   it("computes tree hashes of chunked bodies", async () => {
@@ -54,14 +46,10 @@ describe("ChecksumGenerator", () => {
     payload.fill(0);
 
     for (let i = 0; i < payload.byteLength; i += 1024 * 1024) {
-      treeHash.update(
-        payload.subarray(i, i + Math.min(1024 * 1024, payload.byteLength))
-      );
+      treeHash.update(payload.subarray(i, i + Math.min(1024 * 1024, payload.byteLength)));
     }
     let results = await treeHash.digest();
 
-    expect(toHex(results)).toEqual(
-      "a3a82dbe3644dd6046be472f2e3ec1f8ef47f8f3adb86d0de4de7a254f255455"
-    );
+    expect(toHex(results)).toEqual("a3a82dbe3644dd6046be472f2e3ec1f8ef47f8f3adb86d0de4de7a254f255455");
   });
 });

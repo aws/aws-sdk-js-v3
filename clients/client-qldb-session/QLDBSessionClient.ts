@@ -1,7 +1,4 @@
-import {
-  SendCommandCommandInput,
-  SendCommandCommandOutput
-} from "./commands/SendCommandCommand";
+import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -18,12 +15,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -58,8 +50,7 @@ export type ServiceInputTypes = SendCommandCommandInput;
 
 export type ServiceOutputTypes = SendCommandCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -143,9 +134,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QLDBSessionClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QLDBSessionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -154,9 +143,7 @@ export type QLDBSessionClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QLDBSessionClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QLDBSessionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

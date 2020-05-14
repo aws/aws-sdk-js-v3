@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  GetLayerVersionByArnRequest,
-  GetLayerVersionResponse
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { GetLayerVersionByArnRequest, GetLayerVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLayerVersionByArnCommand,
   serializeAws_restJson1_1GetLayerVersionByArnCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLayerVersionByArnCommandInput = GetLayerVersionByArnRequest;
-export type GetLayerVersionByArnCommandOutput = GetLayerVersionResponse &
-  __MetadataBearer;
+export type GetLayerVersionByArnCommandOutput = GetLayerVersionResponse & __MetadataBearer;
 
 export class GetLayerVersionByArnCommand extends $Command<
   GetLayerVersionByArnCommandInput,
@@ -49,13 +38,8 @@ export class GetLayerVersionByArnCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetLayerVersionByArnCommandInput,
-    GetLayerVersionByArnCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetLayerVersionByArnCommandInput, GetLayerVersionByArnCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetLayerVersionByArnCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLayerVersionByArnCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLayerVersionByArnCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetLayerVersionByArnCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLayerVersionByArnCommandOutput> {
-    return deserializeAws_restJson1_1GetLayerVersionByArnCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLayerVersionByArnCommandOutput> {
+    return deserializeAws_restJson1_1GetLayerVersionByArnCommand(output, context);
   }
 
   // Start section: command_body_extra

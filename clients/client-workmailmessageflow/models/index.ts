@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -14,8 +11,7 @@ export interface GetRawMessageContentRequest {
 }
 
 export namespace GetRawMessageContentRequest {
-  export const isa = (o: any): o is GetRawMessageContentRequest =>
-    __isa(o, "GetRawMessageContentRequest");
+  export const isa = (o: any): o is GetRawMessageContentRequest => __isa(o, "GetRawMessageContentRequest");
 }
 
 export interface GetRawMessageContentResponse {
@@ -27,22 +23,18 @@ export interface GetRawMessageContentResponse {
 }
 
 export namespace GetRawMessageContentResponse {
-  export const isa = (o: any): o is GetRawMessageContentResponse =>
-    __isa(o, "GetRawMessageContentResponse");
+  export const isa = (o: any): o is GetRawMessageContentResponse => __isa(o, "GetRawMessageContentResponse");
 }
 
 /**
  * <p>The requested email message is not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }

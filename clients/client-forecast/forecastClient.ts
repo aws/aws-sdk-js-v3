@@ -1,55 +1,28 @@
-import {
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
-} from "./commands/CreateDatasetCommand";
-import {
-  CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput
-} from "./commands/CreateDatasetGroupCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "./commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput
 } from "./commands/CreateDatasetImportJobCommand";
-import {
-  CreateForecastCommandInput,
-  CreateForecastCommandOutput
-} from "./commands/CreateForecastCommand";
+import { CreateForecastCommandInput, CreateForecastCommandOutput } from "./commands/CreateForecastCommand";
 import {
   CreateForecastExportJobCommandInput,
   CreateForecastExportJobCommandOutput
 } from "./commands/CreateForecastExportJobCommand";
-import {
-  CreatePredictorCommandInput,
-  CreatePredictorCommandOutput
-} from "./commands/CreatePredictorCommand";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "./commands/DeleteDatasetCommand";
-import {
-  DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput
-} from "./commands/DeleteDatasetGroupCommand";
+import { CreatePredictorCommandInput, CreatePredictorCommandOutput } from "./commands/CreatePredictorCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
+import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
 import {
   DeleteDatasetImportJobCommandInput,
   DeleteDatasetImportJobCommandOutput
 } from "./commands/DeleteDatasetImportJobCommand";
-import {
-  DeleteForecastCommandInput,
-  DeleteForecastCommandOutput
-} from "./commands/DeleteForecastCommand";
+import { DeleteForecastCommandInput, DeleteForecastCommandOutput } from "./commands/DeleteForecastCommand";
 import {
   DeleteForecastExportJobCommandInput,
   DeleteForecastExportJobCommandOutput
 } from "./commands/DeleteForecastExportJobCommand";
-import {
-  DeletePredictorCommandInput,
-  DeletePredictorCommandOutput
-} from "./commands/DeletePredictorCommand";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "./commands/DescribeDatasetCommand";
+import { DeletePredictorCommandInput, DeletePredictorCommandOutput } from "./commands/DeletePredictorCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput
@@ -58,50 +31,26 @@ import {
   DescribeDatasetImportJobCommandInput,
   DescribeDatasetImportJobCommandOutput
 } from "./commands/DescribeDatasetImportJobCommand";
-import {
-  DescribeForecastCommandInput,
-  DescribeForecastCommandOutput
-} from "./commands/DescribeForecastCommand";
+import { DescribeForecastCommandInput, DescribeForecastCommandOutput } from "./commands/DescribeForecastCommand";
 import {
   DescribeForecastExportJobCommandInput,
   DescribeForecastExportJobCommandOutput
 } from "./commands/DescribeForecastExportJobCommand";
-import {
-  DescribePredictorCommandInput,
-  DescribePredictorCommandOutput
-} from "./commands/DescribePredictorCommand";
-import {
-  GetAccuracyMetricsCommandInput,
-  GetAccuracyMetricsCommandOutput
-} from "./commands/GetAccuracyMetricsCommand";
-import {
-  ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput
-} from "./commands/ListDatasetGroupsCommand";
+import { DescribePredictorCommandInput, DescribePredictorCommandOutput } from "./commands/DescribePredictorCommand";
+import { GetAccuracyMetricsCommandInput, GetAccuracyMetricsCommandOutput } from "./commands/GetAccuracyMetricsCommand";
+import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "./commands/ListDatasetGroupsCommand";
 import {
   ListDatasetImportJobsCommandInput,
   ListDatasetImportJobsCommandOutput
 } from "./commands/ListDatasetImportJobsCommand";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "./commands/ListDatasetsCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import {
   ListForecastExportJobsCommandInput,
   ListForecastExportJobsCommandOutput
 } from "./commands/ListForecastExportJobsCommand";
-import {
-  ListForecastsCommandInput,
-  ListForecastsCommandOutput
-} from "./commands/ListForecastsCommand";
-import {
-  ListPredictorsCommandInput,
-  ListPredictorsCommandOutput
-} from "./commands/ListPredictorsCommand";
-import {
-  UpdateDatasetGroupCommandInput,
-  UpdateDatasetGroupCommandOutput
-} from "./commands/UpdateDatasetGroupCommand";
+import { ListForecastsCommandInput, ListForecastsCommandOutput } from "./commands/ListForecastsCommand";
+import { ListPredictorsCommandInput, ListPredictorsCommandOutput } from "./commands/ListPredictorsCommand";
+import { UpdateDatasetGroupCommandInput, UpdateDatasetGroupCommandOutput } from "./commands/UpdateDatasetGroupCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -118,12 +67,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -210,8 +154,7 @@ export type ServiceOutputTypes =
   | ListPredictorsCommandOutput
   | UpdateDatasetGroupCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -295,9 +238,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type forecastClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type forecastClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -306,9 +247,7 @@ export type forecastClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type forecastClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

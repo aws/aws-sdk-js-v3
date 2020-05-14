@@ -1,21 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
-import {
-  DeclineHandshakeRequest,
-  DeclineHandshakeResponse
-} from "../models/index";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
+import { DeclineHandshakeRequest, DeclineHandshakeResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeclineHandshakeCommand,
   serializeAws_json1_1DeclineHandshakeCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeclineHandshakeCommandInput = DeclineHandshakeRequest;
-export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse &
-  __MetadataBearer;
+export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse & __MetadataBearer;
 
 export class DeclineHandshakeCommand extends $Command<
   DeclineHandshakeCommandInput,
@@ -50,9 +39,7 @@ export class DeclineHandshakeCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeclineHandshakeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeclineHandshakeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeclineHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DeclineHandshakeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeclineHandshakeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeclineHandshakeCommandOutput> {
     return deserializeAws_json1_1DeclineHandshakeCommand(output, context);
   }
 

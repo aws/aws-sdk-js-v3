@@ -1,18 +1,11 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 import { CreateLedgerRequest, CreateLedgerResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateLedgerCommand,
   serializeAws_restJson1_1CreateLedgerCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class CreateLedgerCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateLedgerCommandInput, CreateLedgerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class CreateLedgerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateLedgerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateLedgerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateLedgerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLedgerCommandOutput> {
     return deserializeAws_restJson1_1CreateLedgerCommand(output, context);
   }
 

@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ServerlessApplicationRepositoryClient";
-import {
-  CreateCloudFormationChangeSetRequest,
-  CreateCloudFormationChangeSetResponse
-} from "../models/index";
+import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateCloudFormationChangeSetCommand,
   serializeAws_restJson1_1CreateCloudFormationChangeSetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateCloudFormationChangeSetCommandInput = CreateCloudFormationChangeSetRequest;
-export type CreateCloudFormationChangeSetCommandOutput = CreateCloudFormationChangeSetResponse &
-  __MetadataBearer;
+export type CreateCloudFormationChangeSetCommandOutput = CreateCloudFormationChangeSetResponse & __MetadataBearer;
 
 export class CreateCloudFormationChangeSetCommand extends $Command<
   CreateCloudFormationChangeSetCommandInput,
@@ -49,13 +42,8 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServerlessApplicationRepositoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateCloudFormationChangeSetCommandInput,
-    CreateCloudFormationChangeSetCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateCloudFormationChangeSetCommandInput, CreateCloudFormationChangeSetCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +58,15 @@ export class CreateCloudFormationChangeSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateCloudFormationChangeSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateCloudFormationChangeSetCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateCloudFormationChangeSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateCloudFormationChangeSetCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateCloudFormationChangeSetCommandOutput> {
-    return deserializeAws_restJson1_1CreateCloudFormationChangeSetCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateCloudFormationChangeSetCommand(output, context);
   }
 
   // Start section: command_body_extra

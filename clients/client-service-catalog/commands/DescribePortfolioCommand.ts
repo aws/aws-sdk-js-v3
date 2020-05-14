@@ -1,21 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient";
-import {
-  DescribePortfolioInput,
-  DescribePortfolioOutput
-} from "../models/index";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
+import { DescribePortfolioInput, DescribePortfolioOutput } from "../models/index";
 import {
   deserializeAws_json1_1DescribePortfolioCommand,
   serializeAws_json1_1DescribePortfolioCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribePortfolioCommandInput = DescribePortfolioInput;
-export type DescribePortfolioCommandOutput = DescribePortfolioOutput &
-  __MetadataBearer;
+export type DescribePortfolioCommandOutput = DescribePortfolioOutput & __MetadataBearer;
 
 export class DescribePortfolioCommand extends $Command<
   DescribePortfolioCommandInput,
@@ -50,9 +39,7 @@ export class DescribePortfolioCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePortfolioCommandInput, DescribePortfolioCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribePortfolioCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribePortfolioCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribePortfolioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribePortfolioCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribePortfolioCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePortfolioCommandOutput> {
     return deserializeAws_json1_1DescribePortfolioCommand(output, context);
   }
 

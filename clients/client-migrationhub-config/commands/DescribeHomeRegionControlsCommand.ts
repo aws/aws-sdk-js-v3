@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../MigrationHubConfigClient";
-import {
-  DescribeHomeRegionControlsRequest,
-  DescribeHomeRegionControlsResult
-} from "../models/index";
+import { DescribeHomeRegionControlsRequest, DescribeHomeRegionControlsResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeHomeRegionControlsCommand,
   serializeAws_json1_1DescribeHomeRegionControlsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeHomeRegionControlsCommandInput = DescribeHomeRegionControlsRequest;
-export type DescribeHomeRegionControlsCommandOutput = DescribeHomeRegionControlsResult &
-  __MetadataBearer;
+export type DescribeHomeRegionControlsCommandOutput = DescribeHomeRegionControlsResult & __MetadataBearer;
 
 export class DescribeHomeRegionControlsCommand extends $Command<
   DescribeHomeRegionControlsCommandInput,
@@ -49,13 +42,8 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeHomeRegionControlsCommandInput,
-    DescribeHomeRegionControlsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeHomeRegionControlsCommandInput, DescribeHomeRegionControlsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +58,15 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeHomeRegionControlsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeHomeRegionControlsCommand(
-      input,
-      context
-    );
+  private serialize(input: DescribeHomeRegionControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeHomeRegionControlsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeHomeRegionControlsCommandOutput> {
-    return deserializeAws_json1_1DescribeHomeRegionControlsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeHomeRegionControlsCommand(output, context);
   }
 
   // Start section: command_body_extra

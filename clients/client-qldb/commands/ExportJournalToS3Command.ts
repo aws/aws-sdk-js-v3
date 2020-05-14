@@ -1,21 +1,11 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
-import {
-  ExportJournalToS3Request,
-  ExportJournalToS3Response
-} from "../models/index";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
+import { ExportJournalToS3Request, ExportJournalToS3Response } from "../models/index";
 import {
   deserializeAws_restJson1_1ExportJournalToS3Command,
   serializeAws_restJson1_1ExportJournalToS3Command
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportJournalToS3CommandInput = ExportJournalToS3Request;
-export type ExportJournalToS3CommandOutput = ExportJournalToS3Response &
-  __MetadataBearer;
+export type ExportJournalToS3CommandOutput = ExportJournalToS3Response & __MetadataBearer;
 
 export class ExportJournalToS3Command extends $Command<
   ExportJournalToS3CommandInput,
@@ -50,9 +39,7 @@ export class ExportJournalToS3Command extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportJournalToS3CommandInput, ExportJournalToS3CommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ExportJournalToS3Command extends $Command<
     );
   }
 
-  private serialize(
-    input: ExportJournalToS3CommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ExportJournalToS3CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ExportJournalToS3Command(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ExportJournalToS3CommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportJournalToS3CommandOutput> {
     return deserializeAws_restJson1_1ExportJournalToS3Command(output, context);
   }
 

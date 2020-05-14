@@ -14,22 +14,13 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput
 } from "./commands/EmptyInputAndEmptyOutputCommand";
-import {
-  FlattenedXmlMapCommandInput,
-  FlattenedXmlMapCommandOutput
-} from "./commands/FlattenedXmlMapCommand";
+import { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "./commands/FlattenedXmlMapCommand";
 import {
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
-import {
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput
-} from "./commands/GreetingWithErrorsCommand";
-import {
-  HttpPayloadTraitsCommandInput,
-  HttpPayloadTraitsCommandOutput
-} from "./commands/HttpPayloadTraitsCommand";
+import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
   HttpPayloadTraitsWithMediaTypeCommandOutput
@@ -50,10 +41,7 @@ import {
   HttpPayloadWithXmlNamespaceCommandInput,
   HttpPayloadWithXmlNamespaceCommandOutput
 } from "./commands/HttpPayloadWithXmlNamespaceCommand";
-import {
-  HttpPrefixHeadersCommandInput,
-  HttpPrefixHeadersCommandOutput
-} from "./commands/HttpPrefixHeadersCommand";
+import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
   HttpRequestWithGreedyLabelInPathCommandInput,
   HttpRequestWithGreedyLabelInPathCommandOutput
@@ -74,14 +62,8 @@ import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput
 } from "./commands/InputAndOutputWithHeadersCommand";
-import {
-  NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput
-} from "./commands/NoInputAndNoOutputCommand";
-import {
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput
-} from "./commands/NoInputAndOutputCommand";
+import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
+import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
   NullAndEmptyHeadersClientCommandInput,
   NullAndEmptyHeadersClientCommandOutput
@@ -98,10 +80,7 @@ import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
-import {
-  RecursiveShapesCommandInput,
-  RecursiveShapesCommandOutput
-} from "./commands/RecursiveShapesCommand";
+import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "./commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput
@@ -110,42 +89,18 @@ import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput
 } from "./commands/TimestampFormatHeadersCommand";
-import {
-  XmlAttributesCommandInput,
-  XmlAttributesCommandOutput
-} from "./commands/XmlAttributesCommand";
+import { XmlAttributesCommandInput, XmlAttributesCommandOutput } from "./commands/XmlAttributesCommand";
 import {
   XmlAttributesOnPayloadCommandInput,
   XmlAttributesOnPayloadCommandOutput
 } from "./commands/XmlAttributesOnPayloadCommand";
-import {
-  XmlBlobsCommandInput,
-  XmlBlobsCommandOutput
-} from "./commands/XmlBlobsCommand";
-import {
-  XmlEnumsCommandInput,
-  XmlEnumsCommandOutput
-} from "./commands/XmlEnumsCommand";
-import {
-  XmlListsCommandInput,
-  XmlListsCommandOutput
-} from "./commands/XmlListsCommand";
-import {
-  XmlMapsCommandInput,
-  XmlMapsCommandOutput
-} from "./commands/XmlMapsCommand";
-import {
-  XmlMapsXmlNameCommandInput,
-  XmlMapsXmlNameCommandOutput
-} from "./commands/XmlMapsXmlNameCommand";
-import {
-  XmlNamespacesCommandInput,
-  XmlNamespacesCommandOutput
-} from "./commands/XmlNamespacesCommand";
-import {
-  XmlTimestampsCommandInput,
-  XmlTimestampsCommandOutput
-} from "./commands/XmlTimestampsCommand";
+import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
+import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
+import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
+import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
+import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -162,12 +117,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -276,8 +226,7 @@ export type ServiceOutputTypes =
   | XmlNamespacesCommandOutput
   | XmlTimestampsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -361,9 +310,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RestXmlProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RestXmlProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -372,9 +319,7 @@ export type RestXmlProtocolClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RestXmlProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RestXmlProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,8 +1,4 @@
-import {
-  NeptuneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../NeptuneClient";
+import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   DescribeEngineDefaultClusterParametersMessage,
   DescribeEngineDefaultClusterParametersResult
@@ -12,10 +8,7 @@ import {
   serializeAws_queryDescribeEngineDefaultClusterParametersCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeEngineDefaultClusterParametersCommandInput
-  ) {
+  constructor(readonly input: DescribeEngineDefaultClusterParametersCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEngineDefaultClusterParametersCommandInput,
-    DescribeEngineDefaultClusterParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEngineDefaultClusterParametersCommandInput, DescribeEngineDefaultClusterParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     input: DescribeEngineDefaultClusterParametersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(
-      input,
-      context
-    );
+    return serializeAws_queryDescribeEngineDefaultClusterParametersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEngineDefaultClusterParametersCommandOutput> {
-    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeEngineDefaultClusterParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

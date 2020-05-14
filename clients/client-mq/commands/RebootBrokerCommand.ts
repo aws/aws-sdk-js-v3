@@ -1,18 +1,11 @@
 import { RebootBrokerRequest, RebootBrokerResponse } from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1_1RebootBrokerCommand,
   serializeAws_restJson1_1RebootBrokerCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class RebootBrokerCommand extends $Command<
     configuration: mqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootBrokerCommandInput, RebootBrokerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class RebootBrokerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RebootBrokerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RebootBrokerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RebootBrokerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RebootBrokerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RebootBrokerCommandOutput> {
     return deserializeAws_restJson1_1RebootBrokerCommand(output, context);
   }
 

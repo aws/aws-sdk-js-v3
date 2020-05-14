@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -21,25 +18,21 @@ export interface ApplicationSource {
 }
 
 export namespace ApplicationSource {
-  export const isa = (o: any): o is ApplicationSource =>
-    __isa(o, "ApplicationSource");
+  export const isa = (o: any): o is ApplicationSource => __isa(o, "ApplicationSource");
 }
 
 /**
  * <p>Concurrent updates caused an exception, for example, if you request an update to a
  *          scaling plan that already has a pending update.</p>
  */
-export interface ConcurrentUpdateException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentUpdateException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentUpdateException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace ConcurrentUpdateException {
-  export const isa = (o: any): o is ConcurrentUpdateException =>
-    __isa(o, "ConcurrentUpdateException");
+  export const isa = (o: any): o is ConcurrentUpdateException => __isa(o, "ConcurrentUpdateException");
 }
 
 export interface CreateScalingPlanRequest {
@@ -63,8 +56,7 @@ export interface CreateScalingPlanRequest {
 }
 
 export namespace CreateScalingPlanRequest {
-  export const isa = (o: any): o is CreateScalingPlanRequest =>
-    __isa(o, "CreateScalingPlanRequest");
+  export const isa = (o: any): o is CreateScalingPlanRequest => __isa(o, "CreateScalingPlanRequest");
 }
 
 export interface CreateScalingPlanResponse {
@@ -77,8 +69,7 @@ export interface CreateScalingPlanResponse {
 }
 
 export namespace CreateScalingPlanResponse {
-  export const isa = (o: any): o is CreateScalingPlanResponse =>
-    __isa(o, "CreateScalingPlanResponse");
+  export const isa = (o: any): o is CreateScalingPlanResponse => __isa(o, "CreateScalingPlanResponse");
 }
 
 /**
@@ -132,8 +123,7 @@ export interface CustomizedLoadMetricSpecification {
 }
 
 export namespace CustomizedLoadMetricSpecification {
-  export const isa = (o: any): o is CustomizedLoadMetricSpecification =>
-    __isa(o, "CustomizedLoadMetricSpecification");
+  export const isa = (o: any): o is CustomizedLoadMetricSpecification => __isa(o, "CustomizedLoadMetricSpecification");
 }
 
 /**
@@ -225,8 +215,7 @@ export interface DeleteScalingPlanRequest {
 }
 
 export namespace DeleteScalingPlanRequest {
-  export const isa = (o: any): o is DeleteScalingPlanRequest =>
-    __isa(o, "DeleteScalingPlanRequest");
+  export const isa = (o: any): o is DeleteScalingPlanRequest => __isa(o, "DeleteScalingPlanRequest");
 }
 
 export interface DeleteScalingPlanResponse {
@@ -234,8 +223,7 @@ export interface DeleteScalingPlanResponse {
 }
 
 export namespace DeleteScalingPlanResponse {
-  export const isa = (o: any): o is DeleteScalingPlanResponse =>
-    __isa(o, "DeleteScalingPlanResponse");
+  export const isa = (o: any): o is DeleteScalingPlanResponse => __isa(o, "DeleteScalingPlanResponse");
 }
 
 export interface DescribeScalingPlanResourcesRequest {
@@ -319,8 +307,7 @@ export interface DescribeScalingPlansRequest {
 }
 
 export namespace DescribeScalingPlansRequest {
-  export const isa = (o: any): o is DescribeScalingPlansRequest =>
-    __isa(o, "DescribeScalingPlansRequest");
+  export const isa = (o: any): o is DescribeScalingPlansRequest => __isa(o, "DescribeScalingPlansRequest");
 }
 
 export interface DescribeScalingPlansResponse {
@@ -338,8 +325,7 @@ export interface DescribeScalingPlansResponse {
 }
 
 export namespace DescribeScalingPlansResponse {
-  export const isa = (o: any): o is DescribeScalingPlansResponse =>
-    __isa(o, "DescribeScalingPlansResponse");
+  export const isa = (o: any): o is DescribeScalingPlansResponse => __isa(o, "DescribeScalingPlansResponse");
 }
 
 export enum ForecastDataType {
@@ -460,59 +446,48 @@ export interface GetScalingPlanResourceForecastDataResponse {
 }
 
 export namespace GetScalingPlanResourceForecastDataResponse {
-  export const isa = (
-    o: any
-  ): o is GetScalingPlanResourceForecastDataResponse =>
+  export const isa = (o: any): o is GetScalingPlanResourceForecastDataResponse =>
     __isa(o, "GetScalingPlanResourceForecastDataResponse");
 }
 
 /**
  * <p>The service encountered an internal error.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServiceException {
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
+  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
  * <p>The token provided is not valid.</p>
  */
-export interface InvalidNextTokenException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidNextTokenException {
-  export const isa = (o: any): o is InvalidNextTokenException =>
-    __isa(o, "InvalidNextTokenException");
+  export const isa = (o: any): o is InvalidNextTokenException => __isa(o, "InvalidNextTokenException");
 }
 
 /**
  * <p>Your account exceeded a limit. This exception is thrown when a per-account resource
  *          limit is exceeded.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 export enum LoadMetricType {
@@ -539,8 +514,7 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
-  export const isa = (o: any): o is MetricDimension =>
-    __isa(o, "MetricDimension");
+  export const isa = (o: any): o is MetricDimension => __isa(o, "MetricDimension");
 }
 
 export enum MetricStatistic {
@@ -554,17 +528,14 @@ export enum MetricStatistic {
 /**
  * <p>The specified object could not be found.</p>
  */
-export interface ObjectNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ObjectNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ObjectNotFoundException {
-  export const isa = (o: any): o is ObjectNotFoundException =>
-    __isa(o, "ObjectNotFoundException");
+  export const isa = (o: any): o is ObjectNotFoundException => __isa(o, "ObjectNotFoundException");
 }
 
 export enum PolicyType {
@@ -603,8 +574,7 @@ export interface PredefinedLoadMetricSpecification {
 }
 
 export namespace PredefinedLoadMetricSpecification {
-  export const isa = (o: any): o is PredefinedLoadMetricSpecification =>
-    __isa(o, "PredefinedLoadMetricSpecification");
+  export const isa = (o: any): o is PredefinedLoadMetricSpecification => __isa(o, "PredefinedLoadMetricSpecification");
 }
 
 /**
@@ -750,9 +720,7 @@ export interface ScalingInstruction {
    *          </ul>
    *          <p>Only valid when configuring predictive scaling.</p>
    */
-  PredictiveScalingMaxCapacityBehavior?:
-    | PredictiveScalingMaxCapacityBehavior
-    | string;
+  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | string;
 
   /**
    * <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds
@@ -888,8 +856,7 @@ export interface ScalingInstruction {
 }
 
 export namespace ScalingInstruction {
-  export const isa = (o: any): o is ScalingInstruction =>
-    __isa(o, "ScalingInstruction");
+  export const isa = (o: any): o is ScalingInstruction => __isa(o, "ScalingInstruction");
 }
 
 export enum ScalingMetricType {
@@ -1119,8 +1086,7 @@ export interface ScalingPlanResource {
 }
 
 export namespace ScalingPlanResource {
-  export const isa = (o: any): o is ScalingPlanResource =>
-    __isa(o, "ScalingPlanResource");
+  export const isa = (o: any): o is ScalingPlanResource => __isa(o, "ScalingPlanResource");
 }
 
 export enum ScalingPlanStatusCode {
@@ -1261,8 +1227,7 @@ export interface TargetTrackingConfiguration {
 }
 
 export namespace TargetTrackingConfiguration {
-  export const isa = (o: any): o is TargetTrackingConfiguration =>
-    __isa(o, "TargetTrackingConfiguration");
+  export const isa = (o: any): o is TargetTrackingConfiguration => __isa(o, "TargetTrackingConfiguration");
 }
 
 export interface UpdateScalingPlanRequest {
@@ -1289,8 +1254,7 @@ export interface UpdateScalingPlanRequest {
 }
 
 export namespace UpdateScalingPlanRequest {
-  export const isa = (o: any): o is UpdateScalingPlanRequest =>
-    __isa(o, "UpdateScalingPlanRequest");
+  export const isa = (o: any): o is UpdateScalingPlanRequest => __isa(o, "UpdateScalingPlanRequest");
 }
 
 export interface UpdateScalingPlanResponse {
@@ -1298,22 +1262,18 @@ export interface UpdateScalingPlanResponse {
 }
 
 export namespace UpdateScalingPlanResponse {
-  export const isa = (o: any): o is UpdateScalingPlanResponse =>
-    __isa(o, "UpdateScalingPlanResponse");
+  export const isa = (o: any): o is UpdateScalingPlanResponse => __isa(o, "UpdateScalingPlanResponse");
 }
 
 /**
  * <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

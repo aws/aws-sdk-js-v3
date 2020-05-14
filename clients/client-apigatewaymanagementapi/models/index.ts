@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DeleteConnectionRequest {
@@ -10,8 +7,7 @@ export interface DeleteConnectionRequest {
 }
 
 export namespace DeleteConnectionRequest {
-  export const isa = (o: any): o is DeleteConnectionRequest =>
-    __isa(o, "DeleteConnectionRequest");
+  export const isa = (o: any): o is DeleteConnectionRequest => __isa(o, "DeleteConnectionRequest");
 }
 
 /**
@@ -23,8 +19,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetConnectionRequest {
@@ -33,8 +28,7 @@ export interface GetConnectionRequest {
 }
 
 export namespace GetConnectionRequest {
-  export const isa = (o: any): o is GetConnectionRequest =>
-    __isa(o, "GetConnectionRequest");
+  export const isa = (o: any): o is GetConnectionRequest => __isa(o, "GetConnectionRequest");
 }
 
 export interface GetConnectionResponse {
@@ -52,8 +46,7 @@ export interface GetConnectionResponse {
 }
 
 export namespace GetConnectionResponse {
-  export const isa = (o: any): o is GetConnectionResponse =>
-    __isa(o, "GetConnectionResponse");
+  export const isa = (o: any): o is GetConnectionResponse => __isa(o, "GetConnectionResponse");
 }
 
 /**
@@ -88,32 +81,26 @@ export namespace Identity {
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
  * <p>The data has exceeded the maximum size allowed.</p>
  */
-export interface PayloadTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
   name: "PayloadTooLargeException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PayloadTooLargeException {
-  export const isa = (o: any): o is PayloadTooLargeException =>
-    __isa(o, "PayloadTooLargeException");
+  export const isa = (o: any): o is PayloadTooLargeException => __isa(o, "PayloadTooLargeException");
 }
 
 export interface PostToConnectionRequest {
@@ -130,6 +117,5 @@ export interface PostToConnectionRequest {
 }
 
 export namespace PostToConnectionRequest {
-  export const isa = (o: any): o is PostToConnectionRequest =>
-    __isa(o, "PostToConnectionRequest");
+  export const isa = (o: any): o is PostToConnectionRequest => __isa(o, "PostToConnectionRequest");
 }

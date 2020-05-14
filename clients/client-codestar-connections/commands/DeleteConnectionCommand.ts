@@ -9,10 +9,7 @@ import {
   serializeAws_json1_0DeleteConnectionCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteConnectionCommandInput = DeleteConnectionInput;
-export type DeleteConnectionCommandOutput = DeleteConnectionOutput &
-  __MetadataBearer;
+export type DeleteConnectionCommandOutput = DeleteConnectionOutput & __MetadataBearer;
 
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,
@@ -47,9 +43,7 @@ export class DeleteConnectionCommand extends $Command<
     configuration: CodeStarconnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteConnectionCommandInput, DeleteConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class DeleteConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DeleteConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteConnectionCommandOutput> {
     return deserializeAws_json1_0DeleteConnectionCommand(output, context);
   }
 

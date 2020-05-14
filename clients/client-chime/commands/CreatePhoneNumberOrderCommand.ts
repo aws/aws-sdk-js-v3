@@ -1,21 +1,11 @@
-import {
-  ChimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ChimeClient";
-import {
-  CreatePhoneNumberOrderRequest,
-  CreatePhoneNumberOrderResponse
-} from "../models/index";
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { CreatePhoneNumberOrderRequest, CreatePhoneNumberOrderResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreatePhoneNumberOrderCommand,
   serializeAws_restJson1_1CreatePhoneNumberOrderCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreatePhoneNumberOrderCommandInput = CreatePhoneNumberOrderRequest;
-export type CreatePhoneNumberOrderCommandOutput = CreatePhoneNumberOrderResponse &
-  __MetadataBearer;
+export type CreatePhoneNumberOrderCommandOutput = CreatePhoneNumberOrderResponse & __MetadataBearer;
 
 export class CreatePhoneNumberOrderCommand extends $Command<
   CreatePhoneNumberOrderCommandInput,
@@ -49,13 +38,8 @@ export class CreatePhoneNumberOrderCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreatePhoneNumberOrderCommandInput,
-    CreatePhoneNumberOrderCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreatePhoneNumberOrderCommandInput, CreatePhoneNumberOrderCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class CreatePhoneNumberOrderCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreatePhoneNumberOrderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreatePhoneNumberOrderCommand(
-      input,
-      context
-    );
+  private serialize(input: CreatePhoneNumberOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreatePhoneNumberOrderCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePhoneNumberOrderCommandOutput> {
-    return deserializeAws_restJson1_1CreatePhoneNumberOrderCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePhoneNumberOrderCommandOutput> {
+    return deserializeAws_restJson1_1CreatePhoneNumberOrderCommand(output, context);
   }
 
   // Start section: command_body_extra

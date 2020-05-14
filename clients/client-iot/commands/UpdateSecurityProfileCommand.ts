@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateSecurityProfileRequest,
-  UpdateSecurityProfileResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateSecurityProfileRequest, UpdateSecurityProfileResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateSecurityProfileCommand,
   serializeAws_restJson1_1UpdateSecurityProfileCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateSecurityProfileCommandInput = UpdateSecurityProfileRequest;
-export type UpdateSecurityProfileCommandOutput = UpdateSecurityProfileResponse &
-  __MetadataBearer;
+export type UpdateSecurityProfileCommandOutput = UpdateSecurityProfileResponse & __MetadataBearer;
 
 export class UpdateSecurityProfileCommand extends $Command<
   UpdateSecurityProfileCommandInput,
@@ -49,13 +38,8 @@ export class UpdateSecurityProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateSecurityProfileCommandInput,
-    UpdateSecurityProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateSecurityProfileCommandInput, UpdateSecurityProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateSecurityProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateSecurityProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateSecurityProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateSecurityProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateSecurityProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateSecurityProfileCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSecurityProfileCommandOutput> {
+    return deserializeAws_restJson1_1UpdateSecurityProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

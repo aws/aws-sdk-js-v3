@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -45,9 +42,7 @@ export type ContentType = "application/json" | "application/xml";
 /**
  * <p>Information about any problems encountered while processing an upload request.</p>
  */
-export interface DocumentServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentServiceException extends __SmithyException, $MetadataBearer {
   name: "DocumentServiceException";
   $fault: "client";
   /**
@@ -62,8 +57,7 @@ export interface DocumentServiceException
 }
 
 export namespace DocumentServiceException {
-  export const isa = (o: any): o is DocumentServiceException =>
-    __isa(o, "DocumentServiceException");
+  export const isa = (o: any): o is DocumentServiceException => __isa(o, "DocumentServiceException");
 }
 
 /**
@@ -78,8 +72,7 @@ export interface DocumentServiceWarning {
 }
 
 export namespace DocumentServiceWarning {
-  export const isa = (o: any): o is DocumentServiceWarning =>
-    __isa(o, "DocumentServiceWarning");
+  export const isa = (o: any): o is DocumentServiceWarning => __isa(o, "DocumentServiceWarning");
 }
 
 /**
@@ -210,8 +203,7 @@ export interface SearchException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SearchException {
-  export const isa = (o: any): o is SearchException =>
-    __isa(o, "SearchException");
+  export const isa = (o: any): o is SearchException => __isa(o, "SearchException");
 }
 
 /**
@@ -531,8 +523,7 @@ export interface SearchResponse {
 }
 
 export namespace SearchResponse {
-  export const isa = (o: any): o is SearchResponse =>
-    __isa(o, "SearchResponse");
+  export const isa = (o: any): o is SearchResponse => __isa(o, "SearchResponse");
 }
 
 /**
@@ -602,8 +593,7 @@ export interface SuggestRequest {
 }
 
 export namespace SuggestRequest {
-  export const isa = (o: any): o is SuggestRequest =>
-    __isa(o, "SuggestRequest");
+  export const isa = (o: any): o is SuggestRequest => __isa(o, "SuggestRequest");
 }
 
 /**
@@ -623,8 +613,7 @@ export interface SuggestResponse {
 }
 
 export namespace SuggestResponse {
-  export const isa = (o: any): o is SuggestResponse =>
-    __isa(o, "SuggestResponse");
+  export const isa = (o: any): o is SuggestResponse => __isa(o, "SuggestResponse");
 }
 
 /**
@@ -669,8 +658,7 @@ export interface SuggestionMatch {
 }
 
 export namespace SuggestionMatch {
-  export const isa = (o: any): o is SuggestionMatch =>
-    __isa(o, "SuggestionMatch");
+  export const isa = (o: any): o is SuggestionMatch => __isa(o, "SuggestionMatch");
 }
 
 /**
@@ -694,8 +682,7 @@ export interface UploadDocumentsRequest {
 }
 
 export namespace UploadDocumentsRequest {
-  export const isa = (o: any): o is UploadDocumentsRequest =>
-    __isa(o, "UploadDocumentsRequest");
+  export const isa = (o: any): o is UploadDocumentsRequest => __isa(o, "UploadDocumentsRequest");
 }
 
 /**
@@ -725,6 +712,5 @@ export interface UploadDocumentsResponse {
 }
 
 export namespace UploadDocumentsResponse {
-  export const isa = (o: any): o is UploadDocumentsResponse =>
-    __isa(o, "UploadDocumentsResponse");
+  export const isa = (o: any): o is UploadDocumentsResponse => __isa(o, "UploadDocumentsResponse");
 }

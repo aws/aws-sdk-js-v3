@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeEgressOnlyInternetGatewaysRequest,
-  DescribeEgressOnlyInternetGatewaysResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeEgressOnlyInternetGatewaysRequest, DescribeEgressOnlyInternetGatewaysResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
   serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeEgressOnlyInternetGatewaysCommandInput,
-    DescribeEgressOnlyInternetGatewaysCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeEgressOnlyInternetGatewaysCommandInput, DescribeEgressOnlyInternetGatewaysCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command<
     input: DescribeEgressOnlyInternetGatewaysCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
-      input,
-      context
-    );
+    return serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> {
-    return deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(
-      output,
-      context
-    );
+    return deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand(output, context);
   }
 
   // Start section: command_body_extra

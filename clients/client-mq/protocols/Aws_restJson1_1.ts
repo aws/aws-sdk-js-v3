@@ -1,35 +1,14 @@
-import {
-  CreateBrokerCommandInput,
-  CreateBrokerCommandOutput
-} from "../commands/CreateBrokerCommand";
+import { CreateBrokerCommandInput, CreateBrokerCommandOutput } from "../commands/CreateBrokerCommand";
 import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput
 } from "../commands/CreateConfigurationCommand";
-import {
-  CreateTagsCommandInput,
-  CreateTagsCommandOutput
-} from "../commands/CreateTagsCommand";
-import {
-  CreateUserCommandInput,
-  CreateUserCommandOutput
-} from "../commands/CreateUserCommand";
-import {
-  DeleteBrokerCommandInput,
-  DeleteBrokerCommandOutput
-} from "../commands/DeleteBrokerCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "../commands/DeleteTagsCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "../commands/DeleteUserCommand";
-import {
-  DescribeBrokerCommandInput,
-  DescribeBrokerCommandOutput
-} from "../commands/DescribeBrokerCommand";
+import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "../commands/DeleteBrokerCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "../commands/DescribeBrokerCommand";
 import {
   DescribeBrokerEngineTypesCommandInput,
   DescribeBrokerEngineTypesCommandOutput
@@ -46,46 +25,22 @@ import {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput
 } from "../commands/DescribeConfigurationRevisionCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "../commands/DescribeUserCommand";
-import {
-  ListBrokersCommandInput,
-  ListBrokersCommandOutput
-} from "../commands/ListBrokersCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
+import { ListBrokersCommandInput, ListBrokersCommandOutput } from "../commands/ListBrokersCommand";
 import {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput
 } from "../commands/ListConfigurationRevisionsCommand";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput
-} from "../commands/ListConfigurationsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "../commands/ListTagsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "../commands/ListUsersCommand";
-import {
-  RebootBrokerCommandInput,
-  RebootBrokerCommandOutput
-} from "../commands/RebootBrokerCommand";
-import {
-  UpdateBrokerCommandInput,
-  UpdateBrokerCommandOutput
-} from "../commands/UpdateBrokerCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "../commands/RebootBrokerCommand";
+import { UpdateBrokerCommandInput, UpdateBrokerCommandOutput } from "../commands/UpdateBrokerCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput
 } from "../commands/UpdateConfigurationCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "../commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   AvailabilityZone,
   BadRequestException,
@@ -114,10 +69,7 @@ import {
   UserSummary,
   WeeklyStartTime
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -145,20 +97,14 @@ export const serializeAws_restJson1_1CreateBrokerCommand = async (
     }),
     ...(input.BrokerName !== undefined && { brokerName: input.BrokerName }),
     ...(input.Configuration !== undefined && {
-      configuration: serializeAws_restJson1_1ConfigurationId(
-        input.Configuration,
-        context
-      )
+      configuration: serializeAws_restJson1_1ConfigurationId(input.Configuration, context)
     }),
     creatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
     ...(input.DeploymentMode !== undefined && {
       deploymentMode: input.DeploymentMode
     }),
     ...(input.EncryptionOptions !== undefined && {
-      encryptionOptions: serializeAws_restJson1_1EncryptionOptions(
-        input.EncryptionOptions,
-        context
-      )
+      encryptionOptions: serializeAws_restJson1_1EncryptionOptions(input.EncryptionOptions, context)
     }),
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
     ...(input.EngineVersion !== undefined && {
@@ -171,26 +117,17 @@ export const serializeAws_restJson1_1CreateBrokerCommand = async (
       logs: serializeAws_restJson1_1Logs(input.Logs, context)
     }),
     ...(input.MaintenanceWindowStartTime !== undefined && {
-      maintenanceWindowStartTime: serializeAws_restJson1_1WeeklyStartTime(
-        input.MaintenanceWindowStartTime,
-        context
-      )
+      maintenanceWindowStartTime: serializeAws_restJson1_1WeeklyStartTime(input.MaintenanceWindowStartTime, context)
     }),
     ...(input.PubliclyAccessible !== undefined && {
       publiclyAccessible: input.PubliclyAccessible
     }),
     ...(input.SecurityGroups !== undefined && {
-      securityGroups: serializeAws_restJson1_1__listOf__string(
-        input.SecurityGroups,
-        context
-      )
+      securityGroups: serializeAws_restJson1_1__listOf__string(input.SecurityGroups, context)
     }),
     ...(input.StorageType !== undefined && { storageType: input.StorageType }),
     ...(input.SubnetIds !== undefined && {
-      subnetIds: serializeAws_restJson1_1__listOf__string(
-        input.SubnetIds,
-        context
-      )
+      subnetIds: serializeAws_restJson1_1__listOf__string(input.SubnetIds, context)
     }),
     ...(input.Tags !== undefined && {
       tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
@@ -253,14 +190,9 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -295,10 +227,7 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -307,10 +236,7 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Username}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
@@ -349,10 +275,7 @@ export const serializeAws_restJson1_1DeleteBrokerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -380,14 +303,9 @@ export const serializeAws_restJson1_1DeleteTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -423,10 +341,7 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -435,10 +350,7 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Username}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
@@ -468,10 +380,7 @@ export const serializeAws_restJson1_1DescribeBrokerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -561,14 +470,9 @@ export const serializeAws_restJson1_1DescribeConfigurationCommand = async (
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConfigurationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConfigurationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
@@ -592,37 +496,24 @@ export const serializeAws_restJson1_1DescribeConfigurationRevisionCommand = asyn
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}";
+  let resolvedPath = "/v1/configurations/{ConfigurationId}/revisions/{ConfigurationRevision}";
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConfigurationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConfigurationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   if (input.ConfigurationRevision !== undefined) {
     const labelValue: string = input.ConfigurationRevision;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationRevision."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationRevision.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConfigurationRevision}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConfigurationRevision}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: ConfigurationRevision."
-    );
+    throw new Error("No value provided for input HTTP label: ConfigurationRevision.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -650,10 +541,7 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -662,10 +550,7 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Username}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
@@ -721,14 +606,9 @@ export const serializeAws_restJson1_1ListConfigurationRevisionsCommand = async (
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConfigurationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConfigurationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
@@ -791,14 +671,9 @@ export const serializeAws_restJson1_1ListTagsCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -828,10 +703,7 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -868,10 +740,7 @@ export const serializeAws_restJson1_1RebootBrokerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -901,10 +770,7 @@ export const serializeAws_restJson1_1UpdateBrokerCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -914,10 +780,7 @@ export const serializeAws_restJson1_1UpdateBrokerCommand = async (
       autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade
     }),
     ...(input.Configuration !== undefined && {
-      configuration: serializeAws_restJson1_1ConfigurationId(
-        input.Configuration,
-        context
-      )
+      configuration: serializeAws_restJson1_1ConfigurationId(input.Configuration, context)
     }),
     ...(input.EngineVersion !== undefined && {
       engineVersion: input.EngineVersion
@@ -929,10 +792,7 @@ export const serializeAws_restJson1_1UpdateBrokerCommand = async (
       logs: serializeAws_restJson1_1Logs(input.Logs, context)
     }),
     ...(input.SecurityGroups !== undefined && {
-      securityGroups: serializeAws_restJson1_1__listOf__string(
-        input.SecurityGroups,
-        context
-      )
+      securityGroups: serializeAws_restJson1_1__listOf__string(input.SecurityGroups, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -958,14 +818,9 @@ export const serializeAws_restJson1_1UpdateConfigurationCommand = async (
   if (input.ConfigurationId !== undefined) {
     const labelValue: string = input.ConfigurationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ConfigurationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: ConfigurationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ConfigurationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ConfigurationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
@@ -999,10 +854,7 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: BrokerId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{BrokerId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{BrokerId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
@@ -1011,10 +863,7 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Username.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Username}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Username}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Username.");
   }
@@ -1078,10 +927,7 @@ const deserializeAws_restJson1_1CreateBrokerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1089,10 +935,7 @@ const deserializeAws_restJson1_1CreateBrokerCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1100,10 +943,7 @@ const deserializeAws_restJson1_1CreateBrokerCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1111,10 +951,7 @@ const deserializeAws_restJson1_1CreateBrokerCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1122,10 +959,7 @@ const deserializeAws_restJson1_1CreateBrokerCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.mq#UnauthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1152,10 +986,7 @@ export const deserializeAws_restJson1_1CreateConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateConfigurationCommandError(output, context);
   }
   const contents: CreateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1177,10 +1008,7 @@ export const deserializeAws_restJson1_1CreateConfigurationCommand = async (
     contents.Id = data.id;
   }
   if (data.latestRevision !== undefined && data.latestRevision !== null) {
-    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(
-      data.latestRevision,
-      context
-    );
+    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(data.latestRevision, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
@@ -1203,10 +1031,7 @@ const deserializeAws_restJson1_1CreateConfigurationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1214,10 +1039,7 @@ const deserializeAws_restJson1_1CreateConfigurationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1225,10 +1047,7 @@ const deserializeAws_restJson1_1CreateConfigurationCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1236,10 +1055,7 @@ const deserializeAws_restJson1_1CreateConfigurationCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1290,10 +1106,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1301,10 +1114,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1312,10 +1122,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1323,10 +1130,7 @@ const deserializeAws_restJson1_1CreateTagsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1378,10 +1182,7 @@ const deserializeAws_restJson1_1CreateUserCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1389,10 +1190,7 @@ const deserializeAws_restJson1_1CreateUserCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1400,10 +1198,7 @@ const deserializeAws_restJson1_1CreateUserCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1411,10 +1206,7 @@ const deserializeAws_restJson1_1CreateUserCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1422,10 +1214,7 @@ const deserializeAws_restJson1_1CreateUserCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1481,10 +1270,7 @@ const deserializeAws_restJson1_1DeleteBrokerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1492,10 +1278,7 @@ const deserializeAws_restJson1_1DeleteBrokerCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1503,10 +1286,7 @@ const deserializeAws_restJson1_1DeleteBrokerCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1514,10 +1294,7 @@ const deserializeAws_restJson1_1DeleteBrokerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1568,10 +1345,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1579,10 +1353,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1590,10 +1361,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1601,10 +1369,7 @@ const deserializeAws_restJson1_1DeleteTagsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1656,10 +1421,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1667,10 +1429,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1678,10 +1437,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1689,10 +1445,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1719,10 +1472,7 @@ export const deserializeAws_restJson1_1DescribeBrokerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBrokerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeBrokerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBrokerCommandError(output, context);
   }
   const contents: DescribeBrokerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1753,10 +1503,7 @@ export const deserializeAws_restJson1_1DescribeBrokerCommand = async (
     Users: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.autoMinorVersionUpgrade !== undefined &&
-    data.autoMinorVersionUpgrade !== null
-  ) {
+  if (data.autoMinorVersionUpgrade !== undefined && data.autoMinorVersionUpgrade !== null) {
     contents.AutoMinorVersionUpgrade = data.autoMinorVersionUpgrade;
   }
   if (data.brokerArn !== undefined && data.brokerArn !== null) {
@@ -1766,10 +1513,7 @@ export const deserializeAws_restJson1_1DescribeBrokerCommand = async (
     contents.BrokerId = data.brokerId;
   }
   if (data.brokerInstances !== undefined && data.brokerInstances !== null) {
-    contents.BrokerInstances = deserializeAws_restJson1_1__listOfBrokerInstance(
-      data.brokerInstances,
-      context
-    );
+    contents.BrokerInstances = deserializeAws_restJson1_1__listOfBrokerInstance(data.brokerInstances, context);
   }
   if (data.brokerName !== undefined && data.brokerName !== null) {
     contents.BrokerName = data.brokerName;
@@ -1778,10 +1522,7 @@ export const deserializeAws_restJson1_1DescribeBrokerCommand = async (
     contents.BrokerState = data.brokerState;
   }
   if (data.configurations !== undefined && data.configurations !== null) {
-    contents.Configurations = deserializeAws_restJson1_1Configurations(
-      data.configurations,
-      context
-    );
+    contents.Configurations = deserializeAws_restJson1_1Configurations(data.configurations, context);
   }
   if (data.created !== undefined && data.created !== null) {
     contents.Created = new Date(data.created);
@@ -1790,10 +1531,7 @@ export const deserializeAws_restJson1_1DescribeBrokerCommand = async (
     contents.DeploymentMode = data.deploymentMode;
   }
   if (data.encryptionOptions !== undefined && data.encryptionOptions !== null) {
-    contents.EncryptionOptions = deserializeAws_restJson1_1EncryptionOptions(
-      data.encryptionOptions,
-      context
-    );
+    contents.EncryptionOptions = deserializeAws_restJson1_1EncryptionOptions(data.encryptionOptions, context);
   }
   if (data.engineType !== undefined && data.engineType !== null) {
     contents.EngineType = data.engineType;
@@ -1807,68 +1545,38 @@ export const deserializeAws_restJson1_1DescribeBrokerCommand = async (
   if (data.logs !== undefined && data.logs !== null) {
     contents.Logs = deserializeAws_restJson1_1LogsSummary(data.logs, context);
   }
-  if (
-    data.maintenanceWindowStartTime !== undefined &&
-    data.maintenanceWindowStartTime !== null
-  ) {
+  if (data.maintenanceWindowStartTime !== undefined && data.maintenanceWindowStartTime !== null) {
     contents.MaintenanceWindowStartTime = deserializeAws_restJson1_1WeeklyStartTime(
       data.maintenanceWindowStartTime,
       context
     );
   }
-  if (
-    data.pendingEngineVersion !== undefined &&
-    data.pendingEngineVersion !== null
-  ) {
+  if (data.pendingEngineVersion !== undefined && data.pendingEngineVersion !== null) {
     contents.PendingEngineVersion = data.pendingEngineVersion;
   }
-  if (
-    data.pendingHostInstanceType !== undefined &&
-    data.pendingHostInstanceType !== null
-  ) {
+  if (data.pendingHostInstanceType !== undefined && data.pendingHostInstanceType !== null) {
     contents.PendingHostInstanceType = data.pendingHostInstanceType;
   }
-  if (
-    data.pendingSecurityGroups !== undefined &&
-    data.pendingSecurityGroups !== null
-  ) {
-    contents.PendingSecurityGroups = deserializeAws_restJson1_1__listOf__string(
-      data.pendingSecurityGroups,
-      context
-    );
+  if (data.pendingSecurityGroups !== undefined && data.pendingSecurityGroups !== null) {
+    contents.PendingSecurityGroups = deserializeAws_restJson1_1__listOf__string(data.pendingSecurityGroups, context);
   }
-  if (
-    data.publiclyAccessible !== undefined &&
-    data.publiclyAccessible !== null
-  ) {
+  if (data.publiclyAccessible !== undefined && data.publiclyAccessible !== null) {
     contents.PubliclyAccessible = data.publiclyAccessible;
   }
   if (data.securityGroups !== undefined && data.securityGroups !== null) {
-    contents.SecurityGroups = deserializeAws_restJson1_1__listOf__string(
-      data.securityGroups,
-      context
-    );
+    contents.SecurityGroups = deserializeAws_restJson1_1__listOf__string(data.securityGroups, context);
   }
   if (data.storageType !== undefined && data.storageType !== null) {
     contents.StorageType = data.storageType;
   }
   if (data.subnetIds !== undefined && data.subnetIds !== null) {
-    contents.SubnetIds = deserializeAws_restJson1_1__listOf__string(
-      data.subnetIds,
-      context
-    );
+    contents.SubnetIds = deserializeAws_restJson1_1__listOf__string(data.subnetIds, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   if (data.users !== undefined && data.users !== null) {
-    contents.Users = deserializeAws_restJson1_1__listOfUserSummary(
-      data.users,
-      context
-    );
+    contents.Users = deserializeAws_restJson1_1__listOfUserSummary(data.users, context);
   }
   return Promise.resolve(contents);
 };
@@ -1888,10 +1596,7 @@ const deserializeAws_restJson1_1DescribeBrokerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1899,10 +1604,7 @@ const deserializeAws_restJson1_1DescribeBrokerCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1910,10 +1612,7 @@ const deserializeAws_restJson1_1DescribeBrokerCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1921,10 +1620,7 @@ const deserializeAws_restJson1_1DescribeBrokerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1951,10 +1647,7 @@ export const deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand = async 
   context: __SerdeContext
 ): Promise<DescribeBrokerEngineTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError(output, context);
   }
   const contents: DescribeBrokerEngineTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1965,10 +1658,7 @@ export const deserializeAws_restJson1_1DescribeBrokerEngineTypesCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.brokerEngineTypes !== undefined && data.brokerEngineTypes !== null) {
-    contents.BrokerEngineTypes = deserializeAws_restJson1_1__listOfBrokerEngineType(
-      data.brokerEngineTypes,
-      context
-    );
+    contents.BrokerEngineTypes = deserializeAws_restJson1_1__listOfBrokerEngineType(data.brokerEngineTypes, context);
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
     contents.MaxResults = data.maxResults;
@@ -1994,10 +1684,7 @@ const deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2005,10 +1692,7 @@ const deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2016,10 +1700,7 @@ const deserializeAws_restJson1_1DescribeBrokerEngineTypesCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2046,10 +1727,7 @@ export const deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand = as
   context: __SerdeContext
 ): Promise<DescribeBrokerInstanceOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandError(output, context);
   }
   const contents: DescribeBrokerInstanceOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2059,10 +1737,7 @@ export const deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommand = as
     NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.brokerInstanceOptions !== undefined &&
-    data.brokerInstanceOptions !== null
-  ) {
+  if (data.brokerInstanceOptions !== undefined && data.brokerInstanceOptions !== null) {
     contents.BrokerInstanceOptions = deserializeAws_restJson1_1__listOfBrokerInstanceOption(
       data.brokerInstanceOptions,
       context
@@ -2092,10 +1767,7 @@ const deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2103,10 +1775,7 @@ const deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandError = asyn
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2114,10 +1783,7 @@ const deserializeAws_restJson1_1DescribeBrokerInstanceOptionsCommandError = asyn
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2144,10 +1810,7 @@ export const deserializeAws_restJson1_1DescribeConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeConfigurationCommandError(output, context);
   }
   const contents: DescribeConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2182,19 +1845,13 @@ export const deserializeAws_restJson1_1DescribeConfigurationCommand = async (
     contents.Id = data.id;
   }
   if (data.latestRevision !== undefined && data.latestRevision !== null) {
-    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(
-      data.latestRevision,
-      context
-    );
+    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(data.latestRevision, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
   if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -2214,10 +1871,7 @@ const deserializeAws_restJson1_1DescribeConfigurationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2225,10 +1879,7 @@ const deserializeAws_restJson1_1DescribeConfigurationCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2236,10 +1887,7 @@ const deserializeAws_restJson1_1DescribeConfigurationCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2247,10 +1895,7 @@ const deserializeAws_restJson1_1DescribeConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2277,10 +1922,7 @@ export const deserializeAws_restJson1_1DescribeConfigurationRevisionCommand = as
   context: __SerdeContext
 ): Promise<DescribeConfigurationRevisionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError(output, context);
   }
   const contents: DescribeConfigurationRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2321,10 +1963,7 @@ const deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError = asyn
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2332,10 +1971,7 @@ const deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError = asyn
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2343,10 +1979,7 @@ const deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError = asyn
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2354,10 +1987,7 @@ const deserializeAws_restJson1_1DescribeConfigurationRevisionCommandError = asyn
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2403,16 +2033,10 @@ export const deserializeAws_restJson1_1DescribeUserCommand = async (
     contents.ConsoleAccess = data.consoleAccess;
   }
   if (data.groups !== undefined && data.groups !== null) {
-    contents.Groups = deserializeAws_restJson1_1__listOf__string(
-      data.groups,
-      context
-    );
+    contents.Groups = deserializeAws_restJson1_1__listOf__string(data.groups, context);
   }
   if (data.pending !== undefined && data.pending !== null) {
-    contents.Pending = deserializeAws_restJson1_1UserPendingChanges(
-      data.pending,
-      context
-    );
+    contents.Pending = deserializeAws_restJson1_1UserPendingChanges(data.pending, context);
   }
   if (data.username !== undefined && data.username !== null) {
     contents.Username = data.username;
@@ -2435,10 +2059,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2446,10 +2067,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2457,10 +2075,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2468,10 +2083,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2508,10 +2120,7 @@ export const deserializeAws_restJson1_1ListBrokersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.brokerSummaries !== undefined && data.brokerSummaries !== null) {
-    contents.BrokerSummaries = deserializeAws_restJson1_1__listOfBrokerSummary(
-      data.brokerSummaries,
-      context
-    );
+    contents.BrokerSummaries = deserializeAws_restJson1_1__listOfBrokerSummary(data.brokerSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -2534,10 +2143,7 @@ const deserializeAws_restJson1_1ListBrokersCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2545,10 +2151,7 @@ const deserializeAws_restJson1_1ListBrokersCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2556,10 +2159,7 @@ const deserializeAws_restJson1_1ListBrokersCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2586,10 +2186,7 @@ export const deserializeAws_restJson1_1ListConfigurationRevisionsCommand = async
   context: __SerdeContext
 ): Promise<ListConfigurationRevisionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(output, context);
   }
   const contents: ListConfigurationRevisionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2610,10 +2207,7 @@ export const deserializeAws_restJson1_1ListConfigurationRevisionsCommand = async
     contents.NextToken = data.nextToken;
   }
   if (data.revisions !== undefined && data.revisions !== null) {
-    contents.Revisions = deserializeAws_restJson1_1__listOfConfigurationRevision(
-      data.revisions,
-      context
-    );
+    contents.Revisions = deserializeAws_restJson1_1__listOfConfigurationRevision(data.revisions, context);
   }
   return Promise.resolve(contents);
 };
@@ -2633,10 +2227,7 @@ const deserializeAws_restJson1_1ListConfigurationRevisionsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2644,10 +2235,7 @@ const deserializeAws_restJson1_1ListConfigurationRevisionsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2655,10 +2243,7 @@ const deserializeAws_restJson1_1ListConfigurationRevisionsCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2666,10 +2251,7 @@ const deserializeAws_restJson1_1ListConfigurationRevisionsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2696,10 +2278,7 @@ export const deserializeAws_restJson1_1ListConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListConfigurationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListConfigurationsCommandError(output, context);
   }
   const contents: ListConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2710,10 +2289,7 @@ export const deserializeAws_restJson1_1ListConfigurationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.configurations !== undefined && data.configurations !== null) {
-    contents.Configurations = deserializeAws_restJson1_1__listOfConfiguration(
-      data.configurations,
-      context
-    );
+    contents.Configurations = deserializeAws_restJson1_1__listOfConfiguration(data.configurations, context);
   }
   if (data.maxResults !== undefined && data.maxResults !== null) {
     contents.MaxResults = data.maxResults;
@@ -2739,10 +2315,7 @@ const deserializeAws_restJson1_1ListConfigurationsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2750,10 +2323,7 @@ const deserializeAws_restJson1_1ListConfigurationsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2761,10 +2331,7 @@ const deserializeAws_restJson1_1ListConfigurationsCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2800,10 +2367,7 @@ export const deserializeAws_restJson1_1ListTagsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -2823,10 +2387,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2834,10 +2395,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2845,10 +2403,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2856,10 +2411,7 @@ const deserializeAws_restJson1_1ListTagsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2907,10 +2459,7 @@ export const deserializeAws_restJson1_1ListUsersCommand = async (
     contents.NextToken = data.nextToken;
   }
   if (data.users !== undefined && data.users !== null) {
-    contents.Users = deserializeAws_restJson1_1__listOfUserSummary(
-      data.users,
-      context
-    );
+    contents.Users = deserializeAws_restJson1_1__listOfUserSummary(data.users, context);
   }
   return Promise.resolve(contents);
 };
@@ -2930,10 +2479,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2941,10 +2487,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2952,10 +2495,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2963,10 +2503,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3018,10 +2555,7 @@ const deserializeAws_restJson1_1RebootBrokerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3029,10 +2563,7 @@ const deserializeAws_restJson1_1RebootBrokerCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3040,10 +2571,7 @@ const deserializeAws_restJson1_1RebootBrokerCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3051,10 +2579,7 @@ const deserializeAws_restJson1_1RebootBrokerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3095,20 +2620,14 @@ export const deserializeAws_restJson1_1UpdateBrokerCommand = async (
     SecurityGroups: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.autoMinorVersionUpgrade !== undefined &&
-    data.autoMinorVersionUpgrade !== null
-  ) {
+  if (data.autoMinorVersionUpgrade !== undefined && data.autoMinorVersionUpgrade !== null) {
     contents.AutoMinorVersionUpgrade = data.autoMinorVersionUpgrade;
   }
   if (data.brokerId !== undefined && data.brokerId !== null) {
     contents.BrokerId = data.brokerId;
   }
   if (data.configuration !== undefined && data.configuration !== null) {
-    contents.Configuration = deserializeAws_restJson1_1ConfigurationId(
-      data.configuration,
-      context
-    );
+    contents.Configuration = deserializeAws_restJson1_1ConfigurationId(data.configuration, context);
   }
   if (data.engineVersion !== undefined && data.engineVersion !== null) {
     contents.EngineVersion = data.engineVersion;
@@ -3120,10 +2639,7 @@ export const deserializeAws_restJson1_1UpdateBrokerCommand = async (
     contents.Logs = deserializeAws_restJson1_1Logs(data.logs, context);
   }
   if (data.securityGroups !== undefined && data.securityGroups !== null) {
-    contents.SecurityGroups = deserializeAws_restJson1_1__listOf__string(
-      data.securityGroups,
-      context
-    );
+    contents.SecurityGroups = deserializeAws_restJson1_1__listOf__string(data.securityGroups, context);
   }
   return Promise.resolve(contents);
 };
@@ -3143,10 +2659,7 @@ const deserializeAws_restJson1_1UpdateBrokerCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3154,10 +2667,7 @@ const deserializeAws_restJson1_1UpdateBrokerCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3165,10 +2675,7 @@ const deserializeAws_restJson1_1UpdateBrokerCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3176,10 +2683,7 @@ const deserializeAws_restJson1_1UpdateBrokerCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3187,10 +2691,7 @@ const deserializeAws_restJson1_1UpdateBrokerCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3217,10 +2718,7 @@ export const deserializeAws_restJson1_1UpdateConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateConfigurationCommandError(output, context);
   }
   const contents: UpdateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -3243,19 +2741,13 @@ export const deserializeAws_restJson1_1UpdateConfigurationCommand = async (
     contents.Id = data.id;
   }
   if (data.latestRevision !== undefined && data.latestRevision !== null) {
-    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(
-      data.latestRevision,
-      context
-    );
+    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(data.latestRevision, context);
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
   }
   if (data.warnings !== undefined && data.warnings !== null) {
-    contents.Warnings = deserializeAws_restJson1_1__listOfSanitizationWarning(
-      data.warnings,
-      context
-    );
+    contents.Warnings = deserializeAws_restJson1_1__listOfSanitizationWarning(data.warnings, context);
   }
   return Promise.resolve(contents);
 };
@@ -3275,10 +2767,7 @@ const deserializeAws_restJson1_1UpdateConfigurationCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3286,10 +2775,7 @@ const deserializeAws_restJson1_1UpdateConfigurationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3297,10 +2783,7 @@ const deserializeAws_restJson1_1UpdateConfigurationCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3308,10 +2791,7 @@ const deserializeAws_restJson1_1UpdateConfigurationCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3319,10 +2799,7 @@ const deserializeAws_restJson1_1UpdateConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3374,10 +2851,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.mq#BadRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3385,10 +2859,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "ConflictException":
     case "com.amazonaws.mq#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3396,10 +2867,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.mq#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3407,10 +2875,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.mq#InternalServerErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3418,10 +2883,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.mq#NotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3569,20 +3031,14 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1ConfigurationId = (
-  input: ConfigurationId,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ConfigurationId = (input: ConfigurationId, context: __SerdeContext): any => {
   return {
     ...(input.Id !== undefined && { id: input.Id }),
     ...(input.Revision !== undefined && { revision: input.Revision })
   };
 };
 
-const serializeAws_restJson1_1EncryptionOptions = (
-  input: EncryptionOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1EncryptionOptions = (input: EncryptionOptions, context: __SerdeContext): any => {
   return {
     ...(input.KmsKeyId !== undefined && { kmsKeyId: input.KmsKeyId }),
     ...(input.UseAwsOwnedKey !== undefined && {
@@ -3591,20 +3047,14 @@ const serializeAws_restJson1_1EncryptionOptions = (
   };
 };
 
-const serializeAws_restJson1_1Logs = (
-  input: Logs,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Logs = (input: Logs, context: __SerdeContext): any => {
   return {
     ...(input.Audit !== undefined && { audit: input.Audit }),
     ...(input.General !== undefined && { general: input.General })
   };
 };
 
-const serializeAws_restJson1_1User = (
-  input: User,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1User = (input: User, context: __SerdeContext): any => {
   return {
     ...(input.ConsoleAccess !== undefined && {
       consoleAccess: input.ConsoleAccess
@@ -3617,10 +3067,7 @@ const serializeAws_restJson1_1User = (
   };
 };
 
-const serializeAws_restJson1_1WeeklyStartTime = (
-  input: WeeklyStartTime,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1WeeklyStartTime = (input: WeeklyStartTime, context: __SerdeContext): any => {
   return {
     ...(input.DayOfWeek !== undefined && { dayOfWeek: input.DayOfWeek }),
     ...(input.TimeOfDay !== undefined && { timeOfDay: input.TimeOfDay }),
@@ -3628,24 +3075,15 @@ const serializeAws_restJson1_1WeeklyStartTime = (
   };
 };
 
-const serializeAws_restJson1_1__listOfUser = (
-  input: User[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1__listOfUser = (input: User[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1User(entry, context));
 };
 
-const serializeAws_restJson1_1__listOf__string = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1__listOf__string = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1__mapOf__string = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3655,178 +3093,88 @@ const serializeAws_restJson1_1__mapOf__string = (
   );
 };
 
-const deserializeAws_restJson1_1AvailabilityZone = (
-  output: any,
-  context: __SerdeContext
-): AvailabilityZone => {
+const deserializeAws_restJson1_1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   return {
     __type: "AvailabilityZone",
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1BrokerEngineType = (
-  output: any,
-  context: __SerdeContext
-): BrokerEngineType => {
+const deserializeAws_restJson1_1BrokerEngineType = (output: any, context: __SerdeContext): BrokerEngineType => {
   return {
     __type: "BrokerEngineType",
-    EngineType:
-      output.engineType !== undefined && output.engineType !== null
-        ? output.engineType
-        : undefined,
+    EngineType: output.engineType !== undefined && output.engineType !== null ? output.engineType : undefined,
     EngineVersions:
       output.engineVersions !== undefined && output.engineVersions !== null
-        ? deserializeAws_restJson1_1__listOfEngineVersion(
-            output.engineVersions,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfEngineVersion(output.engineVersions, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1BrokerInstance = (
-  output: any,
-  context: __SerdeContext
-): BrokerInstance => {
+const deserializeAws_restJson1_1BrokerInstance = (output: any, context: __SerdeContext): BrokerInstance => {
   return {
     __type: "BrokerInstance",
-    ConsoleURL:
-      output.consoleURL !== undefined && output.consoleURL !== null
-        ? output.consoleURL
-        : undefined,
+    ConsoleURL: output.consoleURL !== undefined && output.consoleURL !== null ? output.consoleURL : undefined,
     Endpoints:
       output.endpoints !== undefined && output.endpoints !== null
         ? deserializeAws_restJson1_1__listOf__string(output.endpoints, context)
         : undefined,
-    IpAddress:
-      output.ipAddress !== undefined && output.ipAddress !== null
-        ? output.ipAddress
-        : undefined
+    IpAddress: output.ipAddress !== undefined && output.ipAddress !== null ? output.ipAddress : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1BrokerInstanceOption = (
-  output: any,
-  context: __SerdeContext
-): BrokerInstanceOption => {
+const deserializeAws_restJson1_1BrokerInstanceOption = (output: any, context: __SerdeContext): BrokerInstanceOption => {
   return {
     __type: "BrokerInstanceOption",
     AvailabilityZones:
-      output.availabilityZones !== undefined &&
-      output.availabilityZones !== null
-        ? deserializeAws_restJson1_1__listOfAvailabilityZone(
-            output.availabilityZones,
-            context
-          )
+      output.availabilityZones !== undefined && output.availabilityZones !== null
+        ? deserializeAws_restJson1_1__listOfAvailabilityZone(output.availabilityZones, context)
         : undefined,
-    EngineType:
-      output.engineType !== undefined && output.engineType !== null
-        ? output.engineType
-        : undefined,
+    EngineType: output.engineType !== undefined && output.engineType !== null ? output.engineType : undefined,
     HostInstanceType:
-      output.hostInstanceType !== undefined && output.hostInstanceType !== null
-        ? output.hostInstanceType
-        : undefined,
-    StorageType:
-      output.storageType !== undefined && output.storageType !== null
-        ? output.storageType
-        : undefined,
+      output.hostInstanceType !== undefined && output.hostInstanceType !== null ? output.hostInstanceType : undefined,
+    StorageType: output.storageType !== undefined && output.storageType !== null ? output.storageType : undefined,
     SupportedDeploymentModes:
-      output.supportedDeploymentModes !== undefined &&
-      output.supportedDeploymentModes !== null
-        ? deserializeAws_restJson1_1__listOfDeploymentMode(
-            output.supportedDeploymentModes,
-            context
-          )
+      output.supportedDeploymentModes !== undefined && output.supportedDeploymentModes !== null
+        ? deserializeAws_restJson1_1__listOfDeploymentMode(output.supportedDeploymentModes, context)
         : undefined,
     SupportedEngineVersions:
-      output.supportedEngineVersions !== undefined &&
-      output.supportedEngineVersions !== null
-        ? deserializeAws_restJson1_1__listOf__string(
-            output.supportedEngineVersions,
-            context
-          )
+      output.supportedEngineVersions !== undefined && output.supportedEngineVersions !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.supportedEngineVersions, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1BrokerSummary = (
-  output: any,
-  context: __SerdeContext
-): BrokerSummary => {
+const deserializeAws_restJson1_1BrokerSummary = (output: any, context: __SerdeContext): BrokerSummary => {
   return {
     __type: "BrokerSummary",
-    BrokerArn:
-      output.brokerArn !== undefined && output.brokerArn !== null
-        ? output.brokerArn
-        : undefined,
-    BrokerId:
-      output.brokerId !== undefined && output.brokerId !== null
-        ? output.brokerId
-        : undefined,
-    BrokerName:
-      output.brokerName !== undefined && output.brokerName !== null
-        ? output.brokerName
-        : undefined,
-    BrokerState:
-      output.brokerState !== undefined && output.brokerState !== null
-        ? output.brokerState
-        : undefined,
-    Created:
-      output.created !== undefined && output.created !== null
-        ? new Date(output.created)
-        : undefined,
+    BrokerArn: output.brokerArn !== undefined && output.brokerArn !== null ? output.brokerArn : undefined,
+    BrokerId: output.brokerId !== undefined && output.brokerId !== null ? output.brokerId : undefined,
+    BrokerName: output.brokerName !== undefined && output.brokerName !== null ? output.brokerName : undefined,
+    BrokerState: output.brokerState !== undefined && output.brokerState !== null ? output.brokerState : undefined,
+    Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
     DeploymentMode:
-      output.deploymentMode !== undefined && output.deploymentMode !== null
-        ? output.deploymentMode
-        : undefined,
+      output.deploymentMode !== undefined && output.deploymentMode !== null ? output.deploymentMode : undefined,
     HostInstanceType:
-      output.hostInstanceType !== undefined && output.hostInstanceType !== null
-        ? output.hostInstanceType
-        : undefined
+      output.hostInstanceType !== undefined && output.hostInstanceType !== null ? output.hostInstanceType : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Configuration = (
-  output: any,
-  context: __SerdeContext
-): Configuration => {
+const deserializeAws_restJson1_1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
     __type: "Configuration",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    Created:
-      output.created !== undefined && output.created !== null
-        ? new Date(output.created)
-        : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    EngineType:
-      output.engineType !== undefined && output.engineType !== null
-        ? output.engineType
-        : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    EngineType: output.engineType !== undefined && output.engineType !== null ? output.engineType : undefined,
     EngineVersion:
-      output.engineVersion !== undefined && output.engineVersion !== null
-        ? output.engineVersion
-        : undefined,
+      output.engineVersion !== undefined && output.engineVersion !== null ? output.engineVersion : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     LatestRevision:
       output.latestRevision !== undefined && output.latestRevision !== null
-        ? deserializeAws_restJson1_1ConfigurationRevision(
-            output.latestRevision,
-            context
-          )
+        ? deserializeAws_restJson1_1ConfigurationRevision(output.latestRevision, context)
         : undefined,
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1__mapOf__string(output.tags, context)
@@ -3834,17 +3182,11 @@ const deserializeAws_restJson1_1Configuration = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ConfigurationId = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationId => {
+const deserializeAws_restJson1_1ConfigurationId = (output: any, context: __SerdeContext): ConfigurationId => {
   return {
     __type: "ConfigurationId",
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    Revision:
-      output.revision !== undefined && output.revision !== null
-        ? output.revision
-        : undefined
+    Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined
   } as any;
 };
 
@@ -3854,25 +3196,13 @@ const deserializeAws_restJson1_1ConfigurationRevision = (
 ): ConfigurationRevision => {
   return {
     __type: "ConfigurationRevision",
-    Created:
-      output.created !== undefined && output.created !== null
-        ? new Date(output.created)
-        : undefined,
-    Description:
-      output.description !== undefined && output.description !== null
-        ? output.description
-        : undefined,
-    Revision:
-      output.revision !== undefined && output.revision !== null
-        ? output.revision
-        : undefined
+    Created: output.created !== undefined && output.created !== null ? new Date(output.created) : undefined,
+    Description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    Revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Configurations = (
-  output: any,
-  context: __SerdeContext
-): Configurations => {
+const deserializeAws_restJson1_1Configurations = (output: any, context: __SerdeContext): Configurations => {
   return {
     __type: "Configurations",
     Current:
@@ -3881,10 +3211,7 @@ const deserializeAws_restJson1_1Configurations = (
         : undefined,
     History:
       output.history !== undefined && output.history !== null
-        ? deserializeAws_restJson1_1__listOfConfigurationId(
-            output.history,
-            context
-          )
+        ? deserializeAws_restJson1_1__listOfConfigurationId(output.history, context)
         : undefined,
     Pending:
       output.pending !== undefined && output.pending !== null
@@ -3893,75 +3220,39 @@ const deserializeAws_restJson1_1Configurations = (
   } as any;
 };
 
-const deserializeAws_restJson1_1EncryptionOptions = (
-  output: any,
-  context: __SerdeContext
-): EncryptionOptions => {
+const deserializeAws_restJson1_1EncryptionOptions = (output: any, context: __SerdeContext): EncryptionOptions => {
   return {
     __type: "EncryptionOptions",
-    KmsKeyId:
-      output.kmsKeyId !== undefined && output.kmsKeyId !== null
-        ? output.kmsKeyId
-        : undefined,
+    KmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
     UseAwsOwnedKey:
-      output.useAwsOwnedKey !== undefined && output.useAwsOwnedKey !== null
-        ? output.useAwsOwnedKey
-        : undefined
+      output.useAwsOwnedKey !== undefined && output.useAwsOwnedKey !== null ? output.useAwsOwnedKey : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1EngineVersion = (
-  output: any,
-  context: __SerdeContext
-): EngineVersion => {
+const deserializeAws_restJson1_1EngineVersion = (output: any, context: __SerdeContext): EngineVersion => {
   return {
     __type: "EngineVersion",
-    Name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    Name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Logs = (
-  output: any,
-  context: __SerdeContext
-): Logs => {
+const deserializeAws_restJson1_1Logs = (output: any, context: __SerdeContext): Logs => {
   return {
     __type: "Logs",
-    Audit:
-      output.audit !== undefined && output.audit !== null
-        ? output.audit
-        : undefined,
-    General:
-      output.general !== undefined && output.general !== null
-        ? output.general
-        : undefined
+    Audit: output.audit !== undefined && output.audit !== null ? output.audit : undefined,
+    General: output.general !== undefined && output.general !== null ? output.general : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1LogsSummary = (
-  output: any,
-  context: __SerdeContext
-): LogsSummary => {
+const deserializeAws_restJson1_1LogsSummary = (output: any, context: __SerdeContext): LogsSummary => {
   return {
     __type: "LogsSummary",
-    Audit:
-      output.audit !== undefined && output.audit !== null
-        ? output.audit
-        : undefined,
+    Audit: output.audit !== undefined && output.audit !== null ? output.audit : undefined,
     AuditLogGroup:
-      output.auditLogGroup !== undefined && output.auditLogGroup !== null
-        ? output.auditLogGroup
-        : undefined,
-    General:
-      output.general !== undefined && output.general !== null
-        ? output.general
-        : undefined,
+      output.auditLogGroup !== undefined && output.auditLogGroup !== null ? output.auditLogGroup : undefined,
+    General: output.general !== undefined && output.general !== null ? output.general : undefined,
     GeneralLogGroup:
-      output.generalLogGroup !== undefined && output.generalLogGroup !== null
-        ? output.generalLogGroup
-        : undefined,
+      output.generalLogGroup !== undefined && output.generalLogGroup !== null ? output.generalLogGroup : undefined,
     Pending:
       output.pending !== undefined && output.pending !== null
         ? deserializeAws_restJson1_1PendingLogs(output.pending, context)
@@ -3969,100 +3260,53 @@ const deserializeAws_restJson1_1LogsSummary = (
   } as any;
 };
 
-const deserializeAws_restJson1_1PendingLogs = (
-  output: any,
-  context: __SerdeContext
-): PendingLogs => {
+const deserializeAws_restJson1_1PendingLogs = (output: any, context: __SerdeContext): PendingLogs => {
   return {
     __type: "PendingLogs",
-    Audit:
-      output.audit !== undefined && output.audit !== null
-        ? output.audit
-        : undefined,
-    General:
-      output.general !== undefined && output.general !== null
-        ? output.general
-        : undefined
+    Audit: output.audit !== undefined && output.audit !== null ? output.audit : undefined,
+    General: output.general !== undefined && output.general !== null ? output.general : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SanitizationWarning = (
-  output: any,
-  context: __SerdeContext
-): SanitizationWarning => {
+const deserializeAws_restJson1_1SanitizationWarning = (output: any, context: __SerdeContext): SanitizationWarning => {
   return {
     __type: "SanitizationWarning",
     AttributeName:
-      output.attributeName !== undefined && output.attributeName !== null
-        ? output.attributeName
-        : undefined,
-    ElementName:
-      output.elementName !== undefined && output.elementName !== null
-        ? output.elementName
-        : undefined,
-    Reason:
-      output.reason !== undefined && output.reason !== null
-        ? output.reason
-        : undefined
+      output.attributeName !== undefined && output.attributeName !== null ? output.attributeName : undefined,
+    ElementName: output.elementName !== undefined && output.elementName !== null ? output.elementName : undefined,
+    Reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1UserPendingChanges = (
-  output: any,
-  context: __SerdeContext
-): UserPendingChanges => {
+const deserializeAws_restJson1_1UserPendingChanges = (output: any, context: __SerdeContext): UserPendingChanges => {
   return {
     __type: "UserPendingChanges",
     ConsoleAccess:
-      output.consoleAccess !== undefined && output.consoleAccess !== null
-        ? output.consoleAccess
-        : undefined,
+      output.consoleAccess !== undefined && output.consoleAccess !== null ? output.consoleAccess : undefined,
     Groups:
       output.groups !== undefined && output.groups !== null
         ? deserializeAws_restJson1_1__listOf__string(output.groups, context)
         : undefined,
     PendingChange:
-      output.pendingChange !== undefined && output.pendingChange !== null
-        ? output.pendingChange
-        : undefined
+      output.pendingChange !== undefined && output.pendingChange !== null ? output.pendingChange : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1UserSummary = (
-  output: any,
-  context: __SerdeContext
-): UserSummary => {
+const deserializeAws_restJson1_1UserSummary = (output: any, context: __SerdeContext): UserSummary => {
   return {
     __type: "UserSummary",
     PendingChange:
-      output.pendingChange !== undefined && output.pendingChange !== null
-        ? output.pendingChange
-        : undefined,
-    Username:
-      output.username !== undefined && output.username !== null
-        ? output.username
-        : undefined
+      output.pendingChange !== undefined && output.pendingChange !== null ? output.pendingChange : undefined,
+    Username: output.username !== undefined && output.username !== null ? output.username : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1WeeklyStartTime = (
-  output: any,
-  context: __SerdeContext
-): WeeklyStartTime => {
+const deserializeAws_restJson1_1WeeklyStartTime = (output: any, context: __SerdeContext): WeeklyStartTime => {
   return {
     __type: "WeeklyStartTime",
-    DayOfWeek:
-      output.dayOfWeek !== undefined && output.dayOfWeek !== null
-        ? output.dayOfWeek
-        : undefined,
-    TimeOfDay:
-      output.timeOfDay !== undefined && output.timeOfDay !== null
-        ? output.timeOfDay
-        : undefined,
-    TimeZone:
-      output.timeZone !== undefined && output.timeZone !== null
-        ? output.timeZone
-        : undefined
+    DayOfWeek: output.dayOfWeek !== undefined && output.dayOfWeek !== null ? output.dayOfWeek : undefined,
+    TimeOfDay: output.timeOfDay !== undefined && output.timeOfDay !== null ? output.timeOfDay : undefined,
+    TimeZone: output.timeZone !== undefined && output.timeZone !== null ? output.timeZone : undefined
   } as any;
 };
 
@@ -4070,72 +3314,44 @@ const deserializeAws_restJson1_1__listOfAvailabilityZone = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZone[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AvailabilityZone(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AvailabilityZone(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfBrokerEngineType = (
   output: any,
   context: __SerdeContext
 ): BrokerEngineType[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BrokerEngineType(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BrokerEngineType(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfBrokerInstance = (
-  output: any,
-  context: __SerdeContext
-): BrokerInstance[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BrokerInstance(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfBrokerInstance = (output: any, context: __SerdeContext): BrokerInstance[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BrokerInstance(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfBrokerInstanceOption = (
   output: any,
   context: __SerdeContext
 ): BrokerInstanceOption[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BrokerInstanceOption(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BrokerInstanceOption(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfBrokerSummary = (
-  output: any,
-  context: __SerdeContext
-): BrokerSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1BrokerSummary(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfBrokerSummary = (output: any, context: __SerdeContext): BrokerSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1BrokerSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfConfiguration = (
-  output: any,
-  context: __SerdeContext
-): Configuration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Configuration(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfConfiguration = (output: any, context: __SerdeContext): Configuration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Configuration(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfConfigurationId = (
-  output: any,
-  context: __SerdeContext
-): ConfigurationId[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ConfigurationId(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfConfigurationId = (output: any, context: __SerdeContext): ConfigurationId[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ConfigurationId(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfConfigurationRevision = (
   output: any,
   context: __SerdeContext
 ): ConfigurationRevision[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ConfigurationRevision(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ConfigurationRevision(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfDeploymentMode = (
@@ -4145,44 +3361,26 @@ const deserializeAws_restJson1_1__listOfDeploymentMode = (
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1__listOfEngineVersion = (
-  output: any,
-  context: __SerdeContext
-): EngineVersion[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1EngineVersion(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfEngineVersion = (output: any, context: __SerdeContext): EngineVersion[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1EngineVersion(entry, context));
 };
 
 const deserializeAws_restJson1_1__listOfSanitizationWarning = (
   output: any,
   context: __SerdeContext
 ): SanitizationWarning[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1SanitizationWarning(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1SanitizationWarning(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfUserSummary = (
-  output: any,
-  context: __SerdeContext
-): UserSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1UserSummary(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfUserSummary = (output: any, context: __SerdeContext): UserSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1UserSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOf__string = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1__listOf__string = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1__mapOf__string = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -4199,30 +3397,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -4237,8 +3426,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

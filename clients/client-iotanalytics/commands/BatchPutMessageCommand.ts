@@ -1,21 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient";
-import {
-  BatchPutMessageRequest,
-  BatchPutMessageResponse
-} from "../models/index";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
+import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchPutMessageCommand,
   serializeAws_restJson1_1BatchPutMessageCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchPutMessageCommandInput = BatchPutMessageRequest;
-export type BatchPutMessageCommandOutput = BatchPutMessageResponse &
-  __MetadataBearer;
+export type BatchPutMessageCommandOutput = BatchPutMessageResponse & __MetadataBearer;
 
 export class BatchPutMessageCommand extends $Command<
   BatchPutMessageCommandInput,
@@ -50,9 +39,7 @@ export class BatchPutMessageCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchPutMessageCommandInput, BatchPutMessageCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class BatchPutMessageCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchPutMessageCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchPutMessageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1BatchPutMessageCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchPutMessageCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchPutMessageCommandOutput> {
     return deserializeAws_restJson1_1BatchPutMessageCommand(output, context);
   }
 

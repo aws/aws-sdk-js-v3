@@ -1,21 +1,11 @@
-import {
-  ElastiCacheClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ElastiCacheClient";
-import {
-  DescribeReplicationGroupsMessage,
-  ReplicationGroupMessage
-} from "../models/index";
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { DescribeReplicationGroupsMessage, ReplicationGroupMessage } from "../models/index";
 import {
   deserializeAws_queryDescribeReplicationGroupsCommand,
   serializeAws_queryDescribeReplicationGroupsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeReplicationGroupsCommandInput = DescribeReplicationGroupsMessage;
-export type DescribeReplicationGroupsCommandOutput = ReplicationGroupMessage &
-  __MetadataBearer;
+export type DescribeReplicationGroupsCommandOutput = ReplicationGroupMessage & __MetadataBearer;
 
 export class DescribeReplicationGroupsCommand extends $Command<
   DescribeReplicationGroupsCommandInput,
@@ -49,13 +38,8 @@ export class DescribeReplicationGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeReplicationGroupsCommandInput,
-    DescribeReplicationGroupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeReplicationGroupsCommandInput, DescribeReplicationGroupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class DescribeReplicationGroupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeReplicationGroupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeReplicationGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeReplicationGroupsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeReplicationGroupsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationGroupsCommandOutput> {
-    return deserializeAws_queryDescribeReplicationGroupsCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryDescribeReplicationGroupsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -2,26 +2,17 @@ import {
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput
 } from "../commands/CreateDetectorModelCommand";
-import {
-  CreateInputCommandInput,
-  CreateInputCommandOutput
-} from "../commands/CreateInputCommand";
+import { CreateInputCommandInput, CreateInputCommandOutput } from "../commands/CreateInputCommand";
 import {
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput
 } from "../commands/DeleteDetectorModelCommand";
-import {
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput
-} from "../commands/DeleteInputCommand";
+import { DeleteInputCommandInput, DeleteInputCommandOutput } from "../commands/DeleteInputCommand";
 import {
   DescribeDetectorModelCommandInput,
   DescribeDetectorModelCommandOutput
 } from "../commands/DescribeDetectorModelCommand";
-import {
-  DescribeInputCommandInput,
-  DescribeInputCommandOutput
-} from "../commands/DescribeInputCommand";
+import { DescribeInputCommandInput, DescribeInputCommandOutput } from "../commands/DescribeInputCommand";
 import {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput
@@ -30,38 +21,20 @@ import {
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput
 } from "../commands/ListDetectorModelVersionsCommand";
-import {
-  ListDetectorModelsCommandInput,
-  ListDetectorModelsCommandOutput
-} from "../commands/ListDetectorModelsCommand";
-import {
-  ListInputsCommandInput,
-  ListInputsCommandOutput
-} from "../commands/ListInputsCommand";
+import { ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput } from "../commands/ListDetectorModelsCommand";
+import { ListInputsCommandInput, ListInputsCommandOutput } from "../commands/ListInputsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
-} from "../commands/PutLoggingOptionsCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
+import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "../commands/PutLoggingOptionsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput
 } from "../commands/UpdateDetectorModelCommand";
-import {
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput
-} from "../commands/UpdateInputCommand";
+import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand";
 import {
   Action,
   Attribute,
@@ -103,10 +76,7 @@ import {
   TransitionEvent,
   UnsupportedOperationException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -129,10 +99,7 @@ export const serializeAws_restJson1_1CreateDetectorModelCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.detectorModelDefinition !== undefined && {
-      detectorModelDefinition: serializeAws_restJson1_1DetectorModelDefinition(
-        input.detectorModelDefinition,
-        context
-      )
+      detectorModelDefinition: serializeAws_restJson1_1DetectorModelDefinition(input.detectorModelDefinition, context)
     }),
     ...(input.detectorModelDescription !== undefined && {
       detectorModelDescription: input.detectorModelDescription
@@ -172,10 +139,7 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.inputDefinition !== undefined && {
-      inputDefinition: serializeAws_restJson1_1InputDefinition(
-        input.inputDefinition,
-        context
-      )
+      inputDefinition: serializeAws_restJson1_1InputDefinition(input.inputDefinition, context)
     }),
     ...(input.inputDescription !== undefined && {
       inputDescription: input.inputDescription
@@ -208,18 +172,11 @@ export const serializeAws_restJson1_1DeleteDetectorModelCommand = async (
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: detectorModelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: detectorModelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{detectorModelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{detectorModelName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: detectorModelName."
-    );
+    throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -247,10 +204,7 @@ export const serializeAws_restJson1_1DeleteInputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{inputName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{inputName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
@@ -278,18 +232,11 @@ export const serializeAws_restJson1_1DescribeDetectorModelCommand = async (
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: detectorModelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: detectorModelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{detectorModelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{detectorModelName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: detectorModelName."
-    );
+    throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
     ...(input.detectorModelVersion !== undefined && {
@@ -323,10 +270,7 @@ export const serializeAws_restJson1_1DescribeInputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{inputName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{inputName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
@@ -376,18 +320,11 @@ export const serializeAws_restJson1_1ListDetectorModelVersionsCommand = async (
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: detectorModelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: detectorModelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{detectorModelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{detectorModelName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: detectorModelName."
-    );
+    throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
     ...(input.maxResults !== undefined && {
@@ -501,10 +438,7 @@ export const serializeAws_restJson1_1PutLoggingOptionsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.loggingOptions !== undefined && {
-      loggingOptions: serializeAws_restJson1_1LoggingOptions(
-        input.loggingOptions,
-        context
-      )
+      loggingOptions: serializeAws_restJson1_1LoggingOptions(input.loggingOptions, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -588,26 +522,16 @@ export const serializeAws_restJson1_1UpdateDetectorModelCommand = async (
   if (input.detectorModelName !== undefined) {
     const labelValue: string = input.detectorModelName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: detectorModelName."
-      );
+      throw new Error("Empty value provided for input HTTP label: detectorModelName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{detectorModelName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{detectorModelName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error(
-      "No value provided for input HTTP label: detectorModelName."
-    );
+    throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.detectorModelDefinition !== undefined && {
-      detectorModelDefinition: serializeAws_restJson1_1DetectorModelDefinition(
-        input.detectorModelDefinition,
-        context
-      )
+      detectorModelDefinition: serializeAws_restJson1_1DetectorModelDefinition(input.detectorModelDefinition, context)
     }),
     ...(input.detectorModelDescription !== undefined && {
       detectorModelDescription: input.detectorModelDescription
@@ -642,20 +566,14 @@ export const serializeAws_restJson1_1UpdateInputCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: inputName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{inputName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{inputName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: inputName.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.inputDefinition !== undefined && {
-      inputDefinition: serializeAws_restJson1_1InputDefinition(
-        input.inputDefinition,
-        context
-      )
+      inputDefinition: serializeAws_restJson1_1InputDefinition(input.inputDefinition, context)
     }),
     ...(input.inputDescription !== undefined && {
       inputDescription: input.inputDescription
@@ -678,10 +596,7 @@ export const deserializeAws_restJson1_1CreateDetectorModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateDetectorModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDetectorModelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDetectorModelCommandError(output, context);
   }
   const contents: CreateDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -689,10 +604,7 @@ export const deserializeAws_restJson1_1CreateDetectorModelCommand = async (
     detectorModelConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.detectorModelConfiguration !== undefined &&
-    data.detectorModelConfiguration !== null
-  ) {
+  if (data.detectorModelConfiguration !== undefined && data.detectorModelConfiguration !== null) {
     contents.detectorModelConfiguration = deserializeAws_restJson1_1DetectorModelConfiguration(
       data.detectorModelConfiguration,
       context
@@ -716,10 +628,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -727,10 +636,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -738,10 +644,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "LimitExceededException":
     case "com.amazon.iot.columbo.common.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -749,10 +652,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -760,10 +660,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -771,10 +668,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -782,10 +676,7 @@ const deserializeAws_restJson1_1CreateDetectorModelCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -820,14 +711,8 @@ export const deserializeAws_restJson1_1CreateInputCommand = async (
     inputConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.inputConfiguration !== undefined &&
-    data.inputConfiguration !== null
-  ) {
-    contents.inputConfiguration = deserializeAws_restJson1_1InputConfiguration(
-      data.inputConfiguration,
-      context
-    );
+  if (data.inputConfiguration !== undefined && data.inputConfiguration !== null) {
+    contents.inputConfiguration = deserializeAws_restJson1_1InputConfiguration(data.inputConfiguration, context);
   }
   return Promise.resolve(contents);
 };
@@ -847,10 +732,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -858,10 +740,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -869,10 +748,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -880,10 +756,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -891,10 +764,7 @@ const deserializeAws_restJson1_1CreateInputCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -921,10 +791,7 @@ export const deserializeAws_restJson1_1DeleteDetectorModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDetectorModelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDetectorModelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDetectorModelCommandError(output, context);
   }
   const contents: DeleteDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -949,10 +816,7 @@ const deserializeAws_restJson1_1DeleteDetectorModelCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -960,10 +824,7 @@ const deserializeAws_restJson1_1DeleteDetectorModelCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -971,10 +832,7 @@ const deserializeAws_restJson1_1DeleteDetectorModelCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -982,10 +840,7 @@ const deserializeAws_restJson1_1DeleteDetectorModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -993,10 +848,7 @@ const deserializeAws_restJson1_1DeleteDetectorModelCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1004,10 +856,7 @@ const deserializeAws_restJson1_1DeleteDetectorModelCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1059,10 +908,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1070,10 +916,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1081,10 +924,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1092,10 +932,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1103,10 +940,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1114,10 +948,7 @@ const deserializeAws_restJson1_1DeleteInputCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1144,10 +975,7 @@ export const deserializeAws_restJson1_1DescribeDetectorModelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDetectorModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDetectorModelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDetectorModelCommandError(output, context);
   }
   const contents: DescribeDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1156,10 +984,7 @@ export const deserializeAws_restJson1_1DescribeDetectorModelCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.detectorModel !== undefined && data.detectorModel !== null) {
-    contents.detectorModel = deserializeAws_restJson1_1DetectorModel(
-      data.detectorModel,
-      context
-    );
+    contents.detectorModel = deserializeAws_restJson1_1DetectorModel(data.detectorModel, context);
   }
   return Promise.resolve(contents);
 };
@@ -1179,10 +1004,7 @@ const deserializeAws_restJson1_1DescribeDetectorModelCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1190,10 +1012,7 @@ const deserializeAws_restJson1_1DescribeDetectorModelCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1201,10 +1020,7 @@ const deserializeAws_restJson1_1DescribeDetectorModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1212,10 +1028,7 @@ const deserializeAws_restJson1_1DescribeDetectorModelCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1223,10 +1036,7 @@ const deserializeAws_restJson1_1DescribeDetectorModelCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1282,10 +1092,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1293,10 +1100,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1304,10 +1108,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1315,10 +1116,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1326,10 +1124,7 @@ const deserializeAws_restJson1_1DescribeInputCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1356,10 +1151,7 @@ export const deserializeAws_restJson1_1DescribeLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(output, context);
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1368,10 +1160,7 @@ export const deserializeAws_restJson1_1DescribeLoggingOptionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.loggingOptions !== undefined && data.loggingOptions !== null) {
-    contents.loggingOptions = deserializeAws_restJson1_1LoggingOptions(
-      data.loggingOptions,
-      context
-    );
+    contents.loggingOptions = deserializeAws_restJson1_1LoggingOptions(data.loggingOptions, context);
   }
   return Promise.resolve(contents);
 };
@@ -1391,10 +1180,7 @@ const deserializeAws_restJson1_1DescribeLoggingOptionsCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1402,10 +1188,7 @@ const deserializeAws_restJson1_1DescribeLoggingOptionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1413,10 +1196,7 @@ const deserializeAws_restJson1_1DescribeLoggingOptionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1424,10 +1204,7 @@ const deserializeAws_restJson1_1DescribeLoggingOptionsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1435,10 +1212,7 @@ const deserializeAws_restJson1_1DescribeLoggingOptionsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1446,10 +1220,7 @@ const deserializeAws_restJson1_1DescribeLoggingOptionsCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1476,10 +1247,7 @@ export const deserializeAws_restJson1_1ListDetectorModelVersionsCommand = async 
   context: __SerdeContext
 ): Promise<ListDetectorModelVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDetectorModelVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDetectorModelVersionsCommandError(output, context);
   }
   const contents: ListDetectorModelVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1488,10 +1256,7 @@ export const deserializeAws_restJson1_1ListDetectorModelVersionsCommand = async 
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.detectorModelVersionSummaries !== undefined &&
-    data.detectorModelVersionSummaries !== null
-  ) {
+  if (data.detectorModelVersionSummaries !== undefined && data.detectorModelVersionSummaries !== null) {
     contents.detectorModelVersionSummaries = deserializeAws_restJson1_1DetectorModelVersionSummaries(
       data.detectorModelVersionSummaries,
       context
@@ -1518,10 +1283,7 @@ const deserializeAws_restJson1_1ListDetectorModelVersionsCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1529,10 +1291,7 @@ const deserializeAws_restJson1_1ListDetectorModelVersionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1540,10 +1299,7 @@ const deserializeAws_restJson1_1ListDetectorModelVersionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1551,10 +1307,7 @@ const deserializeAws_restJson1_1ListDetectorModelVersionsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1562,10 +1315,7 @@ const deserializeAws_restJson1_1ListDetectorModelVersionsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1592,10 +1342,7 @@ export const deserializeAws_restJson1_1ListDetectorModelsCommand = async (
   context: __SerdeContext
 ): Promise<ListDetectorModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDetectorModelsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDetectorModelsCommandError(output, context);
   }
   const contents: ListDetectorModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1604,10 +1351,7 @@ export const deserializeAws_restJson1_1ListDetectorModelsCommand = async (
     nextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.detectorModelSummaries !== undefined &&
-    data.detectorModelSummaries !== null
-  ) {
+  if (data.detectorModelSummaries !== undefined && data.detectorModelSummaries !== null) {
     contents.detectorModelSummaries = deserializeAws_restJson1_1DetectorModelSummaries(
       data.detectorModelSummaries,
       context
@@ -1634,10 +1378,7 @@ const deserializeAws_restJson1_1ListDetectorModelsCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1645,10 +1386,7 @@ const deserializeAws_restJson1_1ListDetectorModelsCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1656,10 +1394,7 @@ const deserializeAws_restJson1_1ListDetectorModelsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1667,10 +1402,7 @@ const deserializeAws_restJson1_1ListDetectorModelsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1707,10 +1439,7 @@ export const deserializeAws_restJson1_1ListInputsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.inputSummaries !== undefined && data.inputSummaries !== null) {
-    contents.inputSummaries = deserializeAws_restJson1_1InputSummaries(
-      data.inputSummaries,
-      context
-    );
+    contents.inputSummaries = deserializeAws_restJson1_1InputSummaries(data.inputSummaries, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1733,10 +1462,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1744,10 +1470,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1755,10 +1478,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1766,10 +1486,7 @@ const deserializeAws_restJson1_1ListInputsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1796,10 +1513,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1828,10 +1542,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1839,10 +1550,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1850,10 +1558,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1861,10 +1566,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1872,10 +1574,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1902,10 +1601,7 @@ export const deserializeAws_restJson1_1PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1PutLoggingOptionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1PutLoggingOptionsCommandError(output, context);
   }
   const contents: PutLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1929,10 +1625,7 @@ const deserializeAws_restJson1_1PutLoggingOptionsCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1940,10 +1633,7 @@ const deserializeAws_restJson1_1PutLoggingOptionsCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1951,10 +1641,7 @@ const deserializeAws_restJson1_1PutLoggingOptionsCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1962,10 +1649,7 @@ const deserializeAws_restJson1_1PutLoggingOptionsCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1973,10 +1657,7 @@ const deserializeAws_restJson1_1PutLoggingOptionsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1984,10 +1665,7 @@ const deserializeAws_restJson1_1PutLoggingOptionsCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazon.iot.columbo.common.exceptions#UnsupportedOperationException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedOperationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2039,10 +1717,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2050,10 +1725,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2061,10 +1733,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazon.iot.columbo.common.exceptions#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2072,10 +1741,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2083,10 +1749,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2094,10 +1757,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2149,10 +1809,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2160,10 +1817,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2171,10 +1825,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2182,10 +1833,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2193,10 +1841,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2223,10 +1868,7 @@ export const deserializeAws_restJson1_1UpdateDetectorModelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDetectorModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDetectorModelCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDetectorModelCommandError(output, context);
   }
   const contents: UpdateDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2234,10 +1876,7 @@ export const deserializeAws_restJson1_1UpdateDetectorModelCommand = async (
     detectorModelConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.detectorModelConfiguration !== undefined &&
-    data.detectorModelConfiguration !== null
-  ) {
+  if (data.detectorModelConfiguration !== undefined && data.detectorModelConfiguration !== null) {
     contents.detectorModelConfiguration = deserializeAws_restJson1_1DetectorModelConfiguration(
       data.detectorModelConfiguration,
       context
@@ -2261,10 +1900,7 @@ const deserializeAws_restJson1_1UpdateDetectorModelCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2272,10 +1908,7 @@ const deserializeAws_restJson1_1UpdateDetectorModelCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2283,10 +1916,7 @@ const deserializeAws_restJson1_1UpdateDetectorModelCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2294,10 +1924,7 @@ const deserializeAws_restJson1_1UpdateDetectorModelCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2305,10 +1932,7 @@ const deserializeAws_restJson1_1UpdateDetectorModelCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2316,10 +1940,7 @@ const deserializeAws_restJson1_1UpdateDetectorModelCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2354,14 +1975,8 @@ export const deserializeAws_restJson1_1UpdateInputCommand = async (
     inputConfiguration: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.inputConfiguration !== undefined &&
-    data.inputConfiguration !== null
-  ) {
-    contents.inputConfiguration = deserializeAws_restJson1_1InputConfiguration(
-      data.inputConfiguration,
-      context
-    );
+  if (data.inputConfiguration !== undefined && data.inputConfiguration !== null) {
+    contents.inputConfiguration = deserializeAws_restJson1_1InputConfiguration(data.inputConfiguration, context);
   }
   return Promise.resolve(contents);
 };
@@ -2381,10 +1996,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "InternalFailureException":
     case "com.amazon.iot.columbo.common.exceptions#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2392,10 +2004,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "InvalidRequestException":
     case "com.amazon.iot.columbo.common.exceptions#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2403,10 +2012,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "ResourceInUseException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceInUseException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2414,10 +2020,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.iot.columbo.common.exceptions#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2425,10 +2028,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazon.iot.columbo.common.exceptions#ServiceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2436,10 +2036,7 @@ const deserializeAws_restJson1_1UpdateInputCommandError = async (
     case "ThrottlingException":
     case "com.amazon.iot.columbo.common.exceptions#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2622,49 +2219,31 @@ const deserializeAws_restJson1_1UnsupportedOperationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Action = (
-  input: Action,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Action = (input: Action, context: __SerdeContext): any => {
   return {
     ...(input.clearTimer !== undefined && {
-      clearTimer: serializeAws_restJson1_1ClearTimerAction(
-        input.clearTimer,
-        context
-      )
+      clearTimer: serializeAws_restJson1_1ClearTimerAction(input.clearTimer, context)
     }),
     ...(input.firehose !== undefined && {
       firehose: serializeAws_restJson1_1FirehoseAction(input.firehose, context)
     }),
     ...(input.iotEvents !== undefined && {
-      iotEvents: serializeAws_restJson1_1IotEventsAction(
-        input.iotEvents,
-        context
-      )
+      iotEvents: serializeAws_restJson1_1IotEventsAction(input.iotEvents, context)
     }),
     ...(input.iotTopicPublish !== undefined && {
-      iotTopicPublish: serializeAws_restJson1_1IotTopicPublishAction(
-        input.iotTopicPublish,
-        context
-      )
+      iotTopicPublish: serializeAws_restJson1_1IotTopicPublishAction(input.iotTopicPublish, context)
     }),
     ...(input.lambda !== undefined && {
       lambda: serializeAws_restJson1_1LambdaAction(input.lambda, context)
     }),
     ...(input.resetTimer !== undefined && {
-      resetTimer: serializeAws_restJson1_1ResetTimerAction(
-        input.resetTimer,
-        context
-      )
+      resetTimer: serializeAws_restJson1_1ResetTimerAction(input.resetTimer, context)
     }),
     ...(input.setTimer !== undefined && {
       setTimer: serializeAws_restJson1_1SetTimerAction(input.setTimer, context)
     }),
     ...(input.setVariable !== undefined && {
-      setVariable: serializeAws_restJson1_1SetVariableAction(
-        input.setVariable,
-        context
-      )
+      setVariable: serializeAws_restJson1_1SetVariableAction(input.setVariable, context)
     }),
     ...(input.sns !== undefined && {
       sns: serializeAws_restJson1_1SNSTopicPublishAction(input.sns, context)
@@ -2675,42 +2254,27 @@ const serializeAws_restJson1_1Action = (
   };
 };
 
-const serializeAws_restJson1_1Actions = (
-  input: Action[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Actions = (input: Action[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Action(entry, context));
 };
 
-const serializeAws_restJson1_1Attribute = (
-  input: Attribute,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
     ...(input.jsonPath !== undefined && { jsonPath: input.jsonPath })
   };
 };
 
-const serializeAws_restJson1_1Attributes = (
-  input: Attribute[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Attributes = (input: Attribute[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Attribute(entry, context));
 };
 
-const serializeAws_restJson1_1ClearTimerAction = (
-  input: ClearTimerAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ClearTimerAction = (input: ClearTimerAction, context: __SerdeContext): any => {
   return {
     ...(input.timerName !== undefined && { timerName: input.timerName })
   };
 };
 
-const serializeAws_restJson1_1DetectorDebugOption = (
-  input: DetectorDebugOption,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DetectorDebugOption = (input: DetectorDebugOption, context: __SerdeContext): any => {
   return {
     ...(input.detectorModelName !== undefined && {
       detectorModelName: input.detectorModelName
@@ -2719,13 +2283,8 @@ const serializeAws_restJson1_1DetectorDebugOption = (
   };
 };
 
-const serializeAws_restJson1_1DetectorDebugOptions = (
-  input: DetectorDebugOption[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1DetectorDebugOption(entry, context)
-  );
+const serializeAws_restJson1_1DetectorDebugOptions = (input: DetectorDebugOption[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1DetectorDebugOption(entry, context));
 };
 
 const serializeAws_restJson1_1DetectorModelDefinition = (
@@ -2742,10 +2301,7 @@ const serializeAws_restJson1_1DetectorModelDefinition = (
   };
 };
 
-const serializeAws_restJson1_1Event = (
-  input: Event,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.actions !== undefined && {
       actions: serializeAws_restJson1_1Actions(input.actions, context)
@@ -2755,17 +2311,11 @@ const serializeAws_restJson1_1Event = (
   };
 };
 
-const serializeAws_restJson1_1Events = (
-  input: Event[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Events = (input: Event[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Event(entry, context));
 };
 
-const serializeAws_restJson1_1FirehoseAction = (
-  input: FirehoseAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1FirehoseAction = (input: FirehoseAction, context: __SerdeContext): any => {
   return {
     ...(input.deliveryStreamName !== undefined && {
       deliveryStreamName: input.deliveryStreamName
@@ -2774,10 +2324,7 @@ const serializeAws_restJson1_1FirehoseAction = (
   };
 };
 
-const serializeAws_restJson1_1InputDefinition = (
-  input: InputDefinition,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1InputDefinition = (input: InputDefinition, context: __SerdeContext): any => {
   return {
     ...(input.attributes !== undefined && {
       attributes: serializeAws_restJson1_1Attributes(input.attributes, context)
@@ -2785,43 +2332,28 @@ const serializeAws_restJson1_1InputDefinition = (
   };
 };
 
-const serializeAws_restJson1_1IotEventsAction = (
-  input: IotEventsAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IotEventsAction = (input: IotEventsAction, context: __SerdeContext): any => {
   return {
     ...(input.inputName !== undefined && { inputName: input.inputName })
   };
 };
 
-const serializeAws_restJson1_1IotTopicPublishAction = (
-  input: IotTopicPublishAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IotTopicPublishAction = (input: IotTopicPublishAction, context: __SerdeContext): any => {
   return {
     ...(input.mqttTopic !== undefined && { mqttTopic: input.mqttTopic })
   };
 };
 
-const serializeAws_restJson1_1LambdaAction = (
-  input: LambdaAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LambdaAction = (input: LambdaAction, context: __SerdeContext): any => {
   return {
     ...(input.functionArn !== undefined && { functionArn: input.functionArn })
   };
 };
 
-const serializeAws_restJson1_1LoggingOptions = (
-  input: LoggingOptions,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
   return {
     ...(input.detectorDebugOptions !== undefined && {
-      detectorDebugOptions: serializeAws_restJson1_1DetectorDebugOptions(
-        input.detectorDebugOptions,
-        context
-      )
+      detectorDebugOptions: serializeAws_restJson1_1DetectorDebugOptions(input.detectorDebugOptions, context)
     }),
     ...(input.enabled !== undefined && { enabled: input.enabled }),
     ...(input.level !== undefined && { level: input.level }),
@@ -2829,10 +2361,7 @@ const serializeAws_restJson1_1LoggingOptions = (
   };
 };
 
-const serializeAws_restJson1_1OnEnterLifecycle = (
-  input: OnEnterLifecycle,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1OnEnterLifecycle = (input: OnEnterLifecycle, context: __SerdeContext): any => {
   return {
     ...(input.events !== undefined && {
       events: serializeAws_restJson1_1Events(input.events, context)
@@ -2840,10 +2369,7 @@ const serializeAws_restJson1_1OnEnterLifecycle = (
   };
 };
 
-const serializeAws_restJson1_1OnExitLifecycle = (
-  input: OnExitLifecycle,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1OnExitLifecycle = (input: OnExitLifecycle, context: __SerdeContext): any => {
   return {
     ...(input.events !== undefined && {
       events: serializeAws_restJson1_1Events(input.events, context)
@@ -2851,55 +2377,37 @@ const serializeAws_restJson1_1OnExitLifecycle = (
   };
 };
 
-const serializeAws_restJson1_1OnInputLifecycle = (
-  input: OnInputLifecycle,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1OnInputLifecycle = (input: OnInputLifecycle, context: __SerdeContext): any => {
   return {
     ...(input.events !== undefined && {
       events: serializeAws_restJson1_1Events(input.events, context)
     }),
     ...(input.transitionEvents !== undefined && {
-      transitionEvents: serializeAws_restJson1_1TransitionEvents(
-        input.transitionEvents,
-        context
-      )
+      transitionEvents: serializeAws_restJson1_1TransitionEvents(input.transitionEvents, context)
     })
   };
 };
 
-const serializeAws_restJson1_1ResetTimerAction = (
-  input: ResetTimerAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ResetTimerAction = (input: ResetTimerAction, context: __SerdeContext): any => {
   return {
     ...(input.timerName !== undefined && { timerName: input.timerName })
   };
 };
 
-const serializeAws_restJson1_1SNSTopicPublishAction = (
-  input: SNSTopicPublishAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SNSTopicPublishAction = (input: SNSTopicPublishAction, context: __SerdeContext): any => {
   return {
     ...(input.targetArn !== undefined && { targetArn: input.targetArn })
   };
 };
 
-const serializeAws_restJson1_1SetTimerAction = (
-  input: SetTimerAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SetTimerAction = (input: SetTimerAction, context: __SerdeContext): any => {
   return {
     ...(input.seconds !== undefined && { seconds: input.seconds }),
     ...(input.timerName !== undefined && { timerName: input.timerName })
   };
 };
 
-const serializeAws_restJson1_1SetVariableAction = (
-  input: SetVariableAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SetVariableAction = (input: SetVariableAction, context: __SerdeContext): any => {
   return {
     ...(input.value !== undefined && { value: input.value }),
     ...(input.variableName !== undefined && {
@@ -2908,20 +2416,14 @@ const serializeAws_restJson1_1SetVariableAction = (
   };
 };
 
-const serializeAws_restJson1_1SqsAction = (
-  input: SqsAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SqsAction = (input: SqsAction, context: __SerdeContext): any => {
   return {
     ...(input.queueUrl !== undefined && { queueUrl: input.queueUrl }),
     ...(input.useBase64 !== undefined && { useBase64: input.useBase64 })
   };
 };
 
-const serializeAws_restJson1_1State = (
-  input: State,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1State = (input: State, context: __SerdeContext): any => {
   return {
     ...(input.onEnter !== undefined && {
       onEnter: serializeAws_restJson1_1OnEnterLifecycle(input.onEnter, context)
@@ -2936,34 +2438,22 @@ const serializeAws_restJson1_1State = (
   };
 };
 
-const serializeAws_restJson1_1States = (
-  input: State[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1States = (input: State[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1State(entry, context));
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.key !== undefined && { key: input.key }),
     ...(input.value !== undefined && { value: input.value })
   };
 };
 
-const serializeAws_restJson1_1Tags = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tags = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1TransitionEvent = (
-  input: TransitionEvent,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TransitionEvent = (input: TransitionEvent, context: __SerdeContext): any => {
   return {
     ...(input.actions !== undefined && {
       actions: serializeAws_restJson1_1Actions(input.actions, context)
@@ -2974,19 +2464,11 @@ const serializeAws_restJson1_1TransitionEvent = (
   };
 };
 
-const serializeAws_restJson1_1TransitionEvents = (
-  input: TransitionEvent[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1TransitionEvent(entry, context)
-  );
+const serializeAws_restJson1_1TransitionEvents = (input: TransitionEvent[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1TransitionEvent(entry, context));
 };
 
-const deserializeAws_restJson1_1Action = (
-  output: any,
-  context: __SerdeContext
-): Action => {
+const deserializeAws_restJson1_1Action = (output: any, context: __SerdeContext): Action => {
   return {
     __type: "Action",
     clearTimer:
@@ -3003,10 +2485,7 @@ const deserializeAws_restJson1_1Action = (
         : undefined,
     iotTopicPublish:
       output.iotTopicPublish !== undefined && output.iotTopicPublish !== null
-        ? deserializeAws_restJson1_1IotTopicPublishAction(
-            output.iotTopicPublish,
-            context
-          )
+        ? deserializeAws_restJson1_1IotTopicPublishAction(output.iotTopicPublish, context)
         : undefined,
     lambda:
       output.lambda !== undefined && output.lambda !== null
@@ -3022,10 +2501,7 @@ const deserializeAws_restJson1_1Action = (
         : undefined,
     setVariable:
       output.setVariable !== undefined && output.setVariable !== null
-        ? deserializeAws_restJson1_1SetVariableAction(
-            output.setVariable,
-            context
-          )
+        ? deserializeAws_restJson1_1SetVariableAction(output.setVariable, context)
         : undefined,
     sns:
       output.sns !== undefined && output.sns !== null
@@ -3038,65 +2514,36 @@ const deserializeAws_restJson1_1Action = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Actions = (
-  output: any,
-  context: __SerdeContext
-): Action[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Action(entry, context)
-  );
+const deserializeAws_restJson1_1Actions = (output: any, context: __SerdeContext): Action[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Action(entry, context));
 };
 
-const deserializeAws_restJson1_1Attribute = (
-  output: any,
-  context: __SerdeContext
-): Attribute => {
+const deserializeAws_restJson1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
     __type: "Attribute",
-    jsonPath:
-      output.jsonPath !== undefined && output.jsonPath !== null
-        ? output.jsonPath
-        : undefined
+    jsonPath: output.jsonPath !== undefined && output.jsonPath !== null ? output.jsonPath : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Attributes = (
-  output: any,
-  context: __SerdeContext
-): Attribute[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Attribute(entry, context)
-  );
+const deserializeAws_restJson1_1Attributes = (output: any, context: __SerdeContext): Attribute[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Attribute(entry, context));
 };
 
-const deserializeAws_restJson1_1ClearTimerAction = (
-  output: any,
-  context: __SerdeContext
-): ClearTimerAction => {
+const deserializeAws_restJson1_1ClearTimerAction = (output: any, context: __SerdeContext): ClearTimerAction => {
   return {
     __type: "ClearTimerAction",
-    timerName:
-      output.timerName !== undefined && output.timerName !== null
-        ? output.timerName
-        : undefined
+    timerName: output.timerName !== undefined && output.timerName !== null ? output.timerName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DetectorDebugOption = (
-  output: any,
-  context: __SerdeContext
-): DetectorDebugOption => {
+const deserializeAws_restJson1_1DetectorDebugOption = (output: any, context: __SerdeContext): DetectorDebugOption => {
   return {
     __type: "DetectorDebugOption",
     detectorModelName:
-      output.detectorModelName !== undefined &&
-      output.detectorModelName !== null
+      output.detectorModelName !== undefined && output.detectorModelName !== null
         ? output.detectorModelName
         : undefined,
-    keyValue:
-      output.keyValue !== undefined && output.keyValue !== null
-        ? output.keyValue
-        : undefined
+    keyValue: output.keyValue !== undefined && output.keyValue !== null ? output.keyValue : undefined
   } as any;
 };
 
@@ -3104,32 +2551,19 @@ const deserializeAws_restJson1_1DetectorDebugOptions = (
   output: any,
   context: __SerdeContext
 ): DetectorDebugOption[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DetectorDebugOption(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DetectorDebugOption(entry, context));
 };
 
-const deserializeAws_restJson1_1DetectorModel = (
-  output: any,
-  context: __SerdeContext
-): DetectorModel => {
+const deserializeAws_restJson1_1DetectorModel = (output: any, context: __SerdeContext): DetectorModel => {
   return {
     __type: "DetectorModel",
     detectorModelConfiguration:
-      output.detectorModelConfiguration !== undefined &&
-      output.detectorModelConfiguration !== null
-        ? deserializeAws_restJson1_1DetectorModelConfiguration(
-            output.detectorModelConfiguration,
-            context
-          )
+      output.detectorModelConfiguration !== undefined && output.detectorModelConfiguration !== null
+        ? deserializeAws_restJson1_1DetectorModelConfiguration(output.detectorModelConfiguration, context)
         : undefined,
     detectorModelDefinition:
-      output.detectorModelDefinition !== undefined &&
-      output.detectorModelDefinition !== null
-        ? deserializeAws_restJson1_1DetectorModelDefinition(
-            output.detectorModelDefinition,
-            context
-          )
+      output.detectorModelDefinition !== undefined && output.detectorModelDefinition !== null
+        ? deserializeAws_restJson1_1DetectorModelDefinition(output.detectorModelDefinition, context)
         : undefined
   } as any;
 };
@@ -3145,42 +2579,28 @@ const deserializeAws_restJson1_1DetectorModelConfiguration = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     detectorModelArn:
-      output.detectorModelArn !== undefined && output.detectorModelArn !== null
-        ? output.detectorModelArn
-        : undefined,
+      output.detectorModelArn !== undefined && output.detectorModelArn !== null ? output.detectorModelArn : undefined,
     detectorModelDescription:
-      output.detectorModelDescription !== undefined &&
-      output.detectorModelDescription !== null
+      output.detectorModelDescription !== undefined && output.detectorModelDescription !== null
         ? output.detectorModelDescription
         : undefined,
     detectorModelName:
-      output.detectorModelName !== undefined &&
-      output.detectorModelName !== null
+      output.detectorModelName !== undefined && output.detectorModelName !== null
         ? output.detectorModelName
         : undefined,
     detectorModelVersion:
-      output.detectorModelVersion !== undefined &&
-      output.detectorModelVersion !== null
+      output.detectorModelVersion !== undefined && output.detectorModelVersion !== null
         ? output.detectorModelVersion
         : undefined,
     evaluationMethod:
-      output.evaluationMethod !== undefined && output.evaluationMethod !== null
-        ? output.evaluationMethod
-        : undefined,
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
+      output.evaluationMethod !== undefined && output.evaluationMethod !== null ? output.evaluationMethod : undefined,
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
@@ -3191,9 +2611,7 @@ const deserializeAws_restJson1_1DetectorModelDefinition = (
   return {
     __type: "DetectorModelDefinition",
     initialStateName:
-      output.initialStateName !== undefined && output.initialStateName !== null
-        ? output.initialStateName
-        : undefined,
+      output.initialStateName !== undefined && output.initialStateName !== null ? output.initialStateName : undefined,
     states:
       output.states !== undefined && output.states !== null
         ? deserializeAws_restJson1_1States(output.states, context)
@@ -3205,15 +2623,10 @@ const deserializeAws_restJson1_1DetectorModelSummaries = (
   output: any,
   context: __SerdeContext
 ): DetectorModelSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DetectorModelSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DetectorModelSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1DetectorModelSummary = (
-  output: any,
-  context: __SerdeContext
-): DetectorModelSummary => {
+const deserializeAws_restJson1_1DetectorModelSummary = (output: any, context: __SerdeContext): DetectorModelSummary => {
   return {
     __type: "DetectorModelSummary",
     creationTime:
@@ -3221,15 +2634,11 @@ const deserializeAws_restJson1_1DetectorModelSummary = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     detectorModelDescription:
-      output.detectorModelDescription !== undefined &&
-      output.detectorModelDescription !== null
+      output.detectorModelDescription !== undefined && output.detectorModelDescription !== null
         ? output.detectorModelDescription
         : undefined,
     detectorModelName:
-      output.detectorModelName !== undefined &&
-      output.detectorModelName !== null
-        ? output.detectorModelName
-        : undefined
+      output.detectorModelName !== undefined && output.detectorModelName !== null ? output.detectorModelName : undefined
   } as any;
 };
 
@@ -3237,9 +2646,7 @@ const deserializeAws_restJson1_1DetectorModelVersionSummaries = (
   output: any,
   context: __SerdeContext
 ): DetectorModelVersionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DetectorModelVersionSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DetectorModelVersionSummary(entry, context));
 };
 
 const deserializeAws_restJson1_1DetectorModelVersionSummary = (
@@ -3253,147 +2660,87 @@ const deserializeAws_restJson1_1DetectorModelVersionSummary = (
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     detectorModelArn:
-      output.detectorModelArn !== undefined && output.detectorModelArn !== null
-        ? output.detectorModelArn
-        : undefined,
+      output.detectorModelArn !== undefined && output.detectorModelArn !== null ? output.detectorModelArn : undefined,
     detectorModelName:
-      output.detectorModelName !== undefined &&
-      output.detectorModelName !== null
+      output.detectorModelName !== undefined && output.detectorModelName !== null
         ? output.detectorModelName
         : undefined,
     detectorModelVersion:
-      output.detectorModelVersion !== undefined &&
-      output.detectorModelVersion !== null
+      output.detectorModelVersion !== undefined && output.detectorModelVersion !== null
         ? output.detectorModelVersion
         : undefined,
     evaluationMethod:
-      output.evaluationMethod !== undefined && output.evaluationMethod !== null
-        ? output.evaluationMethod
-        : undefined,
+      output.evaluationMethod !== undefined && output.evaluationMethod !== null ? output.evaluationMethod : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Event = (
-  output: any,
-  context: __SerdeContext
-): Event => {
+const deserializeAws_restJson1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
     __type: "Event",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1_1Actions(output.actions, context)
         : undefined,
-    condition:
-      output.condition !== undefined && output.condition !== null
-        ? output.condition
-        : undefined,
-    eventName:
-      output.eventName !== undefined && output.eventName !== null
-        ? output.eventName
-        : undefined
+    condition: output.condition !== undefined && output.condition !== null ? output.condition : undefined,
+    eventName: output.eventName !== undefined && output.eventName !== null ? output.eventName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Events = (
-  output: any,
-  context: __SerdeContext
-): Event[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Event(entry, context)
-  );
+const deserializeAws_restJson1_1Events = (output: any, context: __SerdeContext): Event[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Event(entry, context));
 };
 
-const deserializeAws_restJson1_1FirehoseAction = (
-  output: any,
-  context: __SerdeContext
-): FirehoseAction => {
+const deserializeAws_restJson1_1FirehoseAction = (output: any, context: __SerdeContext): FirehoseAction => {
   return {
     __type: "FirehoseAction",
     deliveryStreamName:
-      output.deliveryStreamName !== undefined &&
-      output.deliveryStreamName !== null
+      output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
         ? output.deliveryStreamName
         : undefined,
-    separator:
-      output.separator !== undefined && output.separator !== null
-        ? output.separator
-        : undefined
+    separator: output.separator !== undefined && output.separator !== null ? output.separator : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Input = (
-  output: any,
-  context: __SerdeContext
-): Input => {
+const deserializeAws_restJson1_1Input = (output: any, context: __SerdeContext): Input => {
   return {
     __type: "Input",
     inputConfiguration:
-      output.inputConfiguration !== undefined &&
-      output.inputConfiguration !== null
-        ? deserializeAws_restJson1_1InputConfiguration(
-            output.inputConfiguration,
-            context
-          )
+      output.inputConfiguration !== undefined && output.inputConfiguration !== null
+        ? deserializeAws_restJson1_1InputConfiguration(output.inputConfiguration, context)
         : undefined,
     inputDefinition:
       output.inputDefinition !== undefined && output.inputDefinition !== null
-        ? deserializeAws_restJson1_1InputDefinition(
-            output.inputDefinition,
-            context
-          )
+        ? deserializeAws_restJson1_1InputDefinition(output.inputDefinition, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1InputConfiguration = (
-  output: any,
-  context: __SerdeContext
-): InputConfiguration => {
+const deserializeAws_restJson1_1InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
   return {
     __type: "InputConfiguration",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    inputArn:
-      output.inputArn !== undefined && output.inputArn !== null
-        ? output.inputArn
-        : undefined,
+    inputArn: output.inputArn !== undefined && output.inputArn !== null ? output.inputArn : undefined,
     inputDescription:
-      output.inputDescription !== undefined && output.inputDescription !== null
-        ? output.inputDescription
-        : undefined,
-    inputName:
-      output.inputName !== undefined && output.inputName !== null
-        ? output.inputName
-        : undefined,
+      output.inputDescription !== undefined && output.inputDescription !== null ? output.inputDescription : undefined,
+    inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1InputDefinition = (
-  output: any,
-  context: __SerdeContext
-): InputDefinition => {
+const deserializeAws_restJson1_1InputDefinition = (output: any, context: __SerdeContext): InputDefinition => {
   return {
     __type: "InputDefinition",
     attributes:
@@ -3403,58 +2750,33 @@ const deserializeAws_restJson1_1InputDefinition = (
   } as any;
 };
 
-const deserializeAws_restJson1_1InputSummaries = (
-  output: any,
-  context: __SerdeContext
-): InputSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1InputSummary(entry, context)
-  );
+const deserializeAws_restJson1_1InputSummaries = (output: any, context: __SerdeContext): InputSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1InputSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1InputSummary = (
-  output: any,
-  context: __SerdeContext
-): InputSummary => {
+const deserializeAws_restJson1_1InputSummary = (output: any, context: __SerdeContext): InputSummary => {
   return {
     __type: "InputSummary",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
-    inputArn:
-      output.inputArn !== undefined && output.inputArn !== null
-        ? output.inputArn
-        : undefined,
+    inputArn: output.inputArn !== undefined && output.inputArn !== null ? output.inputArn : undefined,
     inputDescription:
-      output.inputDescription !== undefined && output.inputDescription !== null
-        ? output.inputDescription
-        : undefined,
-    inputName:
-      output.inputName !== undefined && output.inputName !== null
-        ? output.inputName
-        : undefined,
+      output.inputDescription !== undefined && output.inputDescription !== null ? output.inputDescription : undefined,
+    inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1IotEventsAction = (
-  output: any,
-  context: __SerdeContext
-): IotEventsAction => {
+const deserializeAws_restJson1_1IotEventsAction = (output: any, context: __SerdeContext): IotEventsAction => {
   return {
     __type: "IotEventsAction",
-    inputName:
-      output.inputName !== undefined && output.inputName !== null
-        ? output.inputName
-        : undefined
+    inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined
   } as any;
 };
 
@@ -3464,59 +2786,31 @@ const deserializeAws_restJson1_1IotTopicPublishAction = (
 ): IotTopicPublishAction => {
   return {
     __type: "IotTopicPublishAction",
-    mqttTopic:
-      output.mqttTopic !== undefined && output.mqttTopic !== null
-        ? output.mqttTopic
-        : undefined
+    mqttTopic: output.mqttTopic !== undefined && output.mqttTopic !== null ? output.mqttTopic : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1LambdaAction = (
-  output: any,
-  context: __SerdeContext
-): LambdaAction => {
+const deserializeAws_restJson1_1LambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
   return {
     __type: "LambdaAction",
-    functionArn:
-      output.functionArn !== undefined && output.functionArn !== null
-        ? output.functionArn
-        : undefined
+    functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1LoggingOptions = (
-  output: any,
-  context: __SerdeContext
-): LoggingOptions => {
+const deserializeAws_restJson1_1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
   return {
     __type: "LoggingOptions",
     detectorDebugOptions:
-      output.detectorDebugOptions !== undefined &&
-      output.detectorDebugOptions !== null
-        ? deserializeAws_restJson1_1DetectorDebugOptions(
-            output.detectorDebugOptions,
-            context
-          )
+      output.detectorDebugOptions !== undefined && output.detectorDebugOptions !== null
+        ? deserializeAws_restJson1_1DetectorDebugOptions(output.detectorDebugOptions, context)
         : undefined,
-    enabled:
-      output.enabled !== undefined && output.enabled !== null
-        ? output.enabled
-        : undefined,
-    level:
-      output.level !== undefined && output.level !== null
-        ? output.level
-        : undefined,
-    roleArn:
-      output.roleArn !== undefined && output.roleArn !== null
-        ? output.roleArn
-        : undefined
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+    level: output.level !== undefined && output.level !== null ? output.level : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1OnEnterLifecycle = (
-  output: any,
-  context: __SerdeContext
-): OnEnterLifecycle => {
+const deserializeAws_restJson1_1OnEnterLifecycle = (output: any, context: __SerdeContext): OnEnterLifecycle => {
   return {
     __type: "OnEnterLifecycle",
     events:
@@ -3526,10 +2820,7 @@ const deserializeAws_restJson1_1OnEnterLifecycle = (
   } as any;
 };
 
-const deserializeAws_restJson1_1OnExitLifecycle = (
-  output: any,
-  context: __SerdeContext
-): OnExitLifecycle => {
+const deserializeAws_restJson1_1OnExitLifecycle = (output: any, context: __SerdeContext): OnExitLifecycle => {
   return {
     __type: "OnExitLifecycle",
     events:
@@ -3539,10 +2830,7 @@ const deserializeAws_restJson1_1OnExitLifecycle = (
   } as any;
 };
 
-const deserializeAws_restJson1_1OnInputLifecycle = (
-  output: any,
-  context: __SerdeContext
-): OnInputLifecycle => {
+const deserializeAws_restJson1_1OnInputLifecycle = (output: any, context: __SerdeContext): OnInputLifecycle => {
   return {
     __type: "OnInputLifecycle",
     events:
@@ -3551,24 +2839,15 @@ const deserializeAws_restJson1_1OnInputLifecycle = (
         : undefined,
     transitionEvents:
       output.transitionEvents !== undefined && output.transitionEvents !== null
-        ? deserializeAws_restJson1_1TransitionEvents(
-            output.transitionEvents,
-            context
-          )
+        ? deserializeAws_restJson1_1TransitionEvents(output.transitionEvents, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ResetTimerAction = (
-  output: any,
-  context: __SerdeContext
-): ResetTimerAction => {
+const deserializeAws_restJson1_1ResetTimerAction = (output: any, context: __SerdeContext): ResetTimerAction => {
   return {
     __type: "ResetTimerAction",
-    timerName:
-      output.timerName !== undefined && output.timerName !== null
-        ? output.timerName
-        : undefined
+    timerName: output.timerName !== undefined && output.timerName !== null ? output.timerName : undefined
   } as any;
 };
 
@@ -3578,68 +2857,35 @@ const deserializeAws_restJson1_1SNSTopicPublishAction = (
 ): SNSTopicPublishAction => {
   return {
     __type: "SNSTopicPublishAction",
-    targetArn:
-      output.targetArn !== undefined && output.targetArn !== null
-        ? output.targetArn
-        : undefined
+    targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SetTimerAction = (
-  output: any,
-  context: __SerdeContext
-): SetTimerAction => {
+const deserializeAws_restJson1_1SetTimerAction = (output: any, context: __SerdeContext): SetTimerAction => {
   return {
     __type: "SetTimerAction",
-    seconds:
-      output.seconds !== undefined && output.seconds !== null
-        ? output.seconds
-        : undefined,
-    timerName:
-      output.timerName !== undefined && output.timerName !== null
-        ? output.timerName
-        : undefined
+    seconds: output.seconds !== undefined && output.seconds !== null ? output.seconds : undefined,
+    timerName: output.timerName !== undefined && output.timerName !== null ? output.timerName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SetVariableAction = (
-  output: any,
-  context: __SerdeContext
-): SetVariableAction => {
+const deserializeAws_restJson1_1SetVariableAction = (output: any, context: __SerdeContext): SetVariableAction => {
   return {
     __type: "SetVariableAction",
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined,
-    variableName:
-      output.variableName !== undefined && output.variableName !== null
-        ? output.variableName
-        : undefined
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+    variableName: output.variableName !== undefined && output.variableName !== null ? output.variableName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SqsAction = (
-  output: any,
-  context: __SerdeContext
-): SqsAction => {
+const deserializeAws_restJson1_1SqsAction = (output: any, context: __SerdeContext): SqsAction => {
   return {
     __type: "SqsAction",
-    queueUrl:
-      output.queueUrl !== undefined && output.queueUrl !== null
-        ? output.queueUrl
-        : undefined,
-    useBase64:
-      output.useBase64 !== undefined && output.useBase64 !== null
-        ? output.useBase64
-        : undefined
+    queueUrl: output.queueUrl !== undefined && output.queueUrl !== null ? output.queueUrl : undefined,
+    useBase64: output.useBase64 !== undefined && output.useBase64 !== null ? output.useBase64 : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1State = (
-  output: any,
-  context: __SerdeContext
-): State => {
+const deserializeAws_restJson1_1State = (output: any, context: __SerdeContext): State => {
   return {
     __type: "State",
     onEnter:
@@ -3654,78 +2900,41 @@ const deserializeAws_restJson1_1State = (
       output.onInput !== undefined && output.onInput !== null
         ? deserializeAws_restJson1_1OnInputLifecycle(output.onInput, context)
         : undefined,
-    stateName:
-      output.stateName !== undefined && output.stateName !== null
-        ? output.stateName
-        : undefined
+    stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1States = (
-  output: any,
-  context: __SerdeContext
-): State[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1State(entry, context)
-  );
+const deserializeAws_restJson1_1States = (output: any, context: __SerdeContext): State[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1State(entry, context));
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    key:
-      output.key !== undefined && output.key !== null ? output.key : undefined,
-    value:
-      output.value !== undefined && output.value !== null
-        ? output.value
-        : undefined
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Tags = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
-const deserializeAws_restJson1_1TransitionEvent = (
-  output: any,
-  context: __SerdeContext
-): TransitionEvent => {
+const deserializeAws_restJson1_1TransitionEvent = (output: any, context: __SerdeContext): TransitionEvent => {
   return {
     __type: "TransitionEvent",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1_1Actions(output.actions, context)
         : undefined,
-    condition:
-      output.condition !== undefined && output.condition !== null
-        ? output.condition
-        : undefined,
-    eventName:
-      output.eventName !== undefined && output.eventName !== null
-        ? output.eventName
-        : undefined,
-    nextState:
-      output.nextState !== undefined && output.nextState !== null
-        ? output.nextState
-        : undefined
+    condition: output.condition !== undefined && output.condition !== null ? output.condition : undefined,
+    eventName: output.eventName !== undefined && output.eventName !== null ? output.eventName : undefined,
+    nextState: output.nextState !== undefined && output.nextState !== null ? output.nextState : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TransitionEvents = (
-  output: any,
-  context: __SerdeContext
-): TransitionEvent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TransitionEvent(entry, context)
-  );
+const deserializeAws_restJson1_1TransitionEvents = (output: any, context: __SerdeContext): TransitionEvent[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TransitionEvent(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3735,30 +2944,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -3773,8 +2973,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

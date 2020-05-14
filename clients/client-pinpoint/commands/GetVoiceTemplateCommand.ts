@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetVoiceTemplateRequest,
-  GetVoiceTemplateResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVoiceTemplateCommand,
   serializeAws_restJson1_1GetVoiceTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetVoiceTemplateCommandInput = GetVoiceTemplateRequest;
-export type GetVoiceTemplateCommandOutput = GetVoiceTemplateResponse &
-  __MetadataBearer;
+export type GetVoiceTemplateCommandOutput = GetVoiceTemplateResponse & __MetadataBearer;
 
 export class GetVoiceTemplateCommand extends $Command<
   GetVoiceTemplateCommandInput,
@@ -50,9 +39,7 @@ export class GetVoiceTemplateCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVoiceTemplateCommandInput, GetVoiceTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetVoiceTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetVoiceTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetVoiceTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetVoiceTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetVoiceTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetVoiceTemplateCommandOutput> {
     return deserializeAws_restJson1_1GetVoiceTemplateCommand(output, context);
   }
 

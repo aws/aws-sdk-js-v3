@@ -1,18 +1,11 @@
 import { ListUsersRequest, ListUsersResponse } from "../models/index";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  mqClientResolvedConfig
-} from "../mqClient";
+import { ServiceInputTypes, ServiceOutputTypes, mqClientResolvedConfig } from "../mqClient";
 import {
   deserializeAws_restJson1_1ListUsersCommand,
   serializeAws_restJson1_1ListUsersCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +20,7 @@ import {
 export type ListUsersCommandInput = ListUsersRequest;
 export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
 
-export class ListUsersCommand extends $Command<
-  ListUsersCommandInput,
-  ListUsersCommandOutput,
-  mqClientResolvedConfig
-> {
+export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, mqClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +35,7 @@ export class ListUsersCommand extends $Command<
     configuration: mqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +50,11 @@ export class ListUsersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListUsersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListUsersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListUsersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
     return deserializeAws_restJson1_1ListUsersCommand(output, context);
   }
 

@@ -1,18 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
 import { ListDashboardsInput, ListDashboardsOutput } from "../models/index";
 import {
   deserializeAws_queryListDashboardsCommand,
   serializeAws_queryListDashboardsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDashboardsCommandInput = ListDashboardsInput;
-export type ListDashboardsCommandOutput = ListDashboardsOutput &
-  __MetadataBearer;
+export type ListDashboardsCommandOutput = ListDashboardsOutput & __MetadataBearer;
 
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,
@@ -47,9 +39,7 @@ export class ListDashboardsCommand extends $Command<
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDashboardsCommandInput, ListDashboardsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListDashboardsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDashboardsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDashboardsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListDashboardsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListDashboardsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDashboardsCommandOutput> {
     return deserializeAws_queryListDashboardsCommand(output, context);
   }
 

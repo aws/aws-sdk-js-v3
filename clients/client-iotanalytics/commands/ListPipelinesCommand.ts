@@ -1,18 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
 import { ListPipelinesRequest, ListPipelinesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPipelinesCommand,
   serializeAws_restJson1_1ListPipelinesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListPipelinesCommandInput = ListPipelinesRequest;
-export type ListPipelinesCommandOutput = ListPipelinesResponse &
-  __MetadataBearer;
+export type ListPipelinesCommandOutput = ListPipelinesResponse & __MetadataBearer;
 
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,
@@ -47,9 +39,7 @@ export class ListPipelinesCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPipelinesCommandInput, ListPipelinesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListPipelinesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPipelinesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListPipelinesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListPipelinesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListPipelinesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPipelinesCommandOutput> {
     return deserializeAws_restJson1_1ListPipelinesCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  DetachFromIndexRequest,
-  DetachFromIndexResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { DetachFromIndexRequest, DetachFromIndexResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DetachFromIndexCommand,
   serializeAws_restJson1_1DetachFromIndexCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetachFromIndexCommandInput = DetachFromIndexRequest;
-export type DetachFromIndexCommandOutput = DetachFromIndexResponse &
-  __MetadataBearer;
+export type DetachFromIndexCommandOutput = DetachFromIndexResponse & __MetadataBearer;
 
 export class DetachFromIndexCommand extends $Command<
   DetachFromIndexCommandInput,
@@ -50,9 +39,7 @@ export class DetachFromIndexCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachFromIndexCommandInput, DetachFromIndexCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DetachFromIndexCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetachFromIndexCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetachFromIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DetachFromIndexCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetachFromIndexCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachFromIndexCommandOutput> {
     return deserializeAws_restJson1_1DetachFromIndexCommand(output, context);
   }
 

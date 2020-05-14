@@ -1,21 +1,11 @@
-import {
-  IoTAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTAnalyticsClient";
-import {
-  CreateDatastoreRequest,
-  CreateDatastoreResponse
-} from "../models/index";
+import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
+import { CreateDatastoreRequest, CreateDatastoreResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDatastoreCommand,
   serializeAws_restJson1_1CreateDatastoreCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDatastoreCommandInput = CreateDatastoreRequest;
-export type CreateDatastoreCommandOutput = CreateDatastoreResponse &
-  __MetadataBearer;
+export type CreateDatastoreCommandOutput = CreateDatastoreResponse & __MetadataBearer;
 
 export class CreateDatastoreCommand extends $Command<
   CreateDatastoreCommandInput,
@@ -50,9 +39,7 @@ export class CreateDatastoreCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDatastoreCommandInput, CreateDatastoreCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateDatastoreCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDatastoreCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateDatastoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateDatastoreCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDatastoreCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatastoreCommandOutput> {
     return deserializeAws_restJson1_1CreateDatastoreCommand(output, context);
   }
 

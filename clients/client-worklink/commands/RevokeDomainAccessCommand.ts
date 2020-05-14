@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkLinkClientResolvedConfig
-} from "../WorkLinkClient";
-import {
-  RevokeDomainAccessRequest,
-  RevokeDomainAccessResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient";
+import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1RevokeDomainAccessCommand,
   serializeAws_restJson1_1RevokeDomainAccessCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeDomainAccessCommandInput = RevokeDomainAccessRequest;
-export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse &
-  __MetadataBearer;
+export type RevokeDomainAccessCommandOutput = RevokeDomainAccessResponse & __MetadataBearer;
 
 export class RevokeDomainAccessCommand extends $Command<
   RevokeDomainAccessCommandInput,
@@ -50,9 +39,7 @@ export class RevokeDomainAccessCommand extends $Command<
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class RevokeDomainAccessCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RevokeDomainAccessCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RevokeDomainAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1RevokeDomainAccessCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RevokeDomainAccessCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RevokeDomainAccessCommandOutput> {
     return deserializeAws_restJson1_1RevokeDomainAccessCommand(output, context);
   }
 

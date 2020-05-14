@@ -1,21 +1,11 @@
-import {
-  FraudDetectorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FraudDetectorClient";
-import {
-  UpdateModelVersionRequest,
-  UpdateModelVersionResult
-} from "../models/index";
+import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { UpdateModelVersionRequest, UpdateModelVersionResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateModelVersionCommand,
   serializeAws_json1_1UpdateModelVersionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateModelVersionCommandInput = UpdateModelVersionRequest;
-export type UpdateModelVersionCommandOutput = UpdateModelVersionResult &
-  __MetadataBearer;
+export type UpdateModelVersionCommandOutput = UpdateModelVersionResult & __MetadataBearer;
 
 export class UpdateModelVersionCommand extends $Command<
   UpdateModelVersionCommandInput,
@@ -50,9 +39,7 @@ export class UpdateModelVersionCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateModelVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateModelVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateModelVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateModelVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateModelVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateModelVersionCommandOutput> {
     return deserializeAws_json1_1UpdateModelVersionCommand(output, context);
   }
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -26,8 +23,7 @@ export interface BatchCreateVariableError {
 }
 
 export namespace BatchCreateVariableError {
-  export const isa = (o: any): o is BatchCreateVariableError =>
-    __isa(o, "BatchCreateVariableError");
+  export const isa = (o: any): o is BatchCreateVariableError => __isa(o, "BatchCreateVariableError");
 }
 
 export interface BatchCreateVariableRequest {
@@ -39,8 +35,7 @@ export interface BatchCreateVariableRequest {
 }
 
 export namespace BatchCreateVariableRequest {
-  export const isa = (o: any): o is BatchCreateVariableRequest =>
-    __isa(o, "BatchCreateVariableRequest");
+  export const isa = (o: any): o is BatchCreateVariableRequest => __isa(o, "BatchCreateVariableRequest");
 }
 
 export interface BatchCreateVariableResult {
@@ -52,8 +47,7 @@ export interface BatchCreateVariableResult {
 }
 
 export namespace BatchCreateVariableResult {
-  export const isa = (o: any): o is BatchCreateVariableResult =>
-    __isa(o, "BatchCreateVariableResult");
+  export const isa = (o: any): o is BatchCreateVariableResult => __isa(o, "BatchCreateVariableResult");
 }
 
 /**
@@ -78,8 +72,7 @@ export interface BatchGetVariableError {
 }
 
 export namespace BatchGetVariableError {
-  export const isa = (o: any): o is BatchGetVariableError =>
-    __isa(o, "BatchGetVariableError");
+  export const isa = (o: any): o is BatchGetVariableError => __isa(o, "BatchGetVariableError");
 }
 
 export interface BatchGetVariableRequest {
@@ -91,8 +84,7 @@ export interface BatchGetVariableRequest {
 }
 
 export namespace BatchGetVariableRequest {
-  export const isa = (o: any): o is BatchGetVariableRequest =>
-    __isa(o, "BatchGetVariableRequest");
+  export const isa = (o: any): o is BatchGetVariableRequest => __isa(o, "BatchGetVariableRequest");
 }
 
 export interface BatchGetVariableResult {
@@ -109,8 +101,7 @@ export interface BatchGetVariableResult {
 }
 
 export namespace BatchGetVariableResult {
-  export const isa = (o: any): o is BatchGetVariableResult =>
-    __isa(o, "BatchGetVariableResult");
+  export const isa = (o: any): o is BatchGetVariableResult => __isa(o, "BatchGetVariableResult");
 }
 
 export interface CreateDetectorVersionRequest {
@@ -142,8 +133,7 @@ export interface CreateDetectorVersionRequest {
 }
 
 export namespace CreateDetectorVersionRequest {
-  export const isa = (o: any): o is CreateDetectorVersionRequest =>
-    __isa(o, "CreateDetectorVersionRequest");
+  export const isa = (o: any): o is CreateDetectorVersionRequest => __isa(o, "CreateDetectorVersionRequest");
 }
 
 export interface CreateDetectorVersionResult {
@@ -165,8 +155,7 @@ export interface CreateDetectorVersionResult {
 }
 
 export namespace CreateDetectorVersionResult {
-  export const isa = (o: any): o is CreateDetectorVersionResult =>
-    __isa(o, "CreateDetectorVersionResult");
+  export const isa = (o: any): o is CreateDetectorVersionResult => __isa(o, "CreateDetectorVersionResult");
 }
 
 export interface CreateModelVersionRequest {
@@ -188,8 +177,7 @@ export interface CreateModelVersionRequest {
 }
 
 export namespace CreateModelVersionRequest {
-  export const isa = (o: any): o is CreateModelVersionRequest =>
-    __isa(o, "CreateModelVersionRequest");
+  export const isa = (o: any): o is CreateModelVersionRequest => __isa(o, "CreateModelVersionRequest");
 }
 
 export interface CreateModelVersionResult {
@@ -216,8 +204,7 @@ export interface CreateModelVersionResult {
 }
 
 export namespace CreateModelVersionResult {
-  export const isa = (o: any): o is CreateModelVersionResult =>
-    __isa(o, "CreateModelVersionResult");
+  export const isa = (o: any): o is CreateModelVersionResult => __isa(o, "CreateModelVersionResult");
 }
 
 export interface CreateRuleRequest {
@@ -254,8 +241,7 @@ export interface CreateRuleRequest {
 }
 
 export namespace CreateRuleRequest {
-  export const isa = (o: any): o is CreateRuleRequest =>
-    __isa(o, "CreateRuleRequest");
+  export const isa = (o: any): o is CreateRuleRequest => __isa(o, "CreateRuleRequest");
 }
 
 export interface CreateRuleResult {
@@ -267,8 +253,7 @@ export interface CreateRuleResult {
 }
 
 export namespace CreateRuleResult {
-  export const isa = (o: any): o is CreateRuleResult =>
-    __isa(o, "CreateRuleResult");
+  export const isa = (o: any): o is CreateRuleResult => __isa(o, "CreateRuleResult");
 }
 
 export interface CreateVariableRequest {
@@ -305,8 +290,7 @@ export interface CreateVariableRequest {
 }
 
 export namespace CreateVariableRequest {
-  export const isa = (o: any): o is CreateVariableRequest =>
-    __isa(o, "CreateVariableRequest");
+  export const isa = (o: any): o is CreateVariableRequest => __isa(o, "CreateVariableRequest");
 }
 
 export interface CreateVariableResult {
@@ -314,8 +298,7 @@ export interface CreateVariableResult {
 }
 
 export namespace CreateVariableResult {
-  export const isa = (o: any): o is CreateVariableResult =>
-    __isa(o, "CreateVariableResult");
+  export const isa = (o: any): o is CreateVariableResult => __isa(o, "CreateVariableResult");
 }
 
 export enum DataSource {
@@ -345,8 +328,7 @@ export interface DeleteDetectorVersionRequest {
 }
 
 export namespace DeleteDetectorVersionRequest {
-  export const isa = (o: any): o is DeleteDetectorVersionRequest =>
-    __isa(o, "DeleteDetectorVersionRequest");
+  export const isa = (o: any): o is DeleteDetectorVersionRequest => __isa(o, "DeleteDetectorVersionRequest");
 }
 
 export interface DeleteDetectorVersionResult {
@@ -354,8 +336,7 @@ export interface DeleteDetectorVersionResult {
 }
 
 export namespace DeleteDetectorVersionResult {
-  export const isa = (o: any): o is DeleteDetectorVersionResult =>
-    __isa(o, "DeleteDetectorVersionResult");
+  export const isa = (o: any): o is DeleteDetectorVersionResult => __isa(o, "DeleteDetectorVersionResult");
 }
 
 export interface DeleteEventRequest {
@@ -367,8 +348,7 @@ export interface DeleteEventRequest {
 }
 
 export namespace DeleteEventRequest {
-  export const isa = (o: any): o is DeleteEventRequest =>
-    __isa(o, "DeleteEventRequest");
+  export const isa = (o: any): o is DeleteEventRequest => __isa(o, "DeleteEventRequest");
 }
 
 export interface DeleteEventResult {
@@ -376,8 +356,7 @@ export interface DeleteEventResult {
 }
 
 export namespace DeleteEventResult {
-  export const isa = (o: any): o is DeleteEventResult =>
-    __isa(o, "DeleteEventResult");
+  export const isa = (o: any): o is DeleteEventResult => __isa(o, "DeleteEventResult");
 }
 
 export interface DescribeDetectorRequest {
@@ -399,8 +378,7 @@ export interface DescribeDetectorRequest {
 }
 
 export namespace DescribeDetectorRequest {
-  export const isa = (o: any): o is DescribeDetectorRequest =>
-    __isa(o, "DescribeDetectorRequest");
+  export const isa = (o: any): o is DescribeDetectorRequest => __isa(o, "DescribeDetectorRequest");
 }
 
 export interface DescribeDetectorResult {
@@ -422,8 +400,7 @@ export interface DescribeDetectorResult {
 }
 
 export namespace DescribeDetectorResult {
-  export const isa = (o: any): o is DescribeDetectorResult =>
-    __isa(o, "DescribeDetectorResult");
+  export const isa = (o: any): o is DescribeDetectorResult => __isa(o, "DescribeDetectorResult");
 }
 
 export interface DescribeModelVersionsRequest {
@@ -455,8 +432,7 @@ export interface DescribeModelVersionsRequest {
 }
 
 export namespace DescribeModelVersionsRequest {
-  export const isa = (o: any): o is DescribeModelVersionsRequest =>
-    __isa(o, "DescribeModelVersionsRequest");
+  export const isa = (o: any): o is DescribeModelVersionsRequest => __isa(o, "DescribeModelVersionsRequest");
 }
 
 export interface DescribeModelVersionsResult {
@@ -473,8 +449,7 @@ export interface DescribeModelVersionsResult {
 }
 
 export namespace DescribeModelVersionsResult {
-  export const isa = (o: any): o is DescribeModelVersionsResult =>
-    __isa(o, "DescribeModelVersionsResult");
+  export const isa = (o: any): o is DescribeModelVersionsResult => __isa(o, "DescribeModelVersionsResult");
 }
 
 /**
@@ -540,8 +515,7 @@ export interface DetectorVersionSummary {
 }
 
 export namespace DetectorVersionSummary {
-  export const isa = (o: any): o is DetectorVersionSummary =>
-    __isa(o, "DetectorVersionSummary");
+  export const isa = (o: any): o is DetectorVersionSummary => __isa(o, "DetectorVersionSummary");
 }
 
 /**
@@ -608,8 +582,7 @@ export interface GetDetectorVersionRequest {
 }
 
 export namespace GetDetectorVersionRequest {
-  export const isa = (o: any): o is GetDetectorVersionRequest =>
-    __isa(o, "GetDetectorVersionRequest");
+  export const isa = (o: any): o is GetDetectorVersionRequest => __isa(o, "GetDetectorVersionRequest");
 }
 
 export interface GetDetectorVersionResult {
@@ -662,8 +635,7 @@ export interface GetDetectorVersionResult {
 }
 
 export namespace GetDetectorVersionResult {
-  export const isa = (o: any): o is GetDetectorVersionResult =>
-    __isa(o, "GetDetectorVersionResult");
+  export const isa = (o: any): o is GetDetectorVersionResult => __isa(o, "GetDetectorVersionResult");
 }
 
 export interface GetDetectorsRequest {
@@ -685,8 +657,7 @@ export interface GetDetectorsRequest {
 }
 
 export namespace GetDetectorsRequest {
-  export const isa = (o: any): o is GetDetectorsRequest =>
-    __isa(o, "GetDetectorsRequest");
+  export const isa = (o: any): o is GetDetectorsRequest => __isa(o, "GetDetectorsRequest");
 }
 
 export interface GetDetectorsResult {
@@ -703,8 +674,7 @@ export interface GetDetectorsResult {
 }
 
 export namespace GetDetectorsResult {
-  export const isa = (o: any): o is GetDetectorsResult =>
-    __isa(o, "GetDetectorsResult");
+  export const isa = (o: any): o is GetDetectorsResult => __isa(o, "GetDetectorsResult");
 }
 
 export interface GetExternalModelsRequest {
@@ -726,8 +696,7 @@ export interface GetExternalModelsRequest {
 }
 
 export namespace GetExternalModelsRequest {
-  export const isa = (o: any): o is GetExternalModelsRequest =>
-    __isa(o, "GetExternalModelsRequest");
+  export const isa = (o: any): o is GetExternalModelsRequest => __isa(o, "GetExternalModelsRequest");
 }
 
 export interface GetExternalModelsResult {
@@ -744,8 +713,7 @@ export interface GetExternalModelsResult {
 }
 
 export namespace GetExternalModelsResult {
-  export const isa = (o: any): o is GetExternalModelsResult =>
-    __isa(o, "GetExternalModelsResult");
+  export const isa = (o: any): o is GetExternalModelsResult => __isa(o, "GetExternalModelsResult");
 }
 
 export interface GetModelVersionRequest {
@@ -767,8 +735,7 @@ export interface GetModelVersionRequest {
 }
 
 export namespace GetModelVersionRequest {
-  export const isa = (o: any): o is GetModelVersionRequest =>
-    __isa(o, "GetModelVersionRequest");
+  export const isa = (o: any): o is GetModelVersionRequest => __isa(o, "GetModelVersionRequest");
 }
 
 export interface GetModelVersionResult {
@@ -800,8 +767,7 @@ export interface GetModelVersionResult {
 }
 
 export namespace GetModelVersionResult {
-  export const isa = (o: any): o is GetModelVersionResult =>
-    __isa(o, "GetModelVersionResult");
+  export const isa = (o: any): o is GetModelVersionResult => __isa(o, "GetModelVersionResult");
 }
 
 export interface GetModelsRequest {
@@ -828,8 +794,7 @@ export interface GetModelsRequest {
 }
 
 export namespace GetModelsRequest {
-  export const isa = (o: any): o is GetModelsRequest =>
-    __isa(o, "GetModelsRequest");
+  export const isa = (o: any): o is GetModelsRequest => __isa(o, "GetModelsRequest");
 }
 
 export interface GetModelsResult {
@@ -846,8 +811,7 @@ export interface GetModelsResult {
 }
 
 export namespace GetModelsResult {
-  export const isa = (o: any): o is GetModelsResult =>
-    __isa(o, "GetModelsResult");
+  export const isa = (o: any): o is GetModelsResult => __isa(o, "GetModelsResult");
 }
 
 export interface GetOutcomesRequest {
@@ -869,8 +833,7 @@ export interface GetOutcomesRequest {
 }
 
 export namespace GetOutcomesRequest {
-  export const isa = (o: any): o is GetOutcomesRequest =>
-    __isa(o, "GetOutcomesRequest");
+  export const isa = (o: any): o is GetOutcomesRequest => __isa(o, "GetOutcomesRequest");
 }
 
 export interface GetOutcomesResult {
@@ -887,8 +850,7 @@ export interface GetOutcomesResult {
 }
 
 export namespace GetOutcomesResult {
-  export const isa = (o: any): o is GetOutcomesResult =>
-    __isa(o, "GetOutcomesResult");
+  export const isa = (o: any): o is GetOutcomesResult => __isa(o, "GetOutcomesResult");
 }
 
 export interface GetPredictionRequest {
@@ -920,8 +882,7 @@ export interface GetPredictionRequest {
 }
 
 export namespace GetPredictionRequest {
-  export const isa = (o: any): o is GetPredictionRequest =>
-    __isa(o, "GetPredictionRequest");
+  export const isa = (o: any): o is GetPredictionRequest => __isa(o, "GetPredictionRequest");
 }
 
 export interface GetPredictionResult {
@@ -938,8 +899,7 @@ export interface GetPredictionResult {
 }
 
 export namespace GetPredictionResult {
-  export const isa = (o: any): o is GetPredictionResult =>
-    __isa(o, "GetPredictionResult");
+  export const isa = (o: any): o is GetPredictionResult => __isa(o, "GetPredictionResult");
 }
 
 export interface GetRulesRequest {
@@ -971,8 +931,7 @@ export interface GetRulesRequest {
 }
 
 export namespace GetRulesRequest {
-  export const isa = (o: any): o is GetRulesRequest =>
-    __isa(o, "GetRulesRequest");
+  export const isa = (o: any): o is GetRulesRequest => __isa(o, "GetRulesRequest");
 }
 
 export interface GetRulesResult {
@@ -989,8 +948,7 @@ export interface GetRulesResult {
 }
 
 export namespace GetRulesResult {
-  export const isa = (o: any): o is GetRulesResult =>
-    __isa(o, "GetRulesResult");
+  export const isa = (o: any): o is GetRulesResult => __isa(o, "GetRulesResult");
 }
 
 export interface GetVariablesRequest {
@@ -1012,8 +970,7 @@ export interface GetVariablesRequest {
 }
 
 export namespace GetVariablesRequest {
-  export const isa = (o: any): o is GetVariablesRequest =>
-    __isa(o, "GetVariablesRequest");
+  export const isa = (o: any): o is GetVariablesRequest => __isa(o, "GetVariablesRequest");
 }
 
 export interface GetVariablesResult {
@@ -1030,8 +987,7 @@ export interface GetVariablesResult {
 }
 
 export namespace GetVariablesResult {
-  export const isa = (o: any): o is GetVariablesResult =>
-    __isa(o, "GetVariablesResult");
+  export const isa = (o: any): o is GetVariablesResult => __isa(o, "GetVariablesResult");
 }
 
 /**
@@ -1130,8 +1086,7 @@ export interface ModelEndpointDataBlob {
 }
 
 export namespace ModelEndpointDataBlob {
-  export const isa = (o: any): o is ModelEndpointDataBlob =>
-    __isa(o, "ModelEndpointDataBlob");
+  export const isa = (o: any): o is ModelEndpointDataBlob => __isa(o, "ModelEndpointDataBlob");
 }
 
 export enum ModelEndpointStatus {
@@ -1173,8 +1128,7 @@ export interface ModelInputConfiguration {
 }
 
 export namespace ModelInputConfiguration {
-  export const isa = (o: any): o is ModelInputConfiguration =>
-    __isa(o, "ModelInputConfiguration");
+  export const isa = (o: any): o is ModelInputConfiguration => __isa(o, "ModelInputConfiguration");
 }
 
 export enum ModelInputDataFormat {
@@ -1204,8 +1158,7 @@ export interface ModelOutputConfiguration {
 }
 
 export namespace ModelOutputConfiguration {
-  export const isa = (o: any): o is ModelOutputConfiguration =>
-    __isa(o, "ModelOutputConfiguration");
+  export const isa = (o: any): o is ModelOutputConfiguration => __isa(o, "ModelOutputConfiguration");
 }
 
 export enum ModelOutputDataFormat {
@@ -1353,8 +1306,7 @@ export interface ModelVersionDetail {
 }
 
 export namespace ModelVersionDetail {
-  export const isa = (o: any): o is ModelVersionDetail =>
-    __isa(o, "ModelVersionDetail");
+  export const isa = (o: any): o is ModelVersionDetail => __isa(o, "ModelVersionDetail");
 }
 
 export enum ModelVersionStatus {
@@ -1412,8 +1364,7 @@ export interface PutDetectorRequest {
 }
 
 export namespace PutDetectorRequest {
-  export const isa = (o: any): o is PutDetectorRequest =>
-    __isa(o, "PutDetectorRequest");
+  export const isa = (o: any): o is PutDetectorRequest => __isa(o, "PutDetectorRequest");
 }
 
 export interface PutDetectorResult {
@@ -1421,8 +1372,7 @@ export interface PutDetectorResult {
 }
 
 export namespace PutDetectorResult {
-  export const isa = (o: any): o is PutDetectorResult =>
-    __isa(o, "PutDetectorResult");
+  export const isa = (o: any): o is PutDetectorResult => __isa(o, "PutDetectorResult");
 }
 
 export interface PutExternalModelRequest {
@@ -1459,8 +1409,7 @@ export interface PutExternalModelRequest {
 }
 
 export namespace PutExternalModelRequest {
-  export const isa = (o: any): o is PutExternalModelRequest =>
-    __isa(o, "PutExternalModelRequest");
+  export const isa = (o: any): o is PutExternalModelRequest => __isa(o, "PutExternalModelRequest");
 }
 
 export interface PutExternalModelResult {
@@ -1468,8 +1417,7 @@ export interface PutExternalModelResult {
 }
 
 export namespace PutExternalModelResult {
-  export const isa = (o: any): o is PutExternalModelResult =>
-    __isa(o, "PutExternalModelResult");
+  export const isa = (o: any): o is PutExternalModelResult => __isa(o, "PutExternalModelResult");
 }
 
 export interface PutModelRequest {
@@ -1506,8 +1454,7 @@ export interface PutModelRequest {
 }
 
 export namespace PutModelRequest {
-  export const isa = (o: any): o is PutModelRequest =>
-    __isa(o, "PutModelRequest");
+  export const isa = (o: any): o is PutModelRequest => __isa(o, "PutModelRequest");
 }
 
 export interface PutModelResult {
@@ -1515,8 +1462,7 @@ export interface PutModelResult {
 }
 
 export namespace PutModelResult {
-  export const isa = (o: any): o is PutModelResult =>
-    __isa(o, "PutModelResult");
+  export const isa = (o: any): o is PutModelResult => __isa(o, "PutModelResult");
 }
 
 export interface PutOutcomeRequest {
@@ -1533,8 +1479,7 @@ export interface PutOutcomeRequest {
 }
 
 export namespace PutOutcomeRequest {
-  export const isa = (o: any): o is PutOutcomeRequest =>
-    __isa(o, "PutOutcomeRequest");
+  export const isa = (o: any): o is PutOutcomeRequest => __isa(o, "PutOutcomeRequest");
 }
 
 export interface PutOutcomeResult {
@@ -1542,8 +1487,7 @@ export interface PutOutcomeResult {
 }
 
 export namespace PutOutcomeResult {
-  export const isa = (o: any): o is PutOutcomeResult =>
-    __isa(o, "PutOutcomeResult");
+  export const isa = (o: any): o is PutOutcomeResult => __isa(o, "PutOutcomeResult");
 }
 
 /**
@@ -1663,8 +1607,7 @@ export interface TrainingDataSource {
 }
 
 export namespace TrainingDataSource {
-  export const isa = (o: any): o is TrainingDataSource =>
-    __isa(o, "TrainingDataSource");
+  export const isa = (o: any): o is TrainingDataSource => __isa(o, "TrainingDataSource");
 }
 
 export interface UpdateDetectorVersionMetadataRequest {
@@ -1733,8 +1676,7 @@ export interface UpdateDetectorVersionRequest {
 }
 
 export namespace UpdateDetectorVersionRequest {
-  export const isa = (o: any): o is UpdateDetectorVersionRequest =>
-    __isa(o, "UpdateDetectorVersionRequest");
+  export const isa = (o: any): o is UpdateDetectorVersionRequest => __isa(o, "UpdateDetectorVersionRequest");
 }
 
 export interface UpdateDetectorVersionResult {
@@ -1742,8 +1684,7 @@ export interface UpdateDetectorVersionResult {
 }
 
 export namespace UpdateDetectorVersionResult {
-  export const isa = (o: any): o is UpdateDetectorVersionResult =>
-    __isa(o, "UpdateDetectorVersionResult");
+  export const isa = (o: any): o is UpdateDetectorVersionResult => __isa(o, "UpdateDetectorVersionResult");
 }
 
 export interface UpdateDetectorVersionStatusRequest {
@@ -1774,8 +1715,7 @@ export interface UpdateDetectorVersionStatusResult {
 }
 
 export namespace UpdateDetectorVersionStatusResult {
-  export const isa = (o: any): o is UpdateDetectorVersionStatusResult =>
-    __isa(o, "UpdateDetectorVersionStatusResult");
+  export const isa = (o: any): o is UpdateDetectorVersionStatusResult => __isa(o, "UpdateDetectorVersionStatusResult");
 }
 
 export interface UpdateModelVersionRequest {
@@ -1807,8 +1747,7 @@ export interface UpdateModelVersionRequest {
 }
 
 export namespace UpdateModelVersionRequest {
-  export const isa = (o: any): o is UpdateModelVersionRequest =>
-    __isa(o, "UpdateModelVersionRequest");
+  export const isa = (o: any): o is UpdateModelVersionRequest => __isa(o, "UpdateModelVersionRequest");
 }
 
 export interface UpdateModelVersionResult {
@@ -1816,8 +1755,7 @@ export interface UpdateModelVersionResult {
 }
 
 export namespace UpdateModelVersionResult {
-  export const isa = (o: any): o is UpdateModelVersionResult =>
-    __isa(o, "UpdateModelVersionResult");
+  export const isa = (o: any): o is UpdateModelVersionResult => __isa(o, "UpdateModelVersionResult");
 }
 
 export interface UpdateRuleMetadataRequest {
@@ -1834,8 +1772,7 @@ export interface UpdateRuleMetadataRequest {
 }
 
 export namespace UpdateRuleMetadataRequest {
-  export const isa = (o: any): o is UpdateRuleMetadataRequest =>
-    __isa(o, "UpdateRuleMetadataRequest");
+  export const isa = (o: any): o is UpdateRuleMetadataRequest => __isa(o, "UpdateRuleMetadataRequest");
 }
 
 export interface UpdateRuleMetadataResult {
@@ -1843,8 +1780,7 @@ export interface UpdateRuleMetadataResult {
 }
 
 export namespace UpdateRuleMetadataResult {
-  export const isa = (o: any): o is UpdateRuleMetadataResult =>
-    __isa(o, "UpdateRuleMetadataResult");
+  export const isa = (o: any): o is UpdateRuleMetadataResult => __isa(o, "UpdateRuleMetadataResult");
 }
 
 export interface UpdateRuleVersionRequest {
@@ -1876,8 +1812,7 @@ export interface UpdateRuleVersionRequest {
 }
 
 export namespace UpdateRuleVersionRequest {
-  export const isa = (o: any): o is UpdateRuleVersionRequest =>
-    __isa(o, "UpdateRuleVersionRequest");
+  export const isa = (o: any): o is UpdateRuleVersionRequest => __isa(o, "UpdateRuleVersionRequest");
 }
 
 export interface UpdateRuleVersionResult {
@@ -1889,8 +1824,7 @@ export interface UpdateRuleVersionResult {
 }
 
 export namespace UpdateRuleVersionResult {
-  export const isa = (o: any): o is UpdateRuleVersionResult =>
-    __isa(o, "UpdateRuleVersionResult");
+  export const isa = (o: any): o is UpdateRuleVersionResult => __isa(o, "UpdateRuleVersionResult");
 }
 
 export interface UpdateVariableRequest {
@@ -1917,8 +1851,7 @@ export interface UpdateVariableRequest {
 }
 
 export namespace UpdateVariableRequest {
-  export const isa = (o: any): o is UpdateVariableRequest =>
-    __isa(o, "UpdateVariableRequest");
+  export const isa = (o: any): o is UpdateVariableRequest => __isa(o, "UpdateVariableRequest");
 }
 
 export interface UpdateVariableResult {
@@ -1926,8 +1859,7 @@ export interface UpdateVariableResult {
 }
 
 export namespace UpdateVariableResult {
-  export const isa = (o: any): o is UpdateVariableResult =>
-    __isa(o, "UpdateVariableResult");
+  export const isa = (o: any): o is UpdateVariableResult => __isa(o, "UpdateVariableResult");
 }
 
 /**
@@ -2023,63 +1955,51 @@ export namespace VariableEntry {
 /**
  * <p>An exception indicating an internal server error.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   message: string | undefined;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 /**
  * <p>An exception indicating the specified resource was not found.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>An exception indicating a throttling error.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>An exception indicating a specified value is not allowed.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

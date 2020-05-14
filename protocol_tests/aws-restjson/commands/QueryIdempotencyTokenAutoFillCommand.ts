@@ -1,18 +1,11 @@
-import {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RestJsonProtocolClient";
+import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
 import {
   deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand,
   serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    QueryIdempotencyTokenAutoFillCommandInput,
-    QueryIdempotencyTokenAutoFillCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<QueryIdempotencyTokenAutoFillCommandInput, QueryIdempotencyTokenAutoFillCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,24 +54,15 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: QueryIdempotencyTokenAutoFillCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(
-      input,
-      context
-    );
+  private serialize(input: QueryIdempotencyTokenAutoFillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(output, context);
   }
 
   // Start section: command_body_extra

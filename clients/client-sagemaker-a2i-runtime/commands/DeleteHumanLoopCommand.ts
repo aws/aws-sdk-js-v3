@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../SageMakerA2IRuntimeClient";
-import {
-  DeleteHumanLoopRequest,
-  DeleteHumanLoopResponse
-} from "../models/index";
+import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteHumanLoopCommand,
   serializeAws_restJson1_1DeleteHumanLoopCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteHumanLoopCommandInput = DeleteHumanLoopRequest;
-export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse &
-  __MetadataBearer;
+export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse & __MetadataBearer;
 
 export class DeleteHumanLoopCommand extends $Command<
   DeleteHumanLoopCommandInput,
@@ -50,9 +43,7 @@ export class DeleteHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteHumanLoopCommandInput, DeleteHumanLoopCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeleteHumanLoopCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteHumanLoopCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteHumanLoopCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteHumanLoopCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteHumanLoopCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteHumanLoopCommandOutput> {
     return deserializeAws_restJson1_1DeleteHumanLoopCommand(output, context);
   }
 

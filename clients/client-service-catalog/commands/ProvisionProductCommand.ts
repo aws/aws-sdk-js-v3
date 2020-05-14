@@ -1,18 +1,11 @@
-import {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ServiceCatalogClient";
+import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
 import { ProvisionProductInput, ProvisionProductOutput } from "../models/index";
 import {
   deserializeAws_json1_1ProvisionProductCommand,
   serializeAws_json1_1ProvisionProductCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ProvisionProductCommandInput = ProvisionProductInput;
-export type ProvisionProductCommandOutput = ProvisionProductOutput &
-  __MetadataBearer;
+export type ProvisionProductCommandOutput = ProvisionProductOutput & __MetadataBearer;
 
 export class ProvisionProductCommand extends $Command<
   ProvisionProductCommandInput,
@@ -47,9 +39,7 @@ export class ProvisionProductCommand extends $Command<
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ProvisionProductCommandInput, ProvisionProductCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ProvisionProductCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ProvisionProductCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ProvisionProductCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ProvisionProductCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ProvisionProductCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ProvisionProductCommandOutput> {
     return deserializeAws_json1_1ProvisionProductCommand(output, context);
   }
 

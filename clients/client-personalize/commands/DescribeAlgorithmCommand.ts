@@ -1,21 +1,11 @@
-import {
-  PersonalizeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PersonalizeClient";
-import {
-  DescribeAlgorithmRequest,
-  DescribeAlgorithmResponse
-} from "../models/index";
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import { DescribeAlgorithmRequest, DescribeAlgorithmResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAlgorithmCommand,
   serializeAws_json1_1DescribeAlgorithmCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeAlgorithmCommandInput = DescribeAlgorithmRequest;
-export type DescribeAlgorithmCommandOutput = DescribeAlgorithmResponse &
-  __MetadataBearer;
+export type DescribeAlgorithmCommandOutput = DescribeAlgorithmResponse & __MetadataBearer;
 
 export class DescribeAlgorithmCommand extends $Command<
   DescribeAlgorithmCommandInput,
@@ -50,9 +39,7 @@ export class DescribeAlgorithmCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeAlgorithmCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeAlgorithmCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeAlgorithmCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeAlgorithmCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAlgorithmCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAlgorithmCommandOutput> {
     return deserializeAws_json1_1DescribeAlgorithmCommand(output, context);
   }
 

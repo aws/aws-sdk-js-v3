@@ -1,18 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 import { UpdateInsightRequest, UpdateInsightResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateInsightCommand,
   serializeAws_restJson1_1UpdateInsightCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateInsightCommandInput = UpdateInsightRequest;
-export type UpdateInsightCommandOutput = UpdateInsightResponse &
-  __MetadataBearer;
+export type UpdateInsightCommandOutput = UpdateInsightResponse & __MetadataBearer;
 
 export class UpdateInsightCommand extends $Command<
   UpdateInsightCommandInput,
@@ -47,9 +39,7 @@ export class UpdateInsightCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateInsightCommandInput, UpdateInsightCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class UpdateInsightCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateInsightCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateInsightCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateInsightCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateInsightCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateInsightCommandOutput> {
     return deserializeAws_restJson1_1UpdateInsightCommand(output, context);
   }
 

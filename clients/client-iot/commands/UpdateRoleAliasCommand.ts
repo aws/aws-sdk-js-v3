@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  UpdateRoleAliasRequest,
-  UpdateRoleAliasResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { UpdateRoleAliasRequest, UpdateRoleAliasResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRoleAliasCommand,
   serializeAws_restJson1_1UpdateRoleAliasCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateRoleAliasCommandInput = UpdateRoleAliasRequest;
-export type UpdateRoleAliasCommandOutput = UpdateRoleAliasResponse &
-  __MetadataBearer;
+export type UpdateRoleAliasCommandOutput = UpdateRoleAliasResponse & __MetadataBearer;
 
 export class UpdateRoleAliasCommand extends $Command<
   UpdateRoleAliasCommandInput,
@@ -50,9 +39,7 @@ export class UpdateRoleAliasCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRoleAliasCommandInput, UpdateRoleAliasCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateRoleAliasCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateRoleAliasCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateRoleAliasCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateRoleAliasCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateRoleAliasCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRoleAliasCommandOutput> {
     return deserializeAws_restJson1_1UpdateRoleAliasCommand(output, context);
   }
 

@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface BatchGrantPermissionsRequest {
@@ -18,8 +15,7 @@ export interface BatchGrantPermissionsRequest {
 }
 
 export namespace BatchGrantPermissionsRequest {
-  export const isa = (o: any): o is BatchGrantPermissionsRequest =>
-    __isa(o, "BatchGrantPermissionsRequest");
+  export const isa = (o: any): o is BatchGrantPermissionsRequest => __isa(o, "BatchGrantPermissionsRequest");
 }
 
 export interface BatchGrantPermissionsResponse {
@@ -31,8 +27,7 @@ export interface BatchGrantPermissionsResponse {
 }
 
 export namespace BatchGrantPermissionsResponse {
-  export const isa = (o: any): o is BatchGrantPermissionsResponse =>
-    __isa(o, "BatchGrantPermissionsResponse");
+  export const isa = (o: any): o is BatchGrantPermissionsResponse => __isa(o, "BatchGrantPermissionsResponse");
 }
 
 /**
@@ -52,8 +47,7 @@ export interface BatchPermissionsFailureEntry {
 }
 
 export namespace BatchPermissionsFailureEntry {
-  export const isa = (o: any): o is BatchPermissionsFailureEntry =>
-    __isa(o, "BatchPermissionsFailureEntry");
+  export const isa = (o: any): o is BatchPermissionsFailureEntry => __isa(o, "BatchPermissionsFailureEntry");
 }
 
 /**
@@ -88,8 +82,7 @@ export interface BatchPermissionsRequestEntry {
 }
 
 export namespace BatchPermissionsRequestEntry {
-  export const isa = (o: any): o is BatchPermissionsRequestEntry =>
-    __isa(o, "BatchPermissionsRequestEntry");
+  export const isa = (o: any): o is BatchPermissionsRequestEntry => __isa(o, "BatchPermissionsRequestEntry");
 }
 
 export interface BatchRevokePermissionsRequest {
@@ -106,8 +99,7 @@ export interface BatchRevokePermissionsRequest {
 }
 
 export namespace BatchRevokePermissionsRequest {
-  export const isa = (o: any): o is BatchRevokePermissionsRequest =>
-    __isa(o, "BatchRevokePermissionsRequest");
+  export const isa = (o: any): o is BatchRevokePermissionsRequest => __isa(o, "BatchRevokePermissionsRequest");
 }
 
 export interface BatchRevokePermissionsResponse {
@@ -119,8 +111,7 @@ export interface BatchRevokePermissionsResponse {
 }
 
 export namespace BatchRevokePermissionsResponse {
-  export const isa = (o: any): o is BatchRevokePermissionsResponse =>
-    __isa(o, "BatchRevokePermissionsResponse");
+  export const isa = (o: any): o is BatchRevokePermissionsResponse => __isa(o, "BatchRevokePermissionsResponse");
 }
 
 /**
@@ -131,8 +122,7 @@ export interface CatalogResource {
 }
 
 export namespace CatalogResource {
-  export const isa = (o: any): o is CatalogResource =>
-    __isa(o, "CatalogResource");
+  export const isa = (o: any): o is CatalogResource => __isa(o, "CatalogResource");
 }
 
 /**
@@ -147,8 +137,7 @@ export interface ColumnWildcard {
 }
 
 export namespace ColumnWildcard {
-  export const isa = (o: any): o is ColumnWildcard =>
-    __isa(o, "ColumnWildcard");
+  export const isa = (o: any): o is ColumnWildcard => __isa(o, "ColumnWildcard");
 }
 
 /**
@@ -163,8 +152,7 @@ export interface DataLakePrincipal {
 }
 
 export namespace DataLakePrincipal {
-  export const isa = (o: any): o is DataLakePrincipal =>
-    __isa(o, "DataLakePrincipal");
+  export const isa = (o: any): o is DataLakePrincipal => __isa(o, "DataLakePrincipal");
 }
 
 export enum DataLakeResourceType {
@@ -196,8 +184,7 @@ export interface DataLakeSettings {
 }
 
 export namespace DataLakeSettings {
-  export const isa = (o: any): o is DataLakeSettings =>
-    __isa(o, "DataLakeSettings");
+  export const isa = (o: any): o is DataLakeSettings => __isa(o, "DataLakeSettings");
 }
 
 /**
@@ -212,8 +199,7 @@ export interface DataLocationResource {
 }
 
 export namespace DataLocationResource {
-  export const isa = (o: any): o is DataLocationResource =>
-    __isa(o, "DataLocationResource");
+  export const isa = (o: any): o is DataLocationResource => __isa(o, "DataLocationResource");
 }
 
 /**
@@ -228,8 +214,7 @@ export interface DatabaseResource {
 }
 
 export namespace DatabaseResource {
-  export const isa = (o: any): o is DatabaseResource =>
-    __isa(o, "DatabaseResource");
+  export const isa = (o: any): o is DatabaseResource => __isa(o, "DatabaseResource");
 }
 
 export interface DeregisterResourceRequest {
@@ -241,8 +226,7 @@ export interface DeregisterResourceRequest {
 }
 
 export namespace DeregisterResourceRequest {
-  export const isa = (o: any): o is DeregisterResourceRequest =>
-    __isa(o, "DeregisterResourceRequest");
+  export const isa = (o: any): o is DeregisterResourceRequest => __isa(o, "DeregisterResourceRequest");
 }
 
 export interface DeregisterResourceResponse {
@@ -250,8 +234,7 @@ export interface DeregisterResourceResponse {
 }
 
 export namespace DeregisterResourceResponse {
-  export const isa = (o: any): o is DeregisterResourceResponse =>
-    __isa(o, "DeregisterResourceResponse");
+  export const isa = (o: any): o is DeregisterResourceResponse => __isa(o, "DeregisterResourceResponse");
 }
 
 export interface DescribeResourceRequest {
@@ -263,8 +246,7 @@ export interface DescribeResourceRequest {
 }
 
 export namespace DescribeResourceRequest {
-  export const isa = (o: any): o is DescribeResourceRequest =>
-    __isa(o, "DescribeResourceRequest");
+  export const isa = (o: any): o is DescribeResourceRequest => __isa(o, "DescribeResourceRequest");
 }
 
 export interface DescribeResourceResponse {
@@ -276,8 +258,7 @@ export interface DescribeResourceResponse {
 }
 
 export namespace DescribeResourceResponse {
-  export const isa = (o: any): o is DescribeResourceResponse =>
-    __isa(o, "DescribeResourceResponse");
+  export const isa = (o: any): o is DescribeResourceResponse => __isa(o, "DescribeResourceResponse");
 }
 
 export interface GetDataLakeSettingsRequest {
@@ -289,8 +270,7 @@ export interface GetDataLakeSettingsRequest {
 }
 
 export namespace GetDataLakeSettingsRequest {
-  export const isa = (o: any): o is GetDataLakeSettingsRequest =>
-    __isa(o, "GetDataLakeSettingsRequest");
+  export const isa = (o: any): o is GetDataLakeSettingsRequest => __isa(o, "GetDataLakeSettingsRequest");
 }
 
 export interface GetDataLakeSettingsResponse {
@@ -302,8 +282,7 @@ export interface GetDataLakeSettingsResponse {
 }
 
 export namespace GetDataLakeSettingsResponse {
-  export const isa = (o: any): o is GetDataLakeSettingsResponse =>
-    __isa(o, "GetDataLakeSettingsResponse");
+  export const isa = (o: any): o is GetDataLakeSettingsResponse => __isa(o, "GetDataLakeSettingsResponse");
 }
 
 export interface GetEffectivePermissionsForPathRequest {
@@ -382,8 +361,7 @@ export interface GrantPermissionsRequest {
 }
 
 export namespace GrantPermissionsRequest {
-  export const isa = (o: any): o is GrantPermissionsRequest =>
-    __isa(o, "GrantPermissionsRequest");
+  export const isa = (o: any): o is GrantPermissionsRequest => __isa(o, "GrantPermissionsRequest");
 }
 
 export interface GrantPermissionsResponse {
@@ -391,8 +369,7 @@ export interface GrantPermissionsResponse {
 }
 
 export namespace GrantPermissionsResponse {
-  export const isa = (o: any): o is GrantPermissionsResponse =>
-    __isa(o, "GrantPermissionsResponse");
+  export const isa = (o: any): o is GrantPermissionsResponse => __isa(o, "GrantPermissionsResponse");
 }
 
 export interface ListPermissionsRequest {
@@ -430,8 +407,7 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
-  export const isa = (o: any): o is ListPermissionsRequest =>
-    __isa(o, "ListPermissionsRequest");
+  export const isa = (o: any): o is ListPermissionsRequest => __isa(o, "ListPermissionsRequest");
 }
 
 export interface ListPermissionsResponse {
@@ -448,8 +424,7 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
-  export const isa = (o: any): o is ListPermissionsResponse =>
-    __isa(o, "ListPermissionsResponse");
+  export const isa = (o: any): o is ListPermissionsResponse => __isa(o, "ListPermissionsResponse");
 }
 
 export interface ListResourcesRequest {
@@ -471,8 +446,7 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
-  export const isa = (o: any): o is ListResourcesRequest =>
-    __isa(o, "ListResourcesRequest");
+  export const isa = (o: any): o is ListResourcesRequest => __isa(o, "ListResourcesRequest");
 }
 
 export interface ListResourcesResponse {
@@ -489,8 +463,7 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
-  export const isa = (o: any): o is ListResourcesResponse =>
-    __isa(o, "ListResourcesResponse");
+  export const isa = (o: any): o is ListResourcesResponse => __isa(o, "ListResourcesResponse");
 }
 
 export enum Permission {
@@ -522,8 +495,7 @@ export interface PrincipalPermissions {
 }
 
 export namespace PrincipalPermissions {
-  export const isa = (o: any): o is PrincipalPermissions =>
-    __isa(o, "PrincipalPermissions");
+  export const isa = (o: any): o is PrincipalPermissions => __isa(o, "PrincipalPermissions");
 }
 
 /**
@@ -553,8 +525,7 @@ export interface PrincipalResourcePermissions {
 }
 
 export namespace PrincipalResourcePermissions {
-  export const isa = (o: any): o is PrincipalResourcePermissions =>
-    __isa(o, "PrincipalResourcePermissions");
+  export const isa = (o: any): o is PrincipalResourcePermissions => __isa(o, "PrincipalResourcePermissions");
 }
 
 export interface PutDataLakeSettingsRequest {
@@ -571,8 +542,7 @@ export interface PutDataLakeSettingsRequest {
 }
 
 export namespace PutDataLakeSettingsRequest {
-  export const isa = (o: any): o is PutDataLakeSettingsRequest =>
-    __isa(o, "PutDataLakeSettingsRequest");
+  export const isa = (o: any): o is PutDataLakeSettingsRequest => __isa(o, "PutDataLakeSettingsRequest");
 }
 
 export interface PutDataLakeSettingsResponse {
@@ -580,8 +550,7 @@ export interface PutDataLakeSettingsResponse {
 }
 
 export namespace PutDataLakeSettingsResponse {
-  export const isa = (o: any): o is PutDataLakeSettingsResponse =>
-    __isa(o, "PutDataLakeSettingsResponse");
+  export const isa = (o: any): o is PutDataLakeSettingsResponse => __isa(o, "PutDataLakeSettingsResponse");
 }
 
 export interface RegisterResourceRequest {
@@ -603,8 +572,7 @@ export interface RegisterResourceRequest {
 }
 
 export namespace RegisterResourceRequest {
-  export const isa = (o: any): o is RegisterResourceRequest =>
-    __isa(o, "RegisterResourceRequest");
+  export const isa = (o: any): o is RegisterResourceRequest => __isa(o, "RegisterResourceRequest");
 }
 
 export interface RegisterResourceResponse {
@@ -612,8 +580,7 @@ export interface RegisterResourceResponse {
 }
 
 export namespace RegisterResourceResponse {
-  export const isa = (o: any): o is RegisterResourceResponse =>
-    __isa(o, "RegisterResourceResponse");
+  export const isa = (o: any): o is RegisterResourceResponse => __isa(o, "RegisterResourceResponse");
 }
 
 /**
@@ -681,8 +648,7 @@ export interface RevokePermissionsRequest {
 }
 
 export namespace RevokePermissionsRequest {
-  export const isa = (o: any): o is RevokePermissionsRequest =>
-    __isa(o, "RevokePermissionsRequest");
+  export const isa = (o: any): o is RevokePermissionsRequest => __isa(o, "RevokePermissionsRequest");
 }
 
 export interface RevokePermissionsResponse {
@@ -690,8 +656,7 @@ export interface RevokePermissionsResponse {
 }
 
 export namespace RevokePermissionsResponse {
-  export const isa = (o: any): o is RevokePermissionsResponse =>
-    __isa(o, "RevokePermissionsResponse");
+  export const isa = (o: any): o is RevokePermissionsResponse => __isa(o, "RevokePermissionsResponse");
 }
 
 /**
@@ -742,8 +707,7 @@ export interface TableWithColumnsResource {
 }
 
 export namespace TableWithColumnsResource {
-  export const isa = (o: any): o is TableWithColumnsResource =>
-    __isa(o, "TableWithColumnsResource");
+  export const isa = (o: any): o is TableWithColumnsResource => __isa(o, "TableWithColumnsResource");
 }
 
 export interface UpdateResourceRequest {
@@ -760,8 +724,7 @@ export interface UpdateResourceRequest {
 }
 
 export namespace UpdateResourceRequest {
-  export const isa = (o: any): o is UpdateResourceRequest =>
-    __isa(o, "UpdateResourceRequest");
+  export const isa = (o: any): o is UpdateResourceRequest => __isa(o, "UpdateResourceRequest");
 }
 
 export interface UpdateResourceResponse {
@@ -769,16 +732,13 @@ export interface UpdateResourceResponse {
 }
 
 export namespace UpdateResourceResponse {
-  export const isa = (o: any): o is UpdateResourceResponse =>
-    __isa(o, "UpdateResourceResponse");
+  export const isa = (o: any): o is UpdateResourceResponse => __isa(o, "UpdateResourceResponse");
 }
 
 /**
  * <p>A resource to be created or added already exists.</p>
  */
-export interface AlreadyExistsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -788,16 +748,13 @@ export interface AlreadyExistsException
 }
 
 export namespace AlreadyExistsException {
-  export const isa = (o: any): o is AlreadyExistsException =>
-    __isa(o, "AlreadyExistsException");
+  export const isa = (o: any): o is AlreadyExistsException => __isa(o, "AlreadyExistsException");
 }
 
 /**
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
-export interface ConcurrentModificationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -807,16 +764,13 @@ export interface ConcurrentModificationException
 }
 
 export namespace ConcurrentModificationException {
-  export const isa = (o: any): o is ConcurrentModificationException =>
-    __isa(o, "ConcurrentModificationException");
+  export const isa = (o: any): o is ConcurrentModificationException => __isa(o, "ConcurrentModificationException");
 }
 
 /**
  * <p>A specified entity does not exist</p>
  */
-export interface EntityNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EntityNotFoundException";
   $fault: "client";
   /**
@@ -826,8 +780,7 @@ export interface EntityNotFoundException
 }
 
 export namespace EntityNotFoundException {
-  export const isa = (o: any): o is EntityNotFoundException =>
-    __isa(o, "EntityNotFoundException");
+  export const isa = (o: any): o is EntityNotFoundException => __isa(o, "EntityNotFoundException");
 }
 
 /**
@@ -853,9 +806,7 @@ export namespace ErrorDetail {
 /**
  * <p>An internal service error occurred.</p>
  */
-export interface InternalServiceException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceException extends __SmithyException, $MetadataBearer {
   name: "InternalServiceException";
   $fault: "server";
   /**
@@ -865,16 +816,13 @@ export interface InternalServiceException
 }
 
 export namespace InternalServiceException {
-  export const isa = (o: any): o is InternalServiceException =>
-    __isa(o, "InternalServiceException");
+  export const isa = (o: any): o is InternalServiceException => __isa(o, "InternalServiceException");
 }
 
 /**
  * <p>The input provided was not valid.</p>
  */
-export interface InvalidInputException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
   /**
@@ -884,16 +832,13 @@ export interface InvalidInputException
 }
 
 export namespace InvalidInputException {
-  export const isa = (o: any): o is InvalidInputException =>
-    __isa(o, "InvalidInputException");
+  export const isa = (o: any): o is InvalidInputException => __isa(o, "InvalidInputException");
 }
 
 /**
  * <p>The operation timed out.</p>
  */
-export interface OperationTimeoutException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface OperationTimeoutException extends __SmithyException, $MetadataBearer {
   name: "OperationTimeoutException";
   $fault: "client";
   /**
@@ -903,8 +848,7 @@ export interface OperationTimeoutException
 }
 
 export namespace OperationTimeoutException {
-  export const isa = (o: any): o is OperationTimeoutException =>
-    __isa(o, "OperationTimeoutException");
+  export const isa = (o: any): o is OperationTimeoutException => __isa(o, "OperationTimeoutException");
 }
 
 export enum ComparisonOperator {
@@ -949,8 +893,7 @@ export interface FilterCondition {
 }
 
 export namespace FilterCondition {
-  export const isa = (o: any): o is FilterCondition =>
-    __isa(o, "FilterCondition");
+  export const isa = (o: any): o is FilterCondition => __isa(o, "FilterCondition");
 }
 
 /**

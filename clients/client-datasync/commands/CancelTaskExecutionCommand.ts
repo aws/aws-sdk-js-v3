@@ -1,21 +1,11 @@
-import {
-  DataSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DataSyncClient";
-import {
-  CancelTaskExecutionRequest,
-  CancelTaskExecutionResponse
-} from "../models/index";
+import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CancelTaskExecutionCommand,
   serializeAws_json1_1CancelTaskExecutionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CancelTaskExecutionCommandInput = CancelTaskExecutionRequest;
-export type CancelTaskExecutionCommandOutput = CancelTaskExecutionResponse &
-  __MetadataBearer;
+export type CancelTaskExecutionCommandOutput = CancelTaskExecutionResponse & __MetadataBearer;
 
 export class CancelTaskExecutionCommand extends $Command<
   CancelTaskExecutionCommandInput,
@@ -49,13 +38,8 @@ export class CancelTaskExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CancelTaskExecutionCommandInput,
-    CancelTaskExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CancelTaskExecutionCommandInput, CancelTaskExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class CancelTaskExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CancelTaskExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CancelTaskExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CancelTaskExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CancelTaskExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CancelTaskExecutionCommandOutput> {
     return deserializeAws_json1_1CancelTaskExecutionCommand(output, context);
   }
 

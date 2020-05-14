@@ -9,10 +9,7 @@ import {
   serializeAws_json1_1CloseTunnelCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +43,7 @@ export class CloseTunnelCommand extends $Command<
     configuration: IoTSecureTunnelingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CloseTunnelCommandInput, CloseTunnelCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +58,11 @@ export class CloseTunnelCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CloseTunnelCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CloseTunnelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CloseTunnelCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CloseTunnelCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CloseTunnelCommandOutput> {
     return deserializeAws_json1_1CloseTunnelCommand(output, context);
   }
 

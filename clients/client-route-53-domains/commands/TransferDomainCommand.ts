@@ -1,18 +1,11 @@
-import {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53DomainsClient";
+import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 import { TransferDomainRequest, TransferDomainResponse } from "../models/index";
 import {
   deserializeAws_json1_1TransferDomainCommand,
   serializeAws_json1_1TransferDomainCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TransferDomainCommandInput = TransferDomainRequest;
-export type TransferDomainCommandOutput = TransferDomainResponse &
-  __MetadataBearer;
+export type TransferDomainCommandOutput = TransferDomainResponse & __MetadataBearer;
 
 export class TransferDomainCommand extends $Command<
   TransferDomainCommandInput,
@@ -47,9 +39,7 @@ export class TransferDomainCommand extends $Command<
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransferDomainCommandInput, TransferDomainCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class TransferDomainCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TransferDomainCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TransferDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1TransferDomainCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TransferDomainCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransferDomainCommandOutput> {
     return deserializeAws_json1_1TransferDomainCommand(output, context);
   }
 

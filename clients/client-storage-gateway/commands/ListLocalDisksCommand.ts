@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig
-} from "../StorageGatewayClient";
+import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 import { ListLocalDisksInput, ListLocalDisksOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListLocalDisksCommand,
   serializeAws_json1_1ListLocalDisksCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListLocalDisksCommandInput = ListLocalDisksInput;
-export type ListLocalDisksCommandOutput = ListLocalDisksOutput &
-  __MetadataBearer;
+export type ListLocalDisksCommandOutput = ListLocalDisksOutput & __MetadataBearer;
 
 export class ListLocalDisksCommand extends $Command<
   ListLocalDisksCommandInput,
@@ -47,9 +39,7 @@ export class ListLocalDisksCommand extends $Command<
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListLocalDisksCommandInput, ListLocalDisksCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListLocalDisksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListLocalDisksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListLocalDisksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListLocalDisksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListLocalDisksCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLocalDisksCommandOutput> {
     return deserializeAws_json1_1ListLocalDisksCommand(output, context);
   }
 

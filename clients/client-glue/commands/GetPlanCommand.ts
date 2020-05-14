@@ -1,18 +1,8 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { GetPlanRequest, GetPlanResponse } from "../models/index";
-import {
-  deserializeAws_json1_1GetPlanCommand,
-  serializeAws_json1_1GetPlanCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1GetPlanCommand, serializeAws_json1_1GetPlanCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type GetPlanCommandInput = GetPlanRequest;
 export type GetPlanCommandOutput = GetPlanResponse & __MetadataBearer;
 
-export class GetPlanCommand extends $Command<
-  GetPlanCommandInput,
-  GetPlanCommandOutput,
-  GlueClientResolvedConfig
-> {
+export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class GetPlanCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPlanCommandInput, GetPlanCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class GetPlanCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPlanCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetPlanCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPlanCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPlanCommandOutput> {
     return deserializeAws_json1_1GetPlanCommand(output, context);
   }
 

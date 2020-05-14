@@ -1,18 +1,11 @@
-import {
-  ConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConnectClient";
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { UpdateUserIdentityInfoRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateUserIdentityInfoCommand,
   serializeAws_restJson1_1UpdateUserIdentityInfoCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserIdentityInfoCommandInput,
-    UpdateUserIdentityInfoCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserIdentityInfoCommandInput, UpdateUserIdentityInfoCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,24 +54,12 @@ export class UpdateUserIdentityInfoCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateUserIdentityInfoCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateUserIdentityInfoCommand(
-      input,
-      context
-    );
+  private serialize(input: UpdateUserIdentityInfoCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1UpdateUserIdentityInfoCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateUserIdentityInfoCommandOutput> {
-    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserIdentityInfoCommandOutput> {
+    return deserializeAws_restJson1_1UpdateUserIdentityInfoCommand(output, context);
   }
 
   // Start section: command_body_extra

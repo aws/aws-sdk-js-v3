@@ -1,39 +1,12 @@
-import {
-  BatchGetItemCommandInput,
-  BatchGetItemCommandOutput
-} from "./commands/BatchGetItemCommand";
-import {
-  BatchWriteItemCommandInput,
-  BatchWriteItemCommandOutput
-} from "./commands/BatchWriteItemCommand";
-import {
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput
-} from "./commands/CreateBackupCommand";
-import {
-  CreateGlobalTableCommandInput,
-  CreateGlobalTableCommandOutput
-} from "./commands/CreateGlobalTableCommand";
-import {
-  CreateTableCommandInput,
-  CreateTableCommandOutput
-} from "./commands/CreateTableCommand";
-import {
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
-} from "./commands/DeleteBackupCommand";
-import {
-  DeleteItemCommandInput,
-  DeleteItemCommandOutput
-} from "./commands/DeleteItemCommand";
-import {
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput
-} from "./commands/DeleteTableCommand";
-import {
-  DescribeBackupCommandInput,
-  DescribeBackupCommandOutput
-} from "./commands/DescribeBackupCommand";
+import { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "./commands/BatchGetItemCommand";
+import { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "./commands/BatchWriteItemCommand";
+import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
+import { CreateGlobalTableCommandInput, CreateGlobalTableCommandOutput } from "./commands/CreateGlobalTableCommand";
+import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
+import { DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand";
+import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import { DescribeBackupCommandInput, DescribeBackupCommandOutput } from "./commands/DescribeBackupCommand";
 import {
   DescribeContinuousBackupsCommandInput,
   DescribeContinuousBackupsCommandOutput
@@ -42,10 +15,7 @@ import {
   DescribeContributorInsightsCommandInput,
   DescribeContributorInsightsCommandOutput
 } from "./commands/DescribeContributorInsightsCommand";
-import {
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput
-} from "./commands/DescribeEndpointsCommand";
+import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
 import {
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput
@@ -54,50 +24,23 @@ import {
   DescribeGlobalTableSettingsCommandInput,
   DescribeGlobalTableSettingsCommandOutput
 } from "./commands/DescribeGlobalTableSettingsCommand";
-import {
-  DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput
-} from "./commands/DescribeLimitsCommand";
-import {
-  DescribeTableCommandInput,
-  DescribeTableCommandOutput
-} from "./commands/DescribeTableCommand";
+import { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
+import { DescribeTableCommandInput, DescribeTableCommandOutput } from "./commands/DescribeTableCommand";
 import {
   DescribeTableReplicaAutoScalingCommandInput,
   DescribeTableReplicaAutoScalingCommandOutput
 } from "./commands/DescribeTableReplicaAutoScalingCommand";
-import {
-  DescribeTimeToLiveCommandInput,
-  DescribeTimeToLiveCommandOutput
-} from "./commands/DescribeTimeToLiveCommand";
-import {
-  GetItemCommandInput,
-  GetItemCommandOutput
-} from "./commands/GetItemCommand";
-import {
-  ListBackupsCommandInput,
-  ListBackupsCommandOutput
-} from "./commands/ListBackupsCommand";
+import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "./commands/DescribeTimeToLiveCommand";
+import { GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
+import { ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput
 } from "./commands/ListContributorInsightsCommand";
-import {
-  ListGlobalTablesCommandInput,
-  ListGlobalTablesCommandOutput
-} from "./commands/ListGlobalTablesCommand";
-import {
-  ListTablesCommandInput,
-  ListTablesCommandOutput
-} from "./commands/ListTablesCommand";
-import {
-  ListTagsOfResourceCommandInput,
-  ListTagsOfResourceCommandOutput
-} from "./commands/ListTagsOfResourceCommand";
-import {
-  PutItemCommandInput,
-  PutItemCommandOutput
-} from "./commands/PutItemCommand";
+import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "./commands/ListGlobalTablesCommand";
+import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "./commands/ListTagsOfResourceCommand";
+import { PutItemCommandInput, PutItemCommandOutput } from "./commands/PutItemCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import {
   RestoreTableFromBackupCommandInput,
@@ -108,22 +51,10 @@ import {
   RestoreTableToPointInTimeCommandOutput
 } from "./commands/RestoreTableToPointInTimeCommand";
 import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput
-} from "./commands/TransactGetItemsCommand";
-import {
-  TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput
-} from "./commands/TransactWriteItemsCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TransactGetItemsCommandInput, TransactGetItemsCommandOutput } from "./commands/TransactGetItemsCommand";
+import { TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput } from "./commands/TransactWriteItemsCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateContinuousBackupsCommandInput,
   UpdateContinuousBackupsCommandOutput
@@ -132,30 +63,18 @@ import {
   UpdateContributorInsightsCommandInput,
   UpdateContributorInsightsCommandOutput
 } from "./commands/UpdateContributorInsightsCommand";
-import {
-  UpdateGlobalTableCommandInput,
-  UpdateGlobalTableCommandOutput
-} from "./commands/UpdateGlobalTableCommand";
+import { UpdateGlobalTableCommandInput, UpdateGlobalTableCommandOutput } from "./commands/UpdateGlobalTableCommand";
 import {
   UpdateGlobalTableSettingsCommandInput,
   UpdateGlobalTableSettingsCommandOutput
 } from "./commands/UpdateGlobalTableSettingsCommand";
-import {
-  UpdateItemCommandInput,
-  UpdateItemCommandOutput
-} from "./commands/UpdateItemCommand";
-import {
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput
-} from "./commands/UpdateTableCommand";
+import { UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand";
+import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
   UpdateTableReplicaAutoScalingCommandOutput
 } from "./commands/UpdateTableReplicaAutoScalingCommand";
-import {
-  UpdateTimeToLiveCommandInput,
-  UpdateTimeToLiveCommandOutput
-} from "./commands/UpdateTimeToLiveCommand";
+import { UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput } from "./commands/UpdateTimeToLiveCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -172,12 +91,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -294,8 +208,7 @@ export type ServiceOutputTypes =
   | UpdateTableReplicaAutoScalingCommandOutput
   | UpdateTimeToLiveCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -379,9 +292,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type DynamoDBClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type DynamoDBClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -390,9 +301,7 @@ export type DynamoDBClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type DynamoDBClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

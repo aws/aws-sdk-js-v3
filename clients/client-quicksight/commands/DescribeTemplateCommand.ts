@@ -1,21 +1,11 @@
-import {
-  QuickSightClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QuickSightClient";
-import {
-  DescribeTemplateRequest,
-  DescribeTemplateResponse
-} from "../models/index";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
+import { DescribeTemplateRequest, DescribeTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeTemplateCommand,
   serializeAws_restJson1_1DescribeTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeTemplateCommandInput = DescribeTemplateRequest;
-export type DescribeTemplateCommandOutput = DescribeTemplateResponse &
-  __MetadataBearer;
+export type DescribeTemplateCommandOutput = DescribeTemplateResponse & __MetadataBearer;
 
 export class DescribeTemplateCommand extends $Command<
   DescribeTemplateCommandInput,
@@ -50,9 +39,7 @@ export class DescribeTemplateCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTemplateCommandInput, DescribeTemplateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTemplateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTemplateCommandOutput> {
     return deserializeAws_restJson1_1DescribeTemplateCommand(output, context);
   }
 

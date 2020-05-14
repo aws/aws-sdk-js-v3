@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingClient";
-import {
-  DescribeEndPointStateInput,
-  DescribeEndPointStateOutput
-} from "../models/index";
+import { DescribeEndPointStateInput, DescribeEndPointStateOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeInstanceHealthCommand,
   serializeAws_queryDescribeInstanceHealthCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeInstanceHealthCommandInput = DescribeEndPointStateInput;
-export type DescribeInstanceHealthCommandOutput = DescribeEndPointStateOutput &
-  __MetadataBearer;
+export type DescribeInstanceHealthCommandOutput = DescribeEndPointStateOutput & __MetadataBearer;
 
 export class DescribeInstanceHealthCommand extends $Command<
   DescribeInstanceHealthCommandInput,
@@ -49,13 +42,8 @@ export class DescribeInstanceHealthCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeInstanceHealthCommandInput,
-    DescribeInstanceHealthCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeInstanceHealthCommandInput, DescribeInstanceHealthCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class DescribeInstanceHealthCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeInstanceHealthCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeInstanceHealthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeInstanceHealthCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeInstanceHealthCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeInstanceHealthCommandOutput> {
     return deserializeAws_queryDescribeInstanceHealthCommand(output, context);
   }
 

@@ -30,10 +30,7 @@ import {
   EnableSharingWithAwsOrganizationCommandInput,
   EnableSharingWithAwsOrganizationCommandOutput
 } from "./commands/EnableSharingWithAwsOrganizationCommand";
-import {
-  GetPermissionCommandInput,
-  GetPermissionCommandOutput
-} from "./commands/GetPermissionCommand";
+import { GetPermissionCommandInput, GetPermissionCommandOutput } from "./commands/GetPermissionCommand";
 import {
   GetResourcePoliciesCommandInput,
   GetResourcePoliciesCommandOutput
@@ -46,30 +43,18 @@ import {
   GetResourceShareInvitationsCommandInput,
   GetResourceShareInvitationsCommandOutput
 } from "./commands/GetResourceShareInvitationsCommand";
-import {
-  GetResourceSharesCommandInput,
-  GetResourceSharesCommandOutput
-} from "./commands/GetResourceSharesCommand";
+import { GetResourceSharesCommandInput, GetResourceSharesCommandOutput } from "./commands/GetResourceSharesCommand";
 import {
   ListPendingInvitationResourcesCommandInput,
   ListPendingInvitationResourcesCommandOutput
 } from "./commands/ListPendingInvitationResourcesCommand";
-import {
-  ListPermissionsCommandInput,
-  ListPermissionsCommandOutput
-} from "./commands/ListPermissionsCommand";
-import {
-  ListPrincipalsCommandInput,
-  ListPrincipalsCommandOutput
-} from "./commands/ListPrincipalsCommand";
+import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "./commands/ListPrincipalsCommand";
 import {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput
 } from "./commands/ListResourceSharePermissionsCommand";
-import {
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput
-} from "./commands/ListResourcesCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput
@@ -78,14 +63,8 @@ import {
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput
 } from "./commands/RejectResourceShareInvitationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput
@@ -106,12 +85,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -192,8 +166,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateResourceShareCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -277,9 +250,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RAMClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RAMClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -288,9 +259,7 @@ export type RAMClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RAMClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RAMClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

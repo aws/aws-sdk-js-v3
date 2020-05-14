@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  GetObjectAttributesRequest,
-  GetObjectAttributesResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { GetObjectAttributesRequest, GetObjectAttributesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetObjectAttributesCommand,
   serializeAws_restJson1_1GetObjectAttributesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetObjectAttributesCommandInput = GetObjectAttributesRequest;
-export type GetObjectAttributesCommandOutput = GetObjectAttributesResponse &
-  __MetadataBearer;
+export type GetObjectAttributesCommandOutput = GetObjectAttributesResponse & __MetadataBearer;
 
 export class GetObjectAttributesCommand extends $Command<
   GetObjectAttributesCommandInput,
@@ -49,13 +38,8 @@ export class GetObjectAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetObjectAttributesCommandInput,
-    GetObjectAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetObjectAttributesCommandInput, GetObjectAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetObjectAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetObjectAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetObjectAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetObjectAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetObjectAttributesCommandOutput> {
-    return deserializeAws_restJson1_1GetObjectAttributesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetObjectAttributesCommandOutput> {
+    return deserializeAws_restJson1_1GetObjectAttributesCommand(output, context);
   }
 
   // Start section: command_body_extra

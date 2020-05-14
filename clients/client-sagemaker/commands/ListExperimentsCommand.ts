@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  ListExperimentsRequest,
-  ListExperimentsResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListExperimentsRequest, ListExperimentsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListExperimentsCommand,
   serializeAws_json1_1ListExperimentsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListExperimentsCommandInput = ListExperimentsRequest;
-export type ListExperimentsCommandOutput = ListExperimentsResponse &
-  __MetadataBearer;
+export type ListExperimentsCommandOutput = ListExperimentsResponse & __MetadataBearer;
 
 export class ListExperimentsCommand extends $Command<
   ListExperimentsCommandInput,
@@ -50,9 +39,7 @@ export class ListExperimentsCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListExperimentsCommandInput, ListExperimentsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListExperimentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListExperimentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListExperimentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListExperimentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListExperimentsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExperimentsCommandOutput> {
     return deserializeAws_json1_1ListExperimentsCommand(output, context);
   }
 

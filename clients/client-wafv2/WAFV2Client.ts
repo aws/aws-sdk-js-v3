@@ -1,31 +1,13 @@
-import {
-  AssociateWebACLCommandInput,
-  AssociateWebACLCommandOutput
-} from "./commands/AssociateWebACLCommand";
-import {
-  CheckCapacityCommandInput,
-  CheckCapacityCommandOutput
-} from "./commands/CheckCapacityCommand";
-import {
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput
-} from "./commands/CreateIPSetCommand";
+import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand";
+import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "./commands/CheckCapacityCommand";
+import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommandInput,
   CreateRegexPatternSetCommandOutput
 } from "./commands/CreateRegexPatternSetCommand";
-import {
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput
-} from "./commands/CreateRuleGroupCommand";
-import {
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput
-} from "./commands/CreateWebACLCommand";
-import {
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput
-} from "./commands/DeleteIPSetCommand";
+import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
+import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "./commands/CreateWebACLCommand";
+import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput
@@ -34,26 +16,14 @@ import {
   DeleteRegexPatternSetCommandInput,
   DeleteRegexPatternSetCommandOutput
 } from "./commands/DeleteRegexPatternSetCommand";
-import {
-  DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput
-} from "./commands/DeleteRuleGroupCommand";
-import {
-  DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput
-} from "./commands/DeleteWebACLCommand";
+import { DeleteRuleGroupCommandInput, DeleteRuleGroupCommandOutput } from "./commands/DeleteRuleGroupCommand";
+import { DeleteWebACLCommandInput, DeleteWebACLCommandOutput } from "./commands/DeleteWebACLCommand";
 import {
   DescribeManagedRuleGroupCommandInput,
   DescribeManagedRuleGroupCommandOutput
 } from "./commands/DescribeManagedRuleGroupCommand";
-import {
-  DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput
-} from "./commands/DisassociateWebACLCommand";
-import {
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput
-} from "./commands/GetIPSetCommand";
+import { DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput } from "./commands/DisassociateWebACLCommand";
+import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput
@@ -62,22 +32,10 @@ import {
   GetRateBasedStatementManagedKeysCommandInput,
   GetRateBasedStatementManagedKeysCommandOutput
 } from "./commands/GetRateBasedStatementManagedKeysCommand";
-import {
-  GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput
-} from "./commands/GetRegexPatternSetCommand";
-import {
-  GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput
-} from "./commands/GetRuleGroupCommand";
-import {
-  GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput
-} from "./commands/GetSampledRequestsCommand";
-import {
-  GetWebACLCommandInput,
-  GetWebACLCommandOutput
-} from "./commands/GetWebACLCommand";
+import { GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput } from "./commands/GetRegexPatternSetCommand";
+import { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand";
+import { GetSampledRequestsCommandInput, GetSampledRequestsCommandOutput } from "./commands/GetSampledRequestsCommand";
+import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommandInput,
   GetWebACLForResourceCommandOutput
@@ -86,10 +44,7 @@ import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput
 } from "./commands/ListAvailableManagedRuleGroupsCommand";
-import {
-  ListIPSetsCommandInput,
-  ListIPSetsCommandOutput
-} from "./commands/ListIPSetsCommand";
+import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommandInput,
   ListLoggingConfigurationsCommandOutput
@@ -102,46 +57,25 @@ import {
   ListResourcesForWebACLCommandInput,
   ListResourcesForWebACLCommandOutput
 } from "./commands/ListResourcesForWebACLCommand";
-import {
-  ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput
-} from "./commands/ListRuleGroupsCommand";
+import { ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput } from "./commands/ListRuleGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput
-} from "./commands/ListWebACLsCommand";
+import { ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand";
 import {
   PutLoggingConfigurationCommandInput,
   PutLoggingConfigurationCommandOutput
 } from "./commands/PutLoggingConfigurationCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput
-} from "./commands/UpdateIPSetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand";
 import {
   UpdateRegexPatternSetCommandInput,
   UpdateRegexPatternSetCommandOutput
 } from "./commands/UpdateRegexPatternSetCommand";
-import {
-  UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput
-} from "./commands/UpdateRuleGroupCommand";
-import {
-  UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput
-} from "./commands/UpdateWebACLCommand";
+import { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
+import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "./commands/UpdateWebACLCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -158,12 +92,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -270,8 +199,7 @@ export type ServiceOutputTypes =
   | UpdateRuleGroupCommandOutput
   | UpdateWebACLCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -355,9 +283,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type WAFV2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type WAFV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -366,9 +292,7 @@ export type WAFV2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type WAFV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

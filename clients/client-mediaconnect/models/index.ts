@@ -1,15 +1,10 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface AddFlowOutputs420Exception
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AddFlowOutputs420Exception extends __SmithyException, $MetadataBearer {
   name: "AddFlowOutputs420Exception";
   $fault: "client";
   /**
@@ -19,8 +14,7 @@ export interface AddFlowOutputs420Exception
 }
 
 export namespace AddFlowOutputs420Exception {
-  export const isa = (o: any): o is AddFlowOutputs420Exception =>
-    __isa(o, "AddFlowOutputs420Exception");
+  export const isa = (o: any): o is AddFlowOutputs420Exception => __isa(o, "AddFlowOutputs420Exception");
 }
 
 /**
@@ -40,8 +34,7 @@ export interface AddFlowOutputsRequest {
 }
 
 export namespace AddFlowOutputsRequest {
-  export const isa = (o: any): o is AddFlowOutputsRequest =>
-    __isa(o, "AddFlowOutputsRequest");
+  export const isa = (o: any): o is AddFlowOutputsRequest => __isa(o, "AddFlowOutputsRequest");
 }
 
 export interface AddFlowOutputsResponse {
@@ -58,8 +51,7 @@ export interface AddFlowOutputsResponse {
 }
 
 export namespace AddFlowOutputsResponse {
-  export const isa = (o: any): o is AddFlowOutputsResponse =>
-    __isa(o, "AddFlowOutputsResponse");
+  export const isa = (o: any): o is AddFlowOutputsResponse => __isa(o, "AddFlowOutputsResponse");
 }
 
 /**
@@ -124,8 +116,7 @@ export interface AddOutputRequest {
 }
 
 export namespace AddOutputRequest {
-  export const isa = (o: any): o is AddOutputRequest =>
-    __isa(o, "AddOutputRequest");
+  export const isa = (o: any): o is AddOutputRequest => __isa(o, "AddOutputRequest");
 }
 
 export enum Algorithm {
@@ -137,9 +128,7 @@ export enum Algorithm {
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   /**
@@ -149,16 +138,13 @@ export interface BadRequestException
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface CreateFlow420Exception
-  extends __SmithyException,
-    $MetadataBearer {
+export interface CreateFlow420Exception extends __SmithyException, $MetadataBearer {
   name: "CreateFlow420Exception";
   $fault: "client";
   /**
@@ -168,8 +154,7 @@ export interface CreateFlow420Exception
 }
 
 export namespace CreateFlow420Exception {
-  export const isa = (o: any): o is CreateFlow420Exception =>
-    __isa(o, "CreateFlow420Exception");
+  export const isa = (o: any): o is CreateFlow420Exception => __isa(o, "CreateFlow420Exception");
 }
 
 /**
@@ -204,8 +189,7 @@ export interface CreateFlowRequest {
 }
 
 export namespace CreateFlowRequest {
-  export const isa = (o: any): o is CreateFlowRequest =>
-    __isa(o, "CreateFlowRequest");
+  export const isa = (o: any): o is CreateFlowRequest => __isa(o, "CreateFlowRequest");
 }
 
 export interface CreateFlowResponse {
@@ -217,8 +201,7 @@ export interface CreateFlowResponse {
 }
 
 export namespace CreateFlowResponse {
-  export const isa = (o: any): o is CreateFlowResponse =>
-    __isa(o, "CreateFlowResponse");
+  export const isa = (o: any): o is CreateFlowResponse => __isa(o, "CreateFlowResponse");
 }
 
 export interface DeleteFlowRequest {
@@ -230,8 +213,7 @@ export interface DeleteFlowRequest {
 }
 
 export namespace DeleteFlowRequest {
-  export const isa = (o: any): o is DeleteFlowRequest =>
-    __isa(o, "DeleteFlowRequest");
+  export const isa = (o: any): o is DeleteFlowRequest => __isa(o, "DeleteFlowRequest");
 }
 
 export interface DeleteFlowResponse {
@@ -248,8 +230,7 @@ export interface DeleteFlowResponse {
 }
 
 export namespace DeleteFlowResponse {
-  export const isa = (o: any): o is DeleteFlowResponse =>
-    __isa(o, "DeleteFlowResponse");
+  export const isa = (o: any): o is DeleteFlowResponse => __isa(o, "DeleteFlowResponse");
 }
 
 export interface DescribeFlowRequest {
@@ -261,8 +242,7 @@ export interface DescribeFlowRequest {
 }
 
 export namespace DescribeFlowRequest {
-  export const isa = (o: any): o is DescribeFlowRequest =>
-    __isa(o, "DescribeFlowRequest");
+  export const isa = (o: any): o is DescribeFlowRequest => __isa(o, "DescribeFlowRequest");
 }
 
 export interface DescribeFlowResponse {
@@ -279,8 +259,7 @@ export interface DescribeFlowResponse {
 }
 
 export namespace DescribeFlowResponse {
-  export const isa = (o: any): o is DescribeFlowResponse =>
-    __isa(o, "DescribeFlowResponse");
+  export const isa = (o: any): o is DescribeFlowResponse => __isa(o, "DescribeFlowResponse");
 }
 
 /**
@@ -446,8 +425,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 /**
@@ -482,16 +460,13 @@ export interface GrantEntitlementRequest {
 }
 
 export namespace GrantEntitlementRequest {
-  export const isa = (o: any): o is GrantEntitlementRequest =>
-    __isa(o, "GrantEntitlementRequest");
+  export const isa = (o: any): o is GrantEntitlementRequest => __isa(o, "GrantEntitlementRequest");
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface GrantFlowEntitlements420Exception
-  extends __SmithyException,
-    $MetadataBearer {
+export interface GrantFlowEntitlements420Exception extends __SmithyException, $MetadataBearer {
   name: "GrantFlowEntitlements420Exception";
   $fault: "client";
   /**
@@ -501,8 +476,7 @@ export interface GrantFlowEntitlements420Exception
 }
 
 export namespace GrantFlowEntitlements420Exception {
-  export const isa = (o: any): o is GrantFlowEntitlements420Exception =>
-    __isa(o, "GrantFlowEntitlements420Exception");
+  export const isa = (o: any): o is GrantFlowEntitlements420Exception => __isa(o, "GrantFlowEntitlements420Exception");
 }
 
 /**
@@ -522,8 +496,7 @@ export interface GrantFlowEntitlementsRequest {
 }
 
 export namespace GrantFlowEntitlementsRequest {
-  export const isa = (o: any): o is GrantFlowEntitlementsRequest =>
-    __isa(o, "GrantFlowEntitlementsRequest");
+  export const isa = (o: any): o is GrantFlowEntitlementsRequest => __isa(o, "GrantFlowEntitlementsRequest");
 }
 
 export interface GrantFlowEntitlementsResponse {
@@ -540,16 +513,13 @@ export interface GrantFlowEntitlementsResponse {
 }
 
 export namespace GrantFlowEntitlementsResponse {
-  export const isa = (o: any): o is GrantFlowEntitlementsResponse =>
-    __isa(o, "GrantFlowEntitlementsResponse");
+  export const isa = (o: any): o is GrantFlowEntitlementsResponse => __isa(o, "GrantFlowEntitlementsResponse");
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -559,8 +529,7 @@ export interface InternalServerErrorException
 }
 
 export namespace InternalServerErrorException {
-  export const isa = (o: any): o is InternalServerErrorException =>
-    __isa(o, "InternalServerErrorException");
+  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export enum KeyType {
@@ -582,8 +551,7 @@ export interface ListEntitlementsRequest {
 }
 
 export namespace ListEntitlementsRequest {
-  export const isa = (o: any): o is ListEntitlementsRequest =>
-    __isa(o, "ListEntitlementsRequest");
+  export const isa = (o: any): o is ListEntitlementsRequest => __isa(o, "ListEntitlementsRequest");
 }
 
 export interface ListEntitlementsResponse {
@@ -600,8 +568,7 @@ export interface ListEntitlementsResponse {
 }
 
 export namespace ListEntitlementsResponse {
-  export const isa = (o: any): o is ListEntitlementsResponse =>
-    __isa(o, "ListEntitlementsResponse");
+  export const isa = (o: any): o is ListEntitlementsResponse => __isa(o, "ListEntitlementsResponse");
 }
 
 export interface ListFlowsRequest {
@@ -618,8 +585,7 @@ export interface ListFlowsRequest {
 }
 
 export namespace ListFlowsRequest {
-  export const isa = (o: any): o is ListFlowsRequest =>
-    __isa(o, "ListFlowsRequest");
+  export const isa = (o: any): o is ListFlowsRequest => __isa(o, "ListFlowsRequest");
 }
 
 export interface ListFlowsResponse {
@@ -636,8 +602,7 @@ export interface ListFlowsResponse {
 }
 
 export namespace ListFlowsResponse {
-  export const isa = (o: any): o is ListFlowsResponse =>
-    __isa(o, "ListFlowsResponse");
+  export const isa = (o: any): o is ListFlowsResponse => __isa(o, "ListFlowsResponse");
 }
 
 export interface ListTagsForResourceRequest {
@@ -649,8 +614,7 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
-  export const isa = (o: any): o is ListTagsForResourceRequest =>
-    __isa(o, "ListTagsForResourceRequest");
+  export const isa = (o: any): o is ListTagsForResourceRequest => __isa(o, "ListTagsForResourceRequest");
 }
 
 export interface ListTagsForResourceResponse {
@@ -662,8 +626,7 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
-  export const isa = (o: any): o is ListTagsForResourceResponse =>
-    __isa(o, "ListTagsForResourceResponse");
+  export const isa = (o: any): o is ListTagsForResourceResponse => __isa(o, "ListTagsForResourceResponse");
 }
 
 /**
@@ -688,8 +651,7 @@ export interface ListedEntitlement {
 }
 
 export namespace ListedEntitlement {
-  export const isa = (o: any): o is ListedEntitlement =>
-    __isa(o, "ListedEntitlement");
+  export const isa = (o: any): o is ListedEntitlement => __isa(o, "ListedEntitlement");
 }
 
 /**
@@ -760,8 +722,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -846,8 +807,7 @@ export interface RemoveFlowOutputRequest {
 }
 
 export namespace RemoveFlowOutputRequest {
-  export const isa = (o: any): o is RemoveFlowOutputRequest =>
-    __isa(o, "RemoveFlowOutputRequest");
+  export const isa = (o: any): o is RemoveFlowOutputRequest => __isa(o, "RemoveFlowOutputRequest");
 }
 
 export interface RemoveFlowOutputResponse {
@@ -864,8 +824,7 @@ export interface RemoveFlowOutputResponse {
 }
 
 export namespace RemoveFlowOutputResponse {
-  export const isa = (o: any): o is RemoveFlowOutputResponse =>
-    __isa(o, "RemoveFlowOutputResponse");
+  export const isa = (o: any): o is RemoveFlowOutputResponse => __isa(o, "RemoveFlowOutputResponse");
 }
 
 export interface RevokeFlowEntitlementRequest {
@@ -882,8 +841,7 @@ export interface RevokeFlowEntitlementRequest {
 }
 
 export namespace RevokeFlowEntitlementRequest {
-  export const isa = (o: any): o is RevokeFlowEntitlementRequest =>
-    __isa(o, "RevokeFlowEntitlementRequest");
+  export const isa = (o: any): o is RevokeFlowEntitlementRequest => __isa(o, "RevokeFlowEntitlementRequest");
 }
 
 export interface RevokeFlowEntitlementResponse {
@@ -900,16 +858,13 @@ export interface RevokeFlowEntitlementResponse {
 }
 
 export namespace RevokeFlowEntitlementResponse {
-  export const isa = (o: any): o is RevokeFlowEntitlementResponse =>
-    __isa(o, "RevokeFlowEntitlementResponse");
+  export const isa = (o: any): o is RevokeFlowEntitlementResponse => __isa(o, "RevokeFlowEntitlementResponse");
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface ServiceUnavailableException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -919,8 +874,7 @@ export interface ServiceUnavailableException
 }
 
 export namespace ServiceUnavailableException {
-  export const isa = (o: any): o is ServiceUnavailableException =>
-    __isa(o, "ServiceUnavailableException");
+  export const isa = (o: any): o is ServiceUnavailableException => __isa(o, "ServiceUnavailableException");
 }
 
 /**
@@ -980,8 +934,7 @@ export interface SetSourceRequest {
 }
 
 export namespace SetSourceRequest {
-  export const isa = (o: any): o is SetSourceRequest =>
-    __isa(o, "SetSourceRequest");
+  export const isa = (o: any): o is SetSourceRequest => __isa(o, "SetSourceRequest");
 }
 
 /**
@@ -1058,8 +1011,7 @@ export interface StartFlowRequest {
 }
 
 export namespace StartFlowRequest {
-  export const isa = (o: any): o is StartFlowRequest =>
-    __isa(o, "StartFlowRequest");
+  export const isa = (o: any): o is StartFlowRequest => __isa(o, "StartFlowRequest");
 }
 
 export interface StartFlowResponse {
@@ -1076,8 +1028,7 @@ export interface StartFlowResponse {
 }
 
 export namespace StartFlowResponse {
-  export const isa = (o: any): o is StartFlowResponse =>
-    __isa(o, "StartFlowResponse");
+  export const isa = (o: any): o is StartFlowResponse => __isa(o, "StartFlowResponse");
 }
 
 export enum Status {
@@ -1099,8 +1050,7 @@ export interface StopFlowRequest {
 }
 
 export namespace StopFlowRequest {
-  export const isa = (o: any): o is StopFlowRequest =>
-    __isa(o, "StopFlowRequest");
+  export const isa = (o: any): o is StopFlowRequest => __isa(o, "StopFlowRequest");
 }
 
 export interface StopFlowResponse {
@@ -1117,8 +1067,7 @@ export interface StopFlowResponse {
 }
 
 export namespace StopFlowResponse {
-  export const isa = (o: any): o is StopFlowResponse =>
-    __isa(o, "StopFlowResponse");
+  export const isa = (o: any): o is StopFlowResponse => __isa(o, "StopFlowResponse");
 }
 
 /**
@@ -1138,16 +1087,13 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
-  export const isa = (o: any): o is TagResourceRequest =>
-    __isa(o, "TagResourceRequest");
+  export const isa = (o: any): o is TagResourceRequest => __isa(o, "TagResourceRequest");
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1157,8 +1103,7 @@ export interface TooManyRequestsException
 }
 
 export namespace TooManyRequestsException {
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
@@ -1220,8 +1165,7 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
-  export const isa = (o: any): o is UntagResourceRequest =>
-    __isa(o, "UntagResourceRequest");
+  export const isa = (o: any): o is UntagResourceRequest => __isa(o, "UntagResourceRequest");
 }
 
 /**
@@ -1276,8 +1220,7 @@ export interface UpdateEncryption {
 }
 
 export namespace UpdateEncryption {
-  export const isa = (o: any): o is UpdateEncryption =>
-    __isa(o, "UpdateEncryption");
+  export const isa = (o: any): o is UpdateEncryption => __isa(o, "UpdateEncryption");
 }
 
 /**
@@ -1312,8 +1255,7 @@ export interface UpdateFlowEntitlementRequest {
 }
 
 export namespace UpdateFlowEntitlementRequest {
-  export const isa = (o: any): o is UpdateFlowEntitlementRequest =>
-    __isa(o, "UpdateFlowEntitlementRequest");
+  export const isa = (o: any): o is UpdateFlowEntitlementRequest => __isa(o, "UpdateFlowEntitlementRequest");
 }
 
 export interface UpdateFlowEntitlementResponse {
@@ -1330,8 +1272,7 @@ export interface UpdateFlowEntitlementResponse {
 }
 
 export namespace UpdateFlowEntitlementResponse {
-  export const isa = (o: any): o is UpdateFlowEntitlementResponse =>
-    __isa(o, "UpdateFlowEntitlementResponse");
+  export const isa = (o: any): o is UpdateFlowEntitlementResponse => __isa(o, "UpdateFlowEntitlementResponse");
 }
 
 /**
@@ -1401,8 +1342,7 @@ export interface UpdateFlowOutputRequest {
 }
 
 export namespace UpdateFlowOutputRequest {
-  export const isa = (o: any): o is UpdateFlowOutputRequest =>
-    __isa(o, "UpdateFlowOutputRequest");
+  export const isa = (o: any): o is UpdateFlowOutputRequest => __isa(o, "UpdateFlowOutputRequest");
 }
 
 export interface UpdateFlowOutputResponse {
@@ -1419,8 +1359,7 @@ export interface UpdateFlowOutputResponse {
 }
 
 export namespace UpdateFlowOutputResponse {
-  export const isa = (o: any): o is UpdateFlowOutputResponse =>
-    __isa(o, "UpdateFlowOutputResponse");
+  export const isa = (o: any): o is UpdateFlowOutputResponse => __isa(o, "UpdateFlowOutputResponse");
 }
 
 /**
@@ -1485,8 +1424,7 @@ export interface UpdateFlowSourceRequest {
 }
 
 export namespace UpdateFlowSourceRequest {
-  export const isa = (o: any): o is UpdateFlowSourceRequest =>
-    __isa(o, "UpdateFlowSourceRequest");
+  export const isa = (o: any): o is UpdateFlowSourceRequest => __isa(o, "UpdateFlowSourceRequest");
 }
 
 export interface UpdateFlowSourceResponse {
@@ -1503,6 +1441,5 @@ export interface UpdateFlowSourceResponse {
 }
 
 export namespace UpdateFlowSourceResponse {
-  export const isa = (o: any): o is UpdateFlowSourceResponse =>
-    __isa(o, "UpdateFlowSourceResponse");
+  export const isa = (o: any): o is UpdateFlowSourceResponse => __isa(o, "UpdateFlowSourceResponse");
 }

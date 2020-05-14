@@ -1,75 +1,30 @@
-import {
-  CreateAnalyzerCommandInput,
-  CreateAnalyzerCommandOutput
-} from "../commands/CreateAnalyzerCommand";
-import {
-  CreateArchiveRuleCommandInput,
-  CreateArchiveRuleCommandOutput
-} from "../commands/CreateArchiveRuleCommand";
-import {
-  DeleteAnalyzerCommandInput,
-  DeleteAnalyzerCommandOutput
-} from "../commands/DeleteAnalyzerCommand";
-import {
-  DeleteArchiveRuleCommandInput,
-  DeleteArchiveRuleCommandOutput
-} from "../commands/DeleteArchiveRuleCommand";
+import { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "../commands/CreateAnalyzerCommand";
+import { CreateArchiveRuleCommandInput, CreateArchiveRuleCommandOutput } from "../commands/CreateArchiveRuleCommand";
+import { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "../commands/DeleteAnalyzerCommand";
+import { DeleteArchiveRuleCommandInput, DeleteArchiveRuleCommandOutput } from "../commands/DeleteArchiveRuleCommand";
 import {
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput
 } from "../commands/GetAnalyzedResourceCommand";
-import {
-  GetAnalyzerCommandInput,
-  GetAnalyzerCommandOutput
-} from "../commands/GetAnalyzerCommand";
-import {
-  GetArchiveRuleCommandInput,
-  GetArchiveRuleCommandOutput
-} from "../commands/GetArchiveRuleCommand";
-import {
-  GetFindingCommandInput,
-  GetFindingCommandOutput
-} from "../commands/GetFindingCommand";
+import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "../commands/GetAnalyzerCommand";
+import { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "../commands/GetArchiveRuleCommand";
+import { GetFindingCommandInput, GetFindingCommandOutput } from "../commands/GetFindingCommand";
 import {
   ListAnalyzedResourcesCommandInput,
   ListAnalyzedResourcesCommandOutput
 } from "../commands/ListAnalyzedResourcesCommand";
-import {
-  ListAnalyzersCommandInput,
-  ListAnalyzersCommandOutput
-} from "../commands/ListAnalyzersCommand";
-import {
-  ListArchiveRulesCommandInput,
-  ListArchiveRulesCommandOutput
-} from "../commands/ListArchiveRulesCommand";
-import {
-  ListFindingsCommandInput,
-  ListFindingsCommandOutput
-} from "../commands/ListFindingsCommand";
+import { ListAnalyzersCommandInput, ListAnalyzersCommandOutput } from "../commands/ListAnalyzersCommand";
+import { ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput } from "../commands/ListArchiveRulesCommand";
+import { ListFindingsCommandInput, ListFindingsCommandOutput } from "../commands/ListFindingsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  StartResourceScanCommandInput,
-  StartResourceScanCommandOutput
-} from "../commands/StartResourceScanCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateArchiveRuleCommandInput,
-  UpdateArchiveRuleCommandOutput
-} from "../commands/UpdateArchiveRuleCommand";
-import {
-  UpdateFindingsCommandInput,
-  UpdateFindingsCommandOutput
-} from "../commands/UpdateFindingsCommand";
+import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "../commands/StartResourceScanCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput } from "../commands/UpdateArchiveRuleCommand";
+import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "../commands/UpdateFindingsCommand";
 import {
   AccessDeniedException,
   AnalyzedResource,
@@ -89,10 +44,7 @@ import {
   ValidationException,
   ValidationExceptionField
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -119,10 +71,7 @@ export const serializeAws_restJson1_1CreateAnalyzerCommand = async (
       analyzerName: input.analyzerName
     }),
     ...(input.archiveRules !== undefined && {
-      archiveRules: serializeAws_restJson1_1InlineArchiveRulesList(
-        input.archiveRules,
-        context
-      )
+      archiveRules: serializeAws_restJson1_1InlineArchiveRulesList(input.archiveRules, context)
     }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.tags !== undefined && {
@@ -153,14 +102,9 @@ export const serializeAws_restJson1_1CreateArchiveRuleCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -195,14 +139,9 @@ export const serializeAws_restJson1_1DeleteAnalyzerCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -234,14 +173,9 @@ export const serializeAws_restJson1_1DeleteArchiveRuleCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -250,10 +184,7 @@ export const serializeAws_restJson1_1DeleteArchiveRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -311,14 +242,9 @@ export const serializeAws_restJson1_1GetAnalyzerCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -346,14 +272,9 @@ export const serializeAws_restJson1_1GetArchiveRuleCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -362,10 +283,7 @@ export const serializeAws_restJson1_1GetArchiveRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -395,10 +313,7 @@ export const serializeAws_restJson1_1GetFindingCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: id.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{id}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: id.");
   }
@@ -488,14 +403,9 @@ export const serializeAws_restJson1_1ListArchiveRulesCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -562,14 +472,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -622,14 +527,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -662,14 +562,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: resourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{resourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
@@ -703,14 +598,9 @@ export const serializeAws_restJson1_1UpdateArchiveRuleCommand = async (
   if (input.analyzerName !== undefined) {
     const labelValue: string = input.analyzerName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: analyzerName."
-      );
+      throw new Error("Empty value provided for input HTTP label: analyzerName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{analyzerName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{analyzerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
@@ -719,10 +609,7 @@ export const serializeAws_restJson1_1UpdateArchiveRuleCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ruleName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ruleName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ruleName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
@@ -780,10 +667,7 @@ export const deserializeAws_restJson1_1CreateAnalyzerCommand = async (
   context: __SerdeContext
 ): Promise<CreateAnalyzerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateAnalyzerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateAnalyzerCommandError(output, context);
   }
   const contents: CreateAnalyzerCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -812,10 +696,7 @@ const deserializeAws_restJson1_1CreateAnalyzerCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -823,10 +704,7 @@ const deserializeAws_restJson1_1CreateAnalyzerCommandError = async (
     case "ConflictException":
     case "com.amazon.accessanalyzer#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -834,10 +712,7 @@ const deserializeAws_restJson1_1CreateAnalyzerCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -845,10 +720,7 @@ const deserializeAws_restJson1_1CreateAnalyzerCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazon.accessanalyzer#ServiceQuotaExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -856,10 +728,7 @@ const deserializeAws_restJson1_1CreateAnalyzerCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -867,10 +736,7 @@ const deserializeAws_restJson1_1CreateAnalyzerCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -897,10 +763,7 @@ export const deserializeAws_restJson1_1CreateArchiveRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateArchiveRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateArchiveRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateArchiveRuleCommandError(output, context);
   }
   const contents: CreateArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -924,10 +787,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -935,10 +795,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "ConflictException":
     case "com.amazon.accessanalyzer#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -946,10 +803,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -957,10 +811,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -968,10 +819,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazon.accessanalyzer#ServiceQuotaExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -979,10 +827,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -990,10 +835,7 @@ const deserializeAws_restJson1_1CreateArchiveRuleCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1020,10 +862,7 @@ export const deserializeAws_restJson1_1DeleteAnalyzerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnalyzerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteAnalyzerCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteAnalyzerCommandError(output, context);
   }
   const contents: DeleteAnalyzerCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1047,10 +886,7 @@ const deserializeAws_restJson1_1DeleteAnalyzerCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1058,10 +894,7 @@ const deserializeAws_restJson1_1DeleteAnalyzerCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1069,10 +902,7 @@ const deserializeAws_restJson1_1DeleteAnalyzerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1080,10 +910,7 @@ const deserializeAws_restJson1_1DeleteAnalyzerCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1091,10 +918,7 @@ const deserializeAws_restJson1_1DeleteAnalyzerCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1121,10 +945,7 @@ export const deserializeAws_restJson1_1DeleteArchiveRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteArchiveRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteArchiveRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteArchiveRuleCommandError(output, context);
   }
   const contents: DeleteArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -1148,10 +969,7 @@ const deserializeAws_restJson1_1DeleteArchiveRuleCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1159,10 +977,7 @@ const deserializeAws_restJson1_1DeleteArchiveRuleCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1170,10 +985,7 @@ const deserializeAws_restJson1_1DeleteArchiveRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1181,10 +993,7 @@ const deserializeAws_restJson1_1DeleteArchiveRuleCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1192,10 +1001,7 @@ const deserializeAws_restJson1_1DeleteArchiveRuleCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1222,10 +1028,7 @@ export const deserializeAws_restJson1_1GetAnalyzedResourceCommand = async (
   context: __SerdeContext
 ): Promise<GetAnalyzedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetAnalyzedResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetAnalyzedResourceCommandError(output, context);
   }
   const contents: GetAnalyzedResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1234,10 +1037,7 @@ export const deserializeAws_restJson1_1GetAnalyzedResourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.resource !== undefined && data.resource !== null) {
-    contents.resource = deserializeAws_restJson1_1AnalyzedResource(
-      data.resource,
-      context
-    );
+    contents.resource = deserializeAws_restJson1_1AnalyzedResource(data.resource, context);
   }
   return Promise.resolve(contents);
 };
@@ -1257,10 +1057,7 @@ const deserializeAws_restJson1_1GetAnalyzedResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1268,10 +1065,7 @@ const deserializeAws_restJson1_1GetAnalyzedResourceCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1279,10 +1073,7 @@ const deserializeAws_restJson1_1GetAnalyzedResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1290,10 +1081,7 @@ const deserializeAws_restJson1_1GetAnalyzedResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1301,10 +1089,7 @@ const deserializeAws_restJson1_1GetAnalyzedResourceCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1340,10 +1125,7 @@ export const deserializeAws_restJson1_1GetAnalyzerCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.analyzer !== undefined && data.analyzer !== null) {
-    contents.analyzer = deserializeAws_restJson1_1AnalyzerSummary(
-      data.analyzer,
-      context
-    );
+    contents.analyzer = deserializeAws_restJson1_1AnalyzerSummary(data.analyzer, context);
   }
   return Promise.resolve(contents);
 };
@@ -1363,10 +1145,7 @@ const deserializeAws_restJson1_1GetAnalyzerCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1374,10 +1153,7 @@ const deserializeAws_restJson1_1GetAnalyzerCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1385,10 +1161,7 @@ const deserializeAws_restJson1_1GetAnalyzerCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1396,10 +1169,7 @@ const deserializeAws_restJson1_1GetAnalyzerCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1407,10 +1177,7 @@ const deserializeAws_restJson1_1GetAnalyzerCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1437,10 +1204,7 @@ export const deserializeAws_restJson1_1GetArchiveRuleCommand = async (
   context: __SerdeContext
 ): Promise<GetArchiveRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetArchiveRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetArchiveRuleCommandError(output, context);
   }
   const contents: GetArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1449,10 +1213,7 @@ export const deserializeAws_restJson1_1GetArchiveRuleCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.archiveRule !== undefined && data.archiveRule !== null) {
-    contents.archiveRule = deserializeAws_restJson1_1ArchiveRuleSummary(
-      data.archiveRule,
-      context
-    );
+    contents.archiveRule = deserializeAws_restJson1_1ArchiveRuleSummary(data.archiveRule, context);
   }
   return Promise.resolve(contents);
 };
@@ -1472,10 +1233,7 @@ const deserializeAws_restJson1_1GetArchiveRuleCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1483,10 +1241,7 @@ const deserializeAws_restJson1_1GetArchiveRuleCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1494,10 +1249,7 @@ const deserializeAws_restJson1_1GetArchiveRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1505,10 +1257,7 @@ const deserializeAws_restJson1_1GetArchiveRuleCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1516,10 +1265,7 @@ const deserializeAws_restJson1_1GetArchiveRuleCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1575,10 +1321,7 @@ const deserializeAws_restJson1_1GetFindingCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1586,10 +1329,7 @@ const deserializeAws_restJson1_1GetFindingCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1597,10 +1337,7 @@ const deserializeAws_restJson1_1GetFindingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1608,10 +1345,7 @@ const deserializeAws_restJson1_1GetFindingCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1619,10 +1353,7 @@ const deserializeAws_restJson1_1GetFindingCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1649,10 +1380,7 @@ export const deserializeAws_restJson1_1ListAnalyzedResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListAnalyzedResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListAnalyzedResourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListAnalyzedResourcesCommandError(output, context);
   }
   const contents: ListAnalyzedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1662,10 +1390,7 @@ export const deserializeAws_restJson1_1ListAnalyzedResourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.analyzedResources !== undefined && data.analyzedResources !== null) {
-    contents.analyzedResources = deserializeAws_restJson1_1AnalyzedResourcesList(
-      data.analyzedResources,
-      context
-    );
+    contents.analyzedResources = deserializeAws_restJson1_1AnalyzedResourcesList(data.analyzedResources, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1688,10 +1413,7 @@ const deserializeAws_restJson1_1ListAnalyzedResourcesCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1699,10 +1421,7 @@ const deserializeAws_restJson1_1ListAnalyzedResourcesCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1710,10 +1429,7 @@ const deserializeAws_restJson1_1ListAnalyzedResourcesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1721,10 +1437,7 @@ const deserializeAws_restJson1_1ListAnalyzedResourcesCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1732,10 +1445,7 @@ const deserializeAws_restJson1_1ListAnalyzedResourcesCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1772,10 +1482,7 @@ export const deserializeAws_restJson1_1ListAnalyzersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.analyzers !== undefined && data.analyzers !== null) {
-    contents.analyzers = deserializeAws_restJson1_1AnalyzersList(
-      data.analyzers,
-      context
-    );
+    contents.analyzers = deserializeAws_restJson1_1AnalyzersList(data.analyzers, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1798,10 +1505,7 @@ const deserializeAws_restJson1_1ListAnalyzersCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1809,10 +1513,7 @@ const deserializeAws_restJson1_1ListAnalyzersCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1820,10 +1521,7 @@ const deserializeAws_restJson1_1ListAnalyzersCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1831,10 +1529,7 @@ const deserializeAws_restJson1_1ListAnalyzersCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1861,10 +1556,7 @@ export const deserializeAws_restJson1_1ListArchiveRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListArchiveRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListArchiveRulesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListArchiveRulesCommandError(output, context);
   }
   const contents: ListArchiveRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1874,10 +1566,7 @@ export const deserializeAws_restJson1_1ListArchiveRulesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.archiveRules !== undefined && data.archiveRules !== null) {
-    contents.archiveRules = deserializeAws_restJson1_1ArchiveRulesList(
-      data.archiveRules,
-      context
-    );
+    contents.archiveRules = deserializeAws_restJson1_1ArchiveRulesList(data.archiveRules, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1900,10 +1589,7 @@ const deserializeAws_restJson1_1ListArchiveRulesCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1911,10 +1597,7 @@ const deserializeAws_restJson1_1ListArchiveRulesCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1922,10 +1605,7 @@ const deserializeAws_restJson1_1ListArchiveRulesCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1933,10 +1613,7 @@ const deserializeAws_restJson1_1ListArchiveRulesCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1973,10 +1650,7 @@ export const deserializeAws_restJson1_1ListFindingsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.findings !== undefined && data.findings !== null) {
-    contents.findings = deserializeAws_restJson1_1FindingsList(
-      data.findings,
-      context
-    );
+    contents.findings = deserializeAws_restJson1_1FindingsList(data.findings, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = data.nextToken;
@@ -1999,10 +1673,7 @@ const deserializeAws_restJson1_1ListFindingsCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2010,10 +1681,7 @@ const deserializeAws_restJson1_1ListFindingsCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2021,10 +1689,7 @@ const deserializeAws_restJson1_1ListFindingsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2032,10 +1697,7 @@ const deserializeAws_restJson1_1ListFindingsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2043,10 +1705,7 @@ const deserializeAws_restJson1_1ListFindingsCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2073,10 +1732,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2105,10 +1761,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2116,10 +1769,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2127,10 +1777,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2138,10 +1785,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2149,10 +1793,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2179,10 +1820,7 @@ export const deserializeAws_restJson1_1StartResourceScanCommand = async (
   context: __SerdeContext
 ): Promise<StartResourceScanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1StartResourceScanCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1StartResourceScanCommandError(output, context);
   }
   const contents: StartResourceScanCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2206,10 +1844,7 @@ const deserializeAws_restJson1_1StartResourceScanCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2217,10 +1852,7 @@ const deserializeAws_restJson1_1StartResourceScanCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2228,10 +1860,7 @@ const deserializeAws_restJson1_1StartResourceScanCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2239,10 +1868,7 @@ const deserializeAws_restJson1_1StartResourceScanCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2250,10 +1876,7 @@ const deserializeAws_restJson1_1StartResourceScanCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2305,10 +1928,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2316,10 +1936,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2327,10 +1944,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2338,10 +1952,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2349,10 +1960,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2404,10 +2012,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2415,10 +2020,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2426,10 +2028,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2437,10 +2036,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2448,10 +2044,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2478,10 +2071,7 @@ export const deserializeAws_restJson1_1UpdateArchiveRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateArchiveRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateArchiveRuleCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateArchiveRuleCommandError(output, context);
   }
   const contents: UpdateArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2505,10 +2095,7 @@ const deserializeAws_restJson1_1UpdateArchiveRuleCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2516,10 +2103,7 @@ const deserializeAws_restJson1_1UpdateArchiveRuleCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2527,10 +2111,7 @@ const deserializeAws_restJson1_1UpdateArchiveRuleCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2538,10 +2119,7 @@ const deserializeAws_restJson1_1UpdateArchiveRuleCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2549,10 +2127,7 @@ const deserializeAws_restJson1_1UpdateArchiveRuleCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2579,10 +2154,7 @@ export const deserializeAws_restJson1_1UpdateFindingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateFindingsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFindingsCommandError(output, context);
   }
   const contents: UpdateFindingsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2606,10 +2178,7 @@ const deserializeAws_restJson1_1UpdateFindingsCommandError = async (
     case "AccessDeniedException":
     case "com.amazon.accessanalyzer#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2617,10 +2186,7 @@ const deserializeAws_restJson1_1UpdateFindingsCommandError = async (
     case "InternalServerException":
     case "com.amazon.accessanalyzer#InternalServerException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2628,10 +2194,7 @@ const deserializeAws_restJson1_1UpdateFindingsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazon.accessanalyzer#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2639,10 +2202,7 @@ const deserializeAws_restJson1_1UpdateFindingsCommandError = async (
     case "ThrottlingException":
     case "com.amazon.accessanalyzer#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2650,10 +2210,7 @@ const deserializeAws_restJson1_1UpdateFindingsCommandError = async (
     case "ValidationException":
     case "com.amazon.accessanalyzer#ValidationException":
       response = {
-        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2729,10 +2286,7 @@ const deserializeAws_restJson1_1InternalServerExceptionResponse = async (
     retryAfterSeconds: undefined
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(
-      parsedOutput.headers["retry-after"],
-      10
-    );
+    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2803,10 +2357,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
     retryAfterSeconds: undefined
   };
   if (parsedOutput.headers["retry-after"] !== undefined) {
-    contents.retryAfterSeconds = parseInt(
-      parsedOutput.headers["retry-after"],
-      10
-    );
+    contents.retryAfterSeconds = parseInt(parsedOutput.headers["retry-after"], 10);
   }
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -2829,10 +2380,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   };
   const data: any = parsedOutput.body;
   if (data.fieldList !== undefined && data.fieldList !== null) {
-    contents.fieldList = deserializeAws_restJson1_1ValidationExceptionFieldList(
-      data.fieldList,
-      context
-    );
+    contents.fieldList = deserializeAws_restJson1_1ValidationExceptionFieldList(data.fieldList, context);
   }
   if (data.message !== undefined && data.message !== null) {
     contents.message = data.message;
@@ -2843,10 +2391,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1Criterion = (
-  input: Criterion,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Criterion = (input: Criterion, context: __SerdeContext): any => {
   return {
     ...(input.contains !== undefined && {
       contains: serializeAws_restJson1_1ValueList(input.contains, context)
@@ -2874,17 +2419,11 @@ const serializeAws_restJson1_1FilterCriteriaMap = (
   );
 };
 
-const serializeAws_restJson1_1FindingIdList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1FindingIdList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1InlineArchiveRule = (
-  input: InlineArchiveRule,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1InlineArchiveRule = (input: InlineArchiveRule, context: __SerdeContext): any => {
   return {
     ...(input.filter !== undefined && {
       filter: serializeAws_restJson1_1FilterCriteriaMap(input.filter, context)
@@ -2893,19 +2432,11 @@ const serializeAws_restJson1_1InlineArchiveRule = (
   };
 };
 
-const serializeAws_restJson1_1InlineArchiveRulesList = (
-  input: InlineArchiveRule[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InlineArchiveRule(entry, context)
-  );
+const serializeAws_restJson1_1InlineArchiveRulesList = (input: InlineArchiveRule[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1InlineArchiveRule(entry, context));
 };
 
-const serializeAws_restJson1_1SortCriteria = (
-  input: SortCriteria,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SortCriteria = (input: SortCriteria, context: __SerdeContext): any => {
   return {
     ...(input.attributeName !== undefined && {
       attributeName: input.attributeName
@@ -2914,10 +2445,7 @@ const serializeAws_restJson1_1SortCriteria = (
   };
 };
 
-const serializeAws_restJson1_1TagsMap = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2927,66 +2455,33 @@ const serializeAws_restJson1_1TagsMap = (
   );
 };
 
-const serializeAws_restJson1_1ValueList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ValueList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const deserializeAws_restJson1_1ActionList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ActionList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1AnalyzedResource = (
-  output: any,
-  context: __SerdeContext
-): AnalyzedResource => {
+const deserializeAws_restJson1_1AnalyzedResource = (output: any, context: __SerdeContext): AnalyzedResource => {
   return {
     __type: "AnalyzedResource",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1_1ActionList(output.actions, context)
         : undefined,
-    analyzedAt:
-      output.analyzedAt !== undefined && output.analyzedAt !== null
-        ? new Date(output.analyzedAt)
-        : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(output.createdAt)
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
-    isPublic:
-      output.isPublic !== undefined && output.isPublic !== null
-        ? output.isPublic
-        : undefined,
-    resourceArn:
-      output.resourceArn !== undefined && output.resourceArn !== null
-        ? output.resourceArn
-        : undefined,
-    resourceType:
-      output.resourceType !== undefined && output.resourceType !== null
-        ? output.resourceType
-        : undefined,
+    analyzedAt: output.analyzedAt !== undefined && output.analyzedAt !== null ? new Date(output.analyzedAt) : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
+    isPublic: output.isPublic !== undefined && output.isPublic !== null ? output.isPublic : undefined,
+    resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
     sharedVia:
       output.sharedVia !== undefined && output.sharedVia !== null
         ? deserializeAws_restJson1_1SharedViaList(output.sharedVia, context)
         : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(output.updatedAt)
-        : undefined
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined
   } as any;
 };
 
@@ -2996,14 +2491,8 @@ const deserializeAws_restJson1_1AnalyzedResourceSummary = (
 ): AnalyzedResourceSummary => {
   return {
     __type: "AnalyzedResourceSummary",
-    resourceArn:
-      output.resourceArn !== undefined && output.resourceArn !== null
-        ? output.resourceArn
-        : undefined,
-    resourceType:
-      output.resourceType !== undefined && output.resourceType !== null
-        ? output.resourceType
-        : undefined
+    resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined
   } as any;
 };
 
@@ -3011,95 +2500,53 @@ const deserializeAws_restJson1_1AnalyzedResourcesList = (
   output: any,
   context: __SerdeContext
 ): AnalyzedResourceSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AnalyzedResourceSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AnalyzedResourceSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1AnalyzerSummary = (
-  output: any,
-  context: __SerdeContext
-): AnalyzerSummary => {
+const deserializeAws_restJson1_1AnalyzerSummary = (output: any, context: __SerdeContext): AnalyzerSummary => {
   return {
     __type: "AnalyzerSummary",
-    arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(output.createdAt)
-        : undefined,
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     lastResourceAnalyzed:
-      output.lastResourceAnalyzed !== undefined &&
-      output.lastResourceAnalyzed !== null
+      output.lastResourceAnalyzed !== undefined && output.lastResourceAnalyzed !== null
         ? output.lastResourceAnalyzed
         : undefined,
     lastResourceAnalyzedAt:
-      output.lastResourceAnalyzedAt !== undefined &&
-      output.lastResourceAnalyzedAt !== null
+      output.lastResourceAnalyzedAt !== undefined && output.lastResourceAnalyzedAt !== null
         ? new Date(output.lastResourceAnalyzedAt)
         : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1TagsMap(output.tags, context)
         : undefined,
-    type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AnalyzersList = (
-  output: any,
-  context: __SerdeContext
-): AnalyzerSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1AnalyzerSummary(entry, context)
-  );
+const deserializeAws_restJson1_1AnalyzersList = (output: any, context: __SerdeContext): AnalyzerSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1AnalyzerSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1ArchiveRuleSummary = (
-  output: any,
-  context: __SerdeContext
-): ArchiveRuleSummary => {
+const deserializeAws_restJson1_1ArchiveRuleSummary = (output: any, context: __SerdeContext): ArchiveRuleSummary => {
   return {
     __type: "ArchiveRuleSummary",
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(output.createdAt)
-        : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     filter:
       output.filter !== undefined && output.filter !== null
         ? deserializeAws_restJson1_1FilterCriteriaMap(output.filter, context)
         : undefined,
-    ruleName:
-      output.ruleName !== undefined && output.ruleName !== null
-        ? output.ruleName
-        : undefined,
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(output.updatedAt)
-        : undefined
+    ruleName: output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
+    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ArchiveRulesList = (
-  output: any,
-  context: __SerdeContext
-): ArchiveRuleSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ArchiveRuleSummary(entry, context)
-  );
+const deserializeAws_restJson1_1ArchiveRulesList = (output: any, context: __SerdeContext): ArchiveRuleSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ArchiveRuleSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1ConditionKeyMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1ConditionKeyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3109,10 +2556,7 @@ const deserializeAws_restJson1_1ConditionKeyMap = (
   );
 };
 
-const deserializeAws_restJson1_1Criterion = (
-  output: any,
-  context: __SerdeContext
-): Criterion => {
+const deserializeAws_restJson1_1Criterion = (output: any, context: __SerdeContext): Criterion => {
   return {
     __type: "Criterion",
     contains:
@@ -3123,10 +2567,7 @@ const deserializeAws_restJson1_1Criterion = (
       output.eq !== undefined && output.eq !== null
         ? deserializeAws_restJson1_1ValueList(output.eq, context)
         : undefined,
-    exists:
-      output.exists !== undefined && output.exists !== null
-        ? output.exists
-        : undefined,
+    exists: output.exists !== undefined && output.exists !== null ? output.exists : undefined,
     neq:
       output.neq !== undefined && output.neq !== null
         ? deserializeAws_restJson1_1ValueList(output.neq, context)
@@ -3147,127 +2588,65 @@ const deserializeAws_restJson1_1FilterCriteriaMap = (
   );
 };
 
-const deserializeAws_restJson1_1Finding = (
-  output: any,
-  context: __SerdeContext
-): Finding => {
+const deserializeAws_restJson1_1Finding = (output: any, context: __SerdeContext): Finding => {
   return {
     __type: "Finding",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1_1ActionList(output.action, context)
         : undefined,
-    analyzedAt:
-      output.analyzedAt !== undefined && output.analyzedAt !== null
-        ? new Date(output.analyzedAt)
-        : undefined,
+    analyzedAt: output.analyzedAt !== undefined && output.analyzedAt !== null ? new Date(output.analyzedAt) : undefined,
     condition:
       output.condition !== undefined && output.condition !== null
         ? deserializeAws_restJson1_1ConditionKeyMap(output.condition, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(output.createdAt)
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    isPublic:
-      output.isPublic !== undefined && output.isPublic !== null
-        ? output.isPublic
-        : undefined,
+    isPublic: output.isPublic !== undefined && output.isPublic !== null ? output.isPublic : undefined,
     principal:
       output.principal !== undefined && output.principal !== null
         ? deserializeAws_restJson1_1PrincipalMap(output.principal, context)
         : undefined,
-    resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
-    resourceType:
-      output.resourceType !== undefined && output.resourceType !== null
-        ? output.resourceType
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(output.updatedAt)
-        : undefined
+    resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1FindingSummary = (
-  output: any,
-  context: __SerdeContext
-): FindingSummary => {
+const deserializeAws_restJson1_1FindingSummary = (output: any, context: __SerdeContext): FindingSummary => {
   return {
     __type: "FindingSummary",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1_1ActionList(output.action, context)
         : undefined,
-    analyzedAt:
-      output.analyzedAt !== undefined && output.analyzedAt !== null
-        ? new Date(output.analyzedAt)
-        : undefined,
+    analyzedAt: output.analyzedAt !== undefined && output.analyzedAt !== null ? new Date(output.analyzedAt) : undefined,
     condition:
       output.condition !== undefined && output.condition !== null
         ? deserializeAws_restJson1_1ConditionKeyMap(output.condition, context)
         : undefined,
-    createdAt:
-      output.createdAt !== undefined && output.createdAt !== null
-        ? new Date(output.createdAt)
-        : undefined,
-    error:
-      output.error !== undefined && output.error !== null
-        ? output.error
-        : undefined,
+    createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
+    error: output.error !== undefined && output.error !== null ? output.error : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
-    isPublic:
-      output.isPublic !== undefined && output.isPublic !== null
-        ? output.isPublic
-        : undefined,
+    isPublic: output.isPublic !== undefined && output.isPublic !== null ? output.isPublic : undefined,
     principal:
       output.principal !== undefined && output.principal !== null
         ? deserializeAws_restJson1_1PrincipalMap(output.principal, context)
         : undefined,
-    resource:
-      output.resource !== undefined && output.resource !== null
-        ? output.resource
-        : undefined,
-    resourceType:
-      output.resourceType !== undefined && output.resourceType !== null
-        ? output.resourceType
-        : undefined,
-    status:
-      output.status !== undefined && output.status !== null
-        ? output.status
-        : undefined,
-    updatedAt:
-      output.updatedAt !== undefined && output.updatedAt !== null
-        ? new Date(output.updatedAt)
-        : undefined
+    resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    updatedAt: output.updatedAt !== undefined && output.updatedAt !== null ? new Date(output.updatedAt) : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1FindingsList = (
-  output: any,
-  context: __SerdeContext
-): FindingSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1FindingSummary(entry, context)
-  );
+const deserializeAws_restJson1_1FindingsList = (output: any, context: __SerdeContext): FindingSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1FindingSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1PrincipalMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1PrincipalMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3277,17 +2656,11 @@ const deserializeAws_restJson1_1PrincipalMap = (
   );
 };
 
-const deserializeAws_restJson1_1SharedViaList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1SharedViaList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1TagsMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1TagsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3303,14 +2676,8 @@ const deserializeAws_restJson1_1ValidationExceptionField = (
 ): ValidationExceptionField => {
   return {
     __type: "ValidationExceptionField",
-    message:
-      output.message !== undefined && output.message !== null
-        ? output.message
-        : undefined,
-    name:
-      output.name !== undefined && output.name !== null
-        ? output.name
-        : undefined
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined
   } as any;
 };
 
@@ -3318,15 +2685,10 @@ const deserializeAws_restJson1_1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ValidationExceptionField(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ValidationExceptionField(entry, context));
 };
 
-const deserializeAws_restJson1_1ValueList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ValueList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -3337,30 +2699,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -3375,8 +2728,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

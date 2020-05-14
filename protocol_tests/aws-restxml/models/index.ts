@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AllQueryStringTypesInput {
@@ -27,8 +24,7 @@ export interface AllQueryStringTypesInput {
 }
 
 export namespace AllQueryStringTypesInput {
-  export const isa = (o: any): o is AllQueryStringTypesInput =>
-    __isa(o, "AllQueryStringTypesInput");
+  export const isa = (o: any): o is AllQueryStringTypesInput => __isa(o, "AllQueryStringTypesInput");
 }
 
 /**
@@ -52,8 +48,7 @@ export interface ComplexNestedErrorData {
 }
 
 export namespace ComplexNestedErrorData {
-  export const isa = (o: any): o is ComplexNestedErrorData =>
-    __isa(o, "ComplexNestedErrorData");
+  export const isa = (o: any): o is ComplexNestedErrorData => __isa(o, "ComplexNestedErrorData");
 }
 
 export interface ConstantAndVariableQueryStringInput {
@@ -73,8 +68,7 @@ export interface ConstantQueryStringInput {
 }
 
 export namespace ConstantQueryStringInput {
-  export const isa = (o: any): o is ConstantQueryStringInput =>
-    __isa(o, "ConstantQueryStringInput");
+  export const isa = (o: any): o is ConstantQueryStringInput => __isa(o, "ConstantQueryStringInput");
 }
 
 export interface EmptyInputAndEmptyOutputInput {
@@ -82,8 +76,7 @@ export interface EmptyInputAndEmptyOutputInput {
 }
 
 export namespace EmptyInputAndEmptyOutputInput {
-  export const isa = (o: any): o is EmptyInputAndEmptyOutputInput =>
-    __isa(o, "EmptyInputAndEmptyOutputInput");
+  export const isa = (o: any): o is EmptyInputAndEmptyOutputInput => __isa(o, "EmptyInputAndEmptyOutputInput");
 }
 
 export interface EmptyInputAndEmptyOutputOutput {
@@ -91,8 +84,7 @@ export interface EmptyInputAndEmptyOutputOutput {
 }
 
 export namespace EmptyInputAndEmptyOutputOutput {
-  export const isa = (o: any): o is EmptyInputAndEmptyOutputOutput =>
-    __isa(o, "EmptyInputAndEmptyOutputOutput");
+  export const isa = (o: any): o is EmptyInputAndEmptyOutputOutput => __isa(o, "EmptyInputAndEmptyOutputOutput");
 }
 
 export interface FlattenedXmlMapInputOutput {
@@ -101,8 +93,7 @@ export interface FlattenedXmlMapInputOutput {
 }
 
 export namespace FlattenedXmlMapInputOutput {
-  export const isa = (o: any): o is FlattenedXmlMapInputOutput =>
-    __isa(o, "FlattenedXmlMapInputOutput");
+  export const isa = (o: any): o is FlattenedXmlMapInputOutput => __isa(o, "FlattenedXmlMapInputOutput");
 }
 
 export interface FlattenedXmlMapWithXmlNameInputOutput {
@@ -121,8 +112,7 @@ export interface GreetingWithErrorsOutput {
 }
 
 export namespace GreetingWithErrorsOutput {
-  export const isa = (o: any): o is GreetingWithErrorsOutput =>
-    __isa(o, "GreetingWithErrorsOutput");
+  export const isa = (o: any): o is GreetingWithErrorsOutput => __isa(o, "GreetingWithErrorsOutput");
 }
 
 export interface HttpPayloadTraitsInputOutput {
@@ -132,8 +122,7 @@ export interface HttpPayloadTraitsInputOutput {
 }
 
 export namespace HttpPayloadTraitsInputOutput {
-  export const isa = (o: any): o is HttpPayloadTraitsInputOutput =>
-    __isa(o, "HttpPayloadTraitsInputOutput");
+  export const isa = (o: any): o is HttpPayloadTraitsInputOutput => __isa(o, "HttpPayloadTraitsInputOutput");
 }
 
 export interface HttpPayloadTraitsWithMediaTypeInputOutput {
@@ -163,8 +152,7 @@ export interface HttpPayloadWithXmlNameInputOutput {
 }
 
 export namespace HttpPayloadWithXmlNameInputOutput {
-  export const isa = (o: any): o is HttpPayloadWithXmlNameInputOutput =>
-    __isa(o, "HttpPayloadWithXmlNameInputOutput");
+  export const isa = (o: any): o is HttpPayloadWithXmlNameInputOutput => __isa(o, "HttpPayloadWithXmlNameInputOutput");
 }
 
 export interface HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
@@ -173,9 +161,7 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
 }
 
 export namespace HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
-  export const isa = (
-    o: any
-  ): o is HttpPayloadWithXmlNamespaceAndPrefixInputOutput =>
+  export const isa = (o: any): o is HttpPayloadWithXmlNamespaceAndPrefixInputOutput =>
     __isa(o, "HttpPayloadWithXmlNamespaceAndPrefixInputOutput");
 }
 
@@ -196,8 +182,7 @@ export interface HttpPrefixHeadersInputOutput {
 }
 
 export namespace HttpPrefixHeadersInputOutput {
-  export const isa = (o: any): o is HttpPrefixHeadersInputOutput =>
-    __isa(o, "HttpPrefixHeadersInputOutput");
+  export const isa = (o: any): o is HttpPrefixHeadersInputOutput => __isa(o, "HttpPrefixHeadersInputOutput");
 }
 
 export interface HttpRequestWithGreedyLabelInPathInput {
@@ -223,9 +208,7 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
 }
 
 export namespace HttpRequestWithLabelsAndTimestampFormatInput {
-  export const isa = (
-    o: any
-  ): o is HttpRequestWithLabelsAndTimestampFormatInput =>
+  export const isa = (o: any): o is HttpRequestWithLabelsAndTimestampFormatInput =>
     __isa(o, "HttpRequestWithLabelsAndTimestampFormatInput");
 }
 
@@ -249,8 +232,7 @@ export interface HttpRequestWithLabelsInput {
 }
 
 export namespace HttpRequestWithLabelsInput {
-  export const isa = (o: any): o is HttpRequestWithLabelsInput =>
-    __isa(o, "HttpRequestWithLabelsInput");
+  export const isa = (o: any): o is HttpRequestWithLabelsInput => __isa(o, "HttpRequestWithLabelsInput");
 }
 
 export interface IgnoreQueryParamsInResponseOutput {
@@ -259,8 +241,7 @@ export interface IgnoreQueryParamsInResponseOutput {
 }
 
 export namespace IgnoreQueryParamsInResponseOutput {
-  export const isa = (o: any): o is IgnoreQueryParamsInResponseOutput =>
-    __isa(o, "IgnoreQueryParamsInResponseOutput");
+  export const isa = (o: any): o is IgnoreQueryParamsInResponseOutput => __isa(o, "IgnoreQueryParamsInResponseOutput");
 }
 
 export interface InputAndOutputWithHeadersIO {
@@ -284,8 +265,7 @@ export interface InputAndOutputWithHeadersIO {
 }
 
 export namespace InputAndOutputWithHeadersIO {
-  export const isa = (o: any): o is InputAndOutputWithHeadersIO =>
-    __isa(o, "InputAndOutputWithHeadersIO");
+  export const isa = (o: any): o is InputAndOutputWithHeadersIO => __isa(o, "InputAndOutputWithHeadersIO");
 }
 
 /**
@@ -298,8 +278,7 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidGreeting {
-  export const isa = (o: any): o is InvalidGreeting =>
-    __isa(o, "InvalidGreeting");
+  export const isa = (o: any): o is InvalidGreeting => __isa(o, "InvalidGreeting");
 }
 
 export interface NestedPayload {
@@ -317,8 +296,7 @@ export interface NoInputAndOutputOutput {
 }
 
 export namespace NoInputAndOutputOutput {
-  export const isa = (o: any): o is NoInputAndOutputOutput =>
-    __isa(o, "NoInputAndOutputOutput");
+  export const isa = (o: any): o is NoInputAndOutputOutput => __isa(o, "NoInputAndOutputOutput");
 }
 
 export interface NullAndEmptyHeadersIO {
@@ -329,8 +307,7 @@ export interface NullAndEmptyHeadersIO {
 }
 
 export namespace NullAndEmptyHeadersIO {
-  export const isa = (o: any): o is NullAndEmptyHeadersIO =>
-    __isa(o, "NullAndEmptyHeadersIO");
+  export const isa = (o: any): o is NullAndEmptyHeadersIO => __isa(o, "NullAndEmptyHeadersIO");
 }
 
 export interface OmitsNullSerializesEmptyStringInput {
@@ -350,8 +327,7 @@ export interface PayloadWithXmlName {
 }
 
 export namespace PayloadWithXmlName {
-  export const isa = (o: any): o is PayloadWithXmlName =>
-    __isa(o, "PayloadWithXmlName");
+  export const isa = (o: any): o is PayloadWithXmlName => __isa(o, "PayloadWithXmlName");
 }
 
 export interface PayloadWithXmlNamespace {
@@ -360,8 +336,7 @@ export interface PayloadWithXmlNamespace {
 }
 
 export namespace PayloadWithXmlNamespace {
-  export const isa = (o: any): o is PayloadWithXmlNamespace =>
-    __isa(o, "PayloadWithXmlNamespace");
+  export const isa = (o: any): o is PayloadWithXmlNamespace => __isa(o, "PayloadWithXmlNamespace");
 }
 
 export interface PayloadWithXmlNamespaceAndPrefix {
@@ -370,8 +345,7 @@ export interface PayloadWithXmlNamespaceAndPrefix {
 }
 
 export namespace PayloadWithXmlNamespaceAndPrefix {
-  export const isa = (o: any): o is PayloadWithXmlNamespaceAndPrefix =>
-    __isa(o, "PayloadWithXmlNamespaceAndPrefix");
+  export const isa = (o: any): o is PayloadWithXmlNamespaceAndPrefix => __isa(o, "PayloadWithXmlNamespaceAndPrefix");
 }
 
 export interface QueryIdempotencyTokenAutoFillInput {
@@ -390,8 +364,7 @@ export interface RecursiveShapesInputOutput {
 }
 
 export namespace RecursiveShapesInputOutput {
-  export const isa = (o: any): o is RecursiveShapesInputOutput =>
-    __isa(o, "RecursiveShapesInputOutput");
+  export const isa = (o: any): o is RecursiveShapesInputOutput => __isa(o, "RecursiveShapesInputOutput");
 }
 
 export interface RecursiveShapesInputOutputNested1 {
@@ -401,8 +374,7 @@ export interface RecursiveShapesInputOutputNested1 {
 }
 
 export namespace RecursiveShapesInputOutputNested1 {
-  export const isa = (o: any): o is RecursiveShapesInputOutputNested1 =>
-    __isa(o, "RecursiveShapesInputOutputNested1");
+  export const isa = (o: any): o is RecursiveShapesInputOutputNested1 => __isa(o, "RecursiveShapesInputOutputNested1");
 }
 
 export interface RecursiveShapesInputOutputNested2 {
@@ -412,8 +384,7 @@ export interface RecursiveShapesInputOutputNested2 {
 }
 
 export namespace RecursiveShapesInputOutputNested2 {
-  export const isa = (o: any): o is RecursiveShapesInputOutputNested2 =>
-    __isa(o, "RecursiveShapesInputOutputNested2");
+  export const isa = (o: any): o is RecursiveShapesInputOutputNested2 => __isa(o, "RecursiveShapesInputOutputNested2");
 }
 
 export interface SimpleScalarPropertiesInputOutput {
@@ -431,8 +402,7 @@ export interface SimpleScalarPropertiesInputOutput {
 }
 
 export namespace SimpleScalarPropertiesInputOutput {
-  export const isa = (o: any): o is SimpleScalarPropertiesInputOutput =>
-    __isa(o, "SimpleScalarPropertiesInputOutput");
+  export const isa = (o: any): o is SimpleScalarPropertiesInputOutput => __isa(o, "SimpleScalarPropertiesInputOutput");
 }
 
 export interface StructureListMember {
@@ -442,8 +412,7 @@ export interface StructureListMember {
 }
 
 export namespace StructureListMember {
-  export const isa = (o: any): o is StructureListMember =>
-    __isa(o, "StructureListMember");
+  export const isa = (o: any): o is StructureListMember => __isa(o, "StructureListMember");
 }
 
 export interface TimestampFormatHeadersIO {
@@ -458,8 +427,7 @@ export interface TimestampFormatHeadersIO {
 }
 
 export namespace TimestampFormatHeadersIO {
-  export const isa = (o: any): o is TimestampFormatHeadersIO =>
-    __isa(o, "TimestampFormatHeadersIO");
+  export const isa = (o: any): o is TimestampFormatHeadersIO => __isa(o, "TimestampFormatHeadersIO");
 }
 
 export interface XmlAttributesInputOutput {
@@ -469,8 +437,7 @@ export interface XmlAttributesInputOutput {
 }
 
 export namespace XmlAttributesInputOutput {
-  export const isa = (o: any): o is XmlAttributesInputOutput =>
-    __isa(o, "XmlAttributesInputOutput");
+  export const isa = (o: any): o is XmlAttributesInputOutput => __isa(o, "XmlAttributesInputOutput");
 }
 
 export interface XmlAttributesOnPayloadInputOutput {
@@ -479,8 +446,7 @@ export interface XmlAttributesOnPayloadInputOutput {
 }
 
 export namespace XmlAttributesOnPayloadInputOutput {
-  export const isa = (o: any): o is XmlAttributesOnPayloadInputOutput =>
-    __isa(o, "XmlAttributesOnPayloadInputOutput");
+  export const isa = (o: any): o is XmlAttributesOnPayloadInputOutput => __isa(o, "XmlAttributesOnPayloadInputOutput");
 }
 
 export interface XmlBlobsInputOutput {
@@ -489,8 +455,7 @@ export interface XmlBlobsInputOutput {
 }
 
 export namespace XmlBlobsInputOutput {
-  export const isa = (o: any): o is XmlBlobsInputOutput =>
-    __isa(o, "XmlBlobsInputOutput");
+  export const isa = (o: any): o is XmlBlobsInputOutput => __isa(o, "XmlBlobsInputOutput");
 }
 
 export interface XmlEnumsInputOutput {
@@ -504,8 +469,7 @@ export interface XmlEnumsInputOutput {
 }
 
 export namespace XmlEnumsInputOutput {
-  export const isa = (o: any): o is XmlEnumsInputOutput =>
-    __isa(o, "XmlEnumsInputOutput");
+  export const isa = (o: any): o is XmlEnumsInputOutput => __isa(o, "XmlEnumsInputOutput");
 }
 
 export interface XmlListsInputOutput {
@@ -528,8 +492,7 @@ export interface XmlListsInputOutput {
 }
 
 export namespace XmlListsInputOutput {
-  export const isa = (o: any): o is XmlListsInputOutput =>
-    __isa(o, "XmlListsInputOutput");
+  export const isa = (o: any): o is XmlListsInputOutput => __isa(o, "XmlListsInputOutput");
 }
 
 export interface XmlMapsInputOutput {
@@ -538,8 +501,7 @@ export interface XmlMapsInputOutput {
 }
 
 export namespace XmlMapsInputOutput {
-  export const isa = (o: any): o is XmlMapsInputOutput =>
-    __isa(o, "XmlMapsInputOutput");
+  export const isa = (o: any): o is XmlMapsInputOutput => __isa(o, "XmlMapsInputOutput");
 }
 
 export interface XmlMapsXmlNameInputOutput {
@@ -548,8 +510,7 @@ export interface XmlMapsXmlNameInputOutput {
 }
 
 export namespace XmlMapsXmlNameInputOutput {
-  export const isa = (o: any): o is XmlMapsXmlNameInputOutput =>
-    __isa(o, "XmlMapsXmlNameInputOutput");
+  export const isa = (o: any): o is XmlMapsXmlNameInputOutput => __isa(o, "XmlMapsXmlNameInputOutput");
 }
 
 export interface XmlNamespaceNested {
@@ -559,8 +520,7 @@ export interface XmlNamespaceNested {
 }
 
 export namespace XmlNamespaceNested {
-  export const isa = (o: any): o is XmlNamespaceNested =>
-    __isa(o, "XmlNamespaceNested");
+  export const isa = (o: any): o is XmlNamespaceNested => __isa(o, "XmlNamespaceNested");
 }
 
 export interface XmlNamespacesInputOutput {
@@ -569,8 +529,7 @@ export interface XmlNamespacesInputOutput {
 }
 
 export namespace XmlNamespacesInputOutput {
-  export const isa = (o: any): o is XmlNamespacesInputOutput =>
-    __isa(o, "XmlNamespacesInputOutput");
+  export const isa = (o: any): o is XmlNamespacesInputOutput => __isa(o, "XmlNamespacesInputOutput");
 }
 
 export interface XmlTimestampsInputOutput {
@@ -582,8 +541,7 @@ export interface XmlTimestampsInputOutput {
 }
 
 export namespace XmlTimestampsInputOutput {
-  export const isa = (o: any): o is XmlTimestampsInputOutput =>
-    __isa(o, "XmlTimestampsInputOutput");
+  export const isa = (o: any): o is XmlTimestampsInputOutput => __isa(o, "XmlTimestampsInputOutput");
 }
 
 export type FooEnum = "0" | "1" | "Bar" | "Baz" | "Foo";
@@ -594,6 +552,5 @@ export interface GreetingStruct {
 }
 
 export namespace GreetingStruct {
-  export const isa = (o: any): o is GreetingStruct =>
-    __isa(o, "GreetingStruct");
+  export const isa = (o: any): o is GreetingStruct => __isa(o, "GreetingStruct");
 }

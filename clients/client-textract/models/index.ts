@@ -8,9 +8,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  * <p>You aren't authorized to perform the action.</p>
  */
-export interface AccessDeniedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -18,8 +16,7 @@ export interface AccessDeniedException
 }
 
 export namespace AccessDeniedException {
-  export const isa = (o: any): o is AccessDeniedException =>
-    __isa(o, "AccessDeniedException");
+  export const isa = (o: any): o is AccessDeniedException => __isa(o, "AccessDeniedException");
 }
 
 export interface AnalyzeDocumentRequest {
@@ -49,8 +46,7 @@ export interface AnalyzeDocumentRequest {
 }
 
 export namespace AnalyzeDocumentRequest {
-  export const isa = (o: any): o is AnalyzeDocumentRequest =>
-    __isa(o, "AnalyzeDocumentRequest");
+  export const isa = (o: any): o is AnalyzeDocumentRequest => __isa(o, "AnalyzeDocumentRequest");
 }
 
 export interface AnalyzeDocumentResponse {
@@ -77,16 +73,13 @@ export interface AnalyzeDocumentResponse {
 }
 
 export namespace AnalyzeDocumentResponse {
-  export const isa = (o: any): o is AnalyzeDocumentResponse =>
-    __isa(o, "AnalyzeDocumentResponse");
+  export const isa = (o: any): o is AnalyzeDocumentResponse => __isa(o, "AnalyzeDocumentResponse");
 }
 
 /**
  * <p>Amazon Textract isn't able to read the document.</p>
  */
-export interface BadDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadDocumentException extends __SmithyException, $MetadataBearer {
   name: "BadDocumentException";
   $fault: "client";
   Code?: string;
@@ -94,8 +87,7 @@ export interface BadDocumentException
 }
 
 export namespace BadDocumentException {
-  export const isa = (o: any): o is BadDocumentException =>
-    __isa(o, "BadDocumentException");
+  export const isa = (o: any): o is BadDocumentException => __isa(o, "BadDocumentException");
 }
 
 /**
@@ -359,8 +351,7 @@ export interface DetectDocumentTextRequest {
 }
 
 export namespace DetectDocumentTextRequest {
-  export const isa = (o: any): o is DetectDocumentTextRequest =>
-    __isa(o, "DetectDocumentTextRequest");
+  export const isa = (o: any): o is DetectDocumentTextRequest => __isa(o, "DetectDocumentTextRequest");
 }
 
 export interface DetectDocumentTextResponse {
@@ -384,8 +375,7 @@ export interface DetectDocumentTextResponse {
 }
 
 export namespace DetectDocumentTextResponse {
-  export const isa = (o: any): o is DetectDocumentTextResponse =>
-    __isa(o, "DetectDocumentTextResponse");
+  export const isa = (o: any): o is DetectDocumentTextResponse => __isa(o, "DetectDocumentTextResponse");
 }
 
 /**
@@ -443,8 +433,7 @@ export interface DocumentLocation {
 }
 
 export namespace DocumentLocation {
-  export const isa = (o: any): o is DocumentLocation =>
-    __isa(o, "DocumentLocation");
+  export const isa = (o: any): o is DocumentLocation => __isa(o, "DocumentLocation");
 }
 
 /**
@@ -459,8 +448,7 @@ export interface DocumentMetadata {
 }
 
 export namespace DocumentMetadata {
-  export const isa = (o: any): o is DocumentMetadata =>
-    __isa(o, "DocumentMetadata");
+  export const isa = (o: any): o is DocumentMetadata => __isa(o, "DocumentMetadata");
 }
 
 /**
@@ -468,9 +456,7 @@ export namespace DocumentMetadata {
  *          synchronous operations 5 MB. The maximum document size for asynchronous operations is 500
  *          MB for PDF files.</p>
  */
-export interface DocumentTooLargeException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface DocumentTooLargeException extends __SmithyException, $MetadataBearer {
   name: "DocumentTooLargeException";
   $fault: "client";
   Code?: string;
@@ -478,8 +464,7 @@ export interface DocumentTooLargeException
 }
 
 export namespace DocumentTooLargeException {
-  export const isa = (o: any): o is DocumentTooLargeException =>
-    __isa(o, "DocumentTooLargeException");
+  export const isa = (o: any): o is DocumentTooLargeException => __isa(o, "DocumentTooLargeException");
 }
 
 export enum EntityType {
@@ -537,8 +522,7 @@ export interface GetDocumentAnalysisRequest {
 }
 
 export namespace GetDocumentAnalysisRequest {
-  export const isa = (o: any): o is GetDocumentAnalysisRequest =>
-    __isa(o, "GetDocumentAnalysisRequest");
+  export const isa = (o: any): o is GetDocumentAnalysisRequest => __isa(o, "GetDocumentAnalysisRequest");
 }
 
 export interface GetDocumentAnalysisResponse {
@@ -582,8 +566,7 @@ export interface GetDocumentAnalysisResponse {
 }
 
 export namespace GetDocumentAnalysisResponse {
-  export const isa = (o: any): o is GetDocumentAnalysisResponse =>
-    __isa(o, "GetDocumentAnalysisResponse");
+  export const isa = (o: any): o is GetDocumentAnalysisResponse => __isa(o, "GetDocumentAnalysisResponse");
 }
 
 export interface GetDocumentTextDetectionRequest {
@@ -609,8 +592,7 @@ export interface GetDocumentTextDetectionRequest {
 }
 
 export namespace GetDocumentTextDetectionRequest {
-  export const isa = (o: any): o is GetDocumentTextDetectionRequest =>
-    __isa(o, "GetDocumentTextDetectionRequest");
+  export const isa = (o: any): o is GetDocumentTextDetectionRequest => __isa(o, "GetDocumentTextDetectionRequest");
 }
 
 export interface GetDocumentTextDetectionResponse {
@@ -655,8 +637,7 @@ export interface GetDocumentTextDetectionResponse {
 }
 
 export namespace GetDocumentTextDetectionResponse {
-  export const isa = (o: any): o is GetDocumentTextDetectionResponse =>
-    __isa(o, "GetDocumentTextDetectionResponse");
+  export const isa = (o: any): o is GetDocumentTextDetectionResponse => __isa(o, "GetDocumentTextDetectionResponse");
 }
 
 /**
@@ -682,8 +663,7 @@ export interface HumanLoopActivationOutput {
 }
 
 export namespace HumanLoopActivationOutput {
-  export const isa = (o: any): o is HumanLoopActivationOutput =>
-    __isa(o, "HumanLoopActivationOutput");
+  export const isa = (o: any): o is HumanLoopActivationOutput => __isa(o, "HumanLoopActivationOutput");
 }
 
 /**
@@ -709,8 +689,7 @@ export interface HumanLoopConfig {
 }
 
 export namespace HumanLoopConfig {
-  export const isa = (o: any): o is HumanLoopConfig =>
-    __isa(o, "HumanLoopConfig");
+  export const isa = (o: any): o is HumanLoopConfig => __isa(o, "HumanLoopConfig");
 }
 
 /**
@@ -726,16 +705,13 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
-  export const isa = (o: any): o is HumanLoopDataAttributes =>
-    __isa(o, "HumanLoopDataAttributes");
+  export const isa = (o: any): o is HumanLoopDataAttributes => __isa(o, "HumanLoopDataAttributes");
 }
 
 /**
  * <p>Indicates you have exceeded the maximum number of active human in the loop workflows available</p>
  */
-export interface HumanLoopQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface HumanLoopQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
@@ -746,8 +722,7 @@ export interface HumanLoopQuotaExceededException
 }
 
 export namespace HumanLoopQuotaExceededException {
-  export const isa = (o: any): o is HumanLoopQuotaExceededException =>
-    __isa(o, "HumanLoopQuotaExceededException");
+  export const isa = (o: any): o is HumanLoopQuotaExceededException => __isa(o, "HumanLoopQuotaExceededException");
 }
 
 /**
@@ -755,9 +730,7 @@ export namespace HumanLoopQuotaExceededException {
  *          least one of the other input parameters is different from the previous call to the
  *          operation. </p>
  */
-export interface IdempotentParameterMismatchException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
   Code?: string;
@@ -772,9 +745,7 @@ export namespace IdempotentParameterMismatchException {
 /**
  * <p>Amazon Textract experienced a service issue. Try your call again.</p>
  */
-export interface InternalServerError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
   Code?: string;
@@ -782,17 +753,14 @@ export interface InternalServerError
 }
 
 export namespace InternalServerError {
-  export const isa = (o: any): o is InternalServerError =>
-    __isa(o, "InternalServerError");
+  export const isa = (o: any): o is InternalServerError => __isa(o, "InternalServerError");
 }
 
 /**
  * <p>An invalid job identifier was passed to <a>GetDocumentAnalysis</a> or to
  *       <a>GetDocumentAnalysis</a>.</p>
  */
-export interface InvalidJobIdException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidJobIdException extends __SmithyException, $MetadataBearer {
   name: "InvalidJobIdException";
   $fault: "client";
   Code?: string;
@@ -800,8 +768,7 @@ export interface InvalidJobIdException
 }
 
 export namespace InvalidJobIdException {
-  export const isa = (o: any): o is InvalidJobIdException =>
-    __isa(o, "InvalidJobIdException");
+  export const isa = (o: any): o is InvalidJobIdException => __isa(o, "InvalidJobIdException");
 }
 
 /**
@@ -811,9 +778,7 @@ export namespace InvalidJobIdException {
  *       request parameter.
  *        Validate your parameter before calling the API operation again.</p>
  */
-export interface InvalidParameterException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
   Code?: string;
@@ -821,16 +786,13 @@ export interface InvalidParameterException
 }
 
 export namespace InvalidParameterException {
-  export const isa = (o: any): o is InvalidParameterException =>
-    __isa(o, "InvalidParameterException");
+  export const isa = (o: any): o is InvalidParameterException => __isa(o, "InvalidParameterException");
 }
 
 /**
  * <p>Amazon Textract is unable to access the S3 object that's specified in the request.</p>
  */
-export interface InvalidS3ObjectException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidS3ObjectException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3ObjectException";
   $fault: "client";
   Code?: string;
@@ -838,8 +800,7 @@ export interface InvalidS3ObjectException
 }
 
 export namespace InvalidS3ObjectException {
-  export const isa = (o: any): o is InvalidS3ObjectException =>
-    __isa(o, "InvalidS3ObjectException");
+  export const isa = (o: any): o is InvalidS3ObjectException => __isa(o, "InvalidS3ObjectException");
 }
 
 export enum JobStatus {
@@ -856,9 +817,7 @@ export enum JobStatus {
  *          exception (HTTP status code: 400) until the number of concurrently running jobs is below
  *          the Amazon Textract service limit. </p>
  */
-export interface LimitExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -866,8 +825,7 @@ export interface LimitExceededException
 }
 
 export namespace LimitExceededException {
-  export const isa = (o: any): o is LimitExceededException =>
-    __isa(o, "LimitExceededException");
+  export const isa = (o: any): o is LimitExceededException => __isa(o, "LimitExceededException");
 }
 
 /**
@@ -888,8 +846,7 @@ export interface NotificationChannel {
 }
 
 export namespace NotificationChannel {
-  export const isa = (o: any): o is NotificationChannel =>
-    __isa(o, "NotificationChannel");
+  export const isa = (o: any): o is NotificationChannel => __isa(o, "NotificationChannel");
 }
 
 /**
@@ -924,9 +881,7 @@ export namespace Point {
  * <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
  *          contact Amazon Textract.</p>
  */
-export interface ProvisionedThroughputExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
   Code?: string;
@@ -1052,8 +1007,7 @@ export interface StartDocumentAnalysisRequest {
 }
 
 export namespace StartDocumentAnalysisRequest {
-  export const isa = (o: any): o is StartDocumentAnalysisRequest =>
-    __isa(o, "StartDocumentAnalysisRequest");
+  export const isa = (o: any): o is StartDocumentAnalysisRequest => __isa(o, "StartDocumentAnalysisRequest");
 }
 
 export interface StartDocumentAnalysisResponse {
@@ -1067,8 +1021,7 @@ export interface StartDocumentAnalysisResponse {
 }
 
 export namespace StartDocumentAnalysisResponse {
-  export const isa = (o: any): o is StartDocumentAnalysisResponse =>
-    __isa(o, "StartDocumentAnalysisResponse");
+  export const isa = (o: any): o is StartDocumentAnalysisResponse => __isa(o, "StartDocumentAnalysisResponse");
 }
 
 export interface StartDocumentTextDetectionRequest {
@@ -1103,8 +1056,7 @@ export interface StartDocumentTextDetectionRequest {
 }
 
 export namespace StartDocumentTextDetectionRequest {
-  export const isa = (o: any): o is StartDocumentTextDetectionRequest =>
-    __isa(o, "StartDocumentTextDetectionRequest");
+  export const isa = (o: any): o is StartDocumentTextDetectionRequest => __isa(o, "StartDocumentTextDetectionRequest");
 }
 
 export interface StartDocumentTextDetectionResponse {
@@ -1125,9 +1077,7 @@ export namespace StartDocumentTextDetectionResponse {
 /**
  * <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "server";
   Code?: string;
@@ -1135,17 +1085,14 @@ export interface ThrottlingException
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>The format of the input document isn't supported. Documents for synchronous operations can be in
  *          PNG or JPEG format. Documents for asynchronous operations can also be in PDF format.</p>
  */
-export interface UnsupportedDocumentException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedDocumentException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedDocumentException";
   $fault: "client";
   Code?: string;
@@ -1153,8 +1100,7 @@ export interface UnsupportedDocumentException
 }
 
 export namespace UnsupportedDocumentException {
-  export const isa = (o: any): o is UnsupportedDocumentException =>
-    __isa(o, "UnsupportedDocumentException");
+  export const isa = (o: any): o is UnsupportedDocumentException => __isa(o, "UnsupportedDocumentException");
 }
 
 /**

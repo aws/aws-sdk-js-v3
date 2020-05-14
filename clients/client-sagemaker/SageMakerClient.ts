@@ -1,23 +1,11 @@
-import {
-  AddTagsCommandInput,
-  AddTagsCommandOutput
-} from "./commands/AddTagsCommand";
+import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import {
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput
 } from "./commands/AssociateTrialComponentCommand";
-import {
-  CreateAlgorithmCommandInput,
-  CreateAlgorithmCommandOutput
-} from "./commands/CreateAlgorithmCommand";
-import {
-  CreateAppCommandInput,
-  CreateAppCommandOutput
-} from "./commands/CreateAppCommand";
-import {
-  CreateAutoMLJobCommandInput,
-  CreateAutoMLJobCommandOutput
-} from "./commands/CreateAutoMLJobCommand";
+import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand";
 import {
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput
@@ -26,46 +14,25 @@ import {
   CreateCompilationJobCommandInput,
   CreateCompilationJobCommandOutput
 } from "./commands/CreateCompilationJobCommand";
-import {
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput
-} from "./commands/CreateDomainCommand";
-import {
-  CreateEndpointCommandInput,
-  CreateEndpointCommandOutput
-} from "./commands/CreateEndpointCommand";
+import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateEndpointCommandInput, CreateEndpointCommandOutput } from "./commands/CreateEndpointCommand";
 import {
   CreateEndpointConfigCommandInput,
   CreateEndpointConfigCommandOutput
 } from "./commands/CreateEndpointConfigCommand";
-import {
-  CreateExperimentCommandInput,
-  CreateExperimentCommandOutput
-} from "./commands/CreateExperimentCommand";
+import { CreateExperimentCommandInput, CreateExperimentCommandOutput } from "./commands/CreateExperimentCommand";
 import {
   CreateFlowDefinitionCommandInput,
   CreateFlowDefinitionCommandOutput
 } from "./commands/CreateFlowDefinitionCommand";
-import {
-  CreateHumanTaskUiCommandInput,
-  CreateHumanTaskUiCommandOutput
-} from "./commands/CreateHumanTaskUiCommand";
+import { CreateHumanTaskUiCommandInput, CreateHumanTaskUiCommandOutput } from "./commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommandInput,
   CreateHyperParameterTuningJobCommandOutput
 } from "./commands/CreateHyperParameterTuningJobCommand";
-import {
-  CreateLabelingJobCommandInput,
-  CreateLabelingJobCommandOutput
-} from "./commands/CreateLabelingJobCommand";
-import {
-  CreateModelCommandInput,
-  CreateModelCommandOutput
-} from "./commands/CreateModelCommand";
-import {
-  CreateModelPackageCommandInput,
-  CreateModelPackageCommandOutput
-} from "./commands/CreateModelPackageCommand";
+import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "./commands/CreateLabelingJobCommand";
+import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import { CreateModelPackageCommandInput, CreateModelPackageCommandOutput } from "./commands/CreateModelPackageCommand";
 import {
   CreateMonitoringScheduleCommandInput,
   CreateMonitoringScheduleCommandOutput
@@ -90,70 +57,34 @@ import {
   CreateProcessingJobCommandInput,
   CreateProcessingJobCommandOutput
 } from "./commands/CreateProcessingJobCommand";
-import {
-  CreateTrainingJobCommandInput,
-  CreateTrainingJobCommandOutput
-} from "./commands/CreateTrainingJobCommand";
-import {
-  CreateTransformJobCommandInput,
-  CreateTransformJobCommandOutput
-} from "./commands/CreateTransformJobCommand";
-import {
-  CreateTrialCommandInput,
-  CreateTrialCommandOutput
-} from "./commands/CreateTrialCommand";
+import { CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput } from "./commands/CreateTrainingJobCommand";
+import { CreateTransformJobCommandInput, CreateTransformJobCommandOutput } from "./commands/CreateTransformJobCommand";
+import { CreateTrialCommandInput, CreateTrialCommandOutput } from "./commands/CreateTrialCommand";
 import {
   CreateTrialComponentCommandInput,
   CreateTrialComponentCommandOutput
 } from "./commands/CreateTrialComponentCommand";
-import {
-  CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput
-} from "./commands/CreateUserProfileCommand";
-import {
-  CreateWorkteamCommandInput,
-  CreateWorkteamCommandOutput
-} from "./commands/CreateWorkteamCommand";
-import {
-  DeleteAlgorithmCommandInput,
-  DeleteAlgorithmCommandOutput
-} from "./commands/DeleteAlgorithmCommand";
-import {
-  DeleteAppCommandInput,
-  DeleteAppCommandOutput
-} from "./commands/DeleteAppCommand";
+import { CreateUserProfileCommandInput, CreateUserProfileCommandOutput } from "./commands/CreateUserProfileCommand";
+import { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "./commands/CreateWorkteamCommand";
+import { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "./commands/DeleteAlgorithmCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput
 } from "./commands/DeleteCodeRepositoryCommand";
-import {
-  DeleteDomainCommandInput,
-  DeleteDomainCommandOutput
-} from "./commands/DeleteDomainCommand";
-import {
-  DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput
-} from "./commands/DeleteEndpointCommand";
+import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { DeleteEndpointCommandInput, DeleteEndpointCommandOutput } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEndpointConfigCommandInput,
   DeleteEndpointConfigCommandOutput
 } from "./commands/DeleteEndpointConfigCommand";
-import {
-  DeleteExperimentCommandInput,
-  DeleteExperimentCommandOutput
-} from "./commands/DeleteExperimentCommand";
+import { DeleteExperimentCommandInput, DeleteExperimentCommandOutput } from "./commands/DeleteExperimentCommand";
 import {
   DeleteFlowDefinitionCommandInput,
   DeleteFlowDefinitionCommandOutput
 } from "./commands/DeleteFlowDefinitionCommand";
-import {
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput
-} from "./commands/DeleteModelCommand";
-import {
-  DeleteModelPackageCommandInput,
-  DeleteModelPackageCommandOutput
-} from "./commands/DeleteModelPackageCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "./commands/DeleteModelPackageCommand";
 import {
   DeleteMonitoringScheduleCommandInput,
   DeleteMonitoringScheduleCommandOutput
@@ -166,38 +97,17 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
-import {
-  DeleteTagsCommandInput,
-  DeleteTagsCommandOutput
-} from "./commands/DeleteTagsCommand";
-import {
-  DeleteTrialCommandInput,
-  DeleteTrialCommandOutput
-} from "./commands/DeleteTrialCommand";
+import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
+import { DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand";
 import {
   DeleteTrialComponentCommandInput,
   DeleteTrialComponentCommandOutput
 } from "./commands/DeleteTrialComponentCommand";
-import {
-  DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput
-} from "./commands/DeleteUserProfileCommand";
-import {
-  DeleteWorkteamCommandInput,
-  DeleteWorkteamCommandOutput
-} from "./commands/DeleteWorkteamCommand";
-import {
-  DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput
-} from "./commands/DescribeAlgorithmCommand";
-import {
-  DescribeAppCommandInput,
-  DescribeAppCommandOutput
-} from "./commands/DescribeAppCommand";
-import {
-  DescribeAutoMLJobCommandInput,
-  DescribeAutoMLJobCommandOutput
-} from "./commands/DescribeAutoMLJobCommand";
+import { DeleteUserProfileCommandInput, DeleteUserProfileCommandOutput } from "./commands/DeleteUserProfileCommand";
+import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "./commands/DeleteWorkteamCommand";
+import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
+import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "./commands/DescribeAutoMLJobCommand";
 import {
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput
@@ -206,22 +116,13 @@ import {
   DescribeCompilationJobCommandInput,
   DescribeCompilationJobCommandOutput
 } from "./commands/DescribeCompilationJobCommand";
-import {
-  DescribeDomainCommandInput,
-  DescribeDomainCommandOutput
-} from "./commands/DescribeDomainCommand";
-import {
-  DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput
-} from "./commands/DescribeEndpointCommand";
+import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
+import { DescribeEndpointCommandInput, DescribeEndpointCommandOutput } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEndpointConfigCommandInput,
   DescribeEndpointConfigCommandOutput
 } from "./commands/DescribeEndpointConfigCommand";
-import {
-  DescribeExperimentCommandInput,
-  DescribeExperimentCommandOutput
-} from "./commands/DescribeExperimentCommand";
+import { DescribeExperimentCommandInput, DescribeExperimentCommandOutput } from "./commands/DescribeExperimentCommand";
 import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput
@@ -238,10 +139,7 @@ import {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput
 } from "./commands/DescribeLabelingJobCommand";
-import {
-  DescribeModelCommandInput,
-  DescribeModelCommandOutput
-} from "./commands/DescribeModelCommand";
+import { DescribeModelCommandInput, DescribeModelCommandOutput } from "./commands/DescribeModelCommand";
 import {
   DescribeModelPackageCommandInput,
   DescribeModelPackageCommandOutput
@@ -274,10 +172,7 @@ import {
   DescribeTransformJobCommandInput,
   DescribeTransformJobCommandOutput
 } from "./commands/DescribeTransformJobCommand";
-import {
-  DescribeTrialCommandInput,
-  DescribeTrialCommandOutput
-} from "./commands/DescribeTrialCommand";
+import { DescribeTrialCommandInput, DescribeTrialCommandOutput } from "./commands/DescribeTrialCommand";
 import {
   DescribeTrialComponentCommandInput,
   DescribeTrialComponentCommandOutput
@@ -286,14 +181,8 @@ import {
   DescribeUserProfileCommandInput,
   DescribeUserProfileCommandOutput
 } from "./commands/DescribeUserProfileCommand";
-import {
-  DescribeWorkforceCommandInput,
-  DescribeWorkforceCommandOutput
-} from "./commands/DescribeWorkforceCommand";
-import {
-  DescribeWorkteamCommandInput,
-  DescribeWorkteamCommandOutput
-} from "./commands/DescribeWorkteamCommand";
+import { DescribeWorkforceCommandInput, DescribeWorkforceCommandOutput } from "./commands/DescribeWorkforceCommand";
+import { DescribeWorkteamCommandInput, DescribeWorkteamCommandOutput } from "./commands/DescribeWorkteamCommand";
 import {
   DisassociateTrialComponentCommandInput,
   DisassociateTrialComponentCommandOutput
@@ -302,18 +191,9 @@ import {
   GetSearchSuggestionsCommandInput,
   GetSearchSuggestionsCommandOutput
 } from "./commands/GetSearchSuggestionsCommand";
-import {
-  ListAlgorithmsCommandInput,
-  ListAlgorithmsCommandOutput
-} from "./commands/ListAlgorithmsCommand";
-import {
-  ListAppsCommandInput,
-  ListAppsCommandOutput
-} from "./commands/ListAppsCommand";
-import {
-  ListAutoMLJobsCommandInput,
-  ListAutoMLJobsCommandOutput
-} from "./commands/ListAutoMLJobsCommand";
+import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
+import { ListAutoMLJobsCommandInput, ListAutoMLJobsCommandOutput } from "./commands/ListAutoMLJobsCommand";
 import {
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput
@@ -326,50 +206,29 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput
 } from "./commands/ListCompilationJobsCommand";
-import {
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput
-} from "./commands/ListDomainsCommand";
+import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEndpointConfigsCommandInput,
   ListEndpointConfigsCommandOutput
 } from "./commands/ListEndpointConfigsCommand";
-import {
-  ListEndpointsCommandInput,
-  ListEndpointsCommandOutput
-} from "./commands/ListEndpointsCommand";
-import {
-  ListExperimentsCommandInput,
-  ListExperimentsCommandOutput
-} from "./commands/ListExperimentsCommand";
+import { ListEndpointsCommandInput, ListEndpointsCommandOutput } from "./commands/ListEndpointsCommand";
+import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
 import {
   ListFlowDefinitionsCommandInput,
   ListFlowDefinitionsCommandOutput
 } from "./commands/ListFlowDefinitionsCommand";
-import {
-  ListHumanTaskUisCommandInput,
-  ListHumanTaskUisCommandOutput
-} from "./commands/ListHumanTaskUisCommand";
+import { ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput } from "./commands/ListHumanTaskUisCommand";
 import {
   ListHyperParameterTuningJobsCommandInput,
   ListHyperParameterTuningJobsCommandOutput
 } from "./commands/ListHyperParameterTuningJobsCommand";
-import {
-  ListLabelingJobsCommandInput,
-  ListLabelingJobsCommandOutput
-} from "./commands/ListLabelingJobsCommand";
+import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "./commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
   ListLabelingJobsForWorkteamCommandOutput
 } from "./commands/ListLabelingJobsForWorkteamCommand";
-import {
-  ListModelPackagesCommandInput,
-  ListModelPackagesCommandOutput
-} from "./commands/ListModelPackagesCommand";
-import {
-  ListModelsCommandInput,
-  ListModelsCommandOutput
-} from "./commands/ListModelsCommand";
+import { ListModelPackagesCommandInput, ListModelPackagesCommandOutput } from "./commands/ListModelPackagesCommand";
+import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import {
   ListMonitoringExecutionsCommandInput,
   ListMonitoringExecutionsCommandOutput
@@ -386,54 +245,27 @@ import {
   ListNotebookInstancesCommandInput,
   ListNotebookInstancesCommandOutput
 } from "./commands/ListNotebookInstancesCommand";
-import {
-  ListProcessingJobsCommandInput,
-  ListProcessingJobsCommandOutput
-} from "./commands/ListProcessingJobsCommand";
+import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "./commands/ListProcessingJobsCommand";
 import {
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput
 } from "./commands/ListSubscribedWorkteamsCommand";
-import {
-  ListTagsCommandInput,
-  ListTagsCommandOutput
-} from "./commands/ListTagsCommand";
-import {
-  ListTrainingJobsCommandInput,
-  ListTrainingJobsCommandOutput
-} from "./commands/ListTrainingJobsCommand";
+import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { ListTrainingJobsCommandInput, ListTrainingJobsCommandOutput } from "./commands/ListTrainingJobsCommand";
 import {
   ListTrainingJobsForHyperParameterTuningJobCommandInput,
   ListTrainingJobsForHyperParameterTuningJobCommandOutput
 } from "./commands/ListTrainingJobsForHyperParameterTuningJobCommand";
-import {
-  ListTransformJobsCommandInput,
-  ListTransformJobsCommandOutput
-} from "./commands/ListTransformJobsCommand";
+import { ListTransformJobsCommandInput, ListTransformJobsCommandOutput } from "./commands/ListTransformJobsCommand";
 import {
   ListTrialComponentsCommandInput,
   ListTrialComponentsCommandOutput
 } from "./commands/ListTrialComponentsCommand";
-import {
-  ListTrialsCommandInput,
-  ListTrialsCommandOutput
-} from "./commands/ListTrialsCommand";
-import {
-  ListUserProfilesCommandInput,
-  ListUserProfilesCommandOutput
-} from "./commands/ListUserProfilesCommand";
-import {
-  ListWorkteamsCommandInput,
-  ListWorkteamsCommandOutput
-} from "./commands/ListWorkteamsCommand";
-import {
-  RenderUiTemplateCommandInput,
-  RenderUiTemplateCommandOutput
-} from "./commands/RenderUiTemplateCommand";
-import {
-  SearchCommandInput,
-  SearchCommandOutput
-} from "./commands/SearchCommand";
+import { ListTrialsCommandInput, ListTrialsCommandOutput } from "./commands/ListTrialsCommand";
+import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand";
+import { ListWorkteamsCommandInput, ListWorkteamsCommandOutput } from "./commands/ListWorkteamsCommand";
+import { RenderUiTemplateCommandInput, RenderUiTemplateCommandOutput } from "./commands/RenderUiTemplateCommand";
+import { SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
   StartMonitoringScheduleCommandInput,
   StartMonitoringScheduleCommandOutput
@@ -442,22 +274,13 @@ import {
   StartNotebookInstanceCommandInput,
   StartNotebookInstanceCommandOutput
 } from "./commands/StartNotebookInstanceCommand";
-import {
-  StopAutoMLJobCommandInput,
-  StopAutoMLJobCommandOutput
-} from "./commands/StopAutoMLJobCommand";
-import {
-  StopCompilationJobCommandInput,
-  StopCompilationJobCommandOutput
-} from "./commands/StopCompilationJobCommand";
+import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "./commands/StopAutoMLJobCommand";
+import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "./commands/StopCompilationJobCommand";
 import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput
 } from "./commands/StopHyperParameterTuningJobCommand";
-import {
-  StopLabelingJobCommandInput,
-  StopLabelingJobCommandOutput
-} from "./commands/StopLabelingJobCommand";
+import { StopLabelingJobCommandInput, StopLabelingJobCommandOutput } from "./commands/StopLabelingJobCommand";
 import {
   StopMonitoringScheduleCommandInput,
   StopMonitoringScheduleCommandOutput
@@ -466,38 +289,20 @@ import {
   StopNotebookInstanceCommandInput,
   StopNotebookInstanceCommandOutput
 } from "./commands/StopNotebookInstanceCommand";
-import {
-  StopProcessingJobCommandInput,
-  StopProcessingJobCommandOutput
-} from "./commands/StopProcessingJobCommand";
-import {
-  StopTrainingJobCommandInput,
-  StopTrainingJobCommandOutput
-} from "./commands/StopTrainingJobCommand";
-import {
-  StopTransformJobCommandInput,
-  StopTransformJobCommandOutput
-} from "./commands/StopTransformJobCommand";
+import { StopProcessingJobCommandInput, StopProcessingJobCommandOutput } from "./commands/StopProcessingJobCommand";
+import { StopTrainingJobCommandInput, StopTrainingJobCommandOutput } from "./commands/StopTrainingJobCommand";
+import { StopTransformJobCommandInput, StopTransformJobCommandOutput } from "./commands/StopTransformJobCommand";
 import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput
 } from "./commands/UpdateCodeRepositoryCommand";
-import {
-  UpdateDomainCommandInput,
-  UpdateDomainCommandOutput
-} from "./commands/UpdateDomainCommand";
-import {
-  UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput
-} from "./commands/UpdateEndpointCommand";
+import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "./commands/UpdateEndpointCommand";
 import {
   UpdateEndpointWeightsAndCapacitiesCommandInput,
   UpdateEndpointWeightsAndCapacitiesCommandOutput
 } from "./commands/UpdateEndpointWeightsAndCapacitiesCommand";
-import {
-  UpdateExperimentCommandInput,
-  UpdateExperimentCommandOutput
-} from "./commands/UpdateExperimentCommand";
+import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput
@@ -510,26 +315,14 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
-import {
-  UpdateTrialCommandInput,
-  UpdateTrialCommandOutput
-} from "./commands/UpdateTrialCommand";
+import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommandInput,
   UpdateTrialComponentCommandOutput
 } from "./commands/UpdateTrialComponentCommand";
-import {
-  UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput
-} from "./commands/UpdateUserProfileCommand";
-import {
-  UpdateWorkforceCommandInput,
-  UpdateWorkforceCommandOutput
-} from "./commands/UpdateWorkforceCommand";
-import {
-  UpdateWorkteamCommandInput,
-  UpdateWorkteamCommandOutput
-} from "./commands/UpdateWorkteamCommand";
+import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "./commands/UpdateUserProfileCommand";
+import { UpdateWorkforceCommandInput, UpdateWorkforceCommandOutput } from "./commands/UpdateWorkforceCommand";
+import { UpdateWorkteamCommandInput, UpdateWorkteamCommandOutput } from "./commands/UpdateWorkteamCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -546,12 +339,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -852,8 +640,7 @@ export type ServiceOutputTypes =
   | UpdateWorkforceCommandOutput
   | UpdateWorkteamCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -937,9 +724,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SageMakerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SageMakerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -948,9 +733,7 @@ export type SageMakerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SageMakerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

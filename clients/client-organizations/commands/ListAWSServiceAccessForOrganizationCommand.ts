@@ -1,8 +1,4 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   ListAWSServiceAccessForOrganizationRequest,
   ListAWSServiceAccessForOrganizationResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +42,8 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListAWSServiceAccessForOrganizationCommandInput,
-    ListAWSServiceAccessForOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListAWSServiceAccessForOrganizationCommandInput, ListAWSServiceAccessForOrganizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +62,14 @@ export class ListAWSServiceAccessForOrganizationCommand extends $Command<
     input: ListAWSServiceAccessForOrganizationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
-    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

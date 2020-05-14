@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  CreateUserPoolDomainRequest,
-  CreateUserPoolDomainResponse
-} from "../models/index";
+import { CreateUserPoolDomainRequest, CreateUserPoolDomainResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateUserPoolDomainCommand,
   serializeAws_json1_1CreateUserPoolDomainCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateUserPoolDomainCommandInput = CreateUserPoolDomainRequest;
-export type CreateUserPoolDomainCommandOutput = CreateUserPoolDomainResponse &
-  __MetadataBearer;
+export type CreateUserPoolDomainCommandOutput = CreateUserPoolDomainResponse & __MetadataBearer;
 
 export class CreateUserPoolDomainCommand extends $Command<
   CreateUserPoolDomainCommandInput,
@@ -49,13 +42,8 @@ export class CreateUserPoolDomainCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateUserPoolDomainCommandInput,
-    CreateUserPoolDomainCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateUserPoolDomainCommandInput, CreateUserPoolDomainCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class CreateUserPoolDomainCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateUserPoolDomainCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateUserPoolDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateUserPoolDomainCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateUserPoolDomainCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolDomainCommandOutput> {
     return deserializeAws_json1_1CreateUserPoolDomainCommand(output, context);
   }
 

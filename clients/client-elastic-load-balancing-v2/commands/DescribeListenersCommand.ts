@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DescribeListenersInput,
-  DescribeListenersOutput
-} from "../models/index";
+import { DescribeListenersInput, DescribeListenersOutput } from "../models/index";
 import {
   deserializeAws_queryDescribeListenersCommand,
   serializeAws_queryDescribeListenersCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeListenersCommandInput = DescribeListenersInput;
-export type DescribeListenersCommandOutput = DescribeListenersOutput &
-  __MetadataBearer;
+export type DescribeListenersCommandOutput = DescribeListenersOutput & __MetadataBearer;
 
 export class DescribeListenersCommand extends $Command<
   DescribeListenersCommandInput,
@@ -50,9 +43,7 @@ export class DescribeListenersCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeListenersCommandInput, DescribeListenersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DescribeListenersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeListenersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeListenersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDescribeListenersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeListenersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeListenersCommandOutput> {
     return deserializeAws_queryDescribeListenersCommand(output, context);
   }
 

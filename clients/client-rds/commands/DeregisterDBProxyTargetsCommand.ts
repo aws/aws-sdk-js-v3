@@ -1,21 +1,11 @@
-import {
-  RDSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../RDSClient";
-import {
-  DeregisterDBProxyTargetsRequest,
-  DeregisterDBProxyTargetsResponse
-} from "../models/index";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
+import { DeregisterDBProxyTargetsRequest, DeregisterDBProxyTargetsResponse } from "../models/index";
 import {
   deserializeAws_queryDeregisterDBProxyTargetsCommand,
   serializeAws_queryDeregisterDBProxyTargetsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterDBProxyTargetsCommandInput = DeregisterDBProxyTargetsRequest;
-export type DeregisterDBProxyTargetsCommandOutput = DeregisterDBProxyTargetsResponse &
-  __MetadataBearer;
+export type DeregisterDBProxyTargetsCommandOutput = DeregisterDBProxyTargetsResponse & __MetadataBearer;
 
 export class DeregisterDBProxyTargetsCommand extends $Command<
   DeregisterDBProxyTargetsCommandInput,
@@ -49,13 +38,8 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeregisterDBProxyTargetsCommandInput,
-    DeregisterDBProxyTargetsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeregisterDBProxyTargetsCommandInput, DeregisterDBProxyTargetsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterDBProxyTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterDBProxyTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeregisterDBProxyTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterDBProxyTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterDBProxyTargetsCommandOutput> {
     return deserializeAws_queryDeregisterDBProxyTargetsCommand(output, context);
   }
 

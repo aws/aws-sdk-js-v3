@@ -2,90 +2,39 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput
 } from "./commands/EmptyInputAndEmptyOutputCommand";
-import {
-  FlattenedXmlMapCommandInput,
-  FlattenedXmlMapCommandOutput
-} from "./commands/FlattenedXmlMapCommand";
+import { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "./commands/FlattenedXmlMapCommand";
 import {
   FlattenedXmlMapWithXmlNameCommandInput,
   FlattenedXmlMapWithXmlNameCommandOutput
 } from "./commands/FlattenedXmlMapWithXmlNameCommand";
-import {
-  GreetingWithErrorsCommandInput,
-  GreetingWithErrorsCommandOutput
-} from "./commands/GreetingWithErrorsCommand";
+import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
   IgnoresWrappingXmlNameCommandOutput
 } from "./commands/IgnoresWrappingXmlNameCommand";
-import {
-  NestedStructuresCommandInput,
-  NestedStructuresCommandOutput
-} from "./commands/NestedStructuresCommand";
-import {
-  NoInputAndNoOutputCommandInput,
-  NoInputAndNoOutputCommandOutput
-} from "./commands/NoInputAndNoOutputCommand";
-import {
-  NoInputAndOutputCommandInput,
-  NoInputAndOutputCommandOutput
-} from "./commands/NoInputAndOutputCommand";
+import { NestedStructuresCommandInput, NestedStructuresCommandOutput } from "./commands/NestedStructuresCommand";
+import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
+import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
-import {
-  QueryListsCommandInput,
-  QueryListsCommandOutput
-} from "./commands/QueryListsCommand";
-import {
-  QueryMapsCommandInput,
-  QueryMapsCommandOutput
-} from "./commands/QueryMapsCommand";
-import {
-  QueryTimestampsCommandInput,
-  QueryTimestampsCommandOutput
-} from "./commands/QueryTimestampsCommand";
-import {
-  RecursiveXmlShapesCommandInput,
-  RecursiveXmlShapesCommandOutput
-} from "./commands/RecursiveXmlShapesCommand";
-import {
-  SimpleInputParamsCommandInput,
-  SimpleInputParamsCommandOutput
-} from "./commands/SimpleInputParamsCommand";
+import { QueryListsCommandInput, QueryListsCommandOutput } from "./commands/QueryListsCommand";
+import { QueryMapsCommandInput, QueryMapsCommandOutput } from "./commands/QueryMapsCommand";
+import { QueryTimestampsCommandInput, QueryTimestampsCommandOutput } from "./commands/QueryTimestampsCommand";
+import { RecursiveXmlShapesCommandInput, RecursiveXmlShapesCommandOutput } from "./commands/RecursiveXmlShapesCommand";
+import { SimpleInputParamsCommandInput, SimpleInputParamsCommandOutput } from "./commands/SimpleInputParamsCommand";
 import {
   SimpleScalarXmlPropertiesCommandInput,
   SimpleScalarXmlPropertiesCommandOutput
 } from "./commands/SimpleScalarXmlPropertiesCommand";
-import {
-  XmlBlobsCommandInput,
-  XmlBlobsCommandOutput
-} from "./commands/XmlBlobsCommand";
-import {
-  XmlEnumsCommandInput,
-  XmlEnumsCommandOutput
-} from "./commands/XmlEnumsCommand";
-import {
-  XmlListsCommandInput,
-  XmlListsCommandOutput
-} from "./commands/XmlListsCommand";
-import {
-  XmlMapsCommandInput,
-  XmlMapsCommandOutput
-} from "./commands/XmlMapsCommand";
-import {
-  XmlMapsXmlNameCommandInput,
-  XmlMapsXmlNameCommandOutput
-} from "./commands/XmlMapsXmlNameCommand";
-import {
-  XmlNamespacesCommandInput,
-  XmlNamespacesCommandOutput
-} from "./commands/XmlNamespacesCommand";
-import {
-  XmlTimestampsCommandInput,
-  XmlTimestampsCommandOutput
-} from "./commands/XmlTimestampsCommand";
+import { XmlBlobsCommandInput, XmlBlobsCommandOutput } from "./commands/XmlBlobsCommand";
+import { XmlEnumsCommandInput, XmlEnumsCommandOutput } from "./commands/XmlEnumsCommand";
+import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
+import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
+import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
+import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
+import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -102,12 +51,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -186,8 +130,7 @@ export type ServiceOutputTypes =
   | XmlNamespacesCommandOutput
   | XmlTimestampsCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -271,9 +214,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type QueryProtocolClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type QueryProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -282,9 +223,7 @@ export type QueryProtocolClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type QueryProtocolClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type QueryProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

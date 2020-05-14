@@ -1,21 +1,11 @@
-import {
-  GlueClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GlueClient";
-import {
-  BatchGetTriggersRequest,
-  BatchGetTriggersResponse
-} from "../models/index";
+import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { BatchGetTriggersRequest, BatchGetTriggersResponse } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetTriggersCommand,
   serializeAws_json1_1BatchGetTriggersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchGetTriggersCommandInput = BatchGetTriggersRequest;
-export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse &
-  __MetadataBearer;
+export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse & __MetadataBearer;
 
 export class BatchGetTriggersCommand extends $Command<
   BatchGetTriggersCommandInput,
@@ -50,9 +39,7 @@ export class BatchGetTriggersCommand extends $Command<
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class BatchGetTriggersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchGetTriggersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchGetTriggersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1BatchGetTriggersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetTriggersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetTriggersCommandOutput> {
     return deserializeAws_json1_1BatchGetTriggersCommand(output, context);
   }
 

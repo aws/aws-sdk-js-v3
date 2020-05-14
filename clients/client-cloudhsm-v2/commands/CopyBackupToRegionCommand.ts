@@ -1,21 +1,11 @@
-import {
-  CloudHSMV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudHSMV2Client";
-import {
-  CopyBackupToRegionRequest,
-  CopyBackupToRegionResponse
-} from "../models/index";
+import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
+import { CopyBackupToRegionRequest, CopyBackupToRegionResponse } from "../models/index";
 import {
   deserializeAws_json1_1CopyBackupToRegionCommand,
   serializeAws_json1_1CopyBackupToRegionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CopyBackupToRegionCommandInput = CopyBackupToRegionRequest;
-export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse &
-  __MetadataBearer;
+export type CopyBackupToRegionCommandOutput = CopyBackupToRegionResponse & __MetadataBearer;
 
 export class CopyBackupToRegionCommand extends $Command<
   CopyBackupToRegionCommandInput,
@@ -50,9 +39,7 @@ export class CopyBackupToRegionCommand extends $Command<
     configuration: CloudHSMV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyBackupToRegionCommandInput, CopyBackupToRegionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CopyBackupToRegionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CopyBackupToRegionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CopyBackupToRegionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CopyBackupToRegionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CopyBackupToRegionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyBackupToRegionCommandOutput> {
     return deserializeAws_json1_1CopyBackupToRegionCommand(output, context);
   }
 

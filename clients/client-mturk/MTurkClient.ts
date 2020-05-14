@@ -2,10 +2,7 @@ import {
   AcceptQualificationRequestCommandInput,
   AcceptQualificationRequestCommandOutput
 } from "./commands/AcceptQualificationRequestCommand";
-import {
-  ApproveAssignmentCommandInput,
-  ApproveAssignmentCommandOutput
-} from "./commands/ApproveAssignmentCommand";
+import { ApproveAssignmentCommandInput, ApproveAssignmentCommandOutput } from "./commands/ApproveAssignmentCommand";
 import {
   AssociateQualificationWithWorkerCommandInput,
   AssociateQualificationWithWorkerCommandOutput
@@ -14,14 +11,8 @@ import {
   CreateAdditionalAssignmentsForHITCommandInput,
   CreateAdditionalAssignmentsForHITCommandOutput
 } from "./commands/CreateAdditionalAssignmentsForHITCommand";
-import {
-  CreateHITCommandInput,
-  CreateHITCommandOutput
-} from "./commands/CreateHITCommand";
-import {
-  CreateHITTypeCommandInput,
-  CreateHITTypeCommandOutput
-} from "./commands/CreateHITTypeCommand";
+import { CreateHITCommandInput, CreateHITCommandOutput } from "./commands/CreateHITCommand";
+import { CreateHITTypeCommandInput, CreateHITTypeCommandOutput } from "./commands/CreateHITTypeCommand";
 import {
   CreateHITWithHITTypeCommandInput,
   CreateHITWithHITTypeCommandOutput
@@ -30,42 +21,21 @@ import {
   CreateQualificationTypeCommandInput,
   CreateQualificationTypeCommandOutput
 } from "./commands/CreateQualificationTypeCommand";
-import {
-  CreateWorkerBlockCommandInput,
-  CreateWorkerBlockCommandOutput
-} from "./commands/CreateWorkerBlockCommand";
-import {
-  DeleteHITCommandInput,
-  DeleteHITCommandOutput
-} from "./commands/DeleteHITCommand";
+import { CreateWorkerBlockCommandInput, CreateWorkerBlockCommandOutput } from "./commands/CreateWorkerBlockCommand";
+import { DeleteHITCommandInput, DeleteHITCommandOutput } from "./commands/DeleteHITCommand";
 import {
   DeleteQualificationTypeCommandInput,
   DeleteQualificationTypeCommandOutput
 } from "./commands/DeleteQualificationTypeCommand";
-import {
-  DeleteWorkerBlockCommandInput,
-  DeleteWorkerBlockCommandOutput
-} from "./commands/DeleteWorkerBlockCommand";
+import { DeleteWorkerBlockCommandInput, DeleteWorkerBlockCommandOutput } from "./commands/DeleteWorkerBlockCommand";
 import {
   DisassociateQualificationFromWorkerCommandInput,
   DisassociateQualificationFromWorkerCommandOutput
 } from "./commands/DisassociateQualificationFromWorkerCommand";
-import {
-  GetAccountBalanceCommandInput,
-  GetAccountBalanceCommandOutput
-} from "./commands/GetAccountBalanceCommand";
-import {
-  GetAssignmentCommandInput,
-  GetAssignmentCommandOutput
-} from "./commands/GetAssignmentCommand";
-import {
-  GetFileUploadURLCommandInput,
-  GetFileUploadURLCommandOutput
-} from "./commands/GetFileUploadURLCommand";
-import {
-  GetHITCommandInput,
-  GetHITCommandOutput
-} from "./commands/GetHITCommand";
+import { GetAccountBalanceCommandInput, GetAccountBalanceCommandOutput } from "./commands/GetAccountBalanceCommand";
+import { GetAssignmentCommandInput, GetAssignmentCommandOutput } from "./commands/GetAssignmentCommand";
+import { GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput } from "./commands/GetFileUploadURLCommand";
+import { GetHITCommandInput, GetHITCommandOutput } from "./commands/GetHITCommand";
 import {
   GetQualificationScoreCommandInput,
   GetQualificationScoreCommandOutput
@@ -78,14 +48,8 @@ import {
   ListAssignmentsForHITCommandInput,
   ListAssignmentsForHITCommandOutput
 } from "./commands/ListAssignmentsForHITCommand";
-import {
-  ListBonusPaymentsCommandInput,
-  ListBonusPaymentsCommandOutput
-} from "./commands/ListBonusPaymentsCommand";
-import {
-  ListHITsCommandInput,
-  ListHITsCommandOutput
-} from "./commands/ListHITsCommand";
+import { ListBonusPaymentsCommandInput, ListBonusPaymentsCommandOutput } from "./commands/ListBonusPaymentsCommand";
+import { ListHITsCommandInput, ListHITsCommandOutput } from "./commands/ListHITsCommand";
 import {
   ListHITsForQualificationTypeCommandInput,
   ListHITsForQualificationTypeCommandOutput
@@ -102,34 +66,19 @@ import {
   ListReviewPolicyResultsForHITCommandInput,
   ListReviewPolicyResultsForHITCommandOutput
 } from "./commands/ListReviewPolicyResultsForHITCommand";
-import {
-  ListReviewableHITsCommandInput,
-  ListReviewableHITsCommandOutput
-} from "./commands/ListReviewableHITsCommand";
-import {
-  ListWorkerBlocksCommandInput,
-  ListWorkerBlocksCommandOutput
-} from "./commands/ListWorkerBlocksCommand";
+import { ListReviewableHITsCommandInput, ListReviewableHITsCommandOutput } from "./commands/ListReviewableHITsCommand";
+import { ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput } from "./commands/ListWorkerBlocksCommand";
 import {
   ListWorkersWithQualificationTypeCommandInput,
   ListWorkersWithQualificationTypeCommandOutput
 } from "./commands/ListWorkersWithQualificationTypeCommand";
-import {
-  NotifyWorkersCommandInput,
-  NotifyWorkersCommandOutput
-} from "./commands/NotifyWorkersCommand";
-import {
-  RejectAssignmentCommandInput,
-  RejectAssignmentCommandOutput
-} from "./commands/RejectAssignmentCommand";
+import { NotifyWorkersCommandInput, NotifyWorkersCommandOutput } from "./commands/NotifyWorkersCommand";
+import { RejectAssignmentCommandInput, RejectAssignmentCommandOutput } from "./commands/RejectAssignmentCommand";
 import {
   RejectQualificationRequestCommandInput,
   RejectQualificationRequestCommandOutput
 } from "./commands/RejectQualificationRequestCommand";
-import {
-  SendBonusCommandInput,
-  SendBonusCommandOutput
-} from "./commands/SendBonusCommand";
+import { SendBonusCommandInput, SendBonusCommandOutput } from "./commands/SendBonusCommand";
 import {
   SendTestEventNotificationCommandInput,
   SendTestEventNotificationCommandOutput
@@ -142,10 +91,7 @@ import {
   UpdateHITReviewStatusCommandInput,
   UpdateHITReviewStatusCommandOutput
 } from "./commands/UpdateHITReviewStatusCommand";
-import {
-  UpdateHITTypeOfHITCommandInput,
-  UpdateHITTypeOfHITCommandOutput
-} from "./commands/UpdateHITTypeOfHITCommand";
+import { UpdateHITTypeOfHITCommandInput, UpdateHITTypeOfHITCommandOutput } from "./commands/UpdateHITTypeOfHITCommand";
 import {
   UpdateNotificationSettingsCommandInput,
   UpdateNotificationSettingsCommandOutput
@@ -170,12 +116,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -288,8 +229,7 @@ export type ServiceOutputTypes =
   | UpdateNotificationSettingsCommandOutput
   | UpdateQualificationTypeCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -373,9 +313,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MTurkClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MTurkClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -384,9 +322,7 @@ export type MTurkClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MTurkClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

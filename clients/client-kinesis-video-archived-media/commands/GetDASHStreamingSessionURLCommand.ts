@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetDASHStreamingSessionURLInput,
-  GetDASHStreamingSessionURLOutput
-} from "../models/index";
+import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand,
   serializeAws_restJson1_1GetDASHStreamingSessionURLCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDASHStreamingSessionURLCommandInput = GetDASHStreamingSessionURLInput;
-export type GetDASHStreamingSessionURLCommandOutput = GetDASHStreamingSessionURLOutput &
-  __MetadataBearer;
+export type GetDASHStreamingSessionURLCommandOutput = GetDASHStreamingSessionURLOutput & __MetadataBearer;
 
 export class GetDASHStreamingSessionURLCommand extends $Command<
   GetDASHStreamingSessionURLCommandInput,
@@ -49,13 +42,8 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetDASHStreamingSessionURLCommandInput,
-    GetDASHStreamingSessionURLCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetDASHStreamingSessionURLCommandInput, GetDASHStreamingSessionURLCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +58,15 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDASHStreamingSessionURLCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
-      input,
-      context
-    );
+  private serialize(input: GetDASHStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetDASHStreamingSessionURLCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetDASHStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDASHStreamingSessionURLCommand(output, context);
   }
 
   // Start section: command_body_extra

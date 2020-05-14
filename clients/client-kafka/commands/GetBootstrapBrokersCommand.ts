@@ -1,21 +1,11 @@
-import {
-  KafkaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../KafkaClient";
-import {
-  GetBootstrapBrokersRequest,
-  GetBootstrapBrokersResponse
-} from "../models/index";
+import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { GetBootstrapBrokersRequest, GetBootstrapBrokersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBootstrapBrokersCommand,
   serializeAws_restJson1_1GetBootstrapBrokersCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetBootstrapBrokersCommandInput = GetBootstrapBrokersRequest;
-export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse &
-  __MetadataBearer;
+export type GetBootstrapBrokersCommandOutput = GetBootstrapBrokersResponse & __MetadataBearer;
 
 export class GetBootstrapBrokersCommand extends $Command<
   GetBootstrapBrokersCommandInput,
@@ -49,13 +38,8 @@ export class GetBootstrapBrokersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetBootstrapBrokersCommandInput,
-    GetBootstrapBrokersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetBootstrapBrokersCommandInput, GetBootstrapBrokersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetBootstrapBrokersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetBootstrapBrokersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetBootstrapBrokersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetBootstrapBrokersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetBootstrapBrokersCommandOutput> {
-    return deserializeAws_restJson1_1GetBootstrapBrokersCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBootstrapBrokersCommandOutput> {
+    return deserializeAws_restJson1_1GetBootstrapBrokersCommand(output, context);
   }
 
   // Start section: command_body_extra

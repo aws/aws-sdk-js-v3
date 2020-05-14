@@ -12,10 +12,7 @@ import {
   serializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +36,7 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeReplicationTaskAssessmentResultsCommandInput
-  ) {
+  constructor(readonly input: DescribeReplicationTaskAssessmentResultsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +50,7 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     DescribeReplicationTaskAssessmentResultsCommandInput,
     DescribeReplicationTaskAssessmentResultsCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +69,14 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
     input: DescribeReplicationTaskAssessmentResultsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand(output, context);
   }
 
   // Start section: command_body_extra

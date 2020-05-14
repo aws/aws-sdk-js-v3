@@ -6,10 +6,7 @@ import {
   CreateEnvironmentMembershipCommandInput,
   CreateEnvironmentMembershipCommandOutput
 } from "./commands/CreateEnvironmentMembershipCommand";
-import {
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput
-} from "./commands/DeleteEnvironmentCommand";
+import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
 import {
   DeleteEnvironmentMembershipCommandInput,
   DeleteEnvironmentMembershipCommandOutput
@@ -26,14 +23,8 @@ import {
   DescribeEnvironmentsCommandInput,
   DescribeEnvironmentsCommandOutput
 } from "./commands/DescribeEnvironmentsCommand";
-import {
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput
-} from "./commands/ListEnvironmentsCommand";
-import {
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
-} from "./commands/UpdateEnvironmentCommand";
+import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
+import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   UpdateEnvironmentMembershipCommandInput,
   UpdateEnvironmentMembershipCommandOutput
@@ -54,12 +45,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -114,8 +100,7 @@ export type ServiceOutputTypes =
   | UpdateEnvironmentCommandOutput
   | UpdateEnvironmentMembershipCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -199,9 +184,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type Cloud9ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type Cloud9ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -210,9 +193,7 @@ export type Cloud9ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type Cloud9ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1GetConnectionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetConnectionCommandInput = GetConnectionRequest;
-export type GetConnectionCommandOutput = GetConnectionResponse &
-  __MetadataBearer;
+export type GetConnectionCommandOutput = GetConnectionResponse & __MetadataBearer;
 
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,
@@ -47,9 +43,7 @@ export class GetConnectionCommand extends $Command<
     configuration: ApiGatewayManagementApiClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConnectionCommandInput, GetConnectionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class GetConnectionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetConnectionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetConnectionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetConnectionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetConnectionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConnectionCommandOutput> {
     return deserializeAws_restJson1_1GetConnectionCommand(output, context);
   }
 

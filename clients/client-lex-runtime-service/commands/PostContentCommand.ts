@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1PostContentCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -24,10 +21,7 @@ import {
   SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
-export type PostContentCommandInput = Omit<
-  PostContentRequest,
-  "inputStream"
-> & {
+export type PostContentCommandInput = Omit<PostContentRequest, "inputStream"> & {
   inputStream: PostContentRequest["inputStream"] | string | Uint8Array | Buffer;
 };
 export type PostContentCommandOutput = PostContentResponse & __MetadataBearer;
@@ -51,9 +45,7 @@ export class PostContentCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostContentCommandInput, PostContentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -68,17 +60,11 @@ export class PostContentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: PostContentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: PostContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1PostContentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PostContentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostContentCommandOutput> {
     return deserializeAws_restJson1_1PostContentCommand(output, context);
   }
 

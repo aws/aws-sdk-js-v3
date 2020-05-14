@@ -1,18 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { DeleteApiCacheRequest, DeleteApiCacheResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteApiCacheCommand,
   serializeAws_restJson1_1DeleteApiCacheCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteApiCacheCommandInput = DeleteApiCacheRequest;
-export type DeleteApiCacheCommandOutput = DeleteApiCacheResponse &
-  __MetadataBearer;
+export type DeleteApiCacheCommandOutput = DeleteApiCacheResponse & __MetadataBearer;
 
 export class DeleteApiCacheCommand extends $Command<
   DeleteApiCacheCommandInput,
@@ -47,9 +39,7 @@ export class DeleteApiCacheCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteApiCacheCommandInput, DeleteApiCacheCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteApiCacheCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteApiCacheCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteApiCacheCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteApiCacheCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteApiCacheCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteApiCacheCommandOutput> {
     return deserializeAws_restJson1_1DeleteApiCacheCommand(output, context);
   }
 

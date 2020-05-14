@@ -1,11 +1,5 @@
-import {
-  CreateTokenCommandInput,
-  CreateTokenCommandOutput
-} from "./commands/CreateTokenCommand";
-import {
-  RegisterClientCommandInput,
-  RegisterClientCommandOutput
-} from "./commands/RegisterClientCommand";
+import { CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
+import { RegisterClientCommandInput, RegisterClientCommandOutput } from "./commands/RegisterClientCommand";
 import {
   StartDeviceAuthorizationCommandInput,
   StartDeviceAuthorizationCommandOutput
@@ -26,12 +20,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -72,8 +61,7 @@ export type ServiceOutputTypes =
   | RegisterClientCommandOutput
   | StartDeviceAuthorizationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -157,9 +145,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSOOIDCClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSOOIDCClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -168,9 +154,7 @@ export type SSOOIDCClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

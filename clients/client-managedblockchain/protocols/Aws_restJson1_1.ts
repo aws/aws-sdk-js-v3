@@ -1,75 +1,21 @@
-import {
-  CreateMemberCommandInput,
-  CreateMemberCommandOutput
-} from "../commands/CreateMemberCommand";
-import {
-  CreateNetworkCommandInput,
-  CreateNetworkCommandOutput
-} from "../commands/CreateNetworkCommand";
-import {
-  CreateNodeCommandInput,
-  CreateNodeCommandOutput
-} from "../commands/CreateNodeCommand";
-import {
-  CreateProposalCommandInput,
-  CreateProposalCommandOutput
-} from "../commands/CreateProposalCommand";
-import {
-  DeleteMemberCommandInput,
-  DeleteMemberCommandOutput
-} from "../commands/DeleteMemberCommand";
-import {
-  DeleteNodeCommandInput,
-  DeleteNodeCommandOutput
-} from "../commands/DeleteNodeCommand";
-import {
-  GetMemberCommandInput,
-  GetMemberCommandOutput
-} from "../commands/GetMemberCommand";
-import {
-  GetNetworkCommandInput,
-  GetNetworkCommandOutput
-} from "../commands/GetNetworkCommand";
-import {
-  GetNodeCommandInput,
-  GetNodeCommandOutput
-} from "../commands/GetNodeCommand";
-import {
-  GetProposalCommandInput,
-  GetProposalCommandOutput
-} from "../commands/GetProposalCommand";
-import {
-  ListInvitationsCommandInput,
-  ListInvitationsCommandOutput
-} from "../commands/ListInvitationsCommand";
-import {
-  ListMembersCommandInput,
-  ListMembersCommandOutput
-} from "../commands/ListMembersCommand";
-import {
-  ListNetworksCommandInput,
-  ListNetworksCommandOutput
-} from "../commands/ListNetworksCommand";
-import {
-  ListNodesCommandInput,
-  ListNodesCommandOutput
-} from "../commands/ListNodesCommand";
-import {
-  ListProposalVotesCommandInput,
-  ListProposalVotesCommandOutput
-} from "../commands/ListProposalVotesCommand";
-import {
-  ListProposalsCommandInput,
-  ListProposalsCommandOutput
-} from "../commands/ListProposalsCommand";
-import {
-  RejectInvitationCommandInput,
-  RejectInvitationCommandOutput
-} from "../commands/RejectInvitationCommand";
-import {
-  VoteOnProposalCommandInput,
-  VoteOnProposalCommandOutput
-} from "../commands/VoteOnProposalCommand";
+import { CreateMemberCommandInput, CreateMemberCommandOutput } from "../commands/CreateMemberCommand";
+import { CreateNetworkCommandInput, CreateNetworkCommandOutput } from "../commands/CreateNetworkCommand";
+import { CreateNodeCommandInput, CreateNodeCommandOutput } from "../commands/CreateNodeCommand";
+import { CreateProposalCommandInput, CreateProposalCommandOutput } from "../commands/CreateProposalCommand";
+import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "../commands/DeleteMemberCommand";
+import { DeleteNodeCommandInput, DeleteNodeCommandOutput } from "../commands/DeleteNodeCommand";
+import { GetMemberCommandInput, GetMemberCommandOutput } from "../commands/GetMemberCommand";
+import { GetNetworkCommandInput, GetNetworkCommandOutput } from "../commands/GetNetworkCommand";
+import { GetNodeCommandInput, GetNodeCommandOutput } from "../commands/GetNodeCommand";
+import { GetProposalCommandInput, GetProposalCommandOutput } from "../commands/GetProposalCommand";
+import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
+import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
+import { ListNetworksCommandInput, ListNetworksCommandOutput } from "../commands/ListNetworksCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
+import { ListProposalVotesCommandInput, ListProposalVotesCommandOutput } from "../commands/ListProposalVotesCommand";
+import { ListProposalsCommandInput, ListProposalsCommandOutput } from "../commands/ListProposalsCommand";
+import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "../commands/RejectInvitationCommand";
+import { VoteOnProposalCommandInput, VoteOnProposalCommandOutput } from "../commands/VoteOnProposalCommand";
 import {
   AccessDeniedException,
   ApprovalThresholdPolicy,
@@ -108,10 +54,7 @@ import {
   VoteSummary,
   VotingPolicy
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -137,10 +80,7 @@ export const serializeAws_restJson1_1CreateMemberCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -151,10 +91,7 @@ export const serializeAws_restJson1_1CreateMemberCommand = async (
       InvitationId: input.InvitationId
     }),
     ...(input.MemberConfiguration !== undefined && {
-      MemberConfiguration: serializeAws_restJson1_1MemberConfiguration(
-        input.MemberConfiguration,
-        context
-      )
+      MemberConfiguration: serializeAws_restJson1_1MemberConfiguration(input.MemberConfiguration, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -192,17 +129,11 @@ export const serializeAws_restJson1_1CreateNetworkCommand = async (
       FrameworkVersion: input.FrameworkVersion
     }),
     ...(input.MemberConfiguration !== undefined && {
-      MemberConfiguration: serializeAws_restJson1_1MemberConfiguration(
-        input.MemberConfiguration,
-        context
-      )
+      MemberConfiguration: serializeAws_restJson1_1MemberConfiguration(input.MemberConfiguration, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.VotingPolicy !== undefined && {
-      VotingPolicy: serializeAws_restJson1_1VotingPolicy(
-        input.VotingPolicy,
-        context
-      )
+      VotingPolicy: serializeAws_restJson1_1VotingPolicy(input.VotingPolicy, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -230,10 +161,7 @@ export const serializeAws_restJson1_1CreateNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
   }
@@ -242,10 +170,7 @@ export const serializeAws_restJson1_1CreateNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -253,10 +178,7 @@ export const serializeAws_restJson1_1CreateNodeCommand = async (
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.NodeConfiguration !== undefined && {
-      NodeConfiguration: serializeAws_restJson1_1NodeConfiguration(
-        input.NodeConfiguration,
-        context
-      )
+      NodeConfiguration: serializeAws_restJson1_1NodeConfiguration(input.NodeConfiguration, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -284,10 +206,7 @@ export const serializeAws_restJson1_1CreateProposalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -325,10 +244,7 @@ export const serializeAws_restJson1_1DeleteMemberCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
   }
@@ -337,10 +253,7 @@ export const serializeAws_restJson1_1DeleteMemberCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -370,10 +283,7 @@ export const serializeAws_restJson1_1DeleteNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
   }
@@ -382,10 +292,7 @@ export const serializeAws_restJson1_1DeleteNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -394,10 +301,7 @@ export const serializeAws_restJson1_1DeleteNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NodeId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NodeId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
   }
@@ -427,10 +331,7 @@ export const serializeAws_restJson1_1GetMemberCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
   }
@@ -439,10 +340,7 @@ export const serializeAws_restJson1_1GetMemberCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -472,10 +370,7 @@ export const serializeAws_restJson1_1GetNetworkCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -505,10 +400,7 @@ export const serializeAws_restJson1_1GetNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
   }
@@ -517,10 +409,7 @@ export const serializeAws_restJson1_1GetNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -529,10 +418,7 @@ export const serializeAws_restJson1_1GetNodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NodeId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NodeId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
   }
@@ -562,10 +448,7 @@ export const serializeAws_restJson1_1GetProposalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -574,10 +457,7 @@ export const serializeAws_restJson1_1GetProposalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ProposalId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ProposalId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
@@ -635,10 +515,7 @@ export const serializeAws_restJson1_1ListMembersCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -709,10 +586,7 @@ export const serializeAws_restJson1_1ListNodesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
   }
@@ -721,10 +595,7 @@ export const serializeAws_restJson1_1ListNodesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -762,10 +633,7 @@ export const serializeAws_restJson1_1ListProposalVotesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -774,10 +642,7 @@ export const serializeAws_restJson1_1ListProposalVotesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ProposalId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ProposalId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
@@ -814,10 +679,7 @@ export const serializeAws_restJson1_1ListProposalsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -852,14 +714,9 @@ export const serializeAws_restJson1_1RejectInvitationCommand = async (
   if (input.InvitationId !== undefined) {
     const labelValue: string = input.InvitationId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: InvitationId."
-      );
+      throw new Error("Empty value provided for input HTTP label: InvitationId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{InvitationId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{InvitationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InvitationId.");
   }
@@ -889,10 +746,7 @@ export const serializeAws_restJson1_1VoteOnProposalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{NetworkId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
@@ -901,10 +755,7 @@ export const serializeAws_restJson1_1VoteOnProposalCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ProposalId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ProposalId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
@@ -961,10 +812,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -972,10 +820,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -983,10 +828,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -994,10 +836,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1005,10 +844,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1016,10 +852,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1027,10 +860,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1038,10 +868,7 @@ const deserializeAws_restJson1_1CreateMemberCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1101,10 +928,7 @@ const deserializeAws_restJson1_1CreateNetworkCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1112,10 +936,7 @@ const deserializeAws_restJson1_1CreateNetworkCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1123,10 +944,7 @@ const deserializeAws_restJson1_1CreateNetworkCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1134,10 +952,7 @@ const deserializeAws_restJson1_1CreateNetworkCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1145,10 +960,7 @@ const deserializeAws_restJson1_1CreateNetworkCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1156,10 +968,7 @@ const deserializeAws_restJson1_1CreateNetworkCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1215,10 +1024,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1226,10 +1032,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1237,10 +1040,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1248,10 +1048,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1259,10 +1056,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1270,10 +1064,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1281,10 +1072,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1292,10 +1080,7 @@ const deserializeAws_restJson1_1CreateNodeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1322,10 +1107,7 @@ export const deserializeAws_restJson1_1CreateProposalCommand = async (
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateProposalCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateProposalCommandError(output, context);
   }
   const contents: CreateProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1354,10 +1136,7 @@ const deserializeAws_restJson1_1CreateProposalCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1365,10 +1144,7 @@ const deserializeAws_restJson1_1CreateProposalCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1376,10 +1152,7 @@ const deserializeAws_restJson1_1CreateProposalCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1387,10 +1160,7 @@ const deserializeAws_restJson1_1CreateProposalCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1398,10 +1168,7 @@ const deserializeAws_restJson1_1CreateProposalCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1409,10 +1176,7 @@ const deserializeAws_restJson1_1CreateProposalCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1464,10 +1228,7 @@ const deserializeAws_restJson1_1DeleteMemberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1475,10 +1236,7 @@ const deserializeAws_restJson1_1DeleteMemberCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1486,10 +1244,7 @@ const deserializeAws_restJson1_1DeleteMemberCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1497,10 +1252,7 @@ const deserializeAws_restJson1_1DeleteMemberCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1508,10 +1260,7 @@ const deserializeAws_restJson1_1DeleteMemberCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1519,10 +1268,7 @@ const deserializeAws_restJson1_1DeleteMemberCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1574,10 +1320,7 @@ const deserializeAws_restJson1_1DeleteNodeCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1585,10 +1328,7 @@ const deserializeAws_restJson1_1DeleteNodeCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1596,10 +1336,7 @@ const deserializeAws_restJson1_1DeleteNodeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1607,10 +1344,7 @@ const deserializeAws_restJson1_1DeleteNodeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1618,10 +1352,7 @@ const deserializeAws_restJson1_1DeleteNodeCommandError = async (
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1629,10 +1360,7 @@ const deserializeAws_restJson1_1DeleteNodeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1688,10 +1416,7 @@ const deserializeAws_restJson1_1GetMemberCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1699,10 +1424,7 @@ const deserializeAws_restJson1_1GetMemberCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1710,10 +1432,7 @@ const deserializeAws_restJson1_1GetMemberCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1721,10 +1440,7 @@ const deserializeAws_restJson1_1GetMemberCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1732,10 +1448,7 @@ const deserializeAws_restJson1_1GetMemberCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1791,10 +1504,7 @@ const deserializeAws_restJson1_1GetNetworkCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1802,10 +1512,7 @@ const deserializeAws_restJson1_1GetNetworkCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1813,10 +1520,7 @@ const deserializeAws_restJson1_1GetNetworkCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1824,10 +1528,7 @@ const deserializeAws_restJson1_1GetNetworkCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1835,10 +1536,7 @@ const deserializeAws_restJson1_1GetNetworkCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1894,10 +1592,7 @@ const deserializeAws_restJson1_1GetNodeCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1905,10 +1600,7 @@ const deserializeAws_restJson1_1GetNodeCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1916,10 +1608,7 @@ const deserializeAws_restJson1_1GetNodeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1927,10 +1616,7 @@ const deserializeAws_restJson1_1GetNodeCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1938,10 +1624,7 @@ const deserializeAws_restJson1_1GetNodeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1977,10 +1660,7 @@ export const deserializeAws_restJson1_1GetProposalCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Proposal !== undefined && data.Proposal !== null) {
-    contents.Proposal = deserializeAws_restJson1_1Proposal(
-      data.Proposal,
-      context
-    );
+    contents.Proposal = deserializeAws_restJson1_1Proposal(data.Proposal, context);
   }
   return Promise.resolve(contents);
 };
@@ -2000,10 +1680,7 @@ const deserializeAws_restJson1_1GetProposalCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2011,10 +1688,7 @@ const deserializeAws_restJson1_1GetProposalCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2022,10 +1696,7 @@ const deserializeAws_restJson1_1GetProposalCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2033,10 +1704,7 @@ const deserializeAws_restJson1_1GetProposalCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2044,10 +1712,7 @@ const deserializeAws_restJson1_1GetProposalCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2074,10 +1739,7 @@ export const deserializeAws_restJson1_1ListInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListInvitationsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2087,10 +1749,7 @@ export const deserializeAws_restJson1_1ListInvitationsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Invitations !== undefined && data.Invitations !== null) {
-    contents.Invitations = deserializeAws_restJson1_1InvitationList(
-      data.Invitations,
-      context
-    );
+    contents.Invitations = deserializeAws_restJson1_1InvitationList(data.Invitations, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -2113,10 +1772,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2124,10 +1780,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2135,10 +1788,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2146,10 +1796,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2157,10 +1804,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2168,10 +1812,7 @@ const deserializeAws_restJson1_1ListInvitationsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2208,10 +1849,7 @@ export const deserializeAws_restJson1_1ListMembersCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Members !== undefined && data.Members !== null) {
-    contents.Members = deserializeAws_restJson1_1MemberSummaryList(
-      data.Members,
-      context
-    );
+    contents.Members = deserializeAws_restJson1_1MemberSummaryList(data.Members, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -2234,10 +1872,7 @@ const deserializeAws_restJson1_1ListMembersCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2245,10 +1880,7 @@ const deserializeAws_restJson1_1ListMembersCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2256,10 +1888,7 @@ const deserializeAws_restJson1_1ListMembersCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2267,10 +1896,7 @@ const deserializeAws_restJson1_1ListMembersCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2307,10 +1933,7 @@ export const deserializeAws_restJson1_1ListNetworksCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Networks !== undefined && data.Networks !== null) {
-    contents.Networks = deserializeAws_restJson1_1NetworkSummaryList(
-      data.Networks,
-      context
-    );
+    contents.Networks = deserializeAws_restJson1_1NetworkSummaryList(data.Networks, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -2333,10 +1956,7 @@ const deserializeAws_restJson1_1ListNetworksCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2344,10 +1964,7 @@ const deserializeAws_restJson1_1ListNetworksCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2355,10 +1972,7 @@ const deserializeAws_restJson1_1ListNetworksCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2366,10 +1980,7 @@ const deserializeAws_restJson1_1ListNetworksCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2409,10 +2020,7 @@ export const deserializeAws_restJson1_1ListNodesCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Nodes !== undefined && data.Nodes !== null) {
-    contents.Nodes = deserializeAws_restJson1_1NodeSummaryList(
-      data.Nodes,
-      context
-    );
+    contents.Nodes = deserializeAws_restJson1_1NodeSummaryList(data.Nodes, context);
   }
   return Promise.resolve(contents);
 };
@@ -2432,10 +2040,7 @@ const deserializeAws_restJson1_1ListNodesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2443,10 +2048,7 @@ const deserializeAws_restJson1_1ListNodesCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2454,10 +2056,7 @@ const deserializeAws_restJson1_1ListNodesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2465,10 +2064,7 @@ const deserializeAws_restJson1_1ListNodesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2495,10 +2091,7 @@ export const deserializeAws_restJson1_1ListProposalVotesCommand = async (
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListProposalVotesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListProposalVotesCommandError(output, context);
   }
   const contents: ListProposalVotesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2511,10 +2104,7 @@ export const deserializeAws_restJson1_1ListProposalVotesCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.ProposalVotes !== undefined && data.ProposalVotes !== null) {
-    contents.ProposalVotes = deserializeAws_restJson1_1ProposalVoteList(
-      data.ProposalVotes,
-      context
-    );
+    contents.ProposalVotes = deserializeAws_restJson1_1ProposalVoteList(data.ProposalVotes, context);
   }
   return Promise.resolve(contents);
 };
@@ -2534,10 +2124,7 @@ const deserializeAws_restJson1_1ListProposalVotesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2545,10 +2132,7 @@ const deserializeAws_restJson1_1ListProposalVotesCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2556,10 +2140,7 @@ const deserializeAws_restJson1_1ListProposalVotesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2567,10 +2148,7 @@ const deserializeAws_restJson1_1ListProposalVotesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2610,10 +2188,7 @@ export const deserializeAws_restJson1_1ListProposalsCommand = async (
     contents.NextToken = data.NextToken;
   }
   if (data.Proposals !== undefined && data.Proposals !== null) {
-    contents.Proposals = deserializeAws_restJson1_1ProposalSummaryList(
-      data.Proposals,
-      context
-    );
+    contents.Proposals = deserializeAws_restJson1_1ProposalSummaryList(data.Proposals, context);
   }
   return Promise.resolve(contents);
 };
@@ -2633,10 +2208,7 @@ const deserializeAws_restJson1_1ListProposalsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2644,10 +2216,7 @@ const deserializeAws_restJson1_1ListProposalsCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2655,10 +2224,7 @@ const deserializeAws_restJson1_1ListProposalsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2666,10 +2232,7 @@ const deserializeAws_restJson1_1ListProposalsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2677,10 +2240,7 @@ const deserializeAws_restJson1_1ListProposalsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2707,10 +2267,7 @@ export const deserializeAws_restJson1_1RejectInvitationCommand = async (
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RejectInvitationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RejectInvitationCommandError(output, context);
   }
   const contents: RejectInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2735,10 +2292,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2746,10 +2300,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "IllegalActionException":
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
       response = {
-        ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2757,10 +2308,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2768,10 +2316,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2779,10 +2324,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2790,10 +2332,7 @@ const deserializeAws_restJson1_1RejectInvitationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2820,10 +2359,7 @@ export const deserializeAws_restJson1_1VoteOnProposalCommand = async (
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1VoteOnProposalCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1VoteOnProposalCommandError(output, context);
   }
   const contents: VoteOnProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2848,10 +2384,7 @@ const deserializeAws_restJson1_1VoteOnProposalCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2859,10 +2392,7 @@ const deserializeAws_restJson1_1VoteOnProposalCommandError = async (
     case "IllegalActionException":
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
       response = {
-        ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IllegalActionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2870,10 +2400,7 @@ const deserializeAws_restJson1_1VoteOnProposalCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2881,10 +2408,7 @@ const deserializeAws_restJson1_1VoteOnProposalCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2892,10 +2416,7 @@ const deserializeAws_restJson1_1VoteOnProposalCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2903,10 +2424,7 @@ const deserializeAws_restJson1_1VoteOnProposalCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3086,28 +2604,17 @@ const serializeAws_restJson1_1ApprovalThresholdPolicy = (
   };
 };
 
-const serializeAws_restJson1_1InviteAction = (
-  input: InviteAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1InviteAction = (input: InviteAction, context: __SerdeContext): any => {
   return {
     ...(input.Principal !== undefined && { Principal: input.Principal })
   };
 };
 
-const serializeAws_restJson1_1InviteActionList = (
-  input: InviteAction[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InviteAction(entry, context)
-  );
+const serializeAws_restJson1_1InviteActionList = (input: InviteAction[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1InviteAction(entry, context));
 };
 
-const serializeAws_restJson1_1MemberConfiguration = (
-  input: MemberConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MemberConfiguration = (input: MemberConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.FrameworkConfiguration !== undefined && {
@@ -3140,10 +2647,7 @@ const serializeAws_restJson1_1MemberFrameworkConfiguration = (
 ): any => {
   return {
     ...(input.Fabric !== undefined && {
-      Fabric: serializeAws_restJson1_1MemberFabricConfiguration(
-        input.Fabric,
-        context
-      )
+      Fabric: serializeAws_restJson1_1MemberFabricConfiguration(input.Fabric, context)
     })
   };
 };
@@ -3163,18 +2667,12 @@ const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
 ): any => {
   return {
     ...(input.Fabric !== undefined && {
-      Fabric: serializeAws_restJson1_1NetworkFabricConfiguration(
-        input.Fabric,
-        context
-      )
+      Fabric: serializeAws_restJson1_1NetworkFabricConfiguration(input.Fabric, context)
     })
   };
 };
 
-const serializeAws_restJson1_1NodeConfiguration = (
-  input: NodeConfiguration,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1NodeConfiguration = (input: NodeConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityZone !== undefined && {
       AvailabilityZone: input.AvailabilityZone
@@ -3185,54 +2683,31 @@ const serializeAws_restJson1_1NodeConfiguration = (
   };
 };
 
-const serializeAws_restJson1_1ProposalActions = (
-  input: ProposalActions,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ProposalActions = (input: ProposalActions, context: __SerdeContext): any => {
   return {
     ...(input.Invitations !== undefined && {
-      Invitations: serializeAws_restJson1_1InviteActionList(
-        input.Invitations,
-        context
-      )
+      Invitations: serializeAws_restJson1_1InviteActionList(input.Invitations, context)
     }),
     ...(input.Removals !== undefined && {
-      Removals: serializeAws_restJson1_1RemoveActionList(
-        input.Removals,
-        context
-      )
+      Removals: serializeAws_restJson1_1RemoveActionList(input.Removals, context)
     })
   };
 };
 
-const serializeAws_restJson1_1RemoveAction = (
-  input: RemoveAction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RemoveAction = (input: RemoveAction, context: __SerdeContext): any => {
   return {
     ...(input.MemberId !== undefined && { MemberId: input.MemberId })
   };
 };
 
-const serializeAws_restJson1_1RemoveActionList = (
-  input: RemoveAction[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1RemoveAction(entry, context)
-  );
+const serializeAws_restJson1_1RemoveActionList = (input: RemoveAction[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1RemoveAction(entry, context));
 };
 
-const serializeAws_restJson1_1VotingPolicy = (
-  input: VotingPolicy,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1VotingPolicy = (input: VotingPolicy, context: __SerdeContext): any => {
   return {
     ...(input.ApprovalThresholdPolicy !== undefined && {
-      ApprovalThresholdPolicy: serializeAws_restJson1_1ApprovalThresholdPolicy(
-        input.ApprovalThresholdPolicy,
-        context
-      )
+      ApprovalThresholdPolicy: serializeAws_restJson1_1ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context)
     })
   };
 };
@@ -3244,121 +2719,67 @@ const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
   return {
     __type: "ApprovalThresholdPolicy",
     ProposalDurationInHours:
-      output.ProposalDurationInHours !== undefined &&
-      output.ProposalDurationInHours !== null
+      output.ProposalDurationInHours !== undefined && output.ProposalDurationInHours !== null
         ? output.ProposalDurationInHours
         : undefined,
     ThresholdComparator:
-      output.ThresholdComparator !== undefined &&
-      output.ThresholdComparator !== null
+      output.ThresholdComparator !== undefined && output.ThresholdComparator !== null
         ? output.ThresholdComparator
         : undefined,
     ThresholdPercentage:
-      output.ThresholdPercentage !== undefined &&
-      output.ThresholdPercentage !== null
+      output.ThresholdPercentage !== undefined && output.ThresholdPercentage !== null
         ? output.ThresholdPercentage
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Invitation = (
-  output: any,
-  context: __SerdeContext
-): Invitation => {
+const deserializeAws_restJson1_1Invitation = (output: any, context: __SerdeContext): Invitation => {
   return {
     __type: "Invitation",
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? new Date(output.ExpirationDate)
         : undefined,
-    InvitationId:
-      output.InvitationId !== undefined && output.InvitationId !== null
-        ? output.InvitationId
-        : undefined,
+    InvitationId: output.InvitationId !== undefined && output.InvitationId !== null ? output.InvitationId : undefined,
     NetworkSummary:
       output.NetworkSummary !== undefined && output.NetworkSummary !== null
-        ? deserializeAws_restJson1_1NetworkSummary(
-            output.NetworkSummary,
-            context
-          )
+        ? deserializeAws_restJson1_1NetworkSummary(output.NetworkSummary, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1InvitationList = (
-  output: any,
-  context: __SerdeContext
-): Invitation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Invitation(entry, context)
-  );
+const deserializeAws_restJson1_1InvitationList = (output: any, context: __SerdeContext): Invitation[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Invitation(entry, context));
 };
 
-const deserializeAws_restJson1_1InviteAction = (
-  output: any,
-  context: __SerdeContext
-): InviteAction => {
+const deserializeAws_restJson1_1InviteAction = (output: any, context: __SerdeContext): InviteAction => {
   return {
     __type: "InviteAction",
-    Principal:
-      output.Principal !== undefined && output.Principal !== null
-        ? output.Principal
-        : undefined
+    Principal: output.Principal !== undefined && output.Principal !== null ? output.Principal : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1InviteActionList = (
-  output: any,
-  context: __SerdeContext
-): InviteAction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1InviteAction(entry, context)
-  );
+const deserializeAws_restJson1_1InviteActionList = (output: any, context: __SerdeContext): InviteAction[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1InviteAction(entry, context));
 };
 
-const deserializeAws_restJson1_1Member = (
-  output: any,
-  context: __SerdeContext
-): Member => {
+const deserializeAws_restJson1_1Member = (output: any, context: __SerdeContext): Member => {
   return {
     __type: "Member",
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     FrameworkAttributes:
-      output.FrameworkAttributes !== undefined &&
-      output.FrameworkAttributes !== null
-        ? deserializeAws_restJson1_1MemberFrameworkAttributes(
-            output.FrameworkAttributes,
-            context
-          )
+      output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
+        ? deserializeAws_restJson1_1MemberFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    NetworkId:
-      output.NetworkId !== undefined && output.NetworkId !== null
-        ? output.NetworkId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
@@ -3369,13 +2790,8 @@ const deserializeAws_restJson1_1MemberFabricAttributes = (
   return {
     __type: "MemberFabricAttributes",
     AdminUsername:
-      output.AdminUsername !== undefined && output.AdminUsername !== null
-        ? output.AdminUsername
-        : undefined,
-    CaEndpoint:
-      output.CaEndpoint !== undefined && output.CaEndpoint !== null
-        ? output.CaEndpoint
-        : undefined
+      output.AdminUsername !== undefined && output.AdminUsername !== null ? output.AdminUsername : undefined,
+    CaEndpoint: output.CaEndpoint !== undefined && output.CaEndpoint !== null ? output.CaEndpoint : undefined
   } as any;
 };
 
@@ -3387,99 +2803,50 @@ const deserializeAws_restJson1_1MemberFrameworkAttributes = (
     __type: "MemberFrameworkAttributes",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
-        ? deserializeAws_restJson1_1MemberFabricAttributes(
-            output.Fabric,
-            context
-          )
+        ? deserializeAws_restJson1_1MemberFabricAttributes(output.Fabric, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MemberSummary = (
-  output: any,
-  context: __SerdeContext
-): MemberSummary => {
+const deserializeAws_restJson1_1MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
   return {
     __type: "MemberSummary",
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    IsOwned:
-      output.IsOwned !== undefined && output.IsOwned !== null
-        ? output.IsOwned
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    IsOwned: output.IsOwned !== undefined && output.IsOwned !== null ? output.IsOwned : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MemberSummaryList = (
-  output: any,
-  context: __SerdeContext
-): MemberSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1MemberSummary(entry, context)
-  );
+const deserializeAws_restJson1_1MemberSummaryList = (output: any, context: __SerdeContext): MemberSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1MemberSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1Network = (
-  output: any,
-  context: __SerdeContext
-): Network => {
+const deserializeAws_restJson1_1Network = (output: any, context: __SerdeContext): Network => {
   return {
     __type: "Network",
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    Framework:
-      output.Framework !== undefined && output.Framework !== null
-        ? output.Framework
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Framework: output.Framework !== undefined && output.Framework !== null ? output.Framework : undefined,
     FrameworkAttributes:
-      output.FrameworkAttributes !== undefined &&
-      output.FrameworkAttributes !== null
-        ? deserializeAws_restJson1_1NetworkFrameworkAttributes(
-            output.FrameworkAttributes,
-            context
-          )
+      output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
+        ? deserializeAws_restJson1_1NetworkFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     FrameworkVersion:
-      output.FrameworkVersion !== undefined && output.FrameworkVersion !== null
-        ? output.FrameworkVersion
-        : undefined,
+      output.FrameworkVersion !== undefined && output.FrameworkVersion !== null ? output.FrameworkVersion : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VotingPolicy:
       output.VotingPolicy !== undefined && output.VotingPolicy !== null
         ? deserializeAws_restJson1_1VotingPolicy(output.VotingPolicy, context)
         : undefined,
     VpcEndpointServiceName:
-      output.VpcEndpointServiceName !== undefined &&
-      output.VpcEndpointServiceName !== null
+      output.VpcEndpointServiceName !== undefined && output.VpcEndpointServiceName !== null
         ? output.VpcEndpointServiceName
         : undefined
   } as any;
@@ -3491,13 +2858,9 @@ const deserializeAws_restJson1_1NetworkFabricAttributes = (
 ): NetworkFabricAttributes => {
   return {
     __type: "NetworkFabricAttributes",
-    Edition:
-      output.Edition !== undefined && output.Edition !== null
-        ? output.Edition
-        : undefined,
+    Edition: output.Edition !== undefined && output.Edition !== null ? output.Edition : undefined,
     OrderingServiceEndpoint:
-      output.OrderingServiceEndpoint !== undefined &&
-      output.OrderingServiceEndpoint !== null
+      output.OrderingServiceEndpoint !== undefined && output.OrderingServiceEndpoint !== null
         ? output.OrderingServiceEndpoint
         : undefined
   } as any;
@@ -3511,114 +2874,55 @@ const deserializeAws_restJson1_1NetworkFrameworkAttributes = (
     __type: "NetworkFrameworkAttributes",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
-        ? deserializeAws_restJson1_1NetworkFabricAttributes(
-            output.Fabric,
-            context
-          )
+        ? deserializeAws_restJson1_1NetworkFabricAttributes(output.Fabric, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NetworkSummary = (
-  output: any,
-  context: __SerdeContext
-): NetworkSummary => {
+const deserializeAws_restJson1_1NetworkSummary = (output: any, context: __SerdeContext): NetworkSummary => {
   return {
     __type: "NetworkSummary",
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    Framework:
-      output.Framework !== undefined && output.Framework !== null
-        ? output.Framework
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Framework: output.Framework !== undefined && output.Framework !== null ? output.Framework : undefined,
     FrameworkVersion:
-      output.FrameworkVersion !== undefined && output.FrameworkVersion !== null
-        ? output.FrameworkVersion
-        : undefined,
+      output.FrameworkVersion !== undefined && output.FrameworkVersion !== null ? output.FrameworkVersion : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NetworkSummaryList = (
-  output: any,
-  context: __SerdeContext
-): NetworkSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1NetworkSummary(entry, context)
-  );
+const deserializeAws_restJson1_1NetworkSummaryList = (output: any, context: __SerdeContext): NetworkSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1NetworkSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1Node = (
-  output: any,
-  context: __SerdeContext
-): Node => {
+const deserializeAws_restJson1_1Node = (output: any, context: __SerdeContext): Node => {
   return {
     __type: "Node",
     AvailabilityZone:
-      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
-        ? output.AvailabilityZone
-        : undefined,
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     FrameworkAttributes:
-      output.FrameworkAttributes !== undefined &&
-      output.FrameworkAttributes !== null
-        ? deserializeAws_restJson1_1NodeFrameworkAttributes(
-            output.FrameworkAttributes,
-            context
-          )
+      output.FrameworkAttributes !== undefined && output.FrameworkAttributes !== null
+        ? deserializeAws_restJson1_1NodeFrameworkAttributes(output.FrameworkAttributes, context)
         : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    InstanceType:
-      output.InstanceType !== undefined && output.InstanceType !== null
-        ? output.InstanceType
-        : undefined,
-    MemberId:
-      output.MemberId !== undefined && output.MemberId !== null
-        ? output.MemberId
-        : undefined,
-    NetworkId:
-      output.NetworkId !== undefined && output.NetworkId !== null
-        ? output.NetworkId
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
+    NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NodeFabricAttributes = (
-  output: any,
-  context: __SerdeContext
-): NodeFabricAttributes => {
+const deserializeAws_restJson1_1NodeFabricAttributes = (output: any, context: __SerdeContext): NodeFabricAttributes => {
   return {
     __type: "NodeFabricAttributes",
-    PeerEndpoint:
-      output.PeerEndpoint !== undefined && output.PeerEndpoint !== null
-        ? output.PeerEndpoint
-        : undefined,
+    PeerEndpoint: output.PeerEndpoint !== undefined && output.PeerEndpoint !== null ? output.PeerEndpoint : undefined,
     PeerEventEndpoint:
-      output.PeerEventEndpoint !== undefined &&
-      output.PeerEventEndpoint !== null
-        ? output.PeerEventEndpoint
-        : undefined
+      output.PeerEventEndpoint !== undefined && output.PeerEventEndpoint !== null ? output.PeerEventEndpoint : undefined
   } as any;
 };
 
@@ -3635,45 +2939,24 @@ const deserializeAws_restJson1_1NodeFrameworkAttributes = (
   } as any;
 };
 
-const deserializeAws_restJson1_1NodeSummary = (
-  output: any,
-  context: __SerdeContext
-): NodeSummary => {
+const deserializeAws_restJson1_1NodeSummary = (output: any, context: __SerdeContext): NodeSummary => {
   return {
     __type: "NodeSummary",
     AvailabilityZone:
-      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
-        ? output.AvailabilityZone
-        : undefined,
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
-    InstanceType:
-      output.InstanceType !== undefined && output.InstanceType !== null
-        ? output.InstanceType
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    InstanceType: output.InstanceType !== undefined && output.InstanceType !== null ? output.InstanceType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1NodeSummaryList = (
-  output: any,
-  context: __SerdeContext
-): NodeSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1NodeSummary(entry, context)
-  );
+const deserializeAws_restJson1_1NodeSummaryList = (output: any, context: __SerdeContext): NodeSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1NodeSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1Proposal = (
-  output: any,
-  context: __SerdeContext
-): Proposal => {
+const deserializeAws_restJson1_1Proposal = (output: any, context: __SerdeContext): Proposal => {
   return {
     __type: "Proposal",
     Actions:
@@ -3681,67 +2964,38 @@ const deserializeAws_restJson1_1Proposal = (
         ? deserializeAws_restJson1_1ProposalActions(output.Actions, context)
         : undefined,
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? new Date(output.ExpirationDate)
         : undefined,
-    NetworkId:
-      output.NetworkId !== undefined && output.NetworkId !== null
-        ? output.NetworkId
-        : undefined,
-    NoVoteCount:
-      output.NoVoteCount !== undefined && output.NoVoteCount !== null
-        ? output.NoVoteCount
-        : undefined,
+    NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
+    NoVoteCount: output.NoVoteCount !== undefined && output.NoVoteCount !== null ? output.NoVoteCount : undefined,
     OutstandingVoteCount:
-      output.OutstandingVoteCount !== undefined &&
-      output.OutstandingVoteCount !== null
+      output.OutstandingVoteCount !== undefined && output.OutstandingVoteCount !== null
         ? output.OutstandingVoteCount
         : undefined,
-    ProposalId:
-      output.ProposalId !== undefined && output.ProposalId !== null
-        ? output.ProposalId
-        : undefined,
+    ProposalId: output.ProposalId !== undefined && output.ProposalId !== null ? output.ProposalId : undefined,
     ProposedByMemberId:
-      output.ProposedByMemberId !== undefined &&
-      output.ProposedByMemberId !== null
+      output.ProposedByMemberId !== undefined && output.ProposedByMemberId !== null
         ? output.ProposedByMemberId
         : undefined,
     ProposedByMemberName:
-      output.ProposedByMemberName !== undefined &&
-      output.ProposedByMemberName !== null
+      output.ProposedByMemberName !== undefined && output.ProposedByMemberName !== null
         ? output.ProposedByMemberName
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    YesVoteCount:
-      output.YesVoteCount !== undefined && output.YesVoteCount !== null
-        ? output.YesVoteCount
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    YesVoteCount: output.YesVoteCount !== undefined && output.YesVoteCount !== null ? output.YesVoteCount : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ProposalActions = (
-  output: any,
-  context: __SerdeContext
-): ProposalActions => {
+const deserializeAws_restJson1_1ProposalActions = (output: any, context: __SerdeContext): ProposalActions => {
   return {
     __type: "ProposalActions",
     Invitations:
       output.Invitations !== undefined && output.Invitations !== null
-        ? deserializeAws_restJson1_1InviteActionList(
-            output.Invitations,
-            context
-          )
+        ? deserializeAws_restJson1_1InviteActionList(output.Invitations, context)
         : undefined,
     Removals:
       output.Removals !== undefined && output.Removals !== null
@@ -3750,119 +3004,63 @@ const deserializeAws_restJson1_1ProposalActions = (
   } as any;
 };
 
-const deserializeAws_restJson1_1ProposalSummary = (
-  output: any,
-  context: __SerdeContext
-): ProposalSummary => {
+const deserializeAws_restJson1_1ProposalSummary = (output: any, context: __SerdeContext): ProposalSummary => {
   return {
     __type: "ProposalSummary",
     CreationDate:
-      output.CreationDate !== undefined && output.CreationDate !== null
-        ? new Date(output.CreationDate)
-        : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+      output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null
         ? new Date(output.ExpirationDate)
         : undefined,
-    ProposalId:
-      output.ProposalId !== undefined && output.ProposalId !== null
-        ? output.ProposalId
-        : undefined,
+    ProposalId: output.ProposalId !== undefined && output.ProposalId !== null ? output.ProposalId : undefined,
     ProposedByMemberId:
-      output.ProposedByMemberId !== undefined &&
-      output.ProposedByMemberId !== null
+      output.ProposedByMemberId !== undefined && output.ProposedByMemberId !== null
         ? output.ProposedByMemberId
         : undefined,
     ProposedByMemberName:
-      output.ProposedByMemberName !== undefined &&
-      output.ProposedByMemberName !== null
+      output.ProposedByMemberName !== undefined && output.ProposedByMemberName !== null
         ? output.ProposedByMemberName
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ProposalSummaryList = (
-  output: any,
-  context: __SerdeContext
-): ProposalSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ProposalSummary(entry, context)
-  );
+const deserializeAws_restJson1_1ProposalSummaryList = (output: any, context: __SerdeContext): ProposalSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ProposalSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1ProposalVoteList = (
-  output: any,
-  context: __SerdeContext
-): VoteSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1VoteSummary(entry, context)
-  );
+const deserializeAws_restJson1_1ProposalVoteList = (output: any, context: __SerdeContext): VoteSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1VoteSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1RemoveAction = (
-  output: any,
-  context: __SerdeContext
-): RemoveAction => {
+const deserializeAws_restJson1_1RemoveAction = (output: any, context: __SerdeContext): RemoveAction => {
   return {
     __type: "RemoveAction",
-    MemberId:
-      output.MemberId !== undefined && output.MemberId !== null
-        ? output.MemberId
-        : undefined
+    MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RemoveActionList = (
-  output: any,
-  context: __SerdeContext
-): RemoveAction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1RemoveAction(entry, context)
-  );
+const deserializeAws_restJson1_1RemoveActionList = (output: any, context: __SerdeContext): RemoveAction[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1RemoveAction(entry, context));
 };
 
-const deserializeAws_restJson1_1VoteSummary = (
-  output: any,
-  context: __SerdeContext
-): VoteSummary => {
+const deserializeAws_restJson1_1VoteSummary = (output: any, context: __SerdeContext): VoteSummary => {
   return {
     __type: "VoteSummary",
-    MemberId:
-      output.MemberId !== undefined && output.MemberId !== null
-        ? output.MemberId
-        : undefined,
-    MemberName:
-      output.MemberName !== undefined && output.MemberName !== null
-        ? output.MemberName
-        : undefined,
-    Vote:
-      output.Vote !== undefined && output.Vote !== null
-        ? output.Vote
-        : undefined
+    MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
+    MemberName: output.MemberName !== undefined && output.MemberName !== null ? output.MemberName : undefined,
+    Vote: output.Vote !== undefined && output.Vote !== null ? output.Vote : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1VotingPolicy = (
-  output: any,
-  context: __SerdeContext
-): VotingPolicy => {
+const deserializeAws_restJson1_1VotingPolicy = (output: any, context: __SerdeContext): VotingPolicy => {
   return {
     __type: "VotingPolicy",
     ApprovalThresholdPolicy:
-      output.ApprovalThresholdPolicy !== undefined &&
-      output.ApprovalThresholdPolicy !== null
-        ? deserializeAws_restJson1_1ApprovalThresholdPolicy(
-            output.ApprovalThresholdPolicy,
-            context
-          )
+      output.ApprovalThresholdPolicy !== undefined && output.ApprovalThresholdPolicy !== null
+        ? deserializeAws_restJson1_1ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context)
         : undefined
   } as any;
 };
@@ -3874,30 +3072,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -3912,8 +3101,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

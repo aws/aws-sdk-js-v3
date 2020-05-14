@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  imagebuilderClientResolvedConfig
-} from "../imagebuilderClient";
-import {
-  CreateImagePipelineRequest,
-  CreateImagePipelineResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, imagebuilderClientResolvedConfig } from "../imagebuilderClient";
+import { CreateImagePipelineRequest, CreateImagePipelineResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateImagePipelineCommand,
   serializeAws_restJson1_1CreateImagePipelineCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateImagePipelineCommandInput = CreateImagePipelineRequest;
-export type CreateImagePipelineCommandOutput = CreateImagePipelineResponse &
-  __MetadataBearer;
+export type CreateImagePipelineCommandOutput = CreateImagePipelineResponse & __MetadataBearer;
 
 export class CreateImagePipelineCommand extends $Command<
   CreateImagePipelineCommandInput,
@@ -49,13 +38,8 @@ export class CreateImagePipelineCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateImagePipelineCommandInput,
-    CreateImagePipelineCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateImagePipelineCommandInput, CreateImagePipelineCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class CreateImagePipelineCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateImagePipelineCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateImagePipelineCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateImagePipelineCommandOutput> {
-    return deserializeAws_restJson1_1CreateImagePipelineCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateImagePipelineCommandOutput> {
+    return deserializeAws_restJson1_1CreateImagePipelineCommand(output, context);
   }
 
   // Start section: command_body_extra

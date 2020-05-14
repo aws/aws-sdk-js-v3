@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  AttachTypedLinkRequest,
-  AttachTypedLinkResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { AttachTypedLinkRequest, AttachTypedLinkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AttachTypedLinkCommand,
   serializeAws_restJson1_1AttachTypedLinkCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachTypedLinkCommandInput = AttachTypedLinkRequest;
-export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse &
-  __MetadataBearer;
+export type AttachTypedLinkCommandOutput = AttachTypedLinkResponse & __MetadataBearer;
 
 export class AttachTypedLinkCommand extends $Command<
   AttachTypedLinkCommandInput,
@@ -50,9 +39,7 @@ export class AttachTypedLinkCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AttachTypedLinkCommandInput, AttachTypedLinkCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class AttachTypedLinkCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachTypedLinkCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AttachTypedLinkCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AttachTypedLinkCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AttachTypedLinkCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTypedLinkCommandOutput> {
     return deserializeAws_restJson1_1AttachTypedLinkCommand(output, context);
   }
 

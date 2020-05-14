@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { Run, StartWorkflowExecutionInput } from "../models/index";
 import {
   deserializeAws_json1_0StartWorkflowExecutionCommand,
   serializeAws_json1_0StartWorkflowExecutionCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class StartWorkflowExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartWorkflowExecutionCommandInput,
-    StartWorkflowExecutionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartWorkflowExecutionCommandInput, StartWorkflowExecutionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,17 +54,11 @@ export class StartWorkflowExecutionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartWorkflowExecutionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartWorkflowExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0StartWorkflowExecutionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartWorkflowExecutionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartWorkflowExecutionCommandOutput> {
     return deserializeAws_json1_0StartWorkflowExecutionCommand(output, context);
   }
 

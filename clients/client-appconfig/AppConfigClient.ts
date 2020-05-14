@@ -1,7 +1,4 @@
-import {
-  CreateApplicationCommandInput,
-  CreateApplicationCommandOutput
-} from "./commands/CreateApplicationCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateConfigurationProfileCommandInput,
   CreateConfigurationProfileCommandOutput
@@ -10,14 +7,8 @@ import {
   CreateDeploymentStrategyCommandInput,
   CreateDeploymentStrategyCommandOutput
 } from "./commands/CreateDeploymentStrategyCommand";
-import {
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput
-} from "./commands/CreateEnvironmentCommand";
-import {
-  DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput
-} from "./commands/DeleteApplicationCommand";
+import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from "./commands/CreateEnvironmentCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteConfigurationProfileCommandInput,
   DeleteConfigurationProfileCommandOutput
@@ -26,38 +17,20 @@ import {
   DeleteDeploymentStrategyCommandInput,
   DeleteDeploymentStrategyCommandOutput
 } from "./commands/DeleteDeploymentStrategyCommand";
-import {
-  DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput
-} from "./commands/DeleteEnvironmentCommand";
-import {
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput
-} from "./commands/GetApplicationCommand";
-import {
-  GetConfigurationCommandInput,
-  GetConfigurationCommandOutput
-} from "./commands/GetConfigurationCommand";
+import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "./commands/DeleteEnvironmentCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetConfigurationProfileCommandInput,
   GetConfigurationProfileCommandOutput
 } from "./commands/GetConfigurationProfileCommand";
-import {
-  GetDeploymentCommandInput,
-  GetDeploymentCommandOutput
-} from "./commands/GetDeploymentCommand";
+import { GetDeploymentCommandInput, GetDeploymentCommandOutput } from "./commands/GetDeploymentCommand";
 import {
   GetDeploymentStrategyCommandInput,
   GetDeploymentStrategyCommandOutput
 } from "./commands/GetDeploymentStrategyCommand";
-import {
-  GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput
-} from "./commands/GetEnvironmentCommand";
-import {
-  ListApplicationsCommandInput,
-  ListApplicationsCommandOutput
-} from "./commands/ListApplicationsCommand";
+import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "./commands/GetEnvironmentCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListConfigurationProfilesCommandInput,
   ListConfigurationProfilesCommandOutput
@@ -66,38 +39,17 @@ import {
   ListDeploymentStrategiesCommandInput,
   ListDeploymentStrategiesCommandOutput
 } from "./commands/ListDeploymentStrategiesCommand";
-import {
-  ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput
-} from "./commands/ListDeploymentsCommand";
-import {
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput
-} from "./commands/ListEnvironmentsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
+import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "./commands/ListEnvironmentsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  StartDeploymentCommandInput,
-  StartDeploymentCommandOutput
-} from "./commands/StartDeploymentCommand";
-import {
-  StopDeploymentCommandInput,
-  StopDeploymentCommandOutput
-} from "./commands/StopDeploymentCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput
-} from "./commands/UpdateApplicationCommand";
+import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
+import { StopDeploymentCommandInput, StopDeploymentCommandOutput } from "./commands/StopDeploymentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateConfigurationProfileCommandInput,
   UpdateConfigurationProfileCommandOutput
@@ -106,10 +58,7 @@ import {
   UpdateDeploymentStrategyCommandInput,
   UpdateDeploymentStrategyCommandOutput
 } from "./commands/UpdateDeploymentStrategyCommand";
-import {
-  UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput
-} from "./commands/UpdateEnvironmentCommand";
+import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "./commands/UpdateEnvironmentCommand";
 import {
   ValidateConfigurationCommandInput,
   ValidateConfigurationCommandOutput
@@ -130,12 +79,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -228,8 +172,7 @@ export type ServiceOutputTypes =
   | UpdateEnvironmentCommandOutput
   | ValidateConfigurationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -313,9 +256,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type AppConfigClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type AppConfigClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -324,9 +265,7 @@ export type AppConfigClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type AppConfigClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

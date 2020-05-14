@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  DeleteOTAUpdateRequest,
-  DeleteOTAUpdateResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteOTAUpdateCommand,
   serializeAws_restJson1_1DeleteOTAUpdateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteOTAUpdateCommandInput = DeleteOTAUpdateRequest;
-export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse &
-  __MetadataBearer;
+export type DeleteOTAUpdateCommandOutput = DeleteOTAUpdateResponse & __MetadataBearer;
 
 export class DeleteOTAUpdateCommand extends $Command<
   DeleteOTAUpdateCommandInput,
@@ -50,9 +39,7 @@ export class DeleteOTAUpdateCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteOTAUpdateCommandInput, DeleteOTAUpdateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DeleteOTAUpdateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteOTAUpdateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteOTAUpdateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteOTAUpdateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteOTAUpdateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteOTAUpdateCommandOutput> {
     return deserializeAws_restJson1_1DeleteOTAUpdateCommand(output, context);
   }
 

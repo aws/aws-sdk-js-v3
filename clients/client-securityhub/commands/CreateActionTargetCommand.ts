@@ -1,21 +1,11 @@
-import {
-  SecurityHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SecurityHubClient";
-import {
-  CreateActionTargetRequest,
-  CreateActionTargetResponse
-} from "../models/index";
+import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
+import { CreateActionTargetRequest, CreateActionTargetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateActionTargetCommand,
   serializeAws_restJson1_1CreateActionTargetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateActionTargetCommandInput = CreateActionTargetRequest;
-export type CreateActionTargetCommandOutput = CreateActionTargetResponse &
-  __MetadataBearer;
+export type CreateActionTargetCommandOutput = CreateActionTargetResponse & __MetadataBearer;
 
 export class CreateActionTargetCommand extends $Command<
   CreateActionTargetCommandInput,
@@ -50,9 +39,7 @@ export class CreateActionTargetCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateActionTargetCommandInput, CreateActionTargetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateActionTargetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateActionTargetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateActionTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateActionTargetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateActionTargetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateActionTargetCommandOutput> {
     return deserializeAws_restJson1_1CreateActionTargetCommand(output, context);
   }
 

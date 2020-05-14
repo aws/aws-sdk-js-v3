@@ -1,21 +1,11 @@
-import {
-  SSOOIDCClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSOOIDCClient";
-import {
-  StartDeviceAuthorizationRequest,
-  StartDeviceAuthorizationResponse
-} from "../models/index";
+import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartDeviceAuthorizationCommand,
   serializeAws_restJson1_1StartDeviceAuthorizationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartDeviceAuthorizationCommandInput = StartDeviceAuthorizationRequest;
-export type StartDeviceAuthorizationCommandOutput = StartDeviceAuthorizationResponse &
-  __MetadataBearer;
+export type StartDeviceAuthorizationCommandOutput = StartDeviceAuthorizationResponse & __MetadataBearer;
 
 export class StartDeviceAuthorizationCommand extends $Command<
   StartDeviceAuthorizationCommandInput,
@@ -49,13 +38,8 @@ export class StartDeviceAuthorizationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSOOIDCClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartDeviceAuthorizationCommandInput,
-    StartDeviceAuthorizationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartDeviceAuthorizationCommandInput, StartDeviceAuthorizationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class StartDeviceAuthorizationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartDeviceAuthorizationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartDeviceAuthorizationCommand(
-      input,
-      context
-    );
+  private serialize(input: StartDeviceAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1StartDeviceAuthorizationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDeviceAuthorizationCommandOutput> {
-    return deserializeAws_restJson1_1StartDeviceAuthorizationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceAuthorizationCommandOutput> {
+    return deserializeAws_restJson1_1StartDeviceAuthorizationCommand(output, context);
   }
 
   // Start section: command_body_extra

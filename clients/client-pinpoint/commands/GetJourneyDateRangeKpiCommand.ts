@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetJourneyDateRangeKpiRequest,
-  GetJourneyDateRangeKpiResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand,
   serializeAws_restJson1_1GetJourneyDateRangeKpiCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetJourneyDateRangeKpiCommandInput = GetJourneyDateRangeKpiRequest;
-export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse &
-  __MetadataBearer;
+export type GetJourneyDateRangeKpiCommandOutput = GetJourneyDateRangeKpiResponse & __MetadataBearer;
 
 export class GetJourneyDateRangeKpiCommand extends $Command<
   GetJourneyDateRangeKpiCommandInput,
@@ -49,13 +38,8 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetJourneyDateRangeKpiCommandInput,
-    GetJourneyDateRangeKpiCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetJourneyDateRangeKpiCommandInput, GetJourneyDateRangeKpiCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetJourneyDateRangeKpiCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetJourneyDateRangeKpiCommand(
-      input,
-      context
-    );
+  private serialize(input: GetJourneyDateRangeKpiCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1GetJourneyDateRangeKpiCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetJourneyDateRangeKpiCommandOutput> {
-    return deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJourneyDateRangeKpiCommandOutput> {
+    return deserializeAws_restJson1_1GetJourneyDateRangeKpiCommand(output, context);
   }
 
   // Start section: command_body_extra

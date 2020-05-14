@@ -1,18 +1,11 @@
-import {
-  SESClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESClient";
+import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient";
 import { GetAccountSendingEnabledResponse } from "../models/index";
 import {
   deserializeAws_queryGetAccountSendingEnabledCommand,
   serializeAws_queryGetAccountSendingEnabledCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAccountSendingEnabledCommandInput = {};
-export type GetAccountSendingEnabledCommandOutput = GetAccountSendingEnabledResponse &
-  __MetadataBearer;
+export type GetAccountSendingEnabledCommandOutput = GetAccountSendingEnabledResponse & __MetadataBearer;
 
 export class GetAccountSendingEnabledCommand extends $Command<
   GetAccountSendingEnabledCommandInput,
@@ -46,13 +38,8 @@ export class GetAccountSendingEnabledCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetAccountSendingEnabledCommandInput,
-    GetAccountSendingEnabledCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetAccountSendingEnabledCommandInput, GetAccountSendingEnabledCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetAccountSendingEnabledCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAccountSendingEnabledCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAccountSendingEnabledCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryGetAccountSendingEnabledCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAccountSendingEnabledCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAccountSendingEnabledCommandOutput> {
     return deserializeAws_queryGetAccountSendingEnabledCommand(output, context);
   }
 

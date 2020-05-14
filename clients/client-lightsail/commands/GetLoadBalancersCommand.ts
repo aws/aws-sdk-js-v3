@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  GetLoadBalancersRequest,
-  GetLoadBalancersResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetLoadBalancersRequest, GetLoadBalancersResult } from "../models/index";
 import {
   deserializeAws_json1_1GetLoadBalancersCommand,
   serializeAws_json1_1GetLoadBalancersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetLoadBalancersCommandInput = GetLoadBalancersRequest;
-export type GetLoadBalancersCommandOutput = GetLoadBalancersResult &
-  __MetadataBearer;
+export type GetLoadBalancersCommandOutput = GetLoadBalancersResult & __MetadataBearer;
 
 export class GetLoadBalancersCommand extends $Command<
   GetLoadBalancersCommandInput,
@@ -50,9 +39,7 @@ export class GetLoadBalancersCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLoadBalancersCommandInput, GetLoadBalancersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetLoadBalancersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetLoadBalancersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetLoadBalancersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetLoadBalancersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetLoadBalancersCommandOutput> {
     return deserializeAws_json1_1GetLoadBalancersCommand(output, context);
   }
 

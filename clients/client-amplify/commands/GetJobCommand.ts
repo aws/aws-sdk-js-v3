@@ -1,18 +1,11 @@
-import {
-  AmplifyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AmplifyClient";
+import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
 import { GetJobRequest, GetJobResult } from "../models/index";
 import {
   deserializeAws_restJson1_1GetJobCommand,
   serializeAws_restJson1_1GetJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +20,7 @@ import {
 export type GetJobCommandInput = GetJobRequest;
 export type GetJobCommandOutput = GetJobResult & __MetadataBearer;
 
-export class GetJobCommand extends $Command<
-  GetJobCommandInput,
-  GetJobCommandOutput,
-  AmplifyClientResolvedConfig
-> {
+export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +35,7 @@ export class GetJobCommand extends $Command<
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobCommandInput, GetJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +50,11 @@ export class GetJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> {
     return deserializeAws_restJson1_1GetJobCommand(output, context);
   }
 

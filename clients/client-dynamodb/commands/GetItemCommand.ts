@@ -1,18 +1,8 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
 import { GetItemInput, GetItemOutput } from "../models/index";
-import {
-  deserializeAws_json1_0GetItemCommand,
-  serializeAws_json1_0GetItemCommand
-} from "../protocols/Aws_json1_0";
+import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type GetItemCommandInput = GetItemInput;
 export type GetItemCommandOutput = GetItemOutput & __MetadataBearer;
 
-export class GetItemCommand extends $Command<
-  GetItemCommandInput,
-  GetItemCommandOutput,
-  DynamoDBClientResolvedConfig
-> {
+export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class GetItemCommand extends $Command<
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetItemCommandInput, GetItemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class GetItemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetItemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GetItemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetItemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetItemCommandOutput> {
     return deserializeAws_json1_0GetItemCommand(output, context);
   }
 

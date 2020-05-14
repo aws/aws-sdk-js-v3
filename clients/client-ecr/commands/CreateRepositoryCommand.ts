@@ -1,21 +1,11 @@
-import {
-  ECRClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ECRClient";
-import {
-  CreateRepositoryRequest,
-  CreateRepositoryResponse
-} from "../models/index";
+import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateRepositoryCommand,
   serializeAws_json1_1CreateRepositoryCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateRepositoryCommandInput = CreateRepositoryRequest;
-export type CreateRepositoryCommandOutput = CreateRepositoryResponse &
-  __MetadataBearer;
+export type CreateRepositoryCommandOutput = CreateRepositoryResponse & __MetadataBearer;
 
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,
@@ -50,9 +39,7 @@ export class CreateRepositoryCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRepositoryCommandInput, CreateRepositoryCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateRepositoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateRepositoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateRepositoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateRepositoryCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
     return deserializeAws_json1_1CreateRepositoryCommand(output, context);
   }
 

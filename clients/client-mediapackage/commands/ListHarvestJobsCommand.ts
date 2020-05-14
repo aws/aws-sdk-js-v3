@@ -1,21 +1,11 @@
-import {
-  MediaPackageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaPackageClient";
-import {
-  ListHarvestJobsRequest,
-  ListHarvestJobsResponse
-} from "../models/index";
+import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
+import { ListHarvestJobsRequest, ListHarvestJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListHarvestJobsCommand,
   serializeAws_restJson1_1ListHarvestJobsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHarvestJobsCommandInput = ListHarvestJobsRequest;
-export type ListHarvestJobsCommandOutput = ListHarvestJobsResponse &
-  __MetadataBearer;
+export type ListHarvestJobsCommandOutput = ListHarvestJobsResponse & __MetadataBearer;
 
 export class ListHarvestJobsCommand extends $Command<
   ListHarvestJobsCommandInput,
@@ -50,9 +39,7 @@ export class ListHarvestJobsCommand extends $Command<
     configuration: MediaPackageClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHarvestJobsCommandInput, ListHarvestJobsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListHarvestJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHarvestJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHarvestJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListHarvestJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHarvestJobsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHarvestJobsCommandOutput> {
     return deserializeAws_restJson1_1ListHarvestJobsCommand(output, context);
   }
 

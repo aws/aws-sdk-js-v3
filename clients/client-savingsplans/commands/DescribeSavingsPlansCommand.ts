@@ -1,21 +1,11 @@
-import {
-  DescribeSavingsPlansRequest,
-  DescribeSavingsPlansResponse
-} from "../models/index";
+import { DescribeSavingsPlansRequest, DescribeSavingsPlansResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeSavingsPlansCommand,
   serializeAws_restJson1_1DescribeSavingsPlansCommand
 } from "../protocols/Aws_restJson1_1";
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  savingsplansClientResolvedConfig
-} from "../savingsplansClient";
+import { ServiceInputTypes, ServiceOutputTypes, savingsplansClientResolvedConfig } from "../savingsplansClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeSavingsPlansCommandInput = DescribeSavingsPlansRequest;
-export type DescribeSavingsPlansCommandOutput = DescribeSavingsPlansResponse &
-  __MetadataBearer;
+export type DescribeSavingsPlansCommandOutput = DescribeSavingsPlansResponse & __MetadataBearer;
 
 export class DescribeSavingsPlansCommand extends $Command<
   DescribeSavingsPlansCommandInput,
@@ -49,13 +38,8 @@ export class DescribeSavingsPlansCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: savingsplansClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeSavingsPlansCommandInput,
-    DescribeSavingsPlansCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeSavingsPlansCommandInput, DescribeSavingsPlansCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DescribeSavingsPlansCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeSavingsPlansCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeSavingsPlansCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DescribeSavingsPlansCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeSavingsPlansCommandOutput> {
-    return deserializeAws_restJson1_1DescribeSavingsPlansCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeSavingsPlansCommandOutput> {
+    return deserializeAws_restJson1_1DescribeSavingsPlansCommand(output, context);
   }
 
   // Start section: command_body_extra

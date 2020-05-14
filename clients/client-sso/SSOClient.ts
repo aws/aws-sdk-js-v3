@@ -1,19 +1,7 @@
-import {
-  GetRoleCredentialsCommandInput,
-  GetRoleCredentialsCommandOutput
-} from "./commands/GetRoleCredentialsCommand";
-import {
-  ListAccountRolesCommandInput,
-  ListAccountRolesCommandOutput
-} from "./commands/ListAccountRolesCommand";
-import {
-  ListAccountsCommandInput,
-  ListAccountsCommandOutput
-} from "./commands/ListAccountsCommand";
-import {
-  LogoutCommandInput,
-  LogoutCommandOutput
-} from "./commands/LogoutCommand";
+import { GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput } from "./commands/GetRoleCredentialsCommand";
+import { ListAccountRolesCommandInput, ListAccountRolesCommandOutput } from "./commands/ListAccountRolesCommand";
+import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
+import { LogoutCommandInput, LogoutCommandOutput } from "./commands/LogoutCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -30,12 +18,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -78,8 +61,7 @@ export type ServiceOutputTypes =
   | ListAccountsCommandOutput
   | LogoutCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -163,9 +145,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SSOClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SSOClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -174,9 +154,7 @@ export type SSOClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SSOClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

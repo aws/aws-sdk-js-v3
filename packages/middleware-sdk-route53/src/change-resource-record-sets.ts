@@ -23,10 +23,7 @@ export interface ChangeBatchBearer {
   };
 }
 
-export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
-  any,
-  any
-> {
+export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -43,10 +40,7 @@ export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<
             ...change.ResourceRecordSet,
             AliasTarget: {
               ...AliasTarget,
-              HostedZoneId: AliasTarget.HostedZoneId.replace(
-                IDENTIFIER_PREFIX_PATTERN,
-                ""
-              )
+              HostedZoneId: AliasTarget.HostedZoneId.replace(IDENTIFIER_PREFIX_PATTERN, "")
             }
           }
         });
@@ -74,13 +68,8 @@ export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions
   name: "changeResourceRecordSetsMiddleware"
 };
 
-export const getChangeResourceRecordSetsPlugin = (
-  unused: any
-): Pluggable<any, any> => ({
+export const getChangeResourceRecordSetsPlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: clientStack => {
-    clientStack.add(
-      changeResourceRecordSetsMiddleware(),
-      changeResourceRecordSetsMiddlewareOptions
-    );
+    clientStack.add(changeResourceRecordSetsMiddleware(), changeResourceRecordSetsMiddlewareOptions);
   }
 });

@@ -1,21 +1,11 @@
-import {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CognitoIdentityClient";
-import {
-  GetCredentialsForIdentityInput,
-  GetCredentialsForIdentityResponse
-} from "../models/index";
+import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
+import { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCredentialsForIdentityCommand,
   serializeAws_json1_1GetCredentialsForIdentityCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCredentialsForIdentityCommandInput = GetCredentialsForIdentityInput;
-export type GetCredentialsForIdentityCommandOutput = GetCredentialsForIdentityResponse &
-  __MetadataBearer;
+export type GetCredentialsForIdentityCommandOutput = GetCredentialsForIdentityResponse & __MetadataBearer;
 
 export class GetCredentialsForIdentityCommand extends $Command<
   GetCredentialsForIdentityCommandInput,
@@ -49,13 +38,8 @@ export class GetCredentialsForIdentityCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCredentialsForIdentityCommandInput,
-    GetCredentialsForIdentityCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCredentialsForIdentityCommandInput, GetCredentialsForIdentityCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class GetCredentialsForIdentityCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCredentialsForIdentityCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCredentialsForIdentityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCredentialsForIdentityCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class GetCredentialsForIdentityCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetCredentialsForIdentityCommandOutput> {
-    return deserializeAws_json1_1GetCredentialsForIdentityCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetCredentialsForIdentityCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -10,9 +10,7 @@ import {
 } from "@aws-sdk/types";
 import { ResolvedSsecMiddlewareConfig } from "./configuration";
 
-export function ssecMiddleware(
-  options: ResolvedSsecMiddlewareConfig
-): InitializeMiddleware<any, any> {
+export function ssecMiddleware(options: ResolvedSsecMiddlewareConfig): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
   ): InitializeHandler<any, Output> => async (
@@ -62,9 +60,7 @@ export const ssecMiddlewareOptions: InitializeHandlerOptions = {
   tags: ["SSE"]
 };
 
-export const getSsecPlugin = (
-  config: ResolvedSsecMiddlewareConfig
-): Pluggable<any, any> => ({
+export const getSsecPlugin = (config: ResolvedSsecMiddlewareConfig): Pluggable<any, any> => ({
   applyToStack: clientStack => {
     clientStack.add(ssecMiddleware(config), ssecMiddlewareOptions);
   }

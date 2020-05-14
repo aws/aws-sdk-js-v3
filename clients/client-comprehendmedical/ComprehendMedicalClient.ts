@@ -6,26 +6,11 @@ import {
   DescribePHIDetectionJobCommandInput,
   DescribePHIDetectionJobCommandOutput
 } from "./commands/DescribePHIDetectionJobCommand";
-import {
-  DetectEntitiesCommandInput,
-  DetectEntitiesCommandOutput
-} from "./commands/DetectEntitiesCommand";
-import {
-  DetectEntitiesV2CommandInput,
-  DetectEntitiesV2CommandOutput
-} from "./commands/DetectEntitiesV2Command";
-import {
-  DetectPHICommandInput,
-  DetectPHICommandOutput
-} from "./commands/DetectPHICommand";
-import {
-  InferICD10CMCommandInput,
-  InferICD10CMCommandOutput
-} from "./commands/InferICD10CMCommand";
-import {
-  InferRxNormCommandInput,
-  InferRxNormCommandOutput
-} from "./commands/InferRxNormCommand";
+import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand";
+import { DetectEntitiesV2CommandInput, DetectEntitiesV2CommandOutput } from "./commands/DetectEntitiesV2Command";
+import { DetectPHICommandInput, DetectPHICommandOutput } from "./commands/DetectPHICommand";
+import { InferICD10CMCommandInput, InferICD10CMCommandOutput } from "./commands/InferICD10CMCommand";
+import { InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand";
 import {
   ListEntitiesDetectionV2JobsCommandInput,
   ListEntitiesDetectionV2JobsCommandOutput
@@ -66,12 +51,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +112,7 @@ export type ServiceOutputTypes =
   | StopEntitiesDetectionV2JobCommandOutput
   | StopPHIDetectionJobCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +196,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ComprehendMedicalClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ComprehendMedicalClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +205,7 @@ export type ComprehendMedicalClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ComprehendMedicalClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ComprehendMedicalClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

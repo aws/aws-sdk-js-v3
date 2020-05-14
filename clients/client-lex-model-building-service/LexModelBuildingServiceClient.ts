@@ -1,7 +1,4 @@
-import {
-  CreateBotVersionCommandInput,
-  CreateBotVersionCommandOutput
-} from "./commands/CreateBotVersionCommand";
+import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand";
 import {
   CreateIntentVersionCommandInput,
   CreateIntentVersionCommandOutput
@@ -10,50 +7,26 @@ import {
   CreateSlotTypeVersionCommandInput,
   CreateSlotTypeVersionCommandOutput
 } from "./commands/CreateSlotTypeVersionCommand";
-import {
-  DeleteBotAliasCommandInput,
-  DeleteBotAliasCommandOutput
-} from "./commands/DeleteBotAliasCommand";
+import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
 import {
   DeleteBotChannelAssociationCommandInput,
   DeleteBotChannelAssociationCommandOutput
 } from "./commands/DeleteBotChannelAssociationCommand";
-import {
-  DeleteBotCommandInput,
-  DeleteBotCommandOutput
-} from "./commands/DeleteBotCommand";
-import {
-  DeleteBotVersionCommandInput,
-  DeleteBotVersionCommandOutput
-} from "./commands/DeleteBotVersionCommand";
-import {
-  DeleteIntentCommandInput,
-  DeleteIntentCommandOutput
-} from "./commands/DeleteIntentCommand";
+import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
+import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
+import { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand";
 import {
   DeleteIntentVersionCommandInput,
   DeleteIntentVersionCommandOutput
 } from "./commands/DeleteIntentVersionCommand";
-import {
-  DeleteSlotTypeCommandInput,
-  DeleteSlotTypeCommandOutput
-} from "./commands/DeleteSlotTypeCommand";
+import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./commands/DeleteSlotTypeCommand";
 import {
   DeleteSlotTypeVersionCommandInput,
   DeleteSlotTypeVersionCommandOutput
 } from "./commands/DeleteSlotTypeVersionCommand";
-import {
-  DeleteUtterancesCommandInput,
-  DeleteUtterancesCommandOutput
-} from "./commands/DeleteUtterancesCommand";
-import {
-  GetBotAliasCommandInput,
-  GetBotAliasCommandOutput
-} from "./commands/GetBotAliasCommand";
-import {
-  GetBotAliasesCommandInput,
-  GetBotAliasesCommandOutput
-} from "./commands/GetBotAliasesCommand";
+import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
+import { GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand";
+import { GetBotAliasesCommandInput, GetBotAliasesCommandOutput } from "./commands/GetBotAliasesCommand";
 import {
   GetBotChannelAssociationCommandInput,
   GetBotChannelAssociationCommandOutput
@@ -62,86 +35,32 @@ import {
   GetBotChannelAssociationsCommandInput,
   GetBotChannelAssociationsCommandOutput
 } from "./commands/GetBotChannelAssociationsCommand";
-import {
-  GetBotCommandInput,
-  GetBotCommandOutput
-} from "./commands/GetBotCommand";
-import {
-  GetBotVersionsCommandInput,
-  GetBotVersionsCommandOutput
-} from "./commands/GetBotVersionsCommand";
-import {
-  GetBotsCommandInput,
-  GetBotsCommandOutput
-} from "./commands/GetBotsCommand";
-import {
-  GetBuiltinIntentCommandInput,
-  GetBuiltinIntentCommandOutput
-} from "./commands/GetBuiltinIntentCommand";
-import {
-  GetBuiltinIntentsCommandInput,
-  GetBuiltinIntentsCommandOutput
-} from "./commands/GetBuiltinIntentsCommand";
+import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import { GetBotVersionsCommandInput, GetBotVersionsCommandOutput } from "./commands/GetBotVersionsCommand";
+import { GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
+import { GetBuiltinIntentCommandInput, GetBuiltinIntentCommandOutput } from "./commands/GetBuiltinIntentCommand";
+import { GetBuiltinIntentsCommandInput, GetBuiltinIntentsCommandOutput } from "./commands/GetBuiltinIntentsCommand";
 import {
   GetBuiltinSlotTypesCommandInput,
   GetBuiltinSlotTypesCommandOutput
 } from "./commands/GetBuiltinSlotTypesCommand";
-import {
-  GetExportCommandInput,
-  GetExportCommandOutput
-} from "./commands/GetExportCommand";
-import {
-  GetImportCommandInput,
-  GetImportCommandOutput
-} from "./commands/GetImportCommand";
-import {
-  GetIntentCommandInput,
-  GetIntentCommandOutput
-} from "./commands/GetIntentCommand";
-import {
-  GetIntentVersionsCommandInput,
-  GetIntentVersionsCommandOutput
-} from "./commands/GetIntentVersionsCommand";
-import {
-  GetIntentsCommandInput,
-  GetIntentsCommandOutput
-} from "./commands/GetIntentsCommand";
-import {
-  GetSlotTypeCommandInput,
-  GetSlotTypeCommandOutput
-} from "./commands/GetSlotTypeCommand";
+import { GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
+import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
+import { GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
+import { GetIntentVersionsCommandInput, GetIntentVersionsCommandOutput } from "./commands/GetIntentVersionsCommand";
+import { GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
+import { GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
   GetSlotTypeVersionsCommandInput,
   GetSlotTypeVersionsCommandOutput
 } from "./commands/GetSlotTypeVersionsCommand";
-import {
-  GetSlotTypesCommandInput,
-  GetSlotTypesCommandOutput
-} from "./commands/GetSlotTypesCommand";
-import {
-  GetUtterancesViewCommandInput,
-  GetUtterancesViewCommandOutput
-} from "./commands/GetUtterancesViewCommand";
-import {
-  PutBotAliasCommandInput,
-  PutBotAliasCommandOutput
-} from "./commands/PutBotAliasCommand";
-import {
-  PutBotCommandInput,
-  PutBotCommandOutput
-} from "./commands/PutBotCommand";
-import {
-  PutIntentCommandInput,
-  PutIntentCommandOutput
-} from "./commands/PutIntentCommand";
-import {
-  PutSlotTypeCommandInput,
-  PutSlotTypeCommandOutput
-} from "./commands/PutSlotTypeCommand";
-import {
-  StartImportCommandInput,
-  StartImportCommandOutput
-} from "./commands/StartImportCommand";
+import { GetSlotTypesCommandInput, GetSlotTypesCommandOutput } from "./commands/GetSlotTypesCommand";
+import { GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput } from "./commands/GetUtterancesViewCommand";
+import { PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand";
+import { PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand";
+import { PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand";
+import { PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -158,12 +77,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -270,8 +184,7 @@ export type ServiceOutputTypes =
   | PutSlotTypeCommandOutput
   | StartImportCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -355,9 +268,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LexModelBuildingServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LexModelBuildingServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -366,9 +277,7 @@ export type LexModelBuildingServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LexModelBuildingServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LexModelBuildingServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

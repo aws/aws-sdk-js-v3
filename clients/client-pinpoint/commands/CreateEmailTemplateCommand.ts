@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  CreateEmailTemplateRequest,
-  CreateEmailTemplateResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { CreateEmailTemplateRequest, CreateEmailTemplateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateEmailTemplateCommand,
   serializeAws_restJson1_1CreateEmailTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateEmailTemplateCommandInput = CreateEmailTemplateRequest;
-export type CreateEmailTemplateCommandOutput = CreateEmailTemplateResponse &
-  __MetadataBearer;
+export type CreateEmailTemplateCommandOutput = CreateEmailTemplateResponse & __MetadataBearer;
 
 export class CreateEmailTemplateCommand extends $Command<
   CreateEmailTemplateCommandInput,
@@ -49,13 +38,8 @@ export class CreateEmailTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateEmailTemplateCommandInput,
-    CreateEmailTemplateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateEmailTemplateCommandInput, CreateEmailTemplateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class CreateEmailTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateEmailTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateEmailTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateEmailTemplateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1_1CreateEmailTemplateCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEmailTemplateCommandOutput> {
+    return deserializeAws_restJson1_1CreateEmailTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -139,11 +139,7 @@ import {
   StartPipelineReprocessingCommandInput,
   StartPipelineReprocessingCommandOutput
 } from "./commands/StartPipelineReprocessingCommand";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -211,17 +207,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public cancelPipelineReprocessing(
     args: CancelPipelineReprocessingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CancelPipelineReprocessingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelPipelineReprocessingCommandOutput) => void),
     cb?: (err: any, data?: CancelPipelineReprocessingCommandOutput) => void
   ): Promise<CancelPipelineReprocessingCommandOutput> | void {
     const command = new CancelPipelineReprocessingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -247,17 +240,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createChannel(
     args: CreateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelCommandOutput) => void),
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -285,17 +275,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createDataset(
     args: CreateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetCommandOutput) => void
   ): Promise<CreateDatasetCommandOutput> | void {
     const command = new CreateDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -321,17 +308,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createDatasetContent(
     args: CreateDatasetContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatasetContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetContentCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetContentCommandOutput) => void
   ): Promise<CreateDatasetContentCommandOutput> | void {
     const command = new CreateDatasetContentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -356,17 +340,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createDatastore(
     args: CreateDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreateDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatastoreCommandOutput) => void),
     cb?: (err: any, data?: CreateDatastoreCommandOutput) => void
   ): Promise<CreateDatastoreCommandOutput> | void {
     const command = new CreateDatastoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -394,17 +375,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public createPipeline(
     args: CreatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: CreatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePipelineCommandOutput) => void),
     cb?: (err: any, data?: CreatePipelineCommandOutput) => void
   ): Promise<CreatePipelineCommandOutput> | void {
     const command = new CreatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -429,17 +407,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteChannel(
     args: DeleteChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelCommandOutput) => void),
     cb?: (err: any, data?: DeleteChannelCommandOutput) => void
   ): Promise<DeleteChannelCommandOutput> | void {
     const command = new DeleteChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -465,17 +440,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -500,17 +472,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteDatasetContent(
     args: DeleteDatasetContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatasetContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetContentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetContentCommandOutput) => void
   ): Promise<DeleteDatasetContentCommandOutput> | void {
     const command = new DeleteDatasetContentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -535,17 +504,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deleteDatastore(
     args: DeleteDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeleteDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatastoreCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatastoreCommandOutput) => void
   ): Promise<DeleteDatastoreCommandOutput> | void {
     const command = new DeleteDatastoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -570,17 +536,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public deletePipeline(
     args: DeletePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DeletePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePipelineCommandOutput) => void),
     cb?: (err: any, data?: DeletePipelineCommandOutput) => void
   ): Promise<DeletePipelineCommandOutput> | void {
     const command = new DeletePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -605,17 +568,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describeChannel(
     args: DescribeChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelCommandOutput) => void),
     cb?: (err: any, data?: DescribeChannelCommandOutput) => void
   ): Promise<DescribeChannelCommandOutput> | void {
     const command = new DescribeChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -640,17 +600,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -675,17 +632,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describeDatastore(
     args: DescribeDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatastoreCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatastoreCommandOutput) => void
   ): Promise<DescribeDatastoreCommandOutput> | void {
     const command = new DescribeDatastoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -710,17 +664,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribeLoggingOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLoggingOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeLoggingOptionsCommandOutput) => void
   ): Promise<DescribeLoggingOptionsCommandOutput> | void {
     const command = new DescribeLoggingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -745,17 +696,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public describePipeline(
     args: DescribePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: DescribePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePipelineCommandOutput) => void),
     cb?: (err: any, data?: DescribePipelineCommandOutput) => void
   ): Promise<DescribePipelineCommandOutput> | void {
     const command = new DescribePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -780,17 +728,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public getDatasetContent(
     args: GetDatasetContentCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: GetDatasetContentCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDatasetContentCommandOutput) => void),
     cb?: (err: any, data?: GetDatasetContentCommandOutput) => void
   ): Promise<GetDatasetContentCommandOutput> | void {
     const command = new GetDatasetContentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -804,10 +749,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
     args: ListChannelsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListChannelsCommandOutput>;
-  public listChannels(
-    args: ListChannelsCommandInput,
-    cb: (err: any, data?: ListChannelsCommandOutput) => void
-  ): void;
+  public listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   public listChannels(
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
@@ -815,17 +757,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listChannels(
     args: ListChannelsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListChannelsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelsCommandOutput) => void),
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -850,17 +789,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listDatasetContents(
     args: ListDatasetContentsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetContentsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetContentsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetContentsCommandOutput) => void
   ): Promise<ListDatasetContentsCommandOutput> | void {
     const command = new ListDatasetContentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -874,10 +810,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
     args: ListDatasetsCommandInput,
     options?: __HttpHandlerOptions
   ): Promise<ListDatasetsCommandOutput>;
-  public listDatasets(
-    args: ListDatasetsCommandInput,
-    cb: (err: any, data?: ListDatasetsCommandOutput) => void
-  ): void;
+  public listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
@@ -885,17 +818,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -920,17 +850,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listDatastores(
     args: ListDatastoresCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListDatastoresCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatastoresCommandOutput) => void),
     cb?: (err: any, data?: ListDatastoresCommandOutput) => void
   ): Promise<ListDatastoresCommandOutput> | void {
     const command = new ListDatastoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -955,17 +882,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listPipelines(
     args: ListPipelinesCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListPipelinesCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPipelinesCommandOutput) => void),
     cb?: (err: any, data?: ListPipelinesCommandOutput) => void
   ): Promise<ListPipelinesCommandOutput> | void {
     const command = new ListPipelinesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -990,17 +914,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1030,17 +951,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: PutLoggingOptionsCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingOptionsCommandOutput) => void),
     cb?: (err: any, data?: PutLoggingOptionsCommandOutput) => void
   ): Promise<PutLoggingOptionsCommandOutput> | void {
     const command = new PutLoggingOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1065,17 +983,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public runPipelineActivity(
     args: RunPipelineActivityCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: RunPipelineActivityCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunPipelineActivityCommandOutput) => void),
     cb?: (err: any, data?: RunPipelineActivityCommandOutput) => void
   ): Promise<RunPipelineActivityCommandOutput> | void {
     const command = new RunPipelineActivityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1101,17 +1016,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public sampleChannelData(
     args: SampleChannelDataCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: SampleChannelDataCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SampleChannelDataCommandOutput) => void),
     cb?: (err: any, data?: SampleChannelDataCommandOutput) => void
   ): Promise<SampleChannelDataCommandOutput> | void {
     const command = new SampleChannelDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1136,17 +1048,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public startPipelineReprocessing(
     args: StartPipelineReprocessingCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: StartPipelineReprocessingCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPipelineReprocessingCommandOutput) => void),
     cb?: (err: any, data?: StartPipelineReprocessingCommandOutput) => void
   ): Promise<StartPipelineReprocessingCommandOutput> | void {
     const command = new StartPipelineReprocessingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1157,14 +1066,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
    * <p>Adds to or modifies the tags of the given resource.  Tags are metadata
    *           which can be used to manage a resource.</p>
    */
-  public tagResource(
-    args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<TagResourceCommandOutput>;
-  public tagResource(
-    args: TagResourceCommandInput,
-    cb: (err: any, data?: TagResourceCommandOutput) => void
-  ): void;
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
   public tagResource(
     args: TagResourceCommandInput,
     options: __HttpHandlerOptions,
@@ -1172,17 +1075,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1207,17 +1107,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1242,17 +1139,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updateChannel(
     args: UpdateChannelCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateChannelCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelCommandOutput) => void),
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1277,17 +1171,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updateDataset(
     args: UpdateDatasetCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatasetCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatasetCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatasetCommandOutput) => void
   ): Promise<UpdateDatasetCommandOutput> | void {
     const command = new UpdateDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1312,17 +1203,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updateDatastore(
     args: UpdateDatastoreCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdateDatastoreCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatastoreCommandOutput) => void),
     cb?: (err: any, data?: UpdateDatastoreCommandOutput) => void
   ): Promise<UpdateDatastoreCommandOutput> | void {
     const command = new UpdateDatastoreCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1349,17 +1237,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public updatePipeline(
     args: UpdatePipelineCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: UpdatePipelineCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePipelineCommandOutput) => void),
     cb?: (err: any, data?: UpdatePipelineCommandOutput) => void
   ): Promise<UpdatePipelineCommandOutput> | void {
     const command = new UpdatePipelineCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -1384,17 +1269,14 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   ): void;
   public batchPutMessage(
     args: BatchPutMessageCommandInput,
-    optionsOrCb?:
-      | __HttpHandlerOptions
-      | ((err: any, data?: BatchPutMessageCommandOutput) => void),
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutMessageCommandOutput) => void),
     cb?: (err: any, data?: BatchPutMessageCommandOutput) => void
   ): Promise<BatchPutMessageCommandOutput> | void {
     const command = new BatchPutMessageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);

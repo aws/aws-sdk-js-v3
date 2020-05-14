@@ -1,18 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { GetAssignmentRequest, GetAssignmentResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAssignmentCommand,
   serializeAws_json1_1GetAssignmentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAssignmentCommandInput = GetAssignmentRequest;
-export type GetAssignmentCommandOutput = GetAssignmentResponse &
-  __MetadataBearer;
+export type GetAssignmentCommandOutput = GetAssignmentResponse & __MetadataBearer;
 
 export class GetAssignmentCommand extends $Command<
   GetAssignmentCommandInput,
@@ -47,9 +39,7 @@ export class GetAssignmentCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAssignmentCommandInput, GetAssignmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetAssignmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAssignmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAssignmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAssignmentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssignmentCommandOutput> {
     return deserializeAws_json1_1GetAssignmentCommand(output, context);
   }
 

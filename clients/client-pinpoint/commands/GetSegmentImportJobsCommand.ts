@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetSegmentImportJobsRequest,
-  GetSegmentImportJobsResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetSegmentImportJobsRequest, GetSegmentImportJobsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSegmentImportJobsCommand,
   serializeAws_restJson1_1GetSegmentImportJobsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetSegmentImportJobsCommandInput = GetSegmentImportJobsRequest;
-export type GetSegmentImportJobsCommandOutput = GetSegmentImportJobsResponse &
-  __MetadataBearer;
+export type GetSegmentImportJobsCommandOutput = GetSegmentImportJobsResponse & __MetadataBearer;
 
 export class GetSegmentImportJobsCommand extends $Command<
   GetSegmentImportJobsCommandInput,
@@ -49,13 +38,8 @@ export class GetSegmentImportJobsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetSegmentImportJobsCommandInput,
-    GetSegmentImportJobsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetSegmentImportJobsCommandInput, GetSegmentImportJobsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class GetSegmentImportJobsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetSegmentImportJobsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetSegmentImportJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetSegmentImportJobsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetSegmentImportJobsCommandOutput> {
-    return deserializeAws_restJson1_1GetSegmentImportJobsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetSegmentImportJobsCommandOutput> {
+    return deserializeAws_restJson1_1GetSegmentImportJobsCommand(output, context);
   }
 
   // Start section: command_body_extra

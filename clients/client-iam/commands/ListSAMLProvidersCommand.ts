@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListSAMLProvidersRequest,
-  ListSAMLProvidersResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListSAMLProvidersRequest, ListSAMLProvidersResponse } from "../models/index";
 import {
   deserializeAws_queryListSAMLProvidersCommand,
   serializeAws_queryListSAMLProvidersCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSAMLProvidersCommandInput = ListSAMLProvidersRequest;
-export type ListSAMLProvidersCommandOutput = ListSAMLProvidersResponse &
-  __MetadataBearer;
+export type ListSAMLProvidersCommandOutput = ListSAMLProvidersResponse & __MetadataBearer;
 
 export class ListSAMLProvidersCommand extends $Command<
   ListSAMLProvidersCommandInput,
@@ -50,9 +39,7 @@ export class ListSAMLProvidersCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSAMLProvidersCommandInput, ListSAMLProvidersCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListSAMLProvidersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSAMLProvidersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSAMLProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSAMLProvidersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSAMLProvidersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSAMLProvidersCommandOutput> {
     return deserializeAws_queryListSAMLProvidersCommand(output, context);
   }
 

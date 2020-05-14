@@ -30,26 +30,14 @@ import {
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand";
-import {
-  CopyProductCommandInput,
-  CopyProductCommandOutput
-} from "./commands/CopyProductCommand";
-import {
-  CreateConstraintCommandInput,
-  CreateConstraintCommandOutput
-} from "./commands/CreateConstraintCommand";
-import {
-  CreatePortfolioCommandInput,
-  CreatePortfolioCommandOutput
-} from "./commands/CreatePortfolioCommand";
+import { CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand";
+import { CreateConstraintCommandInput, CreateConstraintCommandOutput } from "./commands/CreateConstraintCommand";
+import { CreatePortfolioCommandInput, CreatePortfolioCommandOutput } from "./commands/CreatePortfolioCommand";
 import {
   CreatePortfolioShareCommandInput,
   CreatePortfolioShareCommandOutput
 } from "./commands/CreatePortfolioShareCommand";
-import {
-  CreateProductCommandInput,
-  CreateProductCommandOutput
-} from "./commands/CreateProductCommand";
+import { CreateProductCommandInput, CreateProductCommandOutput } from "./commands/CreateProductCommand";
 import {
   CreateProvisionedProductPlanCommandInput,
   CreateProvisionedProductPlanCommandOutput
@@ -62,26 +50,14 @@ import {
   CreateServiceActionCommandInput,
   CreateServiceActionCommandOutput
 } from "./commands/CreateServiceActionCommand";
-import {
-  CreateTagOptionCommandInput,
-  CreateTagOptionCommandOutput
-} from "./commands/CreateTagOptionCommand";
-import {
-  DeleteConstraintCommandInput,
-  DeleteConstraintCommandOutput
-} from "./commands/DeleteConstraintCommand";
-import {
-  DeletePortfolioCommandInput,
-  DeletePortfolioCommandOutput
-} from "./commands/DeletePortfolioCommand";
+import { CreateTagOptionCommandInput, CreateTagOptionCommandOutput } from "./commands/CreateTagOptionCommand";
+import { DeleteConstraintCommandInput, DeleteConstraintCommandOutput } from "./commands/DeleteConstraintCommand";
+import { DeletePortfolioCommandInput, DeletePortfolioCommandOutput } from "./commands/DeletePortfolioCommand";
 import {
   DeletePortfolioShareCommandInput,
   DeletePortfolioShareCommandOutput
 } from "./commands/DeletePortfolioShareCommand";
-import {
-  DeleteProductCommandInput,
-  DeleteProductCommandOutput
-} from "./commands/DeleteProductCommand";
+import { DeleteProductCommandInput, DeleteProductCommandOutput } from "./commands/DeleteProductCommand";
 import {
   DeleteProvisionedProductPlanCommandInput,
   DeleteProvisionedProductPlanCommandOutput
@@ -94,22 +70,13 @@ import {
   DeleteServiceActionCommandInput,
   DeleteServiceActionCommandOutput
 } from "./commands/DeleteServiceActionCommand";
-import {
-  DeleteTagOptionCommandInput,
-  DeleteTagOptionCommandOutput
-} from "./commands/DeleteTagOptionCommand";
-import {
-  DescribeConstraintCommandInput,
-  DescribeConstraintCommandOutput
-} from "./commands/DescribeConstraintCommand";
+import { DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput } from "./commands/DeleteTagOptionCommand";
+import { DescribeConstraintCommandInput, DescribeConstraintCommandOutput } from "./commands/DescribeConstraintCommand";
 import {
   DescribeCopyProductStatusCommandInput,
   DescribeCopyProductStatusCommandOutput
 } from "./commands/DescribeCopyProductStatusCommand";
-import {
-  DescribePortfolioCommandInput,
-  DescribePortfolioCommandOutput
-} from "./commands/DescribePortfolioCommand";
+import { DescribePortfolioCommandInput, DescribePortfolioCommandOutput } from "./commands/DescribePortfolioCommand";
 import {
   DescribePortfolioShareStatusCommandInput,
   DescribePortfolioShareStatusCommandOutput
@@ -118,10 +85,7 @@ import {
   DescribeProductAsAdminCommandInput,
   DescribeProductAsAdminCommandOutput
 } from "./commands/DescribeProductAsAdminCommand";
-import {
-  DescribeProductCommandInput,
-  DescribeProductCommandOutput
-} from "./commands/DescribeProductCommand";
+import { DescribeProductCommandInput, DescribeProductCommandOutput } from "./commands/DescribeProductCommand";
 import {
   DescribeProductViewCommandInput,
   DescribeProductViewCommandOutput
@@ -142,10 +106,7 @@ import {
   DescribeProvisioningParametersCommandInput,
   DescribeProvisioningParametersCommandOutput
 } from "./commands/DescribeProvisioningParametersCommand";
-import {
-  DescribeRecordCommandInput,
-  DescribeRecordCommandOutput
-} from "./commands/DescribeRecordCommand";
+import { DescribeRecordCommandInput, DescribeRecordCommandOutput } from "./commands/DescribeRecordCommand";
 import {
   DescribeServiceActionCommandInput,
   DescribeServiceActionCommandOutput
@@ -154,10 +115,7 @@ import {
   DescribeServiceActionExecutionParametersCommandInput,
   DescribeServiceActionExecutionParametersCommandOutput
 } from "./commands/DescribeServiceActionExecutionParametersCommand";
-import {
-  DescribeTagOptionCommandInput,
-  DescribeTagOptionCommandOutput
-} from "./commands/DescribeTagOptionCommand";
+import { DescribeTagOptionCommandInput, DescribeTagOptionCommandOutput } from "./commands/DescribeTagOptionCommand";
 import {
   DisableAWSOrganizationsAccessCommandInput,
   DisableAWSOrganizationsAccessCommandOutput
@@ -210,10 +168,7 @@ import {
   ListConstraintsForPortfolioCommandInput,
   ListConstraintsForPortfolioCommandOutput
 } from "./commands/ListConstraintsForPortfolioCommand";
-import {
-  ListLaunchPathsCommandInput,
-  ListLaunchPathsCommandOutput
-} from "./commands/ListLaunchPathsCommand";
+import { ListLaunchPathsCommandInput, ListLaunchPathsCommandOutput } from "./commands/ListLaunchPathsCommand";
 import {
   ListOrganizationPortfolioAccessCommandInput,
   ListOrganizationPortfolioAccessCommandOutput
@@ -222,10 +177,7 @@ import {
   ListPortfolioAccessCommandInput,
   ListPortfolioAccessCommandOutput
 } from "./commands/ListPortfolioAccessCommand";
-import {
-  ListPortfoliosCommandInput,
-  ListPortfoliosCommandOutput
-} from "./commands/ListPortfoliosCommand";
+import { ListPortfoliosCommandInput, ListPortfoliosCommandOutput } from "./commands/ListPortfoliosCommand";
 import {
   ListPortfoliosForProductCommandInput,
   ListPortfoliosForProductCommandOutput
@@ -246,18 +198,12 @@ import {
   ListProvisioningArtifactsForServiceActionCommandInput,
   ListProvisioningArtifactsForServiceActionCommandOutput
 } from "./commands/ListProvisioningArtifactsForServiceActionCommand";
-import {
-  ListRecordHistoryCommandInput,
-  ListRecordHistoryCommandOutput
-} from "./commands/ListRecordHistoryCommand";
+import { ListRecordHistoryCommandInput, ListRecordHistoryCommandOutput } from "./commands/ListRecordHistoryCommand";
 import {
   ListResourcesForTagOptionCommandInput,
   ListResourcesForTagOptionCommandOutput
 } from "./commands/ListResourcesForTagOptionCommand";
-import {
-  ListServiceActionsCommandInput,
-  ListServiceActionsCommandOutput
-} from "./commands/ListServiceActionsCommand";
+import { ListServiceActionsCommandInput, ListServiceActionsCommandOutput } from "./commands/ListServiceActionsCommand";
 import {
   ListServiceActionsForProvisioningArtifactCommandInput,
   ListServiceActionsForProvisioningArtifactCommandOutput
@@ -266,14 +212,8 @@ import {
   ListStackInstancesForProvisionedProductCommandInput,
   ListStackInstancesForProvisionedProductCommandOutput
 } from "./commands/ListStackInstancesForProvisionedProductCommand";
-import {
-  ListTagOptionsCommandInput,
-  ListTagOptionsCommandOutput
-} from "./commands/ListTagOptionsCommand";
-import {
-  ProvisionProductCommandInput,
-  ProvisionProductCommandOutput
-} from "./commands/ProvisionProductCommand";
+import { ListTagOptionsCommandInput, ListTagOptionsCommandOutput } from "./commands/ListTagOptionsCommand";
+import { ProvisionProductCommandInput, ProvisionProductCommandOutput } from "./commands/ProvisionProductCommand";
 import {
   RejectPortfolioShareCommandInput,
   RejectPortfolioShareCommandOutput
@@ -286,10 +226,7 @@ import {
   SearchProductsAsAdminCommandInput,
   SearchProductsAsAdminCommandOutput
 } from "./commands/SearchProductsAsAdminCommand";
-import {
-  SearchProductsCommandInput,
-  SearchProductsCommandOutput
-} from "./commands/SearchProductsCommand";
+import { SearchProductsCommandInput, SearchProductsCommandOutput } from "./commands/SearchProductsCommand";
 import {
   SearchProvisionedProductsCommandInput,
   SearchProvisionedProductsCommandOutput
@@ -298,18 +235,9 @@ import {
   TerminateProvisionedProductCommandInput,
   TerminateProvisionedProductCommandOutput
 } from "./commands/TerminateProvisionedProductCommand";
-import {
-  UpdateConstraintCommandInput,
-  UpdateConstraintCommandOutput
-} from "./commands/UpdateConstraintCommand";
-import {
-  UpdatePortfolioCommandInput,
-  UpdatePortfolioCommandOutput
-} from "./commands/UpdatePortfolioCommand";
-import {
-  UpdateProductCommandInput,
-  UpdateProductCommandOutput
-} from "./commands/UpdateProductCommand";
+import { UpdateConstraintCommandInput, UpdateConstraintCommandOutput } from "./commands/UpdateConstraintCommand";
+import { UpdatePortfolioCommandInput, UpdatePortfolioCommandOutput } from "./commands/UpdatePortfolioCommand";
+import { UpdateProductCommandInput, UpdateProductCommandOutput } from "./commands/UpdateProductCommand";
 import {
   UpdateProvisionedProductCommandInput,
   UpdateProvisionedProductCommandOutput
@@ -326,10 +254,7 @@ import {
   UpdateServiceActionCommandInput,
   UpdateServiceActionCommandOutput
 } from "./commands/UpdateServiceActionCommand";
-import {
-  UpdateTagOptionCommandInput,
-  UpdateTagOptionCommandOutput
-} from "./commands/UpdateTagOptionCommand";
+import { UpdateTagOptionCommandInput, UpdateTagOptionCommandOutput } from "./commands/UpdateTagOptionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -346,12 +271,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -552,8 +472,7 @@ export type ServiceOutputTypes =
   | UpdateServiceActionCommandOutput
   | UpdateTagOptionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -637,9 +556,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ServiceCatalogClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ServiceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -648,9 +565,7 @@ export type ServiceCatalogClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

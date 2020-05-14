@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ComprehendMedicalClient";
-import {
-  StartPHIDetectionJobRequest,
-  StartPHIDetectionJobResponse
-} from "../models/index";
+import { StartPHIDetectionJobRequest, StartPHIDetectionJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1StartPHIDetectionJobCommand,
   serializeAws_json1_1StartPHIDetectionJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartPHIDetectionJobCommandInput = StartPHIDetectionJobRequest;
-export type StartPHIDetectionJobCommandOutput = StartPHIDetectionJobResponse &
-  __MetadataBearer;
+export type StartPHIDetectionJobCommandOutput = StartPHIDetectionJobResponse & __MetadataBearer;
 
 export class StartPHIDetectionJobCommand extends $Command<
   StartPHIDetectionJobCommandInput,
@@ -49,13 +42,8 @@ export class StartPHIDetectionJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartPHIDetectionJobCommandInput,
-    StartPHIDetectionJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartPHIDetectionJobCommandInput, StartPHIDetectionJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class StartPHIDetectionJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartPHIDetectionJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartPHIDetectionJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1StartPHIDetectionJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartPHIDetectionJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPHIDetectionJobCommandOutput> {
     return deserializeAws_json1_1StartPHIDetectionJobCommand(output, context);
   }
 

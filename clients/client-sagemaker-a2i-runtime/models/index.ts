@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ContentClassifier {
@@ -18,8 +15,7 @@ export interface DeleteHumanLoopRequest {
 }
 
 export namespace DeleteHumanLoopRequest {
-  export const isa = (o: any): o is DeleteHumanLoopRequest =>
-    __isa(o, "DeleteHumanLoopRequest");
+  export const isa = (o: any): o is DeleteHumanLoopRequest => __isa(o, "DeleteHumanLoopRequest");
 }
 
 export interface DeleteHumanLoopResponse {
@@ -27,8 +23,7 @@ export interface DeleteHumanLoopResponse {
 }
 
 export namespace DeleteHumanLoopResponse {
-  export const isa = (o: any): o is DeleteHumanLoopResponse =>
-    __isa(o, "DeleteHumanLoopResponse");
+  export const isa = (o: any): o is DeleteHumanLoopResponse => __isa(o, "DeleteHumanLoopResponse");
 }
 
 export interface DescribeHumanLoopRequest {
@@ -40,8 +35,7 @@ export interface DescribeHumanLoopRequest {
 }
 
 export namespace DescribeHumanLoopRequest {
-  export const isa = (o: any): o is DescribeHumanLoopRequest =>
-    __isa(o, "DescribeHumanLoopRequest");
+  export const isa = (o: any): o is DescribeHumanLoopRequest => __isa(o, "DescribeHumanLoopRequest");
 }
 
 export interface DescribeHumanLoopResponse {
@@ -93,8 +87,7 @@ export interface DescribeHumanLoopResponse {
 }
 
 export namespace DescribeHumanLoopResponse {
-  export const isa = (o: any): o is DescribeHumanLoopResponse =>
-    __isa(o, "DescribeHumanLoopResponse");
+  export const isa = (o: any): o is DescribeHumanLoopResponse => __isa(o, "DescribeHumanLoopResponse");
 }
 
 /**
@@ -109,8 +102,7 @@ export interface HumanLoopActivationReason {
 }
 
 export namespace HumanLoopActivationReason {
-  export const isa = (o: any): o is HumanLoopActivationReason =>
-    __isa(o, "HumanLoopActivationReason");
+  export const isa = (o: any): o is HumanLoopActivationReason => __isa(o, "HumanLoopActivationReason");
 }
 
 /**
@@ -130,8 +122,7 @@ export interface HumanLoopActivationResults {
 }
 
 export namespace HumanLoopActivationResults {
-  export const isa = (o: any): o is HumanLoopActivationResults =>
-    __isa(o, "HumanLoopActivationResults");
+  export const isa = (o: any): o is HumanLoopActivationResults => __isa(o, "HumanLoopActivationResults");
 }
 
 /**
@@ -146,8 +137,7 @@ export interface HumanLoopInputContent {
 }
 
 export namespace HumanLoopInputContent {
-  export const isa = (o: any): o is HumanLoopInputContent =>
-    __isa(o, "HumanLoopInputContent");
+  export const isa = (o: any): o is HumanLoopInputContent => __isa(o, "HumanLoopInputContent");
 }
 
 /**
@@ -163,8 +153,7 @@ export interface HumanLoopOutputContent {
 }
 
 export namespace HumanLoopOutputContent {
-  export const isa = (o: any): o is HumanLoopOutputContent =>
-    __isa(o, "HumanLoopOutputContent");
+  export const isa = (o: any): o is HumanLoopOutputContent => __isa(o, "HumanLoopOutputContent");
 }
 
 export enum HumanLoopStatus {
@@ -207,8 +196,7 @@ export interface HumanLoopSummary {
 }
 
 export namespace HumanLoopSummary {
-  export const isa = (o: any): o is HumanLoopSummary =>
-    __isa(o, "HumanLoopSummary");
+  export const isa = (o: any): o is HumanLoopSummary => __isa(o, "HumanLoopSummary");
 }
 
 /**
@@ -224,24 +212,20 @@ export interface HumanReviewDataAttributes {
 }
 
 export namespace HumanReviewDataAttributes {
-  export const isa = (o: any): o is HumanReviewDataAttributes =>
-    __isa(o, "HumanReviewDataAttributes");
+  export const isa = (o: any): o is HumanReviewDataAttributes => __isa(o, "HumanReviewDataAttributes");
 }
 
 /**
  * <p>Your request could not be processed.</p>
  */
-export interface InternalServerException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerException {
-  export const isa = (o: any): o is InternalServerException =>
-    __isa(o, "InternalServerException");
+  export const isa = (o: any): o is InternalServerException => __isa(o, "InternalServerException");
 }
 
 export interface ListHumanLoopsRequest {
@@ -273,8 +257,7 @@ export interface ListHumanLoopsRequest {
 }
 
 export namespace ListHumanLoopsRequest {
-  export const isa = (o: any): o is ListHumanLoopsRequest =>
-    __isa(o, "ListHumanLoopsRequest");
+  export const isa = (o: any): o is ListHumanLoopsRequest => __isa(o, "ListHumanLoopsRequest");
 }
 
 export interface ListHumanLoopsResponse {
@@ -291,40 +274,33 @@ export interface ListHumanLoopsResponse {
 }
 
 export namespace ListHumanLoopsResponse {
-  export const isa = (o: any): o is ListHumanLoopsResponse =>
-    __isa(o, "ListHumanLoopsResponse");
+  export const isa = (o: any): o is ListHumanLoopsResponse => __isa(o, "ListHumanLoopsResponse");
 }
 
 /**
  * <p>We were unable to find the requested resource.</p>
  */
-export interface ResourceNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceNotFoundException {
-  export const isa = (o: any): o is ResourceNotFoundException =>
-    __isa(o, "ResourceNotFoundException");
+  export const isa = (o: any): o is ResourceNotFoundException => __isa(o, "ResourceNotFoundException");
 }
 
 /**
  * <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or request a service quota increase.</p>
  */
-export interface ServiceQuotaExceededException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ServiceQuotaExceededException {
-  export const isa = (o: any): o is ServiceQuotaExceededException =>
-    __isa(o, "ServiceQuotaExceededException");
+  export const isa = (o: any): o is ServiceQuotaExceededException => __isa(o, "ServiceQuotaExceededException");
 }
 
 export enum SortOrder {
@@ -356,8 +332,7 @@ export interface StartHumanLoopRequest {
 }
 
 export namespace StartHumanLoopRequest {
-  export const isa = (o: any): o is StartHumanLoopRequest =>
-    __isa(o, "StartHumanLoopRequest");
+  export const isa = (o: any): o is StartHumanLoopRequest => __isa(o, "StartHumanLoopRequest");
 }
 
 export interface StartHumanLoopResponse {
@@ -374,8 +349,7 @@ export interface StartHumanLoopResponse {
 }
 
 export namespace StartHumanLoopResponse {
-  export const isa = (o: any): o is StartHumanLoopResponse =>
-    __isa(o, "StartHumanLoopResponse");
+  export const isa = (o: any): o is StartHumanLoopResponse => __isa(o, "StartHumanLoopResponse");
 }
 
 export interface StopHumanLoopRequest {
@@ -387,8 +361,7 @@ export interface StopHumanLoopRequest {
 }
 
 export namespace StopHumanLoopRequest {
-  export const isa = (o: any): o is StopHumanLoopRequest =>
-    __isa(o, "StopHumanLoopRequest");
+  export const isa = (o: any): o is StopHumanLoopRequest => __isa(o, "StopHumanLoopRequest");
 }
 
 export interface StopHumanLoopResponse {
@@ -396,38 +369,31 @@ export interface StopHumanLoopResponse {
 }
 
 export namespace StopHumanLoopResponse {
-  export const isa = (o: any): o is StopHumanLoopResponse =>
-    __isa(o, "StopHumanLoopResponse");
+  export const isa = (o: any): o is StopHumanLoopResponse => __isa(o, "StopHumanLoopResponse");
 }
 
 /**
  * <p>Your request has exceeded the allowed amount of requests.</p>
  */
-export interface ThrottlingException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ThrottlingException {
-  export const isa = (o: any): o is ThrottlingException =>
-    __isa(o, "ThrottlingException");
+  export const isa = (o: any): o is ThrottlingException => __isa(o, "ThrottlingException");
 }
 
 /**
  * <p>Your request was not valid. Check the syntax and try again.</p>
  */
-export interface ValidationException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ValidationException {
-  export const isa = (o: any): o is ValidationException =>
-    __isa(o, "ValidationException");
+  export const isa = (o: any): o is ValidationException => __isa(o, "ValidationException");
 }

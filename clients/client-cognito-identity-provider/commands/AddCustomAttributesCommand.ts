@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AddCustomAttributesRequest,
-  AddCustomAttributesResponse
-} from "../models/index";
+import { AddCustomAttributesRequest, AddCustomAttributesResponse } from "../models/index";
 import {
   deserializeAws_json1_1AddCustomAttributesCommand,
   serializeAws_json1_1AddCustomAttributesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AddCustomAttributesCommandInput = AddCustomAttributesRequest;
-export type AddCustomAttributesCommandOutput = AddCustomAttributesResponse &
-  __MetadataBearer;
+export type AddCustomAttributesCommandOutput = AddCustomAttributesResponse & __MetadataBearer;
 
 export class AddCustomAttributesCommand extends $Command<
   AddCustomAttributesCommandInput,
@@ -49,13 +42,8 @@ export class AddCustomAttributesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AddCustomAttributesCommandInput,
-    AddCustomAttributesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AddCustomAttributesCommandInput, AddCustomAttributesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class AddCustomAttributesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AddCustomAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AddCustomAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AddCustomAttributesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AddCustomAttributesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AddCustomAttributesCommandOutput> {
     return deserializeAws_json1_1AddCustomAttributesCommand(output, context);
   }
 

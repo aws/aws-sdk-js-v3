@@ -9,10 +9,7 @@ import {
   serializeAws_json1_1DetectEntitiesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DetectEntitiesCommandInput = DetectEntitiesRequest;
-export type DetectEntitiesCommandOutput = DetectEntitiesResponse &
-  __MetadataBearer;
+export type DetectEntitiesCommandOutput = DetectEntitiesResponse & __MetadataBearer;
 
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,
@@ -47,9 +43,7 @@ export class DetectEntitiesCommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetectEntitiesCommandInput, DetectEntitiesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class DetectEntitiesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DetectEntitiesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DetectEntitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DetectEntitiesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DetectEntitiesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectEntitiesCommandOutput> {
     return deserializeAws_json1_1DetectEntitiesCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  ListJobExecutionsForJobRequest,
-  ListJobExecutionsForJobResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { ListJobExecutionsForJobRequest, ListJobExecutionsForJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListJobExecutionsForJobCommand,
   serializeAws_restJson1_1ListJobExecutionsForJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListJobExecutionsForJobCommandInput = ListJobExecutionsForJobRequest;
-export type ListJobExecutionsForJobCommandOutput = ListJobExecutionsForJobResponse &
-  __MetadataBearer;
+export type ListJobExecutionsForJobCommandOutput = ListJobExecutionsForJobResponse & __MetadataBearer;
 
 export class ListJobExecutionsForJobCommand extends $Command<
   ListJobExecutionsForJobCommandInput,
@@ -49,13 +38,8 @@ export class ListJobExecutionsForJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListJobExecutionsForJobCommandInput,
-    ListJobExecutionsForJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListJobExecutionsForJobCommandInput, ListJobExecutionsForJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class ListJobExecutionsForJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListJobExecutionsForJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListJobExecutionsForJobCommand(
-      input,
-      context
-    );
+  private serialize(input: ListJobExecutionsForJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1ListJobExecutionsForJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListJobExecutionsForJobCommandOutput> {
-    return deserializeAws_restJson1_1ListJobExecutionsForJobCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobExecutionsForJobCommandOutput> {
+    return deserializeAws_restJson1_1ListJobExecutionsForJobCommand(output, context);
   }
 
   // Start section: command_body_extra

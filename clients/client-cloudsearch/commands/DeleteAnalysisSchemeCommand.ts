@@ -1,21 +1,11 @@
-import {
-  CloudSearchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudSearchClient";
-import {
-  DeleteAnalysisSchemeRequest,
-  DeleteAnalysisSchemeResponse
-} from "../models/index";
+import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { DeleteAnalysisSchemeRequest, DeleteAnalysisSchemeResponse } from "../models/index";
 import {
   deserializeAws_queryDeleteAnalysisSchemeCommand,
   serializeAws_queryDeleteAnalysisSchemeCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAnalysisSchemeCommandInput = DeleteAnalysisSchemeRequest;
-export type DeleteAnalysisSchemeCommandOutput = DeleteAnalysisSchemeResponse &
-  __MetadataBearer;
+export type DeleteAnalysisSchemeCommandOutput = DeleteAnalysisSchemeResponse & __MetadataBearer;
 
 export class DeleteAnalysisSchemeCommand extends $Command<
   DeleteAnalysisSchemeCommandInput,
@@ -49,13 +38,8 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAnalysisSchemeCommandInput,
-    DeleteAnalysisSchemeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAnalysisSchemeCommandInput, DeleteAnalysisSchemeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteAnalysisSchemeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteAnalysisSchemeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAnalysisSchemeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteAnalysisSchemeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnalysisSchemeCommandOutput> {
     return deserializeAws_queryDeleteAnalysisSchemeCommand(output, context);
   }
 

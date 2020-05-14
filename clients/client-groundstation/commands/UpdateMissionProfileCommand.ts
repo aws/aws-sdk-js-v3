@@ -1,21 +1,11 @@
-import {
-  GroundStationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GroundStationClient";
-import {
-  MissionProfileIdResponse,
-  UpdateMissionProfileRequest
-} from "../models/index";
+import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { MissionProfileIdResponse, UpdateMissionProfileRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateMissionProfileCommand,
   serializeAws_restJson1_1UpdateMissionProfileCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateMissionProfileCommandInput = UpdateMissionProfileRequest;
-export type UpdateMissionProfileCommandOutput = MissionProfileIdResponse &
-  __MetadataBearer;
+export type UpdateMissionProfileCommandOutput = MissionProfileIdResponse & __MetadataBearer;
 
 export class UpdateMissionProfileCommand extends $Command<
   UpdateMissionProfileCommandInput,
@@ -49,13 +38,8 @@ export class UpdateMissionProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GroundStationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateMissionProfileCommandInput,
-    UpdateMissionProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateMissionProfileCommandInput, UpdateMissionProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateMissionProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateMissionProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateMissionProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1UpdateMissionProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateMissionProfileCommandOutput> {
-    return deserializeAws_restJson1_1UpdateMissionProfileCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateMissionProfileCommandOutput> {
+    return deserializeAws_restJson1_1UpdateMissionProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

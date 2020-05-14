@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ElasticLoadBalancingv2Client";
-import {
-  DeregisterTargetsInput,
-  DeregisterTargetsOutput
-} from "../models/index";
+import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/index";
 import {
   deserializeAws_queryDeregisterTargetsCommand,
   serializeAws_queryDeregisterTargetsCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeregisterTargetsCommandInput = DeregisterTargetsInput;
-export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput &
-  __MetadataBearer;
+export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput & __MetadataBearer;
 
 export class DeregisterTargetsCommand extends $Command<
   DeregisterTargetsCommandInput,
@@ -50,9 +43,7 @@ export class DeregisterTargetsCommand extends $Command<
     configuration: ElasticLoadBalancingv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DeregisterTargetsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeregisterTargetsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeregisterTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeregisterTargetsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterTargetsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterTargetsCommandOutput> {
     return deserializeAws_queryDeregisterTargetsCommand(output, context);
   }
 

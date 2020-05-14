@@ -1,18 +1,11 @@
-import {
-  OpsWorksClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OpsWorksClient";
+import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import { DescribeMyUserProfileResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeMyUserProfileCommand,
   serializeAws_json1_1DescribeMyUserProfileCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeMyUserProfileCommandInput = {};
-export type DescribeMyUserProfileCommandOutput = DescribeMyUserProfileResult &
-  __MetadataBearer;
+export type DescribeMyUserProfileCommandOutput = DescribeMyUserProfileResult & __MetadataBearer;
 
 export class DescribeMyUserProfileCommand extends $Command<
   DescribeMyUserProfileCommandInput,
@@ -46,13 +38,8 @@ export class DescribeMyUserProfileCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeMyUserProfileCommandInput,
-    DescribeMyUserProfileCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeMyUserProfileCommandInput, DescribeMyUserProfileCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeMyUserProfileCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeMyUserProfileCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeMyUserProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeMyUserProfileCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeMyUserProfileCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMyUserProfileCommandOutput> {
     return deserializeAws_json1_1DescribeMyUserProfileCommand(output, context);
   }
 

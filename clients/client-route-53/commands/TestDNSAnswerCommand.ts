@@ -1,8 +1,4 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/index";
 import {
   deserializeAws_restXmlTestDNSAnswerCommand,
@@ -10,10 +6,7 @@ import {
 } from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -26,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type TestDNSAnswerCommandInput = TestDNSAnswerRequest;
-export type TestDNSAnswerCommandOutput = TestDNSAnswerResponse &
-  __MetadataBearer;
+export type TestDNSAnswerCommandOutput = TestDNSAnswerResponse & __MetadataBearer;
 
 export class TestDNSAnswerCommand extends $Command<
   TestDNSAnswerCommandInput,
@@ -48,9 +40,7 @@ export class TestDNSAnswerCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TestDNSAnswerCommandInput, TestDNSAnswerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -66,17 +56,11 @@ export class TestDNSAnswerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: TestDNSAnswerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: TestDNSAnswerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlTestDNSAnswerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<TestDNSAnswerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestDNSAnswerCommandOutput> {
     return deserializeAws_restXmlTestDNSAnswerCommand(output, context);
   }
 

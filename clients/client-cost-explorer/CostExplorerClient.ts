@@ -10,22 +10,13 @@ import {
   DescribeCostCategoryDefinitionCommandInput,
   DescribeCostCategoryDefinitionCommandOutput
 } from "./commands/DescribeCostCategoryDefinitionCommand";
-import {
-  GetCostAndUsageCommandInput,
-  GetCostAndUsageCommandOutput
-} from "./commands/GetCostAndUsageCommand";
+import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand";
 import {
   GetCostAndUsageWithResourcesCommandInput,
   GetCostAndUsageWithResourcesCommandOutput
 } from "./commands/GetCostAndUsageWithResourcesCommand";
-import {
-  GetCostForecastCommandInput,
-  GetCostForecastCommandOutput
-} from "./commands/GetCostForecastCommand";
-import {
-  GetDimensionValuesCommandInput,
-  GetDimensionValuesCommandOutput
-} from "./commands/GetDimensionValuesCommand";
+import { GetCostForecastCommandInput, GetCostForecastCommandOutput } from "./commands/GetCostForecastCommand";
+import { GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput } from "./commands/GetDimensionValuesCommand";
 import {
   GetReservationCoverageCommandInput,
   GetReservationCoverageCommandOutput
@@ -58,14 +49,8 @@ import {
   GetSavingsPlansUtilizationDetailsCommandInput,
   GetSavingsPlansUtilizationDetailsCommandOutput
 } from "./commands/GetSavingsPlansUtilizationDetailsCommand";
-import {
-  GetTagsCommandInput,
-  GetTagsCommandOutput
-} from "./commands/GetTagsCommand";
-import {
-  GetUsageForecastCommandInput,
-  GetUsageForecastCommandOutput
-} from "./commands/GetUsageForecastCommand";
+import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
+import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "./commands/GetUsageForecastCommand";
 import {
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput
@@ -90,12 +75,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -168,8 +148,7 @@ export type ServiceOutputTypes =
   | ListCostCategoryDefinitionsCommandOutput
   | UpdateCostCategoryDefinitionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -253,9 +232,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CostExplorerClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CostExplorerClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -264,9 +241,7 @@ export type CostExplorerClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CostExplorerClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

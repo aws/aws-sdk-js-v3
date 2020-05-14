@@ -1,7 +1,4 @@
-import {
-  QueryForecastCommandInput,
-  QueryForecastCommandOutput
-} from "../commands/QueryForecastCommand";
+import { QueryForecastCommandInput, QueryForecastCommandOutput } from "../commands/QueryForecastCommand";
 import {
   DataPoint,
   Forecast,
@@ -13,10 +10,7 @@ import {
   ResourceInUseException,
   ResourceNotFoundException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -35,9 +29,7 @@ export const serializeAws_json1_1QueryForecastCommand = async (
     "X-Amz-Target": "AmazonForecastRuntime.QueryForecast"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1QueryForecastRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1QueryForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -70,16 +62,12 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.seer.queryservice#InvalidInputException":
       response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -87,10 +75,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.seer.queryservice#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -98,10 +83,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.seer.queryservice#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -109,10 +91,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.seer.queryservice#ResourceInUseException":
       response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -120,10 +99,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.seer.queryservice#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -150,10 +126,7 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
   const contents: InvalidInputException = {
     name: "InvalidInputException",
     $fault: "client",
@@ -168,10 +141,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
@@ -186,10 +156,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -204,10 +171,7 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
   const contents: ResourceInUseException = {
     name: "ResourceInUseException",
     $fault: "client",
@@ -222,10 +186,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
   const contents: ResourceNotFoundException = {
     name: "ResourceNotFoundException",
     $fault: "client",
@@ -235,10 +196,7 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1Filters = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Filters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -248,10 +206,7 @@ const serializeAws_json1_1Filters = (
   );
 };
 
-const serializeAws_json1_1QueryForecastRequest = (
-  input: QueryForecastRequest,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, context: __SerdeContext): any => {
   return {
     ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
     ...(input.Filters !== undefined && {
@@ -263,27 +218,15 @@ const serializeAws_json1_1QueryForecastRequest = (
   };
 };
 
-const deserializeAws_json1_1DataPoint = (
-  output: any,
-  context: __SerdeContext
-): DataPoint => {
+const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): DataPoint => {
   return {
     __type: "DataPoint",
-    Timestamp:
-      output.Timestamp !== undefined && output.Timestamp !== null
-        ? output.Timestamp
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Timestamp: output.Timestamp !== undefined && output.Timestamp !== null ? output.Timestamp : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Forecast = (
-  output: any,
-  context: __SerdeContext
-): Forecast => {
+const deserializeAws_json1_1Forecast = (output: any, context: __SerdeContext): Forecast => {
   return {
     __type: "Forecast",
     Predictions:
@@ -293,16 +236,10 @@ const deserializeAws_json1_1Forecast = (
   } as any;
 };
 
-const deserializeAws_json1_1InvalidInputException = (
-  output: any,
-  context: __SerdeContext
-): InvalidInputException => {
+const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
     __type: "InvalidInputException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -312,30 +249,18 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   return {
     __type: "InvalidNextTokenException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Predictions = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: DataPoint[] } => {
+const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext): { [key: string]: DataPoint[] } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: DataPoint[] }, [key, value]: [string, any]) => ({
       ...acc,
@@ -345,10 +270,7 @@ const deserializeAws_json1_1Predictions = (
   );
 };
 
-const deserializeAws_json1_1QueryForecastResponse = (
-  output: any,
-  context: __SerdeContext
-): QueryForecastResponse => {
+const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __SerdeContext): QueryForecastResponse => {
   return {
     __type: "QueryForecastResponse",
     Forecast:
@@ -358,16 +280,10 @@ const deserializeAws_json1_1QueryForecastResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ResourceInUseException = (
-  output: any,
-  context: __SerdeContext
-): ResourceInUseException => {
+const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
     __type: "ResourceInUseException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -377,20 +293,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     __type: "ResourceNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TimeSeries = (
-  output: any,
-  context: __SerdeContext
-): DataPoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1DataPoint(entry, context)
-  );
+const deserializeAws_json1_1TimeSeries = (output: any, context: __SerdeContext): DataPoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1DataPoint(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -400,23 +308,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

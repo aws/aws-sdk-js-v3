@@ -1,7 +1,4 @@
-import {
-  GetIceServerConfigCommandInput,
-  GetIceServerConfigCommandOutput
-} from "./commands/GetIceServerConfigCommand";
+import { GetIceServerConfigCommandInput, GetIceServerConfigCommandOutput } from "./commands/GetIceServerConfigCommand";
 import {
   SendAlexaOfferToMasterCommandInput,
   SendAlexaOfferToMasterCommandOutput
@@ -22,12 +19,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -58,16 +50,11 @@ import {
   UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes =
-  | GetIceServerConfigCommandInput
-  | SendAlexaOfferToMasterCommandInput;
+export type ServiceInputTypes = GetIceServerConfigCommandInput | SendAlexaOfferToMasterCommandInput;
 
-export type ServiceOutputTypes =
-  | GetIceServerConfigCommandOutput
-  | SendAlexaOfferToMasterCommandOutput;
+export type ServiceOutputTypes = GetIceServerConfigCommandOutput | SendAlexaOfferToMasterCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -151,9 +138,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type KinesisVideoSignalingClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type KinesisVideoSignalingClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -162,9 +147,7 @@ export type KinesisVideoSignalingClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type KinesisVideoSignalingClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type KinesisVideoSignalingClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

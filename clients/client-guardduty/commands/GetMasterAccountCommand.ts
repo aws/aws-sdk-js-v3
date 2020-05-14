@@ -1,21 +1,11 @@
-import {
-  GuardDutyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GuardDutyClient";
-import {
-  GetMasterAccountRequest,
-  GetMasterAccountResponse
-} from "../models/index";
+import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetMasterAccountCommand,
   serializeAws_restJson1_1GetMasterAccountCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetMasterAccountCommandInput = GetMasterAccountRequest;
-export type GetMasterAccountCommandOutput = GetMasterAccountResponse &
-  __MetadataBearer;
+export type GetMasterAccountCommandOutput = GetMasterAccountResponse & __MetadataBearer;
 
 export class GetMasterAccountCommand extends $Command<
   GetMasterAccountCommandInput,
@@ -50,9 +39,7 @@ export class GetMasterAccountCommand extends $Command<
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMasterAccountCommandInput, GetMasterAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetMasterAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetMasterAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetMasterAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetMasterAccountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetMasterAccountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMasterAccountCommandOutput> {
     return deserializeAws_restJson1_1GetMasterAccountCommand(output, context);
   }
 

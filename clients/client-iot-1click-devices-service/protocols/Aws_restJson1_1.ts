@@ -2,54 +2,27 @@ import {
   ClaimDevicesByClaimCodeCommandInput,
   ClaimDevicesByClaimCodeCommandOutput
 } from "../commands/ClaimDevicesByClaimCodeCommand";
-import {
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
-} from "../commands/DescribeDeviceCommand";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "../commands/DescribeDeviceCommand";
 import {
   FinalizeDeviceClaimCommandInput,
   FinalizeDeviceClaimCommandOutput
 } from "../commands/FinalizeDeviceClaimCommand";
-import {
-  GetDeviceMethodsCommandInput,
-  GetDeviceMethodsCommandOutput
-} from "../commands/GetDeviceMethodsCommand";
+import { GetDeviceMethodsCommandInput, GetDeviceMethodsCommandOutput } from "../commands/GetDeviceMethodsCommand";
 import {
   InitiateDeviceClaimCommandInput,
   InitiateDeviceClaimCommandOutput
 } from "../commands/InitiateDeviceClaimCommand";
-import {
-  InvokeDeviceMethodCommandInput,
-  InvokeDeviceMethodCommandOutput
-} from "../commands/InvokeDeviceMethodCommand";
-import {
-  ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
-} from "../commands/ListDeviceEventsCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "../commands/ListDevicesCommand";
+import { InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput } from "../commands/InvokeDeviceMethodCommand";
+import { ListDeviceEventsCommandInput, ListDeviceEventsCommandOutput } from "../commands/ListDeviceEventsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UnclaimDeviceCommandInput,
-  UnclaimDeviceCommandOutput
-} from "../commands/UnclaimDeviceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateDeviceStateCommandInput,
-  UpdateDeviceStateCommandOutput
-} from "../commands/UpdateDeviceStateCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UnclaimDeviceCommandInput, UnclaimDeviceCommandOutput } from "../commands/UnclaimDeviceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateDeviceStateCommandInput, UpdateDeviceStateCommandOutput } from "../commands/UpdateDeviceStateCommand";
 import {
   Attributes,
   Device,
@@ -64,10 +37,7 @@ import {
   ResourceConflictException,
   ResourceNotFoundException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -92,10 +62,7 @@ export const serializeAws_restJson1_1ClaimDevicesByClaimCodeCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: ClaimCode.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ClaimCode}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ClaimCode}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ClaimCode.");
   }
@@ -125,10 +92,7 @@ export const serializeAws_restJson1_1DescribeDeviceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -158,10 +122,7 @@ export const serializeAws_restJson1_1FinalizeDeviceClaimCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -196,10 +157,7 @@ export const serializeAws_restJson1_1GetDeviceMethodsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -229,10 +187,7 @@ export const serializeAws_restJson1_1InitiateDeviceClaimCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -262,20 +217,14 @@ export const serializeAws_restJson1_1InvokeDeviceMethodCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.DeviceMethod !== undefined && {
-      deviceMethod: serializeAws_restJson1_1DeviceMethod(
-        input.DeviceMethod,
-        context
-      )
+      deviceMethod: serializeAws_restJson1_1DeviceMethod(input.DeviceMethod, context)
     }),
     ...(input.DeviceMethodParameters !== undefined && {
       deviceMethodParameters: input.DeviceMethodParameters
@@ -306,27 +255,20 @@ export const serializeAws_restJson1_1ListDeviceEventsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   const query: any = {
     ...(input.FromTimeStamp !== undefined && {
-      fromTimeStamp: (
-        input.FromTimeStamp.toISOString().split(".")[0] + "Z"
-      ).toString()
+      fromTimeStamp: (input.FromTimeStamp.toISOString().split(".")[0] + "Z").toString()
     }),
     ...(input.MaxResults !== undefined && {
       maxResults: input.MaxResults.toString()
     }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ToTimeStamp !== undefined && {
-      toTimeStamp: (
-        input.ToTimeStamp.toISOString().split(".")[0] + "Z"
-      ).toString()
+      toTimeStamp: (input.ToTimeStamp.toISOString().split(".")[0] + "Z").toString()
     })
   };
   let body: any;
@@ -383,14 +325,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -418,14 +355,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -460,10 +392,7 @@ export const serializeAws_restJson1_1UnclaimDeviceCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -491,14 +420,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -534,10 +458,7 @@ export const serializeAws_restJson1_1UpdateDeviceStateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -562,10 +483,7 @@ export const deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommand = async (
   context: __SerdeContext
 ): Promise<ClaimDevicesByClaimCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError(output, context);
   }
   const contents: ClaimDevicesByClaimCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -598,10 +516,7 @@ const deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError = async (
     case "ForbiddenException":
     case "com.amazonaws.iot_1click_devices_service#ForbiddenException":
       response = {
-        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -609,10 +524,7 @@ const deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -620,10 +532,7 @@ const deserializeAws_restJson1_1ClaimDevicesByClaimCodeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -650,10 +559,7 @@ export const deserializeAws_restJson1_1DescribeDeviceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDeviceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDeviceCommandError(output, context);
   }
   const contents: DescribeDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -662,10 +568,7 @@ export const deserializeAws_restJson1_1DescribeDeviceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.deviceDescription !== undefined && data.deviceDescription !== null) {
-    contents.DeviceDescription = deserializeAws_restJson1_1DeviceDescription(
-      data.deviceDescription,
-      context
-    );
+    contents.DeviceDescription = deserializeAws_restJson1_1DeviceDescription(data.deviceDescription, context);
   }
   return Promise.resolve(contents);
 };
@@ -685,10 +588,7 @@ const deserializeAws_restJson1_1DescribeDeviceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -696,10 +596,7 @@ const deserializeAws_restJson1_1DescribeDeviceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -707,10 +604,7 @@ const deserializeAws_restJson1_1DescribeDeviceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -737,10 +631,7 @@ export const deserializeAws_restJson1_1FinalizeDeviceClaimCommand = async (
   context: __SerdeContext
 ): Promise<FinalizeDeviceClaimCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1FinalizeDeviceClaimCommandError(output, context);
   }
   const contents: FinalizeDeviceClaimCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -769,10 +660,7 @@ const deserializeAws_restJson1_1FinalizeDeviceClaimCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -780,10 +668,7 @@ const deserializeAws_restJson1_1FinalizeDeviceClaimCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -791,10 +676,7 @@ const deserializeAws_restJson1_1FinalizeDeviceClaimCommandError = async (
     case "PreconditionFailedException":
     case "com.amazonaws.iot_1click_devices_service#PreconditionFailedException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -802,10 +684,7 @@ const deserializeAws_restJson1_1FinalizeDeviceClaimCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.iot_1click_devices_service#ResourceConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -813,10 +692,7 @@ const deserializeAws_restJson1_1FinalizeDeviceClaimCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -843,10 +719,7 @@ export const deserializeAws_restJson1_1GetDeviceMethodsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceMethodsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDeviceMethodsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDeviceMethodsCommandError(output, context);
   }
   const contents: GetDeviceMethodsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -855,10 +728,7 @@ export const deserializeAws_restJson1_1GetDeviceMethodsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.deviceMethods !== undefined && data.deviceMethods !== null) {
-    contents.DeviceMethods = deserializeAws_restJson1_1__listOfDeviceMethod(
-      data.deviceMethods,
-      context
-    );
+    contents.DeviceMethods = deserializeAws_restJson1_1__listOfDeviceMethod(data.deviceMethods, context);
   }
   return Promise.resolve(contents);
 };
@@ -878,10 +748,7 @@ const deserializeAws_restJson1_1GetDeviceMethodsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -889,10 +756,7 @@ const deserializeAws_restJson1_1GetDeviceMethodsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -900,10 +764,7 @@ const deserializeAws_restJson1_1GetDeviceMethodsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -930,10 +791,7 @@ export const deserializeAws_restJson1_1InitiateDeviceClaimCommand = async (
   context: __SerdeContext
 ): Promise<InitiateDeviceClaimCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1InitiateDeviceClaimCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1InitiateDeviceClaimCommandError(output, context);
   }
   const contents: InitiateDeviceClaimCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -962,10 +820,7 @@ const deserializeAws_restJson1_1InitiateDeviceClaimCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -973,10 +828,7 @@ const deserializeAws_restJson1_1InitiateDeviceClaimCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -984,10 +836,7 @@ const deserializeAws_restJson1_1InitiateDeviceClaimCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.iot_1click_devices_service#ResourceConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -995,10 +844,7 @@ const deserializeAws_restJson1_1InitiateDeviceClaimCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1025,10 +871,7 @@ export const deserializeAws_restJson1_1InvokeDeviceMethodCommand = async (
   context: __SerdeContext
 ): Promise<InvokeDeviceMethodCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1InvokeDeviceMethodCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1InvokeDeviceMethodCommandError(output, context);
   }
   const contents: InvokeDeviceMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1036,10 +879,7 @@ export const deserializeAws_restJson1_1InvokeDeviceMethodCommand = async (
     DeviceMethodResponse: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.deviceMethodResponse !== undefined &&
-    data.deviceMethodResponse !== null
-  ) {
+  if (data.deviceMethodResponse !== undefined && data.deviceMethodResponse !== null) {
     contents.DeviceMethodResponse = data.deviceMethodResponse;
   }
   return Promise.resolve(contents);
@@ -1060,10 +900,7 @@ const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1071,10 +908,7 @@ const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1082,10 +916,7 @@ const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
     case "PreconditionFailedException":
     case "com.amazonaws.iot_1click_devices_service#PreconditionFailedException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionFailedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1093,10 +924,7 @@ const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
     case "RangeNotSatisfiableException":
     case "com.amazonaws.iot_1click_devices_service#RangeNotSatisfiableException":
       response = {
-        ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1104,10 +932,7 @@ const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.iot_1click_devices_service#ResourceConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1115,10 +940,7 @@ const deserializeAws_restJson1_1InvokeDeviceMethodCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1145,10 +967,7 @@ export const deserializeAws_restJson1_1ListDeviceEventsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDeviceEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDeviceEventsCommandError(output, context);
   }
   const contents: ListDeviceEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1158,10 +977,7 @@ export const deserializeAws_restJson1_1ListDeviceEventsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.events !== undefined && data.events !== null) {
-    contents.Events = deserializeAws_restJson1_1__listOfDeviceEvent(
-      data.events,
-      context
-    );
+    contents.Events = deserializeAws_restJson1_1__listOfDeviceEvent(data.events, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -1184,10 +1000,7 @@ const deserializeAws_restJson1_1ListDeviceEventsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1195,10 +1008,7 @@ const deserializeAws_restJson1_1ListDeviceEventsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1206,10 +1016,7 @@ const deserializeAws_restJson1_1ListDeviceEventsCommandError = async (
     case "RangeNotSatisfiableException":
     case "com.amazonaws.iot_1click_devices_service#RangeNotSatisfiableException":
       response = {
-        ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1217,10 +1024,7 @@ const deserializeAws_restJson1_1ListDeviceEventsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1257,10 +1061,7 @@ export const deserializeAws_restJson1_1ListDevicesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.devices !== undefined && data.devices !== null) {
-    contents.Devices = deserializeAws_restJson1_1__listOfDeviceDescription(
-      data.devices,
-      context
-    );
+    contents.Devices = deserializeAws_restJson1_1__listOfDeviceDescription(data.devices, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.NextToken = data.nextToken;
@@ -1283,10 +1084,7 @@ const deserializeAws_restJson1_1ListDevicesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1294,10 +1092,7 @@ const deserializeAws_restJson1_1ListDevicesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1305,10 +1100,7 @@ const deserializeAws_restJson1_1ListDevicesCommandError = async (
     case "RangeNotSatisfiableException":
     case "com.amazonaws.iot_1click_devices_service#RangeNotSatisfiableException":
       response = {
-        ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1RangeNotSatisfiableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1335,10 +1127,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1347,10 +1136,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined && data.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      data.tags,
-      context
-    );
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
   }
   return Promise.resolve(contents);
 };
@@ -1370,10 +1156,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1381,10 +1164,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1435,10 +1215,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1446,10 +1223,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1457,10 +1231,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1516,10 +1287,7 @@ const deserializeAws_restJson1_1UnclaimDeviceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1527,10 +1295,7 @@ const deserializeAws_restJson1_1UnclaimDeviceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1538,10 +1303,7 @@ const deserializeAws_restJson1_1UnclaimDeviceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1592,10 +1354,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1603,10 +1362,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1614,10 +1370,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1644,10 +1397,7 @@ export const deserializeAws_restJson1_1UpdateDeviceStateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDeviceStateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDeviceStateCommandError(output, context);
   }
   const contents: UpdateDeviceStateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1672,10 +1422,7 @@ const deserializeAws_restJson1_1UpdateDeviceStateCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.iot_1click_devices_service#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1683,10 +1430,7 @@ const deserializeAws_restJson1_1UpdateDeviceStateCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot_1click_devices_service#InvalidRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1694,10 +1438,7 @@ const deserializeAws_restJson1_1UpdateDeviceStateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iot_1click_devices_service#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1866,20 +1607,14 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1DeviceMethod = (
-  input: DeviceMethod,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DeviceMethod = (input: DeviceMethod, context: __SerdeContext): any => {
   return {
     ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
     ...(input.MethodName !== undefined && { methodName: input.MethodName })
   };
 };
 
-const serializeAws_restJson1_1__mapOf__string = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -1889,33 +1624,21 @@ const serializeAws_restJson1_1__mapOf__string = (
   );
 };
 
-const deserializeAws_restJson1_1Attributes = (
-  output: any,
-  context: __SerdeContext
-): Attributes => {
+const deserializeAws_restJson1_1Attributes = (output: any, context: __SerdeContext): Attributes => {
   return {
     __type: "Attributes"
   } as any;
 };
 
-const deserializeAws_restJson1_1Device = (
-  output: any,
-  context: __SerdeContext
-): Device => {
+const deserializeAws_restJson1_1Device = (output: any, context: __SerdeContext): Device => {
   return {
     __type: "Device",
     Attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1_1Attributes(output.attributes, context)
         : undefined,
-    DeviceId:
-      output.deviceId !== undefined && output.deviceId !== null
-        ? output.deviceId
-        : undefined,
-    Type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    DeviceId: output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
+    Type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
@@ -1932,72 +1655,42 @@ const deserializeAws_restJson1_1DeviceAttributes = (
   );
 };
 
-const deserializeAws_restJson1_1DeviceDescription = (
-  output: any,
-  context: __SerdeContext
-): DeviceDescription => {
+const deserializeAws_restJson1_1DeviceDescription = (output: any, context: __SerdeContext): DeviceDescription => {
   return {
     __type: "DeviceDescription",
-    Arn:
-      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1_1DeviceAttributes(output.attributes, context)
         : undefined,
-    DeviceId:
-      output.deviceId !== undefined && output.deviceId !== null
-        ? output.deviceId
-        : undefined,
-    Enabled:
-      output.enabled !== undefined && output.enabled !== null
-        ? output.enabled
-        : undefined,
+    DeviceId: output.deviceId !== undefined && output.deviceId !== null ? output.deviceId : undefined,
+    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
     RemainingLife:
-      output.remainingLife !== undefined && output.remainingLife !== null
-        ? output.remainingLife
-        : undefined,
+      output.remainingLife !== undefined && output.remainingLife !== null ? output.remainingLife : undefined,
     Tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1_1__mapOf__string(output.tags, context)
         : undefined,
-    Type:
-      output.type !== undefined && output.type !== null
-        ? output.type
-        : undefined
+    Type: output.type !== undefined && output.type !== null ? output.type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DeviceEvent = (
-  output: any,
-  context: __SerdeContext
-): DeviceEvent => {
+const deserializeAws_restJson1_1DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
   return {
     __type: "DeviceEvent",
     Device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_restJson1_1Device(output.device, context)
         : undefined,
-    StdEvent:
-      output.stdEvent !== undefined && output.stdEvent !== null
-        ? output.stdEvent
-        : undefined
+    StdEvent: output.stdEvent !== undefined && output.stdEvent !== null ? output.stdEvent : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DeviceMethod = (
-  output: any,
-  context: __SerdeContext
-): DeviceMethod => {
+const deserializeAws_restJson1_1DeviceMethod = (output: any, context: __SerdeContext): DeviceMethod => {
   return {
     __type: "DeviceMethod",
-    DeviceType:
-      output.deviceType !== undefined && output.deviceType !== null
-        ? output.deviceType
-        : undefined,
-    MethodName:
-      output.methodName !== undefined && output.methodName !== null
-        ? output.methodName
-        : undefined
+    DeviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
+    MethodName: output.methodName !== undefined && output.methodName !== null ? output.methodName : undefined
   } as any;
 };
 
@@ -2005,33 +1698,18 @@ const deserializeAws_restJson1_1__listOfDeviceDescription = (
   output: any,
   context: __SerdeContext
 ): DeviceDescription[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DeviceDescription(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DeviceDescription(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfDeviceEvent = (
-  output: any,
-  context: __SerdeContext
-): DeviceEvent[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DeviceEvent(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfDeviceEvent = (output: any, context: __SerdeContext): DeviceEvent[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DeviceEvent(entry, context));
 };
 
-const deserializeAws_restJson1_1__listOfDeviceMethod = (
-  output: any,
-  context: __SerdeContext
-): DeviceMethod[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DeviceMethod(entry, context)
-  );
+const deserializeAws_restJson1_1__listOfDeviceMethod = (output: any, context: __SerdeContext): DeviceMethod[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DeviceMethod(entry, context));
 };
 
-const deserializeAws_restJson1_1__mapOf__string = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -2048,30 +1726,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -2086,8 +1755,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

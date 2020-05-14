@@ -1,18 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { DeleteStackSetInput, DeleteStackSetOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteStackSetCommand,
   serializeAws_queryDeleteStackSetCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteStackSetCommandInput = DeleteStackSetInput;
-export type DeleteStackSetCommandOutput = DeleteStackSetOutput &
-  __MetadataBearer;
+export type DeleteStackSetCommandOutput = DeleteStackSetOutput & __MetadataBearer;
 
 export class DeleteStackSetCommand extends $Command<
   DeleteStackSetCommandInput,
@@ -47,9 +39,7 @@ export class DeleteStackSetCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteStackSetCommandInput, DeleteStackSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class DeleteStackSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteStackSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteStackSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteStackSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteStackSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStackSetCommandOutput> {
     return deserializeAws_queryDeleteStackSetCommand(output, context);
   }
 

@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SupportClientResolvedConfig
-} from "../SupportClient";
+import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 import {
   DescribeTrustedAdvisorCheckSummariesRequest,
   DescribeTrustedAdvisorCheckSummariesResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: DescribeTrustedAdvisorCheckSummariesCommandInput
-  ) {
+  constructor(readonly input: DescribeTrustedAdvisorCheckSummariesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -51,13 +42,8 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeTrustedAdvisorCheckSummariesCommandInput,
-    DescribeTrustedAdvisorCheckSummariesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeTrustedAdvisorCheckSummariesCommandInput, DescribeTrustedAdvisorCheckSummariesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +62,14 @@ export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
     input: DescribeTrustedAdvisorCheckSummariesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> {
-    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand(output, context);
   }
 
   // Start section: command_body_extra

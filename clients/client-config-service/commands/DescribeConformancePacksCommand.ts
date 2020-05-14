@@ -1,21 +1,11 @@
-import {
-  ConfigServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConfigServiceClient";
-import {
-  DescribeConformancePacksRequest,
-  DescribeConformancePacksResponse
-} from "../models/index";
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { DescribeConformancePacksRequest, DescribeConformancePacksResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConformancePacksCommand,
   serializeAws_json1_1DescribeConformancePacksCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeConformancePacksCommandInput = DescribeConformancePacksRequest;
-export type DescribeConformancePacksCommandOutput = DescribeConformancePacksResponse &
-  __MetadataBearer;
+export type DescribeConformancePacksCommandOutput = DescribeConformancePacksResponse & __MetadataBearer;
 
 export class DescribeConformancePacksCommand extends $Command<
   DescribeConformancePacksCommandInput,
@@ -49,13 +38,8 @@ export class DescribeConformancePacksCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeConformancePacksCommandInput,
-    DescribeConformancePacksCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeConformancePacksCommandInput, DescribeConformancePacksCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class DescribeConformancePacksCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeConformancePacksCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeConformancePacksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeConformancePacksCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeConformancePacksCommandOutput> {
-    return deserializeAws_json1_1DescribeConformancePacksCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeConformancePacksCommandOutput> {
+    return deserializeAws_json1_1DescribeConformancePacksCommand(output, context);
   }
 
   // Start section: command_body_extra

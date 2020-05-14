@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  UpdateResourceDataSyncRequest,
-  UpdateResourceDataSyncResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { UpdateResourceDataSyncRequest, UpdateResourceDataSyncResult } from "../models/index";
 import {
   deserializeAws_json1_1UpdateResourceDataSyncCommand,
   serializeAws_json1_1UpdateResourceDataSyncCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateResourceDataSyncCommandInput = UpdateResourceDataSyncRequest;
-export type UpdateResourceDataSyncCommandOutput = UpdateResourceDataSyncResult &
-  __MetadataBearer;
+export type UpdateResourceDataSyncCommandOutput = UpdateResourceDataSyncResult & __MetadataBearer;
 
 export class UpdateResourceDataSyncCommand extends $Command<
   UpdateResourceDataSyncCommandInput,
@@ -49,13 +38,8 @@ export class UpdateResourceDataSyncCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateResourceDataSyncCommandInput,
-    UpdateResourceDataSyncCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateResourceDataSyncCommandInput, UpdateResourceDataSyncCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class UpdateResourceDataSyncCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateResourceDataSyncCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateResourceDataSyncCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateResourceDataSyncCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateResourceDataSyncCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceDataSyncCommandOutput> {
     return deserializeAws_json1_1UpdateResourceDataSyncCommand(output, context);
   }
 

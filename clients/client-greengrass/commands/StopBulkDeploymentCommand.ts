@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  StopBulkDeploymentRequest,
-  StopBulkDeploymentResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { StopBulkDeploymentRequest, StopBulkDeploymentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StopBulkDeploymentCommand,
   serializeAws_restJson1_1StopBulkDeploymentCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopBulkDeploymentCommandInput = StopBulkDeploymentRequest;
-export type StopBulkDeploymentCommandOutput = StopBulkDeploymentResponse &
-  __MetadataBearer;
+export type StopBulkDeploymentCommandOutput = StopBulkDeploymentResponse & __MetadataBearer;
 
 export class StopBulkDeploymentCommand extends $Command<
   StopBulkDeploymentCommandInput,
@@ -50,9 +39,7 @@ export class StopBulkDeploymentCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class StopBulkDeploymentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopBulkDeploymentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopBulkDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StopBulkDeploymentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopBulkDeploymentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBulkDeploymentCommandOutput> {
     return deserializeAws_restJson1_1StopBulkDeploymentCommand(output, context);
   }
 

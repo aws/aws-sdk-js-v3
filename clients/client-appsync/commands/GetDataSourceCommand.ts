@@ -1,18 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import { GetDataSourceRequest, GetDataSourceResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDataSourceCommand,
   serializeAws_restJson1_1GetDataSourceCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetDataSourceCommandInput = GetDataSourceRequest;
-export type GetDataSourceCommandOutput = GetDataSourceResponse &
-  __MetadataBearer;
+export type GetDataSourceCommandOutput = GetDataSourceResponse & __MetadataBearer;
 
 export class GetDataSourceCommand extends $Command<
   GetDataSourceCommandInput,
@@ -47,9 +39,7 @@ export class GetDataSourceCommand extends $Command<
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataSourceCommandInput, GetDataSourceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetDataSourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetDataSourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetDataSourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetDataSourceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSourceCommandOutput> {
     return deserializeAws_restJson1_1GetDataSourceCommand(output, context);
   }
 

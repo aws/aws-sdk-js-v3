@@ -6,18 +6,9 @@ import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput
 } from "./commands/DisconnectParticipantCommand";
-import {
-  GetTranscriptCommandInput,
-  GetTranscriptCommandOutput
-} from "./commands/GetTranscriptCommand";
-import {
-  SendEventCommandInput,
-  SendEventCommandOutput
-} from "./commands/SendEventCommand";
-import {
-  SendMessageCommandInput,
-  SendMessageCommandOutput
-} from "./commands/SendMessageCommand";
+import { GetTranscriptCommandInput, GetTranscriptCommandOutput } from "./commands/GetTranscriptCommand";
+import { SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
+import { SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -34,12 +25,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -84,8 +70,7 @@ export type ServiceOutputTypes =
   | SendEventCommandOutput
   | SendMessageCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -169,9 +154,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ConnectParticipantClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type ConnectParticipantClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -180,9 +163,7 @@ export type ConnectParticipantClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type ConnectParticipantClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type ConnectParticipantClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

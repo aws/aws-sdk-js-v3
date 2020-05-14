@@ -9,10 +9,7 @@ import {
   serializeAws_restJson1_1ListHumanLoopsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHumanLoopsCommandInput = ListHumanLoopsRequest;
-export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse &
-  __MetadataBearer;
+export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse & __MetadataBearer;
 
 export class ListHumanLoopsCommand extends $Command<
   ListHumanLoopsCommandInput,
@@ -47,9 +43,7 @@ export class ListHumanLoopsCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class ListHumanLoopsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHumanLoopsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHumanLoopsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListHumanLoopsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHumanLoopsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHumanLoopsCommandOutput> {
     return deserializeAws_restJson1_1ListHumanLoopsCommand(output, context);
   }
 

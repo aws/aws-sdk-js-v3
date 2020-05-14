@@ -1,21 +1,11 @@
-import {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFormationClient";
-import {
-  StopStackSetOperationInput,
-  StopStackSetOperationOutput
-} from "../models/index";
+import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/index";
 import {
   deserializeAws_queryStopStackSetOperationCommand,
   serializeAws_queryStopStackSetOperationCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StopStackSetOperationCommandInput = StopStackSetOperationInput;
-export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput &
-  __MetadataBearer;
+export type StopStackSetOperationCommandOutput = StopStackSetOperationOutput & __MetadataBearer;
 
 export class StopStackSetOperationCommand extends $Command<
   StopStackSetOperationCommandInput,
@@ -49,13 +38,8 @@ export class StopStackSetOperationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StopStackSetOperationCommandInput,
-    StopStackSetOperationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StopStackSetOperationCommandInput, StopStackSetOperationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class StopStackSetOperationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StopStackSetOperationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StopStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryStopStackSetOperationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StopStackSetOperationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackSetOperationCommandOutput> {
     return deserializeAws_queryStopStackSetOperationCommand(output, context);
   }
 

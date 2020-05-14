@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  ListUserPoolClientsRequest,
-  ListUserPoolClientsResponse
-} from "../models/index";
+import { ListUserPoolClientsRequest, ListUserPoolClientsResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListUserPoolClientsCommand,
   serializeAws_json1_1ListUserPoolClientsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListUserPoolClientsCommandInput = ListUserPoolClientsRequest;
-export type ListUserPoolClientsCommandOutput = ListUserPoolClientsResponse &
-  __MetadataBearer;
+export type ListUserPoolClientsCommandOutput = ListUserPoolClientsResponse & __MetadataBearer;
 
 export class ListUserPoolClientsCommand extends $Command<
   ListUserPoolClientsCommandInput,
@@ -49,13 +42,8 @@ export class ListUserPoolClientsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListUserPoolClientsCommandInput,
-    ListUserPoolClientsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListUserPoolClientsCommandInput, ListUserPoolClientsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class ListUserPoolClientsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListUserPoolClientsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListUserPoolClientsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListUserPoolClientsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListUserPoolClientsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserPoolClientsCommandOutput> {
     return deserializeAws_json1_1ListUserPoolClientsCommand(output, context);
   }
 

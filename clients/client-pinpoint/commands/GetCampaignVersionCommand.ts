@@ -1,21 +1,11 @@
-import {
-  PinpointClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../PinpointClient";
-import {
-  GetCampaignVersionRequest,
-  GetCampaignVersionResponse
-} from "../models/index";
+import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
+import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetCampaignVersionCommand,
   serializeAws_restJson1_1GetCampaignVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCampaignVersionCommandInput = GetCampaignVersionRequest;
-export type GetCampaignVersionCommandOutput = GetCampaignVersionResponse &
-  __MetadataBearer;
+export type GetCampaignVersionCommandOutput = GetCampaignVersionResponse & __MetadataBearer;
 
 export class GetCampaignVersionCommand extends $Command<
   GetCampaignVersionCommandInput,
@@ -50,9 +39,7 @@ export class GetCampaignVersionCommand extends $Command<
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCampaignVersionCommandInput, GetCampaignVersionCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetCampaignVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCampaignVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCampaignVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1GetCampaignVersionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCampaignVersionCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCampaignVersionCommandOutput> {
     return deserializeAws_restJson1_1GetCampaignVersionCommand(output, context);
   }
 

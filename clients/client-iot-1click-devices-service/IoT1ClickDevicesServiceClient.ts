@@ -2,54 +2,27 @@ import {
   ClaimDevicesByClaimCodeCommandInput,
   ClaimDevicesByClaimCodeCommandOutput
 } from "./commands/ClaimDevicesByClaimCodeCommand";
-import {
-  DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput
-} from "./commands/DescribeDeviceCommand";
+import { DescribeDeviceCommandInput, DescribeDeviceCommandOutput } from "./commands/DescribeDeviceCommand";
 import {
   FinalizeDeviceClaimCommandInput,
   FinalizeDeviceClaimCommandOutput
 } from "./commands/FinalizeDeviceClaimCommand";
-import {
-  GetDeviceMethodsCommandInput,
-  GetDeviceMethodsCommandOutput
-} from "./commands/GetDeviceMethodsCommand";
+import { GetDeviceMethodsCommandInput, GetDeviceMethodsCommandOutput } from "./commands/GetDeviceMethodsCommand";
 import {
   InitiateDeviceClaimCommandInput,
   InitiateDeviceClaimCommandOutput
 } from "./commands/InitiateDeviceClaimCommand";
-import {
-  InvokeDeviceMethodCommandInput,
-  InvokeDeviceMethodCommandOutput
-} from "./commands/InvokeDeviceMethodCommand";
-import {
-  ListDeviceEventsCommandInput,
-  ListDeviceEventsCommandOutput
-} from "./commands/ListDeviceEventsCommand";
-import {
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput
-} from "./commands/ListDevicesCommand";
+import { InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput } from "./commands/InvokeDeviceMethodCommand";
+import { ListDeviceEventsCommandInput, ListDeviceEventsCommandOutput } from "./commands/ListDeviceEventsCommand";
+import { ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UnclaimDeviceCommandInput,
-  UnclaimDeviceCommandOutput
-} from "./commands/UnclaimDeviceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateDeviceStateCommandInput,
-  UpdateDeviceStateCommandOutput
-} from "./commands/UpdateDeviceStateCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UnclaimDeviceCommandInput, UnclaimDeviceCommandOutput } from "./commands/UnclaimDeviceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateDeviceStateCommandInput, UpdateDeviceStateCommandOutput } from "./commands/UpdateDeviceStateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -66,12 +39,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -132,8 +100,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateDeviceStateCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -217,9 +184,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoT1ClickDevicesServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoT1ClickDevicesServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -228,9 +193,7 @@ export type IoT1ClickDevicesServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoT1ClickDevicesServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoT1ClickDevicesServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

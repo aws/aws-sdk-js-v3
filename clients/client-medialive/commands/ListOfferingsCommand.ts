@@ -1,18 +1,11 @@
-import {
-  MediaLiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaLiveClient";
+import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { ListOfferingsRequest, ListOfferingsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListOfferingsCommand,
   serializeAws_restJson1_1ListOfferingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListOfferingsCommandInput = ListOfferingsRequest;
-export type ListOfferingsCommandOutput = ListOfferingsResponse &
-  __MetadataBearer;
+export type ListOfferingsCommandOutput = ListOfferingsResponse & __MetadataBearer;
 
 export class ListOfferingsCommand extends $Command<
   ListOfferingsCommandInput,
@@ -47,9 +39,7 @@ export class ListOfferingsCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOfferingsCommandInput, ListOfferingsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class ListOfferingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListOfferingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListOfferingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListOfferingsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListOfferingsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOfferingsCommandOutput> {
     return deserializeAws_restJson1_1ListOfferingsCommand(output, context);
   }
 

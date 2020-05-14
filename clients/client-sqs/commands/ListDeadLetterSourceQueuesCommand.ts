@@ -1,21 +1,11 @@
-import {
-  SQSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SQSClient";
-import {
-  ListDeadLetterSourceQueuesRequest,
-  ListDeadLetterSourceQueuesResult
-} from "../models/index";
+import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
+import { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/index";
 import {
   deserializeAws_queryListDeadLetterSourceQueuesCommand,
   serializeAws_queryListDeadLetterSourceQueuesCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListDeadLetterSourceQueuesCommandInput = ListDeadLetterSourceQueuesRequest;
-export type ListDeadLetterSourceQueuesCommandOutput = ListDeadLetterSourceQueuesResult &
-  __MetadataBearer;
+export type ListDeadLetterSourceQueuesCommandOutput = ListDeadLetterSourceQueuesResult & __MetadataBearer;
 
 export class ListDeadLetterSourceQueuesCommand extends $Command<
   ListDeadLetterSourceQueuesCommandInput,
@@ -49,13 +38,8 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDeadLetterSourceQueuesCommandInput,
-    ListDeadLetterSourceQueuesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDeadLetterSourceQueuesCommandInput, ListDeadLetterSourceQueuesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListDeadLetterSourceQueuesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListDeadLetterSourceQueuesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListDeadLetterSourceQueuesCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDeadLetterSourceQueuesCommandOutput> {
-    return deserializeAws_queryListDeadLetterSourceQueuesCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryListDeadLetterSourceQueuesCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,11 +3,7 @@ import { Readable } from "stream";
 
 export function getSignatureBinary(signature: string): Uint8Array {
   const buf = Buffer.from(signature, "hex");
-  return new Uint8Array(
-    buf.buffer,
-    buf.byteOffset,
-    buf.byteLength / Uint8Array.BYTES_PER_ELEMENT
-  );
+  return new Uint8Array(buf.buffer, buf.byteOffset, buf.byteLength / Uint8Array.BYTES_PER_ELEMENT);
 }
 
 /**
@@ -18,9 +14,7 @@ export function getSignatureBinary(signature: string): Uint8Array {
  * Reference: https://nodejs.org/docs/latest-v11.x/api/stream.html#stream_readable_symbol_asynciterator
  */
 
-export async function* readabletoIterable<T>(
-  readStream: Readable
-): AsyncIterable<T> {
+export async function* readabletoIterable<T>(readStream: Readable): AsyncIterable<T> {
   let streamEnded = false;
   let generationEnded = false;
   const records = new Array<T>();
@@ -43,9 +37,7 @@ export async function* readabletoIterable<T>(
   });
 
   while (!generationEnded) {
-    const value = await new Promise<T>(resolve =>
-      setTimeout(() => resolve(records.shift()), 0)
-    );
+    const value = await new Promise<T>(resolve => setTimeout(() => resolve(records.shift()), 0));
     if (value) {
       yield value;
     }

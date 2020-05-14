@@ -1,18 +1,11 @@
-import {
-  QLDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../QLDBClient";
+import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient";
 import { DeleteLedgerRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteLedgerCommand,
   serializeAws_restJson1_1DeleteLedgerCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class DeleteLedgerCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLedgerCommandInput, DeleteLedgerCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class DeleteLedgerCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLedgerCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteLedgerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1DeleteLedgerCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLedgerCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteLedgerCommandOutput> {
     return deserializeAws_restJson1_1DeleteLedgerCommand(output, context);
   }
 

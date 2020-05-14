@@ -1,18 +1,8 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowballClientResolvedConfig
-} from "../SnowballClient";
+import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 import { CreateJobRequest, CreateJobResult } from "../models/index";
-import {
-  deserializeAws_json1_1CreateJobCommand,
-  serializeAws_json1_1CreateJobCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1CreateJobCommand, serializeAws_json1_1CreateJobCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +36,7 @@ export class CreateJobCommand extends $Command<
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJobCommandInput, CreateJobCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +51,11 @@ export class CreateJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
     return deserializeAws_json1_1CreateJobCommand(output, context);
   }
 

@@ -1,21 +1,11 @@
-import {
-  MTurkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MTurkClient";
-import {
-  ApproveAssignmentRequest,
-  ApproveAssignmentResponse
-} from "../models/index";
+import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
+import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/index";
 import {
   deserializeAws_json1_1ApproveAssignmentCommand,
   serializeAws_json1_1ApproveAssignmentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ApproveAssignmentCommandInput = ApproveAssignmentRequest;
-export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse &
-  __MetadataBearer;
+export type ApproveAssignmentCommandOutput = ApproveAssignmentResponse & __MetadataBearer;
 
 export class ApproveAssignmentCommand extends $Command<
   ApproveAssignmentCommandInput,
@@ -50,9 +39,7 @@ export class ApproveAssignmentCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ApproveAssignmentCommandInput, ApproveAssignmentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ApproveAssignmentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ApproveAssignmentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ApproveAssignmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ApproveAssignmentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ApproveAssignmentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ApproveAssignmentCommandOutput> {
     return deserializeAws_json1_1ApproveAssignmentCommand(output, context);
   }
 

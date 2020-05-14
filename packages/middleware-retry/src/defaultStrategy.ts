@@ -1,17 +1,8 @@
-import {
-  DEFAULT_RETRY_DELAY_BASE,
-  THROTTLING_RETRY_DELAY_BASE
-} from "./constants";
+import { DEFAULT_RETRY_DELAY_BASE, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
-import {
-  SdkError,
-  FinalizeHandler,
-  MetadataBearer,
-  FinalizeHandlerArguments,
-  RetryStrategy
-} from "@aws-sdk/types";
+import { SdkError, FinalizeHandler, MetadataBearer, FinalizeHandlerArguments, RetryStrategy } from "@aws-sdk/types";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -59,9 +50,7 @@ export class ExponentialBackOffStrategy implements RetryStrategy {
       } catch (err) {
         if (this.shouldRetry(err as SdkError, retries)) {
           const delay = this.delayDecider(
-            isThrottlingError(err)
-              ? THROTTLING_RETRY_DELAY_BASE
-              : DEFAULT_RETRY_DELAY_BASE,
+            isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE,
             retries++
           );
           totalDelay += delay;

@@ -1,18 +1,11 @@
-import {
-  CodeDeployClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeDeployClient";
+import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import { ContinueDeploymentInput } from "../models/index";
 import {
   deserializeAws_json1_1ContinueDeploymentCommand,
   serializeAws_json1_1ContinueDeploymentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ContinueDeploymentCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ContinueDeploymentCommandInput, ContinueDeploymentCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ContinueDeploymentCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ContinueDeploymentCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ContinueDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ContinueDeploymentCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ContinueDeploymentCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ContinueDeploymentCommandOutput> {
     return deserializeAws_json1_1ContinueDeploymentCommand(output, context);
   }
 

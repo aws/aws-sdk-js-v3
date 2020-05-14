@@ -1,27 +1,15 @@
-import {
-  DeleteAlarmsCommandInput,
-  DeleteAlarmsCommandOutput
-} from "./commands/DeleteAlarmsCommand";
+import { DeleteAlarmsCommandInput, DeleteAlarmsCommandOutput } from "./commands/DeleteAlarmsCommand";
 import {
   DeleteAnomalyDetectorCommandInput,
   DeleteAnomalyDetectorCommandOutput
 } from "./commands/DeleteAnomalyDetectorCommand";
-import {
-  DeleteDashboardsCommandInput,
-  DeleteDashboardsCommandOutput
-} from "./commands/DeleteDashboardsCommand";
-import {
-  DeleteInsightRulesCommandInput,
-  DeleteInsightRulesCommandOutput
-} from "./commands/DeleteInsightRulesCommand";
+import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./commands/DeleteDashboardsCommand";
+import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "./commands/DeleteInsightRulesCommand";
 import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput
 } from "./commands/DescribeAlarmHistoryCommand";
-import {
-  DescribeAlarmsCommandInput,
-  DescribeAlarmsCommandOutput
-} from "./commands/DescribeAlarmsCommand";
+import { DescribeAlarmsCommandInput, DescribeAlarmsCommandOutput } from "./commands/DescribeAlarmsCommand";
 import {
   DescribeAlarmsForMetricCommandInput,
   DescribeAlarmsForMetricCommandOutput
@@ -42,26 +30,14 @@ import {
   DisableInsightRulesCommandInput,
   DisableInsightRulesCommandOutput
 } from "./commands/DisableInsightRulesCommand";
-import {
-  EnableAlarmActionsCommandInput,
-  EnableAlarmActionsCommandOutput
-} from "./commands/EnableAlarmActionsCommand";
-import {
-  EnableInsightRulesCommandInput,
-  EnableInsightRulesCommandOutput
-} from "./commands/EnableInsightRulesCommand";
-import {
-  GetDashboardCommandInput,
-  GetDashboardCommandOutput
-} from "./commands/GetDashboardCommand";
+import { EnableAlarmActionsCommandInput, EnableAlarmActionsCommandOutput } from "./commands/EnableAlarmActionsCommand";
+import { EnableInsightRulesCommandInput, EnableInsightRulesCommandOutput } from "./commands/EnableInsightRulesCommand";
+import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
 import {
   GetInsightRuleReportCommandInput,
   GetInsightRuleReportCommandOutput
 } from "./commands/GetInsightRuleReportCommand";
-import {
-  GetMetricDataCommandInput,
-  GetMetricDataCommandOutput
-} from "./commands/GetMetricDataCommand";
+import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand";
 import {
   GetMetricStatisticsCommandInput,
   GetMetricStatisticsCommandOutput
@@ -70,50 +46,20 @@ import {
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput
 } from "./commands/GetMetricWidgetImageCommand";
-import {
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
-} from "./commands/ListDashboardsCommand";
-import {
-  ListMetricsCommandInput,
-  ListMetricsCommandOutput
-} from "./commands/ListMetricsCommand";
+import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput
-} from "./commands/PutAnomalyDetectorCommand";
-import {
-  PutDashboardCommandInput,
-  PutDashboardCommandOutput
-} from "./commands/PutDashboardCommand";
-import {
-  PutInsightRuleCommandInput,
-  PutInsightRuleCommandOutput
-} from "./commands/PutInsightRuleCommand";
-import {
-  PutMetricAlarmCommandInput,
-  PutMetricAlarmCommandOutput
-} from "./commands/PutMetricAlarmCommand";
-import {
-  PutMetricDataCommandInput,
-  PutMetricDataCommandOutput
-} from "./commands/PutMetricDataCommand";
-import {
-  SetAlarmStateCommandInput,
-  SetAlarmStateCommandOutput
-} from "./commands/SetAlarmStateCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand";
+import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand";
+import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand";
+import { PutMetricAlarmCommandInput, PutMetricAlarmCommandOutput } from "./commands/PutMetricAlarmCommand";
+import { PutMetricDataCommandInput, PutMetricDataCommandOutput } from "./commands/PutMetricDataCommand";
+import { SetAlarmStateCommandInput, SetAlarmStateCommandOutput } from "./commands/SetAlarmStateCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -130,12 +76,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -228,8 +169,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -313,9 +253,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CloudWatchClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CloudWatchClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -324,9 +262,7 @@ export type CloudWatchClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CloudWatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

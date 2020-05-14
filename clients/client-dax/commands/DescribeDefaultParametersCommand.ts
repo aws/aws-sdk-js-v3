@@ -1,21 +1,11 @@
-import {
-  DAXClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DAXClient";
-import {
-  DescribeDefaultParametersRequest,
-  DescribeDefaultParametersResponse
-} from "../models/index";
+import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
+import { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDefaultParametersCommand,
   serializeAws_json1_1DescribeDefaultParametersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeDefaultParametersCommandInput = DescribeDefaultParametersRequest;
-export type DescribeDefaultParametersCommandOutput = DescribeDefaultParametersResponse &
-  __MetadataBearer;
+export type DescribeDefaultParametersCommandOutput = DescribeDefaultParametersResponse & __MetadataBearer;
 
 export class DescribeDefaultParametersCommand extends $Command<
   DescribeDefaultParametersCommandInput,
@@ -49,13 +38,8 @@ export class DescribeDefaultParametersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeDefaultParametersCommandInput,
-    DescribeDefaultParametersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeDefaultParametersCommandInput, DescribeDefaultParametersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class DescribeDefaultParametersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeDefaultParametersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeDefaultParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeDefaultParametersCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class DescribeDefaultParametersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<DescribeDefaultParametersCommandOutput> {
-    return deserializeAws_json1_1DescribeDefaultParametersCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeDefaultParametersCommand(output, context);
   }
 
   // Start section: command_body_extra

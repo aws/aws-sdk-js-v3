@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
-import {
-  UpdateGlobalTableSettingsInput,
-  UpdateGlobalTableSettingsOutput
-} from "../models/index";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { UpdateGlobalTableSettingsInput, UpdateGlobalTableSettingsOutput } from "../models/index";
 import {
   deserializeAws_json1_0UpdateGlobalTableSettingsCommand,
   serializeAws_json1_0UpdateGlobalTableSettingsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateGlobalTableSettingsCommandInput = UpdateGlobalTableSettingsInput;
-export type UpdateGlobalTableSettingsCommandOutput = UpdateGlobalTableSettingsOutput &
-  __MetadataBearer;
+export type UpdateGlobalTableSettingsCommandOutput = UpdateGlobalTableSettingsOutput & __MetadataBearer;
 
 export class UpdateGlobalTableSettingsCommand extends $Command<
   UpdateGlobalTableSettingsCommandInput,
@@ -49,13 +38,8 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateGlobalTableSettingsCommandInput,
-    UpdateGlobalTableSettingsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateGlobalTableSettingsCommandInput, UpdateGlobalTableSettingsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateGlobalTableSettingsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateGlobalTableSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateGlobalTableSettingsCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class UpdateGlobalTableSettingsCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateGlobalTableSettingsCommandOutput> {
-    return deserializeAws_json1_0UpdateGlobalTableSettingsCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_0UpdateGlobalTableSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

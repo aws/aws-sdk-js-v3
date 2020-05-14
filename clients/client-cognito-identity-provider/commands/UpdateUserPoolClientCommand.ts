@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateUserPoolClientRequest,
-  UpdateUserPoolClientResponse
-} from "../models/index";
+import { UpdateUserPoolClientRequest, UpdateUserPoolClientResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateUserPoolClientCommand,
   serializeAws_json1_1UpdateUserPoolClientCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateUserPoolClientCommandInput = UpdateUserPoolClientRequest;
-export type UpdateUserPoolClientCommandOutput = UpdateUserPoolClientResponse &
-  __MetadataBearer;
+export type UpdateUserPoolClientCommandOutput = UpdateUserPoolClientResponse & __MetadataBearer;
 
 export class UpdateUserPoolClientCommand extends $Command<
   UpdateUserPoolClientCommandInput,
@@ -49,13 +42,8 @@ export class UpdateUserPoolClientCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateUserPoolClientCommandInput,
-    UpdateUserPoolClientCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateUserPoolClientCommandInput, UpdateUserPoolClientCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class UpdateUserPoolClientCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateUserPoolClientCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateUserPoolClientCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateUserPoolClientCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserPoolClientCommandOutput> {
     return deserializeAws_json1_1UpdateUserPoolClientCommand(output, context);
   }
 

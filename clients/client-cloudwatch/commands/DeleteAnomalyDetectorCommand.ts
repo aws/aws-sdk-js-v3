@@ -1,21 +1,11 @@
-import {
-  CloudWatchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudWatchClient";
-import {
-  DeleteAnomalyDetectorInput,
-  DeleteAnomalyDetectorOutput
-} from "../models/index";
+import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
+import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/index";
 import {
   deserializeAws_queryDeleteAnomalyDetectorCommand,
   serializeAws_queryDeleteAnomalyDetectorCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DeleteAnomalyDetectorCommandInput = DeleteAnomalyDetectorInput;
-export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput &
-  __MetadataBearer;
+export type DeleteAnomalyDetectorCommandOutput = DeleteAnomalyDetectorOutput & __MetadataBearer;
 
 export class DeleteAnomalyDetectorCommand extends $Command<
   DeleteAnomalyDetectorCommandInput,
@@ -49,13 +38,8 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DeleteAnomalyDetectorCommandInput,
-    DeleteAnomalyDetectorCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DeleteAnomalyDetectorCommandInput, DeleteAnomalyDetectorCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteAnomalyDetectorCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DeleteAnomalyDetectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryDeleteAnomalyDetectorCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteAnomalyDetectorCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteAnomalyDetectorCommandOutput> {
     return deserializeAws_queryDeleteAnomalyDetectorCommand(output, context);
   }
 

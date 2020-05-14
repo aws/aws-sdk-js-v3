@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig
-} from "../WorkSpacesClient";
-import {
-  RestoreWorkspaceRequest,
-  RestoreWorkspaceResult
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
+import { RestoreWorkspaceRequest, RestoreWorkspaceResult } from "../models/index";
 import {
   deserializeAws_json1_1RestoreWorkspaceCommand,
   serializeAws_json1_1RestoreWorkspaceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RestoreWorkspaceCommandInput = RestoreWorkspaceRequest;
-export type RestoreWorkspaceCommandOutput = RestoreWorkspaceResult &
-  __MetadataBearer;
+export type RestoreWorkspaceCommandOutput = RestoreWorkspaceResult & __MetadataBearer;
 
 export class RestoreWorkspaceCommand extends $Command<
   RestoreWorkspaceCommandInput,
@@ -50,9 +39,7 @@ export class RestoreWorkspaceCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreWorkspaceCommandInput, RestoreWorkspaceCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class RestoreWorkspaceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RestoreWorkspaceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: RestoreWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1RestoreWorkspaceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreWorkspaceCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreWorkspaceCommandOutput> {
     return deserializeAws_json1_1RestoreWorkspaceCommand(output, context);
   }
 

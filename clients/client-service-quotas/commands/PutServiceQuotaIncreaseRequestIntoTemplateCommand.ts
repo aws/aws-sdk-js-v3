@@ -1,8 +1,4 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  ServiceQuotasClientResolvedConfig
-} from "../ServiceQuotasClient";
+import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 import {
   PutServiceQuotaIncreaseRequestIntoTemplateRequest,
   PutServiceQuotaIncreaseRequestIntoTemplateResponse
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput
-  ) {
+  constructor(readonly input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
     input: PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> {
-    return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

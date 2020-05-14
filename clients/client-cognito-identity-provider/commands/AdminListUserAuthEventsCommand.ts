@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminListUserAuthEventsRequest,
-  AdminListUserAuthEventsResponse
-} from "../models/index";
+import { AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse } from "../models/index";
 import {
   deserializeAws_json1_1AdminListUserAuthEventsCommand,
   serializeAws_json1_1AdminListUserAuthEventsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AdminListUserAuthEventsCommandInput = AdminListUserAuthEventsRequest;
-export type AdminListUserAuthEventsCommandOutput = AdminListUserAuthEventsResponse &
-  __MetadataBearer;
+export type AdminListUserAuthEventsCommandOutput = AdminListUserAuthEventsResponse & __MetadataBearer;
 
 export class AdminListUserAuthEventsCommand extends $Command<
   AdminListUserAuthEventsCommandInput,
@@ -49,13 +42,8 @@ export class AdminListUserAuthEventsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AdminListUserAuthEventsCommandInput,
-    AdminListUserAuthEventsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AdminListUserAuthEventsCommandInput, AdminListUserAuthEventsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +58,12 @@ export class AdminListUserAuthEventsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AdminListUserAuthEventsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AdminListUserAuthEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1AdminListUserAuthEventsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AdminListUserAuthEventsCommandOutput> {
-    return deserializeAws_json1_1AdminListUserAuthEventsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminListUserAuthEventsCommandOutput> {
+    return deserializeAws_json1_1AdminListUserAuthEventsCommand(output, context);
   }
 
   // Start section: command_body_extra

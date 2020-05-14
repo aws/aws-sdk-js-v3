@@ -1,21 +1,11 @@
-import {
-  LightsailClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LightsailClient";
-import {
-  GetAutoSnapshotsRequest,
-  GetAutoSnapshotsResult
-} from "../models/index";
+import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { GetAutoSnapshotsRequest, GetAutoSnapshotsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetAutoSnapshotsCommand,
   serializeAws_json1_1GetAutoSnapshotsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetAutoSnapshotsCommandInput = GetAutoSnapshotsRequest;
-export type GetAutoSnapshotsCommandOutput = GetAutoSnapshotsResult &
-  __MetadataBearer;
+export type GetAutoSnapshotsCommandOutput = GetAutoSnapshotsResult & __MetadataBearer;
 
 export class GetAutoSnapshotsCommand extends $Command<
   GetAutoSnapshotsCommandInput,
@@ -50,9 +39,7 @@ export class GetAutoSnapshotsCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAutoSnapshotsCommandInput, GetAutoSnapshotsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetAutoSnapshotsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetAutoSnapshotsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetAutoSnapshotsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetAutoSnapshotsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAutoSnapshotsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAutoSnapshotsCommandOutput> {
     return deserializeAws_json1_1GetAutoSnapshotsCommand(output, context);
   }
 

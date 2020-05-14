@@ -1,8 +1,4 @@
-import {
-  fromImdsCredentials,
-  ImdsCredentials,
-  isImdsCredentials
-} from "./ImdsCredentials";
+import { fromImdsCredentials, ImdsCredentials, isImdsCredentials } from "./ImdsCredentials";
 import { Credentials } from "@aws-sdk/types";
 
 const creds: ImdsCredentials = Object.freeze({
@@ -22,9 +18,7 @@ describe("isImdsCredentials", () => {
   });
 
   it("should reject credentials without a SecretAccessKey", () => {
-    expect(isImdsCredentials({ ...creds, SecretAccessKey: void 0 })).toBe(
-      false
-    );
+    expect(isImdsCredentials({ ...creds, SecretAccessKey: void 0 })).toBe(false);
   });
 
   it("should reject credentials without a Token", () => {

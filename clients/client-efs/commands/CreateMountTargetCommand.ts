@@ -1,21 +1,11 @@
-import {
-  EFSClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EFSClient";
-import {
-  CreateMountTargetRequest,
-  MountTargetDescription
-} from "../models/index";
+import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { CreateMountTargetRequest, MountTargetDescription } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateMountTargetCommand,
   serializeAws_restJson1_1CreateMountTargetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateMountTargetCommandInput = CreateMountTargetRequest;
-export type CreateMountTargetCommandOutput = MountTargetDescription &
-  __MetadataBearer;
+export type CreateMountTargetCommandOutput = MountTargetDescription & __MetadataBearer;
 
 export class CreateMountTargetCommand extends $Command<
   CreateMountTargetCommandInput,
@@ -50,9 +39,7 @@ export class CreateMountTargetCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateMountTargetCommandInput, CreateMountTargetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateMountTargetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateMountTargetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateMountTargetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMountTargetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMountTargetCommandOutput> {
     return deserializeAws_restJson1_1CreateMountTargetCommand(output, context);
   }
 

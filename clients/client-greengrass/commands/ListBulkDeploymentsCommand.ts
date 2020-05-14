@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  ListBulkDeploymentsRequest,
-  ListBulkDeploymentsResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { ListBulkDeploymentsRequest, ListBulkDeploymentsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListBulkDeploymentsCommand,
   serializeAws_restJson1_1ListBulkDeploymentsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListBulkDeploymentsCommandInput = ListBulkDeploymentsRequest;
-export type ListBulkDeploymentsCommandOutput = ListBulkDeploymentsResponse &
-  __MetadataBearer;
+export type ListBulkDeploymentsCommandOutput = ListBulkDeploymentsResponse & __MetadataBearer;
 
 export class ListBulkDeploymentsCommand extends $Command<
   ListBulkDeploymentsCommandInput,
@@ -49,13 +38,8 @@ export class ListBulkDeploymentsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListBulkDeploymentsCommandInput,
-    ListBulkDeploymentsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListBulkDeploymentsCommandInput, ListBulkDeploymentsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListBulkDeploymentsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListBulkDeploymentsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListBulkDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListBulkDeploymentsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListBulkDeploymentsCommandOutput> {
-    return deserializeAws_restJson1_1ListBulkDeploymentsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBulkDeploymentsCommandOutput> {
+    return deserializeAws_restJson1_1ListBulkDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DynamoDBClient";
-import {
-  UpdateContinuousBackupsInput,
-  UpdateContinuousBackupsOutput
-} from "../models/index";
+import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/index";
 import {
   deserializeAws_json1_0UpdateContinuousBackupsCommand,
   serializeAws_json1_0UpdateContinuousBackupsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateContinuousBackupsCommandInput = UpdateContinuousBackupsInput;
-export type UpdateContinuousBackupsCommandOutput = UpdateContinuousBackupsOutput &
-  __MetadataBearer;
+export type UpdateContinuousBackupsCommandOutput = UpdateContinuousBackupsOutput & __MetadataBearer;
 
 export class UpdateContinuousBackupsCommand extends $Command<
   UpdateContinuousBackupsCommandInput,
@@ -49,13 +38,8 @@ export class UpdateContinuousBackupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateContinuousBackupsCommandInput,
-    UpdateContinuousBackupsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateContinuousBackupsCommandInput, UpdateContinuousBackupsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class UpdateContinuousBackupsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateContinuousBackupsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateContinuousBackupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0UpdateContinuousBackupsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateContinuousBackupsCommandOutput> {
-    return deserializeAws_json1_0UpdateContinuousBackupsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContinuousBackupsCommandOutput> {
+    return deserializeAws_json1_0UpdateContinuousBackupsCommand(output, context);
   }
 
   // Start section: command_body_extra

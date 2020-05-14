@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  ListHumanTaskUisRequest,
-  ListHumanTaskUisResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListHumanTaskUisCommand,
   serializeAws_json1_1ListHumanTaskUisCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListHumanTaskUisCommandInput = ListHumanTaskUisRequest;
-export type ListHumanTaskUisCommandOutput = ListHumanTaskUisResponse &
-  __MetadataBearer;
+export type ListHumanTaskUisCommandOutput = ListHumanTaskUisResponse & __MetadataBearer;
 
 export class ListHumanTaskUisCommand extends $Command<
   ListHumanTaskUisCommandInput,
@@ -50,9 +39,7 @@ export class ListHumanTaskUisCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHumanTaskUisCommandInput, ListHumanTaskUisCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListHumanTaskUisCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListHumanTaskUisCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListHumanTaskUisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ListHumanTaskUisCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListHumanTaskUisCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListHumanTaskUisCommandOutput> {
     return deserializeAws_json1_1ListHumanTaskUisCommand(output, context);
   }
 

@@ -1,15 +1,6 @@
-import {
-  CompareFacesCommandInput,
-  CompareFacesCommandOutput
-} from "./commands/CompareFacesCommand";
-import {
-  CreateCollectionCommandInput,
-  CreateCollectionCommandOutput
-} from "./commands/CreateCollectionCommand";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand";
+import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
+import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import {
   CreateProjectVersionCommandInput,
   CreateProjectVersionCommandOutput
@@ -18,58 +9,31 @@ import {
   CreateStreamProcessorCommandInput,
   CreateStreamProcessorCommandOutput
 } from "./commands/CreateStreamProcessorCommand";
-import {
-  DeleteCollectionCommandInput,
-  DeleteCollectionCommandOutput
-} from "./commands/DeleteCollectionCommand";
-import {
-  DeleteFacesCommandInput,
-  DeleteFacesCommandOutput
-} from "./commands/DeleteFacesCommand";
+import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput
 } from "./commands/DeleteStreamProcessorCommand";
-import {
-  DescribeCollectionCommandInput,
-  DescribeCollectionCommandOutput
-} from "./commands/DescribeCollectionCommand";
+import { DescribeCollectionCommandInput, DescribeCollectionCommandOutput } from "./commands/DescribeCollectionCommand";
 import {
   DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommandOutput
 } from "./commands/DescribeProjectVersionsCommand";
-import {
-  DescribeProjectsCommandInput,
-  DescribeProjectsCommandOutput
-} from "./commands/DescribeProjectsCommand";
+import { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand";
 import {
   DescribeStreamProcessorCommandInput,
   DescribeStreamProcessorCommandOutput
 } from "./commands/DescribeStreamProcessorCommand";
-import {
-  DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput
-} from "./commands/DetectCustomLabelsCommand";
-import {
-  DetectFacesCommandInput,
-  DetectFacesCommandOutput
-} from "./commands/DetectFacesCommand";
-import {
-  DetectLabelsCommandInput,
-  DetectLabelsCommandOutput
-} from "./commands/DetectLabelsCommand";
+import { DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput } from "./commands/DetectCustomLabelsCommand";
+import { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand";
+import { DetectLabelsCommandInput, DetectLabelsCommandOutput } from "./commands/DetectLabelsCommand";
 import {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput
 } from "./commands/DetectModerationLabelsCommand";
-import {
-  DetectTextCommandInput,
-  DetectTextCommandOutput
-} from "./commands/DetectTextCommand";
-import {
-  GetCelebrityInfoCommandInput,
-  GetCelebrityInfoCommandOutput
-} from "./commands/GetCelebrityInfoCommand";
+import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
+import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand";
 import {
   GetCelebrityRecognitionCommandInput,
   GetCelebrityRecognitionCommandOutput
@@ -78,34 +42,13 @@ import {
   GetContentModerationCommandInput,
   GetContentModerationCommandOutput
 } from "./commands/GetContentModerationCommand";
-import {
-  GetFaceDetectionCommandInput,
-  GetFaceDetectionCommandOutput
-} from "./commands/GetFaceDetectionCommand";
-import {
-  GetFaceSearchCommandInput,
-  GetFaceSearchCommandOutput
-} from "./commands/GetFaceSearchCommand";
-import {
-  GetLabelDetectionCommandInput,
-  GetLabelDetectionCommandOutput
-} from "./commands/GetLabelDetectionCommand";
-import {
-  GetPersonTrackingCommandInput,
-  GetPersonTrackingCommandOutput
-} from "./commands/GetPersonTrackingCommand";
-import {
-  IndexFacesCommandInput,
-  IndexFacesCommandOutput
-} from "./commands/IndexFacesCommand";
-import {
-  ListCollectionsCommandInput,
-  ListCollectionsCommandOutput
-} from "./commands/ListCollectionsCommand";
-import {
-  ListFacesCommandInput,
-  ListFacesCommandOutput
-} from "./commands/ListFacesCommand";
+import { GetFaceDetectionCommandInput, GetFaceDetectionCommandOutput } from "./commands/GetFaceDetectionCommand";
+import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
+import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
+import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
+import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
+import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
 import {
   ListStreamProcessorsCommandInput,
   ListStreamProcessorsCommandOutput
@@ -114,14 +57,8 @@ import {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput
 } from "./commands/RecognizeCelebritiesCommand";
-import {
-  SearchFacesByImageCommandInput,
-  SearchFacesByImageCommandOutput
-} from "./commands/SearchFacesByImageCommand";
-import {
-  SearchFacesCommandInput,
-  SearchFacesCommandOutput
-} from "./commands/SearchFacesCommand";
+import { SearchFacesByImageCommandInput, SearchFacesByImageCommandOutput } from "./commands/SearchFacesByImageCommand";
+import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand";
 import {
   StartCelebrityRecognitionCommandInput,
   StartCelebrityRecognitionCommandOutput
@@ -130,14 +67,8 @@ import {
   StartContentModerationCommandInput,
   StartContentModerationCommandOutput
 } from "./commands/StartContentModerationCommand";
-import {
-  StartFaceDetectionCommandInput,
-  StartFaceDetectionCommandOutput
-} from "./commands/StartFaceDetectionCommand";
-import {
-  StartFaceSearchCommandInput,
-  StartFaceSearchCommandOutput
-} from "./commands/StartFaceSearchCommand";
+import { StartFaceDetectionCommandInput, StartFaceDetectionCommandOutput } from "./commands/StartFaceDetectionCommand";
+import { StartFaceSearchCommandInput, StartFaceSearchCommandOutput } from "./commands/StartFaceSearchCommand";
 import {
   StartLabelDetectionCommandInput,
   StartLabelDetectionCommandOutput
@@ -154,10 +85,7 @@ import {
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput
 } from "./commands/StartStreamProcessorCommand";
-import {
-  StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput
-} from "./commands/StopProjectVersionCommand";
+import { StopProjectVersionCommandInput, StopProjectVersionCommandOutput } from "./commands/StopProjectVersionCommand";
 import {
   StopStreamProcessorCommandInput,
   StopStreamProcessorCommandOutput
@@ -178,12 +106,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -300,8 +223,7 @@ export type ServiceOutputTypes =
   | StopProjectVersionCommandOutput
   | StopStreamProcessorCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -385,9 +307,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type RekognitionClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type RekognitionClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -396,9 +316,7 @@ export type RekognitionClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type RekognitionClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

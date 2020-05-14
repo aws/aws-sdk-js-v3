@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeCertificatesMessage,
-  DescribeCertificatesResponse
-} from "../models/index";
+import { DescribeCertificatesMessage, DescribeCertificatesResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCertificatesCommand,
   serializeAws_json1_1DescribeCertificatesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
-export type DescribeCertificatesCommandOutput = DescribeCertificatesResponse &
-  __MetadataBearer;
+export type DescribeCertificatesCommandOutput = DescribeCertificatesResponse & __MetadataBearer;
 
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,
@@ -49,13 +42,8 @@ export class DescribeCertificatesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeCertificatesCommandInput,
-    DescribeCertificatesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeCertificatesCommandInput, DescribeCertificatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +58,11 @@ export class DescribeCertificatesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeCertificatesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeCertificatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeCertificatesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCertificatesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCertificatesCommandOutput> {
     return deserializeAws_json1_1DescribeCertificatesCommand(output, context);
   }
 

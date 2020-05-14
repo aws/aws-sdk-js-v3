@@ -1,19 +1,11 @@
 import { EventMessageChunkerStream } from "./EventMessageChunkerStream";
-import {
-  recordEventMessage,
-  statsEventMessage,
-  endEventMessage
-} from "./fixtures/event.fixture";
+import { recordEventMessage, statsEventMessage, endEventMessage } from "./fixtures/event.fixture";
 import { MockEventMessageSource } from "./fixtures/MockEventMessageSource.fixture";
 
 describe("EventMessageChunkerStream", () => {
   it("splits payloads into individual messages", done => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
       emitSize: 100
@@ -31,12 +23,7 @@ describe("EventMessageChunkerStream", () => {
 
   it("splits payloads in correct order", done => {
     const messages: Array<any> = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      recordEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, recordEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
       emitSize: 100
@@ -49,9 +36,7 @@ describe("EventMessageChunkerStream", () => {
     chunkerStream.on("end", function () {
       expect(messages.length).toBe(4);
       for (let i = 0; i < mockMessages.length; i++) {
-        expect(messages[i].toString("base64")).toEqual(
-          mockMessages[i].toString("base64")
-        );
+        expect(messages[i].toString("base64")).toEqual(mockMessages[i].toString("base64"));
       }
       done();
     });
@@ -59,11 +44,7 @@ describe("EventMessageChunkerStream", () => {
 
   it("splits payloads when received all at once", done => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
       emitSize: mockMessages.reduce((prev, cur) => {
@@ -83,11 +64,7 @@ describe("EventMessageChunkerStream", () => {
 
   it("splits payloads when total event message length spans multiple chunks", done => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
       emitSize: 1
@@ -105,11 +82,7 @@ describe("EventMessageChunkerStream", () => {
 
   it("splits payloads when total event message length spans 2 chunks", done => {
     const messages = [];
-    const mockMessages = [
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ];
+    const mockMessages = [recordEventMessage, statsEventMessage, endEventMessage];
     const mockStream = new MockEventMessageSource({
       messages: mockMessages,
       emitSize: recordEventMessage.length + 2
@@ -126,11 +99,7 @@ describe("EventMessageChunkerStream", () => {
   });
 
   it("sends an error if an event message is truncated", done => {
-    const responseMessage = Buffer.concat([
-      recordEventMessage,
-      statsEventMessage,
-      endEventMessage
-    ]);
+    const responseMessage = Buffer.concat([recordEventMessage, statsEventMessage, endEventMessage]);
     const mockStream = new MockEventMessageSource({
       messages: [responseMessage.slice(0, responseMessage.length - 4)],
       emitSize: 10

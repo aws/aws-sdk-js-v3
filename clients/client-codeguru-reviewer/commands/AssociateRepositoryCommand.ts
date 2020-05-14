@@ -1,21 +1,11 @@
-import {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CodeGuruReviewerClient";
-import {
-  AssociateRepositoryRequest,
-  AssociateRepositoryResponse
-} from "../models/index";
+import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
+import { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateRepositoryCommand,
   serializeAws_restJson1_1AssociateRepositoryCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AssociateRepositoryCommandInput = AssociateRepositoryRequest;
-export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse &
-  __MetadataBearer;
+export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse & __MetadataBearer;
 
 export class AssociateRepositoryCommand extends $Command<
   AssociateRepositoryCommandInput,
@@ -49,13 +38,8 @@ export class AssociateRepositoryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AssociateRepositoryCommandInput,
-    AssociateRepositoryCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class AssociateRepositoryCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AssociateRepositoryCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AssociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1AssociateRepositoryCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1_1AssociateRepositoryCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
+    return deserializeAws_restJson1_1AssociateRepositoryCommand(output, context);
   }
 
   // Start section: command_body_extra

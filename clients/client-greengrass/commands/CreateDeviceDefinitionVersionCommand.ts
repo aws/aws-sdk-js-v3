@@ -1,21 +1,11 @@
-import {
-  GreengrassClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../GreengrassClient";
-import {
-  CreateDeviceDefinitionVersionRequest,
-  CreateDeviceDefinitionVersionResponse
-} from "../models/index";
+import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { CreateDeviceDefinitionVersionRequest, CreateDeviceDefinitionVersionResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand,
   serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateDeviceDefinitionVersionCommandInput = CreateDeviceDefinitionVersionRequest;
-export type CreateDeviceDefinitionVersionCommandOutput = CreateDeviceDefinitionVersionResponse &
-  __MetadataBearer;
+export type CreateDeviceDefinitionVersionCommandOutput = CreateDeviceDefinitionVersionResponse & __MetadataBearer;
 
 export class CreateDeviceDefinitionVersionCommand extends $Command<
   CreateDeviceDefinitionVersionCommandInput,
@@ -49,13 +38,8 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    CreateDeviceDefinitionVersionCommandInput,
-    CreateDeviceDefinitionVersionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<CreateDeviceDefinitionVersionCommandInput, CreateDeviceDefinitionVersionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,15 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateDeviceDefinitionVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
-      input,
-      context
-    );
+  private serialize(input: CreateDeviceDefinitionVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDeviceDefinitionVersionCommandOutput> {
-    return deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDeviceDefinitionVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

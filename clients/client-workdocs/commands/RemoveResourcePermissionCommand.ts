@@ -1,18 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkDocsClientResolvedConfig
-} from "../WorkDocsClient";
+import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 import { RemoveResourcePermissionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1RemoveResourcePermissionCommand,
   serializeAws_restJson1_1RemoveResourcePermissionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -45,13 +38,8 @@ export class RemoveResourcePermissionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    RemoveResourcePermissionCommandInput,
-    RemoveResourcePermissionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<RemoveResourcePermissionCommandInput, RemoveResourcePermissionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -66,24 +54,12 @@ export class RemoveResourcePermissionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: RemoveResourcePermissionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveResourcePermissionCommand(
-      input,
-      context
-    );
+  private serialize(input: RemoveResourcePermissionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1RemoveResourcePermissionCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RemoveResourcePermissionCommandOutput> {
-    return deserializeAws_restJson1_1RemoveResourcePermissionCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RemoveResourcePermissionCommandOutput> {
+    return deserializeAws_restJson1_1RemoveResourcePermissionCommand(output, context);
   }
 
   // Start section: command_body_extra

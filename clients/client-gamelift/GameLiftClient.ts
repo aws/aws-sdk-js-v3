@@ -1,23 +1,8 @@
-import {
-  AcceptMatchCommandInput,
-  AcceptMatchCommandOutput
-} from "./commands/AcceptMatchCommand";
-import {
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput
-} from "./commands/CreateAliasCommand";
-import {
-  CreateBuildCommandInput,
-  CreateBuildCommandOutput
-} from "./commands/CreateBuildCommand";
-import {
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput
-} from "./commands/CreateFleetCommand";
-import {
-  CreateGameSessionCommandInput,
-  CreateGameSessionCommandOutput
-} from "./commands/CreateGameSessionCommand";
+import { AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
+import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
+import { CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
+import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
+import { CreateGameSessionCommandInput, CreateGameSessionCommandOutput } from "./commands/CreateGameSessionCommand";
 import {
   CreateGameSessionQueueCommandInput,
   CreateGameSessionQueueCommandOutput
@@ -38,10 +23,7 @@ import {
   CreatePlayerSessionsCommandInput,
   CreatePlayerSessionsCommandOutput
 } from "./commands/CreatePlayerSessionsCommand";
-import {
-  CreateScriptCommandInput,
-  CreateScriptCommandOutput
-} from "./commands/CreateScriptCommand";
+import { CreateScriptCommandInput, CreateScriptCommandOutput } from "./commands/CreateScriptCommand";
 import {
   CreateVpcPeeringAuthorizationCommandInput,
   CreateVpcPeeringAuthorizationCommandOutput
@@ -50,18 +32,9 @@ import {
   CreateVpcPeeringConnectionCommandInput,
   CreateVpcPeeringConnectionCommandOutput
 } from "./commands/CreateVpcPeeringConnectionCommand";
-import {
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput
-} from "./commands/DeleteAliasCommand";
-import {
-  DeleteBuildCommandInput,
-  DeleteBuildCommandOutput
-} from "./commands/DeleteBuildCommand";
-import {
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput
-} from "./commands/DeleteFleetCommand";
+import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
+import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteGameSessionQueueCommandInput,
   DeleteGameSessionQueueCommandOutput
@@ -78,10 +51,7 @@ import {
   DeleteScalingPolicyCommandInput,
   DeleteScalingPolicyCommandOutput
 } from "./commands/DeleteScalingPolicyCommand";
-import {
-  DeleteScriptCommandInput,
-  DeleteScriptCommandOutput
-} from "./commands/DeleteScriptCommand";
+import { DeleteScriptCommandInput, DeleteScriptCommandOutput } from "./commands/DeleteScriptCommand";
 import {
   DeleteVpcPeeringAuthorizationCommandInput,
   DeleteVpcPeeringAuthorizationCommandOutput
@@ -90,14 +60,8 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput
 } from "./commands/DeleteVpcPeeringConnectionCommand";
-import {
-  DescribeAliasCommandInput,
-  DescribeAliasCommandOutput
-} from "./commands/DescribeAliasCommand";
-import {
-  DescribeBuildCommandInput,
-  DescribeBuildCommandOutput
-} from "./commands/DescribeBuildCommand";
+import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./commands/DescribeAliasCommand";
+import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand";
 import {
   DescribeEC2InstanceLimitsCommandInput,
   DescribeEC2InstanceLimitsCommandOutput
@@ -138,10 +102,7 @@ import {
   DescribeGameSessionsCommandInput,
   DescribeGameSessionsCommandOutput
 } from "./commands/DescribeGameSessionsCommand";
-import {
-  DescribeInstancesCommandInput,
-  DescribeInstancesCommandOutput
-} from "./commands/DescribeInstancesCommand";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "./commands/DescribeInstancesCommand";
 import {
   DescribeMatchmakingCommandInput,
   DescribeMatchmakingCommandOutput
@@ -166,10 +127,7 @@ import {
   DescribeScalingPoliciesCommandInput,
   DescribeScalingPoliciesCommandOutput
 } from "./commands/DescribeScalingPoliciesCommand";
-import {
-  DescribeScriptCommandInput,
-  DescribeScriptCommandOutput
-} from "./commands/DescribeScriptCommand";
+import { DescribeScriptCommandInput, DescribeScriptCommandOutput } from "./commands/DescribeScriptCommand";
 import {
   DescribeVpcPeeringAuthorizationsCommandInput,
   DescribeVpcPeeringAuthorizationsCommandOutput
@@ -182,90 +140,39 @@ import {
   GetGameSessionLogUrlCommandInput,
   GetGameSessionLogUrlCommandOutput
 } from "./commands/GetGameSessionLogUrlCommand";
-import {
-  GetInstanceAccessCommandInput,
-  GetInstanceAccessCommandOutput
-} from "./commands/GetInstanceAccessCommand";
-import {
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput
-} from "./commands/ListAliasesCommand";
-import {
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand";
-import {
-  ListFleetsCommandInput,
-  ListFleetsCommandOutput
-} from "./commands/ListFleetsCommand";
-import {
-  ListScriptsCommandInput,
-  ListScriptsCommandOutput
-} from "./commands/ListScriptsCommand";
+import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from "./commands/GetInstanceAccessCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
+import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
+import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
+import { ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutScalingPolicyCommandInput,
-  PutScalingPolicyCommandOutput
-} from "./commands/PutScalingPolicyCommand";
+import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
 import {
   RequestUploadCredentialsCommandInput,
   RequestUploadCredentialsCommandOutput
 } from "./commands/RequestUploadCredentialsCommand";
-import {
-  ResolveAliasCommandInput,
-  ResolveAliasCommandOutput
-} from "./commands/ResolveAliasCommand";
-import {
-  SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput
-} from "./commands/SearchGameSessionsCommand";
-import {
-  StartFleetActionsCommandInput,
-  StartFleetActionsCommandOutput
-} from "./commands/StartFleetActionsCommand";
+import { ResolveAliasCommandInput, ResolveAliasCommandOutput } from "./commands/ResolveAliasCommand";
+import { SearchGameSessionsCommandInput, SearchGameSessionsCommandOutput } from "./commands/SearchGameSessionsCommand";
+import { StartFleetActionsCommandInput, StartFleetActionsCommandOutput } from "./commands/StartFleetActionsCommand";
 import {
   StartGameSessionPlacementCommandInput,
   StartGameSessionPlacementCommandOutput
 } from "./commands/StartGameSessionPlacementCommand";
-import {
-  StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput
-} from "./commands/StartMatchBackfillCommand";
-import {
-  StartMatchmakingCommandInput,
-  StartMatchmakingCommandOutput
-} from "./commands/StartMatchmakingCommand";
-import {
-  StopFleetActionsCommandInput,
-  StopFleetActionsCommandOutput
-} from "./commands/StopFleetActionsCommand";
+import { StartMatchBackfillCommandInput, StartMatchBackfillCommandOutput } from "./commands/StartMatchBackfillCommand";
+import { StartMatchmakingCommandInput, StartMatchmakingCommandOutput } from "./commands/StartMatchmakingCommand";
+import { StopFleetActionsCommandInput, StopFleetActionsCommandOutput } from "./commands/StopFleetActionsCommand";
 import {
   StopGameSessionPlacementCommandInput,
   StopGameSessionPlacementCommandOutput
 } from "./commands/StopGameSessionPlacementCommand";
-import {
-  StopMatchmakingCommandInput,
-  StopMatchmakingCommandOutput
-} from "./commands/StopMatchmakingCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput
-} from "./commands/UpdateAliasCommand";
-import {
-  UpdateBuildCommandInput,
-  UpdateBuildCommandOutput
-} from "./commands/UpdateBuildCommand";
+import { StopMatchmakingCommandInput, StopMatchmakingCommandOutput } from "./commands/StopMatchmakingCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
+import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
 import {
   UpdateFleetAttributesCommandInput,
   UpdateFleetAttributesCommandOutput
@@ -278,10 +185,7 @@ import {
   UpdateFleetPortSettingsCommandInput,
   UpdateFleetPortSettingsCommandOutput
 } from "./commands/UpdateFleetPortSettingsCommand";
-import {
-  UpdateGameSessionCommandInput,
-  UpdateGameSessionCommandOutput
-} from "./commands/UpdateGameSessionCommand";
+import { UpdateGameSessionCommandInput, UpdateGameSessionCommandOutput } from "./commands/UpdateGameSessionCommand";
 import {
   UpdateGameSessionQueueCommandInput,
   UpdateGameSessionQueueCommandOutput
@@ -294,10 +198,7 @@ import {
   UpdateRuntimeConfigurationCommandInput,
   UpdateRuntimeConfigurationCommandOutput
 } from "./commands/UpdateRuntimeConfigurationCommand";
-import {
-  UpdateScriptCommandInput,
-  UpdateScriptCommandOutput
-} from "./commands/UpdateScriptCommand";
+import { UpdateScriptCommandInput, UpdateScriptCommandOutput } from "./commands/UpdateScriptCommand";
 import {
   ValidateMatchmakingRuleSetCommandInput,
   ValidateMatchmakingRuleSetCommandOutput
@@ -318,12 +219,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -510,8 +406,7 @@ export type ServiceOutputTypes =
   | UpdateScriptCommandOutput
   | ValidateMatchmakingRuleSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -595,9 +490,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type GameLiftClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type GameLiftClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -606,9 +499,7 @@ export type GameLiftClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type GameLiftClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

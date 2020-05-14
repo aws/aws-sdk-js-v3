@@ -1,27 +1,9 @@
-import {
-  CancelChangeSetCommandInput,
-  CancelChangeSetCommandOutput
-} from "./commands/CancelChangeSetCommand";
-import {
-  DescribeChangeSetCommandInput,
-  DescribeChangeSetCommandOutput
-} from "./commands/DescribeChangeSetCommand";
-import {
-  DescribeEntityCommandInput,
-  DescribeEntityCommandOutput
-} from "./commands/DescribeEntityCommand";
-import {
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput
-} from "./commands/ListChangeSetsCommand";
-import {
-  ListEntitiesCommandInput,
-  ListEntitiesCommandOutput
-} from "./commands/ListEntitiesCommand";
-import {
-  StartChangeSetCommandInput,
-  StartChangeSetCommandOutput
-} from "./commands/StartChangeSetCommand";
+import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "./commands/CancelChangeSetCommand";
+import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand";
+import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
+import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
+import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
+import { StartChangeSetCommandInput, StartChangeSetCommandOutput } from "./commands/StartChangeSetCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -38,12 +20,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -90,8 +67,7 @@ export type ServiceOutputTypes =
   | ListEntitiesCommandOutput
   | StartChangeSetCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -175,9 +151,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MarketplaceCatalogClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MarketplaceCatalogClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -186,9 +160,7 @@ export type MarketplaceCatalogClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MarketplaceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MarketplaceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

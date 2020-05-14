@@ -1,18 +1,11 @@
-import {
-  OrganizationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../OrganizationsClient";
+import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { CreateAccountRequest, CreateAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateAccountCommand,
   serializeAws_json1_1CreateAccountCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateAccountCommandInput = CreateAccountRequest;
-export type CreateAccountCommandOutput = CreateAccountResponse &
-  __MetadataBearer;
+export type CreateAccountCommandOutput = CreateAccountResponse & __MetadataBearer;
 
 export class CreateAccountCommand extends $Command<
   CreateAccountCommandInput,
@@ -47,9 +39,7 @@ export class CreateAccountCommand extends $Command<
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccountCommandInput, CreateAccountCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class CreateAccountCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateAccountCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateAccountCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1CreateAccountCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateAccountCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccountCommandOutput> {
     return deserializeAws_json1_1CreateAccountCommand(output, context);
   }
 

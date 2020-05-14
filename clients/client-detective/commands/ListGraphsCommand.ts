@@ -1,18 +1,11 @@
-import {
-  DetectiveClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DetectiveClient";
+import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
 import { ListGraphsRequest, ListGraphsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListGraphsCommand,
   serializeAws_restJson1_1ListGraphsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -46,9 +39,7 @@ export class ListGraphsCommand extends $Command<
     configuration: DetectiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListGraphsCommandInput, ListGraphsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +54,11 @@ export class ListGraphsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListGraphsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListGraphsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListGraphsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListGraphsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGraphsCommandOutput> {
     return deserializeAws_restJson1_1ListGraphsCommand(output, context);
   }
 

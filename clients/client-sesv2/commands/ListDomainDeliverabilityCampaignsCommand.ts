@@ -1,21 +1,11 @@
-import {
-  SESv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SESv2Client";
-import {
-  ListDomainDeliverabilityCampaignsRequest,
-  ListDomainDeliverabilityCampaignsResponse
-} from "../models/index";
+import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { ListDomainDeliverabilityCampaignsRequest, ListDomainDeliverabilityCampaignsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand,
   serializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -49,13 +39,8 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListDomainDeliverabilityCampaignsCommandInput,
-    ListDomainDeliverabilityCampaignsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListDomainDeliverabilityCampaignsCommandInput, ListDomainDeliverabilityCampaignsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +59,14 @@ export class ListDomainDeliverabilityCampaignsCommand extends $Command<
     input: ListDomainDeliverabilityCampaignsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> {
-    return deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsCommand(output, context);
   }
 
   // Start section: command_body_extra

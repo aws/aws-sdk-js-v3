@@ -1,21 +1,11 @@
-import {
-  LambdaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../LambdaClient";
-import {
-  FunctionEventInvokeConfig,
-  UpdateFunctionEventInvokeConfigRequest
-} from "../models/index";
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { FunctionEventInvokeConfig, UpdateFunctionEventInvokeConfigRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand,
   serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateFunctionEventInvokeConfigCommandInput = UpdateFunctionEventInvokeConfigRequest;
-export type UpdateFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig &
-  __MetadataBearer;
+export type UpdateFunctionEventInvokeConfigCommandOutput = FunctionEventInvokeConfig & __MetadataBearer;
 
 export class UpdateFunctionEventInvokeConfigCommand extends $Command<
   UpdateFunctionEventInvokeConfigCommandInput,
@@ -49,13 +38,8 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UpdateFunctionEventInvokeConfigCommandInput,
-    UpdateFunctionEventInvokeConfigCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UpdateFunctionEventInvokeConfigCommandInput, UpdateFunctionEventInvokeConfigCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class UpdateFunctionEventInvokeConfigCommand extends $Command<
     input: UpdateFunctionEventInvokeConfigCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  ListObjectPoliciesRequest,
-  ListObjectPoliciesResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { ListObjectPoliciesRequest, ListObjectPoliciesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectPoliciesCommand,
   serializeAws_restJson1_1ListObjectPoliciesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectPoliciesCommandInput = ListObjectPoliciesRequest;
-export type ListObjectPoliciesCommandOutput = ListObjectPoliciesResponse &
-  __MetadataBearer;
+export type ListObjectPoliciesCommandOutput = ListObjectPoliciesResponse & __MetadataBearer;
 
 export class ListObjectPoliciesCommand extends $Command<
   ListObjectPoliciesCommandInput,
@@ -50,9 +39,7 @@ export class ListObjectPoliciesCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListObjectPoliciesCommandInput, ListObjectPoliciesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListObjectPoliciesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListObjectPoliciesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListObjectPoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListObjectPoliciesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListObjectPoliciesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectPoliciesCommandOutput> {
     return deserializeAws_restJson1_1ListObjectPoliciesCommand(output, context);
   }
 

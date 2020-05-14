@@ -1,21 +1,11 @@
-import {
-  ACMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMClient";
-import {
-  ExportCertificateRequest,
-  ExportCertificateResponse
-} from "../models/index";
+import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
+import { ExportCertificateRequest, ExportCertificateResponse } from "../models/index";
 import {
   deserializeAws_json1_1ExportCertificateCommand,
   serializeAws_json1_1ExportCertificateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ExportCertificateCommandInput = ExportCertificateRequest;
-export type ExportCertificateCommandOutput = ExportCertificateResponse &
-  __MetadataBearer;
+export type ExportCertificateCommandOutput = ExportCertificateResponse & __MetadataBearer;
 
 export class ExportCertificateCommand extends $Command<
   ExportCertificateCommandInput,
@@ -50,9 +39,7 @@ export class ExportCertificateCommand extends $Command<
     configuration: ACMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportCertificateCommandInput, ExportCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ExportCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ExportCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ExportCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1ExportCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ExportCertificateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExportCertificateCommandOutput> {
     return deserializeAws_json1_1ExportCertificateCommand(output, context);
   }
 

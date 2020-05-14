@@ -1,21 +1,11 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TranscribeClientResolvedConfig
-} from "../TranscribeClient";
-import {
-  UpdateVocabularyRequest,
-  UpdateVocabularyResponse
-} from "../models/index";
+import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
+import { UpdateVocabularyRequest, UpdateVocabularyResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateVocabularyCommand,
   serializeAws_json1_1UpdateVocabularyCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UpdateVocabularyCommandInput = UpdateVocabularyRequest;
-export type UpdateVocabularyCommandOutput = UpdateVocabularyResponse &
-  __MetadataBearer;
+export type UpdateVocabularyCommandOutput = UpdateVocabularyResponse & __MetadataBearer;
 
 export class UpdateVocabularyCommand extends $Command<
   UpdateVocabularyCommandInput,
@@ -50,9 +39,7 @@ export class UpdateVocabularyCommand extends $Command<
     configuration: TranscribeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVocabularyCommandInput, UpdateVocabularyCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class UpdateVocabularyCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UpdateVocabularyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UpdateVocabularyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UpdateVocabularyCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateVocabularyCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateVocabularyCommandOutput> {
     return deserializeAws_json1_1UpdateVocabularyCommand(output, context);
   }
 

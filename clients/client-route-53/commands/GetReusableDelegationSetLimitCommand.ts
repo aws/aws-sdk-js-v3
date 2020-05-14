@@ -1,22 +1,12 @@
-import {
-  Route53ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../Route53Client";
-import {
-  GetReusableDelegationSetLimitRequest,
-  GetReusableDelegationSetLimitResponse
-} from "../models/index";
+import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
+import { GetReusableDelegationSetLimitRequest, GetReusableDelegationSetLimitResponse } from "../models/index";
 import {
   deserializeAws_restXmlGetReusableDelegationSetLimitCommand,
   serializeAws_restXmlGetReusableDelegationSetLimitCommand
 } from "../protocols/Aws_restXml";
 import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -29,8 +19,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetReusableDelegationSetLimitCommandInput = GetReusableDelegationSetLimitRequest;
-export type GetReusableDelegationSetLimitCommandOutput = GetReusableDelegationSetLimitResponse &
-  __MetadataBearer;
+export type GetReusableDelegationSetLimitCommandOutput = GetReusableDelegationSetLimitResponse & __MetadataBearer;
 
 export class GetReusableDelegationSetLimitCommand extends $Command<
   GetReusableDelegationSetLimitCommandInput,
@@ -50,13 +39,8 @@ export class GetReusableDelegationSetLimitCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetReusableDelegationSetLimitCommandInput,
-    GetReusableDelegationSetLimitCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetReusableDelegationSetLimitCommandInput, GetReusableDelegationSetLimitCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -72,24 +56,15 @@ export class GetReusableDelegationSetLimitCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetReusableDelegationSetLimitCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetReusableDelegationSetLimitCommand(
-      input,
-      context
-    );
+  private serialize(input: GetReusableDelegationSetLimitCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetReusableDelegationSetLimitCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GetReusableDelegationSetLimitCommandOutput> {
-    return deserializeAws_restXmlGetReusableDelegationSetLimitCommand(
-      output,
-      context
-    );
+    return deserializeAws_restXmlGetReusableDelegationSetLimitCommand(output, context);
   }
 
   // Start section: command_body_extra

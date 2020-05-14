@@ -38,10 +38,7 @@ import {
   DeleteSuppressedDestinationCommandInput,
   DeleteSuppressedDestinationCommandOutput
 } from "./commands/DeleteSuppressedDestinationCommand";
-import {
-  GetAccountCommandInput,
-  GetAccountCommandOutput
-} from "./commands/GetAccountCommand";
+import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand";
 import {
   GetBlacklistReportsCommandInput,
   GetBlacklistReportsCommandOutput
@@ -54,14 +51,8 @@ import {
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
-import {
-  GetDedicatedIpCommandInput,
-  GetDedicatedIpCommandOutput
-} from "./commands/GetDedicatedIpCommand";
-import {
-  GetDedicatedIpsCommandInput,
-  GetDedicatedIpsCommandOutput
-} from "./commands/GetDedicatedIpsCommand";
+import { GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput } from "./commands/GetDedicatedIpCommand";
+import { GetDedicatedIpsCommandInput, GetDedicatedIpsCommandOutput } from "./commands/GetDedicatedIpsCommand";
 import {
   GetDeliverabilityDashboardOptionsCommandInput,
   GetDeliverabilityDashboardOptionsCommandOutput
@@ -78,10 +69,7 @@ import {
   GetDomainStatisticsReportCommandInput,
   GetDomainStatisticsReportCommandOutput
 } from "./commands/GetDomainStatisticsReportCommand";
-import {
-  GetEmailIdentityCommandInput,
-  GetEmailIdentityCommandOutput
-} from "./commands/GetEmailIdentityCommand";
+import { GetEmailIdentityCommandInput, GetEmailIdentityCommandOutput } from "./commands/GetEmailIdentityCommand";
 import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput
@@ -178,18 +166,9 @@ import {
   PutSuppressedDestinationCommandInput,
   PutSuppressedDestinationCommandOutput
 } from "./commands/PutSuppressedDestinationCommand";
-import {
-  SendEmailCommandInput,
-  SendEmailCommandOutput
-} from "./commands/SendEmailCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
+import { SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput
@@ -210,12 +189,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -348,8 +322,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateConfigurationSetEventDestinationCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -433,9 +406,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type SESv2ClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type SESv2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -444,9 +415,7 @@ export type SESv2ClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type SESv2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

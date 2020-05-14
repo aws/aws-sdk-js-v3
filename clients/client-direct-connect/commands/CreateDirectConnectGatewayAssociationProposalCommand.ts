@@ -1,8 +1,4 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   CreateDirectConnectGatewayAssociationProposalRequest,
   CreateDirectConnectGatewayAssociationProposalResult
@@ -12,10 +8,7 @@ import {
   serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -39,9 +32,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(
-    readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput
-  ) {
+  constructor(readonly input: CreateDirectConnectGatewayAssociationProposalCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -55,9 +46,7 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     CreateDirectConnectGatewayAssociationProposalCommandInput,
     CreateDirectConnectGatewayAssociationProposalCommandOutput
   > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -76,20 +65,14 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     input: CreateDirectConnectGatewayAssociationProposalCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand(output, context);
   }
 
   // Start section: command_body_extra

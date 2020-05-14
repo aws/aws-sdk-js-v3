@@ -1,21 +1,11 @@
-import {
-  SSMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SSMClient";
-import {
-  GetCommandInvocationRequest,
-  GetCommandInvocationResult
-} from "../models/index";
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/index";
 import {
   deserializeAws_json1_1GetCommandInvocationCommand,
   serializeAws_json1_1GetCommandInvocationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCommandInvocationCommandInput = GetCommandInvocationRequest;
-export type GetCommandInvocationCommandOutput = GetCommandInvocationResult &
-  __MetadataBearer;
+export type GetCommandInvocationCommandOutput = GetCommandInvocationResult & __MetadataBearer;
 
 export class GetCommandInvocationCommand extends $Command<
   GetCommandInvocationCommandInput,
@@ -49,13 +38,8 @@ export class GetCommandInvocationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    GetCommandInvocationCommandInput,
-    GetCommandInvocationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<GetCommandInvocationCommandInput, GetCommandInvocationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class GetCommandInvocationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCommandInvocationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCommandInvocationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCommandInvocationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCommandInvocationCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCommandInvocationCommandOutput> {
     return deserializeAws_json1_1GetCommandInvocationCommand(output, context);
   }
 

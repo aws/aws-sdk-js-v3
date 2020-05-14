@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -37,38 +34,31 @@ export interface AddPermissionRequest {
 }
 
 export namespace AddPermissionRequest {
-  export const isa = (o: any): o is AddPermissionRequest =>
-    __isa(o, "AddPermissionRequest");
+  export const isa = (o: any): o is AddPermissionRequest => __isa(o, "AddPermissionRequest");
 }
 
 /**
  * <p>Two or more batch entries in the request have the same <code>Id</code>.</p>
  */
-export interface BatchEntryIdsNotDistinct
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BatchEntryIdsNotDistinct extends __SmithyException, $MetadataBearer {
   name: "BatchEntryIdsNotDistinct";
   $fault: "client";
 }
 
 export namespace BatchEntryIdsNotDistinct {
-  export const isa = (o: any): o is BatchEntryIdsNotDistinct =>
-    __isa(o, "BatchEntryIdsNotDistinct");
+  export const isa = (o: any): o is BatchEntryIdsNotDistinct => __isa(o, "BatchEntryIdsNotDistinct");
 }
 
 /**
  * <p>The length of all the messages put together is more than the limit.</p>
  */
-export interface BatchRequestTooLong
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BatchRequestTooLong extends __SmithyException, $MetadataBearer {
   name: "BatchRequestTooLong";
   $fault: "client";
 }
 
 export namespace BatchRequestTooLong {
-  export const isa = (o: any): o is BatchRequestTooLong =>
-    __isa(o, "BatchRequestTooLong");
+  export const isa = (o: any): o is BatchRequestTooLong => __isa(o, "BatchRequestTooLong");
 }
 
 /**
@@ -99,8 +89,7 @@ export interface BatchResultErrorEntry {
 }
 
 export namespace BatchResultErrorEntry {
-  export const isa = (o: any): o is BatchResultErrorEntry =>
-    __isa(o, "BatchResultErrorEntry");
+  export const isa = (o: any): o is BatchResultErrorEntry => __isa(o, "BatchResultErrorEntry");
 }
 
 /**
@@ -237,8 +226,7 @@ export interface ChangeMessageVisibilityRequest {
 }
 
 export namespace ChangeMessageVisibilityRequest {
-  export const isa = (o: any): o is ChangeMessageVisibilityRequest =>
-    __isa(o, "ChangeMessageVisibilityRequest");
+  export const isa = (o: any): o is ChangeMessageVisibilityRequest => __isa(o, "ChangeMessageVisibilityRequest");
 }
 
 /**
@@ -424,8 +412,7 @@ export interface CreateQueueRequest {
 }
 
 export namespace CreateQueueRequest {
-  export const isa = (o: any): o is CreateQueueRequest =>
-    __isa(o, "CreateQueueRequest");
+  export const isa = (o: any): o is CreateQueueRequest => __isa(o, "CreateQueueRequest");
 }
 
 /**
@@ -440,8 +427,7 @@ export interface CreateQueueResult {
 }
 
 export namespace CreateQueueResult {
-  export const isa = (o: any): o is CreateQueueResult =>
-    __isa(o, "CreateQueueResult");
+  export const isa = (o: any): o is CreateQueueResult => __isa(o, "CreateQueueResult");
 }
 
 /**
@@ -462,8 +448,7 @@ export interface DeleteMessageBatchRequest {
 }
 
 export namespace DeleteMessageBatchRequest {
-  export const isa = (o: any): o is DeleteMessageBatchRequest =>
-    __isa(o, "DeleteMessageBatchRequest");
+  export const isa = (o: any): o is DeleteMessageBatchRequest => __isa(o, "DeleteMessageBatchRequest");
 }
 
 /**
@@ -486,8 +471,7 @@ export interface DeleteMessageBatchRequestEntry {
 }
 
 export namespace DeleteMessageBatchRequestEntry {
-  export const isa = (o: any): o is DeleteMessageBatchRequestEntry =>
-    __isa(o, "DeleteMessageBatchRequestEntry");
+  export const isa = (o: any): o is DeleteMessageBatchRequestEntry => __isa(o, "DeleteMessageBatchRequestEntry");
 }
 
 /**
@@ -515,8 +499,7 @@ export interface DeleteMessageBatchResult {
 }
 
 export namespace DeleteMessageBatchResult {
-  export const isa = (o: any): o is DeleteMessageBatchResult =>
-    __isa(o, "DeleteMessageBatchResult");
+  export const isa = (o: any): o is DeleteMessageBatchResult => __isa(o, "DeleteMessageBatchResult");
 }
 
 /**
@@ -533,8 +516,7 @@ export interface DeleteMessageBatchResultEntry {
 }
 
 export namespace DeleteMessageBatchResultEntry {
-  export const isa = (o: any): o is DeleteMessageBatchResultEntry =>
-    __isa(o, "DeleteMessageBatchResultEntry");
+  export const isa = (o: any): o is DeleteMessageBatchResultEntry => __isa(o, "DeleteMessageBatchResultEntry");
 }
 
 /**
@@ -555,8 +537,7 @@ export interface DeleteMessageRequest {
 }
 
 export namespace DeleteMessageRequest {
-  export const isa = (o: any): o is DeleteMessageRequest =>
-    __isa(o, "DeleteMessageRequest");
+  export const isa = (o: any): o is DeleteMessageRequest => __isa(o, "DeleteMessageRequest");
 }
 
 /**
@@ -572,8 +553,7 @@ export interface DeleteQueueRequest {
 }
 
 export namespace DeleteQueueRequest {
-  export const isa = (o: any): o is DeleteQueueRequest =>
-    __isa(o, "DeleteQueueRequest");
+  export const isa = (o: any): o is DeleteQueueRequest => __isa(o, "DeleteQueueRequest");
 }
 
 /**
@@ -585,8 +565,7 @@ export interface EmptyBatchRequest extends __SmithyException, $MetadataBearer {
 }
 
 export namespace EmptyBatchRequest {
-  export const isa = (o: any): o is EmptyBatchRequest =>
-    __isa(o, "EmptyBatchRequest");
+  export const isa = (o: any): o is EmptyBatchRequest => __isa(o, "EmptyBatchRequest");
 }
 
 /**
@@ -733,8 +712,7 @@ export interface GetQueueAttributesRequest {
 }
 
 export namespace GetQueueAttributesRequest {
-  export const isa = (o: any): o is GetQueueAttributesRequest =>
-    __isa(o, "GetQueueAttributesRequest");
+  export const isa = (o: any): o is GetQueueAttributesRequest => __isa(o, "GetQueueAttributesRequest");
 }
 
 /**
@@ -749,8 +727,7 @@ export interface GetQueueAttributesResult {
 }
 
 export namespace GetQueueAttributesResult {
-  export const isa = (o: any): o is GetQueueAttributesResult =>
-    __isa(o, "GetQueueAttributesResult");
+  export const isa = (o: any): o is GetQueueAttributesResult => __isa(o, "GetQueueAttributesResult");
 }
 
 /**
@@ -771,8 +748,7 @@ export interface GetQueueUrlRequest {
 }
 
 export namespace GetQueueUrlRequest {
-  export const isa = (o: any): o is GetQueueUrlRequest =>
-    __isa(o, "GetQueueUrlRequest");
+  export const isa = (o: any): o is GetQueueUrlRequest => __isa(o, "GetQueueUrlRequest");
 }
 
 /**
@@ -787,38 +763,31 @@ export interface GetQueueUrlResult {
 }
 
 export namespace GetQueueUrlResult {
-  export const isa = (o: any): o is GetQueueUrlResult =>
-    __isa(o, "GetQueueUrlResult");
+  export const isa = (o: any): o is GetQueueUrlResult => __isa(o, "GetQueueUrlResult");
 }
 
 /**
  * <p>The specified attribute doesn't exist.</p>
  */
-export interface InvalidAttributeName
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidAttributeName extends __SmithyException, $MetadataBearer {
   name: "InvalidAttributeName";
   $fault: "client";
 }
 
 export namespace InvalidAttributeName {
-  export const isa = (o: any): o is InvalidAttributeName =>
-    __isa(o, "InvalidAttributeName");
+  export const isa = (o: any): o is InvalidAttributeName => __isa(o, "InvalidAttributeName");
 }
 
 /**
  * <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the specification.</p>
  */
-export interface InvalidBatchEntryId
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidBatchEntryId extends __SmithyException, $MetadataBearer {
   name: "InvalidBatchEntryId";
   $fault: "client";
 }
 
 export namespace InvalidBatchEntryId {
-  export const isa = (o: any): o is InvalidBatchEntryId =>
-    __isa(o, "InvalidBatchEntryId");
+  export const isa = (o: any): o is InvalidBatchEntryId => __isa(o, "InvalidBatchEntryId");
 }
 
 /**
@@ -830,23 +799,19 @@ export interface InvalidIdFormat extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidIdFormat {
-  export const isa = (o: any): o is InvalidIdFormat =>
-    __isa(o, "InvalidIdFormat");
+  export const isa = (o: any): o is InvalidIdFormat => __isa(o, "InvalidIdFormat");
 }
 
 /**
  * <p>The message contains characters outside the allowed set.</p>
  */
-export interface InvalidMessageContents
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidMessageContents extends __SmithyException, $MetadataBearer {
   name: "InvalidMessageContents";
   $fault: "client";
 }
 
 export namespace InvalidMessageContents {
-  export const isa = (o: any): o is InvalidMessageContents =>
-    __isa(o, "InvalidMessageContents");
+  export const isa = (o: any): o is InvalidMessageContents => __isa(o, "InvalidMessageContents");
 }
 
 /**
@@ -862,8 +827,7 @@ export interface ListDeadLetterSourceQueuesRequest {
 }
 
 export namespace ListDeadLetterSourceQueuesRequest {
-  export const isa = (o: any): o is ListDeadLetterSourceQueuesRequest =>
-    __isa(o, "ListDeadLetterSourceQueuesRequest");
+  export const isa = (o: any): o is ListDeadLetterSourceQueuesRequest => __isa(o, "ListDeadLetterSourceQueuesRequest");
 }
 
 /**
@@ -878,8 +842,7 @@ export interface ListDeadLetterSourceQueuesResult {
 }
 
 export namespace ListDeadLetterSourceQueuesResult {
-  export const isa = (o: any): o is ListDeadLetterSourceQueuesResult =>
-    __isa(o, "ListDeadLetterSourceQueuesResult");
+  export const isa = (o: any): o is ListDeadLetterSourceQueuesResult => __isa(o, "ListDeadLetterSourceQueuesResult");
 }
 
 export interface ListQueueTagsRequest {
@@ -891,8 +854,7 @@ export interface ListQueueTagsRequest {
 }
 
 export namespace ListQueueTagsRequest {
-  export const isa = (o: any): o is ListQueueTagsRequest =>
-    __isa(o, "ListQueueTagsRequest");
+  export const isa = (o: any): o is ListQueueTagsRequest => __isa(o, "ListQueueTagsRequest");
 }
 
 export interface ListQueueTagsResult {
@@ -904,8 +866,7 @@ export interface ListQueueTagsResult {
 }
 
 export namespace ListQueueTagsResult {
-  export const isa = (o: any): o is ListQueueTagsResult =>
-    __isa(o, "ListQueueTagsResult");
+  export const isa = (o: any): o is ListQueueTagsResult => __isa(o, "ListQueueTagsResult");
 }
 
 /**
@@ -921,8 +882,7 @@ export interface ListQueuesRequest {
 }
 
 export namespace ListQueuesRequest {
-  export const isa = (o: any): o is ListQueuesRequest =>
-    __isa(o, "ListQueuesRequest");
+  export const isa = (o: any): o is ListQueuesRequest => __isa(o, "ListQueuesRequest");
 }
 
 /**
@@ -937,8 +897,7 @@ export interface ListQueuesResult {
 }
 
 export namespace ListQueuesResult {
-  export const isa = (o: any): o is ListQueuesResult =>
-    __isa(o, "ListQueuesResult");
+  export const isa = (o: any): o is ListQueuesResult => __isa(o, "ListQueuesResult");
 }
 
 /**
@@ -1066,8 +1025,7 @@ export interface MessageAttributeValue {
 }
 
 export namespace MessageAttributeValue {
-  export const isa = (o: any): o is MessageAttributeValue =>
-    __isa(o, "MessageAttributeValue");
+  export const isa = (o: any): o is MessageAttributeValue => __isa(o, "MessageAttributeValue");
 }
 
 /**
@@ -1079,8 +1037,7 @@ export interface MessageNotInflight extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageNotInflight {
-  export const isa = (o: any): o is MessageNotInflight =>
-    __isa(o, "MessageNotInflight");
+  export const isa = (o: any): o is MessageNotInflight => __isa(o, "MessageNotInflight");
 }
 
 export type MessageSystemAttributeName =
@@ -1132,8 +1089,7 @@ export interface MessageSystemAttributeValue {
 }
 
 export namespace MessageSystemAttributeValue {
-  export const isa = (o: any): o is MessageSystemAttributeValue =>
-    __isa(o, "MessageSystemAttributeValue");
+  export const isa = (o: any): o is MessageSystemAttributeValue => __isa(o, "MessageSystemAttributeValue");
 }
 
 /**
@@ -1154,16 +1110,13 @@ export namespace OverLimit {
 /**
  * <p>Indicates that the specified queue previously received a <code>PurgeQueue</code> request within the last 60 seconds (the time it can take to delete the messages in the queue).</p>
  */
-export interface PurgeQueueInProgress
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PurgeQueueInProgress extends __SmithyException, $MetadataBearer {
   name: "PurgeQueueInProgress";
   $fault: "client";
 }
 
 export namespace PurgeQueueInProgress {
-  export const isa = (o: any): o is PurgeQueueInProgress =>
-    __isa(o, "PurgeQueueInProgress");
+  export const isa = (o: any): o is PurgeQueueInProgress => __isa(o, "PurgeQueueInProgress");
 }
 
 /**
@@ -1179,8 +1132,7 @@ export interface PurgeQueueRequest {
 }
 
 export namespace PurgeQueueRequest {
-  export const isa = (o: any): o is PurgeQueueRequest =>
-    __isa(o, "PurgeQueueRequest");
+  export const isa = (o: any): o is PurgeQueueRequest => __isa(o, "PurgeQueueRequest");
 }
 
 export type QueueAttributeName =
@@ -1207,16 +1159,13 @@ export type QueueAttributeName =
  * <p>You must wait 60 seconds after deleting a queue before you can create another queue
  *             with the same name.</p>
  */
-export interface QueueDeletedRecently
-  extends __SmithyException,
-    $MetadataBearer {
+export interface QueueDeletedRecently extends __SmithyException, $MetadataBearer {
   name: "QueueDeletedRecently";
   $fault: "client";
 }
 
 export namespace QueueDeletedRecently {
-  export const isa = (o: any): o is QueueDeletedRecently =>
-    __isa(o, "QueueDeletedRecently");
+  export const isa = (o: any): o is QueueDeletedRecently => __isa(o, "QueueDeletedRecently");
 }
 
 /**
@@ -1228,8 +1177,7 @@ export interface QueueDoesNotExist extends __SmithyException, $MetadataBearer {
 }
 
 export namespace QueueDoesNotExist {
-  export const isa = (o: any): o is QueueDoesNotExist =>
-    __isa(o, "QueueDoesNotExist");
+  export const isa = (o: any): o is QueueDoesNotExist => __isa(o, "QueueDoesNotExist");
 }
 
 /**
@@ -1242,23 +1190,19 @@ export interface QueueNameExists extends __SmithyException, $MetadataBearer {
 }
 
 export namespace QueueNameExists {
-  export const isa = (o: any): o is QueueNameExists =>
-    __isa(o, "QueueNameExists");
+  export const isa = (o: any): o is QueueNameExists => __isa(o, "QueueNameExists");
 }
 
 /**
  * <p>The specified receipt handle isn't valid.</p>
  */
-export interface ReceiptHandleIsInvalid
-  extends __SmithyException,
-    $MetadataBearer {
+export interface ReceiptHandleIsInvalid extends __SmithyException, $MetadataBearer {
   name: "ReceiptHandleIsInvalid";
   $fault: "client";
 }
 
 export namespace ReceiptHandleIsInvalid {
-  export const isa = (o: any): o is ReceiptHandleIsInvalid =>
-    __isa(o, "ReceiptHandleIsInvalid");
+  export const isa = (o: any): o is ReceiptHandleIsInvalid => __isa(o, "ReceiptHandleIsInvalid");
 }
 
 /**
@@ -1426,8 +1370,7 @@ export interface ReceiveMessageRequest {
 }
 
 export namespace ReceiveMessageRequest {
-  export const isa = (o: any): o is ReceiveMessageRequest =>
-    __isa(o, "ReceiveMessageRequest");
+  export const isa = (o: any): o is ReceiveMessageRequest => __isa(o, "ReceiveMessageRequest");
 }
 
 /**
@@ -1442,8 +1385,7 @@ export interface ReceiveMessageResult {
 }
 
 export namespace ReceiveMessageResult {
-  export const isa = (o: any): o is ReceiveMessageResult =>
-    __isa(o, "ReceiveMessageResult");
+  export const isa = (o: any): o is ReceiveMessageResult => __isa(o, "ReceiveMessageResult");
 }
 
 /**
@@ -1466,8 +1408,7 @@ export interface RemovePermissionRequest {
 }
 
 export namespace RemovePermissionRequest {
-  export const isa = (o: any): o is RemovePermissionRequest =>
-    __isa(o, "RemovePermissionRequest");
+  export const isa = (o: any): o is RemovePermissionRequest => __isa(o, "RemovePermissionRequest");
 }
 
 /**
@@ -1490,8 +1431,7 @@ export interface SendMessageBatchRequest {
 }
 
 export namespace SendMessageBatchRequest {
-  export const isa = (o: any): o is SendMessageBatchRequest =>
-    __isa(o, "SendMessageBatchRequest");
+  export const isa = (o: any): o is SendMessageBatchRequest => __isa(o, "SendMessageBatchRequest");
 }
 
 /**
@@ -1629,8 +1569,7 @@ export interface SendMessageBatchRequestEntry {
 }
 
 export namespace SendMessageBatchRequestEntry {
-  export const isa = (o: any): o is SendMessageBatchRequestEntry =>
-    __isa(o, "SendMessageBatchRequestEntry");
+  export const isa = (o: any): o is SendMessageBatchRequestEntry => __isa(o, "SendMessageBatchRequestEntry");
 }
 
 /**
@@ -1658,8 +1597,7 @@ export interface SendMessageBatchResult {
 }
 
 export namespace SendMessageBatchResult {
-  export const isa = (o: any): o is SendMessageBatchResult =>
-    __isa(o, "SendMessageBatchResult");
+  export const isa = (o: any): o is SendMessageBatchResult => __isa(o, "SendMessageBatchResult");
 }
 
 /**
@@ -1703,8 +1641,7 @@ export interface SendMessageBatchResultEntry {
 }
 
 export namespace SendMessageBatchResultEntry {
-  export const isa = (o: any): o is SendMessageBatchResultEntry =>
-    __isa(o, "SendMessageBatchResultEntry");
+  export const isa = (o: any): o is SendMessageBatchResultEntry => __isa(o, "SendMessageBatchResultEntry");
 }
 
 /**
@@ -1846,8 +1783,7 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
-  export const isa = (o: any): o is SendMessageRequest =>
-    __isa(o, "SendMessageRequest");
+  export const isa = (o: any): o is SendMessageRequest => __isa(o, "SendMessageRequest");
 }
 
 /**
@@ -1886,8 +1822,7 @@ export interface SendMessageResult {
 }
 
 export namespace SendMessageResult {
-  export const isa = (o: any): o is SendMessageResult =>
-    __isa(o, "SendMessageResult");
+  export const isa = (o: any): o is SendMessageResult => __isa(o, "SendMessageResult");
 }
 
 /**
@@ -2027,8 +1962,7 @@ export interface SetQueueAttributesRequest {
 }
 
 export namespace SetQueueAttributesRequest {
-  export const isa = (o: any): o is SetQueueAttributesRequest =>
-    __isa(o, "SetQueueAttributesRequest");
+  export const isa = (o: any): o is SetQueueAttributesRequest => __isa(o, "SetQueueAttributesRequest");
 }
 
 export interface TagQueueRequest {
@@ -2045,38 +1979,31 @@ export interface TagQueueRequest {
 }
 
 export namespace TagQueueRequest {
-  export const isa = (o: any): o is TagQueueRequest =>
-    __isa(o, "TagQueueRequest");
+  export const isa = (o: any): o is TagQueueRequest => __isa(o, "TagQueueRequest");
 }
 
 /**
  * <p>The batch request contains more entries than permissible.</p>
  */
-export interface TooManyEntriesInBatchRequest
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyEntriesInBatchRequest extends __SmithyException, $MetadataBearer {
   name: "TooManyEntriesInBatchRequest";
   $fault: "client";
 }
 
 export namespace TooManyEntriesInBatchRequest {
-  export const isa = (o: any): o is TooManyEntriesInBatchRequest =>
-    __isa(o, "TooManyEntriesInBatchRequest");
+  export const isa = (o: any): o is TooManyEntriesInBatchRequest => __isa(o, "TooManyEntriesInBatchRequest");
 }
 
 /**
  * <p>Error code 400. Unsupported operation.</p>
  */
-export interface UnsupportedOperation
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperation";
   $fault: "client";
 }
 
 export namespace UnsupportedOperation {
-  export const isa = (o: any): o is UnsupportedOperation =>
-    __isa(o, "UnsupportedOperation");
+  export const isa = (o: any): o is UnsupportedOperation => __isa(o, "UnsupportedOperation");
 }
 
 export interface UntagQueueRequest {
@@ -2093,6 +2020,5 @@ export interface UntagQueueRequest {
 }
 
 export namespace UntagQueueRequest {
-  export const isa = (o: any): o is UntagQueueRequest =>
-    __isa(o, "UntagQueueRequest");
+  export const isa = (o: any): o is UntagQueueRequest => __isa(o, "UntagQueueRequest");
 }

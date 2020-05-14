@@ -2,34 +2,19 @@ import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput
 } from "./commands/CancelDataRepositoryTaskCommand";
-import {
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput
-} from "./commands/CreateBackupCommand";
+import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import {
   CreateDataRepositoryTaskCommandInput,
   CreateDataRepositoryTaskCommandOutput
 } from "./commands/CreateDataRepositoryTaskCommand";
-import {
-  CreateFileSystemCommandInput,
-  CreateFileSystemCommandOutput
-} from "./commands/CreateFileSystemCommand";
+import { CreateFileSystemCommandInput, CreateFileSystemCommandOutput } from "./commands/CreateFileSystemCommand";
 import {
   CreateFileSystemFromBackupCommandInput,
   CreateFileSystemFromBackupCommandOutput
 } from "./commands/CreateFileSystemFromBackupCommand";
-import {
-  DeleteBackupCommandInput,
-  DeleteBackupCommandOutput
-} from "./commands/DeleteBackupCommand";
-import {
-  DeleteFileSystemCommandInput,
-  DeleteFileSystemCommandOutput
-} from "./commands/DeleteFileSystemCommand";
-import {
-  DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput
-} from "./commands/DescribeBackupsCommand";
+import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand";
+import { DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput } from "./commands/DeleteFileSystemCommand";
+import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "./commands/DescribeBackupsCommand";
 import {
   DescribeDataRepositoryTasksCommandInput,
   DescribeDataRepositoryTasksCommandOutput
@@ -42,18 +27,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateFileSystemCommandInput,
-  UpdateFileSystemCommandOutput
-} from "./commands/UpdateFileSystemCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -70,12 +46,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -138,8 +109,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateFileSystemCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -223,9 +193,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type FSxClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type FSxClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -234,9 +202,7 @@ export type FSxClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type FSxClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

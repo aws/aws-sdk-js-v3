@@ -1,21 +1,11 @@
-import {
-  CloudFrontClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudFrontClient";
-import {
-  GetPublicKeyConfigRequest,
-  GetPublicKeyConfigResult
-} from "../models/index";
+import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { GetPublicKeyConfigRequest, GetPublicKeyConfigResult } from "../models/index";
 import {
   deserializeAws_restXmlGetPublicKeyConfigCommand,
   serializeAws_restXmlGetPublicKeyConfigCommand
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetPublicKeyConfigCommandInput = GetPublicKeyConfigRequest;
-export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult &
-  __MetadataBearer;
+export type GetPublicKeyConfigCommandOutput = GetPublicKeyConfigResult & __MetadataBearer;
 
 export class GetPublicKeyConfigCommand extends $Command<
   GetPublicKeyConfigCommandInput,
@@ -50,9 +39,7 @@ export class GetPublicKeyConfigCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class GetPublicKeyConfigCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetPublicKeyConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetPublicKeyConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlGetPublicKeyConfigCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetPublicKeyConfigCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetPublicKeyConfigCommandOutput> {
     return deserializeAws_restXmlGetPublicKeyConfigCommand(output, context);
   }
 

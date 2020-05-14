@@ -1,21 +1,11 @@
-import {
-  SageMakerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SageMakerClient";
-import {
-  DescribeProcessingJobRequest,
-  DescribeProcessingJobResponse
-} from "../models/index";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
+import { DescribeProcessingJobRequest, DescribeProcessingJobResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProcessingJobCommand,
   serializeAws_json1_1DescribeProcessingJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProcessingJobCommandInput = DescribeProcessingJobRequest;
-export type DescribeProcessingJobCommandOutput = DescribeProcessingJobResponse &
-  __MetadataBearer;
+export type DescribeProcessingJobCommandOutput = DescribeProcessingJobResponse & __MetadataBearer;
 
 export class DescribeProcessingJobCommand extends $Command<
   DescribeProcessingJobCommandInput,
@@ -49,13 +38,8 @@ export class DescribeProcessingJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeProcessingJobCommandInput,
-    DescribeProcessingJobCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeProcessingJobCommandInput, DescribeProcessingJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class DescribeProcessingJobCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeProcessingJobCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeProcessingJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProcessingJobCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeProcessingJobCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProcessingJobCommandOutput> {
     return deserializeAws_json1_1DescribeProcessingJobCommand(output, context);
   }
 

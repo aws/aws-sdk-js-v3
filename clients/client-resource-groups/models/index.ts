@@ -1,23 +1,17 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
  * <p>The request does not comply with validation rules that are defined for the request parameters.</p>
  */
-export interface BadRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace BadRequestException {
-  export const isa = (o: any): o is BadRequestException =>
-    __isa(o, "BadRequestException");
+  export const isa = (o: any): o is BadRequestException => __isa(o, "BadRequestException");
 }
 
 export interface CreateGroupInput {
@@ -48,8 +42,7 @@ export interface CreateGroupInput {
 }
 
 export namespace CreateGroupInput {
-  export const isa = (o: any): o is CreateGroupInput =>
-    __isa(o, "CreateGroupInput");
+  export const isa = (o: any): o is CreateGroupInput => __isa(o, "CreateGroupInput");
 }
 
 export interface CreateGroupOutput {
@@ -71,8 +64,7 @@ export interface CreateGroupOutput {
 }
 
 export namespace CreateGroupOutput {
-  export const isa = (o: any): o is CreateGroupOutput =>
-    __isa(o, "CreateGroupOutput");
+  export const isa = (o: any): o is CreateGroupOutput => __isa(o, "CreateGroupOutput");
 }
 
 export interface DeleteGroupInput {
@@ -84,8 +76,7 @@ export interface DeleteGroupInput {
 }
 
 export namespace DeleteGroupInput {
-  export const isa = (o: any): o is DeleteGroupInput =>
-    __isa(o, "DeleteGroupInput");
+  export const isa = (o: any): o is DeleteGroupInput => __isa(o, "DeleteGroupInput");
 }
 
 export interface DeleteGroupOutput {
@@ -97,8 +88,7 @@ export interface DeleteGroupOutput {
 }
 
 export namespace DeleteGroupOutput {
-  export const isa = (o: any): o is DeleteGroupOutput =>
-    __isa(o, "DeleteGroupOutput");
+  export const isa = (o: any): o is DeleteGroupOutput => __isa(o, "DeleteGroupOutput");
 }
 
 /**
@@ -111,8 +101,7 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
-  export const isa = (o: any): o is ForbiddenException =>
-    __isa(o, "ForbiddenException");
+  export const isa = (o: any): o is ForbiddenException => __isa(o, "ForbiddenException");
 }
 
 export interface GetGroupInput {
@@ -136,8 +125,7 @@ export interface GetGroupOutput {
 }
 
 export namespace GetGroupOutput {
-  export const isa = (o: any): o is GetGroupOutput =>
-    __isa(o, "GetGroupOutput");
+  export const isa = (o: any): o is GetGroupOutput => __isa(o, "GetGroupOutput");
 }
 
 export interface GetGroupQueryInput {
@@ -149,8 +137,7 @@ export interface GetGroupQueryInput {
 }
 
 export namespace GetGroupQueryInput {
-  export const isa = (o: any): o is GetGroupQueryInput =>
-    __isa(o, "GetGroupQueryInput");
+  export const isa = (o: any): o is GetGroupQueryInput => __isa(o, "GetGroupQueryInput");
 }
 
 export interface GetGroupQueryOutput {
@@ -162,8 +149,7 @@ export interface GetGroupQueryOutput {
 }
 
 export namespace GetGroupQueryOutput {
-  export const isa = (o: any): o is GetGroupQueryOutput =>
-    __isa(o, "GetGroupQueryOutput");
+  export const isa = (o: any): o is GetGroupQueryOutput => __isa(o, "GetGroupQueryOutput");
 }
 
 export interface GetTagsInput {
@@ -261,8 +247,7 @@ export interface GroupIdentifier {
 }
 
 export namespace GroupIdentifier {
-  export const isa = (o: any): o is GroupIdentifier =>
-    __isa(o, "GroupIdentifier");
+  export const isa = (o: any): o is GroupIdentifier => __isa(o, "GroupIdentifier");
 }
 
 /**
@@ -288,17 +273,14 @@ export namespace GroupQuery {
 /**
  * <p>An internal error occurred while processing the request.</p>
  */
-export interface InternalServerErrorException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
 }
 
 export namespace InternalServerErrorException {
-  export const isa = (o: any): o is InternalServerErrorException =>
-    __isa(o, "InternalServerErrorException");
+  export const isa = (o: any): o is InternalServerErrorException => __isa(o, "InternalServerErrorException");
 }
 
 export interface ListGroupResourcesInput {
@@ -332,8 +314,7 @@ export interface ListGroupResourcesInput {
 }
 
 export namespace ListGroupResourcesInput {
-  export const isa = (o: any): o is ListGroupResourcesInput =>
-    __isa(o, "ListGroupResourcesInput");
+  export const isa = (o: any): o is ListGroupResourcesInput => __isa(o, "ListGroupResourcesInput");
 }
 
 export interface ListGroupResourcesOutput {
@@ -357,8 +338,7 @@ export interface ListGroupResourcesOutput {
 }
 
 export namespace ListGroupResourcesOutput {
-  export const isa = (o: any): o is ListGroupResourcesOutput =>
-    __isa(o, "ListGroupResourcesOutput");
+  export const isa = (o: any): o is ListGroupResourcesOutput => __isa(o, "ListGroupResourcesOutput");
 }
 
 export interface ListGroupsInput {
@@ -387,8 +367,7 @@ export interface ListGroupsInput {
 }
 
 export namespace ListGroupsInput {
-  export const isa = (o: any): o is ListGroupsInput =>
-    __isa(o, "ListGroupsInput");
+  export const isa = (o: any): o is ListGroupsInput => __isa(o, "ListGroupsInput");
 }
 
 export interface ListGroupsOutput {
@@ -410,24 +389,20 @@ export interface ListGroupsOutput {
 }
 
 export namespace ListGroupsOutput {
-  export const isa = (o: any): o is ListGroupsOutput =>
-    __isa(o, "ListGroupsOutput");
+  export const isa = (o: any): o is ListGroupsOutput => __isa(o, "ListGroupsOutput");
 }
 
 /**
  * <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
  */
-export interface MethodNotAllowedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface MethodNotAllowedException extends __SmithyException, $MetadataBearer {
   name: "MethodNotAllowedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace MethodNotAllowedException {
-  export const isa = (o: any): o is MethodNotAllowedException =>
-    __isa(o, "MethodNotAllowedException");
+  export const isa = (o: any): o is MethodNotAllowedException => __isa(o, "MethodNotAllowedException");
 }
 
 /**
@@ -440,8 +415,7 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
-  export const isa = (o: any): o is NotFoundException =>
-    __isa(o, "NotFoundException");
+  export const isa = (o: any): o is NotFoundException => __isa(o, "NotFoundException");
 }
 
 /**
@@ -500,8 +474,7 @@ export interface ResourceFilter {
 }
 
 export namespace ResourceFilter {
-  export const isa = (o: any): o is ResourceFilter =>
-    __isa(o, "ResourceFilter");
+  export const isa = (o: any): o is ResourceFilter => __isa(o, "ResourceFilter");
 }
 
 export enum ResourceFilterName {
@@ -525,8 +498,7 @@ export interface ResourceIdentifier {
 }
 
 export namespace ResourceIdentifier {
-  export const isa = (o: any): o is ResourceIdentifier =>
-    __isa(o, "ResourceIdentifier");
+  export const isa = (o: any): o is ResourceIdentifier => __isa(o, "ResourceIdentifier");
 }
 
 /**
@@ -602,8 +574,7 @@ export interface SearchResourcesInput {
 }
 
 export namespace SearchResourcesInput {
-  export const isa = (o: any): o is SearchResourcesInput =>
-    __isa(o, "SearchResourcesInput");
+  export const isa = (o: any): o is SearchResourcesInput => __isa(o, "SearchResourcesInput");
 }
 
 export interface SearchResourcesOutput {
@@ -628,8 +599,7 @@ export interface SearchResourcesOutput {
 }
 
 export namespace SearchResourcesOutput {
-  export const isa = (o: any): o is SearchResourcesOutput =>
-    __isa(o, "SearchResourcesOutput");
+  export const isa = (o: any): o is SearchResourcesOutput => __isa(o, "SearchResourcesOutput");
 }
 
 export interface TagInput {
@@ -670,33 +640,27 @@ export namespace TagOutput {
 /**
  * <p>The caller has exceeded throttling limits.</p>
  */
-export interface TooManyRequestsException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace TooManyRequestsException {
-  export const isa = (o: any): o is TooManyRequestsException =>
-    __isa(o, "TooManyRequestsException");
+  export const isa = (o: any): o is TooManyRequestsException => __isa(o, "TooManyRequestsException");
 }
 
 /**
  * <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
  */
-export interface UnauthorizedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
   name: "UnauthorizedException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace UnauthorizedException {
-  export const isa = (o: any): o is UnauthorizedException =>
-    __isa(o, "UnauthorizedException");
+  export const isa = (o: any): o is UnauthorizedException => __isa(o, "UnauthorizedException");
 }
 
 export interface UntagInput {
@@ -748,8 +712,7 @@ export interface UpdateGroupInput {
 }
 
 export namespace UpdateGroupInput {
-  export const isa = (o: any): o is UpdateGroupInput =>
-    __isa(o, "UpdateGroupInput");
+  export const isa = (o: any): o is UpdateGroupInput => __isa(o, "UpdateGroupInput");
 }
 
 export interface UpdateGroupOutput {
@@ -761,8 +724,7 @@ export interface UpdateGroupOutput {
 }
 
 export namespace UpdateGroupOutput {
-  export const isa = (o: any): o is UpdateGroupOutput =>
-    __isa(o, "UpdateGroupOutput");
+  export const isa = (o: any): o is UpdateGroupOutput => __isa(o, "UpdateGroupOutput");
 }
 
 export interface UpdateGroupQueryInput {
@@ -779,8 +741,7 @@ export interface UpdateGroupQueryInput {
 }
 
 export namespace UpdateGroupQueryInput {
-  export const isa = (o: any): o is UpdateGroupQueryInput =>
-    __isa(o, "UpdateGroupQueryInput");
+  export const isa = (o: any): o is UpdateGroupQueryInput => __isa(o, "UpdateGroupQueryInput");
 }
 
 export interface UpdateGroupQueryOutput {
@@ -792,6 +753,5 @@ export interface UpdateGroupQueryOutput {
 }
 
 export namespace UpdateGroupQueryOutput {
-  export const isa = (o: any): o is UpdateGroupQueryOutput =>
-    __isa(o, "UpdateGroupQueryOutput");
+  export const isa = (o: any): o is UpdateGroupQueryOutput => __isa(o, "UpdateGroupQueryOutput");
 }

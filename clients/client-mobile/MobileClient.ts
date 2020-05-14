@@ -1,39 +1,12 @@
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "./commands/DeleteProjectCommand";
-import {
-  DescribeBundleCommandInput,
-  DescribeBundleCommandOutput
-} from "./commands/DescribeBundleCommand";
-import {
-  DescribeProjectCommandInput,
-  DescribeProjectCommandOutput
-} from "./commands/DescribeProjectCommand";
-import {
-  ExportBundleCommandInput,
-  ExportBundleCommandOutput
-} from "./commands/ExportBundleCommand";
-import {
-  ExportProjectCommandInput,
-  ExportProjectCommandOutput
-} from "./commands/ExportProjectCommand";
-import {
-  ListBundlesCommandInput,
-  ListBundlesCommandOutput
-} from "./commands/ListBundlesCommand";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "./commands/ListProjectsCommand";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "./commands/UpdateProjectCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DescribeBundleCommandInput, DescribeBundleCommandOutput } from "./commands/DescribeBundleCommand";
+import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import { ExportBundleCommandInput, ExportBundleCommandOutput } from "./commands/ExportBundleCommand";
+import { ExportProjectCommandInput, ExportProjectCommandOutput } from "./commands/ExportProjectCommand";
+import { ListBundlesCommandInput, ListBundlesCommandOutput } from "./commands/ListBundlesCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -50,12 +23,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -108,8 +76,7 @@ export type ServiceOutputTypes =
   | ListProjectsCommandOutput
   | UpdateProjectCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -193,9 +160,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type MobileClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type MobileClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -204,9 +169,7 @@ export type MobileClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type MobileClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

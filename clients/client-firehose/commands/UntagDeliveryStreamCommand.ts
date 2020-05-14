@@ -1,21 +1,11 @@
-import {
-  FirehoseClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../FirehoseClient";
-import {
-  UntagDeliveryStreamInput,
-  UntagDeliveryStreamOutput
-} from "../models/index";
+import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/index";
 import {
   deserializeAws_json1_1UntagDeliveryStreamCommand,
   serializeAws_json1_1UntagDeliveryStreamCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type UntagDeliveryStreamCommandInput = UntagDeliveryStreamInput;
-export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput &
-  __MetadataBearer;
+export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput & __MetadataBearer;
 
 export class UntagDeliveryStreamCommand extends $Command<
   UntagDeliveryStreamCommandInput,
@@ -49,13 +38,8 @@ export class UntagDeliveryStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    UntagDeliveryStreamCommandInput,
-    UntagDeliveryStreamCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<UntagDeliveryStreamCommandInput, UntagDeliveryStreamCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class UntagDeliveryStreamCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: UntagDeliveryStreamCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: UntagDeliveryStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1UntagDeliveryStreamCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UntagDeliveryStreamCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagDeliveryStreamCommandOutput> {
     return deserializeAws_json1_1UntagDeliveryStreamCommand(output, context);
   }
 

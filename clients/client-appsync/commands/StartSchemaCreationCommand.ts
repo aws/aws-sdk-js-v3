@@ -1,21 +1,11 @@
-import {
-  AppSyncClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AppSyncClient";
-import {
-  StartSchemaCreationRequest,
-  StartSchemaCreationResponse
-} from "../models/index";
+import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1StartSchemaCreationCommand,
   serializeAws_restJson1_1StartSchemaCreationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type StartSchemaCreationCommandInput = StartSchemaCreationRequest;
-export type StartSchemaCreationCommandOutput = StartSchemaCreationResponse &
-  __MetadataBearer;
+export type StartSchemaCreationCommandOutput = StartSchemaCreationResponse & __MetadataBearer;
 
 export class StartSchemaCreationCommand extends $Command<
   StartSchemaCreationCommandInput,
@@ -49,13 +38,8 @@ export class StartSchemaCreationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    StartSchemaCreationCommandInput,
-    StartSchemaCreationCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<StartSchemaCreationCommandInput, StartSchemaCreationCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class StartSchemaCreationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: StartSchemaCreationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: StartSchemaCreationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1StartSchemaCreationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartSchemaCreationCommandOutput> {
-    return deserializeAws_restJson1_1StartSchemaCreationCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSchemaCreationCommandOutput> {
+    return deserializeAws_restJson1_1StartSchemaCreationCommand(output, context);
   }
 
   // Start section: command_body_extra

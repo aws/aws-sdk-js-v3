@@ -1,18 +1,8 @@
-import {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WAFV2ClientResolvedConfig
-} from "../WAFV2Client";
+import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 import { GetIPSetRequest, GetIPSetResponse } from "../models/index";
-import {
-  deserializeAws_json1_1GetIPSetCommand,
-  serializeAws_json1_1GetIPSetCommand
-} from "../protocols/Aws_json1_1";
+import { deserializeAws_json1_1GetIPSetCommand, serializeAws_json1_1GetIPSetCommand } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -27,11 +17,7 @@ import {
 export type GetIPSetCommandInput = GetIPSetRequest;
 export type GetIPSetCommandOutput = GetIPSetResponse & __MetadataBearer;
 
-export class GetIPSetCommand extends $Command<
-  GetIPSetCommandInput,
-  GetIPSetCommandOutput,
-  WAFV2ClientResolvedConfig
-> {
+export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetCommandOutput, WAFV2ClientResolvedConfig> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,9 +32,7 @@ export class GetIPSetCommand extends $Command<
     configuration: WAFV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIPSetCommandInput, GetIPSetCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -63,17 +47,11 @@ export class GetIPSetCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetIPSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetIPSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetIPSetCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetIPSetCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIPSetCommandOutput> {
     return deserializeAws_json1_1GetIPSetCommand(output, context);
   }
 

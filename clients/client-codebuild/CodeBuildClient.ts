@@ -1,47 +1,17 @@
-import {
-  BatchDeleteBuildsCommandInput,
-  BatchDeleteBuildsCommandOutput
-} from "./commands/BatchDeleteBuildsCommand";
-import {
-  BatchGetBuildsCommandInput,
-  BatchGetBuildsCommandOutput
-} from "./commands/BatchGetBuildsCommand";
-import {
-  BatchGetProjectsCommandInput,
-  BatchGetProjectsCommandOutput
-} from "./commands/BatchGetProjectsCommand";
+import { BatchDeleteBuildsCommandInput, BatchDeleteBuildsCommandOutput } from "./commands/BatchDeleteBuildsCommand";
+import { BatchGetBuildsCommandInput, BatchGetBuildsCommandOutput } from "./commands/BatchGetBuildsCommand";
+import { BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput } from "./commands/BatchGetProjectsCommand";
 import {
   BatchGetReportGroupsCommandInput,
   BatchGetReportGroupsCommandOutput
 } from "./commands/BatchGetReportGroupsCommand";
-import {
-  BatchGetReportsCommandInput,
-  BatchGetReportsCommandOutput
-} from "./commands/BatchGetReportsCommand";
-import {
-  CreateProjectCommandInput,
-  CreateProjectCommandOutput
-} from "./commands/CreateProjectCommand";
-import {
-  CreateReportGroupCommandInput,
-  CreateReportGroupCommandOutput
-} from "./commands/CreateReportGroupCommand";
-import {
-  CreateWebhookCommandInput,
-  CreateWebhookCommandOutput
-} from "./commands/CreateWebhookCommand";
-import {
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput
-} from "./commands/DeleteProjectCommand";
-import {
-  DeleteReportCommandInput,
-  DeleteReportCommandOutput
-} from "./commands/DeleteReportCommand";
-import {
-  DeleteReportGroupCommandInput,
-  DeleteReportGroupCommandOutput
-} from "./commands/DeleteReportGroupCommand";
+import { BatchGetReportsCommandInput, BatchGetReportsCommandOutput } from "./commands/BatchGetReportsCommand";
+import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import { CreateReportGroupCommandInput, CreateReportGroupCommandOutput } from "./commands/CreateReportGroupCommand";
+import { CreateWebhookCommandInput, CreateWebhookCommandOutput } from "./commands/CreateWebhookCommand";
+import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import { DeleteReportCommandInput, DeleteReportCommandOutput } from "./commands/DeleteReportCommand";
+import { DeleteReportGroupCommandInput, DeleteReportGroupCommandOutput } from "./commands/DeleteReportGroupCommand";
 import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput
@@ -50,18 +20,9 @@ import {
   DeleteSourceCredentialsCommandInput,
   DeleteSourceCredentialsCommandOutput
 } from "./commands/DeleteSourceCredentialsCommand";
-import {
-  DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput
-} from "./commands/DeleteWebhookCommand";
-import {
-  DescribeTestCasesCommandInput,
-  DescribeTestCasesCommandOutput
-} from "./commands/DescribeTestCasesCommand";
-import {
-  GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput
-} from "./commands/GetResourcePolicyCommand";
+import { DeleteWebhookCommandInput, DeleteWebhookCommandOutput } from "./commands/DeleteWebhookCommand";
+import { DescribeTestCasesCommandInput, DescribeTestCasesCommandOutput } from "./commands/DescribeTestCasesCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ImportSourceCredentialsCommandInput,
   ImportSourceCredentialsCommandOutput
@@ -70,10 +31,7 @@ import {
   InvalidateProjectCacheCommandInput,
   InvalidateProjectCacheCommandOutput
 } from "./commands/InvalidateProjectCacheCommand";
-import {
-  ListBuildsCommandInput,
-  ListBuildsCommandOutput
-} from "./commands/ListBuildsCommand";
+import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import {
   ListBuildsForProjectCommandInput,
   ListBuildsForProjectCommandOutput
@@ -82,26 +40,14 @@ import {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput
 } from "./commands/ListCuratedEnvironmentImagesCommand";
-import {
-  ListProjectsCommandInput,
-  ListProjectsCommandOutput
-} from "./commands/ListProjectsCommand";
-import {
-  ListReportGroupsCommandInput,
-  ListReportGroupsCommandOutput
-} from "./commands/ListReportGroupsCommand";
-import {
-  ListReportsCommandInput,
-  ListReportsCommandOutput
-} from "./commands/ListReportsCommand";
+import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import { ListReportGroupsCommandInput, ListReportGroupsCommandOutput } from "./commands/ListReportGroupsCommand";
+import { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
   ListReportsForReportGroupCommandInput,
   ListReportsForReportGroupCommandOutput
 } from "./commands/ListReportsForReportGroupCommand";
-import {
-  ListSharedProjectsCommandInput,
-  ListSharedProjectsCommandOutput
-} from "./commands/ListSharedProjectsCommand";
+import { ListSharedProjectsCommandInput, ListSharedProjectsCommandOutput } from "./commands/ListSharedProjectsCommand";
 import {
   ListSharedReportGroupsCommandInput,
   ListSharedReportGroupsCommandOutput
@@ -110,30 +56,12 @@ import {
   ListSourceCredentialsCommandInput,
   ListSourceCredentialsCommandOutput
 } from "./commands/ListSourceCredentialsCommand";
-import {
-  PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput
-} from "./commands/PutResourcePolicyCommand";
-import {
-  StartBuildCommandInput,
-  StartBuildCommandOutput
-} from "./commands/StartBuildCommand";
-import {
-  StopBuildCommandInput,
-  StopBuildCommandOutput
-} from "./commands/StopBuildCommand";
-import {
-  UpdateProjectCommandInput,
-  UpdateProjectCommandOutput
-} from "./commands/UpdateProjectCommand";
-import {
-  UpdateReportGroupCommandInput,
-  UpdateReportGroupCommandOutput
-} from "./commands/UpdateReportGroupCommand";
-import {
-  UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput
-} from "./commands/UpdateWebhookCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
+import { StartBuildCommandInput, StartBuildCommandOutput } from "./commands/StartBuildCommand";
+import { StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import { UpdateReportGroupCommandInput, UpdateReportGroupCommandOutput } from "./commands/UpdateReportGroupCommand";
+import { UpdateWebhookCommandInput, UpdateWebhookCommandOutput } from "./commands/UpdateWebhookCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -150,12 +78,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -258,8 +181,7 @@ export type ServiceOutputTypes =
   | UpdateReportGroupCommandOutput
   | UpdateWebhookCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -343,9 +265,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type CodeBuildClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type CodeBuildClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -354,9 +274,7 @@ export type CodeBuildClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type CodeBuildClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,9 +1,7 @@
 /**
  * Convert ReadableStream into an async iterable.
  */
-export async function* ReadableStreamtoIterable<T>(
-  readableStream: ReadableStream
-): AsyncIterable<T> {
+export async function* ReadableStreamtoIterable<T>(readableStream: ReadableStream): AsyncIterable<T> {
   const reader = readableStream.getReader();
   let done = false;
   while (!done) {

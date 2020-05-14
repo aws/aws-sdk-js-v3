@@ -1,18 +1,11 @@
-import {
-  ACMPCAClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ACMPCAClient";
+import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
 import { GetCertificateRequest, GetCertificateResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetCertificateCommand,
   serializeAws_json1_1GetCertificateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type GetCertificateCommandInput = GetCertificateRequest;
-export type GetCertificateCommandOutput = GetCertificateResponse &
-  __MetadataBearer;
+export type GetCertificateCommandOutput = GetCertificateResponse & __MetadataBearer;
 
 export class GetCertificateCommand extends $Command<
   GetCertificateCommandInput,
@@ -47,9 +39,7 @@ export class GetCertificateCommand extends $Command<
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetCertificateCommandInput, GetCertificateCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +54,11 @@ export class GetCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: GetCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1GetCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetCertificateCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCertificateCommandOutput> {
     return deserializeAws_json1_1GetCertificateCommand(output, context);
   }
 

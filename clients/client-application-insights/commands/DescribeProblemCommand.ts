@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ApplicationInsightsClient";
-import {
-  DescribeProblemRequest,
-  DescribeProblemResponse
-} from "../models/index";
+import { DescribeProblemRequest, DescribeProblemResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeProblemCommand,
   serializeAws_json1_1DescribeProblemCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeProblemCommandInput = DescribeProblemRequest;
-export type DescribeProblemCommandOutput = DescribeProblemResponse &
-  __MetadataBearer;
+export type DescribeProblemCommandOutput = DescribeProblemResponse & __MetadataBearer;
 
 export class DescribeProblemCommand extends $Command<
   DescribeProblemCommandInput,
@@ -50,9 +43,7 @@ export class DescribeProblemCommand extends $Command<
     configuration: ApplicationInsightsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeProblemCommandInput, DescribeProblemCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class DescribeProblemCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeProblemCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeProblemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1DescribeProblemCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeProblemCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProblemCommandOutput> {
     return deserializeAws_json1_1DescribeProblemCommand(output, context);
   }
 

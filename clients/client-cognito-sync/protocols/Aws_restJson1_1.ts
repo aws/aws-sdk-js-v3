@@ -1,15 +1,6 @@
-import {
-  BulkPublishCommandInput,
-  BulkPublishCommandOutput
-} from "../commands/BulkPublishCommand";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "../commands/DeleteDatasetCommand";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "../commands/DescribeDatasetCommand";
+import { BulkPublishCommandInput, BulkPublishCommandOutput } from "../commands/BulkPublishCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeIdentityPoolUsageCommandInput,
   DescribeIdentityPoolUsageCommandOutput
@@ -22,50 +13,29 @@ import {
   GetBulkPublishDetailsCommandInput,
   GetBulkPublishDetailsCommandOutput
 } from "../commands/GetBulkPublishDetailsCommand";
-import {
-  GetCognitoEventsCommandInput,
-  GetCognitoEventsCommandOutput
-} from "../commands/GetCognitoEventsCommand";
+import { GetCognitoEventsCommandInput, GetCognitoEventsCommandOutput } from "../commands/GetCognitoEventsCommand";
 import {
   GetIdentityPoolConfigurationCommandInput,
   GetIdentityPoolConfigurationCommandOutput
 } from "../commands/GetIdentityPoolConfigurationCommand";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "../commands/ListDatasetsCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import {
   ListIdentityPoolUsageCommandInput,
   ListIdentityPoolUsageCommandOutput
 } from "../commands/ListIdentityPoolUsageCommand";
-import {
-  ListRecordsCommandInput,
-  ListRecordsCommandOutput
-} from "../commands/ListRecordsCommand";
-import {
-  RegisterDeviceCommandInput,
-  RegisterDeviceCommandOutput
-} from "../commands/RegisterDeviceCommand";
-import {
-  SetCognitoEventsCommandInput,
-  SetCognitoEventsCommandOutput
-} from "../commands/SetCognitoEventsCommand";
+import { ListRecordsCommandInput, ListRecordsCommandOutput } from "../commands/ListRecordsCommand";
+import { RegisterDeviceCommandInput, RegisterDeviceCommandOutput } from "../commands/RegisterDeviceCommand";
+import { SetCognitoEventsCommandInput, SetCognitoEventsCommandOutput } from "../commands/SetCognitoEventsCommand";
 import {
   SetIdentityPoolConfigurationCommandInput,
   SetIdentityPoolConfigurationCommandOutput
 } from "../commands/SetIdentityPoolConfigurationCommand";
-import {
-  SubscribeToDatasetCommandInput,
-  SubscribeToDatasetCommandOutput
-} from "../commands/SubscribeToDatasetCommand";
+import { SubscribeToDatasetCommandInput, SubscribeToDatasetCommandOutput } from "../commands/SubscribeToDatasetCommand";
 import {
   UnsubscribeFromDatasetCommandInput,
   UnsubscribeFromDatasetCommandOutput
 } from "../commands/UnsubscribeFromDatasetCommand";
-import {
-  UpdateRecordsCommandInput,
-  UpdateRecordsCommandOutput
-} from "../commands/UpdateRecordsCommand";
+import { UpdateRecordsCommandInput, UpdateRecordsCommandOutput } from "../commands/UpdateRecordsCommand";
 import {
   AlreadyStreamedException,
   CognitoStreams,
@@ -89,10 +59,7 @@ import {
   TooManyRequestsException,
   _Record
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -115,14 +82,9 @@ export const serializeAws_restJson1_1BulkPublishCommand = async (
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -146,19 +108,13 @@ export const serializeAws_restJson1_1DeleteDatasetCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: DatasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DatasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DatasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
@@ -167,24 +123,16 @@ export const serializeAws_restJson1_1DeleteDatasetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -208,19 +156,13 @@ export const serializeAws_restJson1_1DescribeDatasetCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: DatasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DatasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DatasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
@@ -229,24 +171,16 @@ export const serializeAws_restJson1_1DescribeDatasetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -274,14 +208,9 @@ export const serializeAws_restJson1_1DescribeIdentityPoolUsageCommand = async (
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -311,24 +240,16 @@ export const serializeAws_restJson1_1DescribeIdentityUsageCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -356,14 +277,9 @@ export const serializeAws_restJson1_1GetBulkPublishDetailsCommand = async (
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -391,14 +307,9 @@ export const serializeAws_restJson1_1GetCognitoEventsCommand = async (
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -426,14 +337,9 @@ export const serializeAws_restJson1_1GetIdentityPoolConfigurationCommand = async
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -457,31 +363,22 @@ export const serializeAws_restJson1_1ListDatasetsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -538,19 +435,13 @@ export const serializeAws_restJson1_1ListRecordsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: DatasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DatasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DatasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
@@ -559,24 +450,16 @@ export const serializeAws_restJson1_1ListRecordsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -613,31 +496,22 @@ export const serializeAws_restJson1_1RegisterDeviceCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -669,14 +543,9 @@ export const serializeAws_restJson1_1SetCognitoEventsCommand = async (
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -709,24 +578,16 @@ export const serializeAws_restJson1_1SetIdentityPoolConfigurationCommand = async
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.CognitoStreams !== undefined && {
-      CognitoStreams: serializeAws_restJson1_1CognitoStreams(
-        input.CognitoStreams,
-        context
-      )
+      CognitoStreams: serializeAws_restJson1_1CognitoStreams(input.CognitoStreams, context)
     }),
     ...(input.PushSync !== undefined && {
       PushSync: serializeAws_restJson1_1PushSync(input.PushSync, context)
@@ -756,14 +617,9 @@ export const serializeAws_restJson1_1SubscribeToDatasetCommand = async (
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: DatasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DatasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DatasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
@@ -772,10 +628,7 @@ export const serializeAws_restJson1_1SubscribeToDatasetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -784,24 +637,16 @@ export const serializeAws_restJson1_1SubscribeToDatasetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -830,14 +675,9 @@ export const serializeAws_restJson1_1UnsubscribeFromDatasetCommand = async (
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: DatasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DatasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DatasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
@@ -846,10 +686,7 @@ export const serializeAws_restJson1_1UnsubscribeFromDatasetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DeviceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DeviceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DeviceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
@@ -858,24 +695,16 @@ export const serializeAws_restJson1_1UnsubscribeFromDatasetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -902,19 +731,13 @@ export const serializeAws_restJson1_1UpdateRecordsCommand = async (
       "x-amz-Client-Context": input.ClientContext!
     })
   };
-  let resolvedPath =
-    "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
+  let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DatasetName."
-      );
+      throw new Error("Empty value provided for input HTTP label: DatasetName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DatasetName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DatasetName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
@@ -923,24 +746,16 @@ export const serializeAws_restJson1_1UpdateRecordsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: IdentityId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
   }
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IdentityPoolId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IdentityPoolId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
@@ -948,10 +763,7 @@ export const serializeAws_restJson1_1UpdateRecordsCommand = async (
   body = JSON.stringify({
     ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
     ...(input.RecordPatches !== undefined && {
-      RecordPatches: serializeAws_restJson1_1RecordPatchList(
-        input.RecordPatches,
-        context
-      )
+      RecordPatches: serializeAws_restJson1_1RecordPatchList(input.RecordPatches, context)
     }),
     ...(input.SyncSessionToken !== undefined && {
       SyncSessionToken: input.SyncSessionToken
@@ -1003,10 +815,7 @@ const deserializeAws_restJson1_1BulkPublishCommandError = async (
     case "AlreadyStreamedException":
     case "com.amazonaws.cognito.sync.model#AlreadyStreamedException":
       response = {
-        ...(await deserializeAws_restJson1_1AlreadyStreamedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AlreadyStreamedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1014,10 +823,7 @@ const deserializeAws_restJson1_1BulkPublishCommandError = async (
     case "DuplicateRequestException":
     case "com.amazonaws.cognito.sync.model#DuplicateRequestException":
       response = {
-        ...(await deserializeAws_restJson1_1DuplicateRequestExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DuplicateRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1025,10 +831,7 @@ const deserializeAws_restJson1_1BulkPublishCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1036,10 +839,7 @@ const deserializeAws_restJson1_1BulkPublishCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1047,10 +847,7 @@ const deserializeAws_restJson1_1BulkPublishCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1058,10 +855,7 @@ const deserializeAws_restJson1_1BulkPublishCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1117,10 +911,7 @@ const deserializeAws_restJson1_1DeleteDatasetCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1128,10 +919,7 @@ const deserializeAws_restJson1_1DeleteDatasetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1139,10 +927,7 @@ const deserializeAws_restJson1_1DeleteDatasetCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1150,10 +935,7 @@ const deserializeAws_restJson1_1DeleteDatasetCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.cognito.sync.model#ResourceConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1161,10 +943,7 @@ const deserializeAws_restJson1_1DeleteDatasetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1172,10 +951,7 @@ const deserializeAws_restJson1_1DeleteDatasetCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1202,10 +978,7 @@ export const deserializeAws_restJson1_1DescribeDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDatasetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDatasetCommandError(output, context);
   }
   const contents: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1234,10 +1007,7 @@ const deserializeAws_restJson1_1DescribeDatasetCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1245,10 +1015,7 @@ const deserializeAws_restJson1_1DescribeDatasetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1256,10 +1023,7 @@ const deserializeAws_restJson1_1DescribeDatasetCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1267,10 +1031,7 @@ const deserializeAws_restJson1_1DescribeDatasetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1278,10 +1039,7 @@ const deserializeAws_restJson1_1DescribeDatasetCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1308,10 +1066,7 @@ export const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand = async 
   context: __SerdeContext
 ): Promise<DescribeIdentityPoolUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(output, context);
   }
   const contents: DescribeIdentityPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1320,10 +1075,7 @@ export const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityPoolUsage !== undefined && data.IdentityPoolUsage !== null) {
-    contents.IdentityPoolUsage = deserializeAws_restJson1_1IdentityPoolUsage(
-      data.IdentityPoolUsage,
-      context
-    );
+    contents.IdentityPoolUsage = deserializeAws_restJson1_1IdentityPoolUsage(data.IdentityPoolUsage, context);
   }
   return Promise.resolve(contents);
 };
@@ -1343,10 +1095,7 @@ const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1354,10 +1103,7 @@ const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1365,10 +1111,7 @@ const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1376,10 +1119,7 @@ const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1387,10 +1127,7 @@ const deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1417,10 +1154,7 @@ export const deserializeAws_restJson1_1DescribeIdentityUsageCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIdentityUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIdentityUsageCommandError(output, context);
   }
   const contents: DescribeIdentityUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1429,10 +1163,7 @@ export const deserializeAws_restJson1_1DescribeIdentityUsageCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityUsage !== undefined && data.IdentityUsage !== null) {
-    contents.IdentityUsage = deserializeAws_restJson1_1IdentityUsage(
-      data.IdentityUsage,
-      context
-    );
+    contents.IdentityUsage = deserializeAws_restJson1_1IdentityUsage(data.IdentityUsage, context);
   }
   return Promise.resolve(contents);
 };
@@ -1452,10 +1183,7 @@ const deserializeAws_restJson1_1DescribeIdentityUsageCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1463,10 +1191,7 @@ const deserializeAws_restJson1_1DescribeIdentityUsageCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1474,10 +1199,7 @@ const deserializeAws_restJson1_1DescribeIdentityUsageCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1485,10 +1207,7 @@ const deserializeAws_restJson1_1DescribeIdentityUsageCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1496,10 +1215,7 @@ const deserializeAws_restJson1_1DescribeIdentityUsageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1526,10 +1242,7 @@ export const deserializeAws_restJson1_1GetBulkPublishDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetBulkPublishDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(output, context);
   }
   const contents: GetBulkPublishDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1541,21 +1254,11 @@ export const deserializeAws_restJson1_1GetBulkPublishDetailsCommand = async (
     IdentityPoolId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.BulkPublishCompleteTime !== undefined &&
-    data.BulkPublishCompleteTime !== null
-  ) {
-    contents.BulkPublishCompleteTime = new Date(
-      Math.round(data.BulkPublishCompleteTime * 1000)
-    );
+  if (data.BulkPublishCompleteTime !== undefined && data.BulkPublishCompleteTime !== null) {
+    contents.BulkPublishCompleteTime = new Date(Math.round(data.BulkPublishCompleteTime * 1000));
   }
-  if (
-    data.BulkPublishStartTime !== undefined &&
-    data.BulkPublishStartTime !== null
-  ) {
-    contents.BulkPublishStartTime = new Date(
-      Math.round(data.BulkPublishStartTime * 1000)
-    );
+  if (data.BulkPublishStartTime !== undefined && data.BulkPublishStartTime !== null) {
+    contents.BulkPublishStartTime = new Date(Math.round(data.BulkPublishStartTime * 1000));
   }
   if (data.BulkPublishStatus !== undefined && data.BulkPublishStatus !== null) {
     contents.BulkPublishStatus = data.BulkPublishStatus;
@@ -1584,10 +1287,7 @@ const deserializeAws_restJson1_1GetBulkPublishDetailsCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1595,10 +1295,7 @@ const deserializeAws_restJson1_1GetBulkPublishDetailsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1606,10 +1303,7 @@ const deserializeAws_restJson1_1GetBulkPublishDetailsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1617,10 +1311,7 @@ const deserializeAws_restJson1_1GetBulkPublishDetailsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1647,10 +1338,7 @@ export const deserializeAws_restJson1_1GetCognitoEventsCommand = async (
   context: __SerdeContext
 ): Promise<GetCognitoEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetCognitoEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetCognitoEventsCommandError(output, context);
   }
   const contents: GetCognitoEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1679,10 +1367,7 @@ const deserializeAws_restJson1_1GetCognitoEventsCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1690,10 +1375,7 @@ const deserializeAws_restJson1_1GetCognitoEventsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1701,10 +1383,7 @@ const deserializeAws_restJson1_1GetCognitoEventsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1712,10 +1391,7 @@ const deserializeAws_restJson1_1GetCognitoEventsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1723,10 +1399,7 @@ const deserializeAws_restJson1_1GetCognitoEventsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1753,10 +1426,7 @@ export const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommand = asy
   context: __SerdeContext
 ): Promise<GetIdentityPoolConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError(output, context);
   }
   const contents: GetIdentityPoolConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1767,19 +1437,13 @@ export const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data.CognitoStreams !== undefined && data.CognitoStreams !== null) {
-    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(
-      data.CognitoStreams,
-      context
-    );
+    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(data.CognitoStreams, context);
   }
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
     contents.IdentityPoolId = data.IdentityPoolId;
   }
   if (data.PushSync !== undefined && data.PushSync !== null) {
-    contents.PushSync = deserializeAws_restJson1_1PushSync(
-      data.PushSync,
-      context
-    );
+    contents.PushSync = deserializeAws_restJson1_1PushSync(data.PushSync, context);
   }
   return Promise.resolve(contents);
 };
@@ -1799,10 +1463,7 @@ const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError = async
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1810,10 +1471,7 @@ const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError = async
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1821,10 +1479,7 @@ const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError = async
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1832,10 +1487,7 @@ const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1843,10 +1495,7 @@ const deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandError = async
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1887,10 +1536,7 @@ export const deserializeAws_restJson1_1ListDatasetsCommand = async (
     contents.Count = data.Count;
   }
   if (data.Datasets !== undefined && data.Datasets !== null) {
-    contents.Datasets = deserializeAws_restJson1_1DatasetList(
-      data.Datasets,
-      context
-    );
+    contents.Datasets = deserializeAws_restJson1_1DatasetList(data.Datasets, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -1913,10 +1559,7 @@ const deserializeAws_restJson1_1ListDatasetsCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1924,10 +1567,7 @@ const deserializeAws_restJson1_1ListDatasetsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1935,10 +1575,7 @@ const deserializeAws_restJson1_1ListDatasetsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1946,10 +1583,7 @@ const deserializeAws_restJson1_1ListDatasetsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -1976,10 +1610,7 @@ export const deserializeAws_restJson1_1ListIdentityPoolUsageCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentityPoolUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(output, context);
   }
   const contents: ListIdentityPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1993,14 +1624,8 @@ export const deserializeAws_restJson1_1ListIdentityPoolUsageCommand = async (
   if (data.Count !== undefined && data.Count !== null) {
     contents.Count = data.Count;
   }
-  if (
-    data.IdentityPoolUsages !== undefined &&
-    data.IdentityPoolUsages !== null
-  ) {
-    contents.IdentityPoolUsages = deserializeAws_restJson1_1IdentityPoolUsageList(
-      data.IdentityPoolUsages,
-      context
-    );
+  if (data.IdentityPoolUsages !== undefined && data.IdentityPoolUsages !== null) {
+    contents.IdentityPoolUsages = deserializeAws_restJson1_1IdentityPoolUsageList(data.IdentityPoolUsages, context);
   }
   if (data.MaxResults !== undefined && data.MaxResults !== null) {
     contents.MaxResults = data.MaxResults;
@@ -2026,10 +1651,7 @@ const deserializeAws_restJson1_1ListIdentityPoolUsageCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2037,10 +1659,7 @@ const deserializeAws_restJson1_1ListIdentityPoolUsageCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2048,10 +1667,7 @@ const deserializeAws_restJson1_1ListIdentityPoolUsageCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2059,10 +1675,7 @@ const deserializeAws_restJson1_1ListIdentityPoolUsageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2108,12 +1721,8 @@ export const deserializeAws_restJson1_1ListRecordsCommand = async (
   if (data.Count !== undefined && data.Count !== null) {
     contents.Count = data.Count;
   }
-  if (
-    data.DatasetDeletedAfterRequestedSyncCount !== undefined &&
-    data.DatasetDeletedAfterRequestedSyncCount !== null
-  ) {
-    contents.DatasetDeletedAfterRequestedSyncCount =
-      data.DatasetDeletedAfterRequestedSyncCount;
+  if (data.DatasetDeletedAfterRequestedSyncCount !== undefined && data.DatasetDeletedAfterRequestedSyncCount !== null) {
+    contents.DatasetDeletedAfterRequestedSyncCount = data.DatasetDeletedAfterRequestedSyncCount;
   }
   if (data.DatasetExists !== undefined && data.DatasetExists !== null) {
     contents.DatasetExists = data.DatasetExists;
@@ -2124,23 +1733,14 @@ export const deserializeAws_restJson1_1ListRecordsCommand = async (
   if (data.LastModifiedBy !== undefined && data.LastModifiedBy !== null) {
     contents.LastModifiedBy = data.LastModifiedBy;
   }
-  if (
-    data.MergedDatasetNames !== undefined &&
-    data.MergedDatasetNames !== null
-  ) {
-    contents.MergedDatasetNames = deserializeAws_restJson1_1MergedDatasetNameList(
-      data.MergedDatasetNames,
-      context
-    );
+  if (data.MergedDatasetNames !== undefined && data.MergedDatasetNames !== null) {
+    contents.MergedDatasetNames = deserializeAws_restJson1_1MergedDatasetNameList(data.MergedDatasetNames, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
   }
   if (data.Records !== undefined && data.Records !== null) {
-    contents.Records = deserializeAws_restJson1_1RecordList(
-      data.Records,
-      context
-    );
+    contents.Records = deserializeAws_restJson1_1RecordList(data.Records, context);
   }
   if (data.SyncSessionToken !== undefined && data.SyncSessionToken !== null) {
     contents.SyncSessionToken = data.SyncSessionToken;
@@ -2163,10 +1763,7 @@ const deserializeAws_restJson1_1ListRecordsCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2174,10 +1771,7 @@ const deserializeAws_restJson1_1ListRecordsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2185,10 +1779,7 @@ const deserializeAws_restJson1_1ListRecordsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2196,10 +1787,7 @@ const deserializeAws_restJson1_1ListRecordsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2226,10 +1814,7 @@ export const deserializeAws_restJson1_1RegisterDeviceCommand = async (
   context: __SerdeContext
 ): Promise<RegisterDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1RegisterDeviceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1RegisterDeviceCommandError(output, context);
   }
   const contents: RegisterDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2258,10 +1843,7 @@ const deserializeAws_restJson1_1RegisterDeviceCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2269,10 +1851,7 @@ const deserializeAws_restJson1_1RegisterDeviceCommandError = async (
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2280,10 +1859,7 @@ const deserializeAws_restJson1_1RegisterDeviceCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2291,10 +1867,7 @@ const deserializeAws_restJson1_1RegisterDeviceCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2302,10 +1875,7 @@ const deserializeAws_restJson1_1RegisterDeviceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2313,10 +1883,7 @@ const deserializeAws_restJson1_1RegisterDeviceCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2343,10 +1910,7 @@ export const deserializeAws_restJson1_1SetCognitoEventsCommand = async (
   context: __SerdeContext
 ): Promise<SetCognitoEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetCognitoEventsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetCognitoEventsCommandError(output, context);
   }
   const contents: SetCognitoEventsCommandOutput = {
     $metadata: deserializeMetadata(output)
@@ -2370,10 +1934,7 @@ const deserializeAws_restJson1_1SetCognitoEventsCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2381,10 +1942,7 @@ const deserializeAws_restJson1_1SetCognitoEventsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2392,10 +1950,7 @@ const deserializeAws_restJson1_1SetCognitoEventsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2403,10 +1958,7 @@ const deserializeAws_restJson1_1SetCognitoEventsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2414,10 +1966,7 @@ const deserializeAws_restJson1_1SetCognitoEventsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2444,10 +1993,7 @@ export const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommand = asy
   context: __SerdeContext
 ): Promise<SetIdentityPoolConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError(output, context);
   }
   const contents: SetIdentityPoolConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2458,19 +2004,13 @@ export const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommand = asy
   };
   const data: any = await parseBody(output.body, context);
   if (data.CognitoStreams !== undefined && data.CognitoStreams !== null) {
-    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(
-      data.CognitoStreams,
-      context
-    );
+    contents.CognitoStreams = deserializeAws_restJson1_1CognitoStreams(data.CognitoStreams, context);
   }
   if (data.IdentityPoolId !== undefined && data.IdentityPoolId !== null) {
     contents.IdentityPoolId = data.IdentityPoolId;
   }
   if (data.PushSync !== undefined && data.PushSync !== null) {
-    contents.PushSync = deserializeAws_restJson1_1PushSync(
-      data.PushSync,
-      context
-    );
+    contents.PushSync = deserializeAws_restJson1_1PushSync(data.PushSync, context);
   }
   return Promise.resolve(contents);
 };
@@ -2490,10 +2030,7 @@ const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError = async
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.sync.model#ConcurrentModificationException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2501,10 +2038,7 @@ const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError = async
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2512,10 +2046,7 @@ const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError = async
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2523,10 +2054,7 @@ const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError = async
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2534,10 +2062,7 @@ const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2545,10 +2070,7 @@ const deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandError = async
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2575,10 +2097,7 @@ export const deserializeAws_restJson1_1SubscribeToDatasetCommand = async (
   context: __SerdeContext
 ): Promise<SubscribeToDatasetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1SubscribeToDatasetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1SubscribeToDatasetCommandError(output, context);
   }
   const contents: SubscribeToDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2603,10 +2122,7 @@ const deserializeAws_restJson1_1SubscribeToDatasetCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2614,10 +2130,7 @@ const deserializeAws_restJson1_1SubscribeToDatasetCommandError = async (
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2625,10 +2138,7 @@ const deserializeAws_restJson1_1SubscribeToDatasetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2636,10 +2146,7 @@ const deserializeAws_restJson1_1SubscribeToDatasetCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2647,10 +2154,7 @@ const deserializeAws_restJson1_1SubscribeToDatasetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2658,10 +2162,7 @@ const deserializeAws_restJson1_1SubscribeToDatasetCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2688,10 +2189,7 @@ export const deserializeAws_restJson1_1UnsubscribeFromDatasetCommand = async (
   context: __SerdeContext
 ): Promise<UnsubscribeFromDatasetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(output, context);
   }
   const contents: UnsubscribeFromDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2716,10 +2214,7 @@ const deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2727,10 +2222,7 @@ const deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError = async (
     case "InvalidConfigurationException":
     case "com.amazonaws.cognito.sync.model#InvalidConfigurationException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2738,10 +2230,7 @@ const deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2749,10 +2238,7 @@ const deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2760,10 +2246,7 @@ const deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2771,10 +2254,7 @@ const deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2810,10 +2290,7 @@ export const deserializeAws_restJson1_1UpdateRecordsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Records !== undefined && data.Records !== null) {
-    contents.Records = deserializeAws_restJson1_1RecordList(
-      data.Records,
-      context
-    );
+    contents.Records = deserializeAws_restJson1_1RecordList(data.Records, context);
   }
   return Promise.resolve(contents);
 };
@@ -2833,10 +2310,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalErrorExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2844,10 +2318,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "InvalidLambdaFunctionOutputException":
     case "com.amazonaws.cognito.sync.model#InvalidLambdaFunctionOutputException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidLambdaFunctionOutputExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2855,10 +2326,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.cognito.sync.model#InvalidParameterException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2866,10 +2334,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "LambdaSocketTimeoutException":
     case "com.amazonaws.cognito.sync.model#LambdaSocketTimeoutException":
       response = {
-        ...(await deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LambdaSocketTimeoutExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2877,10 +2342,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "LambdaThrottledException":
     case "com.amazonaws.cognito.sync.model#LambdaThrottledException":
       response = {
-        ...(await deserializeAws_restJson1_1LambdaThrottledExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LambdaThrottledExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2888,10 +2350,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.cognito.sync.model#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2899,10 +2358,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "NotAuthorizedException":
     case "com.amazonaws.cognito.sync.model#NotAuthorizedException":
       response = {
-        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1NotAuthorizedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2910,10 +2366,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.cognito.sync.model#ResourceConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2921,10 +2374,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognito.sync.model#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -2932,10 +2382,7 @@ const deserializeAws_restJson1_1UpdateRecordsCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.cognito.sync.model#TooManyRequestsException":
       response = {
-        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -3195,17 +2642,11 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_restJson1_1ApplicationArnList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ApplicationArnList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1CognitoStreams = (
-  input: CognitoStreams,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CognitoStreams = (input: CognitoStreams, context: __SerdeContext): any => {
   return {
     ...(input.DisabledReason !== undefined && {
       DisabledReason: input.DisabledReason
@@ -3218,10 +2659,7 @@ const serializeAws_restJson1_1CognitoStreams = (
   };
 };
 
-const serializeAws_restJson1_1Events = (
-  input: { [key: string]: string },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Events = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3231,30 +2669,19 @@ const serializeAws_restJson1_1Events = (
   );
 };
 
-const serializeAws_restJson1_1PushSync = (
-  input: PushSync,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PushSync = (input: PushSync, context: __SerdeContext): any => {
   return {
     ...(input.ApplicationArns !== undefined && {
-      ApplicationArns: serializeAws_restJson1_1ApplicationArnList(
-        input.ApplicationArns,
-        context
-      )
+      ApplicationArns: serializeAws_restJson1_1ApplicationArnList(input.ApplicationArns, context)
     }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
   };
 };
 
-const serializeAws_restJson1_1RecordPatch = (
-  input: RecordPatch,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RecordPatch = (input: RecordPatch, context: __SerdeContext): any => {
   return {
     ...(input.DeviceLastModifiedDate !== undefined && {
-      DeviceLastModifiedDate: Math.round(
-        input.DeviceLastModifiedDate.getTime() / 1000
-      )
+      DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000)
     }),
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Op !== undefined && { Op: input.Op }),
@@ -3263,97 +2690,51 @@ const serializeAws_restJson1_1RecordPatch = (
   };
 };
 
-const serializeAws_restJson1_1RecordPatchList = (
-  input: RecordPatch[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1RecordPatch(entry, context)
-  );
+const serializeAws_restJson1_1RecordPatchList = (input: RecordPatch[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1RecordPatch(entry, context));
 };
 
-const deserializeAws_restJson1_1ApplicationArnList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ApplicationArnList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1CognitoStreams = (
-  output: any,
-  context: __SerdeContext
-): CognitoStreams => {
+const deserializeAws_restJson1_1CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
   return {
     __type: "CognitoStreams",
     DisabledReason:
-      output.DisabledReason !== undefined && output.DisabledReason !== null
-        ? output.DisabledReason
-        : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined,
-    StreamName:
-      output.StreamName !== undefined && output.StreamName !== null
-        ? output.StreamName
-        : undefined,
+      output.DisabledReason !== undefined && output.DisabledReason !== null ? output.DisabledReason : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    StreamName: output.StreamName !== undefined && output.StreamName !== null ? output.StreamName : undefined,
     StreamingStatus:
-      output.StreamingStatus !== undefined && output.StreamingStatus !== null
-        ? output.StreamingStatus
-        : undefined
+      output.StreamingStatus !== undefined && output.StreamingStatus !== null ? output.StreamingStatus : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Dataset = (
-  output: any,
-  context: __SerdeContext
-): Dataset => {
+const deserializeAws_restJson1_1Dataset = (output: any, context: __SerdeContext): Dataset => {
   return {
     __type: "Dataset",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
         : undefined,
-    DataStorage:
-      output.DataStorage !== undefined && output.DataStorage !== null
-        ? output.DataStorage
-        : undefined,
-    DatasetName:
-      output.DatasetName !== undefined && output.DatasetName !== null
-        ? output.DatasetName
-        : undefined,
-    IdentityId:
-      output.IdentityId !== undefined && output.IdentityId !== null
-        ? output.IdentityId
-        : undefined,
+    DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
+    DatasetName: output.DatasetName !== undefined && output.DatasetName !== null ? output.DatasetName : undefined,
+    IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
     LastModifiedBy:
-      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
-        ? output.LastModifiedBy
-        : undefined,
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null ? output.LastModifiedBy : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    NumRecords:
-      output.NumRecords !== undefined && output.NumRecords !== null
-        ? output.NumRecords
-        : undefined
+    NumRecords: output.NumRecords !== undefined && output.NumRecords !== null ? output.NumRecords : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DatasetList = (
-  output: any,
-  context: __SerdeContext
-): Dataset[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Dataset(entry, context)
-  );
+const deserializeAws_restJson1_1DatasetList = (output: any, context: __SerdeContext): Dataset[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Dataset(entry, context));
 };
 
-const deserializeAws_restJson1_1Events = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string } => {
+const deserializeAws_restJson1_1Events = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,
@@ -3363,63 +2744,33 @@ const deserializeAws_restJson1_1Events = (
   );
 };
 
-const deserializeAws_restJson1_1IdentityPoolUsage = (
-  output: any,
-  context: __SerdeContext
-): IdentityPoolUsage => {
+const deserializeAws_restJson1_1IdentityPoolUsage = (output: any, context: __SerdeContext): IdentityPoolUsage => {
   return {
     __type: "IdentityPoolUsage",
-    DataStorage:
-      output.DataStorage !== undefined && output.DataStorage !== null
-        ? output.DataStorage
-        : undefined,
+    DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
     IdentityPoolId:
-      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null
-        ? output.IdentityPoolId
-        : undefined,
+      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
     SyncSessionsCount:
-      output.SyncSessionsCount !== undefined &&
-      output.SyncSessionsCount !== null
-        ? output.SyncSessionsCount
-        : undefined
+      output.SyncSessionsCount !== undefined && output.SyncSessionsCount !== null ? output.SyncSessionsCount : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1IdentityPoolUsageList = (
-  output: any,
-  context: __SerdeContext
-): IdentityPoolUsage[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1IdentityPoolUsage(entry, context)
-  );
+const deserializeAws_restJson1_1IdentityPoolUsageList = (output: any, context: __SerdeContext): IdentityPoolUsage[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1IdentityPoolUsage(entry, context));
 };
 
-const deserializeAws_restJson1_1IdentityUsage = (
-  output: any,
-  context: __SerdeContext
-): IdentityUsage => {
+const deserializeAws_restJson1_1IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
   return {
     __type: "IdentityUsage",
-    DataStorage:
-      output.DataStorage !== undefined && output.DataStorage !== null
-        ? output.DataStorage
-        : undefined,
-    DatasetCount:
-      output.DatasetCount !== undefined && output.DatasetCount !== null
-        ? output.DatasetCount
-        : undefined,
-    IdentityId:
-      output.IdentityId !== undefined && output.IdentityId !== null
-        ? output.IdentityId
-        : undefined,
+    DataStorage: output.DataStorage !== undefined && output.DataStorage !== null ? output.DataStorage : undefined,
+    DatasetCount: output.DatasetCount !== undefined && output.DatasetCount !== null ? output.DatasetCount : undefined,
+    IdentityId: output.IdentityId !== undefined && output.IdentityId !== null ? output.IdentityId : undefined,
     IdentityPoolId:
-      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null
-        ? output.IdentityPoolId
-        : undefined,
+      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
@@ -3427,72 +2778,42 @@ const deserializeAws_restJson1_1IdentityUsage = (
   } as any;
 };
 
-const deserializeAws_restJson1_1MergedDatasetNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1MergedDatasetNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1PushSync = (
-  output: any,
-  context: __SerdeContext
-): PushSync => {
+const deserializeAws_restJson1_1PushSync = (output: any, context: __SerdeContext): PushSync => {
   return {
     __type: "PushSync",
     ApplicationArns:
       output.ApplicationArns !== undefined && output.ApplicationArns !== null
-        ? deserializeAws_restJson1_1ApplicationArnList(
-            output.ApplicationArns,
-            context
-          )
+        ? deserializeAws_restJson1_1ApplicationArnList(output.ApplicationArns, context)
         : undefined,
-    RoleArn:
-      output.RoleArn !== undefined && output.RoleArn !== null
-        ? output.RoleArn
-        : undefined
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1_Record = (
-  output: any,
-  context: __SerdeContext
-): _Record => {
+const deserializeAws_restJson1_1_Record = (output: any, context: __SerdeContext): _Record => {
   return {
     __type: "Record",
     DeviceLastModifiedDate:
-      output.DeviceLastModifiedDate !== undefined &&
-      output.DeviceLastModifiedDate !== null
+      output.DeviceLastModifiedDate !== undefined && output.DeviceLastModifiedDate !== null
         ? new Date(Math.round(output.DeviceLastModifiedDate * 1000))
         : undefined,
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     LastModifiedBy:
-      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
-        ? output.LastModifiedBy
-        : undefined,
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null ? output.LastModifiedBy : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
         : undefined,
-    SyncCount:
-      output.SyncCount !== undefined && output.SyncCount !== null
-        ? output.SyncCount
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    SyncCount: output.SyncCount !== undefined && output.SyncCount !== null ? output.SyncCount : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RecordList = (
-  output: any,
-  context: __SerdeContext
-): _Record[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1_Record(entry, context)
-  );
+const deserializeAws_restJson1_1RecordList = (output: any, context: __SerdeContext): _Record[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1_Record(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -3502,30 +2823,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -3540,8 +2852,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

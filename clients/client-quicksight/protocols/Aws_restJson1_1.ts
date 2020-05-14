@@ -1,23 +1,8 @@
-import {
-  CancelIngestionCommandInput,
-  CancelIngestionCommandOutput
-} from "../commands/CancelIngestionCommand";
-import {
-  CreateDashboardCommandInput,
-  CreateDashboardCommandOutput
-} from "../commands/CreateDashboardCommand";
-import {
-  CreateDataSetCommandInput,
-  CreateDataSetCommandOutput
-} from "../commands/CreateDataSetCommand";
-import {
-  CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput
-} from "../commands/CreateDataSourceCommand";
-import {
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput
-} from "../commands/CreateGroupCommand";
+import { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "../commands/CancelIngestionCommand";
+import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
+import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
+import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
+import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import {
   CreateGroupMembershipCommandInput,
   CreateGroupMembershipCommandOutput
@@ -26,34 +11,16 @@ import {
   CreateIAMPolicyAssignmentCommandInput,
   CreateIAMPolicyAssignmentCommandOutput
 } from "../commands/CreateIAMPolicyAssignmentCommand";
-import {
-  CreateIngestionCommandInput,
-  CreateIngestionCommandOutput
-} from "../commands/CreateIngestionCommand";
+import { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "../commands/CreateIngestionCommand";
 import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput
 } from "../commands/CreateTemplateAliasCommand";
-import {
-  CreateTemplateCommandInput,
-  CreateTemplateCommandOutput
-} from "../commands/CreateTemplateCommand";
-import {
-  DeleteDashboardCommandInput,
-  DeleteDashboardCommandOutput
-} from "../commands/DeleteDashboardCommand";
-import {
-  DeleteDataSetCommandInput,
-  DeleteDataSetCommandOutput
-} from "../commands/DeleteDataSetCommand";
-import {
-  DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput
-} from "../commands/DeleteDataSourceCommand";
-import {
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput
-} from "../commands/DeleteGroupCommand";
+import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "../commands/CreateTemplateCommand";
+import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
+import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
 import {
   DeleteGroupMembershipCommandInput,
   DeleteGroupMembershipCommandOutput
@@ -66,70 +33,43 @@ import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput
 } from "../commands/DeleteTemplateAliasCommand";
-import {
-  DeleteTemplateCommandInput,
-  DeleteTemplateCommandOutput
-} from "../commands/DeleteTemplateCommand";
+import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "../commands/DeleteTemplateCommand";
 import {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput
 } from "../commands/DeleteUserByPrincipalIdCommand";
-import {
-  DeleteUserCommandInput,
-  DeleteUserCommandOutput
-} from "../commands/DeleteUserCommand";
-import {
-  DescribeDashboardCommandInput,
-  DescribeDashboardCommandOutput
-} from "../commands/DescribeDashboardCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "../commands/DescribeDashboardCommand";
 import {
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput
 } from "../commands/DescribeDashboardPermissionsCommand";
-import {
-  DescribeDataSetCommandInput,
-  DescribeDataSetCommandOutput
-} from "../commands/DescribeDataSetCommand";
+import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "../commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
   DescribeDataSetPermissionsCommandOutput
 } from "../commands/DescribeDataSetPermissionsCommand";
-import {
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput
-} from "../commands/DescribeDataSourceCommand";
+import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand";
 import {
   DescribeDataSourcePermissionsCommandInput,
   DescribeDataSourcePermissionsCommandOutput
 } from "../commands/DescribeDataSourcePermissionsCommand";
-import {
-  DescribeGroupCommandInput,
-  DescribeGroupCommandOutput
-} from "../commands/DescribeGroupCommand";
+import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
 import {
   DescribeIAMPolicyAssignmentCommandInput,
   DescribeIAMPolicyAssignmentCommandOutput
 } from "../commands/DescribeIAMPolicyAssignmentCommand";
-import {
-  DescribeIngestionCommandInput,
-  DescribeIngestionCommandOutput
-} from "../commands/DescribeIngestionCommand";
+import { DescribeIngestionCommandInput, DescribeIngestionCommandOutput } from "../commands/DescribeIngestionCommand";
 import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput
 } from "../commands/DescribeTemplateAliasCommand";
-import {
-  DescribeTemplateCommandInput,
-  DescribeTemplateCommandOutput
-} from "../commands/DescribeTemplateCommand";
+import { DescribeTemplateCommandInput, DescribeTemplateCommandOutput } from "../commands/DescribeTemplateCommand";
 import {
   DescribeTemplatePermissionsCommandInput,
   DescribeTemplatePermissionsCommandOutput
 } from "../commands/DescribeTemplatePermissionsCommand";
-import {
-  DescribeUserCommandInput,
-  DescribeUserCommandOutput
-} from "../commands/DescribeUserCommand";
+import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
 import {
   GetDashboardEmbedUrlCommandInput,
   GetDashboardEmbedUrlCommandOutput
@@ -138,26 +78,14 @@ import {
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput
 } from "../commands/ListDashboardVersionsCommand";
-import {
-  ListDashboardsCommandInput,
-  ListDashboardsCommandOutput
-} from "../commands/ListDashboardsCommand";
-import {
-  ListDataSetsCommandInput,
-  ListDataSetsCommandOutput
-} from "../commands/ListDataSetsCommand";
-import {
-  ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput
-} from "../commands/ListDataSourcesCommand";
+import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
+import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "../commands/ListDataSetsCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
 import {
   ListGroupMembershipsCommandInput,
   ListGroupMembershipsCommandOutput
 } from "../commands/ListGroupMembershipsCommand";
-import {
-  ListGroupsCommandInput,
-  ListGroupsCommandOutput
-} from "../commands/ListGroupsCommand";
+import { ListGroupsCommandInput, ListGroupsCommandOutput } from "../commands/ListGroupsCommand";
 import {
   ListIAMPolicyAssignmentsCommandInput,
   ListIAMPolicyAssignmentsCommandOutput
@@ -166,10 +94,7 @@ import {
   ListIAMPolicyAssignmentsForUserCommandInput,
   ListIAMPolicyAssignmentsForUserCommandOutput
 } from "../commands/ListIAMPolicyAssignmentsForUserCommand";
-import {
-  ListIngestionsCommandInput,
-  ListIngestionsCommandOutput
-} from "../commands/ListIngestionsCommand";
+import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "../commands/ListIngestionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
@@ -182,34 +107,13 @@ import {
   ListTemplateVersionsCommandInput,
   ListTemplateVersionsCommandOutput
 } from "../commands/ListTemplateVersionsCommand";
-import {
-  ListTemplatesCommandInput,
-  ListTemplatesCommandOutput
-} from "../commands/ListTemplatesCommand";
-import {
-  ListUserGroupsCommandInput,
-  ListUserGroupsCommandOutput
-} from "../commands/ListUserGroupsCommand";
-import {
-  ListUsersCommandInput,
-  ListUsersCommandOutput
-} from "../commands/ListUsersCommand";
-import {
-  RegisterUserCommandInput,
-  RegisterUserCommandOutput
-} from "../commands/RegisterUserCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "../commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "../commands/UntagResourceCommand";
-import {
-  UpdateDashboardCommandInput,
-  UpdateDashboardCommandOutput
-} from "../commands/UpdateDashboardCommand";
+import { ListTemplatesCommandInput, ListTemplatesCommandOutput } from "../commands/ListTemplatesCommand";
+import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "../commands/ListUserGroupsCommand";
+import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { RegisterUserCommandInput, RegisterUserCommandOutput } from "../commands/RegisterUserCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "../commands/UpdateDashboardCommand";
 import {
   UpdateDashboardPermissionsCommandInput,
   UpdateDashboardPermissionsCommandOutput
@@ -218,26 +122,17 @@ import {
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput
 } from "../commands/UpdateDashboardPublishedVersionCommand";
-import {
-  UpdateDataSetCommandInput,
-  UpdateDataSetCommandOutput
-} from "../commands/UpdateDataSetCommand";
+import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "../commands/UpdateDataSetCommand";
 import {
   UpdateDataSetPermissionsCommandInput,
   UpdateDataSetPermissionsCommandOutput
 } from "../commands/UpdateDataSetPermissionsCommand";
-import {
-  UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput
-} from "../commands/UpdateDataSourceCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
 import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput
 } from "../commands/UpdateDataSourcePermissionsCommand";
-import {
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput
-} from "../commands/UpdateGroupCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import {
   UpdateIAMPolicyAssignmentCommandInput,
   UpdateIAMPolicyAssignmentCommandOutput
@@ -246,18 +141,12 @@ import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput
 } from "../commands/UpdateTemplateAliasCommand";
-import {
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput
-} from "../commands/UpdateTemplateCommand";
+import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "../commands/UpdateTemplateCommand";
 import {
   UpdateTemplatePermissionsCommandInput,
   UpdateTemplatePermissionsCommandOutput
 } from "../commands/UpdateTemplatePermissionsCommand";
-import {
-  UpdateUserCommandInput,
-  UpdateUserCommandOutput
-} from "../commands/UpdateUserCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   AccessDeniedException,
   ActiveIAMPolicyAssignment,
@@ -371,10 +260,7 @@ import {
   VpcConnectionProperties,
   _Parameters
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent
@@ -393,19 +279,13 @@ export const serializeAws_restJson1_1CancelIngestionCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -414,24 +294,16 @@ export const serializeAws_restJson1_1CancelIngestionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
     const labelValue: string = input.IngestionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IngestionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IngestionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IngestionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IngestionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
   }
@@ -459,54 +331,35 @@ export const serializeAws_restJson1_1CreateDashboardCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.DashboardPublishOptions !== undefined && {
-      DashboardPublishOptions: serializeAws_restJson1_1DashboardPublishOptions(
-        input.DashboardPublishOptions,
-        context
-      )
+      DashboardPublishOptions: serializeAws_restJson1_1DashboardPublishOptions(input.DashboardPublishOptions, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_restJson1_1_Parameters(input.Parameters, context)
     }),
     ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.Permissions,
-        context
-      )
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(input.Permissions, context)
     }),
     ...(input.SourceEntity !== undefined && {
-      SourceEntity: serializeAws_restJson1_1DashboardSourceEntity(
-        input.SourceEntity,
-        context
-      )
+      SourceEntity: serializeAws_restJson1_1DashboardSourceEntity(input.SourceEntity, context)
     }),
     ...(input.Tags !== undefined && {
       Tags: serializeAws_restJson1_1TagList(input.Tags, context)
@@ -538,45 +391,28 @@ export const serializeAws_restJson1_1CreateDataSetCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.ColumnGroups !== undefined && {
-      ColumnGroups: serializeAws_restJson1_1ColumnGroupList(
-        input.ColumnGroups,
-        context
-      )
+      ColumnGroups: serializeAws_restJson1_1ColumnGroupList(input.ColumnGroups, context)
     }),
     ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
     ...(input.ImportMode !== undefined && { ImportMode: input.ImportMode }),
     ...(input.LogicalTableMap !== undefined && {
-      LogicalTableMap: serializeAws_restJson1_1LogicalTableMap(
-        input.LogicalTableMap,
-        context
-      )
+      LogicalTableMap: serializeAws_restJson1_1LogicalTableMap(input.LogicalTableMap, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.Permissions,
-        context
-      )
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(input.Permissions, context)
     }),
     ...(input.PhysicalTableMap !== undefined && {
-      PhysicalTableMap: serializeAws_restJson1_1PhysicalTableMap(
-        input.PhysicalTableMap,
-        context
-      )
+      PhysicalTableMap: serializeAws_restJson1_1PhysicalTableMap(input.PhysicalTableMap, context)
     }),
     ...(input.RowLevelPermissionDataSet !== undefined && {
       RowLevelPermissionDataSet: serializeAws_restJson1_1RowLevelPermissionDataSet(
@@ -611,56 +447,36 @@ export const serializeAws_restJson1_1CreateDataSourceCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Credentials !== undefined && {
-      Credentials: serializeAws_restJson1_1DataSourceCredentials(
-        input.Credentials,
-        context
-      )
+      Credentials: serializeAws_restJson1_1DataSourceCredentials(input.Credentials, context)
     }),
     ...(input.DataSourceId !== undefined && {
       DataSourceId: input.DataSourceId
     }),
     ...(input.DataSourceParameters !== undefined && {
-      DataSourceParameters: serializeAws_restJson1_1DataSourceParameters(
-        input.DataSourceParameters,
-        context
-      )
+      DataSourceParameters: serializeAws_restJson1_1DataSourceParameters(input.DataSourceParameters, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.Permissions,
-        context
-      )
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(input.Permissions, context)
     }),
     ...(input.SslProperties !== undefined && {
-      SslProperties: serializeAws_restJson1_1SslProperties(
-        input.SslProperties,
-        context
-      )
+      SslProperties: serializeAws_restJson1_1SslProperties(input.SslProperties, context)
     }),
     ...(input.Tags !== undefined && {
       Tags: serializeAws_restJson1_1TagList(input.Tags, context)
     }),
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.VpcConnectionProperties !== undefined && {
-      VpcConnectionProperties: serializeAws_restJson1_1VpcConnectionProperties(
-        input.VpcConnectionProperties,
-        context
-      )
+      VpcConnectionProperties: serializeAws_restJson1_1VpcConnectionProperties(input.VpcConnectionProperties, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -686,14 +502,9 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -702,10 +513,7 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -733,19 +541,13 @@ export const serializeAws_restJson1_1CreateGroupMembershipCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -754,10 +556,7 @@ export const serializeAws_restJson1_1CreateGroupMembershipCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -766,10 +565,7 @@ export const serializeAws_restJson1_1CreateGroupMembershipCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberName.");
   }
@@ -778,10 +574,7 @@ export const serializeAws_restJson1_1CreateGroupMembershipCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -805,19 +598,13 @@ export const serializeAws_restJson1_1CreateIAMPolicyAssignmentCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -826,10 +613,7 @@ export const serializeAws_restJson1_1CreateIAMPolicyAssignmentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -865,19 +649,13 @@ export const serializeAws_restJson1_1CreateIngestionCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -886,24 +664,16 @@ export const serializeAws_restJson1_1CreateIngestionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
     const labelValue: string = input.IngestionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IngestionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IngestionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IngestionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IngestionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
   }
@@ -931,14 +701,9 @@ export const serializeAws_restJson1_1CreateTemplateCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -947,10 +712,7 @@ export const serializeAws_restJson1_1CreateTemplateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -958,16 +720,10 @@ export const serializeAws_restJson1_1CreateTemplateCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.Permissions,
-        context
-      )
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(input.Permissions, context)
     }),
     ...(input.SourceEntity !== undefined && {
-      SourceEntity: serializeAws_restJson1_1TemplateSourceEntity(
-        input.SourceEntity,
-        context
-      )
+      SourceEntity: serializeAws_restJson1_1TemplateSourceEntity(input.SourceEntity, context)
     }),
     ...(input.Tags !== undefined && {
       Tags: serializeAws_restJson1_1TagList(input.Tags, context)
@@ -995,31 +751,22 @@ export const serializeAws_restJson1_1CreateTemplateAliasCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
     const labelValue: string = input.AliasName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AliasName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1028,10 +775,7 @@ export const serializeAws_restJson1_1CreateTemplateAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1064,28 +808,18 @@ export const serializeAws_restJson1_1DeleteDashboardCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -1119,14 +853,9 @@ export const serializeAws_restJson1_1DeleteDataSetCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1135,10 +864,7 @@ export const serializeAws_restJson1_1DeleteDataSetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -1166,28 +892,18 @@ export const serializeAws_restJson1_1DeleteDataSourceCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
     const labelValue: string = input.DataSourceId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DataSourceId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -1211,19 +927,13 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1232,10 +942,7 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -1244,10 +951,7 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1271,19 +975,13 @@ export const serializeAws_restJson1_1DeleteGroupMembershipCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1292,10 +990,7 @@ export const serializeAws_restJson1_1DeleteGroupMembershipCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -1304,10 +999,7 @@ export const serializeAws_restJson1_1DeleteGroupMembershipCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: MemberName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{MemberName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{MemberName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberName.");
   }
@@ -1316,10 +1008,7 @@ export const serializeAws_restJson1_1DeleteGroupMembershipCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1343,33 +1032,22 @@ export const serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
     const labelValue: string = input.AssignmentName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AssignmentName."
-      );
+      throw new Error("Empty value provided for input HTTP label: AssignmentName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AssignmentName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AssignmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1378,10 +1056,7 @@ export const serializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1409,14 +1084,9 @@ export const serializeAws_restJson1_1DeleteTemplateCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1425,10 +1095,7 @@ export const serializeAws_restJson1_1DeleteTemplateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1458,31 +1125,22 @@ export const serializeAws_restJson1_1DeleteTemplateAliasCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
     const labelValue: string = input.AliasName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AliasName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1491,10 +1149,7 @@ export const serializeAws_restJson1_1DeleteTemplateAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -1518,19 +1173,13 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1539,10 +1188,7 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -1551,10 +1197,7 @@ export const serializeAws_restJson1_1DeleteUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -1578,19 +1221,13 @@ export const serializeAws_restJson1_1DeleteUserByPrincipalIdCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/user-principals/{PrincipalId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1599,24 +1236,16 @@ export const serializeAws_restJson1_1DeleteUserByPrincipalIdCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.PrincipalId !== undefined) {
     const labelValue: string = input.PrincipalId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: PrincipalId."
-      );
+      throw new Error("Empty value provided for input HTTP label: PrincipalId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{PrincipalId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{PrincipalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PrincipalId.");
   }
@@ -1644,28 +1273,18 @@ export const serializeAws_restJson1_1DescribeDashboardCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -1696,33 +1315,22 @@ export const serializeAws_restJson1_1DescribeDashboardPermissionsCommand = async
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -1750,14 +1358,9 @@ export const serializeAws_restJson1_1DescribeDataSetCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1766,10 +1369,7 @@ export const serializeAws_restJson1_1DescribeDataSetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -1793,19 +1393,13 @@ export const serializeAws_restJson1_1DescribeDataSetPermissionsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1814,10 +1408,7 @@ export const serializeAws_restJson1_1DescribeDataSetPermissionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -1845,28 +1436,18 @@ export const serializeAws_restJson1_1DescribeDataSourceCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
     const labelValue: string = input.DataSourceId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DataSourceId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -1890,33 +1471,22 @@ export const serializeAws_restJson1_1DescribeDataSourcePermissionsCommand = asyn
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
     const labelValue: string = input.DataSourceId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DataSourceId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
@@ -1940,19 +1510,13 @@ export const serializeAws_restJson1_1DescribeGroupCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -1961,10 +1525,7 @@ export const serializeAws_restJson1_1DescribeGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -1973,10 +1534,7 @@ export const serializeAws_restJson1_1DescribeGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2000,33 +1558,22 @@ export const serializeAws_restJson1_1DescribeIAMPolicyAssignmentCommand = async 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
     const labelValue: string = input.AssignmentName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AssignmentName."
-      );
+      throw new Error("Empty value provided for input HTTP label: AssignmentName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AssignmentName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AssignmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2035,10 +1582,7 @@ export const serializeAws_restJson1_1DescribeIAMPolicyAssignmentCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2062,19 +1606,13 @@ export const serializeAws_restJson1_1DescribeIngestionCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2083,24 +1621,16 @@ export const serializeAws_restJson1_1DescribeIngestionCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
     const labelValue: string = input.IngestionId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: IngestionId."
-      );
+      throw new Error("Empty value provided for input HTTP label: IngestionId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{IngestionId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{IngestionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
   }
@@ -2128,14 +1658,9 @@ export const serializeAws_restJson1_1DescribeTemplateCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2144,10 +1669,7 @@ export const serializeAws_restJson1_1DescribeTemplateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -2178,31 +1700,22 @@ export const serializeAws_restJson1_1DescribeTemplateAliasCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
     const labelValue: string = input.AliasName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AliasName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2211,10 +1724,7 @@ export const serializeAws_restJson1_1DescribeTemplateAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -2238,19 +1748,13 @@ export const serializeAws_restJson1_1DescribeTemplatePermissionsCommand = async 
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2259,10 +1763,7 @@ export const serializeAws_restJson1_1DescribeTemplatePermissionsCommand = async 
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -2286,19 +1787,13 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2307,10 +1802,7 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2319,10 +1811,7 @@ export const serializeAws_restJson1_1DescribeUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -2346,33 +1835,22 @@ export const serializeAws_restJson1_1GetDashboardEmbedUrlCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url";
+  let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}/embed-url";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -2412,33 +1890,22 @@ export const serializeAws_restJson1_1ListDashboardVersionsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions";
+  let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
@@ -2473,14 +1940,9 @@ export const serializeAws_restJson1_1ListDashboardsCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2515,14 +1977,9 @@ export const serializeAws_restJson1_1ListDataSetsCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2557,14 +2014,9 @@ export const serializeAws_restJson1_1ListDataSourcesCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2595,19 +2047,13 @@ export const serializeAws_restJson1_1ListGroupMembershipsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2616,10 +2062,7 @@ export const serializeAws_restJson1_1ListGroupMembershipsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -2628,10 +2071,7 @@ export const serializeAws_restJson1_1ListGroupMembershipsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2666,14 +2106,9 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2682,10 +2117,7 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2716,19 +2148,13 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2737,10 +2163,7 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2776,19 +2199,13 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommand = as
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2797,10 +2214,7 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommand = as
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -2809,10 +2223,7 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommand = as
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -2843,19 +2254,13 @@ export const serializeAws_restJson1_1ListIngestionsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2864,10 +2269,7 @@ export const serializeAws_restJson1_1ListIngestionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
@@ -2902,14 +2304,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -2937,14 +2334,9 @@ export const serializeAws_restJson1_1ListTemplateAliasesCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -2953,10 +2345,7 @@ export const serializeAws_restJson1_1ListTemplateAliasesCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -2991,14 +2380,9 @@ export const serializeAws_restJson1_1ListTemplateVersionsCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3007,10 +2391,7 @@ export const serializeAws_restJson1_1ListTemplateVersionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -3045,14 +2426,9 @@ export const serializeAws_restJson1_1ListTemplatesCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3083,19 +2459,13 @@ export const serializeAws_restJson1_1ListUserGroupsCommand = async (
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3104,10 +2474,7 @@ export const serializeAws_restJson1_1ListUserGroupsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3116,10 +2483,7 @@ export const serializeAws_restJson1_1ListUserGroupsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -3154,14 +2518,9 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3170,10 +2529,7 @@ export const serializeAws_restJson1_1ListUsersCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3208,14 +2564,9 @@ export const serializeAws_restJson1_1RegisterUserCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3224,10 +2575,7 @@ export const serializeAws_restJson1_1RegisterUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3265,14 +2613,9 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -3305,14 +2648,9 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: ResourceArn."
-      );
+      throw new Error("Empty value provided for input HTTP label: ResourceArn.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{ResourceArn}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{ResourceArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
@@ -3346,48 +2684,32 @@ export const serializeAws_restJson1_1UpdateDashboardCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.DashboardPublishOptions !== undefined && {
-      DashboardPublishOptions: serializeAws_restJson1_1DashboardPublishOptions(
-        input.DashboardPublishOptions,
-        context
-      )
+      DashboardPublishOptions: serializeAws_restJson1_1DashboardPublishOptions(input.DashboardPublishOptions, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Parameters !== undefined && {
       Parameters: serializeAws_restJson1_1_Parameters(input.Parameters, context)
     }),
     ...(input.SourceEntity !== undefined && {
-      SourceEntity: serializeAws_restJson1_1DashboardSourceEntity(
-        input.SourceEntity,
-        context
-      )
+      SourceEntity: serializeAws_restJson1_1DashboardSourceEntity(input.SourceEntity, context)
     }),
     ...(input.VersionDescription !== undefined && {
       VersionDescription: input.VersionDescription
@@ -3412,49 +2734,32 @@ export const serializeAws_restJson1_1UpdateDashboardPermissionsCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.GrantPermissions !== undefined && {
-      GrantPermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
-        input.GrantPermissions,
-        context
-      )
+      GrantPermissions: serializeAws_restJson1_1UpdateResourcePermissionList(input.GrantPermissions, context)
     }),
     ...(input.RevokePermissions !== undefined && {
-      RevokePermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
-        input.RevokePermissions,
-        context
-      )
+      RevokePermissions: serializeAws_restJson1_1UpdateResourcePermissionList(input.RevokePermissions, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3476,47 +2781,31 @@ export const serializeAws_restJson1_1UpdateDashboardPublishedVersionCommand = as
   const headers: any = {
     "Content-Type": ""
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}";
+  let resolvedPath = "/accounts/{AwsAccountId}/dashboards/{DashboardId}/versions/{VersionNumber}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DashboardId !== undefined) {
     const labelValue: string = input.DashboardId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DashboardId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DashboardId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DashboardId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DashboardId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   if (input.VersionNumber !== undefined) {
     const labelValue: string = input.VersionNumber.toString();
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: VersionNumber."
-      );
+      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{VersionNumber}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
@@ -3544,14 +2833,9 @@ export const serializeAws_restJson1_1UpdateDataSetCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3560,34 +2844,22 @@ export const serializeAws_restJson1_1UpdateDataSetCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.ColumnGroups !== undefined && {
-      ColumnGroups: serializeAws_restJson1_1ColumnGroupList(
-        input.ColumnGroups,
-        context
-      )
+      ColumnGroups: serializeAws_restJson1_1ColumnGroupList(input.ColumnGroups, context)
     }),
     ...(input.ImportMode !== undefined && { ImportMode: input.ImportMode }),
     ...(input.LogicalTableMap !== undefined && {
-      LogicalTableMap: serializeAws_restJson1_1LogicalTableMap(
-        input.LogicalTableMap,
-        context
-      )
+      LogicalTableMap: serializeAws_restJson1_1LogicalTableMap(input.LogicalTableMap, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.PhysicalTableMap !== undefined && {
-      PhysicalTableMap: serializeAws_restJson1_1PhysicalTableMap(
-        input.PhysicalTableMap,
-        context
-      )
+      PhysicalTableMap: serializeAws_restJson1_1PhysicalTableMap(input.PhysicalTableMap, context)
     }),
     ...(input.RowLevelPermissionDataSet !== undefined && {
       RowLevelPermissionDataSet: serializeAws_restJson1_1RowLevelPermissionDataSet(
@@ -3615,19 +2887,13 @@ export const serializeAws_restJson1_1UpdateDataSetPermissionsCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3636,26 +2902,17 @@ export const serializeAws_restJson1_1UpdateDataSetPermissionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: DataSetId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSetId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.GrantPermissions !== undefined && {
-      GrantPermissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.GrantPermissions,
-        context
-      )
+      GrantPermissions: serializeAws_restJson1_1ResourcePermissionList(input.GrantPermissions, context)
     }),
     ...(input.RevokePermissions !== undefined && {
-      RevokePermissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.RevokePermissions,
-        context
-      )
+      RevokePermissions: serializeAws_restJson1_1ResourcePermissionList(input.RevokePermissions, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3681,57 +2938,35 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
     const labelValue: string = input.DataSourceId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DataSourceId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.Credentials !== undefined && {
-      Credentials: serializeAws_restJson1_1DataSourceCredentials(
-        input.Credentials,
-        context
-      )
+      Credentials: serializeAws_restJson1_1DataSourceCredentials(input.Credentials, context)
     }),
     ...(input.DataSourceParameters !== undefined && {
-      DataSourceParameters: serializeAws_restJson1_1DataSourceParameters(
-        input.DataSourceParameters,
-        context
-      )
+      DataSourceParameters: serializeAws_restJson1_1DataSourceParameters(input.DataSourceParameters, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.SslProperties !== undefined && {
-      SslProperties: serializeAws_restJson1_1SslProperties(
-        input.SslProperties,
-        context
-      )
+      SslProperties: serializeAws_restJson1_1SslProperties(input.SslProperties, context)
     }),
     ...(input.VpcConnectionProperties !== undefined && {
-      VpcConnectionProperties: serializeAws_restJson1_1VpcConnectionProperties(
-        input.VpcConnectionProperties,
-        context
-      )
+      VpcConnectionProperties: serializeAws_restJson1_1VpcConnectionProperties(input.VpcConnectionProperties, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3753,49 +2988,32 @@ export const serializeAws_restJson1_1UpdateDataSourcePermissionsCommand = async 
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.DataSourceId !== undefined) {
     const labelValue: string = input.DataSourceId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: DataSourceId."
-      );
+      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{DataSourceId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.GrantPermissions !== undefined && {
-      GrantPermissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.GrantPermissions,
-        context
-      )
+      GrantPermissions: serializeAws_restJson1_1ResourcePermissionList(input.GrantPermissions, context)
     }),
     ...(input.RevokePermissions !== undefined && {
-      RevokePermissions: serializeAws_restJson1_1ResourcePermissionList(
-        input.RevokePermissions,
-        context
-      )
+      RevokePermissions: serializeAws_restJson1_1ResourcePermissionList(input.RevokePermissions, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3817,19 +3035,13 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3838,10 +3050,7 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: GroupName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{GroupName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
@@ -3850,10 +3059,7 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3880,33 +3086,22 @@ export const serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
   if (input.AssignmentName !== undefined) {
     const labelValue: string = input.AssignmentName;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AssignmentName."
-      );
+      throw new Error("Empty value provided for input HTTP label: AssignmentName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AssignmentName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AssignmentName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3915,10 +3110,7 @@ export const serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -3955,14 +3147,9 @@ export const serializeAws_restJson1_1UpdateTemplateCommand = async (
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -3971,10 +3158,7 @@ export const serializeAws_restJson1_1UpdateTemplateCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -3982,10 +3166,7 @@ export const serializeAws_restJson1_1UpdateTemplateCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.SourceEntity !== undefined && {
-      SourceEntity: serializeAws_restJson1_1TemplateSourceEntity(
-        input.SourceEntity,
-        context
-      )
+      SourceEntity: serializeAws_restJson1_1TemplateSourceEntity(input.SourceEntity, context)
     }),
     ...(input.VersionDescription !== undefined && {
       VersionDescription: input.VersionDescription
@@ -4010,31 +3191,22 @@ export const serializeAws_restJson1_1UpdateTemplateAliasCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
   if (input.AliasName !== undefined) {
     const labelValue: string = input.AliasName;
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: AliasName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AliasName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -4043,10 +3215,7 @@ export const serializeAws_restJson1_1UpdateTemplateAliasCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
@@ -4075,19 +3244,13 @@ export const serializeAws_restJson1_1UpdateTemplatePermissionsCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
+  let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/permissions";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -4096,26 +3259,17 @@ export const serializeAws_restJson1_1UpdateTemplatePermissionsCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: TemplateId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{TemplateId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
   body = JSON.stringify({
     ...(input.GrantPermissions !== undefined && {
-      GrantPermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
-        input.GrantPermissions,
-        context
-      )
+      GrantPermissions: serializeAws_restJson1_1UpdateResourcePermissionList(input.GrantPermissions, context)
     }),
     ...(input.RevokePermissions !== undefined && {
-      RevokePermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
-        input.RevokePermissions,
-        context
-      )
+      RevokePermissions: serializeAws_restJson1_1UpdateResourcePermissionList(input.RevokePermissions, context)
     })
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4137,19 +3291,13 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
   const headers: any = {
     "Content-Type": "application/json"
   };
-  let resolvedPath =
-    "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
+  let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error(
-        "Empty value provided for input HTTP label: AwsAccountId."
-      );
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{AwsAccountId}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
@@ -4158,10 +3306,7 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{Namespace}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
@@ -4170,10 +3315,7 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     if (labelValue.length <= 0) {
       throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace(
-      "{UserName}",
-      __extendedEncodeURIComponent(labelValue)
-    );
+    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
@@ -4199,10 +3341,7 @@ export const deserializeAws_restJson1_1CancelIngestionCommand = async (
   context: __SerdeContext
 ): Promise<CancelIngestionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CancelIngestionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CancelIngestionCommandError(output, context);
   }
   const contents: CancelIngestionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4239,10 +3378,7 @@ const deserializeAws_restJson1_1CancelIngestionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4250,10 +3386,7 @@ const deserializeAws_restJson1_1CancelIngestionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4261,10 +3394,7 @@ const deserializeAws_restJson1_1CancelIngestionCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4272,10 +3402,7 @@ const deserializeAws_restJson1_1CancelIngestionCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4283,10 +3410,7 @@ const deserializeAws_restJson1_1CancelIngestionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4294,10 +3418,7 @@ const deserializeAws_restJson1_1CancelIngestionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4324,10 +3445,7 @@ export const deserializeAws_restJson1_1CreateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDashboardCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDashboardCommandError(output, context);
   }
   const contents: CreateDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4372,10 +3490,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4383,10 +3498,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4394,10 +3506,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4405,10 +3514,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4416,10 +3522,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4427,10 +3530,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4438,10 +3538,7 @@ const deserializeAws_restJson1_1CreateDashboardCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4513,10 +3610,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4524,10 +3618,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4535,10 +3626,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4546,10 +3634,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4557,10 +3642,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4568,10 +3650,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4579,10 +3658,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4590,10 +3666,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4601,10 +3674,7 @@ const deserializeAws_restJson1_1CreateDataSetCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4631,10 +3701,7 @@ export const deserializeAws_restJson1_1CreateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateDataSourceCommandError(output, context);
   }
   const contents: CreateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4675,10 +3742,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4686,10 +3750,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4697,10 +3758,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4708,10 +3766,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4719,10 +3774,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4730,10 +3782,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4741,10 +3790,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4752,10 +3798,7 @@ const deserializeAws_restJson1_1CreateDataSourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4815,10 +3858,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4826,10 +3866,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4837,10 +3874,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4848,10 +3882,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4859,10 +3890,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4870,10 +3898,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4881,10 +3906,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4892,10 +3914,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4903,10 +3922,7 @@ const deserializeAws_restJson1_1CreateGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4933,10 +3949,7 @@ export const deserializeAws_restJson1_1CreateGroupMembershipCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateGroupMembershipCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateGroupMembershipCommandError(output, context);
   }
   const contents: CreateGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -4946,10 +3959,7 @@ export const deserializeAws_restJson1_1CreateGroupMembershipCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupMember !== undefined && data.GroupMember !== null) {
-    contents.GroupMember = deserializeAws_restJson1_1GroupMember(
-      data.GroupMember,
-      context
-    );
+    contents.GroupMember = deserializeAws_restJson1_1GroupMember(data.GroupMember, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -4972,10 +3982,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4983,10 +3990,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -4994,10 +3998,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5005,10 +4006,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5016,10 +4014,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5027,10 +4022,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5038,10 +4030,7 @@ const deserializeAws_restJson1_1CreateGroupMembershipCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5068,10 +4057,7 @@ export const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommand = async 
   context: __SerdeContext
 ): Promise<CreateIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError(output, context);
   }
   const contents: CreateIAMPolicyAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5094,10 +4080,7 @@ export const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommand = async 
     contents.AssignmentStatus = data.AssignmentStatus;
   }
   if (data.Identities !== undefined && data.Identities !== null) {
-    contents.Identities = deserializeAws_restJson1_1IdentityMap(
-      data.Identities,
-      context
-    );
+    contents.Identities = deserializeAws_restJson1_1IdentityMap(data.Identities, context);
   }
   if (data.PolicyArn !== undefined && data.PolicyArn !== null) {
     contents.PolicyArn = data.PolicyArn;
@@ -5123,10 +4106,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5134,10 +4114,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5145,10 +4122,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5156,10 +4130,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5167,10 +4138,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5178,10 +4146,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5189,10 +4154,7 @@ const deserializeAws_restJson1_1CreateIAMPolicyAssignmentCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5219,10 +4181,7 @@ export const deserializeAws_restJson1_1CreateIngestionCommand = async (
   context: __SerdeContext
 ): Promise<CreateIngestionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateIngestionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateIngestionCommandError(output, context);
   }
   const contents: CreateIngestionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5263,10 +4222,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5274,10 +4230,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5285,10 +4238,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5296,10 +4246,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5307,10 +4254,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5318,10 +4262,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5329,10 +4270,7 @@ const deserializeAws_restJson1_1CreateIngestionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5359,10 +4297,7 @@ export const deserializeAws_restJson1_1CreateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateTemplateCommandError(output, context);
   }
   const contents: CreateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5407,10 +4342,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5418,10 +4350,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5429,10 +4358,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5440,10 +4366,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5451,10 +4374,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5462,10 +4382,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5473,10 +4390,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5484,10 +4398,7 @@ const deserializeAws_restJson1_1CreateTemplateCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5514,10 +4425,7 @@ export const deserializeAws_restJson1_1CreateTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1CreateTemplateAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1CreateTemplateAliasCommandError(output, context);
   }
   const contents: CreateTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5530,10 +4438,7 @@ export const deserializeAws_restJson1_1CreateTemplateAliasCommand = async (
     contents.RequestId = data.RequestId;
   }
   if (data.TemplateAlias !== undefined && data.TemplateAlias !== null) {
-    contents.TemplateAlias = deserializeAws_restJson1_1TemplateAlias(
-      data.TemplateAlias,
-      context
-    );
+    contents.TemplateAlias = deserializeAws_restJson1_1TemplateAlias(data.TemplateAlias, context);
   }
   return Promise.resolve(contents);
 };
@@ -5553,10 +4458,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5564,10 +4466,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5575,10 +4474,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5586,10 +4482,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5597,10 +4490,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5608,10 +4498,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5619,10 +4506,7 @@ const deserializeAws_restJson1_1CreateTemplateAliasCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5649,10 +4533,7 @@ export const deserializeAws_restJson1_1DeleteDashboardCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDashboardCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDashboardCommandError(output, context);
   }
   const contents: DeleteDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5689,10 +4570,7 @@ const deserializeAws_restJson1_1DeleteDashboardCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5700,10 +4578,7 @@ const deserializeAws_restJson1_1DeleteDashboardCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5711,10 +4586,7 @@ const deserializeAws_restJson1_1DeleteDashboardCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5722,10 +4594,7 @@ const deserializeAws_restJson1_1DeleteDashboardCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5733,10 +4602,7 @@ const deserializeAws_restJson1_1DeleteDashboardCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5744,10 +4610,7 @@ const deserializeAws_restJson1_1DeleteDashboardCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5811,10 +4674,7 @@ const deserializeAws_restJson1_1DeleteDataSetCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5822,10 +4682,7 @@ const deserializeAws_restJson1_1DeleteDataSetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5833,10 +4690,7 @@ const deserializeAws_restJson1_1DeleteDataSetCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5844,10 +4698,7 @@ const deserializeAws_restJson1_1DeleteDataSetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5855,10 +4706,7 @@ const deserializeAws_restJson1_1DeleteDataSetCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5885,10 +4733,7 @@ export const deserializeAws_restJson1_1DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteDataSourceCommandError(output, context);
   }
   const contents: DeleteDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -5925,10 +4770,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5936,10 +4778,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5947,10 +4786,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5958,10 +4794,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -5969,10 +4802,7 @@ const deserializeAws_restJson1_1DeleteDataSourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6028,10 +4858,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6039,10 +4866,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6050,10 +4874,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6061,10 +4882,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6072,10 +4890,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6083,10 +4898,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6094,10 +4906,7 @@ const deserializeAws_restJson1_1DeleteGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6124,10 +4933,7 @@ export const deserializeAws_restJson1_1DeleteGroupMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteGroupMembershipCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteGroupMembershipCommandError(output, context);
   }
   const contents: DeleteGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6156,10 +4962,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6167,10 +4970,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6178,10 +4978,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6189,10 +4986,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6200,10 +4994,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6211,10 +5002,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6222,10 +5010,7 @@ const deserializeAws_restJson1_1DeleteGroupMembershipCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6252,10 +5037,7 @@ export const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommand = async 
   context: __SerdeContext
 ): Promise<DeleteIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError(output, context);
   }
   const contents: DeleteIAMPolicyAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6288,10 +5070,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6299,10 +5078,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6310,10 +5086,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6321,10 +5094,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6332,10 +5102,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6343,10 +5110,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6354,10 +5118,7 @@ const deserializeAws_restJson1_1DeleteIAMPolicyAssignmentCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6384,10 +5145,7 @@ export const deserializeAws_restJson1_1DeleteTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTemplateCommandError(output, context);
   }
   const contents: DeleteTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6424,10 +5182,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6435,10 +5190,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6446,10 +5198,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6457,10 +5206,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6468,10 +5214,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6479,10 +5222,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6490,10 +5230,7 @@ const deserializeAws_restJson1_1DeleteTemplateCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6520,10 +5257,7 @@ export const deserializeAws_restJson1_1DeleteTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteTemplateAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteTemplateAliasCommandError(output, context);
   }
   const contents: DeleteTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6564,10 +5298,7 @@ const deserializeAws_restJson1_1DeleteTemplateAliasCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6575,10 +5306,7 @@ const deserializeAws_restJson1_1DeleteTemplateAliasCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6586,10 +5314,7 @@ const deserializeAws_restJson1_1DeleteTemplateAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6597,10 +5322,7 @@ const deserializeAws_restJson1_1DeleteTemplateAliasCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6656,10 +5378,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6667,10 +5386,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6678,10 +5394,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6689,10 +5402,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6700,10 +5410,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6711,10 +5418,7 @@ const deserializeAws_restJson1_1DeleteUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6741,10 +5445,7 @@ export const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserByPrincipalIdCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError(output, context);
   }
   const contents: DeleteUserByPrincipalIdCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6773,10 +5474,7 @@ const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6784,10 +5482,7 @@ const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6795,10 +5490,7 @@ const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6806,10 +5498,7 @@ const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6817,10 +5506,7 @@ const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6828,10 +5514,7 @@ const deserializeAws_restJson1_1DeleteUserByPrincipalIdCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6858,10 +5541,7 @@ export const deserializeAws_restJson1_1DescribeDashboardCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDashboardCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDashboardCommandError(output, context);
   }
   const contents: DescribeDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -6871,10 +5551,7 @@ export const deserializeAws_restJson1_1DescribeDashboardCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Dashboard !== undefined && data.Dashboard !== null) {
-    contents.Dashboard = deserializeAws_restJson1_1Dashboard(
-      data.Dashboard,
-      context
-    );
+    contents.Dashboard = deserializeAws_restJson1_1Dashboard(data.Dashboard, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -6897,10 +5574,7 @@ const deserializeAws_restJson1_1DescribeDashboardCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6908,10 +5582,7 @@ const deserializeAws_restJson1_1DescribeDashboardCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6919,10 +5590,7 @@ const deserializeAws_restJson1_1DescribeDashboardCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6930,10 +5598,7 @@ const deserializeAws_restJson1_1DescribeDashboardCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6941,10 +5606,7 @@ const deserializeAws_restJson1_1DescribeDashboardCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6952,10 +5614,7 @@ const deserializeAws_restJson1_1DescribeDashboardCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -6982,10 +5641,7 @@ export const deserializeAws_restJson1_1DescribeDashboardPermissionsCommand = asy
   context: __SerdeContext
 ): Promise<DescribeDashboardPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError(output, context);
   }
   const contents: DescribeDashboardPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7003,10 +5659,7 @@ export const deserializeAws_restJson1_1DescribeDashboardPermissionsCommand = asy
     contents.DashboardId = data.DashboardId;
   }
   if (data.Permissions !== undefined && data.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(
-      data.Permissions,
-      context
-    );
+    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(data.Permissions, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -7029,10 +5682,7 @@ const deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError = async
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7040,10 +5690,7 @@ const deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError = async
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7051,10 +5698,7 @@ const deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError = async
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7062,10 +5706,7 @@ const deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError = async
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7073,10 +5714,7 @@ const deserializeAws_restJson1_1DescribeDashboardPermissionsCommandError = async
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7103,10 +5741,7 @@ export const deserializeAws_restJson1_1DescribeDataSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDataSetCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDataSetCommandError(output, context);
   }
   const contents: DescribeDataSetCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7139,10 +5774,7 @@ const deserializeAws_restJson1_1DescribeDataSetCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7150,10 +5782,7 @@ const deserializeAws_restJson1_1DescribeDataSetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7161,10 +5790,7 @@ const deserializeAws_restJson1_1DescribeDataSetCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7172,10 +5798,7 @@ const deserializeAws_restJson1_1DescribeDataSetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7183,10 +5806,7 @@ const deserializeAws_restJson1_1DescribeDataSetCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7213,10 +5833,7 @@ export const deserializeAws_restJson1_1DescribeDataSetPermissionsCommand = async
   context: __SerdeContext
 ): Promise<DescribeDataSetPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError(output, context);
   }
   const contents: DescribeDataSetPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7234,10 +5851,7 @@ export const deserializeAws_restJson1_1DescribeDataSetPermissionsCommand = async
     contents.DataSetId = data.DataSetId;
   }
   if (data.Permissions !== undefined && data.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(
-      data.Permissions,
-      context
-    );
+    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(data.Permissions, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -7260,10 +5874,7 @@ const deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7271,10 +5882,7 @@ const deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7282,10 +5890,7 @@ const deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7293,10 +5898,7 @@ const deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7304,10 +5906,7 @@ const deserializeAws_restJson1_1DescribeDataSetPermissionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7334,10 +5933,7 @@ export const deserializeAws_restJson1_1DescribeDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDataSourceCommandError(output, context);
   }
   const contents: DescribeDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7347,10 +5943,7 @@ export const deserializeAws_restJson1_1DescribeDataSourceCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSource !== undefined && data.DataSource !== null) {
-    contents.DataSource = deserializeAws_restJson1_1DataSource(
-      data.DataSource,
-      context
-    );
+    contents.DataSource = deserializeAws_restJson1_1DataSource(data.DataSource, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -7373,10 +5966,7 @@ const deserializeAws_restJson1_1DescribeDataSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7384,10 +5974,7 @@ const deserializeAws_restJson1_1DescribeDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7395,10 +5982,7 @@ const deserializeAws_restJson1_1DescribeDataSourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7406,10 +5990,7 @@ const deserializeAws_restJson1_1DescribeDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7417,10 +5998,7 @@ const deserializeAws_restJson1_1DescribeDataSourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7447,10 +6025,7 @@ export const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommand = as
   context: __SerdeContext
 ): Promise<DescribeDataSourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError(output, context);
   }
   const contents: DescribeDataSourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7468,10 +6043,7 @@ export const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommand = as
     contents.DataSourceId = data.DataSourceId;
   }
   if (data.Permissions !== undefined && data.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(
-      data.Permissions,
-      context
-    );
+    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(data.Permissions, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -7494,10 +6066,7 @@ const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError = asyn
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7505,10 +6074,7 @@ const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError = asyn
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7516,10 +6082,7 @@ const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError = asyn
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7527,10 +6090,7 @@ const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError = asyn
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7538,10 +6098,7 @@ const deserializeAws_restJson1_1DescribeDataSourcePermissionsCommandError = asyn
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7601,10 +6158,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7612,10 +6166,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7623,10 +6174,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7634,10 +6182,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7645,10 +6190,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7656,10 +6198,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7667,10 +6206,7 @@ const deserializeAws_restJson1_1DescribeGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7697,10 +6233,7 @@ export const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError(output, context);
   }
   const contents: DescribeIAMPolicyAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7709,14 +6242,8 @@ export const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommand = asyn
     RequestId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.IAMPolicyAssignment !== undefined &&
-    data.IAMPolicyAssignment !== null
-  ) {
-    contents.IAMPolicyAssignment = deserializeAws_restJson1_1IAMPolicyAssignment(
-      data.IAMPolicyAssignment,
-      context
-    );
+  if (data.IAMPolicyAssignment !== undefined && data.IAMPolicyAssignment !== null) {
+    contents.IAMPolicyAssignment = deserializeAws_restJson1_1IAMPolicyAssignment(data.IAMPolicyAssignment, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -7739,10 +6266,7 @@ const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError = async 
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7750,10 +6274,7 @@ const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError = async 
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7761,10 +6282,7 @@ const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError = async 
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7772,10 +6290,7 @@ const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError = async 
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7783,10 +6298,7 @@ const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError = async 
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7794,10 +6306,7 @@ const deserializeAws_restJson1_1DescribeIAMPolicyAssignmentCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7824,10 +6333,7 @@ export const deserializeAws_restJson1_1DescribeIngestionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIngestionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeIngestionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeIngestionCommandError(output, context);
   }
   const contents: DescribeIngestionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7837,10 +6343,7 @@ export const deserializeAws_restJson1_1DescribeIngestionCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Ingestion !== undefined && data.Ingestion !== null) {
-    contents.Ingestion = deserializeAws_restJson1_1Ingestion(
-      data.Ingestion,
-      context
-    );
+    contents.Ingestion = deserializeAws_restJson1_1Ingestion(data.Ingestion, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -7863,10 +6366,7 @@ const deserializeAws_restJson1_1DescribeIngestionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7874,10 +6374,7 @@ const deserializeAws_restJson1_1DescribeIngestionCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7885,10 +6382,7 @@ const deserializeAws_restJson1_1DescribeIngestionCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7896,10 +6390,7 @@ const deserializeAws_restJson1_1DescribeIngestionCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7907,10 +6398,7 @@ const deserializeAws_restJson1_1DescribeIngestionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7918,10 +6406,7 @@ const deserializeAws_restJson1_1DescribeIngestionCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7948,10 +6433,7 @@ export const deserializeAws_restJson1_1DescribeTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeTemplateCommandError(output, context);
   }
   const contents: DescribeTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -7960,10 +6442,7 @@ export const deserializeAws_restJson1_1DescribeTemplateCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Template !== undefined && data.Template !== null) {
-    contents.Template = deserializeAws_restJson1_1Template(
-      data.Template,
-      context
-    );
+    contents.Template = deserializeAws_restJson1_1Template(data.Template, context);
   }
   return Promise.resolve(contents);
 };
@@ -7983,10 +6462,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -7994,10 +6470,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8005,10 +6478,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8016,10 +6486,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8027,10 +6494,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8038,10 +6502,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8049,10 +6510,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8060,10 +6518,7 @@ const deserializeAws_restJson1_1DescribeTemplateCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8090,10 +6545,7 @@ export const deserializeAws_restJson1_1DescribeTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeTemplateAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeTemplateAliasCommandError(output, context);
   }
   const contents: DescribeTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8106,10 +6558,7 @@ export const deserializeAws_restJson1_1DescribeTemplateAliasCommand = async (
     contents.RequestId = data.RequestId;
   }
   if (data.TemplateAlias !== undefined && data.TemplateAlias !== null) {
-    contents.TemplateAlias = deserializeAws_restJson1_1TemplateAlias(
-      data.TemplateAlias,
-      context
-    );
+    contents.TemplateAlias = deserializeAws_restJson1_1TemplateAlias(data.TemplateAlias, context);
   }
   return Promise.resolve(contents);
 };
@@ -8129,10 +6578,7 @@ const deserializeAws_restJson1_1DescribeTemplateAliasCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8140,10 +6586,7 @@ const deserializeAws_restJson1_1DescribeTemplateAliasCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8151,10 +6594,7 @@ const deserializeAws_restJson1_1DescribeTemplateAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8162,10 +6602,7 @@ const deserializeAws_restJson1_1DescribeTemplateAliasCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8192,10 +6629,7 @@ export const deserializeAws_restJson1_1DescribeTemplatePermissionsCommand = asyn
   context: __SerdeContext
 ): Promise<DescribeTemplatePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError(output, context);
   }
   const contents: DescribeTemplatePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8207,10 +6641,7 @@ export const deserializeAws_restJson1_1DescribeTemplatePermissionsCommand = asyn
   };
   const data: any = await parseBody(output.body, context);
   if (data.Permissions !== undefined && data.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(
-      data.Permissions,
-      context
-    );
+    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(data.Permissions, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -8239,10 +6670,7 @@ const deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError = async 
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8250,10 +6678,7 @@ const deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError = async 
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8261,10 +6686,7 @@ const deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError = async 
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8272,10 +6694,7 @@ const deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError = async 
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8283,10 +6702,7 @@ const deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8294,10 +6710,7 @@ const deserializeAws_restJson1_1DescribeTemplatePermissionsCommandError = async 
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8357,10 +6770,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8368,10 +6778,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8379,10 +6786,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8390,10 +6794,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8401,10 +6802,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8412,10 +6810,7 @@ const deserializeAws_restJson1_1DescribeUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8442,10 +6837,7 @@ export const deserializeAws_restJson1_1GetDashboardEmbedUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetDashboardEmbedUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError(output, context);
   }
   const contents: GetDashboardEmbedUrlCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8478,10 +6870,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "DomainNotWhitelistedException":
     case "com.amazonaws.services.quicksight#DomainNotWhitelistedException":
       response = {
-        ...(await deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1DomainNotWhitelistedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8489,10 +6878,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "IdentityTypeNotSupportedException":
     case "com.amazonaws.services.quicksight#IdentityTypeNotSupportedException":
       response = {
-        ...(await deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1IdentityTypeNotSupportedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8500,10 +6886,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "QuickSightUserNotFoundException":
     case "com.amazonaws.services.quicksight#QuickSightUserNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1QuickSightUserNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8511,10 +6894,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "SessionLifetimeInMinutesInvalidException":
     case "com.amazonaws.services.quicksight#SessionLifetimeInMinutesInvalidException":
       response = {
-        ...(await deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1SessionLifetimeInMinutesInvalidExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8522,10 +6902,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8533,10 +6910,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8544,10 +6918,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8555,10 +6926,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8566,10 +6934,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8577,10 +6942,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8588,10 +6950,7 @@ const deserializeAws_restJson1_1GetDashboardEmbedUrlCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8618,10 +6977,7 @@ export const deserializeAws_restJson1_1ListDashboardVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDashboardVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDashboardVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDashboardVersionsCommandError(output, context);
   }
   const contents: ListDashboardVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8631,10 +6987,7 @@ export const deserializeAws_restJson1_1ListDashboardVersionsCommand = async (
     RequestId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DashboardVersionSummaryList !== undefined &&
-    data.DashboardVersionSummaryList !== null
-  ) {
+  if (data.DashboardVersionSummaryList !== undefined && data.DashboardVersionSummaryList !== null) {
     contents.DashboardVersionSummaryList = deserializeAws_restJson1_1DashboardVersionSummaryList(
       data.DashboardVersionSummaryList,
       context
@@ -8664,10 +7017,7 @@ const deserializeAws_restJson1_1ListDashboardVersionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8675,10 +7025,7 @@ const deserializeAws_restJson1_1ListDashboardVersionsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8686,10 +7033,7 @@ const deserializeAws_restJson1_1ListDashboardVersionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8697,10 +7041,7 @@ const deserializeAws_restJson1_1ListDashboardVersionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8708,10 +7049,7 @@ const deserializeAws_restJson1_1ListDashboardVersionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8719,10 +7057,7 @@ const deserializeAws_restJson1_1ListDashboardVersionsCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8749,10 +7084,7 @@ export const deserializeAws_restJson1_1ListDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDashboardsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDashboardsCommandError(output, context);
   }
   const contents: ListDashboardsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8762,14 +7094,8 @@ export const deserializeAws_restJson1_1ListDashboardsCommand = async (
     RequestId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.DashboardSummaryList !== undefined &&
-    data.DashboardSummaryList !== null
-  ) {
-    contents.DashboardSummaryList = deserializeAws_restJson1_1DashboardSummaryList(
-      data.DashboardSummaryList,
-      context
-    );
+  if (data.DashboardSummaryList !== undefined && data.DashboardSummaryList !== null) {
+    contents.DashboardSummaryList = deserializeAws_restJson1_1DashboardSummaryList(data.DashboardSummaryList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8795,10 +7121,7 @@ const deserializeAws_restJson1_1ListDashboardsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8806,10 +7129,7 @@ const deserializeAws_restJson1_1ListDashboardsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8817,10 +7137,7 @@ const deserializeAws_restJson1_1ListDashboardsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8828,10 +7145,7 @@ const deserializeAws_restJson1_1ListDashboardsCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8869,10 +7183,7 @@ export const deserializeAws_restJson1_1ListDataSetsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSetSummaries !== undefined && data.DataSetSummaries !== null) {
-    contents.DataSetSummaries = deserializeAws_restJson1_1DataSetSummaryList(
-      data.DataSetSummaries,
-      context
-    );
+    contents.DataSetSummaries = deserializeAws_restJson1_1DataSetSummaryList(data.DataSetSummaries, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -8898,10 +7209,7 @@ const deserializeAws_restJson1_1ListDataSetsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8909,10 +7217,7 @@ const deserializeAws_restJson1_1ListDataSetsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8920,10 +7225,7 @@ const deserializeAws_restJson1_1ListDataSetsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8931,10 +7233,7 @@ const deserializeAws_restJson1_1ListDataSetsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8942,10 +7241,7 @@ const deserializeAws_restJson1_1ListDataSetsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -8972,10 +7268,7 @@ export const deserializeAws_restJson1_1ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListDataSourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListDataSourcesCommandError(output, context);
   }
   const contents: ListDataSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -8986,10 +7279,7 @@ export const deserializeAws_restJson1_1ListDataSourcesCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSources !== undefined && data.DataSources !== null) {
-    contents.DataSources = deserializeAws_restJson1_1DataSourceList(
-      data.DataSources,
-      context
-    );
+    contents.DataSources = deserializeAws_restJson1_1DataSourceList(data.DataSources, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9015,10 +7305,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9026,10 +7313,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9037,10 +7321,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9048,10 +7329,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9059,10 +7337,7 @@ const deserializeAws_restJson1_1ListDataSourcesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9089,10 +7364,7 @@ export const deserializeAws_restJson1_1ListGroupMembershipsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupMembershipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListGroupMembershipsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListGroupMembershipsCommandError(output, context);
   }
   const contents: ListGroupMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9103,10 +7375,7 @@ export const deserializeAws_restJson1_1ListGroupMembershipsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupMemberList !== undefined && data.GroupMemberList !== null) {
-    contents.GroupMemberList = deserializeAws_restJson1_1GroupMemberList(
-      data.GroupMemberList,
-      context
-    );
+    contents.GroupMemberList = deserializeAws_restJson1_1GroupMemberList(data.GroupMemberList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9132,10 +7401,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9143,10 +7409,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9154,10 +7417,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9165,10 +7425,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9176,10 +7433,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9187,10 +7441,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9198,10 +7449,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9209,10 +7457,7 @@ const deserializeAws_restJson1_1ListGroupMembershipsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9250,10 +7495,7 @@ export const deserializeAws_restJson1_1ListGroupsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupList !== undefined && data.GroupList !== null) {
-    contents.GroupList = deserializeAws_restJson1_1GroupList(
-      data.GroupList,
-      context
-    );
+    contents.GroupList = deserializeAws_restJson1_1GroupList(data.GroupList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9279,10 +7521,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9290,10 +7529,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9301,10 +7537,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9312,10 +7545,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9323,10 +7553,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9334,10 +7561,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9345,10 +7569,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9356,10 +7577,7 @@ const deserializeAws_restJson1_1ListGroupsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9386,10 +7604,7 @@ export const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommand = async (
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError(output, context);
   }
   const contents: ListIAMPolicyAssignmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9399,10 +7614,7 @@ export const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommand = async (
     RequestId: undefined
   };
   const data: any = await parseBody(output.body, context);
-  if (
-    data.IAMPolicyAssignments !== undefined &&
-    data.IAMPolicyAssignments !== null
-  ) {
+  if (data.IAMPolicyAssignments !== undefined && data.IAMPolicyAssignments !== null) {
     contents.IAMPolicyAssignments = deserializeAws_restJson1_1IAMPolicyAssignmentSummaryList(
       data.IAMPolicyAssignments,
       context
@@ -9432,10 +7644,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9443,10 +7652,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9454,10 +7660,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9465,10 +7668,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9476,10 +7676,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9487,10 +7684,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9517,10 +7711,7 @@ export const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommand = 
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError(output, context);
   }
   const contents: ListIAMPolicyAssignmentsForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9560,10 +7751,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9571,10 +7759,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9582,10 +7767,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9593,10 +7775,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9604,10 +7783,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9615,10 +7791,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9626,10 +7799,7 @@ const deserializeAws_restJson1_1ListIAMPolicyAssignmentsForUserCommandError = as
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9656,10 +7826,7 @@ export const deserializeAws_restJson1_1ListIngestionsCommand = async (
   context: __SerdeContext
 ): Promise<ListIngestionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListIngestionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListIngestionsCommandError(output, context);
   }
   const contents: ListIngestionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9670,10 +7837,7 @@ export const deserializeAws_restJson1_1ListIngestionsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.Ingestions !== undefined && data.Ingestions !== null) {
-    contents.Ingestions = deserializeAws_restJson1_1Ingestions(
-      data.Ingestions,
-      context
-    );
+    contents.Ingestions = deserializeAws_restJson1_1Ingestions(data.Ingestions, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -9699,10 +7863,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9710,10 +7871,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9721,10 +7879,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9732,10 +7887,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9743,10 +7895,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9754,10 +7903,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9765,10 +7911,7 @@ const deserializeAws_restJson1_1ListIngestionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9795,10 +7938,7 @@ export const deserializeAws_restJson1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9831,10 +7971,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9842,10 +7979,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9853,10 +7987,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9864,10 +7995,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9875,10 +8003,7 @@ const deserializeAws_restJson1_1ListTagsForResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9905,10 +8030,7 @@ export const deserializeAws_restJson1_1ListTemplateAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTemplateAliasesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTemplateAliasesCommandError(output, context);
   }
   const contents: ListTemplateAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -9925,10 +8047,7 @@ export const deserializeAws_restJson1_1ListTemplateAliasesCommand = async (
     contents.RequestId = data.RequestId;
   }
   if (data.TemplateAliasList !== undefined && data.TemplateAliasList !== null) {
-    contents.TemplateAliasList = deserializeAws_restJson1_1TemplateAliasList(
-      data.TemplateAliasList,
-      context
-    );
+    contents.TemplateAliasList = deserializeAws_restJson1_1TemplateAliasList(data.TemplateAliasList, context);
   }
   return Promise.resolve(contents);
 };
@@ -9948,10 +8067,7 @@ const deserializeAws_restJson1_1ListTemplateAliasesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9959,10 +8075,7 @@ const deserializeAws_restJson1_1ListTemplateAliasesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9970,10 +8083,7 @@ const deserializeAws_restJson1_1ListTemplateAliasesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -9981,10 +8091,7 @@ const deserializeAws_restJson1_1ListTemplateAliasesCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10011,10 +8118,7 @@ export const deserializeAws_restJson1_1ListTemplateVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListTemplateVersionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListTemplateVersionsCommandError(output, context);
   }
   const contents: ListTemplateVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -10030,10 +8134,7 @@ export const deserializeAws_restJson1_1ListTemplateVersionsCommand = async (
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
   }
-  if (
-    data.TemplateVersionSummaryList !== undefined &&
-    data.TemplateVersionSummaryList !== null
-  ) {
+  if (data.TemplateVersionSummaryList !== undefined && data.TemplateVersionSummaryList !== null) {
     contents.TemplateVersionSummaryList = deserializeAws_restJson1_1TemplateVersionSummaryList(
       data.TemplateVersionSummaryList,
       context
@@ -10057,10 +8158,7 @@ const deserializeAws_restJson1_1ListTemplateVersionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10068,10 +8166,7 @@ const deserializeAws_restJson1_1ListTemplateVersionsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10079,10 +8174,7 @@ const deserializeAws_restJson1_1ListTemplateVersionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10090,10 +8182,7 @@ const deserializeAws_restJson1_1ListTemplateVersionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10101,10 +8190,7 @@ const deserializeAws_restJson1_1ListTemplateVersionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10112,10 +8198,7 @@ const deserializeAws_restJson1_1ListTemplateVersionsCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10158,14 +8241,8 @@ export const deserializeAws_restJson1_1ListTemplatesCommand = async (
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
   }
-  if (
-    data.TemplateSummaryList !== undefined &&
-    data.TemplateSummaryList !== null
-  ) {
-    contents.TemplateSummaryList = deserializeAws_restJson1_1TemplateSummaryList(
-      data.TemplateSummaryList,
-      context
-    );
+  if (data.TemplateSummaryList !== undefined && data.TemplateSummaryList !== null) {
+    contents.TemplateSummaryList = deserializeAws_restJson1_1TemplateSummaryList(data.TemplateSummaryList, context);
   }
   return Promise.resolve(contents);
 };
@@ -10185,10 +8262,7 @@ const deserializeAws_restJson1_1ListTemplatesCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10196,10 +8270,7 @@ const deserializeAws_restJson1_1ListTemplatesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10207,10 +8278,7 @@ const deserializeAws_restJson1_1ListTemplatesCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10218,10 +8286,7 @@ const deserializeAws_restJson1_1ListTemplatesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10229,10 +8294,7 @@ const deserializeAws_restJson1_1ListTemplatesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10240,10 +8302,7 @@ const deserializeAws_restJson1_1ListTemplatesCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10270,10 +8329,7 @@ export const deserializeAws_restJson1_1ListUserGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListUserGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1ListUserGroupsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1ListUserGroupsCommandError(output, context);
   }
   const contents: ListUserGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -10284,10 +8340,7 @@ export const deserializeAws_restJson1_1ListUserGroupsCommand = async (
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupList !== undefined && data.GroupList !== null) {
-    contents.GroupList = deserializeAws_restJson1_1GroupList(
-      data.GroupList,
-      context
-    );
+    contents.GroupList = deserializeAws_restJson1_1GroupList(data.GroupList, context);
   }
   if (data.NextToken !== undefined && data.NextToken !== null) {
     contents.NextToken = data.NextToken;
@@ -10313,10 +8366,7 @@ const deserializeAws_restJson1_1ListUserGroupsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10324,10 +8374,7 @@ const deserializeAws_restJson1_1ListUserGroupsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10335,10 +8382,7 @@ const deserializeAws_restJson1_1ListUserGroupsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10346,10 +8390,7 @@ const deserializeAws_restJson1_1ListUserGroupsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10357,10 +8398,7 @@ const deserializeAws_restJson1_1ListUserGroupsCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10368,10 +8406,7 @@ const deserializeAws_restJson1_1ListUserGroupsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10415,10 +8450,7 @@ export const deserializeAws_restJson1_1ListUsersCommand = async (
     contents.RequestId = data.RequestId;
   }
   if (data.UserList !== undefined && data.UserList !== null) {
-    contents.UserList = deserializeAws_restJson1_1UserList(
-      data.UserList,
-      context
-    );
+    contents.UserList = deserializeAws_restJson1_1UserList(data.UserList, context);
   }
   return Promise.resolve(contents);
 };
@@ -10438,10 +8470,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10449,10 +8478,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10460,10 +8486,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.services.quicksight.common#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10471,10 +8494,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10482,10 +8502,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10493,10 +8510,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10504,10 +8518,7 @@ const deserializeAws_restJson1_1ListUsersCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10571,10 +8582,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10582,10 +8590,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10593,10 +8598,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10604,10 +8606,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10615,10 +8614,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10626,10 +8622,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10637,10 +8630,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10648,10 +8638,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10659,10 +8646,7 @@ const deserializeAws_restJson1_1RegisterUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10718,10 +8702,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10729,10 +8710,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10740,10 +8718,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10751,10 +8726,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10762,10 +8734,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10773,10 +8742,7 @@ const deserializeAws_restJson1_1TagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10832,10 +8798,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10843,10 +8806,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10854,10 +8814,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10865,10 +8822,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10876,10 +8830,7 @@ const deserializeAws_restJson1_1UntagResourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10906,10 +8857,7 @@ export const deserializeAws_restJson1_1UpdateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDashboardCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDashboardCommandError(output, context);
   }
   const contents: UpdateDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -10958,10 +8906,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10969,10 +8914,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10980,10 +8922,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -10991,10 +8930,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11002,10 +8938,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11013,10 +8946,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11024,10 +8954,7 @@ const deserializeAws_restJson1_1UpdateDashboardCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11054,10 +8981,7 @@ export const deserializeAws_restJson1_1UpdateDashboardPermissionsCommand = async
   context: __SerdeContext
 ): Promise<UpdateDashboardPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError(output, context);
   }
   const contents: UpdateDashboardPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11075,10 +8999,7 @@ export const deserializeAws_restJson1_1UpdateDashboardPermissionsCommand = async
     contents.DashboardId = data.DashboardId;
   }
   if (data.Permissions !== undefined && data.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(
-      data.Permissions,
-      context
-    );
+    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(data.Permissions, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -11101,10 +9022,7 @@ const deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11112,10 +9030,7 @@ const deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11123,10 +9038,7 @@ const deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11134,10 +9046,7 @@ const deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11145,10 +9054,7 @@ const deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11156,10 +9062,7 @@ const deserializeAws_restJson1_1UpdateDashboardPermissionsCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11186,10 +9089,7 @@ export const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommand = 
   context: __SerdeContext
 ): Promise<UpdateDashboardPublishedVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError(output, context);
   }
   const contents: UpdateDashboardPublishedVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11226,10 +9126,7 @@ const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError = as
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11237,10 +9134,7 @@ const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError = as
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11248,10 +9142,7 @@ const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError = as
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11259,10 +9150,7 @@ const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError = as
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11270,10 +9158,7 @@ const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError = as
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11281,10 +9166,7 @@ const deserializeAws_restJson1_1UpdateDashboardPublishedVersionCommandError = as
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11356,10 +9238,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11367,10 +9246,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11378,10 +9254,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11389,10 +9262,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11400,10 +9270,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11411,10 +9278,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11422,10 +9286,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11433,10 +9294,7 @@ const deserializeAws_restJson1_1UpdateDataSetCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11463,10 +9321,7 @@ export const deserializeAws_restJson1_1UpdateDataSetPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSetPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError(output, context);
   }
   const contents: UpdateDataSetPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11503,10 +9358,7 @@ const deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11514,10 +9366,7 @@ const deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11525,10 +9374,7 @@ const deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11536,10 +9382,7 @@ const deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11547,10 +9390,7 @@ const deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11558,10 +9398,7 @@ const deserializeAws_restJson1_1UpdateDataSetPermissionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11588,10 +9425,7 @@ export const deserializeAws_restJson1_1UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDataSourceCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDataSourceCommandError(output, context);
   }
   const contents: UpdateDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11632,10 +9466,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11643,10 +9474,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11654,10 +9482,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11665,10 +9490,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11676,10 +9498,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11687,10 +9506,7 @@ const deserializeAws_restJson1_1UpdateDataSourceCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11717,10 +9533,7 @@ export const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommand = asyn
   context: __SerdeContext
 ): Promise<UpdateDataSourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError(output, context);
   }
   const contents: UpdateDataSourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11757,10 +9570,7 @@ const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError = async 
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11768,10 +9578,7 @@ const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError = async 
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11779,10 +9586,7 @@ const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError = async 
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11790,10 +9594,7 @@ const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError = async 
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11801,10 +9602,7 @@ const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError = async 
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11812,10 +9610,7 @@ const deserializeAws_restJson1_1UpdateDataSourcePermissionsCommandError = async 
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11875,10 +9670,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11886,10 +9678,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11897,10 +9686,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11908,10 +9694,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "PreconditionNotMetException":
     case "com.amazonaws.services.quicksight.common#PreconditionNotMetException":
       response = {
-        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1PreconditionNotMetExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11919,10 +9702,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11930,10 +9710,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11941,10 +9718,7 @@ const deserializeAws_restJson1_1UpdateGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -11971,10 +9745,7 @@ export const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand = async 
   context: __SerdeContext
 ): Promise<UpdateIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError(output, context);
   }
   const contents: UpdateIAMPolicyAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -11997,10 +9768,7 @@ export const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand = async 
     contents.AssignmentStatus = data.AssignmentStatus;
   }
   if (data.Identities !== undefined && data.Identities !== null) {
-    contents.Identities = deserializeAws_restJson1_1IdentityMap(
-      data.Identities,
-      context
-    );
+    contents.Identities = deserializeAws_restJson1_1IdentityMap(data.Identities, context);
   }
   if (data.PolicyArn !== undefined && data.PolicyArn !== null) {
     contents.PolicyArn = data.PolicyArn;
@@ -12026,10 +9794,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "ConcurrentUpdatingException":
     case "com.amazonaws.services.quicksight#ConcurrentUpdatingException":
       response = {
-        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConcurrentUpdatingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12037,10 +9802,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12048,10 +9810,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12059,10 +9818,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12070,10 +9826,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12081,10 +9834,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12092,10 +9842,7 @@ const deserializeAws_restJson1_1UpdateIAMPolicyAssignmentCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12122,10 +9869,7 @@ export const deserializeAws_restJson1_1UpdateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateTemplateCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTemplateCommandError(output, context);
   }
   const contents: UpdateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12170,10 +9914,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12181,10 +9922,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12192,10 +9930,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12203,10 +9938,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.services.quicksight.common#LimitExceededException":
       response = {
-        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12214,10 +9946,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "ResourceExistsException":
     case "com.amazonaws.services.quicksight.common#ResourceExistsException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12225,10 +9954,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12236,10 +9962,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12247,10 +9970,7 @@ const deserializeAws_restJson1_1UpdateTemplateCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12277,10 +9997,7 @@ export const deserializeAws_restJson1_1UpdateTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateTemplateAliasCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTemplateAliasCommandError(output, context);
   }
   const contents: UpdateTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12293,10 +10010,7 @@ export const deserializeAws_restJson1_1UpdateTemplateAliasCommand = async (
     contents.RequestId = data.RequestId;
   }
   if (data.TemplateAlias !== undefined && data.TemplateAlias !== null) {
-    contents.TemplateAlias = deserializeAws_restJson1_1TemplateAlias(
-      data.TemplateAlias,
-      context
-    );
+    contents.TemplateAlias = deserializeAws_restJson1_1TemplateAlias(data.TemplateAlias, context);
   }
   return Promise.resolve(contents);
 };
@@ -12316,10 +10030,7 @@ const deserializeAws_restJson1_1UpdateTemplateAliasCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12327,10 +10038,7 @@ const deserializeAws_restJson1_1UpdateTemplateAliasCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12338,10 +10046,7 @@ const deserializeAws_restJson1_1UpdateTemplateAliasCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12349,10 +10054,7 @@ const deserializeAws_restJson1_1UpdateTemplateAliasCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12360,10 +10062,7 @@ const deserializeAws_restJson1_1UpdateTemplateAliasCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12390,10 +10089,7 @@ export const deserializeAws_restJson1_1UpdateTemplatePermissionsCommand = async 
   context: __SerdeContext
 ): Promise<UpdateTemplatePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 400) {
-    return deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(
-      output,
-      context
-    );
+    return deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError(output, context);
   }
   const contents: UpdateTemplatePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -12405,10 +10101,7 @@ export const deserializeAws_restJson1_1UpdateTemplatePermissionsCommand = async 
   };
   const data: any = await parseBody(output.body, context);
   if (data.Permissions !== undefined && data.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(
-      data.Permissions,
-      context
-    );
+    contents.Permissions = deserializeAws_restJson1_1ResourcePermissionList(data.Permissions, context);
   }
   if (data.RequestId !== undefined && data.RequestId !== null) {
     contents.RequestId = data.RequestId;
@@ -12437,10 +10130,7 @@ const deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError = async (
     case "ConflictException":
     case "com.amazonaws.services.quicksight.common#ConflictException":
       response = {
-        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12448,10 +10138,7 @@ const deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12459,10 +10146,7 @@ const deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12470,10 +10154,7 @@ const deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12481,10 +10162,7 @@ const deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12492,10 +10170,7 @@ const deserializeAws_restJson1_1UpdateTemplatePermissionsCommandError = async (
     case "UnsupportedUserEditionException":
     case "com.amazonaws.services.quicksight.common#UnsupportedUserEditionException":
       response = {
-        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12555,10 +10230,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.services.quicksight.common#AccessDeniedException":
       response = {
-        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12566,10 +10238,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.services.quicksight.common#InternalFailureException":
       response = {
-        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InternalFailureExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12577,10 +10246,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.services.quicksight.common#InvalidParameterValueException":
       response = {
-        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12588,10 +10254,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.services.quicksight.common#ResourceNotFoundException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12599,10 +10262,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.services.quicksight.common#ResourceUnavailableException":
       response = {
-        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -12610,10 +10270,7 @@ const deserializeAws_restJson1_1UpdateUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.services.quicksight.common#ThrottlingException":
       response = {
-        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -13008,10 +10665,7 @@ const deserializeAws_restJson1_1UnsupportedUserEditionExceptionResponse = async 
   return contents;
 };
 
-const serializeAws_restJson1_1AdHocFilteringOption = (
-  input: AdHocFilteringOption,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AdHocFilteringOption = (input: AdHocFilteringOption, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityStatus !== undefined && {
       AvailabilityStatus: input.AvailabilityStatus
@@ -13028,19 +10682,13 @@ const serializeAws_restJson1_1AmazonElasticsearchParameters = (
   };
 };
 
-const serializeAws_restJson1_1AthenaParameters = (
-  input: AthenaParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AthenaParameters = (input: AthenaParameters, context: __SerdeContext): any => {
   return {
     ...(input.WorkGroup !== undefined && { WorkGroup: input.WorkGroup })
   };
 };
 
-const serializeAws_restJson1_1AuroraParameters = (
-  input: AuroraParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1AuroraParameters = (input: AuroraParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13068,10 +10716,7 @@ const serializeAws_restJson1_1AwsIotAnalyticsParameters = (
   };
 };
 
-const serializeAws_restJson1_1CalculatedColumn = (
-  input: CalculatedColumn,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CalculatedColumn = (input: CalculatedColumn, context: __SerdeContext): any => {
   return {
     ...(input.ColumnId !== undefined && { ColumnId: input.ColumnId }),
     ...(input.ColumnName !== undefined && { ColumnName: input.ColumnName }),
@@ -13079,13 +10724,8 @@ const serializeAws_restJson1_1CalculatedColumn = (
   };
 };
 
-const serializeAws_restJson1_1CalculatedColumnList = (
-  input: CalculatedColumn[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1CalculatedColumn(entry, context)
-  );
+const serializeAws_restJson1_1CalculatedColumnList = (input: CalculatedColumn[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1CalculatedColumn(entry, context));
 };
 
 const serializeAws_restJson1_1CastColumnTypeOperation = (
@@ -13101,40 +10741,23 @@ const serializeAws_restJson1_1CastColumnTypeOperation = (
   };
 };
 
-const serializeAws_restJson1_1ColumnGroup = (
-  input: ColumnGroup,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ColumnGroup = (input: ColumnGroup, context: __SerdeContext): any => {
   return {
     ...(input.GeoSpatialColumnGroup !== undefined && {
-      GeoSpatialColumnGroup: serializeAws_restJson1_1GeoSpatialColumnGroup(
-        input.GeoSpatialColumnGroup,
-        context
-      )
+      GeoSpatialColumnGroup: serializeAws_restJson1_1GeoSpatialColumnGroup(input.GeoSpatialColumnGroup, context)
     })
   };
 };
 
-const serializeAws_restJson1_1ColumnGroupList = (
-  input: ColumnGroup[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ColumnGroup(entry, context)
-  );
+const serializeAws_restJson1_1ColumnGroupList = (input: ColumnGroup[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1ColumnGroup(entry, context));
 };
 
-const serializeAws_restJson1_1ColumnList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ColumnList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1ColumnTag = (
-  input: ColumnTag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ColumnTag = (input: ColumnTag, context: __SerdeContext): any => {
   return {
     ...(input.ColumnGeographicRole !== undefined && {
       ColumnGeographicRole: input.ColumnGeographicRole
@@ -13142,10 +10765,7 @@ const serializeAws_restJson1_1ColumnTag = (
   };
 };
 
-const serializeAws_restJson1_1ColumnTagList = (
-  input: ColumnTag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ColumnTagList = (input: ColumnTag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1ColumnTag(entry, context));
 };
 
@@ -13155,28 +10775,19 @@ const serializeAws_restJson1_1CreateColumnsOperation = (
 ): any => {
   return {
     ...(input.Columns !== undefined && {
-      Columns: serializeAws_restJson1_1CalculatedColumnList(
-        input.Columns,
-        context
-      )
+      Columns: serializeAws_restJson1_1CalculatedColumnList(input.Columns, context)
     })
   };
 };
 
-const serializeAws_restJson1_1CredentialPair = (
-  input: CredentialPair,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CredentialPair = (input: CredentialPair, context: __SerdeContext): any => {
   return {
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Username !== undefined && { Username: input.Username })
   };
 };
 
-const serializeAws_restJson1_1CustomSql = (
-  input: CustomSql,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1CustomSql = (input: CustomSql, context: __SerdeContext): any => {
   return {
     ...(input.Columns !== undefined && {
       Columns: serializeAws_restJson1_1InputColumnList(input.Columns, context)
@@ -13195,36 +10806,21 @@ const serializeAws_restJson1_1DashboardPublishOptions = (
 ): any => {
   return {
     ...(input.AdHocFilteringOption !== undefined && {
-      AdHocFilteringOption: serializeAws_restJson1_1AdHocFilteringOption(
-        input.AdHocFilteringOption,
-        context
-      )
+      AdHocFilteringOption: serializeAws_restJson1_1AdHocFilteringOption(input.AdHocFilteringOption, context)
     }),
     ...(input.ExportToCSVOption !== undefined && {
-      ExportToCSVOption: serializeAws_restJson1_1ExportToCSVOption(
-        input.ExportToCSVOption,
-        context
-      )
+      ExportToCSVOption: serializeAws_restJson1_1ExportToCSVOption(input.ExportToCSVOption, context)
     }),
     ...(input.SheetControlsOption !== undefined && {
-      SheetControlsOption: serializeAws_restJson1_1SheetControlsOption(
-        input.SheetControlsOption,
-        context
-      )
+      SheetControlsOption: serializeAws_restJson1_1SheetControlsOption(input.SheetControlsOption, context)
     })
   };
 };
 
-const serializeAws_restJson1_1DashboardSourceEntity = (
-  input: DashboardSourceEntity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DashboardSourceEntity = (input: DashboardSourceEntity, context: __SerdeContext): any => {
   return {
     ...(input.SourceTemplate !== undefined && {
-      SourceTemplate: serializeAws_restJson1_1DashboardSourceTemplate(
-        input.SourceTemplate,
-        context
-      )
+      SourceTemplate: serializeAws_restJson1_1DashboardSourceTemplate(input.SourceTemplate, context)
     })
   };
 };
@@ -13236,18 +10832,12 @@ const serializeAws_restJson1_1DashboardSourceTemplate = (
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.DataSetReferences !== undefined && {
-      DataSetReferences: serializeAws_restJson1_1DataSetReferenceList(
-        input.DataSetReferences,
-        context
-      )
+      DataSetReferences: serializeAws_restJson1_1DataSetReferenceList(input.DataSetReferences, context)
     })
   };
 };
 
-const serializeAws_restJson1_1DataSetReference = (
-  input: DataSetReference,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DataSetReference = (input: DataSetReference, context: __SerdeContext): any => {
   return {
     ...(input.DataSetArn !== undefined && { DataSetArn: input.DataSetArn }),
     ...(input.DataSetPlaceholder !== undefined && {
@@ -13256,33 +10846,19 @@ const serializeAws_restJson1_1DataSetReference = (
   };
 };
 
-const serializeAws_restJson1_1DataSetReferenceList = (
-  input: DataSetReference[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1DataSetReference(entry, context)
-  );
+const serializeAws_restJson1_1DataSetReferenceList = (input: DataSetReference[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1DataSetReference(entry, context));
 };
 
-const serializeAws_restJson1_1DataSourceCredentials = (
-  input: DataSourceCredentials,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DataSourceCredentials = (input: DataSourceCredentials, context: __SerdeContext): any => {
   return {
     ...(input.CredentialPair !== undefined && {
-      CredentialPair: serializeAws_restJson1_1CredentialPair(
-        input.CredentialPair,
-        context
-      )
+      CredentialPair: serializeAws_restJson1_1CredentialPair(input.CredentialPair, context)
     })
   };
 };
 
-const serializeAws_restJson1_1DataSourceParameters = (
-  input: DataSourceParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DataSourceParameters = (input: DataSourceParameters, context: __SerdeContext): any => {
   return {
     ...(input.AmazonElasticsearchParameters !== undefined && {
       AmazonElasticsearchParameters: serializeAws_restJson1_1AmazonElasticsearchParameters(
@@ -13291,16 +10867,10 @@ const serializeAws_restJson1_1DataSourceParameters = (
       )
     }),
     ...(input.AthenaParameters !== undefined && {
-      AthenaParameters: serializeAws_restJson1_1AthenaParameters(
-        input.AthenaParameters,
-        context
-      )
+      AthenaParameters: serializeAws_restJson1_1AthenaParameters(input.AthenaParameters, context)
     }),
     ...(input.AuroraParameters !== undefined && {
-      AuroraParameters: serializeAws_restJson1_1AuroraParameters(
-        input.AuroraParameters,
-        context
-      )
+      AuroraParameters: serializeAws_restJson1_1AuroraParameters(input.AuroraParameters, context)
     }),
     ...(input.AuroraPostgreSqlParameters !== undefined && {
       AuroraPostgreSqlParameters: serializeAws_restJson1_1AuroraPostgreSqlParameters(
@@ -13315,96 +10885,51 @@ const serializeAws_restJson1_1DataSourceParameters = (
       )
     }),
     ...(input.JiraParameters !== undefined && {
-      JiraParameters: serializeAws_restJson1_1JiraParameters(
-        input.JiraParameters,
-        context
-      )
+      JiraParameters: serializeAws_restJson1_1JiraParameters(input.JiraParameters, context)
     }),
     ...(input.MariaDbParameters !== undefined && {
-      MariaDbParameters: serializeAws_restJson1_1MariaDbParameters(
-        input.MariaDbParameters,
-        context
-      )
+      MariaDbParameters: serializeAws_restJson1_1MariaDbParameters(input.MariaDbParameters, context)
     }),
     ...(input.MySqlParameters !== undefined && {
-      MySqlParameters: serializeAws_restJson1_1MySqlParameters(
-        input.MySqlParameters,
-        context
-      )
+      MySqlParameters: serializeAws_restJson1_1MySqlParameters(input.MySqlParameters, context)
     }),
     ...(input.PostgreSqlParameters !== undefined && {
-      PostgreSqlParameters: serializeAws_restJson1_1PostgreSqlParameters(
-        input.PostgreSqlParameters,
-        context
-      )
+      PostgreSqlParameters: serializeAws_restJson1_1PostgreSqlParameters(input.PostgreSqlParameters, context)
     }),
     ...(input.PrestoParameters !== undefined && {
-      PrestoParameters: serializeAws_restJson1_1PrestoParameters(
-        input.PrestoParameters,
-        context
-      )
+      PrestoParameters: serializeAws_restJson1_1PrestoParameters(input.PrestoParameters, context)
     }),
     ...(input.RdsParameters !== undefined && {
-      RdsParameters: serializeAws_restJson1_1RdsParameters(
-        input.RdsParameters,
-        context
-      )
+      RdsParameters: serializeAws_restJson1_1RdsParameters(input.RdsParameters, context)
     }),
     ...(input.RedshiftParameters !== undefined && {
-      RedshiftParameters: serializeAws_restJson1_1RedshiftParameters(
-        input.RedshiftParameters,
-        context
-      )
+      RedshiftParameters: serializeAws_restJson1_1RedshiftParameters(input.RedshiftParameters, context)
     }),
     ...(input.S3Parameters !== undefined && {
-      S3Parameters: serializeAws_restJson1_1S3Parameters(
-        input.S3Parameters,
-        context
-      )
+      S3Parameters: serializeAws_restJson1_1S3Parameters(input.S3Parameters, context)
     }),
     ...(input.ServiceNowParameters !== undefined && {
-      ServiceNowParameters: serializeAws_restJson1_1ServiceNowParameters(
-        input.ServiceNowParameters,
-        context
-      )
+      ServiceNowParameters: serializeAws_restJson1_1ServiceNowParameters(input.ServiceNowParameters, context)
     }),
     ...(input.SnowflakeParameters !== undefined && {
-      SnowflakeParameters: serializeAws_restJson1_1SnowflakeParameters(
-        input.SnowflakeParameters,
-        context
-      )
+      SnowflakeParameters: serializeAws_restJson1_1SnowflakeParameters(input.SnowflakeParameters, context)
     }),
     ...(input.SparkParameters !== undefined && {
-      SparkParameters: serializeAws_restJson1_1SparkParameters(
-        input.SparkParameters,
-        context
-      )
+      SparkParameters: serializeAws_restJson1_1SparkParameters(input.SparkParameters, context)
     }),
     ...(input.SqlServerParameters !== undefined && {
-      SqlServerParameters: serializeAws_restJson1_1SqlServerParameters(
-        input.SqlServerParameters,
-        context
-      )
+      SqlServerParameters: serializeAws_restJson1_1SqlServerParameters(input.SqlServerParameters, context)
     }),
     ...(input.TeradataParameters !== undefined && {
-      TeradataParameters: serializeAws_restJson1_1TeradataParameters(
-        input.TeradataParameters,
-        context
-      )
+      TeradataParameters: serializeAws_restJson1_1TeradataParameters(input.TeradataParameters, context)
     }),
     ...(input.TwitterParameters !== undefined && {
-      TwitterParameters: serializeAws_restJson1_1TwitterParameters(
-        input.TwitterParameters,
-        context
-      )
+      TwitterParameters: serializeAws_restJson1_1TwitterParameters(input.TwitterParameters, context)
     })
   };
 };
 
-const serializeAws_restJson1_1DateTimeParameter = (
-  input: DateTimeParameter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DateTimeParameter = (input: DateTimeParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Values !== undefined && {
@@ -13413,19 +10938,11 @@ const serializeAws_restJson1_1DateTimeParameter = (
   };
 };
 
-const serializeAws_restJson1_1DateTimeParameterList = (
-  input: DateTimeParameter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1DateTimeParameter(entry, context)
-  );
+const serializeAws_restJson1_1DateTimeParameterList = (input: DateTimeParameter[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1DateTimeParameter(entry, context));
 };
 
-const serializeAws_restJson1_1DecimalParameter = (
-  input: DecimalParameter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DecimalParameter = (input: DecimalParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Values !== undefined && {
@@ -13434,19 +10951,11 @@ const serializeAws_restJson1_1DecimalParameter = (
   };
 };
 
-const serializeAws_restJson1_1DecimalParameterList = (
-  input: DecimalParameter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1DecimalParameter(entry, context)
-  );
+const serializeAws_restJson1_1DecimalParameterList = (input: DecimalParameter[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1DecimalParameter(entry, context));
 };
 
-const serializeAws_restJson1_1ExportToCSVOption = (
-  input: ExportToCSVOption,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ExportToCSVOption = (input: ExportToCSVOption, context: __SerdeContext): any => {
   return {
     ...(input.AvailabilityStatus !== undefined && {
       AvailabilityStatus: input.AvailabilityStatus
@@ -13454,10 +10963,7 @@ const serializeAws_restJson1_1ExportToCSVOption = (
   };
 };
 
-const serializeAws_restJson1_1FilterOperation = (
-  input: FilterOperation,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1FilterOperation = (input: FilterOperation, context: __SerdeContext): any => {
   return {
     ...(input.ConditionExpression !== undefined && {
       ConditionExpression: input.ConditionExpression
@@ -13465,10 +10971,7 @@ const serializeAws_restJson1_1FilterOperation = (
   };
 };
 
-const serializeAws_restJson1_1GeoSpatialColumnGroup = (
-  input: GeoSpatialColumnGroup,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1GeoSpatialColumnGroup = (input: GeoSpatialColumnGroup, context: __SerdeContext): any => {
   return {
     ...(input.Columns !== undefined && {
       Columns: serializeAws_restJson1_1ColumnList(input.Columns, context)
@@ -13478,10 +10981,7 @@ const serializeAws_restJson1_1GeoSpatialColumnGroup = (
   };
 };
 
-const serializeAws_restJson1_1IdentityMap = (
-  input: { [key: string]: string[] },
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IdentityMap = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
       ...acc,
@@ -13491,36 +10991,22 @@ const serializeAws_restJson1_1IdentityMap = (
   );
 };
 
-const serializeAws_restJson1_1IdentityNameList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IdentityNameList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1InputColumn = (
-  input: InputColumn,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1InputColumn = (input: InputColumn, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Type !== undefined && { Type: input.Type })
   };
 };
 
-const serializeAws_restJson1_1InputColumnList = (
-  input: InputColumn[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1InputColumn(entry, context)
-  );
+const serializeAws_restJson1_1InputColumnList = (input: InputColumn[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1InputColumn(entry, context));
 };
 
-const serializeAws_restJson1_1IntegerParameter = (
-  input: IntegerParameter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1IntegerParameter = (input: IntegerParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Values !== undefined && {
@@ -13529,28 +11015,17 @@ const serializeAws_restJson1_1IntegerParameter = (
   };
 };
 
-const serializeAws_restJson1_1IntegerParameterList = (
-  input: IntegerParameter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1IntegerParameter(entry, context)
-  );
+const serializeAws_restJson1_1IntegerParameterList = (input: IntegerParameter[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1IntegerParameter(entry, context));
 };
 
-const serializeAws_restJson1_1JiraParameters = (
-  input: JiraParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1JiraParameters = (input: JiraParameters, context: __SerdeContext): any => {
   return {
     ...(input.SiteBaseUrl !== undefined && { SiteBaseUrl: input.SiteBaseUrl })
   };
 };
 
-const serializeAws_restJson1_1JoinInstruction = (
-  input: JoinInstruction,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1JoinInstruction = (input: JoinInstruction, context: __SerdeContext): any => {
   return {
     ...(input.LeftOperand !== undefined && { LeftOperand: input.LeftOperand }),
     ...(input.OnClause !== undefined && { OnClause: input.OnClause }),
@@ -13561,17 +11036,11 @@ const serializeAws_restJson1_1JoinInstruction = (
   };
 };
 
-const serializeAws_restJson1_1LogicalTable = (
-  input: LogicalTable,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LogicalTable = (input: LogicalTable, context: __SerdeContext): any => {
   return {
     ...(input.Alias !== undefined && { Alias: input.Alias }),
     ...(input.DataTransforms !== undefined && {
-      DataTransforms: serializeAws_restJson1_1TransformOperationList(
-        input.DataTransforms,
-        context
-      )
+      DataTransforms: serializeAws_restJson1_1TransformOperationList(input.DataTransforms, context)
     }),
     ...(input.Source !== undefined && {
       Source: serializeAws_restJson1_1LogicalTableSource(input.Source, context)
@@ -13592,16 +11061,10 @@ const serializeAws_restJson1_1LogicalTableMap = (
   );
 };
 
-const serializeAws_restJson1_1LogicalTableSource = (
-  input: LogicalTableSource,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LogicalTableSource = (input: LogicalTableSource, context: __SerdeContext): any => {
   return {
     ...(input.JoinInstruction !== undefined && {
-      JoinInstruction: serializeAws_restJson1_1JoinInstruction(
-        input.JoinInstruction,
-        context
-      )
+      JoinInstruction: serializeAws_restJson1_1JoinInstruction(input.JoinInstruction, context)
     }),
     ...(input.PhysicalTableId !== undefined && {
       PhysicalTableId: input.PhysicalTableId
@@ -13609,20 +11072,14 @@ const serializeAws_restJson1_1LogicalTableSource = (
   };
 };
 
-const serializeAws_restJson1_1ManifestFileLocation = (
-  input: ManifestFileLocation,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ManifestFileLocation = (input: ManifestFileLocation, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
     ...(input.Key !== undefined && { Key: input.Key })
   };
 };
 
-const serializeAws_restJson1_1MariaDbParameters = (
-  input: MariaDbParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MariaDbParameters = (input: MariaDbParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13630,10 +11087,7 @@ const serializeAws_restJson1_1MariaDbParameters = (
   };
 };
 
-const serializeAws_restJson1_1MySqlParameters = (
-  input: MySqlParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1MySqlParameters = (input: MySqlParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13641,51 +11095,30 @@ const serializeAws_restJson1_1MySqlParameters = (
   };
 };
 
-const serializeAws_restJson1_1_Parameters = (
-  input: _Parameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
     ...(input.DateTimeParameters !== undefined && {
-      DateTimeParameters: serializeAws_restJson1_1DateTimeParameterList(
-        input.DateTimeParameters,
-        context
-      )
+      DateTimeParameters: serializeAws_restJson1_1DateTimeParameterList(input.DateTimeParameters, context)
     }),
     ...(input.DecimalParameters !== undefined && {
-      DecimalParameters: serializeAws_restJson1_1DecimalParameterList(
-        input.DecimalParameters,
-        context
-      )
+      DecimalParameters: serializeAws_restJson1_1DecimalParameterList(input.DecimalParameters, context)
     }),
     ...(input.IntegerParameters !== undefined && {
-      IntegerParameters: serializeAws_restJson1_1IntegerParameterList(
-        input.IntegerParameters,
-        context
-      )
+      IntegerParameters: serializeAws_restJson1_1IntegerParameterList(input.IntegerParameters, context)
     }),
     ...(input.StringParameters !== undefined && {
-      StringParameters: serializeAws_restJson1_1StringParameterList(
-        input.StringParameters,
-        context
-      )
+      StringParameters: serializeAws_restJson1_1StringParameterList(input.StringParameters, context)
     })
   };
 };
 
-const serializeAws_restJson1_1PhysicalTable = (
-  input: PhysicalTable,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PhysicalTable = (input: PhysicalTable, context: __SerdeContext): any => {
   return {
     ...(input.CustomSql !== undefined && {
       CustomSql: serializeAws_restJson1_1CustomSql(input.CustomSql, context)
     }),
     ...(input.RelationalTable !== undefined && {
-      RelationalTable: serializeAws_restJson1_1RelationalTable(
-        input.RelationalTable,
-        context
-      )
+      RelationalTable: serializeAws_restJson1_1RelationalTable(input.RelationalTable, context)
     }),
     ...(input.S3Source !== undefined && {
       S3Source: serializeAws_restJson1_1S3Source(input.S3Source, context)
@@ -13706,10 +11139,7 @@ const serializeAws_restJson1_1PhysicalTableMap = (
   );
 };
 
-const serializeAws_restJson1_1PostgreSqlParameters = (
-  input: PostgreSqlParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PostgreSqlParameters = (input: PostgreSqlParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13717,10 +11147,7 @@ const serializeAws_restJson1_1PostgreSqlParameters = (
   };
 };
 
-const serializeAws_restJson1_1PrestoParameters = (
-  input: PrestoParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1PrestoParameters = (input: PrestoParameters, context: __SerdeContext): any => {
   return {
     ...(input.Catalog !== undefined && { Catalog: input.Catalog }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13728,41 +11155,26 @@ const serializeAws_restJson1_1PrestoParameters = (
   };
 };
 
-const serializeAws_restJson1_1ProjectOperation = (
-  input: ProjectOperation,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ProjectOperation = (input: ProjectOperation, context: __SerdeContext): any => {
   return {
     ...(input.ProjectedColumns !== undefined && {
-      ProjectedColumns: serializeAws_restJson1_1ProjectedColumnList(
-        input.ProjectedColumns,
-        context
-      )
+      ProjectedColumns: serializeAws_restJson1_1ProjectedColumnList(input.ProjectedColumns, context)
     })
   };
 };
 
-const serializeAws_restJson1_1ProjectedColumnList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ProjectedColumnList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1RdsParameters = (
-  input: RdsParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RdsParameters = (input: RdsParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId })
   };
 };
 
-const serializeAws_restJson1_1RedshiftParameters = (
-  input: RedshiftParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RedshiftParameters = (input: RedshiftParameters, context: __SerdeContext): any => {
   return {
     ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
     ...(input.Database !== undefined && { Database: input.Database }),
@@ -13771,29 +11183,20 @@ const serializeAws_restJson1_1RedshiftParameters = (
   };
 };
 
-const serializeAws_restJson1_1RelationalTable = (
-  input: RelationalTable,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RelationalTable = (input: RelationalTable, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceArn !== undefined && {
       DataSourceArn: input.DataSourceArn
     }),
     ...(input.InputColumns !== undefined && {
-      InputColumns: serializeAws_restJson1_1InputColumnList(
-        input.InputColumns,
-        context
-      )
+      InputColumns: serializeAws_restJson1_1InputColumnList(input.InputColumns, context)
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Schema !== undefined && { Schema: input.Schema })
   };
 };
 
-const serializeAws_restJson1_1RenameColumnOperation = (
-  input: RenameColumnOperation,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1RenameColumnOperation = (input: RenameColumnOperation, context: __SerdeContext): any => {
   return {
     ...(input.ColumnName !== undefined && { ColumnName: input.ColumnName }),
     ...(input.NewColumnName !== undefined && {
@@ -13814,56 +11217,35 @@ const serializeAws_restJson1_1RowLevelPermissionDataSet = (
   };
 };
 
-const serializeAws_restJson1_1S3Parameters = (
-  input: S3Parameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1S3Parameters = (input: S3Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ManifestFileLocation !== undefined && {
-      ManifestFileLocation: serializeAws_restJson1_1ManifestFileLocation(
-        input.ManifestFileLocation,
-        context
-      )
+      ManifestFileLocation: serializeAws_restJson1_1ManifestFileLocation(input.ManifestFileLocation, context)
     })
   };
 };
 
-const serializeAws_restJson1_1S3Source = (
-  input: S3Source,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1S3Source = (input: S3Source, context: __SerdeContext): any => {
   return {
     ...(input.DataSourceArn !== undefined && {
       DataSourceArn: input.DataSourceArn
     }),
     ...(input.InputColumns !== undefined && {
-      InputColumns: serializeAws_restJson1_1InputColumnList(
-        input.InputColumns,
-        context
-      )
+      InputColumns: serializeAws_restJson1_1InputColumnList(input.InputColumns, context)
     }),
     ...(input.UploadSettings !== undefined && {
-      UploadSettings: serializeAws_restJson1_1UploadSettings(
-        input.UploadSettings,
-        context
-      )
+      UploadSettings: serializeAws_restJson1_1UploadSettings(input.UploadSettings, context)
     })
   };
 };
 
-const serializeAws_restJson1_1ServiceNowParameters = (
-  input: ServiceNowParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ServiceNowParameters = (input: ServiceNowParameters, context: __SerdeContext): any => {
   return {
     ...(input.SiteBaseUrl !== undefined && { SiteBaseUrl: input.SiteBaseUrl })
   };
 };
 
-const serializeAws_restJson1_1SheetControlsOption = (
-  input: SheetControlsOption,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SheetControlsOption = (input: SheetControlsOption, context: __SerdeContext): any => {
   return {
     ...(input.VisibilityState !== undefined && {
       VisibilityState: input.VisibilityState
@@ -13871,10 +11253,7 @@ const serializeAws_restJson1_1SheetControlsOption = (
   };
 };
 
-const serializeAws_restJson1_1SnowflakeParameters = (
-  input: SnowflakeParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SnowflakeParameters = (input: SnowflakeParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13882,20 +11261,14 @@ const serializeAws_restJson1_1SnowflakeParameters = (
   };
 };
 
-const serializeAws_restJson1_1SparkParameters = (
-  input: SparkParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SparkParameters = (input: SparkParameters, context: __SerdeContext): any => {
   return {
     ...(input.Host !== undefined && { Host: input.Host }),
     ...(input.Port !== undefined && { Port: input.Port })
   };
 };
 
-const serializeAws_restJson1_1SqlServerParameters = (
-  input: SqlServerParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SqlServerParameters = (input: SqlServerParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -13903,19 +11276,13 @@ const serializeAws_restJson1_1SqlServerParameters = (
   };
 };
 
-const serializeAws_restJson1_1SslProperties = (
-  input: SslProperties,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1SslProperties = (input: SslProperties, context: __SerdeContext): any => {
   return {
     ...(input.DisableSsl !== undefined && { DisableSsl: input.DisableSsl })
   };
 };
 
-const serializeAws_restJson1_1StringParameter = (
-  input: StringParameter,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StringParameter = (input: StringParameter, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Values !== undefined && {
@@ -13924,19 +11291,11 @@ const serializeAws_restJson1_1StringParameter = (
   };
 };
 
-const serializeAws_restJson1_1StringParameterList = (
-  input: StringParameter[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1StringParameter(entry, context)
-  );
+const serializeAws_restJson1_1StringParameterList = (input: StringParameter[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1StringParameter(entry, context));
 };
 
-const serializeAws_restJson1_1TagColumnOperation = (
-  input: TagColumnOperation,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagColumnOperation = (input: TagColumnOperation, context: __SerdeContext): any => {
   return {
     ...(input.ColumnName !== undefined && { ColumnName: input.ColumnName }),
     ...(input.Tags !== undefined && {
@@ -13952,30 +11311,18 @@ const serializeAws_restJson1_1TemplateSourceAnalysis = (
   return {
     ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.DataSetReferences !== undefined && {
-      DataSetReferences: serializeAws_restJson1_1DataSetReferenceList(
-        input.DataSetReferences,
-        context
-      )
+      DataSetReferences: serializeAws_restJson1_1DataSetReferenceList(input.DataSetReferences, context)
     })
   };
 };
 
-const serializeAws_restJson1_1TemplateSourceEntity = (
-  input: TemplateSourceEntity,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TemplateSourceEntity = (input: TemplateSourceEntity, context: __SerdeContext): any => {
   return {
     ...(input.SourceAnalysis !== undefined && {
-      SourceAnalysis: serializeAws_restJson1_1TemplateSourceAnalysis(
-        input.SourceAnalysis,
-        context
-      )
+      SourceAnalysis: serializeAws_restJson1_1TemplateSourceAnalysis(input.SourceAnalysis, context)
     }),
     ...(input.SourceTemplate !== undefined && {
-      SourceTemplate: serializeAws_restJson1_1TemplateSourceTemplate(
-        input.SourceTemplate,
-        context
-      )
+      SourceTemplate: serializeAws_restJson1_1TemplateSourceTemplate(input.SourceTemplate, context)
     })
   };
 };
@@ -13989,10 +11336,7 @@ const serializeAws_restJson1_1TemplateSourceTemplate = (
   };
 };
 
-const serializeAws_restJson1_1TeradataParameters = (
-  input: TeradataParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TeradataParameters = (input: TeradataParameters, context: __SerdeContext): any => {
   return {
     ...(input.Database !== undefined && { Database: input.Database }),
     ...(input.Host !== undefined && { Host: input.Host }),
@@ -14000,63 +11344,34 @@ const serializeAws_restJson1_1TeradataParameters = (
   };
 };
 
-const serializeAws_restJson1_1TransformOperation = (
-  input: TransformOperation,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TransformOperation = (input: TransformOperation, context: __SerdeContext): any => {
   return {
     ...(input.CastColumnTypeOperation !== undefined && {
-      CastColumnTypeOperation: serializeAws_restJson1_1CastColumnTypeOperation(
-        input.CastColumnTypeOperation,
-        context
-      )
+      CastColumnTypeOperation: serializeAws_restJson1_1CastColumnTypeOperation(input.CastColumnTypeOperation, context)
     }),
     ...(input.CreateColumnsOperation !== undefined && {
-      CreateColumnsOperation: serializeAws_restJson1_1CreateColumnsOperation(
-        input.CreateColumnsOperation,
-        context
-      )
+      CreateColumnsOperation: serializeAws_restJson1_1CreateColumnsOperation(input.CreateColumnsOperation, context)
     }),
     ...(input.FilterOperation !== undefined && {
-      FilterOperation: serializeAws_restJson1_1FilterOperation(
-        input.FilterOperation,
-        context
-      )
+      FilterOperation: serializeAws_restJson1_1FilterOperation(input.FilterOperation, context)
     }),
     ...(input.ProjectOperation !== undefined && {
-      ProjectOperation: serializeAws_restJson1_1ProjectOperation(
-        input.ProjectOperation,
-        context
-      )
+      ProjectOperation: serializeAws_restJson1_1ProjectOperation(input.ProjectOperation, context)
     }),
     ...(input.RenameColumnOperation !== undefined && {
-      RenameColumnOperation: serializeAws_restJson1_1RenameColumnOperation(
-        input.RenameColumnOperation,
-        context
-      )
+      RenameColumnOperation: serializeAws_restJson1_1RenameColumnOperation(input.RenameColumnOperation, context)
     }),
     ...(input.TagColumnOperation !== undefined && {
-      TagColumnOperation: serializeAws_restJson1_1TagColumnOperation(
-        input.TagColumnOperation,
-        context
-      )
+      TagColumnOperation: serializeAws_restJson1_1TagColumnOperation(input.TagColumnOperation, context)
     })
   };
 };
 
-const serializeAws_restJson1_1TransformOperationList = (
-  input: TransformOperation[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1TransformOperation(entry, context)
-  );
+const serializeAws_restJson1_1TransformOperationList = (input: TransformOperation[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1TransformOperation(entry, context));
 };
 
-const serializeAws_restJson1_1TwitterParameters = (
-  input: TwitterParameters,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TwitterParameters = (input: TwitterParameters, context: __SerdeContext): any => {
   return {
     ...(input.MaxRows !== undefined && { MaxRows: input.MaxRows }),
     ...(input.Query !== undefined && { Query: input.Query })
@@ -14067,15 +11382,10 @@ const serializeAws_restJson1_1UpdateResourcePermissionList = (
   input: ResourcePermission[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ResourcePermission(entry, context)
-  );
+  return input.map(entry => serializeAws_restJson1_1ResourcePermission(entry, context));
 };
 
-const serializeAws_restJson1_1UploadSettings = (
-  input: UploadSettings,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1UploadSettings = (input: UploadSettings, context: __SerdeContext): any => {
   return {
     ...(input.ContainsHeader !== undefined && {
       ContainsHeader: input.ContainsHeader
@@ -14102,31 +11412,19 @@ const serializeAws_restJson1_1VpcConnectionProperties = (
   };
 };
 
-const serializeAws_restJson1_1ActionList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ActionList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1DoubleList = (
-  input: number[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1DoubleList = (input: number[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1LongList = (
-  input: number[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1LongList = (input: number[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1ResourcePermission = (
-  input: ResourcePermission,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1ResourcePermission = (input: ResourcePermission, context: __SerdeContext): any => {
   return {
     ...(input.Actions !== undefined && {
       Actions: serializeAws_restJson1_1ActionList(input.Actions, context)
@@ -14135,43 +11433,26 @@ const serializeAws_restJson1_1ResourcePermission = (
   };
 };
 
-const serializeAws_restJson1_1ResourcePermissionList = (
-  input: ResourcePermission[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_restJson1_1ResourcePermission(entry, context)
-  );
+const serializeAws_restJson1_1ResourcePermissionList = (input: ResourcePermission[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_restJson1_1ResourcePermission(entry, context));
 };
 
-const serializeAws_restJson1_1StringList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_restJson1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_restJson1_1TagList = (
-  input: Tag[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TagList = (input: Tag[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
-const serializeAws_restJson1_1TimestampList = (
-  input: Date[],
-  context: __SerdeContext
-): any => {
+const serializeAws_restJson1_1TimestampList = (input: Date[], context: __SerdeContext): any => {
   return input.map(entry => Math.round(entry.getTime() / 1000));
 };
 
@@ -14182,13 +11463,8 @@ const deserializeAws_restJson1_1ActiveIAMPolicyAssignment = (
   return {
     __type: "ActiveIAMPolicyAssignment",
     AssignmentName:
-      output.AssignmentName !== undefined && output.AssignmentName !== null
-        ? output.AssignmentName
-        : undefined,
-    PolicyArn:
-      output.PolicyArn !== undefined && output.PolicyArn !== null
-        ? output.PolicyArn
-        : undefined
+      output.AssignmentName !== undefined && output.AssignmentName !== null ? output.AssignmentName : undefined,
+    PolicyArn: output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined
   } as any;
 };
 
@@ -14196,9 +11472,7 @@ const deserializeAws_restJson1_1ActiveIAMPolicyAssignmentList = (
   output: any,
   context: __SerdeContext
 ): ActiveIAMPolicyAssignment[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ActiveIAMPolicyAssignment(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ActiveIAMPolicyAssignment(entry, context));
 };
 
 const deserializeAws_restJson1_1AmazonElasticsearchParameters = (
@@ -14207,44 +11481,23 @@ const deserializeAws_restJson1_1AmazonElasticsearchParameters = (
 ): AmazonElasticsearchParameters => {
   return {
     __type: "AmazonElasticsearchParameters",
-    Domain:
-      output.Domain !== undefined && output.Domain !== null
-        ? output.Domain
-        : undefined
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AthenaParameters = (
-  output: any,
-  context: __SerdeContext
-): AthenaParameters => {
+const deserializeAws_restJson1_1AthenaParameters = (output: any, context: __SerdeContext): AthenaParameters => {
   return {
     __type: "AthenaParameters",
-    WorkGroup:
-      output.WorkGroup !== undefined && output.WorkGroup !== null
-        ? output.WorkGroup
-        : undefined
+    WorkGroup: output.WorkGroup !== undefined && output.WorkGroup !== null ? output.WorkGroup : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1AuroraParameters = (
-  output: any,
-  context: __SerdeContext
-): AuroraParameters => {
+const deserializeAws_restJson1_1AuroraParameters = (output: any, context: __SerdeContext): AuroraParameters => {
   return {
     __type: "AuroraParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
@@ -14254,18 +11507,9 @@ const deserializeAws_restJson1_1AuroraPostgreSqlParameters = (
 ): AuroraPostgreSqlParameters => {
   return {
     __type: "AuroraPostgreSqlParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
@@ -14275,41 +11519,21 @@ const deserializeAws_restJson1_1AwsIotAnalyticsParameters = (
 ): AwsIotAnalyticsParameters => {
   return {
     __type: "AwsIotAnalyticsParameters",
-    DataSetName:
-      output.DataSetName !== undefined && output.DataSetName !== null
-        ? output.DataSetName
-        : undefined
+    DataSetName: output.DataSetName !== undefined && output.DataSetName !== null ? output.DataSetName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CalculatedColumn = (
-  output: any,
-  context: __SerdeContext
-): CalculatedColumn => {
+const deserializeAws_restJson1_1CalculatedColumn = (output: any, context: __SerdeContext): CalculatedColumn => {
   return {
     __type: "CalculatedColumn",
-    ColumnId:
-      output.ColumnId !== undefined && output.ColumnId !== null
-        ? output.ColumnId
-        : undefined,
-    ColumnName:
-      output.ColumnName !== undefined && output.ColumnName !== null
-        ? output.ColumnName
-        : undefined,
-    Expression:
-      output.Expression !== undefined && output.Expression !== null
-        ? output.Expression
-        : undefined
+    ColumnId: output.ColumnId !== undefined && output.ColumnId !== null ? output.ColumnId : undefined,
+    ColumnName: output.ColumnName !== undefined && output.ColumnName !== null ? output.ColumnName : undefined,
+    Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CalculatedColumnList = (
-  output: any,
-  context: __SerdeContext
-): CalculatedColumn[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1CalculatedColumn(entry, context)
-  );
+const deserializeAws_restJson1_1CalculatedColumnList = (output: any, context: __SerdeContext): CalculatedColumn[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1CalculatedColumn(entry, context));
 };
 
 const deserializeAws_restJson1_1CastColumnTypeOperation = (
@@ -14318,34 +11542,19 @@ const deserializeAws_restJson1_1CastColumnTypeOperation = (
 ): CastColumnTypeOperation => {
   return {
     __type: "CastColumnTypeOperation",
-    ColumnName:
-      output.ColumnName !== undefined && output.ColumnName !== null
-        ? output.ColumnName
-        : undefined,
-    Format:
-      output.Format !== undefined && output.Format !== null
-        ? output.Format
-        : undefined,
+    ColumnName: output.ColumnName !== undefined && output.ColumnName !== null ? output.ColumnName : undefined,
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     NewColumnType:
-      output.NewColumnType !== undefined && output.NewColumnType !== null
-        ? output.NewColumnType
-        : undefined
+      output.NewColumnType !== undefined && output.NewColumnType !== null ? output.NewColumnType : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ColumnGroup = (
-  output: any,
-  context: __SerdeContext
-): ColumnGroup => {
+const deserializeAws_restJson1_1ColumnGroup = (output: any, context: __SerdeContext): ColumnGroup => {
   return {
     __type: "ColumnGroup",
     GeoSpatialColumnGroup:
-      output.GeoSpatialColumnGroup !== undefined &&
-      output.GeoSpatialColumnGroup !== null
-        ? deserializeAws_restJson1_1GeoSpatialColumnGroup(
-            output.GeoSpatialColumnGroup,
-            context
-          )
+      output.GeoSpatialColumnGroup !== undefined && output.GeoSpatialColumnGroup !== null
+        ? deserializeAws_restJson1_1GeoSpatialColumnGroup(output.GeoSpatialColumnGroup, context)
         : undefined
   } as any;
 };
@@ -14356,10 +11565,7 @@ const deserializeAws_restJson1_1ColumnGroupColumnSchema = (
 ): ColumnGroupColumnSchema => {
   return {
     __type: "ColumnGroupColumnSchema",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
@@ -14367,108 +11573,58 @@ const deserializeAws_restJson1_1ColumnGroupColumnSchemaList = (
   output: any,
   context: __SerdeContext
 ): ColumnGroupColumnSchema[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ColumnGroupColumnSchema(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ColumnGroupColumnSchema(entry, context));
 };
 
-const deserializeAws_restJson1_1ColumnGroupList = (
-  output: any,
-  context: __SerdeContext
-): ColumnGroup[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ColumnGroup(entry, context)
-  );
+const deserializeAws_restJson1_1ColumnGroupList = (output: any, context: __SerdeContext): ColumnGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ColumnGroup(entry, context));
 };
 
-const deserializeAws_restJson1_1ColumnGroupSchema = (
-  output: any,
-  context: __SerdeContext
-): ColumnGroupSchema => {
+const deserializeAws_restJson1_1ColumnGroupSchema = (output: any, context: __SerdeContext): ColumnGroupSchema => {
   return {
     __type: "ColumnGroupSchema",
     ColumnGroupColumnSchemaList:
-      output.ColumnGroupColumnSchemaList !== undefined &&
-      output.ColumnGroupColumnSchemaList !== null
-        ? deserializeAws_restJson1_1ColumnGroupColumnSchemaList(
-            output.ColumnGroupColumnSchemaList,
-            context
-          )
+      output.ColumnGroupColumnSchemaList !== undefined && output.ColumnGroupColumnSchemaList !== null
+        ? deserializeAws_restJson1_1ColumnGroupColumnSchemaList(output.ColumnGroupColumnSchemaList, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ColumnGroupSchemaList = (
-  output: any,
-  context: __SerdeContext
-): ColumnGroupSchema[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ColumnGroupSchema(entry, context)
-  );
+const deserializeAws_restJson1_1ColumnGroupSchemaList = (output: any, context: __SerdeContext): ColumnGroupSchema[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ColumnGroupSchema(entry, context));
 };
 
-const deserializeAws_restJson1_1ColumnList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ColumnList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1ColumnSchema = (
-  output: any,
-  context: __SerdeContext
-): ColumnSchema => {
+const deserializeAws_restJson1_1ColumnSchema = (output: any, context: __SerdeContext): ColumnSchema => {
   return {
     __type: "ColumnSchema",
-    DataType:
-      output.DataType !== undefined && output.DataType !== null
-        ? output.DataType
-        : undefined,
+    DataType: output.DataType !== undefined && output.DataType !== null ? output.DataType : undefined,
     GeographicRole:
-      output.GeographicRole !== undefined && output.GeographicRole !== null
-        ? output.GeographicRole
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+      output.GeographicRole !== undefined && output.GeographicRole !== null ? output.GeographicRole : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ColumnSchemaList = (
-  output: any,
-  context: __SerdeContext
-): ColumnSchema[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ColumnSchema(entry, context)
-  );
+const deserializeAws_restJson1_1ColumnSchemaList = (output: any, context: __SerdeContext): ColumnSchema[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ColumnSchema(entry, context));
 };
 
-const deserializeAws_restJson1_1ColumnTag = (
-  output: any,
-  context: __SerdeContext
-): ColumnTag => {
+const deserializeAws_restJson1_1ColumnTag = (output: any, context: __SerdeContext): ColumnTag => {
   return {
     __type: "ColumnTag",
     ColumnGeographicRole:
-      output.ColumnGeographicRole !== undefined &&
-      output.ColumnGeographicRole !== null
+      output.ColumnGeographicRole !== undefined && output.ColumnGeographicRole !== null
         ? output.ColumnGeographicRole
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ColumnTagList = (
-  output: any,
-  context: __SerdeContext
-): ColumnTag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ColumnTag(entry, context)
-  );
+const deserializeAws_restJson1_1ColumnTagList = (output: any, context: __SerdeContext): ColumnTag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ColumnTag(entry, context));
 };
 
 const deserializeAws_restJson1_1CreateColumnsOperation = (
@@ -14479,18 +11635,12 @@ const deserializeAws_restJson1_1CreateColumnsOperation = (
     __type: "CreateColumnsOperation",
     Columns:
       output.Columns !== undefined && output.Columns !== null
-        ? deserializeAws_restJson1_1CalculatedColumnList(
-            output.Columns,
-            context
-          )
+        ? deserializeAws_restJson1_1CalculatedColumnList(output.Columns, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1CustomSql = (
-  output: any,
-  context: __SerdeContext
-): CustomSql => {
+const deserializeAws_restJson1_1CustomSql = (output: any, context: __SerdeContext): CustomSql => {
   return {
     __type: "CustomSql",
     Columns:
@@ -14498,49 +11648,30 @@ const deserializeAws_restJson1_1CustomSql = (
         ? deserializeAws_restJson1_1InputColumnList(output.Columns, context)
         : undefined,
     DataSourceArn:
-      output.DataSourceArn !== undefined && output.DataSourceArn !== null
-        ? output.DataSourceArn
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    SqlQuery:
-      output.SqlQuery !== undefined && output.SqlQuery !== null
-        ? output.SqlQuery
-        : undefined
+      output.DataSourceArn !== undefined && output.DataSourceArn !== null ? output.DataSourceArn : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    SqlQuery: output.SqlQuery !== undefined && output.SqlQuery !== null ? output.SqlQuery : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Dashboard = (
-  output: any,
-  context: __SerdeContext
-): Dashboard => {
+const deserializeAws_restJson1_1Dashboard = (output: any, context: __SerdeContext): Dashboard => {
   return {
     __type: "Dashboard",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DashboardId:
-      output.DashboardId !== undefined && output.DashboardId !== null
-        ? output.DashboardId
-        : undefined,
+    DashboardId: output.DashboardId !== undefined && output.DashboardId !== null ? output.DashboardId : undefined,
     LastPublishedTime:
-      output.LastPublishedTime !== undefined &&
-      output.LastPublishedTime !== null
+      output.LastPublishedTime !== undefined && output.LastPublishedTime !== null
         ? new Date(Math.round(output.LastPublishedTime * 1000))
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Version:
       output.Version !== undefined && output.Version !== null
         ? deserializeAws_restJson1_1DashboardVersion(output.Version, context)
@@ -14548,110 +11679,65 @@ const deserializeAws_restJson1_1Dashboard = (
   } as any;
 };
 
-const deserializeAws_restJson1_1DashboardError = (
-  output: any,
-  context: __SerdeContext
-): DashboardError => {
+const deserializeAws_restJson1_1DashboardError = (output: any, context: __SerdeContext): DashboardError => {
   return {
     __type: "DashboardError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DashboardErrorList = (
-  output: any,
-  context: __SerdeContext
-): DashboardError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DashboardError(entry, context)
-  );
+const deserializeAws_restJson1_1DashboardErrorList = (output: any, context: __SerdeContext): DashboardError[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DashboardError(entry, context));
 };
 
-const deserializeAws_restJson1_1DashboardSummary = (
-  output: any,
-  context: __SerdeContext
-): DashboardSummary => {
+const deserializeAws_restJson1_1DashboardSummary = (output: any, context: __SerdeContext): DashboardSummary => {
   return {
     __type: "DashboardSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DashboardId:
-      output.DashboardId !== undefined && output.DashboardId !== null
-        ? output.DashboardId
-        : undefined,
+    DashboardId: output.DashboardId !== undefined && output.DashboardId !== null ? output.DashboardId : undefined,
     LastPublishedTime:
-      output.LastPublishedTime !== undefined &&
-      output.LastPublishedTime !== null
+      output.LastPublishedTime !== undefined && output.LastPublishedTime !== null
         ? new Date(Math.round(output.LastPublishedTime * 1000))
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PublishedVersionNumber:
-      output.PublishedVersionNumber !== undefined &&
-      output.PublishedVersionNumber !== null
+      output.PublishedVersionNumber !== undefined && output.PublishedVersionNumber !== null
         ? output.PublishedVersionNumber
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DashboardSummaryList = (
-  output: any,
-  context: __SerdeContext
-): DashboardSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DashboardSummary(entry, context)
-  );
+const deserializeAws_restJson1_1DashboardSummaryList = (output: any, context: __SerdeContext): DashboardSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DashboardSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1DashboardVersion = (
-  output: any,
-  context: __SerdeContext
-): DashboardVersion => {
+const deserializeAws_restJson1_1DashboardVersion = (output: any, context: __SerdeContext): DashboardVersion => {
   return {
     __type: "DashboardVersion",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Errors:
       output.Errors !== undefined && output.Errors !== null
         ? deserializeAws_restJson1_1DashboardErrorList(output.Errors, context)
         : undefined,
     SourceEntityArn:
-      output.SourceEntityArn !== undefined && output.SourceEntityArn !== null
-        ? output.SourceEntityArn
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+      output.SourceEntityArn !== undefined && output.SourceEntityArn !== null ? output.SourceEntityArn : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VersionNumber:
-      output.VersionNumber !== undefined && output.VersionNumber !== null
-        ? output.VersionNumber
-        : undefined
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined
   } as any;
 };
 
@@ -14661,28 +11747,17 @@ const deserializeAws_restJson1_1DashboardVersionSummary = (
 ): DashboardVersionSummary => {
   return {
     __type: "DashboardVersionSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     SourceEntityArn:
-      output.SourceEntityArn !== undefined && output.SourceEntityArn !== null
-        ? output.SourceEntityArn
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+      output.SourceEntityArn !== undefined && output.SourceEntityArn !== null ? output.SourceEntityArn : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VersionNumber:
-      output.VersionNumber !== undefined && output.VersionNumber !== null
-        ? output.VersionNumber
-        : undefined
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined
   } as any;
 };
 
@@ -14690,105 +11765,63 @@ const deserializeAws_restJson1_1DashboardVersionSummaryList = (
   output: any,
   context: __SerdeContext
 ): DashboardVersionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DashboardVersionSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DashboardVersionSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1DataSet = (
-  output: any,
-  context: __SerdeContext
-): DataSet => {
+const deserializeAws_restJson1_1DataSet = (output: any, context: __SerdeContext): DataSet => {
   return {
     __type: "DataSet",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     ColumnGroups:
       output.ColumnGroups !== undefined && output.ColumnGroups !== null
-        ? deserializeAws_restJson1_1ColumnGroupList(
-            output.ColumnGroups,
-            context
-          )
+        ? deserializeAws_restJson1_1ColumnGroupList(output.ColumnGroups, context)
         : undefined,
     ConsumedSpiceCapacityInBytes:
-      output.ConsumedSpiceCapacityInBytes !== undefined &&
-      output.ConsumedSpiceCapacityInBytes !== null
+      output.ConsumedSpiceCapacityInBytes !== undefined && output.ConsumedSpiceCapacityInBytes !== null
         ? output.ConsumedSpiceCapacityInBytes
         : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DataSetId:
-      output.DataSetId !== undefined && output.DataSetId !== null
-        ? output.DataSetId
-        : undefined,
-    ImportMode:
-      output.ImportMode !== undefined && output.ImportMode !== null
-        ? output.ImportMode
-        : undefined,
+    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    ImportMode: output.ImportMode !== undefined && output.ImportMode !== null ? output.ImportMode : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
     LogicalTableMap:
       output.LogicalTableMap !== undefined && output.LogicalTableMap !== null
-        ? deserializeAws_restJson1_1LogicalTableMap(
-            output.LogicalTableMap,
-            context
-          )
+        ? deserializeAws_restJson1_1LogicalTableMap(output.LogicalTableMap, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     OutputColumns:
       output.OutputColumns !== undefined && output.OutputColumns !== null
-        ? deserializeAws_restJson1_1OutputColumnList(
-            output.OutputColumns,
-            context
-          )
+        ? deserializeAws_restJson1_1OutputColumnList(output.OutputColumns, context)
         : undefined,
     PhysicalTableMap:
       output.PhysicalTableMap !== undefined && output.PhysicalTableMap !== null
-        ? deserializeAws_restJson1_1PhysicalTableMap(
-            output.PhysicalTableMap,
-            context
-          )
+        ? deserializeAws_restJson1_1PhysicalTableMap(output.PhysicalTableMap, context)
         : undefined,
     RowLevelPermissionDataSet:
-      output.RowLevelPermissionDataSet !== undefined &&
-      output.RowLevelPermissionDataSet !== null
-        ? deserializeAws_restJson1_1RowLevelPermissionDataSet(
-            output.RowLevelPermissionDataSet,
-            context
-          )
+      output.RowLevelPermissionDataSet !== undefined && output.RowLevelPermissionDataSet !== null
+        ? deserializeAws_restJson1_1RowLevelPermissionDataSet(output.RowLevelPermissionDataSet, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSetConfiguration = (
-  output: any,
-  context: __SerdeContext
-): DataSetConfiguration => {
+const deserializeAws_restJson1_1DataSetConfiguration = (output: any, context: __SerdeContext): DataSetConfiguration => {
   return {
     __type: "DataSetConfiguration",
     ColumnGroupSchemaList:
-      output.ColumnGroupSchemaList !== undefined &&
-      output.ColumnGroupSchemaList !== null
-        ? deserializeAws_restJson1_1ColumnGroupSchemaList(
-            output.ColumnGroupSchemaList,
-            context
-          )
+      output.ColumnGroupSchemaList !== undefined && output.ColumnGroupSchemaList !== null
+        ? deserializeAws_restJson1_1ColumnGroupSchemaList(output.ColumnGroupSchemaList, context)
         : undefined,
     DataSetSchema:
       output.DataSetSchema !== undefined && output.DataSetSchema !== null
         ? deserializeAws_restJson1_1DataSetSchema(output.DataSetSchema, context)
         : undefined,
-    Placeholder:
-      output.Placeholder !== undefined && output.Placeholder !== null
-        ? output.Placeholder
-        : undefined
+    Placeholder: output.Placeholder !== undefined && output.Placeholder !== null ? output.Placeholder : undefined
   } as any;
 };
 
@@ -14796,336 +11829,187 @@ const deserializeAws_restJson1_1DataSetConfigurationList = (
   output: any,
   context: __SerdeContext
 ): DataSetConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DataSetConfiguration(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DataSetConfiguration(entry, context));
 };
 
-const deserializeAws_restJson1_1DataSetSchema = (
-  output: any,
-  context: __SerdeContext
-): DataSetSchema => {
+const deserializeAws_restJson1_1DataSetSchema = (output: any, context: __SerdeContext): DataSetSchema => {
   return {
     __type: "DataSetSchema",
     ColumnSchemaList:
       output.ColumnSchemaList !== undefined && output.ColumnSchemaList !== null
-        ? deserializeAws_restJson1_1ColumnSchemaList(
-            output.ColumnSchemaList,
-            context
-          )
+        ? deserializeAws_restJson1_1ColumnSchemaList(output.ColumnSchemaList, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSetSummary = (
-  output: any,
-  context: __SerdeContext
-): DataSetSummary => {
+const deserializeAws_restJson1_1DataSetSummary = (output: any, context: __SerdeContext): DataSetSummary => {
   return {
     __type: "DataSetSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DataSetId:
-      output.DataSetId !== undefined && output.DataSetId !== null
-        ? output.DataSetId
-        : undefined,
-    ImportMode:
-      output.ImportMode !== undefined && output.ImportMode !== null
-        ? output.ImportMode
-        : undefined,
+    DataSetId: output.DataSetId !== undefined && output.DataSetId !== null ? output.DataSetId : undefined,
+    ImportMode: output.ImportMode !== undefined && output.ImportMode !== null ? output.ImportMode : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     RowLevelPermissionDataSet:
-      output.RowLevelPermissionDataSet !== undefined &&
-      output.RowLevelPermissionDataSet !== null
-        ? deserializeAws_restJson1_1RowLevelPermissionDataSet(
-            output.RowLevelPermissionDataSet,
-            context
-          )
+      output.RowLevelPermissionDataSet !== undefined && output.RowLevelPermissionDataSet !== null
+        ? deserializeAws_restJson1_1RowLevelPermissionDataSet(output.RowLevelPermissionDataSet, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSetSummaryList = (
-  output: any,
-  context: __SerdeContext
-): DataSetSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DataSetSummary(entry, context)
-  );
+const deserializeAws_restJson1_1DataSetSummaryList = (output: any, context: __SerdeContext): DataSetSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DataSetSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1DataSource = (
-  output: any,
-  context: __SerdeContext
-): DataSource => {
+const deserializeAws_restJson1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
     __type: "DataSource",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    DataSourceId:
-      output.DataSourceId !== undefined && output.DataSourceId !== null
-        ? output.DataSourceId
-        : undefined,
+    DataSourceId: output.DataSourceId !== undefined && output.DataSourceId !== null ? output.DataSourceId : undefined,
     DataSourceParameters:
-      output.DataSourceParameters !== undefined &&
-      output.DataSourceParameters !== null
-        ? deserializeAws_restJson1_1DataSourceParameters(
-            output.DataSourceParameters,
-            context
-          )
+      output.DataSourceParameters !== undefined && output.DataSourceParameters !== null
+        ? deserializeAws_restJson1_1DataSourceParameters(output.DataSourceParameters, context)
         : undefined,
     ErrorInfo:
       output.ErrorInfo !== undefined && output.ErrorInfo !== null
-        ? deserializeAws_restJson1_1DataSourceErrorInfo(
-            output.ErrorInfo,
-            context
-          )
+        ? deserializeAws_restJson1_1DataSourceErrorInfo(output.ErrorInfo, context)
         : undefined,
     LastUpdatedTime:
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SslProperties:
       output.SslProperties !== undefined && output.SslProperties !== null
         ? deserializeAws_restJson1_1SslProperties(output.SslProperties, context)
         : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     VpcConnectionProperties:
-      output.VpcConnectionProperties !== undefined &&
-      output.VpcConnectionProperties !== null
-        ? deserializeAws_restJson1_1VpcConnectionProperties(
-            output.VpcConnectionProperties,
-            context
-          )
+      output.VpcConnectionProperties !== undefined && output.VpcConnectionProperties !== null
+        ? deserializeAws_restJson1_1VpcConnectionProperties(output.VpcConnectionProperties, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSourceErrorInfo = (
-  output: any,
-  context: __SerdeContext
-): DataSourceErrorInfo => {
+const deserializeAws_restJson1_1DataSourceErrorInfo = (output: any, context: __SerdeContext): DataSourceErrorInfo => {
   return {
     __type: "DataSourceErrorInfo",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1DataSourceList = (
-  output: any,
-  context: __SerdeContext
-): DataSource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1DataSource(entry, context)
-  );
+const deserializeAws_restJson1_1DataSourceList = (output: any, context: __SerdeContext): DataSource[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1DataSource(entry, context));
 };
 
-const deserializeAws_restJson1_1DataSourceParameters = (
-  output: any,
-  context: __SerdeContext
-): DataSourceParameters => {
+const deserializeAws_restJson1_1DataSourceParameters = (output: any, context: __SerdeContext): DataSourceParameters => {
   return {
     __type: "DataSourceParameters",
     AmazonElasticsearchParameters:
-      output.AmazonElasticsearchParameters !== undefined &&
-      output.AmazonElasticsearchParameters !== null
-        ? deserializeAws_restJson1_1AmazonElasticsearchParameters(
-            output.AmazonElasticsearchParameters,
-            context
-          )
+      output.AmazonElasticsearchParameters !== undefined && output.AmazonElasticsearchParameters !== null
+        ? deserializeAws_restJson1_1AmazonElasticsearchParameters(output.AmazonElasticsearchParameters, context)
         : undefined,
     AthenaParameters:
       output.AthenaParameters !== undefined && output.AthenaParameters !== null
-        ? deserializeAws_restJson1_1AthenaParameters(
-            output.AthenaParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1AthenaParameters(output.AthenaParameters, context)
         : undefined,
     AuroraParameters:
       output.AuroraParameters !== undefined && output.AuroraParameters !== null
-        ? deserializeAws_restJson1_1AuroraParameters(
-            output.AuroraParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1AuroraParameters(output.AuroraParameters, context)
         : undefined,
     AuroraPostgreSqlParameters:
-      output.AuroraPostgreSqlParameters !== undefined &&
-      output.AuroraPostgreSqlParameters !== null
-        ? deserializeAws_restJson1_1AuroraPostgreSqlParameters(
-            output.AuroraPostgreSqlParameters,
-            context
-          )
+      output.AuroraPostgreSqlParameters !== undefined && output.AuroraPostgreSqlParameters !== null
+        ? deserializeAws_restJson1_1AuroraPostgreSqlParameters(output.AuroraPostgreSqlParameters, context)
         : undefined,
     AwsIotAnalyticsParameters:
-      output.AwsIotAnalyticsParameters !== undefined &&
-      output.AwsIotAnalyticsParameters !== null
-        ? deserializeAws_restJson1_1AwsIotAnalyticsParameters(
-            output.AwsIotAnalyticsParameters,
-            context
-          )
+      output.AwsIotAnalyticsParameters !== undefined && output.AwsIotAnalyticsParameters !== null
+        ? deserializeAws_restJson1_1AwsIotAnalyticsParameters(output.AwsIotAnalyticsParameters, context)
         : undefined,
     JiraParameters:
       output.JiraParameters !== undefined && output.JiraParameters !== null
-        ? deserializeAws_restJson1_1JiraParameters(
-            output.JiraParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1JiraParameters(output.JiraParameters, context)
         : undefined,
     MariaDbParameters:
-      output.MariaDbParameters !== undefined &&
-      output.MariaDbParameters !== null
-        ? deserializeAws_restJson1_1MariaDbParameters(
-            output.MariaDbParameters,
-            context
-          )
+      output.MariaDbParameters !== undefined && output.MariaDbParameters !== null
+        ? deserializeAws_restJson1_1MariaDbParameters(output.MariaDbParameters, context)
         : undefined,
     MySqlParameters:
       output.MySqlParameters !== undefined && output.MySqlParameters !== null
-        ? deserializeAws_restJson1_1MySqlParameters(
-            output.MySqlParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1MySqlParameters(output.MySqlParameters, context)
         : undefined,
     PostgreSqlParameters:
-      output.PostgreSqlParameters !== undefined &&
-      output.PostgreSqlParameters !== null
-        ? deserializeAws_restJson1_1PostgreSqlParameters(
-            output.PostgreSqlParameters,
-            context
-          )
+      output.PostgreSqlParameters !== undefined && output.PostgreSqlParameters !== null
+        ? deserializeAws_restJson1_1PostgreSqlParameters(output.PostgreSqlParameters, context)
         : undefined,
     PrestoParameters:
       output.PrestoParameters !== undefined && output.PrestoParameters !== null
-        ? deserializeAws_restJson1_1PrestoParameters(
-            output.PrestoParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1PrestoParameters(output.PrestoParameters, context)
         : undefined,
     RdsParameters:
       output.RdsParameters !== undefined && output.RdsParameters !== null
         ? deserializeAws_restJson1_1RdsParameters(output.RdsParameters, context)
         : undefined,
     RedshiftParameters:
-      output.RedshiftParameters !== undefined &&
-      output.RedshiftParameters !== null
-        ? deserializeAws_restJson1_1RedshiftParameters(
-            output.RedshiftParameters,
-            context
-          )
+      output.RedshiftParameters !== undefined && output.RedshiftParameters !== null
+        ? deserializeAws_restJson1_1RedshiftParameters(output.RedshiftParameters, context)
         : undefined,
     S3Parameters:
       output.S3Parameters !== undefined && output.S3Parameters !== null
         ? deserializeAws_restJson1_1S3Parameters(output.S3Parameters, context)
         : undefined,
     ServiceNowParameters:
-      output.ServiceNowParameters !== undefined &&
-      output.ServiceNowParameters !== null
-        ? deserializeAws_restJson1_1ServiceNowParameters(
-            output.ServiceNowParameters,
-            context
-          )
+      output.ServiceNowParameters !== undefined && output.ServiceNowParameters !== null
+        ? deserializeAws_restJson1_1ServiceNowParameters(output.ServiceNowParameters, context)
         : undefined,
     SnowflakeParameters:
-      output.SnowflakeParameters !== undefined &&
-      output.SnowflakeParameters !== null
-        ? deserializeAws_restJson1_1SnowflakeParameters(
-            output.SnowflakeParameters,
-            context
-          )
+      output.SnowflakeParameters !== undefined && output.SnowflakeParameters !== null
+        ? deserializeAws_restJson1_1SnowflakeParameters(output.SnowflakeParameters, context)
         : undefined,
     SparkParameters:
       output.SparkParameters !== undefined && output.SparkParameters !== null
-        ? deserializeAws_restJson1_1SparkParameters(
-            output.SparkParameters,
-            context
-          )
+        ? deserializeAws_restJson1_1SparkParameters(output.SparkParameters, context)
         : undefined,
     SqlServerParameters:
-      output.SqlServerParameters !== undefined &&
-      output.SqlServerParameters !== null
-        ? deserializeAws_restJson1_1SqlServerParameters(
-            output.SqlServerParameters,
-            context
-          )
+      output.SqlServerParameters !== undefined && output.SqlServerParameters !== null
+        ? deserializeAws_restJson1_1SqlServerParameters(output.SqlServerParameters, context)
         : undefined,
     TeradataParameters:
-      output.TeradataParameters !== undefined &&
-      output.TeradataParameters !== null
-        ? deserializeAws_restJson1_1TeradataParameters(
-            output.TeradataParameters,
-            context
-          )
+      output.TeradataParameters !== undefined && output.TeradataParameters !== null
+        ? deserializeAws_restJson1_1TeradataParameters(output.TeradataParameters, context)
         : undefined,
     TwitterParameters:
-      output.TwitterParameters !== undefined &&
-      output.TwitterParameters !== null
-        ? deserializeAws_restJson1_1TwitterParameters(
-            output.TwitterParameters,
-            context
-          )
+      output.TwitterParameters !== undefined && output.TwitterParameters !== null
+        ? deserializeAws_restJson1_1TwitterParameters(output.TwitterParameters, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ErrorInfo = (
-  output: any,
-  context: __SerdeContext
-): ErrorInfo => {
+const deserializeAws_restJson1_1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
     __type: "ErrorInfo",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1FilterOperation = (
-  output: any,
-  context: __SerdeContext
-): FilterOperation => {
+const deserializeAws_restJson1_1FilterOperation = (output: any, context: __SerdeContext): FilterOperation => {
   return {
     __type: "FilterOperation",
     ConditionExpression:
-      output.ConditionExpression !== undefined &&
-      output.ConditionExpression !== null
+      output.ConditionExpression !== undefined && output.ConditionExpression !== null
         ? output.ConditionExpression
         : undefined
   } as any;
@@ -15141,103 +12025,51 @@ const deserializeAws_restJson1_1GeoSpatialColumnGroup = (
       output.Columns !== undefined && output.Columns !== null
         ? deserializeAws_restJson1_1ColumnList(output.Columns, context)
         : undefined,
-    CountryCode:
-      output.CountryCode !== undefined && output.CountryCode !== null
-        ? output.CountryCode
-        : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined
+    CountryCode: output.CountryCode !== undefined && output.CountryCode !== null ? output.CountryCode : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1Group = (
-  output: any,
-  context: __SerdeContext
-): Group => {
+const deserializeAws_restJson1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
     __type: "Group",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    GroupName:
-      output.GroupName !== undefined && output.GroupName !== null
-        ? output.GroupName
-        : undefined,
-    PrincipalId:
-      output.PrincipalId !== undefined && output.PrincipalId !== null
-        ? output.PrincipalId
-        : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1GroupList = (
-  output: any,
-  context: __SerdeContext
-): Group[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Group(entry, context)
-  );
+const deserializeAws_restJson1_1GroupList = (output: any, context: __SerdeContext): Group[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Group(entry, context));
 };
 
-const deserializeAws_restJson1_1GroupMember = (
-  output: any,
-  context: __SerdeContext
-): GroupMember => {
+const deserializeAws_restJson1_1GroupMember = (output: any, context: __SerdeContext): GroupMember => {
   return {
     __type: "GroupMember",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    MemberName:
-      output.MemberName !== undefined && output.MemberName !== null
-        ? output.MemberName
-        : undefined
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    MemberName: output.MemberName !== undefined && output.MemberName !== null ? output.MemberName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1GroupMemberList = (
-  output: any,
-  context: __SerdeContext
-): GroupMember[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1GroupMember(entry, context)
-  );
+const deserializeAws_restJson1_1GroupMemberList = (output: any, context: __SerdeContext): GroupMember[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1GroupMember(entry, context));
 };
 
-const deserializeAws_restJson1_1IAMPolicyAssignment = (
-  output: any,
-  context: __SerdeContext
-): IAMPolicyAssignment => {
+const deserializeAws_restJson1_1IAMPolicyAssignment = (output: any, context: __SerdeContext): IAMPolicyAssignment => {
   return {
     __type: "IAMPolicyAssignment",
-    AssignmentId:
-      output.AssignmentId !== undefined && output.AssignmentId !== null
-        ? output.AssignmentId
-        : undefined,
+    AssignmentId: output.AssignmentId !== undefined && output.AssignmentId !== null ? output.AssignmentId : undefined,
     AssignmentName:
-      output.AssignmentName !== undefined && output.AssignmentName !== null
-        ? output.AssignmentName
-        : undefined,
+      output.AssignmentName !== undefined && output.AssignmentName !== null ? output.AssignmentName : undefined,
     AssignmentStatus:
-      output.AssignmentStatus !== undefined && output.AssignmentStatus !== null
-        ? output.AssignmentStatus
-        : undefined,
-    AwsAccountId:
-      output.AwsAccountId !== undefined && output.AwsAccountId !== null
-        ? output.AwsAccountId
-        : undefined,
+      output.AssignmentStatus !== undefined && output.AssignmentStatus !== null ? output.AssignmentStatus : undefined,
+    AwsAccountId: output.AwsAccountId !== undefined && output.AwsAccountId !== null ? output.AwsAccountId : undefined,
     Identities:
       output.Identities !== undefined && output.Identities !== null
         ? deserializeAws_restJson1_1IdentityMap(output.Identities, context)
         : undefined,
-    PolicyArn:
-      output.PolicyArn !== undefined && output.PolicyArn !== null
-        ? output.PolicyArn
-        : undefined
+    PolicyArn: output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined
   } as any;
 };
 
@@ -15248,13 +12080,9 @@ const deserializeAws_restJson1_1IAMPolicyAssignmentSummary = (
   return {
     __type: "IAMPolicyAssignmentSummary",
     AssignmentName:
-      output.AssignmentName !== undefined && output.AssignmentName !== null
-        ? output.AssignmentName
-        : undefined,
+      output.AssignmentName !== undefined && output.AssignmentName !== null ? output.AssignmentName : undefined,
     AssignmentStatus:
-      output.AssignmentStatus !== undefined && output.AssignmentStatus !== null
-        ? output.AssignmentStatus
-        : undefined
+      output.AssignmentStatus !== undefined && output.AssignmentStatus !== null ? output.AssignmentStatus : undefined
   } as any;
 };
 
@@ -15262,15 +12090,10 @@ const deserializeAws_restJson1_1IAMPolicyAssignmentSummaryList = (
   output: any,
   context: __SerdeContext
 ): IAMPolicyAssignmentSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1IAMPolicyAssignmentSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1IAMPolicyAssignmentSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1IdentityMap = (
-  output: any,
-  context: __SerdeContext
-): { [key: string]: string[] } => {
+const deserializeAws_restJson1_1IdentityMap = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
       ...acc,
@@ -15280,21 +12103,14 @@ const deserializeAws_restJson1_1IdentityMap = (
   );
 };
 
-const deserializeAws_restJson1_1IdentityNameList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1IdentityNameList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1Ingestion = (
-  output: any,
-  context: __SerdeContext
-): Ingestion => {
+const deserializeAws_restJson1_1Ingestion = (output: any, context: __SerdeContext): Ingestion => {
   return {
     __type: "Ingestion",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -15303,22 +12119,15 @@ const deserializeAws_restJson1_1Ingestion = (
       output.ErrorInfo !== undefined && output.ErrorInfo !== null
         ? deserializeAws_restJson1_1ErrorInfo(output.ErrorInfo, context)
         : undefined,
-    IngestionId:
-      output.IngestionId !== undefined && output.IngestionId !== null
-        ? output.IngestionId
-        : undefined,
+    IngestionId: output.IngestionId !== undefined && output.IngestionId !== null ? output.IngestionId : undefined,
     IngestionSizeInBytes:
-      output.IngestionSizeInBytes !== undefined &&
-      output.IngestionSizeInBytes !== null
+      output.IngestionSizeInBytes !== undefined && output.IngestionSizeInBytes !== null
         ? output.IngestionSizeInBytes
         : undefined,
     IngestionStatus:
-      output.IngestionStatus !== undefined && output.IngestionStatus !== null
-        ? output.IngestionStatus
-        : undefined,
+      output.IngestionStatus !== undefined && output.IngestionStatus !== null ? output.IngestionStatus : undefined,
     IngestionTimeInSeconds:
-      output.IngestionTimeInSeconds !== undefined &&
-      output.IngestionTimeInSeconds !== null
+      output.IngestionTimeInSeconds !== undefined && output.IngestionTimeInSeconds !== null
         ? output.IngestionTimeInSeconds
         : undefined,
     QueueInfo:
@@ -15326,13 +12135,8 @@ const deserializeAws_restJson1_1Ingestion = (
         ? deserializeAws_restJson1_1QueueInfo(output.QueueInfo, context)
         : undefined,
     RequestSource:
-      output.RequestSource !== undefined && output.RequestSource !== null
-        ? output.RequestSource
-        : undefined,
-    RequestType:
-      output.RequestType !== undefined && output.RequestType !== null
-        ? output.RequestType
-        : undefined,
+      output.RequestSource !== undefined && output.RequestSource !== null ? output.RequestSource : undefined,
+    RequestType: output.RequestType !== undefined && output.RequestType !== null ? output.RequestType : undefined,
     RowInfo:
       output.RowInfo !== undefined && output.RowInfo !== null
         ? deserializeAws_restJson1_1RowInfo(output.RowInfo, context)
@@ -15340,95 +12144,46 @@ const deserializeAws_restJson1_1Ingestion = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Ingestions = (
-  output: any,
-  context: __SerdeContext
-): Ingestion[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Ingestion(entry, context)
-  );
+const deserializeAws_restJson1_1Ingestions = (output: any, context: __SerdeContext): Ingestion[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Ingestion(entry, context));
 };
 
-const deserializeAws_restJson1_1InputColumn = (
-  output: any,
-  context: __SerdeContext
-): InputColumn => {
+const deserializeAws_restJson1_1InputColumn = (output: any, context: __SerdeContext): InputColumn => {
   return {
     __type: "InputColumn",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1InputColumnList = (
-  output: any,
-  context: __SerdeContext
-): InputColumn[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1InputColumn(entry, context)
-  );
+const deserializeAws_restJson1_1InputColumnList = (output: any, context: __SerdeContext): InputColumn[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1InputColumn(entry, context));
 };
 
-const deserializeAws_restJson1_1JiraParameters = (
-  output: any,
-  context: __SerdeContext
-): JiraParameters => {
+const deserializeAws_restJson1_1JiraParameters = (output: any, context: __SerdeContext): JiraParameters => {
   return {
     __type: "JiraParameters",
-    SiteBaseUrl:
-      output.SiteBaseUrl !== undefined && output.SiteBaseUrl !== null
-        ? output.SiteBaseUrl
-        : undefined
+    SiteBaseUrl: output.SiteBaseUrl !== undefined && output.SiteBaseUrl !== null ? output.SiteBaseUrl : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1JoinInstruction = (
-  output: any,
-  context: __SerdeContext
-): JoinInstruction => {
+const deserializeAws_restJson1_1JoinInstruction = (output: any, context: __SerdeContext): JoinInstruction => {
   return {
     __type: "JoinInstruction",
-    LeftOperand:
-      output.LeftOperand !== undefined && output.LeftOperand !== null
-        ? output.LeftOperand
-        : undefined,
-    OnClause:
-      output.OnClause !== undefined && output.OnClause !== null
-        ? output.OnClause
-        : undefined,
-    RightOperand:
-      output.RightOperand !== undefined && output.RightOperand !== null
-        ? output.RightOperand
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    LeftOperand: output.LeftOperand !== undefined && output.LeftOperand !== null ? output.LeftOperand : undefined,
+    OnClause: output.OnClause !== undefined && output.OnClause !== null ? output.OnClause : undefined,
+    RightOperand: output.RightOperand !== undefined && output.RightOperand !== null ? output.RightOperand : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1LogicalTable = (
-  output: any,
-  context: __SerdeContext
-): LogicalTable => {
+const deserializeAws_restJson1_1LogicalTable = (output: any, context: __SerdeContext): LogicalTable => {
   return {
     __type: "LogicalTable",
-    Alias:
-      output.Alias !== undefined && output.Alias !== null
-        ? output.Alias
-        : undefined,
+    Alias: output.Alias !== undefined && output.Alias !== null ? output.Alias : undefined,
     DataTransforms:
       output.DataTransforms !== undefined && output.DataTransforms !== null
-        ? deserializeAws_restJson1_1TransformOperationList(
-            output.DataTransforms,
-            context
-          )
+        ? deserializeAws_restJson1_1TransformOperationList(output.DataTransforms, context)
         : undefined,
     Source:
       output.Source !== undefined && output.Source !== null
@@ -15450,113 +12205,57 @@ const deserializeAws_restJson1_1LogicalTableMap = (
   );
 };
 
-const deserializeAws_restJson1_1LogicalTableSource = (
-  output: any,
-  context: __SerdeContext
-): LogicalTableSource => {
+const deserializeAws_restJson1_1LogicalTableSource = (output: any, context: __SerdeContext): LogicalTableSource => {
   return {
     __type: "LogicalTableSource",
     JoinInstruction:
       output.JoinInstruction !== undefined && output.JoinInstruction !== null
-        ? deserializeAws_restJson1_1JoinInstruction(
-            output.JoinInstruction,
-            context
-          )
+        ? deserializeAws_restJson1_1JoinInstruction(output.JoinInstruction, context)
         : undefined,
     PhysicalTableId:
-      output.PhysicalTableId !== undefined && output.PhysicalTableId !== null
-        ? output.PhysicalTableId
-        : undefined
+      output.PhysicalTableId !== undefined && output.PhysicalTableId !== null ? output.PhysicalTableId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ManifestFileLocation = (
-  output: any,
-  context: __SerdeContext
-): ManifestFileLocation => {
+const deserializeAws_restJson1_1ManifestFileLocation = (output: any, context: __SerdeContext): ManifestFileLocation => {
   return {
     __type: "ManifestFileLocation",
-    Bucket:
-      output.Bucket !== undefined && output.Bucket !== null
-        ? output.Bucket
-        : undefined,
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined
+    Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MariaDbParameters = (
-  output: any,
-  context: __SerdeContext
-): MariaDbParameters => {
+const deserializeAws_restJson1_1MariaDbParameters = (output: any, context: __SerdeContext): MariaDbParameters => {
   return {
     __type: "MariaDbParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1MySqlParameters = (
-  output: any,
-  context: __SerdeContext
-): MySqlParameters => {
+const deserializeAws_restJson1_1MySqlParameters = (output: any, context: __SerdeContext): MySqlParameters => {
   return {
     __type: "MySqlParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1OutputColumn = (
-  output: any,
-  context: __SerdeContext
-): OutputColumn => {
+const deserializeAws_restJson1_1OutputColumn = (output: any, context: __SerdeContext): OutputColumn => {
   return {
     __type: "OutputColumn",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1OutputColumnList = (
-  output: any,
-  context: __SerdeContext
-): OutputColumn[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1OutputColumn(entry, context)
-  );
+const deserializeAws_restJson1_1OutputColumnList = (output: any, context: __SerdeContext): OutputColumn[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1OutputColumn(entry, context));
 };
 
-const deserializeAws_restJson1_1PhysicalTable = (
-  output: any,
-  context: __SerdeContext
-): PhysicalTable => {
+const deserializeAws_restJson1_1PhysicalTable = (output: any, context: __SerdeContext): PhysicalTable => {
   return {
     __type: "PhysicalTable",
     CustomSql:
@@ -15565,10 +12264,7 @@ const deserializeAws_restJson1_1PhysicalTable = (
         : undefined,
     RelationalTable:
       output.RelationalTable !== undefined && output.RelationalTable !== null
-        ? deserializeAws_restJson1_1RelationalTable(
-            output.RelationalTable,
-            context
-          )
+        ? deserializeAws_restJson1_1RelationalTable(output.RelationalTable, context)
         : undefined,
     S3Source:
       output.S3Source !== undefined && output.S3Source !== null
@@ -15590,156 +12286,79 @@ const deserializeAws_restJson1_1PhysicalTableMap = (
   );
 };
 
-const deserializeAws_restJson1_1PostgreSqlParameters = (
-  output: any,
-  context: __SerdeContext
-): PostgreSqlParameters => {
+const deserializeAws_restJson1_1PostgreSqlParameters = (output: any, context: __SerdeContext): PostgreSqlParameters => {
   return {
     __type: "PostgreSqlParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1PrestoParameters = (
-  output: any,
-  context: __SerdeContext
-): PrestoParameters => {
+const deserializeAws_restJson1_1PrestoParameters = (output: any, context: __SerdeContext): PrestoParameters => {
   return {
     __type: "PrestoParameters",
-    Catalog:
-      output.Catalog !== undefined && output.Catalog !== null
-        ? output.Catalog
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Catalog: output.Catalog !== undefined && output.Catalog !== null ? output.Catalog : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ProjectOperation = (
-  output: any,
-  context: __SerdeContext
-): ProjectOperation => {
+const deserializeAws_restJson1_1ProjectOperation = (output: any, context: __SerdeContext): ProjectOperation => {
   return {
     __type: "ProjectOperation",
     ProjectedColumns:
       output.ProjectedColumns !== undefined && output.ProjectedColumns !== null
-        ? deserializeAws_restJson1_1ProjectedColumnList(
-            output.ProjectedColumns,
-            context
-          )
+        ? deserializeAws_restJson1_1ProjectedColumnList(output.ProjectedColumns, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ProjectedColumnList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ProjectedColumnList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1QueueInfo = (
-  output: any,
-  context: __SerdeContext
-): QueueInfo => {
+const deserializeAws_restJson1_1QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
   return {
     __type: "QueueInfo",
     QueuedIngestion:
-      output.QueuedIngestion !== undefined && output.QueuedIngestion !== null
-        ? output.QueuedIngestion
-        : undefined,
+      output.QueuedIngestion !== undefined && output.QueuedIngestion !== null ? output.QueuedIngestion : undefined,
     WaitingOnIngestion:
-      output.WaitingOnIngestion !== undefined &&
-      output.WaitingOnIngestion !== null
+      output.WaitingOnIngestion !== undefined && output.WaitingOnIngestion !== null
         ? output.WaitingOnIngestion
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RdsParameters = (
-  output: any,
-  context: __SerdeContext
-): RdsParameters => {
+const deserializeAws_restJson1_1RdsParameters = (output: any, context: __SerdeContext): RdsParameters => {
   return {
     __type: "RdsParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    InstanceId:
-      output.InstanceId !== undefined && output.InstanceId !== null
-        ? output.InstanceId
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RedshiftParameters = (
-  output: any,
-  context: __SerdeContext
-): RedshiftParameters => {
+const deserializeAws_restJson1_1RedshiftParameters = (output: any, context: __SerdeContext): RedshiftParameters => {
   return {
     __type: "RedshiftParameters",
-    ClusterId:
-      output.ClusterId !== undefined && output.ClusterId !== null
-        ? output.ClusterId
-        : undefined,
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RelationalTable = (
-  output: any,
-  context: __SerdeContext
-): RelationalTable => {
+const deserializeAws_restJson1_1RelationalTable = (output: any, context: __SerdeContext): RelationalTable => {
   return {
     __type: "RelationalTable",
     DataSourceArn:
-      output.DataSourceArn !== undefined && output.DataSourceArn !== null
-        ? output.DataSourceArn
-        : undefined,
+      output.DataSourceArn !== undefined && output.DataSourceArn !== null ? output.DataSourceArn : undefined,
     InputColumns:
       output.InputColumns !== undefined && output.InputColumns !== null
-        ? deserializeAws_restJson1_1InputColumnList(
-            output.InputColumns,
-            context
-          )
+        ? deserializeAws_restJson1_1InputColumnList(output.InputColumns, context)
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Schema:
-      output.Schema !== undefined && output.Schema !== null
-        ? output.Schema
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Schema: output.Schema !== undefined && output.Schema !== null ? output.Schema : undefined
   } as any;
 };
 
@@ -15749,31 +12368,17 @@ const deserializeAws_restJson1_1RenameColumnOperation = (
 ): RenameColumnOperation => {
   return {
     __type: "RenameColumnOperation",
-    ColumnName:
-      output.ColumnName !== undefined && output.ColumnName !== null
-        ? output.ColumnName
-        : undefined,
+    ColumnName: output.ColumnName !== undefined && output.ColumnName !== null ? output.ColumnName : undefined,
     NewColumnName:
-      output.NewColumnName !== undefined && output.NewColumnName !== null
-        ? output.NewColumnName
-        : undefined
+      output.NewColumnName !== undefined && output.NewColumnName !== null ? output.NewColumnName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1RowInfo = (
-  output: any,
-  context: __SerdeContext
-): RowInfo => {
+const deserializeAws_restJson1_1RowInfo = (output: any, context: __SerdeContext): RowInfo => {
   return {
     __type: "RowInfo",
-    RowsDropped:
-      output.RowsDropped !== undefined && output.RowsDropped !== null
-        ? output.RowsDropped
-        : undefined,
-    RowsIngested:
-      output.RowsIngested !== undefined && output.RowsIngested !== null
-        ? output.RowsIngested
-        : undefined
+    RowsDropped: output.RowsDropped !== undefined && output.RowsDropped !== null ? output.RowsDropped : undefined,
+    RowsIngested: output.RowsIngested !== undefined && output.RowsIngested !== null ? output.RowsIngested : undefined
   } as any;
 };
 
@@ -15783,154 +12388,82 @@ const deserializeAws_restJson1_1RowLevelPermissionDataSet = (
 ): RowLevelPermissionDataSet => {
   return {
     __type: "RowLevelPermissionDataSet",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     PermissionPolicy:
-      output.PermissionPolicy !== undefined && output.PermissionPolicy !== null
-        ? output.PermissionPolicy
-        : undefined
+      output.PermissionPolicy !== undefined && output.PermissionPolicy !== null ? output.PermissionPolicy : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1S3Parameters = (
-  output: any,
-  context: __SerdeContext
-): S3Parameters => {
+const deserializeAws_restJson1_1S3Parameters = (output: any, context: __SerdeContext): S3Parameters => {
   return {
     __type: "S3Parameters",
     ManifestFileLocation:
-      output.ManifestFileLocation !== undefined &&
-      output.ManifestFileLocation !== null
-        ? deserializeAws_restJson1_1ManifestFileLocation(
-            output.ManifestFileLocation,
-            context
-          )
+      output.ManifestFileLocation !== undefined && output.ManifestFileLocation !== null
+        ? deserializeAws_restJson1_1ManifestFileLocation(output.ManifestFileLocation, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1S3Source = (
-  output: any,
-  context: __SerdeContext
-): S3Source => {
+const deserializeAws_restJson1_1S3Source = (output: any, context: __SerdeContext): S3Source => {
   return {
     __type: "S3Source",
     DataSourceArn:
-      output.DataSourceArn !== undefined && output.DataSourceArn !== null
-        ? output.DataSourceArn
-        : undefined,
+      output.DataSourceArn !== undefined && output.DataSourceArn !== null ? output.DataSourceArn : undefined,
     InputColumns:
       output.InputColumns !== undefined && output.InputColumns !== null
-        ? deserializeAws_restJson1_1InputColumnList(
-            output.InputColumns,
-            context
-          )
+        ? deserializeAws_restJson1_1InputColumnList(output.InputColumns, context)
         : undefined,
     UploadSettings:
       output.UploadSettings !== undefined && output.UploadSettings !== null
-        ? deserializeAws_restJson1_1UploadSettings(
-            output.UploadSettings,
-            context
-          )
+        ? deserializeAws_restJson1_1UploadSettings(output.UploadSettings, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ServiceNowParameters = (
-  output: any,
-  context: __SerdeContext
-): ServiceNowParameters => {
+const deserializeAws_restJson1_1ServiceNowParameters = (output: any, context: __SerdeContext): ServiceNowParameters => {
   return {
     __type: "ServiceNowParameters",
-    SiteBaseUrl:
-      output.SiteBaseUrl !== undefined && output.SiteBaseUrl !== null
-        ? output.SiteBaseUrl
-        : undefined
+    SiteBaseUrl: output.SiteBaseUrl !== undefined && output.SiteBaseUrl !== null ? output.SiteBaseUrl : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SnowflakeParameters = (
-  output: any,
-  context: __SerdeContext
-): SnowflakeParameters => {
+const deserializeAws_restJson1_1SnowflakeParameters = (output: any, context: __SerdeContext): SnowflakeParameters => {
   return {
     __type: "SnowflakeParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Warehouse:
-      output.Warehouse !== undefined && output.Warehouse !== null
-        ? output.Warehouse
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Warehouse: output.Warehouse !== undefined && output.Warehouse !== null ? output.Warehouse : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SparkParameters = (
-  output: any,
-  context: __SerdeContext
-): SparkParameters => {
+const deserializeAws_restJson1_1SparkParameters = (output: any, context: __SerdeContext): SparkParameters => {
   return {
     __type: "SparkParameters",
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SqlServerParameters = (
-  output: any,
-  context: __SerdeContext
-): SqlServerParameters => {
+const deserializeAws_restJson1_1SqlServerParameters = (output: any, context: __SerdeContext): SqlServerParameters => {
   return {
     __type: "SqlServerParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1SslProperties = (
-  output: any,
-  context: __SerdeContext
-): SslProperties => {
+const deserializeAws_restJson1_1SslProperties = (output: any, context: __SerdeContext): SslProperties => {
   return {
     __type: "SslProperties",
-    DisableSsl:
-      output.DisableSsl !== undefined && output.DisableSsl !== null
-        ? output.DisableSsl
-        : undefined
+    DisableSsl: output.DisableSsl !== undefined && output.DisableSsl !== null ? output.DisableSsl : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagColumnOperation = (
-  output: any,
-  context: __SerdeContext
-): TagColumnOperation => {
+const deserializeAws_restJson1_1TagColumnOperation = (output: any, context: __SerdeContext): TagColumnOperation => {
   return {
     __type: "TagColumnOperation",
-    ColumnName:
-      output.ColumnName !== undefined && output.ColumnName !== null
-        ? output.ColumnName
-        : undefined,
+    ColumnName: output.ColumnName !== undefined && output.ColumnName !== null ? output.ColumnName : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1_1ColumnTagList(output.Tags, context)
@@ -15938,14 +12471,10 @@ const deserializeAws_restJson1_1TagColumnOperation = (
   } as any;
 };
 
-const deserializeAws_restJson1_1Template = (
-  output: any,
-  context: __SerdeContext
-): Template => {
+const deserializeAws_restJson1_1Template = (output: any, context: __SerdeContext): Template => {
   return {
     __type: "Template",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -15954,14 +12483,8 @@ const deserializeAws_restJson1_1Template = (
       output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    TemplateId:
-      output.TemplateId !== undefined && output.TemplateId !== null
-        ? output.TemplateId
-        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    TemplateId: output.TemplateId !== undefined && output.TemplateId !== null ? output.TemplateId : undefined,
     Version:
       output.Version !== undefined && output.Version !== null
         ? deserializeAws_restJson1_1TemplateVersion(output.Version, context)
@@ -15969,69 +12492,38 @@ const deserializeAws_restJson1_1Template = (
   } as any;
 };
 
-const deserializeAws_restJson1_1TemplateAlias = (
-  output: any,
-  context: __SerdeContext
-): TemplateAlias => {
+const deserializeAws_restJson1_1TemplateAlias = (output: any, context: __SerdeContext): TemplateAlias => {
   return {
     __type: "TemplateAlias",
-    AliasName:
-      output.AliasName !== undefined && output.AliasName !== null
-        ? output.AliasName
-        : undefined,
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    AliasName: output.AliasName !== undefined && output.AliasName !== null ? output.AliasName : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     TemplateVersionNumber:
-      output.TemplateVersionNumber !== undefined &&
-      output.TemplateVersionNumber !== null
+      output.TemplateVersionNumber !== undefined && output.TemplateVersionNumber !== null
         ? output.TemplateVersionNumber
         : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TemplateAliasList = (
-  output: any,
-  context: __SerdeContext
-): TemplateAlias[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TemplateAlias(entry, context)
-  );
+const deserializeAws_restJson1_1TemplateAliasList = (output: any, context: __SerdeContext): TemplateAlias[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TemplateAlias(entry, context));
 };
 
-const deserializeAws_restJson1_1TemplateError = (
-  output: any,
-  context: __SerdeContext
-): TemplateError => {
+const deserializeAws_restJson1_1TemplateError = (output: any, context: __SerdeContext): TemplateError => {
   return {
     __type: "TemplateError",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined,
-    Type:
-      output.Type !== undefined && output.Type !== null
-        ? output.Type
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TemplateErrorList = (
-  output: any,
-  context: __SerdeContext
-): TemplateError[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TemplateError(entry, context)
-  );
+const deserializeAws_restJson1_1TemplateErrorList = (output: any, context: __SerdeContext): TemplateError[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TemplateError(entry, context));
 };
 
-const deserializeAws_restJson1_1TemplateSummary = (
-  output: any,
-  context: __SerdeContext
-): TemplateSummary => {
+const deserializeAws_restJson1_1TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
   return {
     __type: "TemplateSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -16041,34 +12533,19 @@ const deserializeAws_restJson1_1TemplateSummary = (
         ? new Date(Math.round(output.LastUpdatedTime * 1000))
         : undefined,
     LatestVersionNumber:
-      output.LatestVersionNumber !== undefined &&
-      output.LatestVersionNumber !== null
+      output.LatestVersionNumber !== undefined && output.LatestVersionNumber !== null
         ? output.LatestVersionNumber
         : undefined,
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    TemplateId:
-      output.TemplateId !== undefined && output.TemplateId !== null
-        ? output.TemplateId
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    TemplateId: output.TemplateId !== undefined && output.TemplateId !== null ? output.TemplateId : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TemplateSummaryList = (
-  output: any,
-  context: __SerdeContext
-): TemplateSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TemplateSummary(entry, context)
-  );
+const deserializeAws_restJson1_1TemplateSummaryList = (output: any, context: __SerdeContext): TemplateSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TemplateSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1TemplateVersion = (
-  output: any,
-  context: __SerdeContext
-): TemplateVersion => {
+const deserializeAws_restJson1_1TemplateVersion = (output: any, context: __SerdeContext): TemplateVersion => {
   return {
     __type: "TemplateVersion",
     CreatedTime:
@@ -16076,33 +12553,19 @@ const deserializeAws_restJson1_1TemplateVersion = (
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
     DataSetConfigurations:
-      output.DataSetConfigurations !== undefined &&
-      output.DataSetConfigurations !== null
-        ? deserializeAws_restJson1_1DataSetConfigurationList(
-            output.DataSetConfigurations,
-            context
-          )
+      output.DataSetConfigurations !== undefined && output.DataSetConfigurations !== null
+        ? deserializeAws_restJson1_1DataSetConfigurationList(output.DataSetConfigurations, context)
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Errors:
       output.Errors !== undefined && output.Errors !== null
         ? deserializeAws_restJson1_1TemplateErrorList(output.Errors, context)
         : undefined,
     SourceEntityArn:
-      output.SourceEntityArn !== undefined && output.SourceEntityArn !== null
-        ? output.SourceEntityArn
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+      output.SourceEntityArn !== undefined && output.SourceEntityArn !== null ? output.SourceEntityArn : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VersionNumber:
-      output.VersionNumber !== undefined && output.VersionNumber !== null
-        ? output.VersionNumber
-        : undefined
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined
   } as any;
 };
 
@@ -16112,24 +12575,15 @@ const deserializeAws_restJson1_1TemplateVersionSummary = (
 ): TemplateVersionSummary => {
   return {
     __type: "TemplateVersionSummary",
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
-    Description:
-      output.Description !== undefined && output.Description !== null
-        ? output.Description
-        : undefined,
-    Status:
-      output.Status !== undefined && output.Status !== null
-        ? output.Status
-        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VersionNumber:
-      output.VersionNumber !== undefined && output.VersionNumber !== null
-        ? output.VersionNumber
-        : undefined
+      output.VersionNumber !== undefined && output.VersionNumber !== null ? output.VersionNumber : undefined
   } as any;
 };
 
@@ -16137,83 +12591,44 @@ const deserializeAws_restJson1_1TemplateVersionSummaryList = (
   output: any,
   context: __SerdeContext
 ): TemplateVersionSummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TemplateVersionSummary(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TemplateVersionSummary(entry, context));
 };
 
-const deserializeAws_restJson1_1TeradataParameters = (
-  output: any,
-  context: __SerdeContext
-): TeradataParameters => {
+const deserializeAws_restJson1_1TeradataParameters = (output: any, context: __SerdeContext): TeradataParameters => {
   return {
     __type: "TeradataParameters",
-    Database:
-      output.Database !== undefined && output.Database !== null
-        ? output.Database
-        : undefined,
-    Host:
-      output.Host !== undefined && output.Host !== null
-        ? output.Host
-        : undefined,
-    Port:
-      output.Port !== undefined && output.Port !== null
-        ? output.Port
-        : undefined
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TransformOperation = (
-  output: any,
-  context: __SerdeContext
-): TransformOperation => {
+const deserializeAws_restJson1_1TransformOperation = (output: any, context: __SerdeContext): TransformOperation => {
   return {
     __type: "TransformOperation",
     CastColumnTypeOperation:
-      output.CastColumnTypeOperation !== undefined &&
-      output.CastColumnTypeOperation !== null
-        ? deserializeAws_restJson1_1CastColumnTypeOperation(
-            output.CastColumnTypeOperation,
-            context
-          )
+      output.CastColumnTypeOperation !== undefined && output.CastColumnTypeOperation !== null
+        ? deserializeAws_restJson1_1CastColumnTypeOperation(output.CastColumnTypeOperation, context)
         : undefined,
     CreateColumnsOperation:
-      output.CreateColumnsOperation !== undefined &&
-      output.CreateColumnsOperation !== null
-        ? deserializeAws_restJson1_1CreateColumnsOperation(
-            output.CreateColumnsOperation,
-            context
-          )
+      output.CreateColumnsOperation !== undefined && output.CreateColumnsOperation !== null
+        ? deserializeAws_restJson1_1CreateColumnsOperation(output.CreateColumnsOperation, context)
         : undefined,
     FilterOperation:
       output.FilterOperation !== undefined && output.FilterOperation !== null
-        ? deserializeAws_restJson1_1FilterOperation(
-            output.FilterOperation,
-            context
-          )
+        ? deserializeAws_restJson1_1FilterOperation(output.FilterOperation, context)
         : undefined,
     ProjectOperation:
       output.ProjectOperation !== undefined && output.ProjectOperation !== null
-        ? deserializeAws_restJson1_1ProjectOperation(
-            output.ProjectOperation,
-            context
-          )
+        ? deserializeAws_restJson1_1ProjectOperation(output.ProjectOperation, context)
         : undefined,
     RenameColumnOperation:
-      output.RenameColumnOperation !== undefined &&
-      output.RenameColumnOperation !== null
-        ? deserializeAws_restJson1_1RenameColumnOperation(
-            output.RenameColumnOperation,
-            context
-          )
+      output.RenameColumnOperation !== undefined && output.RenameColumnOperation !== null
+        ? deserializeAws_restJson1_1RenameColumnOperation(output.RenameColumnOperation, context)
         : undefined,
     TagColumnOperation:
-      output.TagColumnOperation !== undefined &&
-      output.TagColumnOperation !== null
-        ? deserializeAws_restJson1_1TagColumnOperation(
-            output.TagColumnOperation,
-            context
-          )
+      output.TagColumnOperation !== undefined && output.TagColumnOperation !== null
+        ? deserializeAws_restJson1_1TagColumnOperation(output.TagColumnOperation, context)
         : undefined
   } as any;
 };
@@ -16222,99 +12637,45 @@ const deserializeAws_restJson1_1TransformOperationList = (
   output: any,
   context: __SerdeContext
 ): TransformOperation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1TransformOperation(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1TransformOperation(entry, context));
 };
 
-const deserializeAws_restJson1_1TwitterParameters = (
-  output: any,
-  context: __SerdeContext
-): TwitterParameters => {
+const deserializeAws_restJson1_1TwitterParameters = (output: any, context: __SerdeContext): TwitterParameters => {
   return {
     __type: "TwitterParameters",
-    MaxRows:
-      output.MaxRows !== undefined && output.MaxRows !== null
-        ? output.MaxRows
-        : undefined,
-    Query:
-      output.Query !== undefined && output.Query !== null
-        ? output.Query
-        : undefined
+    MaxRows: output.MaxRows !== undefined && output.MaxRows !== null ? output.MaxRows : undefined,
+    Query: output.Query !== undefined && output.Query !== null ? output.Query : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1UploadSettings = (
-  output: any,
-  context: __SerdeContext
-): UploadSettings => {
+const deserializeAws_restJson1_1UploadSettings = (output: any, context: __SerdeContext): UploadSettings => {
   return {
     __type: "UploadSettings",
     ContainsHeader:
-      output.ContainsHeader !== undefined && output.ContainsHeader !== null
-        ? output.ContainsHeader
-        : undefined,
-    Delimiter:
-      output.Delimiter !== undefined && output.Delimiter !== null
-        ? output.Delimiter
-        : undefined,
-    Format:
-      output.Format !== undefined && output.Format !== null
-        ? output.Format
-        : undefined,
-    StartFromRow:
-      output.StartFromRow !== undefined && output.StartFromRow !== null
-        ? output.StartFromRow
-        : undefined,
+      output.ContainsHeader !== undefined && output.ContainsHeader !== null ? output.ContainsHeader : undefined,
+    Delimiter: output.Delimiter !== undefined && output.Delimiter !== null ? output.Delimiter : undefined,
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
+    StartFromRow: output.StartFromRow !== undefined && output.StartFromRow !== null ? output.StartFromRow : undefined,
     TextQualifier:
-      output.TextQualifier !== undefined && output.TextQualifier !== null
-        ? output.TextQualifier
-        : undefined
+      output.TextQualifier !== undefined && output.TextQualifier !== null ? output.TextQualifier : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1User = (
-  output: any,
-  context: __SerdeContext
-): User => {
+const deserializeAws_restJson1_1User = (output: any, context: __SerdeContext): User => {
   return {
     __type: "User",
-    Active:
-      output.Active !== undefined && output.Active !== null
-        ? output.Active
-        : undefined,
-    Arn:
-      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
-    Email:
-      output.Email !== undefined && output.Email !== null
-        ? output.Email
-        : undefined,
-    IdentityType:
-      output.IdentityType !== undefined && output.IdentityType !== null
-        ? output.IdentityType
-        : undefined,
-    PrincipalId:
-      output.PrincipalId !== undefined && output.PrincipalId !== null
-        ? output.PrincipalId
-        : undefined,
-    Role:
-      output.Role !== undefined && output.Role !== null
-        ? output.Role
-        : undefined,
-    UserName:
-      output.UserName !== undefined && output.UserName !== null
-        ? output.UserName
-        : undefined
+    Active: output.Active !== undefined && output.Active !== null ? output.Active : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
+    IdentityType: output.IdentityType !== undefined && output.IdentityType !== null ? output.IdentityType : undefined,
+    PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
+    Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1UserList = (
-  output: any,
-  context: __SerdeContext
-): User[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1User(entry, context)
-  );
+const deserializeAws_restJson1_1UserList = (output: any, context: __SerdeContext): User[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1User(entry, context));
 };
 
 const deserializeAws_restJson1_1VpcConnectionProperties = (
@@ -16324,33 +12685,22 @@ const deserializeAws_restJson1_1VpcConnectionProperties = (
   return {
     __type: "VpcConnectionProperties",
     VpcConnectionArn:
-      output.VpcConnectionArn !== undefined && output.VpcConnectionArn !== null
-        ? output.VpcConnectionArn
-        : undefined
+      output.VpcConnectionArn !== undefined && output.VpcConnectionArn !== null ? output.VpcConnectionArn : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1ActionList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_restJson1_1ActionList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
-const deserializeAws_restJson1_1ResourcePermission = (
-  output: any,
-  context: __SerdeContext
-): ResourcePermission => {
+const deserializeAws_restJson1_1ResourcePermission = (output: any, context: __SerdeContext): ResourcePermission => {
   return {
     __type: "ResourcePermission",
     Actions:
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_restJson1_1ActionList(output.Actions, context)
         : undefined,
-    Principal:
-      output.Principal !== undefined && output.Principal !== null
-        ? output.Principal
-        : undefined
+    Principal: output.Principal !== undefined && output.Principal !== null ? output.Principal : undefined
   } as any;
 };
 
@@ -16358,33 +12708,19 @@ const deserializeAws_restJson1_1ResourcePermissionList = (
   output: any,
   context: __SerdeContext
 ): ResourcePermission[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1ResourcePermission(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1ResourcePermission(entry, context));
 };
 
-const deserializeAws_restJson1_1Tag = (
-  output: any,
-  context: __SerdeContext
-): Tag => {
+const deserializeAws_restJson1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     __type: "Tag",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_restJson1_1TagList = (
-  output: any,
-  context: __SerdeContext
-): Tag[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1Tag(entry, context)
-  );
+const deserializeAws_restJson1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -16394,30 +12730,21 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
   value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") ||
-    value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
@@ -16432,8 +12759,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
  * Load an error code for the aws.rest-json-1.1 protocol.
  */
 const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
-  const findKey = (object: any, key: string) =>
-    Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
+  const findKey = (object: any, key: string) => Object.keys(object).find(k => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string): string => {
     let cleanValue = rawValue;

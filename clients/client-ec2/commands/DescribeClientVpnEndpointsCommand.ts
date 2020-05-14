@@ -1,21 +1,11 @@
-import {
-  EC2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../EC2Client";
-import {
-  DescribeClientVpnEndpointsRequest,
-  DescribeClientVpnEndpointsResult
-} from "../models/index";
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { DescribeClientVpnEndpointsRequest, DescribeClientVpnEndpointsResult } from "../models/index";
 import {
   deserializeAws_ec2DescribeClientVpnEndpointsCommand,
   serializeAws_ec2DescribeClientVpnEndpointsCommand
 } from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeClientVpnEndpointsCommandInput = DescribeClientVpnEndpointsRequest;
-export type DescribeClientVpnEndpointsCommandOutput = DescribeClientVpnEndpointsResult &
-  __MetadataBearer;
+export type DescribeClientVpnEndpointsCommandOutput = DescribeClientVpnEndpointsResult & __MetadataBearer;
 
 export class DescribeClientVpnEndpointsCommand extends $Command<
   DescribeClientVpnEndpointsCommandInput,
@@ -49,13 +38,8 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeClientVpnEndpointsCommandInput,
-    DescribeClientVpnEndpointsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeClientVpnEndpointsCommandInput, DescribeClientVpnEndpointsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeClientVpnEndpointsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeClientVpnEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2DescribeClientVpnEndpointsCommand(input, context);
   }
 

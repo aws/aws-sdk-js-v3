@@ -1,21 +1,11 @@
-import {
-  IoTClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IoTClient";
-import {
-  CreateThingGroupRequest,
-  CreateThingGroupResponse
-} from "../models/index";
+import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { CreateThingGroupRequest, CreateThingGroupResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateThingGroupCommand,
   serializeAws_restJson1_1CreateThingGroupCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type CreateThingGroupCommandInput = CreateThingGroupRequest;
-export type CreateThingGroupCommandOutput = CreateThingGroupResponse &
-  __MetadataBearer;
+export type CreateThingGroupCommandOutput = CreateThingGroupResponse & __MetadataBearer;
 
 export class CreateThingGroupCommand extends $Command<
   CreateThingGroupCommandInput,
@@ -50,9 +39,7 @@ export class CreateThingGroupCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateThingGroupCommandInput, CreateThingGroupCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class CreateThingGroupCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: CreateThingGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: CreateThingGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1CreateThingGroupCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateThingGroupCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateThingGroupCommandOutput> {
     return deserializeAws_restJson1_1CreateThingGroupCommand(output, context);
   }
 

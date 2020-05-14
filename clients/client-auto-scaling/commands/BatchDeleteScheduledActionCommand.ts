@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  BatchDeleteScheduledActionAnswer,
-  BatchDeleteScheduledActionType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { BatchDeleteScheduledActionAnswer, BatchDeleteScheduledActionType } from "../models/index";
 import {
   deserializeAws_queryBatchDeleteScheduledActionCommand,
   serializeAws_queryBatchDeleteScheduledActionCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type BatchDeleteScheduledActionCommandInput = BatchDeleteScheduledActionType;
-export type BatchDeleteScheduledActionCommandOutput = BatchDeleteScheduledActionAnswer &
-  __MetadataBearer;
+export type BatchDeleteScheduledActionCommandOutput = BatchDeleteScheduledActionAnswer & __MetadataBearer;
 
 export class BatchDeleteScheduledActionCommand extends $Command<
   BatchDeleteScheduledActionCommandInput,
@@ -49,13 +38,8 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    BatchDeleteScheduledActionCommandInput,
-    BatchDeleteScheduledActionCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<BatchDeleteScheduledActionCommandInput, BatchDeleteScheduledActionCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,10 +54,7 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: BatchDeleteScheduledActionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: BatchDeleteScheduledActionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryBatchDeleteScheduledActionCommand(input, context);
   }
 
@@ -81,10 +62,7 @@ export class BatchDeleteScheduledActionCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<BatchDeleteScheduledActionCommandOutput> {
-    return deserializeAws_queryBatchDeleteScheduledActionCommand(
-      output,
-      context
-    );
+    return deserializeAws_queryBatchDeleteScheduledActionCommand(output, context);
   }
 
   // Start section: command_body_extra

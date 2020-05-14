@@ -1,7 +1,4 @@
-import {
-  SmithyException as __SmithyException,
-  isa as __isa
-} from "@aws-sdk/smithy-client";
+import { SmithyException as __SmithyException, isa as __isa } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
@@ -26,8 +23,7 @@ export interface ActivatePipelineInput {
 }
 
 export namespace ActivatePipelineInput {
-  export const isa = (o: any): o is ActivatePipelineInput =>
-    __isa(o, "ActivatePipelineInput");
+  export const isa = (o: any): o is ActivatePipelineInput => __isa(o, "ActivatePipelineInput");
 }
 
 /**
@@ -38,8 +34,7 @@ export interface ActivatePipelineOutput {
 }
 
 export namespace ActivatePipelineOutput {
-  export const isa = (o: any): o is ActivatePipelineOutput =>
-    __isa(o, "ActivatePipelineOutput");
+  export const isa = (o: any): o is ActivatePipelineOutput => __isa(o, "ActivatePipelineOutput");
 }
 
 /**
@@ -109,8 +104,7 @@ export interface CreatePipelineInput {
 }
 
 export namespace CreatePipelineInput {
-  export const isa = (o: any): o is CreatePipelineInput =>
-    __isa(o, "CreatePipelineInput");
+  export const isa = (o: any): o is CreatePipelineInput => __isa(o, "CreatePipelineInput");
 }
 
 /**
@@ -125,8 +119,7 @@ export interface CreatePipelineOutput {
 }
 
 export namespace CreatePipelineOutput {
-  export const isa = (o: any): o is CreatePipelineOutput =>
-    __isa(o, "CreatePipelineOutput");
+  export const isa = (o: any): o is CreatePipelineOutput => __isa(o, "CreatePipelineOutput");
 }
 
 /**
@@ -149,8 +142,7 @@ export interface DeactivatePipelineInput {
 }
 
 export namespace DeactivatePipelineInput {
-  export const isa = (o: any): o is DeactivatePipelineInput =>
-    __isa(o, "DeactivatePipelineInput");
+  export const isa = (o: any): o is DeactivatePipelineInput => __isa(o, "DeactivatePipelineInput");
 }
 
 /**
@@ -161,8 +153,7 @@ export interface DeactivatePipelineOutput {
 }
 
 export namespace DeactivatePipelineOutput {
-  export const isa = (o: any): o is DeactivatePipelineOutput =>
-    __isa(o, "DeactivatePipelineOutput");
+  export const isa = (o: any): o is DeactivatePipelineOutput => __isa(o, "DeactivatePipelineOutput");
 }
 
 /**
@@ -177,8 +168,7 @@ export interface DeletePipelineInput {
 }
 
 export namespace DeletePipelineInput {
-  export const isa = (o: any): o is DeletePipelineInput =>
-    __isa(o, "DeletePipelineInput");
+  export const isa = (o: any): o is DeletePipelineInput => __isa(o, "DeletePipelineInput");
 }
 
 /**
@@ -210,8 +200,7 @@ export interface DescribeObjectsInput {
 }
 
 export namespace DescribeObjectsInput {
-  export const isa = (o: any): o is DescribeObjectsInput =>
-    __isa(o, "DescribeObjectsInput");
+  export const isa = (o: any): o is DescribeObjectsInput => __isa(o, "DescribeObjectsInput");
 }
 
 /**
@@ -237,8 +226,7 @@ export interface DescribeObjectsOutput {
 }
 
 export namespace DescribeObjectsOutput {
-  export const isa = (o: any): o is DescribeObjectsOutput =>
-    __isa(o, "DescribeObjectsOutput");
+  export const isa = (o: any): o is DescribeObjectsOutput => __isa(o, "DescribeObjectsOutput");
 }
 
 /**
@@ -254,8 +242,7 @@ export interface DescribePipelinesInput {
 }
 
 export namespace DescribePipelinesInput {
-  export const isa = (o: any): o is DescribePipelinesInput =>
-    __isa(o, "DescribePipelinesInput");
+  export const isa = (o: any): o is DescribePipelinesInput => __isa(o, "DescribePipelinesInput");
 }
 
 /**
@@ -270,8 +257,7 @@ export interface DescribePipelinesOutput {
 }
 
 export namespace DescribePipelinesOutput {
-  export const isa = (o: any): o is DescribePipelinesOutput =>
-    __isa(o, "DescribePipelinesOutput");
+  export const isa = (o: any): o is DescribePipelinesOutput => __isa(o, "DescribePipelinesOutput");
 }
 
 /**
@@ -296,8 +282,7 @@ export interface EvaluateExpressionInput {
 }
 
 export namespace EvaluateExpressionInput {
-  export const isa = (o: any): o is EvaluateExpressionInput =>
-    __isa(o, "EvaluateExpressionInput");
+  export const isa = (o: any): o is EvaluateExpressionInput => __isa(o, "EvaluateExpressionInput");
 }
 
 /**
@@ -312,8 +297,7 @@ export interface EvaluateExpressionOutput {
 }
 
 export namespace EvaluateExpressionOutput {
-  export const isa = (o: any): o is EvaluateExpressionOutput =>
-    __isa(o, "EvaluateExpressionOutput");
+  export const isa = (o: any): o is EvaluateExpressionOutput => __isa(o, "EvaluateExpressionOutput");
 }
 
 /**
@@ -360,8 +344,7 @@ export interface GetPipelineDefinitionInput {
 }
 
 export namespace GetPipelineDefinitionInput {
-  export const isa = (o: any): o is GetPipelineDefinitionInput =>
-    __isa(o, "GetPipelineDefinitionInput");
+  export const isa = (o: any): o is GetPipelineDefinitionInput => __isa(o, "GetPipelineDefinitionInput");
 }
 
 /**
@@ -386,8 +369,7 @@ export interface GetPipelineDefinitionOutput {
 }
 
 export namespace GetPipelineDefinitionOutput {
-  export const isa = (o: any): o is GetPipelineDefinitionOutput =>
-    __isa(o, "GetPipelineDefinitionOutput");
+  export const isa = (o: any): o is GetPipelineDefinitionOutput => __isa(o, "GetPipelineDefinitionOutput");
 }
 
 /**
@@ -409,16 +391,13 @@ export interface InstanceIdentity {
 }
 
 export namespace InstanceIdentity {
-  export const isa = (o: any): o is InstanceIdentity =>
-    __isa(o, "InstanceIdentity");
+  export const isa = (o: any): o is InstanceIdentity => __isa(o, "InstanceIdentity");
 }
 
 /**
  * <p>An internal service error occurred.</p>
  */
-export interface InternalServiceError
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InternalServiceError extends __SmithyException, $MetadataBearer {
   name: "InternalServiceError";
   $fault: "server";
   /**
@@ -428,16 +407,13 @@ export interface InternalServiceError
 }
 
 export namespace InternalServiceError {
-  export const isa = (o: any): o is InternalServiceError =>
-    __isa(o, "InternalServiceError");
+  export const isa = (o: any): o is InternalServiceError => __isa(o, "InternalServiceError");
 }
 
 /**
  * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  */
-export interface InvalidRequestException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
   /**
@@ -447,8 +423,7 @@ export interface InvalidRequestException
 }
 
 export namespace InvalidRequestException {
-  export const isa = (o: any): o is InvalidRequestException =>
-    __isa(o, "InvalidRequestException");
+  export const isa = (o: any): o is InvalidRequestException => __isa(o, "InvalidRequestException");
 }
 
 /**
@@ -465,8 +440,7 @@ export interface ListPipelinesInput {
 }
 
 export namespace ListPipelinesInput {
-  export const isa = (o: any): o is ListPipelinesInput =>
-    __isa(o, "ListPipelinesInput");
+  export const isa = (o: any): o is ListPipelinesInput => __isa(o, "ListPipelinesInput");
 }
 
 /**
@@ -493,8 +467,7 @@ export interface ListPipelinesOutput {
 }
 
 export namespace ListPipelinesOutput {
-  export const isa = (o: any): o is ListPipelinesOutput =>
-    __isa(o, "ListPipelinesOutput");
+  export const isa = (o: any): o is ListPipelinesOutput => __isa(o, "ListPipelinesOutput");
 }
 
 /**
@@ -596,8 +569,7 @@ export interface ParameterAttribute {
 }
 
 export namespace ParameterAttribute {
-  export const isa = (o: any): o is ParameterAttribute =>
-    __isa(o, "ParameterAttribute");
+  export const isa = (o: any): o is ParameterAttribute => __isa(o, "ParameterAttribute");
 }
 
 /**
@@ -617,8 +589,7 @@ export interface ParameterObject {
 }
 
 export namespace ParameterObject {
-  export const isa = (o: any): o is ParameterObject =>
-    __isa(o, "ParameterObject");
+  export const isa = (o: any): o is ParameterObject => __isa(o, "ParameterObject");
 }
 
 /**
@@ -638,16 +609,13 @@ export interface ParameterValue {
 }
 
 export namespace ParameterValue {
-  export const isa = (o: any): o is ParameterValue =>
-    __isa(o, "ParameterValue");
+  export const isa = (o: any): o is ParameterValue => __isa(o, "ParameterValue");
 }
 
 /**
  * <p>The specified pipeline has been deleted.</p>
  */
-export interface PipelineDeletedException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PipelineDeletedException extends __SmithyException, $MetadataBearer {
   name: "PipelineDeletedException";
   $fault: "client";
   /**
@@ -657,8 +625,7 @@ export interface PipelineDeletedException
 }
 
 export namespace PipelineDeletedException {
-  export const isa = (o: any): o is PipelineDeletedException =>
-    __isa(o, "PipelineDeletedException");
+  export const isa = (o: any): o is PipelineDeletedException => __isa(o, "PipelineDeletedException");
 }
 
 /**
@@ -694,8 +661,7 @@ export interface PipelineDescription {
 }
 
 export namespace PipelineDescription {
-  export const isa = (o: any): o is PipelineDescription =>
-    __isa(o, "PipelineDescription");
+  export const isa = (o: any): o is PipelineDescription => __isa(o, "PipelineDescription");
 }
 
 /**
@@ -715,16 +681,13 @@ export interface PipelineIdName {
 }
 
 export namespace PipelineIdName {
-  export const isa = (o: any): o is PipelineIdName =>
-    __isa(o, "PipelineIdName");
+  export const isa = (o: any): o is PipelineIdName => __isa(o, "PipelineIdName");
 }
 
 /**
  * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  */
-export interface PipelineNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface PipelineNotFoundException extends __SmithyException, $MetadataBearer {
   name: "PipelineNotFoundException";
   $fault: "client";
   /**
@@ -734,8 +697,7 @@ export interface PipelineNotFoundException
 }
 
 export namespace PipelineNotFoundException {
-  export const isa = (o: any): o is PipelineNotFoundException =>
-    __isa(o, "PipelineNotFoundException");
+  export const isa = (o: any): o is PipelineNotFoundException => __isa(o, "PipelineNotFoundException");
 }
 
 /**
@@ -760,8 +722,7 @@ export interface PipelineObject {
 }
 
 export namespace PipelineObject {
-  export const isa = (o: any): o is PipelineObject =>
-    __isa(o, "PipelineObject");
+  export const isa = (o: any): o is PipelineObject => __isa(o, "PipelineObject");
 }
 
 /**
@@ -788,8 +749,7 @@ export interface PollForTaskInput {
 }
 
 export namespace PollForTaskInput {
-  export const isa = (o: any): o is PollForTaskInput =>
-    __isa(o, "PollForTaskInput");
+  export const isa = (o: any): o is PollForTaskInput => __isa(o, "PollForTaskInput");
 }
 
 /**
@@ -806,8 +766,7 @@ export interface PollForTaskOutput {
 }
 
 export namespace PollForTaskOutput {
-  export const isa = (o: any): o is PollForTaskOutput =>
-    __isa(o, "PollForTaskOutput");
+  export const isa = (o: any): o is PollForTaskOutput => __isa(o, "PollForTaskOutput");
 }
 
 /**
@@ -837,8 +796,7 @@ export interface PutPipelineDefinitionInput {
 }
 
 export namespace PutPipelineDefinitionInput {
-  export const isa = (o: any): o is PutPipelineDefinitionInput =>
-    __isa(o, "PutPipelineDefinitionInput");
+  export const isa = (o: any): o is PutPipelineDefinitionInput => __isa(o, "PutPipelineDefinitionInput");
 }
 
 /**
@@ -864,8 +822,7 @@ export interface PutPipelineDefinitionOutput {
 }
 
 export namespace PutPipelineDefinitionOutput {
-  export const isa = (o: any): o is PutPipelineDefinitionOutput =>
-    __isa(o, "PutPipelineDefinitionOutput");
+  export const isa = (o: any): o is PutPipelineDefinitionOutput => __isa(o, "PutPipelineDefinitionOutput");
 }
 
 /**
@@ -920,8 +877,7 @@ export interface QueryObjectsInput {
 }
 
 export namespace QueryObjectsInput {
-  export const isa = (o: any): o is QueryObjectsInput =>
-    __isa(o, "QueryObjectsInput");
+  export const isa = (o: any): o is QueryObjectsInput => __isa(o, "QueryObjectsInput");
 }
 
 /**
@@ -947,8 +903,7 @@ export interface QueryObjectsOutput {
 }
 
 export namespace QueryObjectsOutput {
-  export const isa = (o: any): o is QueryObjectsOutput =>
-    __isa(o, "QueryObjectsOutput");
+  export const isa = (o: any): o is QueryObjectsOutput => __isa(o, "QueryObjectsOutput");
 }
 
 /**
@@ -968,8 +923,7 @@ export interface RemoveTagsInput {
 }
 
 export namespace RemoveTagsInput {
-  export const isa = (o: any): o is RemoveTagsInput =>
-    __isa(o, "RemoveTagsInput");
+  export const isa = (o: any): o is RemoveTagsInput => __isa(o, "RemoveTagsInput");
 }
 
 /**
@@ -980,8 +934,7 @@ export interface RemoveTagsOutput {
 }
 
 export namespace RemoveTagsOutput {
-  export const isa = (o: any): o is RemoveTagsOutput =>
-    __isa(o, "RemoveTagsOutput");
+  export const isa = (o: any): o is RemoveTagsOutput => __isa(o, "RemoveTagsOutput");
 }
 
 /**
@@ -1001,8 +954,7 @@ export interface ReportTaskProgressInput {
 }
 
 export namespace ReportTaskProgressInput {
-  export const isa = (o: any): o is ReportTaskProgressInput =>
-    __isa(o, "ReportTaskProgressInput");
+  export const isa = (o: any): o is ReportTaskProgressInput => __isa(o, "ReportTaskProgressInput");
 }
 
 /**
@@ -1017,8 +969,7 @@ export interface ReportTaskProgressOutput {
 }
 
 export namespace ReportTaskProgressOutput {
-  export const isa = (o: any): o is ReportTaskProgressOutput =>
-    __isa(o, "ReportTaskProgressOutput");
+  export const isa = (o: any): o is ReportTaskProgressOutput => __isa(o, "ReportTaskProgressOutput");
 }
 
 /**
@@ -1045,8 +996,7 @@ export interface ReportTaskRunnerHeartbeatInput {
 }
 
 export namespace ReportTaskRunnerHeartbeatInput {
-  export const isa = (o: any): o is ReportTaskRunnerHeartbeatInput =>
-    __isa(o, "ReportTaskRunnerHeartbeatInput");
+  export const isa = (o: any): o is ReportTaskRunnerHeartbeatInput => __isa(o, "ReportTaskRunnerHeartbeatInput");
 }
 
 /**
@@ -1061,8 +1011,7 @@ export interface ReportTaskRunnerHeartbeatOutput {
 }
 
 export namespace ReportTaskRunnerHeartbeatOutput {
-  export const isa = (o: any): o is ReportTaskRunnerHeartbeatOutput =>
-    __isa(o, "ReportTaskRunnerHeartbeatOutput");
+  export const isa = (o: any): o is ReportTaskRunnerHeartbeatOutput => __isa(o, "ReportTaskRunnerHeartbeatOutput");
 }
 
 /**
@@ -1108,8 +1057,7 @@ export interface SetStatusInput {
 }
 
 export namespace SetStatusInput {
-  export const isa = (o: any): o is SetStatusInput =>
-    __isa(o, "SetStatusInput");
+  export const isa = (o: any): o is SetStatusInput => __isa(o, "SetStatusInput");
 }
 
 /**
@@ -1144,8 +1092,7 @@ export interface SetTaskStatusInput {
 }
 
 export namespace SetTaskStatusInput {
-  export const isa = (o: any): o is SetTaskStatusInput =>
-    __isa(o, "SetTaskStatusInput");
+  export const isa = (o: any): o is SetTaskStatusInput => __isa(o, "SetTaskStatusInput");
 }
 
 /**
@@ -1156,8 +1103,7 @@ export interface SetTaskStatusOutput {
 }
 
 export namespace SetTaskStatusOutput {
-  export const isa = (o: any): o is SetTaskStatusOutput =>
-    __isa(o, "SetTaskStatusOutput");
+  export const isa = (o: any): o is SetTaskStatusOutput => __isa(o, "SetTaskStatusOutput");
 }
 
 /**
@@ -1186,9 +1132,7 @@ export namespace Tag {
 /**
  * <p>The specified task was not found.</p>
  */
-export interface TaskNotFoundException
-  extends __SmithyException,
-    $MetadataBearer {
+export interface TaskNotFoundException extends __SmithyException, $MetadataBearer {
   name: "TaskNotFoundException";
   $fault: "client";
   /**
@@ -1198,8 +1142,7 @@ export interface TaskNotFoundException
 }
 
 export namespace TaskNotFoundException {
-  export const isa = (o: any): o is TaskNotFoundException =>
-    __isa(o, "TaskNotFoundException");
+  export const isa = (o: any): o is TaskNotFoundException => __isa(o, "TaskNotFoundException");
 }
 
 /**
@@ -1265,8 +1208,7 @@ export interface ValidatePipelineDefinitionInput {
 }
 
 export namespace ValidatePipelineDefinitionInput {
-  export const isa = (o: any): o is ValidatePipelineDefinitionInput =>
-    __isa(o, "ValidatePipelineDefinitionInput");
+  export const isa = (o: any): o is ValidatePipelineDefinitionInput => __isa(o, "ValidatePipelineDefinitionInput");
 }
 
 /**
@@ -1291,8 +1233,7 @@ export interface ValidatePipelineDefinitionOutput {
 }
 
 export namespace ValidatePipelineDefinitionOutput {
-  export const isa = (o: any): o is ValidatePipelineDefinitionOutput =>
-    __isa(o, "ValidatePipelineDefinitionOutput");
+  export const isa = (o: any): o is ValidatePipelineDefinitionOutput => __isa(o, "ValidatePipelineDefinitionOutput");
 }
 
 /**
@@ -1312,8 +1253,7 @@ export interface ValidationError {
 }
 
 export namespace ValidationError {
-  export const isa = (o: any): o is ValidationError =>
-    __isa(o, "ValidationError");
+  export const isa = (o: any): o is ValidationError => __isa(o, "ValidationError");
 }
 
 /**
@@ -1333,6 +1273,5 @@ export interface ValidationWarning {
 }
 
 export namespace ValidationWarning {
-  export const isa = (o: any): o is ValidationWarning =>
-    __isa(o, "ValidationWarning");
+  export const isa = (o: any): o is ValidationWarning => __isa(o, "ValidationWarning");
 }

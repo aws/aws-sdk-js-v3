@@ -9,10 +9,7 @@ import {
   serializeAws_json1_0ListConnectionsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListConnectionsCommandInput = ListConnectionsInput;
-export type ListConnectionsCommandOutput = ListConnectionsOutput &
-  __MetadataBearer;
+export type ListConnectionsCommandOutput = ListConnectionsOutput & __MetadataBearer;
 
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,
@@ -47,9 +43,7 @@ export class ListConnectionsCommand extends $Command<
     configuration: CodeStarconnectionsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListConnectionsCommandInput, ListConnectionsCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -64,17 +58,11 @@ export class ListConnectionsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListConnectionsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0ListConnectionsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListConnectionsCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListConnectionsCommandOutput> {
     return deserializeAws_json1_0ListConnectionsCommand(output, context);
   }
 

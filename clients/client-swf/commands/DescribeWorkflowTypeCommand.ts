@@ -1,18 +1,11 @@
-import {
-  SWFClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../SWFClient";
+import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient";
 import { DescribeWorkflowTypeInput, WorkflowTypeDetail } from "../models/index";
 import {
   deserializeAws_json1_0DescribeWorkflowTypeCommand,
   serializeAws_json1_0DescribeWorkflowTypeCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -25,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DescribeWorkflowTypeCommandInput = DescribeWorkflowTypeInput;
-export type DescribeWorkflowTypeCommandOutput = WorkflowTypeDetail &
-  __MetadataBearer;
+export type DescribeWorkflowTypeCommandOutput = WorkflowTypeDetail & __MetadataBearer;
 
 export class DescribeWorkflowTypeCommand extends $Command<
   DescribeWorkflowTypeCommandInput,
@@ -46,13 +38,8 @@ export class DescribeWorkflowTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DescribeWorkflowTypeCommandInput,
-    DescribeWorkflowTypeCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DescribeWorkflowTypeCommandInput, DescribeWorkflowTypeCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class DescribeWorkflowTypeCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DescribeWorkflowTypeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: DescribeWorkflowTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0DescribeWorkflowTypeCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeWorkflowTypeCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeWorkflowTypeCommandOutput> {
     return deserializeAws_json1_0DescribeWorkflowTypeCommand(output, context);
   }
 

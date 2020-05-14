@@ -1,21 +1,11 @@
-import {
-  AutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../AutoScalingClient";
-import {
-  AttachLoadBalancersResultType,
-  AttachLoadBalancersType
-} from "../models/index";
+import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
+import { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/index";
 import {
   deserializeAws_queryAttachLoadBalancersCommand,
   serializeAws_queryAttachLoadBalancersCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AttachLoadBalancersCommandInput = AttachLoadBalancersType;
-export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType &
-  __MetadataBearer;
+export type AttachLoadBalancersCommandOutput = AttachLoadBalancersResultType & __MetadataBearer;
 
 export class AttachLoadBalancersCommand extends $Command<
   AttachLoadBalancersCommandInput,
@@ -49,13 +38,8 @@ export class AttachLoadBalancersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AttachLoadBalancersCommandInput,
-    AttachLoadBalancersCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AttachLoadBalancersCommandInput, AttachLoadBalancersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,17 +54,11 @@ export class AttachLoadBalancersCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: AttachLoadBalancersCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: AttachLoadBalancersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryAttachLoadBalancersCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AttachLoadBalancersCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachLoadBalancersCommandOutput> {
     return deserializeAws_queryAttachLoadBalancersCommand(output, context);
   }
 

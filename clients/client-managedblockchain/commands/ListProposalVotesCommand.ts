@@ -3,19 +3,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes
 } from "../ManagedBlockchainClient";
-import {
-  ListProposalVotesInput,
-  ListProposalVotesOutput
-} from "../models/index";
+import { ListProposalVotesInput, ListProposalVotesOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListProposalVotesCommand,
   serializeAws_restJson1_1ListProposalVotesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +22,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListProposalVotesCommandInput = ListProposalVotesInput;
-export type ListProposalVotesCommandOutput = ListProposalVotesOutput &
-  __MetadataBearer;
+export type ListProposalVotesCommandOutput = ListProposalVotesOutput & __MetadataBearer;
 
 export class ListProposalVotesCommand extends $Command<
   ListProposalVotesCommandInput,
@@ -50,9 +43,7 @@ export class ListProposalVotesCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProposalVotesCommandInput, ListProposalVotesCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +58,11 @@ export class ListProposalVotesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListProposalVotesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListProposalVotesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListProposalVotesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListProposalVotesCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProposalVotesCommandOutput> {
     return deserializeAws_restJson1_1ListProposalVotesCommand(output, context);
   }
 

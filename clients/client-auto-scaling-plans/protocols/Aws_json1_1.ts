@@ -1,11 +1,5 @@
-import {
-  CreateScalingPlanCommandInput,
-  CreateScalingPlanCommandOutput
-} from "../commands/CreateScalingPlanCommand";
-import {
-  DeleteScalingPlanCommandInput,
-  DeleteScalingPlanCommandOutput
-} from "../commands/DeleteScalingPlanCommand";
+import { CreateScalingPlanCommandInput, CreateScalingPlanCommandOutput } from "../commands/CreateScalingPlanCommand";
+import { DeleteScalingPlanCommandInput, DeleteScalingPlanCommandOutput } from "../commands/DeleteScalingPlanCommand";
 import {
   DescribeScalingPlanResourcesCommandInput,
   DescribeScalingPlanResourcesCommandOutput
@@ -18,10 +12,7 @@ import {
   GetScalingPlanResourceForecastDataCommandInput,
   GetScalingPlanResourceForecastDataCommandOutput
 } from "../commands/GetScalingPlanResourceForecastDataCommand";
-import {
-  UpdateScalingPlanCommandInput,
-  UpdateScalingPlanCommandOutput
-} from "../commands/UpdateScalingPlanCommand";
+import { UpdateScalingPlanCommandInput, UpdateScalingPlanCommandOutput } from "../commands/UpdateScalingPlanCommand";
 import {
   ApplicationSource,
   ConcurrentUpdateException,
@@ -55,10 +46,7 @@ import {
   UpdateScalingPlanResponse,
   ValidationException
 } from "../models/index";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -77,9 +65,7 @@ export const serializeAws_json1_1CreateScalingPlanCommand = async (
     "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.CreateScalingPlan"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1CreateScalingPlanRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1CreateScalingPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -92,9 +78,7 @@ export const serializeAws_json1_1DeleteScalingPlanCommand = async (
     "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DeleteScalingPlanRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DeleteScalingPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -104,13 +88,10 @@ export const serializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources"
+    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -123,9 +104,7 @@ export const serializeAws_json1_1DescribeScalingPlansCommand = async (
     "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1DescribeScalingPlansRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1DescribeScalingPlansRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -135,16 +114,10 @@ export const serializeAws_json1_1GetScalingPlanResourceForecastDataCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "Content-Type": "application/x-amz-json-1.1",
-    "X-Amz-Target":
-      "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData"
+    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(
-      input,
-      context
-    )
-  );
+  body = JSON.stringify(serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -157,9 +130,7 @@ export const serializeAws_json1_1UpdateScalingPlanCommand = async (
     "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan"
   };
   let body: any;
-  body = JSON.stringify(
-    serializeAws_json1_1UpdateScalingPlanRequest(input, context)
-  );
+  body = JSON.stringify(serializeAws_json1_1UpdateScalingPlanRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -192,16 +163,12 @@ const deserializeAws_json1_1CreateScalingPlanCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ConcurrentUpdateException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -209,10 +176,7 @@ const deserializeAws_json1_1CreateScalingPlanCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -220,10 +184,7 @@ const deserializeAws_json1_1CreateScalingPlanCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#LimitExceededException":
       response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -231,10 +192,7 @@ const deserializeAws_json1_1CreateScalingPlanCommandError = async (
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -285,16 +243,12 @@ const deserializeAws_json1_1DeleteScalingPlanCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ConcurrentUpdateException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -302,10 +256,7 @@ const deserializeAws_json1_1DeleteScalingPlanCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -313,10 +264,7 @@ const deserializeAws_json1_1DeleteScalingPlanCommandError = async (
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -324,10 +272,7 @@ const deserializeAws_json1_1DeleteScalingPlanCommandError = async (
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -354,17 +299,11 @@ export const deserializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingPlanResourcesCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeScalingPlanResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeScalingPlanResourcesResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeScalingPlanResourcesResponse(data, context);
   const response: DescribeScalingPlanResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeScalingPlanResourcesResponse",
@@ -384,16 +323,12 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ConcurrentUpdateException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -401,10 +336,7 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -412,10 +344,7 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -423,10 +352,7 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -453,10 +379,7 @@ export const deserializeAws_json1_1DescribeScalingPlansCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingPlansCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeScalingPlansCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1DescribeScalingPlansCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -480,16 +403,12 @@ const deserializeAws_json1_1DescribeScalingPlansCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ConcurrentUpdateException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -497,10 +416,7 @@ const deserializeAws_json1_1DescribeScalingPlansCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -508,10 +424,7 @@ const deserializeAws_json1_1DescribeScalingPlansCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InvalidNextTokenException":
       response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -519,10 +432,7 @@ const deserializeAws_json1_1DescribeScalingPlansCommandError = async (
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -549,17 +459,11 @@ export const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand = a
   context: __SerdeContext
 ): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError(
-      output,
-      context
-    );
+    return deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse(
-    data,
-    context
-  );
+  contents = deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse(data, context);
   const response: GetScalingPlanResourceForecastDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetScalingPlanResourceForecastDataResponse",
@@ -579,16 +483,12 @@ const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError = asy
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -596,10 +496,7 @@ const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError = asy
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -650,16 +547,12 @@ const deserializeAws_json1_1UpdateScalingPlanCommandError = async (
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode =
-    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentUpdateException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ConcurrentUpdateException":
       response = {
-        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ConcurrentUpdateExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -667,10 +560,7 @@ const deserializeAws_json1_1UpdateScalingPlanCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#InternalServiceException":
       response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -678,10 +568,7 @@ const deserializeAws_json1_1UpdateScalingPlanCommandError = async (
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ObjectNotFoundException":
       response = {
-        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ObjectNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -689,10 +576,7 @@ const deserializeAws_json1_1UpdateScalingPlanCommandError = async (
     case "ValidationException":
     case "com.amazonaws.autoscaling.anyscale.scaling_planner.frontend#ValidationException":
       response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(
-          parsedOutput,
-          context
-        )),
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output)
       };
@@ -719,10 +603,7 @@ const deserializeAws_json1_1ConcurrentUpdateExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ConcurrentUpdateException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ConcurrentUpdateException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ConcurrentUpdateException(body, context);
   const contents: ConcurrentUpdateException = {
     name: "ConcurrentUpdateException",
     $fault: "server",
@@ -737,10 +618,7 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InternalServiceException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
   const contents: InternalServiceException = {
     name: "InternalServiceException",
     $fault: "server",
@@ -755,10 +633,7 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
   const contents: InvalidNextTokenException = {
     name: "InvalidNextTokenException",
     $fault: "client",
@@ -773,10 +648,7 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
   const contents: LimitExceededException = {
     name: "LimitExceededException",
     $fault: "client",
@@ -791,10 +663,7 @@ const deserializeAws_json1_1ObjectNotFoundExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ObjectNotFoundException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ObjectNotFoundException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ObjectNotFoundException(body, context);
   const contents: ObjectNotFoundException = {
     name: "ObjectNotFoundException",
     $fault: "client",
@@ -809,10 +678,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   context: __SerdeContext
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
-  const deserialized: any = deserializeAws_json1_1ValidationException(
-    body,
-    context
-  );
+  const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
   const contents: ValidationException = {
     name: "ValidationException",
     $fault: "client",
@@ -822,10 +688,7 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   return contents;
 };
 
-const serializeAws_json1_1ApplicationSource = (
-  input: ApplicationSource,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ApplicationSource = (input: ApplicationSource, context: __SerdeContext): any => {
   return {
     ...(input.CloudFormationStackARN !== undefined && {
       CloudFormationStackARN: input.CloudFormationStackARN
@@ -836,13 +699,8 @@ const serializeAws_json1_1ApplicationSource = (
   };
 };
 
-const serializeAws_json1_1ApplicationSources = (
-  input: ApplicationSource[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ApplicationSource(entry, context)
-  );
+const serializeAws_json1_1ApplicationSources = (input: ApplicationSource[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_1ApplicationSource(entry, context));
 };
 
 const serializeAws_json1_1CreateScalingPlanRequest = (
@@ -851,16 +709,10 @@ const serializeAws_json1_1CreateScalingPlanRequest = (
 ): any => {
   return {
     ...(input.ApplicationSource !== undefined && {
-      ApplicationSource: serializeAws_json1_1ApplicationSource(
-        input.ApplicationSource,
-        context
-      )
+      ApplicationSource: serializeAws_json1_1ApplicationSource(input.ApplicationSource, context)
     }),
     ...(input.ScalingInstructions !== undefined && {
-      ScalingInstructions: serializeAws_json1_1ScalingInstructions(
-        input.ScalingInstructions,
-        context
-      )
+      ScalingInstructions: serializeAws_json1_1ScalingInstructions(input.ScalingInstructions, context)
     }),
     ...(input.ScalingPlanName !== undefined && {
       ScalingPlanName: input.ScalingPlanName
@@ -874,10 +726,7 @@ const serializeAws_json1_1CustomizedLoadMetricSpecification = (
 ): any => {
   return {
     ...(input.Dimensions !== undefined && {
-      Dimensions: serializeAws_json1_1MetricDimensions(
-        input.Dimensions,
-        context
-      )
+      Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context)
     }),
     ...(input.MetricName !== undefined && { MetricName: input.MetricName }),
     ...(input.Namespace !== undefined && { Namespace: input.Namespace }),
@@ -892,10 +741,7 @@ const serializeAws_json1_1CustomizedScalingMetricSpecification = (
 ): any => {
   return {
     ...(input.Dimensions !== undefined && {
-      Dimensions: serializeAws_json1_1MetricDimensions(
-        input.Dimensions,
-        context
-      )
+      Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context)
     }),
     ...(input.MetricName !== undefined && { MetricName: input.MetricName }),
     ...(input.Namespace !== undefined && { Namespace: input.Namespace }),
@@ -940,18 +786,12 @@ const serializeAws_json1_1DescribeScalingPlansRequest = (
 ): any => {
   return {
     ...(input.ApplicationSources !== undefined && {
-      ApplicationSources: serializeAws_json1_1ApplicationSources(
-        input.ApplicationSources,
-        context
-      )
+      ApplicationSources: serializeAws_json1_1ApplicationSources(input.ApplicationSources, context)
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.ScalingPlanNames !== undefined && {
-      ScalingPlanNames: serializeAws_json1_1ScalingPlanNames(
-        input.ScalingPlanNames,
-        context
-      )
+      ScalingPlanNames: serializeAws_json1_1ScalingPlanNames(input.ScalingPlanNames, context)
     }),
     ...(input.ScalingPlanVersion !== undefined && {
       ScalingPlanVersion: input.ScalingPlanVersion
@@ -989,23 +829,15 @@ const serializeAws_json1_1GetScalingPlanResourceForecastDataRequest = (
   };
 };
 
-const serializeAws_json1_1MetricDimension = (
-  input: MetricDimension,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1MetricDimension = (input: MetricDimension, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Value !== undefined && { Value: input.Value })
   };
 };
 
-const serializeAws_json1_1MetricDimensions = (
-  input: MetricDimension[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1MetricDimension(entry, context)
-  );
+const serializeAws_json1_1MetricDimensions = (input: MetricDimension[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_1MetricDimension(entry, context));
 };
 
 const serializeAws_json1_1PredefinedLoadMetricSpecification = (
@@ -1036,10 +868,7 @@ const serializeAws_json1_1PredefinedScalingMetricSpecification = (
   };
 };
 
-const serializeAws_json1_1ScalingInstruction = (
-  input: ScalingInstruction,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ScalingInstruction = (input: ScalingInstruction, context: __SerdeContext): any => {
   return {
     ...(input.CustomizedLoadMetricSpecification !== undefined && {
       CustomizedLoadMetricSpecification: serializeAws_json1_1CustomizedLoadMetricSpecification(
@@ -1059,12 +888,10 @@ const serializeAws_json1_1ScalingInstruction = (
       )
     }),
     ...(input.PredictiveScalingMaxCapacityBehavior !== undefined && {
-      PredictiveScalingMaxCapacityBehavior:
-        input.PredictiveScalingMaxCapacityBehavior
+      PredictiveScalingMaxCapacityBehavior: input.PredictiveScalingMaxCapacityBehavior
     }),
     ...(input.PredictiveScalingMaxCapacityBuffer !== undefined && {
-      PredictiveScalingMaxCapacityBuffer:
-        input.PredictiveScalingMaxCapacityBuffer
+      PredictiveScalingMaxCapacityBuffer: input.PredictiveScalingMaxCapacityBuffer
     }),
     ...(input.PredictiveScalingMode !== undefined && {
       PredictiveScalingMode: input.PredictiveScalingMode
@@ -1091,26 +918,15 @@ const serializeAws_json1_1ScalingInstruction = (
   };
 };
 
-const serializeAws_json1_1ScalingInstructions = (
-  input: ScalingInstruction[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry =>
-    serializeAws_json1_1ScalingInstruction(entry, context)
-  );
+const serializeAws_json1_1ScalingInstructions = (input: ScalingInstruction[], context: __SerdeContext): any => {
+  return input.map(entry => serializeAws_json1_1ScalingInstruction(entry, context));
 };
 
-const serializeAws_json1_1ScalingPlanNames = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1ScalingPlanNames = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
-const serializeAws_json1_1TagFilter = (
-  input: TagFilter,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagFilter = (input: TagFilter, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
     ...(input.Values !== undefined && {
@@ -1119,17 +935,11 @@ const serializeAws_json1_1TagFilter = (
   };
 };
 
-const serializeAws_json1_1TagFilters = (
-  input: TagFilter[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagFilters = (input: TagFilter[], context: __SerdeContext): any => {
   return input.map(entry => serializeAws_json1_1TagFilter(entry, context));
 };
 
-const serializeAws_json1_1TagValues = (
-  input: string[],
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1TagValues = (input: string[], context: __SerdeContext): any => {
   return input.map(entry => entry);
 };
 
@@ -1170,9 +980,7 @@ const serializeAws_json1_1TargetTrackingConfigurations = (
   input: TargetTrackingConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map(entry =>
-    serializeAws_json1_1TargetTrackingConfiguration(entry, context)
-  );
+  return input.map(entry => serializeAws_json1_1TargetTrackingConfiguration(entry, context));
 };
 
 const serializeAws_json1_1UpdateScalingPlanRequest = (
@@ -1181,16 +989,10 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
 ): any => {
   return {
     ...(input.ApplicationSource !== undefined && {
-      ApplicationSource: serializeAws_json1_1ApplicationSource(
-        input.ApplicationSource,
-        context
-      )
+      ApplicationSource: serializeAws_json1_1ApplicationSource(input.ApplicationSource, context)
     }),
     ...(input.ScalingInstructions !== undefined && {
-      ScalingInstructions: serializeAws_json1_1ScalingInstructions(
-        input.ScalingInstructions,
-        context
-      )
+      ScalingInstructions: serializeAws_json1_1ScalingInstructions(input.ScalingInstructions, context)
     }),
     ...(input.ScalingPlanName !== undefined && {
       ScalingPlanName: input.ScalingPlanName
@@ -1201,15 +1003,11 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
   };
 };
 
-const deserializeAws_json1_1ApplicationSource = (
-  output: any,
-  context: __SerdeContext
-): ApplicationSource => {
+const deserializeAws_json1_1ApplicationSource = (output: any, context: __SerdeContext): ApplicationSource => {
   return {
     __type: "ApplicationSource",
     CloudFormationStackARN:
-      output.CloudFormationStackARN !== undefined &&
-      output.CloudFormationStackARN !== null
+      output.CloudFormationStackARN !== undefined && output.CloudFormationStackARN !== null
         ? output.CloudFormationStackARN
         : undefined,
     TagFilters:
@@ -1225,10 +1023,7 @@ const deserializeAws_json1_1ConcurrentUpdateException = (
 ): ConcurrentUpdateException => {
   return {
     __type: "ConcurrentUpdateException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1239,8 +1034,7 @@ const deserializeAws_json1_1CreateScalingPlanResponse = (
   return {
     __type: "CreateScalingPlanResponse",
     ScalingPlanVersion:
-      output.ScalingPlanVersion !== undefined &&
-      output.ScalingPlanVersion !== null
+      output.ScalingPlanVersion !== undefined && output.ScalingPlanVersion !== null
         ? output.ScalingPlanVersion
         : undefined
   } as any;
@@ -1256,22 +1050,10 @@ const deserializeAws_json1_1CustomizedLoadMetricSpecification = (
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context)
         : undefined,
-    MetricName:
-      output.MetricName !== undefined && output.MetricName !== null
-        ? output.MetricName
-        : undefined,
-    Namespace:
-      output.Namespace !== undefined && output.Namespace !== null
-        ? output.Namespace
-        : undefined,
-    Statistic:
-      output.Statistic !== undefined && output.Statistic !== null
-        ? output.Statistic
-        : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined
+    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
+    Namespace: output.Namespace !== undefined && output.Namespace !== null ? output.Namespace : undefined,
+    Statistic: output.Statistic !== undefined && output.Statistic !== null ? output.Statistic : undefined,
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined
   } as any;
 };
 
@@ -1285,49 +1067,26 @@ const deserializeAws_json1_1CustomizedScalingMetricSpecification = (
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context)
         : undefined,
-    MetricName:
-      output.MetricName !== undefined && output.MetricName !== null
-        ? output.MetricName
-        : undefined,
-    Namespace:
-      output.Namespace !== undefined && output.Namespace !== null
-        ? output.Namespace
-        : undefined,
-    Statistic:
-      output.Statistic !== undefined && output.Statistic !== null
-        ? output.Statistic
-        : undefined,
-    Unit:
-      output.Unit !== undefined && output.Unit !== null
-        ? output.Unit
-        : undefined
+    MetricName: output.MetricName !== undefined && output.MetricName !== null ? output.MetricName : undefined,
+    Namespace: output.Namespace !== undefined && output.Namespace !== null ? output.Namespace : undefined,
+    Statistic: output.Statistic !== undefined && output.Statistic !== null ? output.Statistic : undefined,
+    Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Datapoint = (
-  output: any,
-  context: __SerdeContext
-): Datapoint => {
+const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): Datapoint => {
   return {
     __type: "Datapoint",
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
         : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1Datapoints = (
-  output: any,
-  context: __SerdeContext
-): Datapoint[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1Datapoint(entry, context)
-  );
+const deserializeAws_json1_1Datapoints = (output: any, context: __SerdeContext): Datapoint[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Datapoint(entry, context));
 };
 
 const deserializeAws_json1_1DeleteScalingPlanResponse = (
@@ -1345,17 +1104,10 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesResponse = (
 ): DescribeScalingPlanResourcesResponse => {
   return {
     __type: "DescribeScalingPlanResourcesResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingPlanResources:
-      output.ScalingPlanResources !== undefined &&
-      output.ScalingPlanResources !== null
-        ? deserializeAws_json1_1ScalingPlanResources(
-            output.ScalingPlanResources,
-            context
-          )
+      output.ScalingPlanResources !== undefined && output.ScalingPlanResources !== null
+        ? deserializeAws_json1_1ScalingPlanResources(output.ScalingPlanResources, context)
         : undefined
   } as any;
 };
@@ -1366,10 +1118,7 @@ const deserializeAws_json1_1DescribeScalingPlansResponse = (
 ): DescribeScalingPlansResponse => {
   return {
     __type: "DescribeScalingPlansResponse",
-    NextToken:
-      output.NextToken !== undefined && output.NextToken !== null
-        ? output.NextToken
-        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingPlans:
       output.ScalingPlans !== undefined && output.ScalingPlans !== null
         ? deserializeAws_json1_1ScalingPlans(output.ScalingPlans, context)
@@ -1396,10 +1145,7 @@ const deserializeAws_json1_1InternalServiceException = (
 ): InternalServiceException => {
   return {
     __type: "InternalServiceException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1409,50 +1155,27 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   return {
     __type: "InvalidNextTokenException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1LimitExceededException = (
-  output: any,
-  context: __SerdeContext
-): LimitExceededException => {
+const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     __type: "LimitExceededException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MetricDimension = (
-  output: any,
-  context: __SerdeContext
-): MetricDimension => {
+const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
     __type: "MetricDimension",
-    Name:
-      output.Name !== undefined && output.Name !== null
-        ? output.Name
-        : undefined,
-    Value:
-      output.Value !== undefined && output.Value !== null
-        ? output.Value
-        : undefined
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined
   } as any;
 };
 
-const deserializeAws_json1_1MetricDimensions = (
-  output: any,
-  context: __SerdeContext
-): MetricDimension[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1MetricDimension(entry, context)
-  );
+const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeContext): MetricDimension[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1MetricDimension(entry, context));
 };
 
 const deserializeAws_json1_1ObjectNotFoundException = (
@@ -1461,10 +1184,7 @@ const deserializeAws_json1_1ObjectNotFoundException = (
 ): ObjectNotFoundException => {
   return {
     __type: "ObjectNotFoundException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1475,14 +1195,11 @@ const deserializeAws_json1_1PredefinedLoadMetricSpecification = (
   return {
     __type: "PredefinedLoadMetricSpecification",
     PredefinedLoadMetricType:
-      output.PredefinedLoadMetricType !== undefined &&
-      output.PredefinedLoadMetricType !== null
+      output.PredefinedLoadMetricType !== undefined && output.PredefinedLoadMetricType !== null
         ? output.PredefinedLoadMetricType
         : undefined,
     ResourceLabel:
-      output.ResourceLabel !== undefined && output.ResourceLabel !== null
-        ? output.ResourceLabel
-        : undefined
+      output.ResourceLabel !== undefined && output.ResourceLabel !== null ? output.ResourceLabel : undefined
   } as any;
 };
 
@@ -1493,153 +1210,93 @@ const deserializeAws_json1_1PredefinedScalingMetricSpecification = (
   return {
     __type: "PredefinedScalingMetricSpecification",
     PredefinedScalingMetricType:
-      output.PredefinedScalingMetricType !== undefined &&
-      output.PredefinedScalingMetricType !== null
+      output.PredefinedScalingMetricType !== undefined && output.PredefinedScalingMetricType !== null
         ? output.PredefinedScalingMetricType
         : undefined,
     ResourceLabel:
-      output.ResourceLabel !== undefined && output.ResourceLabel !== null
-        ? output.ResourceLabel
-        : undefined
+      output.ResourceLabel !== undefined && output.ResourceLabel !== null ? output.ResourceLabel : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ScalingInstruction = (
-  output: any,
-  context: __SerdeContext
-): ScalingInstruction => {
+const deserializeAws_json1_1ScalingInstruction = (output: any, context: __SerdeContext): ScalingInstruction => {
   return {
     __type: "ScalingInstruction",
     CustomizedLoadMetricSpecification:
-      output.CustomizedLoadMetricSpecification !== undefined &&
-      output.CustomizedLoadMetricSpecification !== null
-        ? deserializeAws_json1_1CustomizedLoadMetricSpecification(
-            output.CustomizedLoadMetricSpecification,
-            context
-          )
+      output.CustomizedLoadMetricSpecification !== undefined && output.CustomizedLoadMetricSpecification !== null
+        ? deserializeAws_json1_1CustomizedLoadMetricSpecification(output.CustomizedLoadMetricSpecification, context)
         : undefined,
     DisableDynamicScaling:
-      output.DisableDynamicScaling !== undefined &&
-      output.DisableDynamicScaling !== null
+      output.DisableDynamicScaling !== undefined && output.DisableDynamicScaling !== null
         ? output.DisableDynamicScaling
         : undefined,
-    MaxCapacity:
-      output.MaxCapacity !== undefined && output.MaxCapacity !== null
-        ? output.MaxCapacity
-        : undefined,
-    MinCapacity:
-      output.MinCapacity !== undefined && output.MinCapacity !== null
-        ? output.MinCapacity
-        : undefined,
+    MaxCapacity: output.MaxCapacity !== undefined && output.MaxCapacity !== null ? output.MaxCapacity : undefined,
+    MinCapacity: output.MinCapacity !== undefined && output.MinCapacity !== null ? output.MinCapacity : undefined,
     PredefinedLoadMetricSpecification:
-      output.PredefinedLoadMetricSpecification !== undefined &&
-      output.PredefinedLoadMetricSpecification !== null
-        ? deserializeAws_json1_1PredefinedLoadMetricSpecification(
-            output.PredefinedLoadMetricSpecification,
-            context
-          )
+      output.PredefinedLoadMetricSpecification !== undefined && output.PredefinedLoadMetricSpecification !== null
+        ? deserializeAws_json1_1PredefinedLoadMetricSpecification(output.PredefinedLoadMetricSpecification, context)
         : undefined,
     PredictiveScalingMaxCapacityBehavior:
-      output.PredictiveScalingMaxCapacityBehavior !== undefined &&
-      output.PredictiveScalingMaxCapacityBehavior !== null
+      output.PredictiveScalingMaxCapacityBehavior !== undefined && output.PredictiveScalingMaxCapacityBehavior !== null
         ? output.PredictiveScalingMaxCapacityBehavior
         : undefined,
     PredictiveScalingMaxCapacityBuffer:
-      output.PredictiveScalingMaxCapacityBuffer !== undefined &&
-      output.PredictiveScalingMaxCapacityBuffer !== null
+      output.PredictiveScalingMaxCapacityBuffer !== undefined && output.PredictiveScalingMaxCapacityBuffer !== null
         ? output.PredictiveScalingMaxCapacityBuffer
         : undefined,
     PredictiveScalingMode:
-      output.PredictiveScalingMode !== undefined &&
-      output.PredictiveScalingMode !== null
+      output.PredictiveScalingMode !== undefined && output.PredictiveScalingMode !== null
         ? output.PredictiveScalingMode
         : undefined,
-    ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     ScalableDimension:
-      output.ScalableDimension !== undefined &&
-      output.ScalableDimension !== null
+      output.ScalableDimension !== undefined && output.ScalableDimension !== null
         ? output.ScalableDimension
         : undefined,
     ScalingPolicyUpdateBehavior:
-      output.ScalingPolicyUpdateBehavior !== undefined &&
-      output.ScalingPolicyUpdateBehavior !== null
+      output.ScalingPolicyUpdateBehavior !== undefined && output.ScalingPolicyUpdateBehavior !== null
         ? output.ScalingPolicyUpdateBehavior
         : undefined,
     ScheduledActionBufferTime:
-      output.ScheduledActionBufferTime !== undefined &&
-      output.ScheduledActionBufferTime !== null
+      output.ScheduledActionBufferTime !== undefined && output.ScheduledActionBufferTime !== null
         ? output.ScheduledActionBufferTime
         : undefined,
     ServiceNamespace:
-      output.ServiceNamespace !== undefined && output.ServiceNamespace !== null
-        ? output.ServiceNamespace
-        : undefined,
+      output.ServiceNamespace !== undefined && output.ServiceNamespace !== null ? output.ServiceNamespace : undefined,
     TargetTrackingConfigurations:
-      output.TargetTrackingConfigurations !== undefined &&
-      output.TargetTrackingConfigurations !== null
-        ? deserializeAws_json1_1TargetTrackingConfigurations(
-            output.TargetTrackingConfigurations,
-            context
-          )
+      output.TargetTrackingConfigurations !== undefined && output.TargetTrackingConfigurations !== null
+        ? deserializeAws_json1_1TargetTrackingConfigurations(output.TargetTrackingConfigurations, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ScalingInstructions = (
-  output: any,
-  context: __SerdeContext
-): ScalingInstruction[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ScalingInstruction(entry, context)
-  );
+const deserializeAws_json1_1ScalingInstructions = (output: any, context: __SerdeContext): ScalingInstruction[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingInstruction(entry, context));
 };
 
-const deserializeAws_json1_1ScalingPlan = (
-  output: any,
-  context: __SerdeContext
-): ScalingPlan => {
+const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext): ScalingPlan => {
   return {
     __type: "ScalingPlan",
     ApplicationSource:
-      output.ApplicationSource !== undefined &&
-      output.ApplicationSource !== null
-        ? deserializeAws_json1_1ApplicationSource(
-            output.ApplicationSource,
-            context
-          )
+      output.ApplicationSource !== undefined && output.ApplicationSource !== null
+        ? deserializeAws_json1_1ApplicationSource(output.ApplicationSource, context)
         : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
         : undefined,
     ScalingInstructions:
-      output.ScalingInstructions !== undefined &&
-      output.ScalingInstructions !== null
-        ? deserializeAws_json1_1ScalingInstructions(
-            output.ScalingInstructions,
-            context
-          )
+      output.ScalingInstructions !== undefined && output.ScalingInstructions !== null
+        ? deserializeAws_json1_1ScalingInstructions(output.ScalingInstructions, context)
         : undefined,
     ScalingPlanName:
-      output.ScalingPlanName !== undefined && output.ScalingPlanName !== null
-        ? output.ScalingPlanName
-        : undefined,
+      output.ScalingPlanName !== undefined && output.ScalingPlanName !== null ? output.ScalingPlanName : undefined,
     ScalingPlanVersion:
-      output.ScalingPlanVersion !== undefined &&
-      output.ScalingPlanVersion !== null
+      output.ScalingPlanVersion !== undefined && output.ScalingPlanVersion !== null
         ? output.ScalingPlanVersion
         : undefined,
-    StatusCode:
-      output.StatusCode !== undefined && output.StatusCode !== null
-        ? output.StatusCode
-        : undefined,
+    StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
     StatusMessage:
-      output.StatusMessage !== undefined && output.StatusMessage !== null
-        ? output.StatusMessage
-        : undefined,
+      output.StatusMessage !== undefined && output.StatusMessage !== null ? output.StatusMessage : undefined,
     StatusStartTime:
       output.StatusStartTime !== undefined && output.StatusStartTime !== null
         ? new Date(Math.round(output.StatusStartTime * 1000))
@@ -1647,28 +1304,18 @@ const deserializeAws_json1_1ScalingPlan = (
   } as any;
 };
 
-const deserializeAws_json1_1ScalingPlanResource = (
-  output: any,
-  context: __SerdeContext
-): ScalingPlanResource => {
+const deserializeAws_json1_1ScalingPlanResource = (output: any, context: __SerdeContext): ScalingPlanResource => {
   return {
     __type: "ScalingPlanResource",
-    ResourceId:
-      output.ResourceId !== undefined && output.ResourceId !== null
-        ? output.ResourceId
-        : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     ScalableDimension:
-      output.ScalableDimension !== undefined &&
-      output.ScalableDimension !== null
+      output.ScalableDimension !== undefined && output.ScalableDimension !== null
         ? output.ScalableDimension
         : undefined,
     ScalingPlanName:
-      output.ScalingPlanName !== undefined && output.ScalingPlanName !== null
-        ? output.ScalingPlanName
-        : undefined,
+      output.ScalingPlanName !== undefined && output.ScalingPlanName !== null ? output.ScalingPlanName : undefined,
     ScalingPlanVersion:
-      output.ScalingPlanVersion !== undefined &&
-      output.ScalingPlanVersion !== null
+      output.ScalingPlanVersion !== undefined && output.ScalingPlanVersion !== null
         ? output.ScalingPlanVersion
         : undefined,
     ScalingPolicies:
@@ -1676,82 +1323,46 @@ const deserializeAws_json1_1ScalingPlanResource = (
         ? deserializeAws_json1_1ScalingPolicies(output.ScalingPolicies, context)
         : undefined,
     ScalingStatusCode:
-      output.ScalingStatusCode !== undefined &&
-      output.ScalingStatusCode !== null
+      output.ScalingStatusCode !== undefined && output.ScalingStatusCode !== null
         ? output.ScalingStatusCode
         : undefined,
     ScalingStatusMessage:
-      output.ScalingStatusMessage !== undefined &&
-      output.ScalingStatusMessage !== null
+      output.ScalingStatusMessage !== undefined && output.ScalingStatusMessage !== null
         ? output.ScalingStatusMessage
         : undefined,
     ServiceNamespace:
-      output.ServiceNamespace !== undefined && output.ServiceNamespace !== null
-        ? output.ServiceNamespace
-        : undefined
+      output.ServiceNamespace !== undefined && output.ServiceNamespace !== null ? output.ServiceNamespace : undefined
   } as any;
 };
 
-const deserializeAws_json1_1ScalingPlanResources = (
-  output: any,
-  context: __SerdeContext
-): ScalingPlanResource[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ScalingPlanResource(entry, context)
-  );
+const deserializeAws_json1_1ScalingPlanResources = (output: any, context: __SerdeContext): ScalingPlanResource[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingPlanResource(entry, context));
 };
 
-const deserializeAws_json1_1ScalingPlans = (
-  output: any,
-  context: __SerdeContext
-): ScalingPlan[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ScalingPlan(entry, context)
-  );
+const deserializeAws_json1_1ScalingPlans = (output: any, context: __SerdeContext): ScalingPlan[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingPlan(entry, context));
 };
 
-const deserializeAws_json1_1ScalingPolicies = (
-  output: any,
-  context: __SerdeContext
-): ScalingPolicy[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ScalingPolicy(entry, context)
-  );
+const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ScalingPolicy(entry, context));
 };
 
-const deserializeAws_json1_1ScalingPolicy = (
-  output: any,
-  context: __SerdeContext
-): ScalingPolicy => {
+const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   return {
     __type: "ScalingPolicy",
-    PolicyName:
-      output.PolicyName !== undefined && output.PolicyName !== null
-        ? output.PolicyName
-        : undefined,
-    PolicyType:
-      output.PolicyType !== undefined && output.PolicyType !== null
-        ? output.PolicyType
-        : undefined,
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+    PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
     TargetTrackingConfiguration:
-      output.TargetTrackingConfiguration !== undefined &&
-      output.TargetTrackingConfiguration !== null
-        ? deserializeAws_json1_1TargetTrackingConfiguration(
-            output.TargetTrackingConfiguration,
-            context
-          )
+      output.TargetTrackingConfiguration !== undefined && output.TargetTrackingConfiguration !== null
+        ? deserializeAws_json1_1TargetTrackingConfiguration(output.TargetTrackingConfiguration, context)
         : undefined
   } as any;
 };
 
-const deserializeAws_json1_1TagFilter = (
-  output: any,
-  context: __SerdeContext
-): TagFilter => {
+const deserializeAws_json1_1TagFilter = (output: any, context: __SerdeContext): TagFilter => {
   return {
     __type: "TagFilter",
-    Key:
-      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1TagValues(output.Values, context)
@@ -1759,19 +1370,11 @@ const deserializeAws_json1_1TagFilter = (
   } as any;
 };
 
-const deserializeAws_json1_1TagFilters = (
-  output: any,
-  context: __SerdeContext
-): TagFilter[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TagFilter(entry, context)
-  );
+const deserializeAws_json1_1TagFilters = (output: any, context: __SerdeContext): TagFilter[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1TagFilter(entry, context));
 };
 
-const deserializeAws_json1_1TagValues = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
+const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
 
@@ -1782,42 +1385,30 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
   return {
     __type: "TargetTrackingConfiguration",
     CustomizedScalingMetricSpecification:
-      output.CustomizedScalingMetricSpecification !== undefined &&
-      output.CustomizedScalingMetricSpecification !== null
+      output.CustomizedScalingMetricSpecification !== undefined && output.CustomizedScalingMetricSpecification !== null
         ? deserializeAws_json1_1CustomizedScalingMetricSpecification(
             output.CustomizedScalingMetricSpecification,
             context
           )
         : undefined,
     DisableScaleIn:
-      output.DisableScaleIn !== undefined && output.DisableScaleIn !== null
-        ? output.DisableScaleIn
-        : undefined,
+      output.DisableScaleIn !== undefined && output.DisableScaleIn !== null ? output.DisableScaleIn : undefined,
     EstimatedInstanceWarmup:
-      output.EstimatedInstanceWarmup !== undefined &&
-      output.EstimatedInstanceWarmup !== null
+      output.EstimatedInstanceWarmup !== undefined && output.EstimatedInstanceWarmup !== null
         ? output.EstimatedInstanceWarmup
         : undefined,
     PredefinedScalingMetricSpecification:
-      output.PredefinedScalingMetricSpecification !== undefined &&
-      output.PredefinedScalingMetricSpecification !== null
+      output.PredefinedScalingMetricSpecification !== undefined && output.PredefinedScalingMetricSpecification !== null
         ? deserializeAws_json1_1PredefinedScalingMetricSpecification(
             output.PredefinedScalingMetricSpecification,
             context
           )
         : undefined,
     ScaleInCooldown:
-      output.ScaleInCooldown !== undefined && output.ScaleInCooldown !== null
-        ? output.ScaleInCooldown
-        : undefined,
+      output.ScaleInCooldown !== undefined && output.ScaleInCooldown !== null ? output.ScaleInCooldown : undefined,
     ScaleOutCooldown:
-      output.ScaleOutCooldown !== undefined && output.ScaleOutCooldown !== null
-        ? output.ScaleOutCooldown
-        : undefined,
-    TargetValue:
-      output.TargetValue !== undefined && output.TargetValue !== null
-        ? output.TargetValue
-        : undefined
+      output.ScaleOutCooldown !== undefined && output.ScaleOutCooldown !== null ? output.ScaleOutCooldown : undefined,
+    TargetValue: output.TargetValue !== undefined && output.TargetValue !== null ? output.TargetValue : undefined
   } as any;
 };
 
@@ -1825,9 +1416,7 @@ const deserializeAws_json1_1TargetTrackingConfigurations = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1TargetTrackingConfiguration(entry, context)
-  );
+  return (output || []).map((entry: any) => deserializeAws_json1_1TargetTrackingConfiguration(entry, context));
 };
 
 const deserializeAws_json1_1UpdateScalingPlanResponse = (
@@ -1839,16 +1428,10 @@ const deserializeAws_json1_1UpdateScalingPlanResponse = (
   } as any;
 };
 
-const deserializeAws_json1_1ValidationException = (
-  output: any,
-  context: __SerdeContext
-): ValidationException => {
+const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
     __type: "ValidationException",
-    Message:
-      output.Message !== undefined && output.Message !== null
-        ? output.Message
-        : undefined
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined
   } as any;
 };
 
@@ -1859,23 +1442,15 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 });
 
 // Collect low-level response body stream to Uint8Array.
-const collectBody = (
-  streamBody: any = new Uint8Array(),
-  context: __SerdeContext
-): Promise<Uint8Array> => {
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
   if (streamBody instanceof Uint8Array) {
     return Promise.resolve(streamBody);
   }
-  return (
-    context.streamCollector(streamBody) || Promise.resolve(new Uint8Array())
-  );
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
 };
 
 // Encode Uint8Array data into string with utf-8.
-const collectBodyString = (
-  streamBody: any,
-  context: __SerdeContext
-): Promise<string> =>
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then(body => context.utf8Encoder(body));
 
 const buildHttpRpcRequest = async (

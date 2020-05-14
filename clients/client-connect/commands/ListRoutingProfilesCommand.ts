@@ -1,21 +1,11 @@
-import {
-  ConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../ConnectClient";
-import {
-  ListRoutingProfilesRequest,
-  ListRoutingProfilesResponse
-} from "../models/index";
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { ListRoutingProfilesRequest, ListRoutingProfilesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListRoutingProfilesCommand,
   serializeAws_restJson1_1ListRoutingProfilesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListRoutingProfilesCommandInput = ListRoutingProfilesRequest;
-export type ListRoutingProfilesCommandOutput = ListRoutingProfilesResponse &
-  __MetadataBearer;
+export type ListRoutingProfilesCommandOutput = ListRoutingProfilesResponse & __MetadataBearer;
 
 export class ListRoutingProfilesCommand extends $Command<
   ListRoutingProfilesCommandInput,
@@ -49,13 +38,8 @@ export class ListRoutingProfilesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListRoutingProfilesCommandInput,
-    ListRoutingProfilesCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListRoutingProfilesCommandInput, ListRoutingProfilesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListRoutingProfilesCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListRoutingProfilesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListRoutingProfilesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListRoutingProfilesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListRoutingProfilesCommandOutput> {
-    return deserializeAws_restJson1_1ListRoutingProfilesCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingProfilesCommandOutput> {
+    return deserializeAws_restJson1_1ListRoutingProfilesCommand(output, context);
   }
 
   // Start section: command_body_extra

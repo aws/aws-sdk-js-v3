@@ -1,21 +1,11 @@
-import {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../CloudDirectoryClient";
-import {
-  ListObjectParentPathsRequest,
-  ListObjectParentPathsResponse
-} from "../models/index";
+import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
+import { ListObjectParentPathsRequest, ListObjectParentPathsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListObjectParentPathsCommand,
   serializeAws_restJson1_1ListObjectParentPathsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListObjectParentPathsCommandInput = ListObjectParentPathsRequest;
-export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse &
-  __MetadataBearer;
+export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse & __MetadataBearer;
 
 export class ListObjectParentPathsCommand extends $Command<
   ListObjectParentPathsCommandInput,
@@ -49,13 +38,8 @@ export class ListObjectParentPathsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListObjectParentPathsCommandInput,
-    ListObjectParentPathsCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<ListObjectParentPathsCommandInput, ListObjectParentPathsCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,21 +54,12 @@ export class ListObjectParentPathsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListObjectParentPathsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListObjectParentPathsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1_1ListObjectParentPathsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListObjectParentPathsCommandOutput> {
-    return deserializeAws_restJson1_1ListObjectParentPathsCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListObjectParentPathsCommandOutput> {
+    return deserializeAws_restJson1_1ListObjectParentPathsCommand(output, context);
   }
 
   // Start section: command_body_extra

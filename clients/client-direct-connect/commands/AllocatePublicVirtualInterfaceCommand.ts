@@ -1,21 +1,11 @@
-import {
-  DirectConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../DirectConnectClient";
-import {
-  AllocatePublicVirtualInterfaceRequest,
-  VirtualInterface
-} from "../models/index";
+import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
+import { AllocatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/index";
 import {
   deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand,
   serializeAws_json1_1AllocatePublicVirtualInterfaceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type AllocatePublicVirtualInterfaceCommandInput = AllocatePublicVirtualInterfaceRequest;
-export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface &
-  __MetadataBearer;
+export type AllocatePublicVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
 
 export class AllocatePublicVirtualInterfaceCommand extends $Command<
   AllocatePublicVirtualInterfaceCommandInput,
@@ -49,13 +38,8 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    AllocatePublicVirtualInterfaceCommandInput,
-    AllocatePublicVirtualInterfaceCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<AllocatePublicVirtualInterfaceCommandInput, AllocatePublicVirtualInterfaceCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -74,20 +58,14 @@ export class AllocatePublicVirtualInterfaceCommand extends $Command<
     input: AllocatePublicVirtualInterfaceCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
-      input,
-      context
-    );
+    return serializeAws_json1_1AllocatePublicVirtualInterfaceCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllocatePublicVirtualInterfaceCommandOutput> {
-    return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(
-      output,
-      context
-    );
+    return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand(output, context);
   }
 
   // Start section: command_body_extra

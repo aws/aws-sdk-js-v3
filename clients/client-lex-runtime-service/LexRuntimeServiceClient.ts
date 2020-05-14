@@ -1,23 +1,8 @@
-import {
-  DeleteSessionCommandInput,
-  DeleteSessionCommandOutput
-} from "./commands/DeleteSessionCommand";
-import {
-  GetSessionCommandInput,
-  GetSessionCommandOutput
-} from "./commands/GetSessionCommand";
-import {
-  PostContentCommandInput,
-  PostContentCommandOutput
-} from "./commands/PostContentCommand";
-import {
-  PostTextCommandInput,
-  PostTextCommandOutput
-} from "./commands/PostTextCommand";
-import {
-  PutSessionCommandInput,
-  PutSessionCommandOutput
-} from "./commands/PutSessionCommand";
+import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { PostContentCommandInput, PostContentCommandOutput } from "./commands/PostContentCommand";
+import { PostTextCommandInput, PostTextCommandOutput } from "./commands/PostTextCommand";
+import { PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -34,12 +19,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -84,8 +64,7 @@ export type ServiceOutputTypes =
   | PostTextCommandOutput
   | PutSessionCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -169,9 +148,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type LexRuntimeServiceClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type LexRuntimeServiceClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -180,9 +157,7 @@ export type LexRuntimeServiceClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type LexRuntimeServiceClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type LexRuntimeServiceClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

@@ -1,21 +1,11 @@
-import {
-  IAMClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../IAMClient";
-import {
-  ListSSHPublicKeysRequest,
-  ListSSHPublicKeysResponse
-} from "../models/index";
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { ListSSHPublicKeysRequest, ListSSHPublicKeysResponse } from "../models/index";
 import {
   deserializeAws_queryListSSHPublicKeysCommand,
   serializeAws_queryListSSHPublicKeysCommand
 } from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ListSSHPublicKeysCommandInput = ListSSHPublicKeysRequest;
-export type ListSSHPublicKeysCommandOutput = ListSSHPublicKeysResponse &
-  __MetadataBearer;
+export type ListSSHPublicKeysCommandOutput = ListSSHPublicKeysResponse & __MetadataBearer;
 
 export class ListSSHPublicKeysCommand extends $Command<
   ListSSHPublicKeysCommandInput,
@@ -50,9 +39,7 @@ export class ListSSHPublicKeysCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListSSHPublicKeysCommandInput, ListSSHPublicKeysCommandOutput> {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -67,17 +54,11 @@ export class ListSSHPublicKeysCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListSSHPublicKeysCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
+  private serialize(input: ListSSHPublicKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryListSSHPublicKeysCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListSSHPublicKeysCommandOutput> {
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSSHPublicKeysCommandOutput> {
     return deserializeAws_queryListSSHPublicKeysCommand(output, context);
   }
 

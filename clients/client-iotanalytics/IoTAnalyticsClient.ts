@@ -1,139 +1,61 @@
-import {
-  BatchPutMessageCommandInput,
-  BatchPutMessageCommandOutput
-} from "./commands/BatchPutMessageCommand";
+import { BatchPutMessageCommandInput, BatchPutMessageCommandOutput } from "./commands/BatchPutMessageCommand";
 import {
   CancelPipelineReprocessingCommandInput,
   CancelPipelineReprocessingCommandOutput
 } from "./commands/CancelPipelineReprocessingCommand";
-import {
-  CreateChannelCommandInput,
-  CreateChannelCommandOutput
-} from "./commands/CreateChannelCommand";
-import {
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput
-} from "./commands/CreateDatasetCommand";
+import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import {
   CreateDatasetContentCommandInput,
   CreateDatasetContentCommandOutput
 } from "./commands/CreateDatasetContentCommand";
-import {
-  CreateDatastoreCommandInput,
-  CreateDatastoreCommandOutput
-} from "./commands/CreateDatastoreCommand";
-import {
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput
-} from "./commands/CreatePipelineCommand";
-import {
-  DeleteChannelCommandInput,
-  DeleteChannelCommandOutput
-} from "./commands/DeleteChannelCommand";
-import {
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput
-} from "./commands/DeleteDatasetCommand";
+import { CreateDatastoreCommandInput, CreateDatastoreCommandOutput } from "./commands/CreateDatastoreCommand";
+import { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
+import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import {
   DeleteDatasetContentCommandInput,
   DeleteDatasetContentCommandOutput
 } from "./commands/DeleteDatasetContentCommand";
-import {
-  DeleteDatastoreCommandInput,
-  DeleteDatastoreCommandOutput
-} from "./commands/DeleteDatastoreCommand";
-import {
-  DeletePipelineCommandInput,
-  DeletePipelineCommandOutput
-} from "./commands/DeletePipelineCommand";
-import {
-  DescribeChannelCommandInput,
-  DescribeChannelCommandOutput
-} from "./commands/DescribeChannelCommand";
-import {
-  DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput
-} from "./commands/DescribeDatasetCommand";
-import {
-  DescribeDatastoreCommandInput,
-  DescribeDatastoreCommandOutput
-} from "./commands/DescribeDatastoreCommand";
+import { DeleteDatastoreCommandInput, DeleteDatastoreCommandOutput } from "./commands/DeleteDatastoreCommand";
+import { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
+import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
+import { DescribeDatastoreCommandInput, DescribeDatastoreCommandOutput } from "./commands/DescribeDatastoreCommand";
 import {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput
 } from "./commands/DescribeLoggingOptionsCommand";
-import {
-  DescribePipelineCommandInput,
-  DescribePipelineCommandOutput
-} from "./commands/DescribePipelineCommand";
-import {
-  GetDatasetContentCommandInput,
-  GetDatasetContentCommandOutput
-} from "./commands/GetDatasetContentCommand";
-import {
-  ListChannelsCommandInput,
-  ListChannelsCommandOutput
-} from "./commands/ListChannelsCommand";
+import { DescribePipelineCommandInput, DescribePipelineCommandOutput } from "./commands/DescribePipelineCommand";
+import { GetDatasetContentCommandInput, GetDatasetContentCommandOutput } from "./commands/GetDatasetContentCommand";
+import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListDatasetContentsCommandInput,
   ListDatasetContentsCommandOutput
 } from "./commands/ListDatasetContentsCommand";
-import {
-  ListDatasetsCommandInput,
-  ListDatasetsCommandOutput
-} from "./commands/ListDatasetsCommand";
-import {
-  ListDatastoresCommandInput,
-  ListDatastoresCommandOutput
-} from "./commands/ListDatastoresCommand";
-import {
-  ListPipelinesCommandInput,
-  ListPipelinesCommandOutput
-} from "./commands/ListPipelinesCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import { ListDatastoresCommandInput, ListDatastoresCommandOutput } from "./commands/ListDatastoresCommand";
+import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
-import {
-  PutLoggingOptionsCommandInput,
-  PutLoggingOptionsCommandOutput
-} from "./commands/PutLoggingOptionsCommand";
+import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
 import {
   RunPipelineActivityCommandInput,
   RunPipelineActivityCommandOutput
 } from "./commands/RunPipelineActivityCommand";
-import {
-  SampleChannelDataCommandInput,
-  SampleChannelDataCommandOutput
-} from "./commands/SampleChannelDataCommand";
+import { SampleChannelDataCommandInput, SampleChannelDataCommandOutput } from "./commands/SampleChannelDataCommand";
 import {
   StartPipelineReprocessingCommandInput,
   StartPipelineReprocessingCommandOutput
 } from "./commands/StartPipelineReprocessingCommand";
-import {
-  TagResourceCommandInput,
-  TagResourceCommandOutput
-} from "./commands/TagResourceCommand";
-import {
-  UntagResourceCommandInput,
-  UntagResourceCommandOutput
-} from "./commands/UntagResourceCommand";
-import {
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput
-} from "./commands/UpdateChannelCommand";
-import {
-  UpdateDatasetCommandInput,
-  UpdateDatasetCommandOutput
-} from "./commands/UpdateDatasetCommand";
-import {
-  UpdateDatastoreCommandInput,
-  UpdateDatastoreCommandOutput
-} from "./commands/UpdateDatastoreCommand";
-import {
-  UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput
-} from "./commands/UpdatePipelineCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
+import { UpdateDatastoreCommandInput, UpdateDatastoreCommandOutput } from "./commands/UpdateDatastoreCommand";
+import { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -150,12 +72,7 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getRetryPlugin,
-  resolveRetryConfig
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -258,8 +175,7 @@ export type ServiceOutputTypes =
   | UpdateDatastoreCommandOutput
   | UpdatePipelineCommandOutput;
 
-export interface ClientDefaults
-  extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -343,9 +259,7 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type IoTAnalyticsClientConfig = Partial<
-  __SmithyConfiguration<__HttpHandlerOptions>
-> &
+export type IoTAnalyticsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -354,9 +268,7 @@ export type IoTAnalyticsClientConfig = Partial<
   UserAgentInputConfig &
   HostHeaderInputConfig;
 
-export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<
-  __HttpHandlerOptions
-> &
+export type IoTAnalyticsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &

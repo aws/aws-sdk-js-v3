@@ -1,21 +1,11 @@
-import {
-  MediaConvertClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes
-} from "../MediaConvertClient";
-import {
-  DisassociateCertificateRequest,
-  DisassociateCertificateResponse
-} from "../models/index";
+import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateCertificateCommand,
   serializeAws_restJson1_1DisassociateCertificateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse
-} from "@aws-sdk/protocol-http";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
   FinalizeHandlerArguments,
@@ -28,8 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type DisassociateCertificateCommandInput = DisassociateCertificateRequest;
-export type DisassociateCertificateCommandOutput = DisassociateCertificateResponse &
-  __MetadataBearer;
+export type DisassociateCertificateCommandOutput = DisassociateCertificateResponse & __MetadataBearer;
 
 export class DisassociateCertificateCommand extends $Command<
   DisassociateCertificateCommandInput,
@@ -49,13 +38,8 @@ export class DisassociateCertificateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    DisassociateCertificateCommandInput,
-    DisassociateCertificateCommandOutput
-  > {
-    this.middlewareStack.use(
-      getSerdePlugin(configuration, this.serialize, this.deserialize)
-    );
+  ): Handler<DisassociateCertificateCommandInput, DisassociateCertificateCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
@@ -70,24 +54,12 @@ export class DisassociateCertificateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DisassociateCertificateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateCertificateCommand(
-      input,
-      context
-    );
+  private serialize(input: DisassociateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1_1DisassociateCertificateCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateCertificateCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateCertificateCommand(
-      output,
-      context
-    );
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateCertificateCommandOutput> {
+    return deserializeAws_restJson1_1DisassociateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra
