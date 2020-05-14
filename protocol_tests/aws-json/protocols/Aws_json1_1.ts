@@ -154,7 +154,7 @@ const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ErrorWithMembers":
-    case "aws.protocols.tests.json#ErrorWithMembers":
+    case "aws.protocoltests.json#ErrorWithMembers":
       response = {
         ...(await deserializeAws_json1_1ErrorWithMembersResponse(
           parsedOutput,
@@ -165,7 +165,7 @@ const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
       };
       break;
     case "ErrorWithoutMembers":
-    case "aws.protocols.tests.json#ErrorWithoutMembers":
+    case "aws.protocoltests.json#ErrorWithoutMembers":
       response = {
         ...(await deserializeAws_json1_1ErrorWithoutMembersResponse(
           parsedOutput,

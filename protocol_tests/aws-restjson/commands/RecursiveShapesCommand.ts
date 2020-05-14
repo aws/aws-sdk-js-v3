@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { RecursiveShapesInputOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1RecursiveShapesCommand,
-  serializeAws_restJson1_1RecursiveShapesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1RecursiveShapesCommand,
+  serializeAws_restJson1RecursiveShapesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class RecursiveShapesCommand extends $Command<
     input: RecursiveShapesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RecursiveShapesCommand(input, context);
+    return serializeAws_restJson1RecursiveShapesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<RecursiveShapesCommandOutput> {
-    return deserializeAws_restJson1_1RecursiveShapesCommand(output, context);
+    return deserializeAws_restJson1RecursiveShapesCommand(output, context);
   }
 
   // Start section: command_body_extra

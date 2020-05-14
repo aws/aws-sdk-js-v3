@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { HttpPayloadTraitsWithMediaTypeInputOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommand,
-  serializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand,
+  serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,7 +71,7 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     input: HttpPayloadTraitsWithMediaTypeCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommand(
+    return serializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand(
       input,
       context
     );
@@ -81,7 +81,7 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> {
-    return deserializeAws_restJson1_1HttpPayloadTraitsWithMediaTypeCommand(
+    return deserializeAws_restJson1HttpPayloadTraitsWithMediaTypeCommand(
       output,
       context
     );

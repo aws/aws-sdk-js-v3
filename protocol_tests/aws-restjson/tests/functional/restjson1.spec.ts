@@ -133,10 +133,6 @@ const compareParts = (
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
   let localExpected = expected;
-  // Handle comparing sets to arrays properly.
-  if (expected instanceof Set) {
-    localExpected = Array.from(expected);
-  }
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -476,51 +472,6 @@ it("RestJsonGreetingWithErrors:Response", async () => {
 });
 
 /**
- * Parses simple JSON errors
- */
-it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
-  const client = new RestJsonProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      400,
-      {
-        "x-amzn-errortype": "InvalidGreeting",
-        "content-type": "application/json"
-      },
-      `{
-          "Message": "Hi"
-      }`
-    )
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (!InvalidGreeting.isa(err)) {
-      console.log(err);
-      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
-    const paramsToValidate: any = [
-      {
-        message: "Hi"
-      }
-    ][0];
-    Object.keys(paramsToValidate).forEach(param => {
-      expect(r[param]).toBeDefined();
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
  * Serializes the X-Amzn-ErrorType header. For an example service, see Amazon EKS.
  */
 it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
@@ -587,7 +538,7 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErr
   const client = new RestJsonProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(false, 500, {
       "x-amzn-errortype":
-        "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+        "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
     })
   });
 
@@ -658,7 +609,7 @@ it("RestJsonFooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =>
         "content-type": "application/json"
       },
       `{
-          "code": "aws.protocols.tests.restjson#FooError"
+          "code": "aws.protocoltests.restjson#FooError"
       }`
     )
   });
@@ -693,7 +644,7 @@ it("RestJsonFooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async ()
         "content-type": "application/json"
       },
       `{
-          "code": "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+          "code": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
       }`
     )
   });
@@ -763,7 +714,7 @@ it("RestJsonFooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async 
         "content-type": "application/json"
       },
       `{
-          "__type": "aws.protocols.tests.restjson#FooError"
+          "__type": "aws.protocoltests.restjson#FooError"
       }`
     )
   });
@@ -798,7 +749,7 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
         "content-type": "application/json"
       },
       `{
-          "__type": "aws.protocols.tests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
+          "__type": "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/"
       }`
     )
   });
@@ -902,6 +853,51 @@ it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () =
     }
     const r: any = err;
     expect(r["$metadata"].httpStatusCode).toBe(403);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Parses simple JSON errors
+ */
+it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
+  const client = new RestJsonProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "x-amzn-errortype": "InvalidGreeting",
+        "content-type": "application/json"
+      },
+      `{
+          "Message": "Hi"
+      }`
+    )
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (!InvalidGreeting.isa(err)) {
+      console.log(err);
+      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    const paramsToValidate: any = [
+      {
+        message: "Hi"
+      }
+    ][0];
+    Object.keys(paramsToValidate).forEach(param => {
+      expect(r[param]).toBeDefined();
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    });
     return;
   }
   fail("Expected an exception to be thrown from response");

@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { QueryIdempotencyTokenAutoFillInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand,
-  serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommand,
+  serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     input: QueryIdempotencyTokenAutoFillCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(
+    return serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return deserializeAws_restJson1_1QueryIdempotencyTokenAutoFillCommand(
+    return deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommand(
       output,
       context
     );

@@ -434,7 +434,7 @@ const deserializeAws_ec2GreetingWithErrorsCommandError = async (
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
-    case "aws.protocols.tests.ec2#ComplexError":
+    case "aws.protocoltests.ec2#ComplexError":
       response = {
         ...(await deserializeAws_ec2ComplexErrorResponse(
           parsedOutput,
@@ -445,7 +445,7 @@ const deserializeAws_ec2GreetingWithErrorsCommandError = async (
       };
       break;
     case "InvalidGreeting":
-    case "aws.protocols.tests.ec2#InvalidGreeting":
+    case "aws.protocoltests.ec2#InvalidGreeting":
       response = {
         ...(await deserializeAws_ec2InvalidGreetingResponse(
           parsedOutput,
@@ -1924,6 +1924,13 @@ const deserializeAws_ec2XmlListsOutput = (
   return contents;
 };
 
+const deserializeAws_ec2XmlNamespacedList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_ec2XmlNamespaceNested = (
   output: any,
   context: __SerdeContext
@@ -1949,13 +1956,6 @@ const deserializeAws_ec2XmlNamespaceNested = (
     );
   }
   return contents;
-};
-
-const deserializeAws_ec2XmlNamespacedList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_ec2XmlNamespacesOutput = (

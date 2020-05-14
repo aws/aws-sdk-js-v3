@@ -107,10 +107,6 @@ const compareParts = (
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
   let localExpected = expected;
-  // Handle comparing sets to arrays properly.
-  if (expected instanceof Set) {
-    localExpected = Array.from(expected);
-  }
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -1470,7 +1466,7 @@ it("parses_double_shapes:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Double: 1.2345678912345679e8
+      Double: 123456789.12345679
     }
   ][0];
   Object.keys(paramsToValidate).forEach(param => {

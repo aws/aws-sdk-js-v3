@@ -4,9 +4,9 @@ import {
   ServiceOutputTypes
 } from "../RestJsonProtocolClient";
 import {
-  deserializeAws_restJson1_1NoInputAndNoOutputCommand,
-  serializeAws_restJson1_1NoInputAndNoOutputCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1NoInputAndNoOutputCommand,
+  serializeAws_restJson1NoInputAndNoOutputCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -66,14 +66,14 @@ export class NoInputAndNoOutputCommand extends $Command<
     input: NoInputAndNoOutputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1NoInputAndNoOutputCommand(input, context);
+    return serializeAws_restJson1NoInputAndNoOutputCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NoInputAndNoOutputCommandOutput> {
-    return deserializeAws_restJson1_1NoInputAndNoOutputCommand(output, context);
+    return deserializeAws_restJson1NoInputAndNoOutputCommand(output, context);
   }
 
   // Start section: command_body_extra
