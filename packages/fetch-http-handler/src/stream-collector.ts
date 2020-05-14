@@ -5,7 +5,7 @@ import { fromBase64 } from "@aws-sdk/util-base64-browser";
 export const streamCollector: StreamCollector = (
   stream: Blob | ReadableStream
 ): Promise<Uint8Array> => {
-  if(stream instanceof Blob) {
+  if (stream instanceof Blob) {
     return collectBlob(stream);
   }
 
@@ -22,9 +22,9 @@ async function collectStream(stream: ReadableStream): Promise<Uint8Array> {
   let res = new Uint8Array(0);
   const reader = stream.getReader();
   let isDone = false;
-  while(!isDone) {
+  while (!isDone) {
     const { done, value } = await reader.read();
-    if(value) {
+    if (value) {
       const prior = res;
       res = new Uint8Array(prior.length + value.length);
       res.set(prior);

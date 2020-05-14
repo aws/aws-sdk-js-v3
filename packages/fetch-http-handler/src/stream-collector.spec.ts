@@ -1,4 +1,4 @@
-import { streamCollector } from "./index";
+import { streamCollector } from "./stream-collector";
 
 describe("streamCollector", () => {
   it("returns a Uint8Array from a blob", done => {

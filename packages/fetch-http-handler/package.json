@@ -5,7 +5,7 @@
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
-    "test": "jest --coverage"
+    "test": "jest --coverage && karma start karma.conf.js"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -23,8 +23,13 @@
   "devDependencies": {
     "@aws-sdk/abort-controller": "1.0.0-beta.4",
     "@types/jest": "^25.1.4",
-    "@types/node": "^10.0.0",
-    "jest": "^25.1.0",
+    "jasmine-core": "^3.5.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^3.1.1",
+    "karma-typescript": "^4.1.1",
+    "puppeteer": "^3.0.1",
+    "source-map": "^0.7.3",
     "typescript": "~3.8.3"
   }
 }

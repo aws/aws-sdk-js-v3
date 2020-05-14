@@ -2,7 +2,7 @@ process.env.CHROME_BIN = require("puppeteer").executablePath();
 module.exports = function (config) {
   config.set({
     frameworks: ["jasmine", "karma-typescript"],
-    files: ["src/**/*.ts"],
+    files: ["src/stream-collector*.ts"],
     exclude: ["**/*.d.ts"],
     preprocessors: {
       "**/*.ts": "karma-typescript"

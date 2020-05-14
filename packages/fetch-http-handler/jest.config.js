@@ -1,5 +1,6 @@
 const base = require("../../jest.config.base.js");
 
 module.exports = {
-  ...base
+  ...base,
+  testPathIgnorePatterns: ["/node_modules/", "stream-collector.spec.js"]
 };
