@@ -1,11 +1,15 @@
-import { EC2ProtocolClient } from "../../EC2ProtocolClient";
+import { QueryProtocolClient } from "../../QueryProtocolClient";
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
+import { FlattenedXmlMapCommand } from "../../commands/FlattenedXmlMapCommand";
+import { FlattenedXmlMapWithXmlNameCommand } from "../../commands/FlattenedXmlMapWithXmlNameCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { IgnoresWrappingXmlNameCommand } from "../../commands/IgnoresWrappingXmlNameCommand";
 import { NestedStructuresCommand } from "../../commands/NestedStructuresCommand";
+import { NoInputAndNoOutputCommand } from "../../commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommand } from "../../commands/NoInputAndOutputCommand";
 import { QueryIdempotencyTokenAutoFillCommand } from "../../commands/QueryIdempotencyTokenAutoFillCommand";
 import { QueryListsCommand } from "../../commands/QueryListsCommand";
+import { QueryMapsCommand } from "../../commands/QueryMapsCommand";
 import { QueryTimestampsCommand } from "../../commands/QueryTimestampsCommand";
 import { RecursiveXmlShapesCommand } from "../../commands/RecursiveXmlShapesCommand";
 import { SimpleInputParamsCommand } from "../../commands/SimpleInputParamsCommand";
@@ -13,6 +17,8 @@ import { SimpleScalarXmlPropertiesCommand } from "../../commands/SimpleScalarXml
 import { XmlBlobsCommand } from "../../commands/XmlBlobsCommand";
 import { XmlEnumsCommand } from "../../commands/XmlEnumsCommand";
 import { XmlListsCommand } from "../../commands/XmlListsCommand";
+import { XmlMapsCommand } from "../../commands/XmlMapsCommand";
+import { XmlMapsXmlNameCommand } from "../../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
 import { ComplexError, InvalidGreeting } from "../../models/index";
@@ -121,10 +127,6 @@ const compareParts = (
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
   let localExpected = expected;
-  // Handle comparing sets to arrays properly.
-  if (expected instanceof Set) {
-    localExpected = Array.from(expected);
-  }
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -169,8 +171,8 @@ const equivalentContents = (expected: any, generated: any): boolean => {
 /**
  * Empty input serializes no extra query params
  */
-it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryEmptyInputAndEmptyOutput:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -205,19 +207,9 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
 /**
  * Empty output
  */
-it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
-  const client = new EC2ProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "text/xml;charset=UTF-8"
-      },
-      `<EmptyInputAndEmptyOutputResponse xmlns="https://example.com/">
-          <RequestId>requestid</RequestId>
-      </EmptyInputAndEmptyOutputResponse>
-      `
-    )
+it("QueryEmptyInputAndEmptyOutput:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
   });
 
   const params: any = {};
@@ -234,19 +226,124 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
 });
 
 /**
- * Ensures that operations with errors successfully know how to deserialize the successful response
+ * Serializes flattened XML maps in responses
  */
-it("Ec2GreetingWithErrors:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryQueryFlattenedXmlMap:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
+      },
+      `<FlattenedXmlMapResponse xmlns="https://example.com/">
+          <FlattenedXmlMapResult>
+              <myMap>
+                  <key>foo</key>
+                  <value>Foo</value>
+              </myMap>
+              <myMap>
+                  <key>baz</key>
+                  <value>Baz</value>
+              </myMap>
+          </FlattenedXmlMapResult>
+      </FlattenedXmlMapResponse>`
+    )
+  });
+
+  const params: any = {};
+  const command = new FlattenedXmlMapCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        foo: "Foo",
+
+        baz: "Baz"
+      }
+    }
+  ][0];
+  Object.keys(paramsToValidate).forEach(param => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes flattened XML maps in responses that have xmlName on members
+ */
+it("QueryQueryFlattenedXmlMapWithXmlName:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml"
+      },
+      `<FlattenedXmlMapWithXmlNameResponse xmlns="https://example.com/">
+          <FlattenedXmlMapWithXmlNameResult>
+              <KVP>
+                  <K>a</K>
+                  <V>A</V>
+              </KVP>
+              <KVP>
+                  <K>b</K>
+                  <V>B</V>
+              </KVP>
+          </FlattenedXmlMapWithXmlNameResult>
+      </FlattenedXmlMapWithXmlNameResponse>`
+    )
+  });
+
+  const params: any = {};
+  const command = new FlattenedXmlMapWithXmlNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        a: "A",
+
+        b: "B"
+      }
+    }
+  ][0];
+  Object.keys(paramsToValidate).forEach(param => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that operations with errors successfully know how to deserialize the successful response
+ */
+it("QueryGreetingWithErrors:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml"
       },
       `<GreetingWithErrorsResponse xmlns="https://example.com/">
-          <greeting>Hello</greeting>
-          <RequestId>requestid</RequestId>
+          <GreetingWithErrorsResult>
+              <greeting>Hello</greeting>
+          </GreetingWithErrorsResult>
       </GreetingWithErrorsResponse>
       `
     )
@@ -277,23 +374,22 @@ it("Ec2GreetingWithErrors:Response", async () => {
 /**
  * Parses simple XML errors
  */
-it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryInvalidGreetingError:Error:GreetingWithErrors", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
-      `<Response>
-          <Errors>
-              <Error>
-                  <Code>InvalidGreeting</Code>
-                  <Message>Hi</Message>
-              </Error>
-          </Errors>
-          <RequestId>foo-id</RequestId>
-      </Response>
+      `<ErrorResponse>
+         <Error>
+            <Type>Sender</Type>
+            <Code>InvalidGreeting</Code>
+            <Message>Hi</Message>
+         </Error>
+         <RequestId>foo-id</RequestId>
+      </ErrorResponse>
       `
     )
   });
@@ -325,27 +421,26 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
   fail("Expected an exception to be thrown from response");
 });
 
-it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryComplexError:Error:GreetingWithErrors", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
-      `<Response>
-          <Errors>
-              <Error>
-                  <Code>ComplexError</Code>
-                  <Message>Hi</Message>
-                  <TopLevel>Top level</TopLevel>
-                  <Nested>
-                      <Foo>bar</Foo>
-                  </Nested>
-              </Error>
-          </Errors>
-          <RequestId>foo-id</RequestId>
-      </Response>
+      `<ErrorResponse>
+         <Error>
+            <Type>Sender</Type>
+            <Code>ComplexError</Code>
+            <Message>Hi</Message>
+            <TopLevel>Top level</TopLevel>
+            <Nested>
+                <Foo>bar</Foo>
+            </Nested>
+         </Error>
+         <RequestId>foo-id</RequestId>
+      </ErrorResponse>
       `
     )
   });
@@ -382,19 +477,20 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
 });
 
 /**
- * The xmlName trait on the output structure is ignored in the ec2 protocol
+ * The xmlName trait on the output structure is ignored in AWS Query
  */
-it("Ec2IgnoresWrappingXmlName:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryIgnoresWrappingXmlName:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<IgnoresWrappingXmlNameResponse xmlns="http://foo.com" xmlns="https://example.com/">
-          <foo>bar</foo>
-          <RequestId>requestid</RequestId>
+          <IgnoresWrappingXmlNameResult>
+              <foo>bar</foo>
+          </IgnoresWrappingXmlNameResult>
       </IgnoresWrappingXmlNameResponse>
       `
     )
@@ -425,8 +521,8 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
 /**
  * Serializes nested structures using dots
  */
-it("Ec2NestedStructures:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("NestedStructures:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -472,14 +568,71 @@ it("Ec2NestedStructures:Request", async () => {
 });
 
 /**
- * No input serializes no payload
+ * No input serializes no additional query params
  */
-it("Ec2QueryNoInputAndOutput:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryNoInputAndNoOutput:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
-  const command = new NoInputAndOutputCommand({});
+  const command = new NoInputAndNoOutputCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=NoInputAndNoOutput
+    &Version=2020-01-08`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Empty output. Note that no assertion is made on the output body itself.
+ */
+it("QueryNoInputAndNoOutput:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
+  });
+
+  const params: any = {};
+  const command = new NoInputAndNoOutputCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * No input serializes no payload
+ */
+it("QueryNoInputAndOutput:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new NoInputAndOutputCommand({} as any);
   try {
     await client.send(command);
     fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
@@ -510,19 +663,9 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
 /**
  * Empty output
  */
-it("Ec2QueryNoInputAndOutput:Response", async () => {
-  const client = new EC2ProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "text/xml;charset=UTF-8"
-      },
-      `<NoInputAndOutputResponse xmlns="https://example.com/">
-          <RequestId>requestid</RequestId>
-      </NoInputAndOutputResponse>
-      `
-    )
+it("QueryNoInputAndOutput:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined)
   });
 
   const params: any = {};
@@ -541,8 +684,8 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
 /**
  * Automatically adds idempotency token when not set
  */
-it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -568,7 +711,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
-    &Token=00000000-0000-4000-8000-000000000000`;
+    &token=00000000-0000-4000-8000-000000000000`;
     const unequalParts: any = compareEquivalentBodies(
       bodyString,
       r.body.toString()
@@ -580,8 +723,8 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
 /**
  * Uses the given idempotency token as-is
  */
-it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -607,7 +750,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
-    &Token=00000000-0000-4000-8000-000000000123`;
+    &token=00000000-0000-4000-8000-000000000123`;
     const unequalParts: any = compareEquivalentBodies(
       bodyString,
       r.body.toString()
@@ -617,10 +760,10 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
 });
 
 /**
- * Serializes query lists. All EC2 lists are flattened.
+ * Serializes query lists
  */
-it("Ec2Lists:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryLists:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -656,11 +799,11 @@ it("Ec2Lists:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08
-    &ListArg.1=foo
-    &ListArg.2=bar
-    &ListArg.3=baz
-    &ComplexListArg.1.Hi=hello
-    &ComplexListArg.2.Hi=hola`;
+    &ListArg.member.1=foo
+    &ListArg.member.2=bar
+    &ListArg.member.3=baz
+    &ComplexListArg.member.1.hi=hello
+    &ComplexListArg.member.2.hi=hola`;
     const unequalParts: any = compareEquivalentBodies(
       bodyString,
       r.body.toString()
@@ -672,8 +815,8 @@ it("Ec2Lists:Request", async () => {
 /**
  * Does not serialize empty query lists
  */
-it("Ec2EmptyQueryLists:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("EmptyQueryLists:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -708,10 +851,50 @@ it("Ec2EmptyQueryLists:Request", async () => {
 });
 
 /**
- * An xmlName trait in the member of a list has no effect on the list serialization.
+ * Flattens query lists by repeating the member name and removing the member element
  */
-it("Ec2ListArgWithXmlNameMember:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("FlattenedQueryLists:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryListsCommand({
+    FlattenedListArg: ["A", "B"]
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryLists
+    &Version=2020-01-08
+    &FlattenedListArg.1=A
+    &FlattenedListArg.2=B`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Changes the member of lists using xmlName trait
+ */
+it("QueryListArgWithXmlNameMember:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -737,8 +920,8 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08
-    &ListArgWithXmlNameMember.1=A
-    &ListArgWithXmlNameMember.2=B`;
+    &ListArgWithXmlNameMember.item.1=A
+    &ListArgWithXmlNameMember.item.2=B`;
     const unequalParts: any = compareEquivalentBodies(
       bodyString,
       r.body.toString()
@@ -748,15 +931,15 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
 });
 
 /**
- * Changes the name of the list using the xmlName trait
+ * Changes the name of flattened lists using xmlName trait on the structure member
  */
-it("Ec2ListMemberWithXmlName:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryFlattenedListArgWithXmlName:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
   const command = new QueryListsCommand({
-    ListArgWithXmlName: ["A", "B"]
+    FlattenedListArgWithXmlName: ["A", "B"]
   } as any);
   try {
     await client.send(command);
@@ -788,10 +971,372 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
 });
 
 /**
+ * Serializes query maps
+ */
+it("QuerySimpleQueryMaps:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    MapArg: {
+      foo: "Foo",
+
+      bar: "Bar"
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &MapArg.entry.1.key=foo
+    &MapArg.entry.1.value=Foo
+    &MapArg.entry.2.key=bar
+    &MapArg.entry.2.value=Bar`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes query maps and uses xmlName
+ */
+it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    RenamedMapArg: {
+      foo: "Foo"
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &Foo.entry.1.key=foo
+    &Foo.entry.1.value=Foo`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes complex query maps
+ */
+it("QueryComplexQueryMaps:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    ComplexMapArg: {
+      foo: {
+        hi: "Foo"
+      } as any,
+
+      bar: {
+        hi: "Bar"
+      } as any
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &ComplexMapArg.entry.1.key=foo
+    &ComplexMapArg.entry.1.value.hi=Foo
+    &ComplexMapArg.entry.2.key=bar
+    &ComplexMapArg.entry.2.value.hi=Bar`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Does not serialize empty query maps
+ */
+it("QueryEmptyQueryMaps:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    MapArg: {} as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes query maps where the member has an xmlName trait
+ */
+it("QueryQueryMapWithMemberXmlName:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    MapWithXmlMemberName: {
+      foo: "Foo",
+
+      bar: "Bar"
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &MapWithXmlMemberName.entry.1.K=foo
+    &MapWithXmlMemberName.entry.1.V=Foo
+    &MapWithXmlMemberName.entry.2.K=bar
+    &MapWithXmlMemberName.entry.2.V=Bar`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes flattened query maps
+ */
+it("QueryFlattenedQueryMaps:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    FlattenedMap: {
+      foo: "Foo",
+
+      bar: "Bar"
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &FlattenedMap.1.key=foo
+    &FlattenedMap.1.value=Foo
+    &FlattenedMap.2.key=bar
+    &FlattenedMap.2.value=Bar`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes flattened query maps that use an xmlName
+ */
+it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    FlattenedMapWithXmlName: {
+      foo: "Foo",
+
+      bar: "Bar"
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &Hi.1.K=foo
+    &Hi.1.V=Foo
+    &Hi.2.K=bar
+    &Hi.2.V=Bar`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes query map of lists
+ */
+it("QueryQueryMapOfLists:Request", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new RequestSerializationTestHandler()
+  });
+
+  const command = new QueryMapsCommand({
+    MapOfLists: {
+      foo: ["A", "B"],
+
+      bar: ["C", "D"]
+    } as any
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["Content-Type"]).toBeDefined();
+    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=QueryMaps
+    &Version=2020-01-08
+    &MapOfLists.entry.1.key=foo
+    &MapOfLists.entry.1.value.member.1=A
+    &MapOfLists.entry.1.value.member.2=B
+    &MapOfLists.entry.2.key=bar
+    &MapOfLists.entry.2.value.member.1=C
+    &MapOfLists.entry.2.value.member.2=D`;
+    const unequalParts: any = compareEquivalentBodies(
+      bodyString,
+      r.body.toString()
+    );
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Serializes timestamps
  */
-it("Ec2TimestampsInput:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryTimestampsInput:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -821,9 +1366,9 @@ it("Ec2TimestampsInput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryTimestamps
     &Version=2020-01-08
-    &NormalFormat=2015-01-25T08%3A00%3A00Z
-    &EpochMember=1422172800
-    &EpochTarget=1422172800`;
+    &normalFormat=2015-01-25T08%3A00%3A00Z
+    &epochMember=1422172800
+    &epochTarget=1422172800`;
     const unequalParts: any = compareEquivalentBodies(
       bodyString,
       r.body.toString()
@@ -835,28 +1380,29 @@ it("Ec2TimestampsInput:Request", async () => {
 /**
  * Serializes recursive structures
  */
-it("Ec2RecursiveShapes:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryRecursiveShapes:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<RecursiveXmlShapesResponse xmlns="https://example.com/">
-          <nested>
-              <foo>Foo1</foo>
+          <RecursiveXmlShapesResult>
               <nested>
-                  <bar>Bar1</bar>
-                  <recursiveMember>
-                      <foo>Foo2</foo>
-                      <nested>
-                          <bar>Bar2</bar>
-                      </nested>
-                  </recursiveMember>
+                  <foo>Foo1</foo>
+                  <nested>
+                      <bar>Bar1</bar>
+                      <recursiveMember>
+                          <foo>Foo2</foo>
+                          <nested>
+                              <bar>Bar2</bar>
+                          </nested>
+                      </recursiveMember>
+                  </nested>
               </nested>
-          </nested>
-          <RequestId>requestid</RequestId>
+          </RecursiveXmlShapesResult>
       </RecursiveXmlShapesResponse>
       `
     )
@@ -901,8 +1447,8 @@ it("Ec2RecursiveShapes:Response", async () => {
 /**
  * Serializes strings
  */
-it("Ec2SimpleInputParamsStrings:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleInputParamsStrings:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -943,8 +1489,8 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
 /**
  * Serializes booleans that are true
  */
-it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -985,8 +1531,8 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
 /**
  * Serializes booleans that are false
  */
-it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -1024,8 +1570,8 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
 /**
  * Serializes integers
  */
-it("Ec2SimpleInputParamsInteger:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleInputParamsInteger:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -1063,8 +1609,8 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
 /**
  * Serializes floats
  */
-it("Ec2SimpleInputParamsFloat:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleInputParamsFloat:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -1102,8 +1648,8 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
 /**
  * Blobs are base64 encoded in the query string
  */
-it("Ec2SimpleInputParamsBlob:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleInputParamsBlob:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -1141,8 +1687,8 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
 /**
  * Serializes enums in the query string
  */
-it("Ec2Enums:Request", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryEnums:Request", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new RequestSerializationTestHandler()
   });
 
@@ -1178,145 +1724,29 @@ it("Ec2Enums:Request", async () => {
 });
 
 /**
- * Serializes query using ec2QueryName trait.
- */
-it("Ec2Query:Request", async () => {
-  const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
-  });
-
-  const command = new SimpleInputParamsCommand({
-    HasQueryName: "Hi"
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/");
-
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
-
-    expect(r.body).toBeDefined();
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &A=Hi`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
- * ec2QueryName trait is preferred over xmlName.
- */
-it("Ec2QueryIsPreferred:Request", async () => {
-  const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
-  });
-
-  const command = new SimpleInputParamsCommand({
-    HasQueryAndXmlName: "Hi"
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/");
-
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
-
-    expect(r.body).toBeDefined();
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &B=Hi`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
- * xmlName is used with the ec2 protocol, but the first character is uppercased
- */
-it("Ec2XmlNameIsUppercased:Request", async () => {
-  const client = new EC2ProtocolClient({
-    requestHandler: new RequestSerializationTestHandler()
-  });
-
-  const command = new SimpleInputParamsCommand({
-    UsesXmlName: "Hi"
-  } as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/");
-
-    expect(r.headers["Content-Type"]).toBeDefined();
-    expect(r.headers["Content-Type"]).toBe("application/x-www-form-urlencoded");
-
-    expect(r.body).toBeDefined();
-    const bodyString = `Action=SimpleInputParams
-    &Version=2020-01-08
-    &C=Hi`;
-    const unequalParts: any = compareEquivalentBodies(
-      bodyString,
-      r.body.toString()
-    );
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
  * Serializes simple scalar properties
  */
-it("Ec2SimpleScalarProperties:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QuerySimpleScalarProperties:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<SimpleScalarXmlPropertiesResponse xmlns="https://example.com/">
-          <stringValue>string</stringValue>
-          <emptyStringValue/>
-          <trueBooleanValue>true</trueBooleanValue>
-          <falseBooleanValue>false</falseBooleanValue>
-          <byteValue>1</byteValue>
-          <shortValue>2</shortValue>
-          <integerValue>3</integerValue>
-          <longValue>4</longValue>
-          <floatValue>5.5</floatValue>
-          <DoubleDribble>6.5</DoubleDribble>
-          <RequestId>requestid</RequestId>
+          <SimpleScalarXmlPropertiesResult>
+              <stringValue>string</stringValue>
+              <emptyStringValue/>
+              <trueBooleanValue>true</trueBooleanValue>
+              <falseBooleanValue>false</falseBooleanValue>
+              <byteValue>1</byteValue>
+              <shortValue>2</shortValue>
+              <integerValue>3</integerValue>
+              <longValue>4</longValue>
+              <floatValue>5.5</floatValue>
+              <DoubleDribble>6.5</DoubleDribble>
+          </SimpleScalarXmlPropertiesResult>
       </SimpleScalarXmlPropertiesResponse>
       `
     )
@@ -1365,17 +1795,18 @@ it("Ec2SimpleScalarProperties:Response", async () => {
 /**
  * Blobs are base64 encoded
  */
-it("Ec2XmlBlobs:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlBlobs:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlBlobsResponse xmlns="https://example.com/">
-          <data>dmFsdWU=</data>
-          <RequestId>requestid</RequestId>
+          <XmlBlobsResult>
+              <data>dmFsdWU=</data>
+          </XmlBlobsResult>
       </XmlBlobsResponse>
       `
     )
@@ -1406,37 +1837,38 @@ it("Ec2XmlBlobs:Response", async () => {
 /**
  * Serializes simple scalar properties
  */
-it("Ec2XmlEnums:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlEnums:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlEnumsResponse xmlns="https://example.com/">
-          <fooEnum1>Foo</fooEnum1>
-          <fooEnum2>0</fooEnum2>
-          <fooEnum3>1</fooEnum3>
-          <fooEnumList>
-              <member>Foo</member>
-              <member>0</member>
-          </fooEnumList>
-          <fooEnumSet>
-              <member>Foo</member>
-              <member>0</member>
-          </fooEnumSet>
-          <fooEnumMap>
-              <entry>
-                  <key>hi</key>
-                  <value>Foo</value>
-              </entry>
-              <entry>
-                  <key>zero</key>
-                  <value>0</value>
-              </entry>
-          </fooEnumMap>
-          <RequestId>requestid</RequestId>
+          <XmlEnumsResult>
+              <fooEnum1>Foo</fooEnum1>
+              <fooEnum2>0</fooEnum2>
+              <fooEnum3>1</fooEnum3>
+              <fooEnumList>
+                  <member>Foo</member>
+                  <member>0</member>
+              </fooEnumList>
+              <fooEnumSet>
+                  <member>Foo</member>
+                  <member>0</member>
+              </fooEnumSet>
+              <fooEnumMap>
+                  <entry>
+                      <key>hi</key>
+                      <value>Foo</value>
+                  </entry>
+                  <entry>
+                      <key>zero</key>
+                      <value>0</value>
+                  </entry>
+              </fooEnumMap>
+          </XmlEnumsResult>
       </XmlEnumsResponse>
       `
     )
@@ -1481,68 +1913,69 @@ it("Ec2XmlEnums:Response", async () => {
 /**
  * Serializes XML lists
  */
-it("Ec2XmlLists:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlLists:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlListsResponse xmlns="https://example.com/">
-          <stringList>
-              <member>foo</member>
-              <member>bar</member>
-          </stringList>
-          <stringSet>
-              <member>foo</member>
-              <member>bar</member>
-          </stringSet>
-          <integerList>
-              <member>1</member>
-              <member>2</member>
-          </integerList>
-          <booleanList>
-              <member>true</member>
-              <member>false</member>
-          </booleanList>
-          <timestampList>
-              <member>2014-04-29T18:30:38Z</member>
-              <member>2014-04-29T18:30:38Z</member>
-          </timestampList>
-          <enumList>
-              <member>Foo</member>
-              <member>0</member>
-          </enumList>
-          <nestedStringList>
-              <member>
+          <XmlListsResult>
+              <stringList>
                   <member>foo</member>
                   <member>bar</member>
-              </member>
-              <member>
-                  <member>baz</member>
-                  <member>qux</member>
-              </member>
-          </nestedStringList>
-          <renamed>
-              <item>foo</item>
-              <item>bar</item>
-          </renamed>
-          <flattenedList>hi</flattenedList>
-          <flattenedList>bye</flattenedList>
-          <customName>yep</customName>
-          <customName>nope</customName>
-          <myStructureList>
-              <item>
-                  <value>1</value>
-                  <other>2</other>
-              </item>
-              <item>
-                  <value>3</value>
-                  <other>4</other>
-              </item>
-          </myStructureList>
-          <RequestId>requestid</RequestId>
+              </stringList>
+              <stringSet>
+                  <member>foo</member>
+                  <member>bar</member>
+              </stringSet>
+              <integerList>
+                  <member>1</member>
+                  <member>2</member>
+              </integerList>
+              <booleanList>
+                  <member>true</member>
+                  <member>false</member>
+              </booleanList>
+              <timestampList>
+                  <member>2014-04-29T18:30:38Z</member>
+                  <member>2014-04-29T18:30:38Z</member>
+              </timestampList>
+              <enumList>
+                  <member>Foo</member>
+                  <member>0</member>
+              </enumList>
+              <nestedStringList>
+                  <member>
+                      <member>foo</member>
+                      <member>bar</member>
+                  </member>
+                  <member>
+                      <member>baz</member>
+                      <member>qux</member>
+                  </member>
+              </nestedStringList>
+              <renamed>
+                  <item>foo</item>
+                  <item>bar</item>
+              </renamed>
+              <flattenedList>hi</flattenedList>
+              <flattenedList>bye</flattenedList>
+              <customName>yep</customName>
+              <customName>nope</customName>
+              <myStructureList>
+                  <item>
+                      <value>1</value>
+                      <other>2</other>
+                  </item>
+                  <item>
+                      <value>3</value>
+                      <other>4</other>
+                  </item>
+              </myStructureList>
+          </XmlListsResult>
       </XmlListsResponse>
       `
     )
@@ -1607,25 +2040,152 @@ it("Ec2XmlLists:Response", async () => {
 });
 
 /**
- * Serializes XML namespaces
+ * Serializes XML maps
  */
-it("Ec2XmlNamespaces:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlMaps:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
+      },
+      `<XmlMapsResponse xmlns="https://example.com/">
+          <XmlMapsResult>
+              <myMap>
+                  <entry>
+                      <key>foo</key>
+                      <value>
+                          <hi>there</hi>
+                      </value>
+                  </entry>
+                  <entry>
+                      <key>baz</key>
+                      <value>
+                          <hi>bye</hi>
+                      </value>
+                  </entry>
+              </myMap>
+          </XmlMapsResult>
+      </XmlMapsResponse>
+      `
+    )
+  });
+
+  const params: any = {};
+  const command = new XmlMapsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        foo: {
+          hi: "there"
+        },
+
+        baz: {
+          hi: "bye"
+        }
+      }
+    }
+  ][0];
+  Object.keys(paramsToValidate).forEach(param => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes XML lists
+ */
+it("QueryQueryXmlMapsXmlName:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml"
+      },
+      `<XmlMapsXmlNameResponse xmlns="https://example.com/">
+          <XmlMapsXmlNameResult>
+              <myMap>
+                  <entry>
+                      <Attribute>foo</Attribute>
+                      <Setting>
+                          <hi>there</hi>
+                      </Setting>
+                  </entry>
+                  <entry>
+                      <Attribute>baz</Attribute>
+                      <Setting>
+                          <hi>bye</hi>
+                      </Setting>
+                  </entry>
+              </myMap>
+          </XmlMapsXmlNameResult>
+      </XmlMapsXmlNameResponse>
+      `
+    )
+  });
+
+  const params: any = {};
+  const command = new XmlMapsXmlNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        foo: {
+          hi: "there"
+        },
+
+        baz: {
+          hi: "bye"
+        }
+      }
+    }
+  ][0];
+  Object.keys(paramsToValidate).forEach(param => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes XML namespaces
+ */
+it("QueryXmlNamespaces:Response", async () => {
+  const client = new QueryProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "text/xml"
       },
       `<XmlNamespacesResponse xmlns="http://foo.com" xmlns="https://example.com/">
-          <nested>
-              <foo xmlns:baz="http://baz.com">Foo</foo>
-              <values xmlns="http://qux.com">
-                  <member xmlns="http://bux.com">Bar</member>
-                  <member xmlns="http://bux.com">Baz</member>
-              </values>
-          </nested>
-          <RequestId>requestid</RequestId>
+          <XmlNamespacesResult>
+              <nested>
+                  <foo xmlns:baz="http://baz.com">Foo</foo>
+                  <values xmlns="http://qux.com">
+                      <member xmlns="http://bux.com">Bar</member>
+                      <member xmlns="http://bux.com">Baz</member>
+                  </values>
+              </nested>
+          </XmlNamespacesResult>
       </XmlNamespacesResponse>
       `
     )
@@ -1660,17 +2220,18 @@ it("Ec2XmlNamespaces:Response", async () => {
 /**
  * Tests how normal timestamps are serialized
  */
-it("Ec2XmlTimestamps:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlTimestamps:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
-          <normal>2014-04-29T18:30:38Z</normal>
-          <RequestId>requestid</RequestId>
+          <XmlTimestampsResult>
+              <normal>2014-04-29T18:30:38Z</normal>
+          </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
     )
@@ -1701,17 +2262,18 @@ it("Ec2XmlTimestamps:Response", async () => {
 /**
  * Ensures that the timestampFormat of date-time works like normal timestamps
  */
-it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlTimestampsWithDateTimeFormat:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
-          <dateTime>2014-04-29T18:30:38Z</dateTime>
-          <RequestId>requestid</RequestId>
+          <XmlTimestampsResult>
+              <dateTime>2014-04-29T18:30:38Z</dateTime>
+          </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
     )
@@ -1742,17 +2304,18 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
 /**
  * Ensures that the timestampFormat of epoch-seconds works
  */
-it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlTimestampsWithEpochSecondsFormat:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
-          <epochSeconds>1398796238</epochSeconds>
-          <RequestId>requestid</RequestId>
+          <XmlTimestampsResult>
+              <epochSeconds>1398796238</epochSeconds>
+          </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
     )
@@ -1783,17 +2346,18 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
 /**
  * Ensures that the timestampFormat of http-date works
  */
-it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
-  const client = new EC2ProtocolClient({
+it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
+  const client = new QueryProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "text/xml;charset=UTF-8"
+        "content-type": "text/xml"
       },
       `<XmlTimestampsResponse xmlns="https://example.com/">
-          <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
-          <RequestId>requestid</RequestId>
+          <XmlTimestampsResult>
+              <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
+          </XmlTimestampsResult>
       </XmlTimestampsResponse>
       `
     )

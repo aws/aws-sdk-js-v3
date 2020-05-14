@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { NullAndEmptyHeadersIO } from "../models/index";
 import {
-  deserializeAws_restJson1_1NullAndEmptyHeadersClientCommand,
-  serializeAws_restJson1_1NullAndEmptyHeadersClientCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1NullAndEmptyHeadersClientCommand,
+  serializeAws_restJson1NullAndEmptyHeadersClientCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,7 +71,7 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     input: NullAndEmptyHeadersClientCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1NullAndEmptyHeadersClientCommand(
+    return serializeAws_restJson1NullAndEmptyHeadersClientCommand(
       input,
       context
     );
@@ -81,7 +81,7 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<NullAndEmptyHeadersClientCommandOutput> {
-    return deserializeAws_restJson1_1NullAndEmptyHeadersClientCommand(
+    return deserializeAws_restJson1NullAndEmptyHeadersClientCommand(
       output,
       context
     );

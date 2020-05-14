@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { JsonBlobsInputOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1JsonBlobsCommand,
-  serializeAws_restJson1_1JsonBlobsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1JsonBlobsCommand,
+  serializeAws_restJson1JsonBlobsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class JsonBlobsCommand extends $Command<
     input: JsonBlobsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1JsonBlobsCommand(input, context);
+    return serializeAws_restJson1JsonBlobsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<JsonBlobsCommandOutput> {
-    return deserializeAws_restJson1_1JsonBlobsCommand(output, context);
+    return deserializeAws_restJson1JsonBlobsCommand(output, context);
   }
 
   // Start section: command_body_extra

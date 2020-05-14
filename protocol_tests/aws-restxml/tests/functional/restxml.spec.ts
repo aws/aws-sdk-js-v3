@@ -143,10 +143,6 @@ const compareParts = (
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
   let localExpected = expected;
-  // Handle comparing sets to arrays properly.
-  if (expected instanceof Set) {
-    localExpected = Array.from(expected);
-  }
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -676,6 +672,57 @@ it("GreetingWithErrors:Response", async () => {
   });
 });
 
+/**
+ * Parses simple XML errors
+ */
+it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
+  const client = new RestXmlProtocolClient({
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      400,
+      {
+        "content-type": "application/xml"
+      },
+      `<ErrorResponse>
+         <Error>
+            <Type>Sender</Type>
+            <Code>InvalidGreeting</Code>
+            <Message>Hi</Message>
+            <AnotherSetting>setting</Message>
+         </Error>
+         <RequestId>foo-id</RequestId>
+      </ErrorResponse>
+      `
+    )
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (!InvalidGreeting.isa(err)) {
+      console.log(err);
+      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r["$metadata"].httpStatusCode).toBe(400);
+    const paramsToValidate: any = [
+      {
+        message: "Hi"
+      }
+    ][0];
+    Object.keys(paramsToValidate).forEach(param => {
+      expect(r[param]).toBeDefined();
+      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+    });
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
 it("ComplexError:Error:GreetingWithErrors", async () => {
   const client = new RestXmlProtocolClient({
     requestHandler: new ResponseDeserializationTestHandler(
@@ -723,57 +770,6 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
         Nested: {
           Foo: "bar"
         }
-      }
-    ][0];
-    Object.keys(paramsToValidate).forEach(param => {
-      expect(r[param]).toBeDefined();
-      expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-    });
-    return;
-  }
-  fail("Expected an exception to be thrown from response");
-});
-
-/**
- * Parses simple XML errors
- */
-it("InvalidGreetingError:Error:GreetingWithErrors", async () => {
-  const client = new RestXmlProtocolClient({
-    requestHandler: new ResponseDeserializationTestHandler(
-      false,
-      400,
-      {
-        "content-type": "application/xml"
-      },
-      `<ErrorResponse>
-         <Error>
-            <Type>Sender</Type>
-            <Code>InvalidGreeting</Code>
-            <Message>Hi</Message>
-            <AnotherSetting>setting</Message>
-         </Error>
-         <RequestId>foo-id</RequestId>
-      </ErrorResponse>
-      `
-    )
-  });
-
-  const params: any = {};
-  const command = new GreetingWithErrorsCommand(params);
-
-  try {
-    await client.send(command);
-  } catch (err) {
-    if (!InvalidGreeting.isa(err)) {
-      console.log(err);
-      fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
-      return;
-    }
-    const r: any = err;
-    expect(r["$metadata"].httpStatusCode).toBe(400);
-    const paramsToValidate: any = [
-      {
-        message: "Hi"
       }
     ][0];
     Object.keys(paramsToValidate).forEach(param => {

@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { JsonEnumsInputOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1JsonEnumsCommand,
-  serializeAws_restJson1_1JsonEnumsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1JsonEnumsCommand,
+  serializeAws_restJson1JsonEnumsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -67,14 +67,14 @@ export class JsonEnumsCommand extends $Command<
     input: JsonEnumsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1JsonEnumsCommand(input, context);
+    return serializeAws_restJson1JsonEnumsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<JsonEnumsCommandOutput> {
-    return deserializeAws_restJson1_1JsonEnumsCommand(output, context);
+    return deserializeAws_restJson1JsonEnumsCommand(output, context);
   }
 
   // Start section: command_body_extra

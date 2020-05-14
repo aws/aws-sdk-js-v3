@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { ConstantAndVariableQueryStringInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1ConstantAndVariableQueryStringCommand,
-  serializeAws_restJson1_1ConstantAndVariableQueryStringCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1ConstantAndVariableQueryStringCommand,
+  serializeAws_restJson1ConstantAndVariableQueryStringCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,7 +70,7 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     input: ConstantAndVariableQueryStringCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ConstantAndVariableQueryStringCommand(
+    return serializeAws_restJson1ConstantAndVariableQueryStringCommand(
       input,
       context
     );
@@ -80,7 +80,7 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<ConstantAndVariableQueryStringCommandOutput> {
-    return deserializeAws_restJson1_1ConstantAndVariableQueryStringCommand(
+    return deserializeAws_restJson1ConstantAndVariableQueryStringCommand(
       output,
       context
     );

@@ -657,7 +657,7 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
-    case "aws.protocols.tests.query#ComplexError":
+    case "aws.protocoltests.query#ComplexError":
       response = {
         ...(await deserializeAws_queryComplexErrorResponse(
           parsedOutput,
@@ -668,7 +668,7 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
       };
       break;
     case "InvalidGreeting":
-    case "aws.protocols.tests.query#InvalidGreeting":
+    case "aws.protocoltests.query#InvalidGreeting":
       response = {
         ...(await deserializeAws_queryInvalidGreetingResponse(
           parsedOutput,
@@ -2526,6 +2526,13 @@ const deserializeAws_queryXmlMapsXmlNameOutputMap = (
   );
 };
 
+const deserializeAws_queryXmlNamespacedList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_queryXmlNamespaceNested = (
   output: any,
   context: __SerdeContext
@@ -2551,13 +2558,6 @@ const deserializeAws_queryXmlNamespaceNested = (
     );
   }
   return contents;
-};
-
-const deserializeAws_queryXmlNamespacedList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_queryXmlNamespacesOutput = (

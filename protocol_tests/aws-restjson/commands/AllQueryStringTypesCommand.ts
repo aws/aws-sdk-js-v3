@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { AllQueryStringTypesInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1AllQueryStringTypesCommand,
-  serializeAws_restJson1_1AllQueryStringTypesCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1AllQueryStringTypesCommand,
+  serializeAws_restJson1AllQueryStringTypesCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,17 +70,14 @@ export class AllQueryStringTypesCommand extends $Command<
     input: AllQueryStringTypesCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1AllQueryStringTypesCommand(input, context);
+    return serializeAws_restJson1AllQueryStringTypesCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<AllQueryStringTypesCommandOutput> {
-    return deserializeAws_restJson1_1AllQueryStringTypesCommand(
-      output,
-      context
-    );
+    return deserializeAws_restJson1AllQueryStringTypesCommand(output, context);
   }
 
   // Start section: command_body_extra

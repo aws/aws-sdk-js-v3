@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { GreetingWithErrorsOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1GreetingWithErrorsCommand,
-  serializeAws_restJson1_1GreetingWithErrorsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1GreetingWithErrorsCommand,
+  serializeAws_restJson1GreetingWithErrorsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class GreetingWithErrorsCommand extends $Command<
     input: GreetingWithErrorsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GreetingWithErrorsCommand(input, context);
+    return serializeAws_restJson1GreetingWithErrorsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<GreetingWithErrorsCommandOutput> {
-    return deserializeAws_restJson1_1GreetingWithErrorsCommand(output, context);
+    return deserializeAws_restJson1GreetingWithErrorsCommand(output, context);
   }
 
   // Start section: command_body_extra

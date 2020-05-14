@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { InputAndOutputWithHeadersIO } from "../models/index";
 import {
-  deserializeAws_restJson1_1InputAndOutputWithHeadersCommand,
-  serializeAws_restJson1_1InputAndOutputWithHeadersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1InputAndOutputWithHeadersCommand,
+  serializeAws_restJson1InputAndOutputWithHeadersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,7 +71,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     input: InputAndOutputWithHeadersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1InputAndOutputWithHeadersCommand(
+    return serializeAws_restJson1InputAndOutputWithHeadersCommand(
       input,
       context
     );
@@ -81,7 +81,7 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<InputAndOutputWithHeadersCommandOutput> {
-    return deserializeAws_restJson1_1InputAndOutputWithHeadersCommand(
+    return deserializeAws_restJson1InputAndOutputWithHeadersCommand(
       output,
       context
     );

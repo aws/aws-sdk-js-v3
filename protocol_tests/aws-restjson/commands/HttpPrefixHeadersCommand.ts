@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { HttpPrefixHeadersInputOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1HttpPrefixHeadersCommand,
-  serializeAws_restJson1_1HttpPrefixHeadersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1HttpPrefixHeadersCommand,
+  serializeAws_restJson1HttpPrefixHeadersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -68,14 +68,14 @@ export class HttpPrefixHeadersCommand extends $Command<
     input: HttpPrefixHeadersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpPrefixHeadersCommand(input, context);
+    return serializeAws_restJson1HttpPrefixHeadersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPrefixHeadersCommandOutput> {
-    return deserializeAws_restJson1_1HttpPrefixHeadersCommand(output, context);
+    return deserializeAws_restJson1HttpPrefixHeadersCommand(output, context);
   }
 
   // Start section: command_body_extra

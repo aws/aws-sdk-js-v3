@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { HttpRequestWithLabelsInput } from "../models/index";
 import {
-  deserializeAws_restJson1_1HttpRequestWithLabelsCommand,
-  serializeAws_restJson1_1HttpRequestWithLabelsCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1HttpRequestWithLabelsCommand,
+  serializeAws_restJson1HttpRequestWithLabelsCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -70,14 +70,14 @@ export class HttpRequestWithLabelsCommand extends $Command<
     input: HttpRequestWithLabelsCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpRequestWithLabelsCommand(input, context);
+    return serializeAws_restJson1HttpRequestWithLabelsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpRequestWithLabelsCommandOutput> {
-    return deserializeAws_restJson1_1HttpRequestWithLabelsCommand(
+    return deserializeAws_restJson1HttpRequestWithLabelsCommand(
       output,
       context
     );

@@ -8,9 +8,9 @@ import {
   EmptyInputAndEmptyOutputOutput
 } from "../models/index";
 import {
-  deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand,
-  serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1EmptyInputAndEmptyOutputCommand,
+  serializeAws_restJson1EmptyInputAndEmptyOutputCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -74,7 +74,7 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     input: EmptyInputAndEmptyOutputCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
+    return serializeAws_restJson1EmptyInputAndEmptyOutputCommand(
       input,
       context
     );
@@ -84,7 +84,7 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<EmptyInputAndEmptyOutputCommandOutput> {
-    return deserializeAws_restJson1_1EmptyInputAndEmptyOutputCommand(
+    return deserializeAws_restJson1EmptyInputAndEmptyOutputCommand(
       output,
       context
     );

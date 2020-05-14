@@ -2156,7 +2156,7 @@ const deserializeAws_restXmlGreetingWithErrorsCommandError = async (
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
-    case "aws.protocols.tests.restxml#ComplexError":
+    case "aws.protocoltests.restxml#ComplexError":
       response = {
         ...(await deserializeAws_restXmlComplexErrorResponse(
           parsedOutput,
@@ -2167,7 +2167,7 @@ const deserializeAws_restXmlGreetingWithErrorsCommandError = async (
       };
       break;
     case "InvalidGreeting":
-    case "aws.protocols.tests.restxml#InvalidGreeting":
+    case "aws.protocoltests.restxml#InvalidGreeting":
       response = {
         ...(await deserializeAws_restXmlInvalidGreetingResponse(
           parsedOutput,
@@ -4322,6 +4322,17 @@ const serializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
   });
 };
 
+const serializeAws_restXmlXmlNamespacedList = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input.map(entry => {
+    const node = new __XmlNode("String").addChildNode(new __XmlText(entry));
+    node.addAttribute("xmlns", "http://bux.com");
+    return node.withName("member");
+  });
+};
+
 const serializeAws_restXmlXmlNamespaceNested = (
   input: XmlNamespaceNested,
   context: __SerdeContext
@@ -4344,17 +4355,6 @@ const serializeAws_restXmlXmlNamespaceNested = (
     bodyNode.addChildNode(containerNode);
   }
   return bodyNode;
-};
-
-const serializeAws_restXmlXmlNamespacedList = (
-  input: string[],
-  context: __SerdeContext
-): any => {
-  return input.map(entry => {
-    const node = new __XmlNode("String").addChildNode(new __XmlText(entry));
-    node.addAttribute("xmlns", "http://bux.com");
-    return node.withName("member");
-  });
 };
 
 const serializeAws_restXmlBooleanList = (
@@ -4690,6 +4690,13 @@ const deserializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
   );
 };
 
+const deserializeAws_restXmlXmlNamespacedList = (
+  output: any,
+  context: __SerdeContext
+): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restXmlXmlNamespaceNested = (
   output: any,
   context: __SerdeContext
@@ -4715,13 +4722,6 @@ const deserializeAws_restXmlXmlNamespaceNested = (
     );
   }
   return contents;
-};
-
-const deserializeAws_restXmlXmlNamespacedList = (
-  output: any,
-  context: __SerdeContext
-): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restXmlBooleanList = (

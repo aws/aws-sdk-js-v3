@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { TimestampFormatHeadersIO } from "../models/index";
 import {
-  deserializeAws_restJson1_1TimestampFormatHeadersCommand,
-  serializeAws_restJson1_1TimestampFormatHeadersCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1TimestampFormatHeadersCommand,
+  serializeAws_restJson1TimestampFormatHeadersCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,17 +71,14 @@ export class TimestampFormatHeadersCommand extends $Command<
     input: TimestampFormatHeadersCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1TimestampFormatHeadersCommand(
-      input,
-      context
-    );
+    return serializeAws_restJson1TimestampFormatHeadersCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<TimestampFormatHeadersCommandOutput> {
-    return deserializeAws_restJson1_1TimestampFormatHeadersCommand(
+    return deserializeAws_restJson1TimestampFormatHeadersCommand(
       output,
       context
     );

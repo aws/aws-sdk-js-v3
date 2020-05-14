@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { HttpPayloadWithStructureInputOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1HttpPayloadWithStructureCommand,
-  serializeAws_restJson1_1HttpPayloadWithStructureCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1HttpPayloadWithStructureCommand,
+  serializeAws_restJson1HttpPayloadWithStructureCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,7 +71,7 @@ export class HttpPayloadWithStructureCommand extends $Command<
     input: HttpPayloadWithStructureCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1HttpPayloadWithStructureCommand(
+    return serializeAws_restJson1HttpPayloadWithStructureCommand(
       input,
       context
     );
@@ -81,7 +81,7 @@ export class HttpPayloadWithStructureCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<HttpPayloadWithStructureCommandOutput> {
-    return deserializeAws_restJson1_1HttpPayloadWithStructureCommand(
+    return deserializeAws_restJson1HttpPayloadWithStructureCommand(
       output,
       context
     );

@@ -5,9 +5,9 @@ import {
 } from "../RestJsonProtocolClient";
 import { IgnoreQueryParamsInResponseOutput } from "../models/index";
 import {
-  deserializeAws_restJson1_1IgnoreQueryParamsInResponseCommand,
-  serializeAws_restJson1_1IgnoreQueryParamsInResponseCommand
-} from "../protocols/Aws_restJson1_1";
+  deserializeAws_restJson1IgnoreQueryParamsInResponseCommand,
+  serializeAws_restJson1IgnoreQueryParamsInResponseCommand
+} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
@@ -71,7 +71,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     input: IgnoreQueryParamsInResponseCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1IgnoreQueryParamsInResponseCommand(
+    return serializeAws_restJson1IgnoreQueryParamsInResponseCommand(
       input,
       context
     );
@@ -81,7 +81,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     output: __HttpResponse,
     context: __SerdeContext
   ): Promise<IgnoreQueryParamsInResponseCommandOutput> {
-    return deserializeAws_restJson1_1IgnoreQueryParamsInResponseCommand(
+    return deserializeAws_restJson1IgnoreQueryParamsInResponseCommand(
       output,
       context
     );
