@@ -4440,8 +4440,7 @@ const serializeAws_restXmlNestedStringList = (
   return input.map(entry => {
     const node = serializeAws_restXmlStringList(entry, context);
     return node.reduce((acc: __XmlNode, workingNode: any) => {
-      acc.addChildNode(workingNode);
-      return acc;
+      return acc.addChildNode(workingNode);
     }, new __XmlNode("member"));
   });
 };
