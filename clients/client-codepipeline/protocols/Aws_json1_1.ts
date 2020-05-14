@@ -4965,10 +4965,13 @@ const serializeAws_json1_1ArtifactStoreMap = (
   input: { [key: string]: ArtifactStore },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1ArtifactStore(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: ArtifactStore }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1ArtifactStore(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1BlockerDeclaration = (
@@ -5673,10 +5676,13 @@ const serializeAws_json1_1ActionConfigurationMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1ActionTypeId = (
@@ -5751,20 +5757,26 @@ const serializeAws_json1_1OutputVariablesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1QueryParamMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1AcknowledgeJobOutput = (
@@ -6374,10 +6386,13 @@ const deserializeAws_json1_1ArtifactStoreMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ArtifactStore } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1ArtifactStore(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: ArtifactStore }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1ArtifactStore(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1BlockerDeclaration = (
@@ -7401,10 +7416,13 @@ const deserializeAws_json1_1ResolvedActionConfigurationMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1RetryStageExecutionOutput = (
@@ -7964,10 +7982,13 @@ const deserializeAws_json1_1ActionConfigurationMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1ActionContext = (
@@ -8130,10 +8151,13 @@ const deserializeAws_json1_1OutputVariablesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1OutputVariablesSizeExceededException = (

@@ -139,6 +139,7 @@ import {
   DescribeProblemObservationsResponse,
   DescribeProblemRequest,
   DescribeProblemResponse,
+  FeedbackKey,
   FeedbackValue,
   InternalServerException,
   ListApplicationsRequest,
@@ -3798,10 +3799,16 @@ const deserializeAws_json1_1Feedback = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FeedbackValue | string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: FeedbackValue | string },
+      [key, value]: [FeedbackKey | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1InternalServerException = (

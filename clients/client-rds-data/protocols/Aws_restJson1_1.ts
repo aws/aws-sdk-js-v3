@@ -1152,8 +1152,7 @@ const deserializeAws_restJson1_1ArrayValue = (
       )
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1ArrayValueList = (
@@ -1287,8 +1286,7 @@ const deserializeAws_restJson1_1Field = (
       stringValue: output.stringValue
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1FieldList = (
@@ -1523,8 +1521,7 @@ const deserializeAws_restJson1_1Value = (
       )
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

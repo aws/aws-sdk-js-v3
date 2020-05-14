@@ -120,6 +120,7 @@ import {
   Limits,
   LogPublishingOption,
   LogPublishingOptionsStatus,
+  LogType,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
   OptionStatus,
@@ -3485,10 +3486,13 @@ const serializeAws_restJson1_1AdvancedOptions = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1CognitoOptions = (
@@ -3599,10 +3603,16 @@ const serializeAws_restJson1_1LogPublishingOptions = (
   input: { [key: string]: LogPublishingOption },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1LogPublishingOption(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: LogPublishingOption },
+      [key, value]: [LogType | string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1LogPublishingOption(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1NodeToNodeEncryptionOptions = (
@@ -3724,10 +3734,13 @@ const deserializeAws_restJson1_1AdvancedOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1AdvancedOptionsStatus = (
@@ -4304,10 +4317,13 @@ const deserializeAws_restJson1_1EndpointsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1InstanceCountLimits = (
@@ -4394,10 +4410,13 @@ const deserializeAws_restJson1_1LimitsByRole = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Limits } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1Limits(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Limits }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1Limits(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1LogPublishingOption = (
@@ -4422,13 +4441,16 @@ const deserializeAws_restJson1_1LogPublishingOptions = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: LogPublishingOption } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1LogPublishingOption(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: LogPublishingOption },
+      [key, value]: [LogType | string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1LogPublishingOption(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1LogPublishingOptionsStatus = (

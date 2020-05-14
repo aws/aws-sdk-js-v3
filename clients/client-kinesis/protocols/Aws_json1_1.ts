@@ -3944,10 +3944,13 @@ const serializeAws_json1_1TagMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1UpdateShardCountInput = (
@@ -4909,8 +4912,7 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
       )
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_json1_1SubscribeToShardOutput = (

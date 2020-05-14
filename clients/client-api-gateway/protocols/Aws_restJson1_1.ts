@@ -21902,40 +21902,55 @@ const serializeAws_restJson1_1MapOfApiStageThrottleSettings = (
   input: { [key: string]: ThrottleSettings },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1ThrottleSettings(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: ThrottleSettings },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1ThrottleSettings(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfStringToBoolean = (
   input: { [key: string]: boolean },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: boolean }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfStringToList = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_restJson1_1ListOfString(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_restJson1_1ListOfString(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1MapOfStringToString = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1QuotaSettings = (
@@ -22779,103 +22794,136 @@ const deserializeAws_restJson1_1MapOfApiStageThrottleSettings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: ThrottleSettings } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1ThrottleSettings(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: ThrottleSettings },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1ThrottleSettings(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfIntegrationResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IntegrationResponse } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1IntegrationResponse(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: IntegrationResponse },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1IntegrationResponse(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfKeyUsages = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number[][] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1ListOfUsage(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number[][] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1ListOfUsage(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMethod = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: Method } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1Method(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: Method }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1Method(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMethodResponse = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MethodResponse } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MethodResponse(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MethodResponse }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MethodResponse(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMethodSettings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MethodSetting } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MethodSetting(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MethodSetting }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MethodSetting(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MethodSnapshot } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MethodSnapshot(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: MethodSnapshot }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MethodSnapshot(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfStringToBoolean = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: boolean } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: boolean }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfStringToList = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1ListOfString(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1ListOfString(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1MapOfStringToString = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1Method = (
@@ -23082,13 +23130,16 @@ const deserializeAws_restJson1_1PathToMapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: { [key: string]: MethodSnapshot } } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_restJson1_1MapOfMethodSnapshot(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: { [key: string]: MethodSnapshot } },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_restJson1_1MapOfMethodSnapshot(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1QuotaSettings = (

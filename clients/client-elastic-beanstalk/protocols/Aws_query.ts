@@ -4394,9 +4394,9 @@ const serializeAws_queryApplicationResourceLifecycleConfig = (
       input.VersionLifecycleConfig,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLifecycleConfig.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4412,9 +4412,9 @@ const serializeAws_queryApplicationVersionLifecycleConfig = (
       input.MaxAgeRule,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MaxAgeRule.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxCountRule !== undefined) {
@@ -4422,9 +4422,9 @@ const serializeAws_queryApplicationVersionLifecycleConfig = (
       input.MaxCountRule,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MaxCountRule.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4497,9 +4497,9 @@ const serializeAws_queryComposeEnvironmentsMessage = (
       input.VersionLabels,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4536,8 +4536,8 @@ const serializeAws_queryConfigurationOptionSettingsList = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -4560,16 +4560,16 @@ const serializeAws_queryCreateApplicationMessage = (
       input.ResourceLifecycleConfig,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceLifecycleConfig.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4591,9 +4591,9 @@ const serializeAws_queryCreateApplicationVersionMessage = (
       input.BuildConfiguration,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BuildConfiguration.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Description !== undefined) {
@@ -4607,9 +4607,9 @@ const serializeAws_queryCreateApplicationVersionMessage = (
       input.SourceBuildInformation,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceBuildInformation.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.SourceBundle !== undefined) {
@@ -4617,16 +4617,16 @@ const serializeAws_queryCreateApplicationVersionMessage = (
       input.SourceBundle,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceBundle.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.VersionLabel !== undefined) {
@@ -4654,9 +4654,9 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
       input.OptionSettings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PlatformArn !== undefined) {
@@ -4670,16 +4670,16 @@ const serializeAws_queryCreateConfigurationTemplateMessage = (
       input.SourceConfiguration,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SourceConfiguration.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TemplateName !== undefined) {
@@ -4713,9 +4713,9 @@ const serializeAws_queryCreateEnvironmentMessage = (
       input.OptionSettings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.OptionsToRemove !== undefined) {
@@ -4723,9 +4723,9 @@ const serializeAws_queryCreateEnvironmentMessage = (
       input.OptionsToRemove,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PlatformArn !== undefined) {
@@ -4736,9 +4736,9 @@ const serializeAws_queryCreateEnvironmentMessage = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TemplateName !== undefined) {
@@ -4749,9 +4749,9 @@ const serializeAws_queryCreateEnvironmentMessage = (
       input.Tier,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tier.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.VersionLabel !== undefined) {
@@ -4773,9 +4773,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
       input.OptionSettings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PlatformDefinitionBundle !== undefined) {
@@ -4783,9 +4783,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
       input.PlatformDefinitionBundle,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PlatformDefinitionBundle.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PlatformName !== undefined) {
@@ -4796,9 +4796,9 @@ const serializeAws_queryCreatePlatformVersionRequest = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4893,9 +4893,9 @@ const serializeAws_queryDescribeApplicationVersionsMessage = (
       input.VersionLabels,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `VersionLabels.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4911,9 +4911,9 @@ const serializeAws_queryDescribeApplicationsMessage = (
       input.ApplicationNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ApplicationNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -4935,9 +4935,9 @@ const serializeAws_queryDescribeConfigurationOptionsMessage = (
       input.Options,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PlatformArn !== undefined) {
@@ -4979,9 +4979,9 @@ const serializeAws_queryDescribeEnvironmentHealthRequest = (
       input.AttributeNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.EnvironmentId !== undefined) {
@@ -5057,9 +5057,9 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
       input.EnvironmentIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentIds.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.EnvironmentNames !== undefined) {
@@ -5067,9 +5067,9 @@ const serializeAws_queryDescribeEnvironmentsMessage = (
       input.EnvironmentNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnvironmentNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.IncludeDeleted !== undefined) {
@@ -5145,9 +5145,9 @@ const serializeAws_queryDescribeInstancesHealthRequest = (
       input.AttributeNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeNames.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.EnvironmentId !== undefined) {
@@ -5252,9 +5252,9 @@ const serializeAws_queryListPlatformVersionsRequest = (
       input.Filters,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxRecords !== undefined) {
@@ -5336,8 +5336,8 @@ const serializeAws_queryOptionsSpecifierList = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryOptionSpecification(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -5360,9 +5360,9 @@ const serializeAws_queryPlatformFilter = (
       input.Values,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Values.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5389,8 +5389,8 @@ const serializeAws_queryPlatformFilters = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryPlatformFilter(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -5556,8 +5556,8 @@ const serializeAws_queryTagList = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -5569,8 +5569,8 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryTag(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -5624,9 +5624,9 @@ const serializeAws_queryUpdateApplicationResourceLifecycleMessage = (
       input.ResourceLifecycleConfig,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceLifecycleConfig.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5665,9 +5665,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
       input.OptionSettings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.OptionsToRemove !== undefined) {
@@ -5675,9 +5675,9 @@ const serializeAws_queryUpdateConfigurationTemplateMessage = (
       input.OptionsToRemove,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TemplateName !== undefined) {
@@ -5711,9 +5711,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (
       input.OptionSettings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.OptionsToRemove !== undefined) {
@@ -5721,9 +5721,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (
       input.OptionsToRemove,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionsToRemove.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.PlatformArn !== undefined) {
@@ -5740,9 +5740,9 @@ const serializeAws_queryUpdateEnvironmentMessage = (
       input.Tier,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tier.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.VersionLabel !== undefined) {
@@ -5761,9 +5761,9 @@ const serializeAws_queryUpdateTagsForResourceMessage = (
   }
   if (input.TagsToAdd !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.TagsToAdd, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagsToAdd.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TagsToRemove !== undefined) {
@@ -5771,9 +5771,9 @@ const serializeAws_queryUpdateTagsForResourceMessage = (
       input.TagsToRemove,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagsToRemove.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -5795,9 +5795,9 @@ const serializeAws_queryValidateConfigurationSettingsMessage = (
       input.OptionSettings,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OptionSettings.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.TemplateName !== undefined) {
@@ -8785,13 +8785,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

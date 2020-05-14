@@ -2088,9 +2088,9 @@ const serializeAws_queryAddPermissionRequest = (
       input.AWSAccountIds,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Actions !== undefined) {
@@ -2098,9 +2098,9 @@ const serializeAws_queryAddPermissionRequest = (
       input.Actions,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.Label !== undefined) {
@@ -2148,11 +2148,11 @@ const serializeAws_queryChangeMessageVisibilityBatchRequest = (
       input.Entries,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ChangeMessageVisibilityBatchRequestEntry.${key.substring(
         key.indexOf(".") + 1
       )}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2189,8 +2189,8 @@ const serializeAws_queryChangeMessageVisibilityBatchRequestEntryList = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -2224,9 +2224,9 @@ const serializeAws_queryCreateQueueRequest = (
       input.Attributes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attribute.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueName !== undefined) {
@@ -2234,9 +2234,9 @@ const serializeAws_queryCreateQueueRequest = (
   }
   if (input.tags !== undefined) {
     const memberEntries = serializeAws_queryTagMap(input.tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -2252,11 +2252,11 @@ const serializeAws_queryDeleteMessageBatchRequest = (
       input.Entries,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeleteMessageBatchRequestEntry.${key.substring(
         key.indexOf(".") + 1
       )}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2290,8 +2290,8 @@ const serializeAws_queryDeleteMessageBatchRequestEntryList = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -2333,9 +2333,9 @@ const serializeAws_queryGetQueueAttributesRequest = (
       input.AttributeNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2414,9 +2414,9 @@ const serializeAws_queryMessageAttributeValue = (
       input.BinaryListValues,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BinaryListValue.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.BinaryValue !== undefined) {
@@ -2430,9 +2430,9 @@ const serializeAws_queryMessageAttributeValue = (
       input.StringListValues,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StringListValue.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.StringValue !== undefined) {
@@ -2453,8 +2453,8 @@ const serializeAws_queryMessageBodyAttributeMap = (
       input[key],
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`entry.${counter}.Value.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`entry.${counter}.Value.${key}`] = value;
     });
     counter++;
   });
@@ -2473,8 +2473,8 @@ const serializeAws_queryMessageBodySystemAttributeMap = (
       input[key],
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`entry.${counter}.Value.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`entry.${counter}.Value.${key}`] = value;
     });
     counter++;
   });
@@ -2491,9 +2491,9 @@ const serializeAws_queryMessageSystemAttributeValue = (
       input.BinaryListValues,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `BinaryListValue.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.BinaryValue !== undefined) {
@@ -2507,9 +2507,9 @@ const serializeAws_queryMessageSystemAttributeValue = (
       input.StringListValues,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StringListValue.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.StringValue !== undefined) {
@@ -2553,9 +2553,9 @@ const serializeAws_queryReceiveMessageRequest = (
       input.AttributeNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AttributeName.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MaxNumberOfMessages !== undefined) {
@@ -2566,9 +2566,9 @@ const serializeAws_queryReceiveMessageRequest = (
       input.MessageAttributeNames,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributeName.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2610,11 +2610,11 @@ const serializeAws_querySendMessageBatchRequest = (
       input.Entries,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SendMessageBatchRequestEntry.${key.substring(
         key.indexOf(".") + 1
       )}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2639,9 +2639,9 @@ const serializeAws_querySendMessageBatchRequestEntry = (
       input.MessageAttributes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttribute.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MessageBody !== undefined) {
@@ -2658,11 +2658,11 @@ const serializeAws_querySendMessageBatchRequestEntry = (
       input.MessageSystemAttributes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageSystemAttribute.${key.substring(
         key.indexOf(".") + 1
       )}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -2679,8 +2679,8 @@ const serializeAws_querySendMessageBatchRequestEntryList = (
       entry,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -2700,9 +2700,9 @@ const serializeAws_querySendMessageRequest = (
       input.MessageAttributes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttribute.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MessageBody !== undefined) {
@@ -2719,11 +2719,11 @@ const serializeAws_querySendMessageRequest = (
       input.MessageSystemAttributes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageSystemAttribute.${key.substring(
         key.indexOf(".") + 1
       )}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2742,9 +2742,9 @@ const serializeAws_querySetQueueAttributesRequest = (
       input.Attributes,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attribute.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.QueueUrl !== undefined) {
@@ -2803,9 +2803,9 @@ const serializeAws_queryTagQueueRequest = (
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagMap(input.Tags, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tag.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -2821,9 +2821,9 @@ const serializeAws_queryUntagQueueRequest = (
   }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKey.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -3608,13 +3608,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

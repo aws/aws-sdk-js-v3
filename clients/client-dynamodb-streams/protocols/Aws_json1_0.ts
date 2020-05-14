@@ -906,10 +906,13 @@ const deserializeAws_json1_0AttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_0AttributeValue = (
@@ -1027,10 +1030,13 @@ const deserializeAws_json1_0MapAttributeValue = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: AttributeValue } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_0AttributeValue(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: AttributeValue }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_0AttributeValue(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_0NumberSetAttributeValue = (

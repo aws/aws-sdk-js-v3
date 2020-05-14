@@ -69,8 +69,10 @@ import {
 import {
   AssociateAdminAccountRequest,
   ComplianceViolator,
+  CustomerPolicyScopeIdType,
   DeleteNotificationChannelRequest,
   DeletePolicyRequest,
+  DependentServiceName,
   DisassociateAdminAccountRequest,
   EvaluationResult,
   GetAdminAccountRequest,
@@ -1988,13 +1990,16 @@ const serializeAws_json1_1CustomerPolicyScopeMap = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1CustomerPolicyScopeIdList(
-      input[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string[] },
+      [key, value]: [CustomerPolicyScopeIdType | string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1CustomerPolicyScopeIdList(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1DeleteNotificationChannelRequest = (
@@ -2316,13 +2321,16 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(
-      output[key],
-      context
-    );
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string[] },
+      [key, value]: [CustomerPolicyScopeIdType | string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1CustomerPolicyScopeIdList(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1EvaluationResult = (
@@ -2505,10 +2513,16 @@ const deserializeAws_json1_1IssueInfoMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: string },
+      [key, value]: [DependentServiceName | string, any]
+    ) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1LimitExceededException = (

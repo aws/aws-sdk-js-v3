@@ -1600,8 +1600,8 @@ const serializeAws_queryComplexMap = (
   Object.keys(input).forEach(key => {
     entries[`entry.${counter}.key`] = key;
     const memberEntries = serializeAws_queryGreetingStruct(input[key], context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`entry.${counter}.value.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`entry.${counter}.value.${key}`] = value;
     });
     counter++;
   });
@@ -1638,8 +1638,8 @@ const serializeAws_queryMapOfLists = (
   Object.keys(input).forEach(key => {
     entries[`entry.${counter}.key`] = key;
     const memberEntries = serializeAws_queryStringList(input[key], context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`entry.${counter}.value.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`entry.${counter}.value.${key}`] = value;
     });
     counter++;
   });
@@ -1667,9 +1667,9 @@ const serializeAws_queryNestedStructuresInput = (
   const entries: any = {};
   if (input.Nested !== undefined) {
     const memberEntries = serializeAws_queryStructArg(input.Nested, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Nested.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1707,9 +1707,9 @@ const serializeAws_queryQueryListsInput = (
       input.ComplexListArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexListArg.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.FlattenedListArg !== undefined) {
@@ -1717,9 +1717,9 @@ const serializeAws_queryQueryListsInput = (
       input.FlattenedListArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlattenedListArg.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.FlattenedListArgWithXmlName !== undefined) {
@@ -1727,16 +1727,16 @@ const serializeAws_queryQueryListsInput = (
       input.FlattenedListArgWithXmlName,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ListArg !== undefined) {
     const memberEntries = serializeAws_queryStringList(input.ListArg, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArg.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.ListArgWithXmlNameMember !== undefined) {
@@ -1744,9 +1744,9 @@ const serializeAws_queryQueryListsInput = (
       input.ListArgWithXmlNameMember,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ListArgWithXmlNameMember.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1762,9 +1762,9 @@ const serializeAws_queryQueryMapsInput = (
       input.ComplexMapArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ComplexMapArg.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.FlattenedMap !== undefined) {
@@ -1772,9 +1772,9 @@ const serializeAws_queryQueryMapsInput = (
       input.FlattenedMap,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FlattenedMap.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.FlattenedMapWithXmlName !== undefined) {
@@ -1782,16 +1782,16 @@ const serializeAws_queryQueryMapsInput = (
       input.FlattenedMapWithXmlName,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Hi.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MapArg !== undefined) {
     const memberEntries = serializeAws_queryStringMap(input.MapArg, context);
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapArg.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MapOfLists !== undefined) {
@@ -1799,9 +1799,9 @@ const serializeAws_queryQueryMapsInput = (
       input.MapOfLists,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapOfLists.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.MapWithXmlMemberName !== undefined) {
@@ -1809,9 +1809,9 @@ const serializeAws_queryQueryMapsInput = (
       input.MapWithXmlMemberName,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MapWithXmlMemberName.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.RenamedMapArg !== undefined) {
@@ -1819,9 +1819,9 @@ const serializeAws_queryQueryMapsInput = (
       input.RenamedMapArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Foo.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   return entries;
@@ -1887,9 +1887,9 @@ const serializeAws_queryStructArg = (
       input.RecursiveArg,
       context
     );
-    Object.keys(memberEntries).forEach(key => {
+    Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RecursiveArg.${key}`;
-      entries[loc] = memberEntries[key];
+      entries[loc] = value;
     });
   }
   if (input.StringArg !== undefined) {
@@ -1906,8 +1906,8 @@ const serializeAws_queryGreetingList = (
   let counter = 1;
   for (let entry of input) {
     const memberEntries = serializeAws_queryGreetingStruct(entry, context);
-    Object.keys(memberEntries).forEach(key => {
-      entries[`member.${counter}.${key}`] = memberEntries[key];
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
     });
     counter++;
   }
@@ -2762,13 +2762,15 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     return {};
   });
 
-const buildFormUrlencodedString = (entries: any): string =>
-  Object.keys(entries)
+const buildFormUrlencodedString = (formEntries: {
+  [key: string]: string;
+}): string =>
+  Object.entries(formEntries)
     .map(
-      key =>
+      ([key, value]) =>
         __extendedEncodeURIComponent(key) +
         "=" +
-        __extendedEncodeURIComponent(entries[key])
+        __extendedEncodeURIComponent(value)
     )
     .join("&");
 

@@ -5839,8 +5839,7 @@ const deserializeAws_restJson1_1AccessLog = (
       file: deserializeAws_restJson1_1FileAccessLog(output.file, context)
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
@@ -5903,8 +5902,7 @@ const deserializeAws_restJson1_1Backend = (
       )
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1Backends = (
@@ -6140,8 +6138,7 @@ const deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod = (
       suffix: output.suffix
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1HeaderMatchMethod = (
@@ -6173,8 +6170,7 @@ const deserializeAws_restJson1_1HeaderMatchMethod = (
       suffix: output.suffix
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1HealthCheckPolicy = (
@@ -6645,8 +6641,7 @@ const deserializeAws_restJson1_1ServiceDiscovery = (
       dns: deserializeAws_restJson1_1DnsServiceDiscovery(output.dns, context)
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1TagList = (
@@ -7017,8 +7012,7 @@ const deserializeAws_restJson1_1VirtualServiceProvider = (
       )
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1VirtualServiceRef = (

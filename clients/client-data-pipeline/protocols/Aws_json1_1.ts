@@ -3062,10 +3062,13 @@ const deserializeAws_json1_1PipelineObjectMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: PipelineObject } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1PipelineObject(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: PipelineObject }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1PipelineObject(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1PollForTaskOutput = (

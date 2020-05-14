@@ -3763,10 +3763,13 @@ const serializeAws_restJson1_1TagsMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1_1UplinkSpectrumConfig = (
@@ -3951,8 +3954,7 @@ const deserializeAws_restJson1_1ConfigTypeData = (
       )
     };
   }
-  const key = Object.keys(output)[0];
-  return { $unknown: [key, output[key]] };
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1_1ContactData = (
@@ -4434,10 +4436,13 @@ const deserializeAws_restJson1_1TagsMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restJson1_1UplinkSpectrumConfig = (

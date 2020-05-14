@@ -436,50 +436,68 @@ const serializeAws_json1_1MapOfKitchenSinks = (
   input: { [key: string]: KitchenSink },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1KitchenSink(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: KitchenSink }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1KitchenSink(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1MapOfListsOfStrings = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1ListOfStrings(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1ListOfStrings(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1MapOfMapOfStrings = (
   input: { [key: string]: { [key: string]: string } },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1MapOfStrings(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: { [key: string]: string } },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1MapOfStrings(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1MapOfStrings = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = input[key];
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1MapOfStructs = (
   input: { [key: string]: SimpleStruct },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1SimpleStruct(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: SimpleStruct }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: serializeAws_json1_1SimpleStruct(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1SimpleStruct = (
@@ -731,50 +749,68 @@ const deserializeAws_json1_1MapOfKitchenSinks = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: KitchenSink } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1KitchenSink(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: KitchenSink }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1KitchenSink(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MapOfListsOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1ListOfStrings(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1ListOfStrings(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MapOfMapOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: { [key: string]: string } } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1MapOfStrings(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (
+      acc: { [key: string]: { [key: string]: string } },
+      [key, value]: [string, any]
+    ) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1MapOfStrings(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MapOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = output[key];
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1MapOfStructs = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: SimpleStruct } => {
-  return Object.keys(output).reduce((acc: any, key: string) => {
-    acc[key] = deserializeAws_json1_1SimpleStruct(output[key], context);
-    return acc;
-  }, {});
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: SimpleStruct }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: deserializeAws_json1_1SimpleStruct(value, context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_json1_1SimpleStruct = (

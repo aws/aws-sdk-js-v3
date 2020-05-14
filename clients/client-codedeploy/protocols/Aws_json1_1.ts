@@ -411,6 +411,7 @@ import {
   TagResourceInput,
   TagResourceOutput,
   TagSetListLimitExceededException,
+  TargetFilterName,
   TargetGroupInfo,
   TargetGroupPairInfo,
   TargetInstances,
@@ -10152,10 +10153,16 @@ const serializeAws_json1_1TargetFilters = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.keys(input).reduce((acc: any, key: string) => {
-    acc[key] = serializeAws_json1_1FilterValueList(input[key], context);
-    return acc;
-  }, {});
+  return Object.entries(input).reduce(
+    (
+      acc: { [key: string]: string[] },
+      [key, value]: [TargetFilterName | string, any]
+    ) => ({
+      ...acc,
+      [key]: serializeAws_json1_1FilterValueList(value, context)
+    }),
+    {}
+  );
 };
 
 const serializeAws_json1_1TargetGroupInfo = (
