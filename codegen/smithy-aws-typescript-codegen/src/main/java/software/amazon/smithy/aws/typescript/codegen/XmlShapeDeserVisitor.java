@@ -250,7 +250,6 @@ final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
         });
 
         // Or write output element to the unknown member.
-        writer.write("const key = Object.keys(output)[0];");
-        writer.write("return { $$unknown: [key, output[key]] };");
+        writer.write("return { $$unknown: Object.entries(output)[0] };");
     }
 }

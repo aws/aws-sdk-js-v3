@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
+import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
@@ -75,14 +76,20 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     public void serializeMap(GenerationContext context, MapShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getValue().getTarget());
+        SymbolProvider symbolProvider = context.getSymbolProvider();
 
         // Get the right serialization for each entry in the map. Undefined
         // inputs won't have this serializer invoked.
-        writer.openBlock("return Object.keys(input).reduce((acc: any, key: string) => {", "}, {});", () -> {
-            // Dispatch to the input value provider for any additional handling.
-            writer.write("acc[key] = $L;", target.accept(getMemberVisitor("input[key]")));
-            writer.write("return acc;");
-        });
+        writer.openBlock("return Object.entries(input).reduce((acc: $T, [key, value]: [$T, any]) => ({",
+            "}), {});",
+            symbolProvider.toSymbol(shape),
+            symbolProvider.toSymbol(shape.getKey()),
+            () -> {
+                writer.write("...acc,");
+                // Dispatch to the input value provider for any additional handling.
+                writer.write("[key]: $L", target.accept(getMemberVisitor("value")));
+            }
+        );
     }
 
     @Override

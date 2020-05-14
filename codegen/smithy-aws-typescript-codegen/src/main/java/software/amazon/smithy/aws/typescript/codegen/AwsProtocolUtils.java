@@ -162,11 +162,11 @@ final class AwsProtocolUtils {
 
         // Write a single function to handle combining a map in to a valid query string.
         writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent", "@aws-sdk/smithy-client");
-        writer.openBlock("const buildFormUrlencodedString = (entries: any): string => Object.keys(entries).map(",
+        writer.openBlock("const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string => Object.entries(formEntries).map(",
             ").join(\"&\");",
             () -> 
-                writer.write("key => __extendedEncodeURIComponent(key) + '=' + "
-                    + "__extendedEncodeURIComponent(entries[key])")
+                writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
+                    + "__extendedEncodeURIComponent(value)")
         );
         writer.write("");
     }
