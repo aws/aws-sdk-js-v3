@@ -2041,10 +2041,13 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["K"]] = pair["V"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["K"]]: pair["V"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryGreetingWithErrorsOutput = (
@@ -2478,13 +2481,13 @@ const deserializeAws_queryXmlMapsOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = deserializeAws_queryGreetingStruct(
-      pair["value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: deserializeAws_queryGreetingStruct(pair["value"], context)
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryXmlMapsXmlNameOutput = (
@@ -2511,13 +2514,16 @@ const deserializeAws_queryXmlMapsXmlNameOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["Attribute"]] = deserializeAws_queryGreetingStruct(
-      pair["Setting"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["Attribute"]]: deserializeAws_queryGreetingStruct(
+        pair["Setting"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryXmlNamespaceNested = (
@@ -2615,10 +2621,13 @@ const deserializeAws_queryFooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = pair["value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: pair["value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryFooEnumSet = (
